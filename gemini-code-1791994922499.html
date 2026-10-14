@@ -305,7 +305,12 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 20px;
-      transition: border-color 0.2s ease;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      content-visibility: auto;
+      contain-intrinsic-size: 0 250px;
+      contain: layout style;
+      scroll-margin-top: 85px;
+      transform: translateZ(0);
     }
 
     .q-card.answered-correct {
@@ -478,6 +483,208 @@
       color: #cbd5e1;
     }
 
+    /* Floating Action Buttons */
+    .fab-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .fab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, #0284c7, #6366f1);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.4);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .fab-btn:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(2, 132, 199, 0.6);
+    }
+
+    .fab-scroll-top {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      padding: 0;
+      justify-content: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.2s ease;
+    }
+
+    .fab-scroll-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .fab-scroll-top:hover {
+      background: var(--surface-2);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* Question Palette Modal */
+    .palette-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(10, 15, 30, 0.78);
+      backdrop-filter: blur(8px);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .palette-modal.active {
+      display: flex;
+    }
+
+    .palette-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 680px;
+      max-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      animation: modalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes modalSlideUp {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .palette-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .palette-header h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .palette-body {
+      padding: 18px 20px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .palette-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 16px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      padding: 8px 12px;
+      background: var(--bg);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 6px;
+    }
+
+    @media (max-width: 580px) {
+      .palette-grid {
+        grid-template-columns: repeat(5, 1fr);
+      }
+    }
+
+    .pal-btn {
+      height: 38px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.15s ease;
+    }
+
+    .pal-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: scale(1.08);
+    }
+
+    .pal-btn.pal-attempted {
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent);
+      color: #38bdf8;
+    }
+
+    .pal-btn.pal-correct {
+      background: var(--correct-bg);
+      border-color: var(--correct);
+      color: #22c55e;
+    }
+
+    .pal-btn.pal-wrong {
+      background: var(--wrong-bg);
+      border-color: var(--wrong);
+      color: #ef4444;
+    }
+
+    .pal-btn.pal-bm {
+      box-shadow: inset 0 0 0 2px #f59e0b;
+      color: #f59e0b;
+    }
+
     @media print {
       .top-bar, .control-panel, .bookmark-btn {
         display: none !important;
@@ -575,7 +782,7 @@
 
         <div class="control-group">
           <label>4. Search Concept / Keyword</label>
-          <input type="text" id="searchBox" placeholder="e.g., El Nino, Laterite, Rourkela, Retting..." oninput="renderQuestions()" />
+          <input type="text" id="searchBox" placeholder="e.g., El Nino, Laterite, Rourkela, Retting..." oninput="debouncedSearch()" />
         </div>
       </div>
 
@@ -584,8 +791,12 @@
           Showing <strong id="visibleCount" style="color:var(--accent);">100</strong> questions | Strictly filtered for <strong>ICSE 2027 Syllabus</strong>
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="openPaletteModal()">
+            <span class="material-symbols-outlined" style="font-size:15px; vertical-align:middle;">grid_view</span>
+            Question Palette (1–100)
+          </button>
           <button class="btn btn-success" onclick="submitDPP()">Submit DPP & View Full Report</button>
-          <button class="btn" onclick="toggleAllDNA()">Toggle All DNA & Answers (Revision Mode)</button>
+          <button class="btn" onclick="toggleAllDNA()">Toggle All DNA & Answers</button>
           <button class="btn btn-danger" onclick="resetAllAttempts()">Reset All Attempts</button>
           <button class="btn" onclick="window.print()">Print / Save PDF</button>
         </div>
@@ -606,6 +817,44 @@
 
     <!-- QUESTIONS CONTAINER -->
     <section id="questionContainer" class="question-list"></section>
+
+    <!-- Floating Action Cluster -->
+    <div class="fab-container">
+      <button class="fab-btn" onclick="openPaletteModal()" title="Open Question Palette">
+        <span class="material-symbols-outlined" style="font-size:18px;">grid_view</span>
+        <span>Palette (<span id="fabAttemptCount">0</span>/100)</span>
+      </button>
+      <button class="fab-btn fab-scroll-top" id="scrollTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" title="Scroll to top" aria-label="Scroll to top">
+        <span class="material-symbols-outlined" style="font-size:20px;">arrow_upward</span>
+      </button>
+    </div>
+
+    <!-- Question Palette Modal -->
+    <div class="palette-modal" id="paletteModal" onclick="handlePaletteBackdropClick(event)">
+      <div class="palette-card">
+        <div class="palette-header">
+          <h3>
+            <span class="material-symbols-outlined" style="color:var(--accent);">grid_view</span>
+            <span>Question Navigator (100 MCQs)</span>
+          </h3>
+          <button class="btn" onclick="closePaletteModal()">Close &times;</button>
+        </div>
+        <div class="palette-body">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+            <div id="paletteProgressText" style="font-size:0.88rem; font-weight:700; color:var(--accent);">0 of 100 Attempted (0%)</div>
+            <div style="font-size:0.8rem; color:var(--muted);">Click any number to jump directly to the question</div>
+          </div>
+          <div class="palette-legend">
+            <div class="legend-item"><span class="legend-dot" style="background:var(--bg); border:1px solid var(--border);"></span> Unattempted</div>
+            <div class="legend-item"><span class="legend-dot" style="background:rgba(56, 189, 248, 0.4); border:1px solid var(--accent);"></span> Attempted</div>
+            <div class="legend-item"><span class="legend-dot" style="background:var(--correct);"></span> Correct</div>
+            <div class="legend-item"><span class="legend-dot" style="background:var(--wrong);"></span> Incorrect</div>
+            <div class="legend-item"><span style="color:#f59e0b; font-weight:bold;">★</span> Starred</div>
+          </div>
+          <div class="palette-grid" id="paletteGrid"></div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <script>
@@ -2622,22 +2871,85 @@
       }).join("");
 
       updateLiveStats();
+      buildQuestionPalette();
     }
 
     // ============================================================================
-    // INTERACTION HANDLERS
+    // HIGH-PERFORMANCE IN-PLACE INTERACTION HANDLERS (ZERO FULL RE-RENDERS)
     // ============================================================================
+    let searchDebounceTimer = null;
+    function debouncedSearch() {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(() => {
+        renderQuestions();
+      }, 120);
+    }
+
     function selectOption(qId, optIdx) {
       userAnswers[qId] = optIdx;
       saveState();
-      renderQuestions();
+
+      const card = document.getElementById(`qcard-${qId}`);
+      if (!card) {
+        renderQuestions();
+        return;
+      }
+
+      const qObj = mcqData.find(x => x.id === qId);
+      if (!qObj) return;
+
+      const mode = document.getElementById("modeSelect").value;
+      const isCorrect = optIdx === qObj.ans;
+      const shouldReveal = showAllDNA || mode === "instant" || (mode === "exam" && examSubmitted);
+
+      card.classList.remove("answered-correct", "answered-wrong");
+      if (shouldReveal) {
+        card.classList.add(isCorrect ? "answered-correct" : "answered-wrong");
+      }
+
+      const optButtons = card.querySelectorAll(".opt-btn");
+      optButtons.forEach((btn, idx) => {
+        btn.classList.remove("selected-exam", "correct-reveal", "wrong-reveal");
+        if (mode === "exam" && !examSubmitted && !showAllDNA) {
+          if (optIdx === idx) btn.classList.add("selected-exam");
+        } else if (shouldReveal) {
+          if (idx === qObj.ans) btn.classList.add("correct-reveal");
+          else if (optIdx === idx && !isCorrect) btn.classList.add("wrong-reveal");
+        }
+      });
+
+      const dnaBox = card.querySelector(".dna-box");
+      if (dnaBox) {
+        if (shouldReveal) dnaBox.classList.add("visible");
+        else dnaBox.classList.remove("visible");
+      }
+
+      updateLiveStats();
+      updatePaletteButton(qId);
     }
 
     function toggleBookmark(qId) {
-      if (bookmarks.has(qId)) bookmarks.delete(qId);
+      const isStarred = bookmarks.has(qId);
+      if (isStarred) bookmarks.delete(qId);
       else bookmarks.add(qId);
       saveState();
-      renderQuestions();
+
+      const srcVal = document.getElementById("sourceFilter").value;
+      if (srcVal === "BOOKMARKED") {
+        renderQuestions();
+        return;
+      }
+
+      const card = document.getElementById(`qcard-${qId}`);
+      if (card) {
+        const bmBtn = card.querySelector(".bookmark-btn");
+        if (bmBtn) {
+          const nowStarred = bookmarks.has(qId);
+          bmBtn.classList.toggle("active", nowStarred);
+          bmBtn.textContent = nowStarred ? "★ Starred" : "☆ Star for Revision";
+        }
+      }
+      updatePaletteButton(qId);
     }
 
     function handleModeChange() {
@@ -2673,6 +2985,8 @@
       });
 
       document.getElementById("statAttempted").textContent = `${totalAttempted}/100`;
+      const fabAtt = document.getElementById("fabAttemptCount");
+      if (fabAtt) fabAtt.textContent = totalAttempted;
 
       if (mode === "exam" && !examSubmitted) {
         document.getElementById("statCorrect").textContent = "Hidden";
@@ -2683,6 +2997,124 @@
         document.getElementById("statAccuracy").textContent = `${acc}%`;
       }
     }
+
+    // ============================================================================
+    // QUESTION PALETTE & MODAL CONTROLS
+    // ============================================================================
+    function openPaletteModal() {
+      buildQuestionPalette();
+      document.getElementById("paletteModal").classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePaletteModal() {
+      document.getElementById("paletteModal").classList.remove("active");
+      document.body.style.overflow = "";
+    }
+
+    function handlePaletteBackdropClick(e) {
+      if (e.target.id === "paletteModal") closePaletteModal();
+    }
+
+    function buildQuestionPalette() {
+      const paletteGrid = document.getElementById("paletteGrid");
+      if (!paletteGrid) return;
+
+      const mode = document.getElementById("modeSelect").value;
+      const html = mcqData.map(q => {
+        const chosen = userAnswers[q.id];
+        const isAtt = chosen !== undefined;
+        const isCor = chosen === q.ans;
+        const isBm = bookmarks.has(q.id);
+
+        let statusClass = "pal-unattempted";
+        if (isAtt) {
+          if (mode === "exam" && !examSubmitted) {
+            statusClass = "pal-attempted";
+          } else {
+            statusClass = isCor ? "pal-correct" : "pal-wrong";
+          }
+        }
+
+        return `<button class="pal-btn ${statusClass} ${isBm ? 'pal-bm' : ''}" id="pal-btn-${q.id}" onclick="jumpToQuestion(${q.id})" title="Q${q.id}: ${q.unit}">${q.id}${isBm ? '★' : ''}</button>`;
+      }).join("");
+
+      paletteGrid.innerHTML = html;
+      updatePaletteProgress();
+    }
+
+    function updatePaletteButton(qId) {
+      const pBtn = document.getElementById(`pal-btn-${qId}`);
+      if (!pBtn) return;
+      const q = mcqData.find(x => x.id === qId);
+      if (!q) return;
+
+      const mode = document.getElementById("modeSelect").value;
+      const chosen = userAnswers[q.id];
+      const isAtt = chosen !== undefined;
+      const isCor = chosen === q.ans;
+      const isBm = bookmarks.has(q.id);
+
+      pBtn.className = "pal-btn";
+      if (!isAtt) {
+        pBtn.classList.add("pal-unattempted");
+      } else if (mode === "exam" && !examSubmitted) {
+        pBtn.classList.add("pal-attempted");
+      } else {
+        pBtn.classList.add(isCor ? "pal-correct" : "pal-wrong");
+      }
+      if (isBm) pBtn.classList.add("pal-bm");
+      pBtn.textContent = `${q.id}${isBm ? '★' : ''}`;
+      updatePaletteProgress();
+    }
+
+    function updatePaletteProgress() {
+      const att = Object.keys(userAnswers).length;
+      const el = document.getElementById("paletteProgressText");
+      if (el) el.textContent = `${att} of 100 Attempted (${att}%)`;
+      const fabAtt = document.getElementById("fabAttemptCount");
+      if (fabAtt) fabAtt.textContent = att;
+    }
+
+    function jumpToQuestion(qId) {
+      closePaletteModal();
+      const card = document.getElementById(`qcard-${qId}`);
+      if (!card) {
+        document.getElementById("unitFilter").value = "ALL";
+        document.getElementById("sourceFilter").value = "ALL";
+        document.getElementById("searchBox").value = "";
+        renderQuestions();
+      }
+      setTimeout(() => {
+        const target = document.getElementById(`qcard-${qId}`);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+          target.style.transition = "box-shadow 0.25s ease";
+          target.style.boxShadow = "0 0 0 3px var(--accent)";
+          setTimeout(() => { target.style.boxShadow = ""; }, 1400);
+        }
+      }, 60);
+    }
+
+    // Scroll-to-top handler
+    window.addEventListener("scroll", () => {
+      const btn = document.getElementById("scrollTopBtn");
+      if (btn) {
+        if (window.scrollY > 350) btn.classList.add("visible");
+        else btn.classList.remove("visible");
+      }
+    }, { passive: true });
+
+    // Keyboard shortcuts
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closePaletteModal();
+      } else if ((e.key === "p" || e.key === "P") && document.activeElement.tagName !== "INPUT") {
+        const modal = document.getElementById("paletteModal");
+        if (modal && modal.classList.contains("active")) closePaletteModal();
+        else openPaletteModal();
+      }
+    });
 
     function submitDPP() {
       examSubmitted = true;
