@@ -156,9 +156,25 @@ window.COURSE_DATA = {
                 {
                     "id": "sub-10-geo",
                     "name": "Geography",
-                    "description": "Master 100 MCQ Engine, Climate, Soil, Vegetation, Water, Minerals, Agriculture & Industries",
+                    "description": "Topography Question 1 Blueprint, Master 100 MCQ Engine, Climate, Soil, Vegetation, Water, Minerals, Agriculture & Industries",
                     "icon": "public",
                     "chapters": [
+                        {
+                            "id": "chap-geo-toposheet",
+                            "name": "🗺️ ICSE 2027 Topography (Question 1) Master Blueprint & DNA Engine",
+                            "description": "50 Exact Board & Specimen Questions across Sheets G43S10 & G43S7, 8-Year Matrix, Formulas & 4-Figure/6-Figure Grids",
+                            "featured": true,
+                            "items": [
+                                {
+                                    "id": "geo-toposheet-engine-full",
+                                    "title": "Topography Question 1 Exam Master Engine & 8-Year DNA",
+                                    "subtitle": "50 Exact Questions across 5 Sets, Live 15-Min Timer, Automated Evaluation, 8-Year CISCE Frequency Matrix & Symbol Cheat Sheet",
+                                    "type": "interactive",
+                                    "file": "geography/toposheet/index.html",
+                                    "badge": "Toposheet • 50 Qs • Interactive Engine"
+                                }
+                            ]
+                        },
                         {
                             "id": "chap-geo-mcq",
                             "name": "⚡ ICSE 2027 Geography Master 100 MCQ DPP & DNA Engine",
@@ -170,7 +186,7 @@ window.COURSE_DATA = {
                                     "title": "Master 100 MCQ DPP & 8-Year DNA Diagnostic Engine",
                                     "subtitle": "Interactive Practice Mode, Strict Exam Timed DPP, Board Frequency & Diagnostic Report Card",
                                     "type": "interactive",
-                                    "file": "geography-100-mcq-engine.html",
+                                    "file": "geography/mcq/index.html",
                                     "badge": "100 MCQs • Interactive App"
                                 }
                             ]
@@ -185,7 +201,7 @@ window.COURSE_DATA = {
                                     "title": "Climate of India — Master MCQ DPP Drill",
                                     "subtitle": "Unit 1: 12 High-Yield Questions (Mawsynram, Monsoon Winds, Western Disturbances)",
                                     "type": "interactive",
-                                    "file": "geography-100-mcq-engine.html?unit=Climate+of+India",
+                                    "file": "geography/mcq/index.html?unit=Climate+of+India",
                                     "badge": "Unit 1 DPP • 12 MCQs"
                                 },
                                 {
@@ -193,7 +209,7 @@ window.COURSE_DATA = {
                                     "title": "Climate 01 Class Notes",
                                     "subtitle": "Introduction, climatic factors, latitude, altitude & continentality",
                                     "type": "pdf",
-                                    "file": "notes/geography/Climate_01_Class_Notes.pdf",
+                                    "file": "geography/notes/Climate_01_Class_Notes.pdf",
                                     "size": "5.8 MB"
                                 },
                                 {
@@ -201,7 +217,7 @@ window.COURSE_DATA = {
                                     "title": "Climate 02 Class Notes",
                                     "subtitle": "Pressure systems, winds, jet streams & western disturbances",
                                     "type": "pdf",
-                                    "file": "notes/geography/Climate_02_Class_Notes.pdf",
+                                    "file": "geography/notes/Climate_02_Class_Notes.pdf",
                                     "size": "4.9 MB"
                                 },
                                 {
@@ -209,7 +225,7 @@ window.COURSE_DATA = {
                                     "title": "Climate 03 Class Notes",
                                     "subtitle": "South-West Monsoon, Arabian Sea & Bay of Bengal branches",
                                     "type": "pdf",
-                                    "file": "notes/geography/Climate_03_Class_Notes.pdf",
+                                    "file": "geography/notes/Climate_03_Class_Notes.pdf",
                                     "size": "8.1 MB"
                                 },
                                 {
@@ -217,7 +233,7 @@ window.COURSE_DATA = {
                                     "title": "Climate 04 Class Notes",
                                     "subtitle": "Retreating Monsoon, North-East Monsoon & annual rainfall patterns",
                                     "type": "pdf",
-                                    "file": "notes/geography/Climate_04_Class_Notes.pdf",
+                                    "file": "geography/notes/Climate_04_Class_Notes.pdf",
                                     "size": "9.3 MB"
                                 },
                                 {
@@ -225,7 +241,7 @@ window.COURSE_DATA = {
                                     "title": "Climate 05 Class Notes",
                                     "subtitle": "Climatic data analysis, temperature range & seasonal summary",
                                     "type": "pdf",
-                                    "file": "notes/geography/Climate_05_Class_Notes.pdf",
+                                    "file": "geography/notes/Climate_05_Class_Notes.pdf",
                                     "size": "7.3 MB"
                                 }
                             ]
@@ -240,7 +256,7 @@ window.COURSE_DATA = {
                                     "title": "Soil Resources — Master MCQ DPP Drill",
                                     "subtitle": "Unit 2: 12 High-Yield Questions (Alluvial, Black/Regur, Red, Laterite & Soil Conservation)",
                                     "type": "interactive",
-                                    "file": "geography-100-mcq-engine.html?unit=Soil+Resources",
+                                    "file": "geography/mcq/index.html?unit=Soil+Resources",
                                     "badge": "Unit 2 DPP • 12 MCQs"
                                 },
                                 {
@@ -248,7 +264,7 @@ window.COURSE_DATA = {
                                     "title": "Soil Resources 01 Class Notes",
                                     "subtitle": "Pedogenesis, Alluvial soil characteristics, distribution & crops",
                                     "type": "pdf",
-                                    "file": "notes/geography/Soil_Resources_01_Class_Notes.pdf",
+                                    "file": "geography/notes/Soil_Resources_01_Class_Notes.pdf",
                                     "size": "4.4 MB"
                                 },
                                 {
@@ -256,7 +272,7 @@ window.COURSE_DATA = {
                                     "title": "Soil Resources 02 Class Notes",
                                     "subtitle": "Black (Regur) soil & Red soil composition, properties & regions",
                                     "type": "pdf",
-                                    "file": "notes/geography/Soil_Resources_02_Class_Notes.pdf",
+                                    "file": "geography/notes/Soil_Resources_02_Class_Notes.pdf",
                                     "size": "5.3 MB"
                                 },
                                 {
@@ -264,7 +280,7 @@ window.COURSE_DATA = {
                                     "title": "Soil Resources 03 Class Notes",
                                     "subtitle": "Laterite soil, soil erosion causes, sheet/gully erosion & conservation",
                                     "type": "pdf",
-                                    "file": "notes/geography/Soil_Resources_03_Class_Notes.pdf",
+                                    "file": "geography/notes/Soil_Resources_03_Class_Notes.pdf",
                                     "size": "6.1 MB"
                                 }
                             ]
@@ -279,7 +295,7 @@ window.COURSE_DATA = {
                                     "title": "Natural Vegetation — Master MCQ DPP Drill",
                                     "subtitle": "Unit 3: 12 High-Yield Questions (Evergreen, Deciduous, Mangrove, Desert & Montane)",
                                     "type": "interactive",
-                                    "file": "geography-100-mcq-engine.html?unit=Natural+Vegetation",
+                                    "file": "geography/mcq/index.html?unit=Natural+Vegetation",
                                     "badge": "Unit 3 DPP • 12 MCQs"
                                 },
                                 {
@@ -287,7 +303,7 @@ window.COURSE_DATA = {
                                     "title": "Natural Vegetation 01 Class Notes",
                                     "subtitle": "Tropical Evergreen (Rain) Forests & Tropical Deciduous (Monsoon) Forests",
                                     "type": "pdf",
-                                    "file": "notes/geography/Natural_Vegetation_01_Class_Notes.pdf",
+                                    "file": "geography/notes/Natural_Vegetation_01_Class_Notes.pdf",
                                     "size": "6.2 MB"
                                 },
                                 {
@@ -295,7 +311,7 @@ window.COURSE_DATA = {
                                     "title": "Natural Vegetation 02 Class Notes",
                                     "subtitle": "Tropical Desert / Thorn Forests & Littoral / Tidal (Mangrove) Forests",
                                     "type": "pdf",
-                                    "file": "notes/geography/Natural_Vegetation_02_Class_Notes.pdf",
+                                    "file": "geography/notes/Natural_Vegetation_02_Class_Notes.pdf",
                                     "size": "7.1 MB"
                                 },
                                 {
@@ -303,7 +319,7 @@ window.COURSE_DATA = {
                                     "title": "Natural Vegetation 03 Class Notes",
                                     "subtitle": "Montane (Mountain) Forests, forest conservation methods & social forestry",
                                     "type": "pdf",
-                                    "file": "notes/geography/Natural_Vegetation_03_Class_Notes.pdf",
+                                    "file": "geography/notes/Natural_Vegetation_03_Class_Notes.pdf",
                                     "size": "8.7 MB"
                                 }
                             ]
@@ -318,7 +334,7 @@ window.COURSE_DATA = {
                                     "title": "Water Resources — Master MCQ DPP Drill",
                                     "subtitle": "Unit 4: 12 High-Yield Questions (Canals, Wells, Tube Wells, Drip/Sprinkler & Rainwater Harvesting)",
                                     "type": "interactive",
-                                    "file": "geography-100-mcq-engine.html?unit=Water+Resources",
+                                    "file": "geography/mcq/index.html?unit=Water+Resources",
                                     "badge": "Unit 4 DPP • 12 MCQs"
                                 },
                                 {
@@ -326,7 +342,7 @@ window.COURSE_DATA = {
                                     "title": "Water Resources 01 Class Notes",
                                     "subtitle": "Need for irrigation, traditional methods (wells & inundation canals)",
                                     "type": "pdf",
-                                    "file": "notes/geography/Water_Resources_01_Class_Notes.pdf",
+                                    "file": "geography/notes/Water_Resources_01_Class_Notes.pdf",
                                     "size": "5.2 MB"
                                 },
                                 {
@@ -334,7 +350,7 @@ window.COURSE_DATA = {
                                     "title": "Water Resources 02 Class Notes",
                                     "subtitle": "Modern irrigation (tube wells, drip & sprinkler) & Rainwater Harvesting",
                                     "type": "pdf",
-                                    "file": "notes/geography/Water_Resources_02_Class_Notes.pdf",
+                                    "file": "geography/notes/Water_Resources_02_Class_Notes.pdf",
                                     "size": "8.3 MB"
                                 }
                             ]
@@ -349,7 +365,7 @@ window.COURSE_DATA = {
                                     "title": "Mineral Resources — Master MCQ DPP Drill",
                                     "subtitle": "Unit 5: High-Yield Questions (Iron Ore, Manganese, Copper, Bauxite)",
                                     "type": "interactive",
-                                    "file": "geography-100-mcq-engine.html?unit=Minerals+%26+Energy",
+                                    "file": "geography/mcq/index.html?unit=Minerals+%26+Energy",
                                     "badge": "Unit 5 DPP • Minerals"
                                 },
                                 {
@@ -357,7 +373,7 @@ window.COURSE_DATA = {
                                     "title": "Mineral Resources 01 Class Notes",
                                     "subtitle": "Iron Ore varieties (Haematite, Magnetite) & Manganese distribution",
                                     "type": "pdf",
-                                    "file": "notes/geography/Mineral_Resources_01_Class_Notes.pdf",
+                                    "file": "geography/notes/Mineral_Resources_01_Class_Notes.pdf",
                                     "size": "4.4 MB"
                                 },
                                 {
@@ -365,7 +381,7 @@ window.COURSE_DATA = {
                                     "title": "Mineral Resources 02 Class Notes",
                                     "subtitle": "Copper & Bauxite (Aluminium ore) uses, mining centers & states",
                                     "type": "pdf",
-                                    "file": "notes/geography/Mineral_Resources_02_Class_Notes.pdf",
+                                    "file": "geography/notes/Mineral_Resources_02_Class_Notes.pdf",
                                     "size": "2.3 MB"
                                 }
                             ]
@@ -380,7 +396,7 @@ window.COURSE_DATA = {
                                     "title": "Conventional Sources of Energy — Master MCQ DPP Drill",
                                     "subtitle": "Unit 5: High-Yield Questions (Coal, Petroleum, Natural Gas)",
                                     "type": "interactive",
-                                    "file": "geography-100-mcq-engine.html?unit=Minerals+%26+Energy",
+                                    "file": "geography/mcq/index.html?unit=Minerals+%26+Energy",
                                     "badge": "Unit 5 DPP • Energy"
                                 },
                                 {
@@ -388,7 +404,7 @@ window.COURSE_DATA = {
                                     "title": "Conventional Sources Of Energy 01 Class Notes",
                                     "subtitle": "Coal varieties (Anthracite, Bituminous, Lignite, Peat) & Gondwana/Tertiary fields",
                                     "type": "pdf",
-                                    "file": "notes/geography/Conventional_Sources_Of_Energy_01_Class_Notes.pdf",
+                                    "file": "geography/notes/Conventional_Sources_Of_Energy_01_Class_Notes.pdf",
                                     "size": "6.8 MB"
                                 },
                                 {
@@ -396,7 +412,7 @@ window.COURSE_DATA = {
                                     "title": "Conventional Sources Of Energy 02 Class Notes",
                                     "subtitle": "Petroleum (Mumbai High, Digboi, Ankleshwar) & Natural Gas pipelines",
                                     "type": "pdf",
-                                    "file": "notes/geography/Conventional_Sources_Of_Energy_02_Class_Notes.pdf",
+                                    "file": "geography/notes/Conventional_Sources_Of_Energy_02_Class_Notes.pdf",
                                     "size": "5.5 MB"
                                 }
                             ]
@@ -412,7 +428,7 @@ window.COURSE_DATA = {
                                     "title": "Agriculture in India — Master MCQ DPP Drill",
                                     "subtitle": "Unit 6: 12 High-Yield Questions (Rice, Wheat, Millets, Sugarcane, Cotton, Tea, Coffee)",
                                     "type": "interactive",
-                                    "file": "geography-100-mcq-engine.html?unit=Agriculture",
+                                    "file": "geography/mcq/index.html?unit=Agriculture",
                                     "badge": "Unit 6 DPP • 12 MCQs"
                                 }
                             ]
@@ -428,7 +444,7 @@ window.COURSE_DATA = {
                                     "title": "Manufacturing Industries — Master MCQ DPP Drill",
                                     "subtitle": "Unit 7: 10 High-Yield Questions (Tata Steel, Rourkela, Bhilai, Cotton & Sugar industry)",
                                     "type": "interactive",
-                                    "file": "geography-100-mcq-engine.html?unit=Manufacturing+Industries",
+                                    "file": "geography/mcq/index.html?unit=Manufacturing+Industries",
                                     "badge": "Unit 7 DPP • 10 MCQs"
                                 }
                             ]
@@ -444,7 +460,7 @@ window.COURSE_DATA = {
                                     "title": "Transport in India — Master MCQ DPP Drill",
                                     "subtitle": "Unit 8: 10 High-Yield Questions (Golden Quadrilateral, National Waterways, Ports)",
                                     "type": "interactive",
-                                    "file": "geography-100-mcq-engine.html?unit=Transport",
+                                    "file": "geography/mcq/index.html?unit=Transport",
                                     "badge": "Unit 8 DPP • 10 MCQs"
                                 }
                             ]
@@ -460,7 +476,7 @@ window.COURSE_DATA = {
                                     "title": "Waste Management — Master MCQ DPP Drill",
                                     "subtitle": "Unit 9: 8 High-Yield Questions (Eutrophication, Biomagnification, Composting, 3 R's)",
                                     "type": "interactive",
-                                    "file": "geography-100-mcq-engine.html?unit=Waste+Management",
+                                    "file": "geography/mcq/index.html?unit=Waste+Management",
                                     "badge": "Unit 9 DPP • 8 MCQs"
                                 }
                             ]

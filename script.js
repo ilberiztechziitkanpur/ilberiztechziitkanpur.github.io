@@ -169,6 +169,29 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
+    // Quick Launch: Topography Master Engine
+    const topoNav = document.createElement('div');
+    const isTopoActive = state.currentItem?.id === 'geo-toposheet-engine-full';
+    topoNav.className = `nav-item nav-item-featured ${isTopoActive ? 'active' : ''}`;
+    topoNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #fbbf24;">map</span>
+        <span style="font-weight: 600;">Toposheet Q1 Blueprint</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706); color:#fff;">NEW</span>
+    `;
+    topoNav.onclick = () => {
+        closeSidebarOnMobile();
+        resetSearch();
+        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
+        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
+        const topoChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-toposheet');
+        if (topoChap && topoChap.items.length > 0) {
+            navigateTo('viewer', [batch.id, geoSub.id, topoChap.id], topoChap.items[0]);
+        } else {
+            window.location.href = 'geography/toposheet/index.html';
+        }
+    };
+    navMenu.appendChild(topoNav);
+
     // Quick Launch: Geography 100 MCQ Engine
     const mcqNav = document.createElement('div');
     const isMcqActive = state.currentItem?.id === 'geo-mcq-engine-full';
@@ -187,7 +210,7 @@ function renderNav() {
         if (mcqChap && mcqChap.items.length > 0) {
             navigateTo('viewer', [batch.id, geoSub.id, mcqChap.id], mcqChap.items[0]);
         } else {
-            window.location.href = 'geography-100-mcq-engine.html';
+            window.location.href = 'geography/mcq/index.html';
         }
     };
     navMenu.appendChild(mcqNav);
@@ -607,10 +630,10 @@ function createInteractiveViewer(item) {
     footer.innerHTML = `
         <div style="display: flex; align-items: center; gap: 8px;">
             <span class="material-symbols-outlined" style="color: #38bdf8;">quiz</span>
-            <span>${item.subtitle || 'ICSE 2027 Geography Master 100 MCQ DPP & 8-Year DNA Engine'}</span>
+            <span>${item.subtitle || 'ICSE 2027 Geography Interactive Engine'}</span>
         </div>
         <div>
-            <span>100 Questions • Instant Practice & Timed DPP Modes • Live Chapter Diagnostic Report</span>
+            <span>${item.badge || 'High-Yield Engine • Automated Feedback & Diagnostics'}</span>
         </div>
     `;
 
