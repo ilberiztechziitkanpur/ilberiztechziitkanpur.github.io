@@ -16,9 +16,6 @@
 
 ```
 ILBERIZ TECHZ IIT KANPUR/
-├── .agents/
-│   └── rules/
-│       └── PROJECT_STATE.md         # Duplicate for automatic agent rule loading
 ├── geography/                       # ALL Geography subject content lives here
 │   ├── notes/                       # All 17 ICSE Class 10 Geography PDF notes
 │   │   ├── Climate_01_Class_Notes.pdf ... Climate_05_Class_Notes.pdf (5 files)
@@ -28,19 +25,16 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   ├── Mineral_Resources_01_Class_Notes.pdf ... Mineral_Resources_02_Class_Notes.pdf (2 files)
 │   │   └── Conventional_Sources_Of_Energy_01_Class_Notes.pdf ... 02 (2 files)
 │   ├── mcq/                         # 100 Most Expected High-Yield MCQ DPP & DNA Engine
-│   │   ├── index.html               # Main interactive MCQ web app (hardware accelerated)
-│   │   └── geography-100-mcq-engine.html # Canonical copy
+│   │   └── index.html               # Main interactive MCQ web app (hardware accelerated)
 │   └── toposheet/                   # Topography (Question 1) Master Blueprint & DNA Engine
-│       ├── index.html               # Main interactive Topo Exam & Blueprint web app
-│       └── toposheet-engine.html    # Canonical copy
+│       └── index.html               # Main interactive Topo Exam & Blueprint web app
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Do NOT modify or commit)
 ├── data.js                          # Course hierarchy, chapters, and file pointers
 ├── data.json                        # JSON mirror of course hierarchy
 ├── index.html                       # Website homepage and app container
 ├── script.js                        # App controller: Navigation, search, breadcrumbs, viewer
 ├── style.css                        # Design system: Dark glassmorphism, responsive UI
-├── PROJECT_STATE.md                 # This file (Persistent project state)
-└── geography-100-mcq-engine.html    # Root instant redirect to geography/mcq/index.html
+└── PROJECT_STATE.md                 # This file (Persistent project state)
 ```
 
 ---
