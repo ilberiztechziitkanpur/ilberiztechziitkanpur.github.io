@@ -155,7 +155,7 @@ function renderNav() {
     // Batches
     state.data.batches.forEach(batch => {
         const item = document.createElement('div');
-        const isActive = state.path[0] === batch.id;
+        const isActive = state.path[0] === batch.id && state.currentView !== 'viewer';
         item.className = `nav-item ${isActive ? 'active' : ''}`;
         item.innerHTML = `
             <span class="material-symbols-outlined icon">${batch.icon || 'school'}</span>
@@ -168,6 +168,29 @@ function renderNav() {
         };
         navMenu.appendChild(item);
     });
+
+    // Quick Launch: Geography 100 MCQ Engine
+    const mcqNav = document.createElement('div');
+    const isMcqActive = state.currentItem?.id === 'geo-mcq-engine-full';
+    mcqNav.className = `nav-item nav-item-featured ${isMcqActive ? 'active' : ''}`;
+    mcqNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #38bdf8;">bolt</span>
+        <span style="font-weight: 600;">Geography 100 MCQs</span>
+        <span class="nav-badge-hot">HOT</span>
+    `;
+    mcqNav.onclick = () => {
+        closeSidebarOnMobile();
+        resetSearch();
+        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
+        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
+        const mcqChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-mcq');
+        if (mcqChap && mcqChap.items.length > 0) {
+            navigateTo('viewer', [batch.id, geoSub.id, mcqChap.id], mcqChap.items[0]);
+        } else {
+            window.location.href = 'geography-100-mcq-engine.html';
+        }
+    };
+    navMenu.appendChild(mcqNav);
 }
 
 function resetSearch() {
@@ -330,17 +353,21 @@ function renderView() {
         grid.className = 'cards-grid';
         sub.chapters.forEach((chap, idx) => {
             const count = chap.items ? chap.items.length : 0;
-            const badgeText = count > 0 ? `${count} Notes Ready` : 'In Progress';
+            const badgeText = chap.featured ? 'Interactive DPP' : (count > 0 ? `${count} Notes Ready` : 'In Progress');
+            const iconName = chap.featured ? 'bolt' : 'auto_stories';
             
-            grid.appendChild(createCard({
+            const cardEl = createCard({
                 title: chap.name,
                 subtitle: chap.description || `${count} available study resources`,
-                icon: 'auto_stories',
+                icon: iconName,
                 onClick: () => navigateTo('items', [batch.id, sub.id, chap.id]),
                 badge: badgeText,
-                actionText: 'View Notes',
+                isInteractive: !!chap.featured,
+                actionText: chap.featured ? 'Open Engine' : 'View Notes',
                 index: idx
-            }));
+            });
+            if (chap.featured) cardEl.classList.add('card-featured');
+            grid.appendChild(cardEl);
         });
         wrapper.appendChild(grid);
     }
@@ -382,16 +409,21 @@ function renderView() {
             const grid = document.createElement('div');
             grid.className = 'cards-grid';
             items.forEach((item, idx) => {
-                grid.appendChild(createCard({
+                const isInter = item.type === 'interactive' || item.type === 'app';
+                const isPdf = item.type === 'pdf';
+                const cardEl = createCard({
                     title: item.title,
                     subtitle: item.subtitle || 'High-yield comprehensive notes with diagrams',
-                    icon: item.type === 'pdf' ? 'picture_as_pdf' : 'play_circle',
+                    icon: isInter ? 'quiz' : (isPdf ? 'picture_as_pdf' : 'play_circle'),
                     onClick: () => navigateTo('viewer', state.path, item),
-                    badge: item.type === 'pdf' ? `PDF • ${item.size || 'Notes'}` : 'Video Lecture',
-                    isPdf: item.type === 'pdf',
-                    actionText: item.type === 'pdf' ? 'Read Notes' : 'Watch Lecture',
+                    badge: item.badge || (isPdf ? `PDF • ${item.size || 'Notes'}` : 'Video Lecture'),
+                    isPdf: isPdf,
+                    isInteractive: isInter,
+                    actionText: isInter ? 'Launch Engine' : (isPdf ? 'Read Notes' : 'Watch Lecture'),
                     index: idx
-                }));
+                });
+                if (isInter) cardEl.classList.add('card-featured');
+                grid.appendChild(cardEl);
             });
             wrapper.appendChild(grid);
         }
@@ -399,6 +431,8 @@ function renderView() {
     else if (state.currentView === 'viewer') {
         if (state.currentItem?.type === 'pdf') {
             wrapper.appendChild(createPdfViewer(state.currentItem));
+        } else if (state.currentItem?.type === 'interactive' || state.currentItem?.type === 'app') {
+            wrapper.appendChild(createInteractiveViewer(state.currentItem));
         } else {
             wrapper.appendChild(createVideoPlayer(state.currentItem));
         }
@@ -453,18 +487,22 @@ function renderSearchResults(query) {
         grid.className = 'cards-grid';
 
         results.forEach((res, idx) => {
+            const isInter = res.item.type === 'interactive' || res.item.type === 'app';
+            const isPdf = res.item.type === 'pdf';
             const card = createCard({
                 title: res.item.title,
                 subtitle: `${res.batch.name} • ${res.subject.name} • ${res.chapter.name}`,
-                icon: res.item.type === 'pdf' ? 'picture_as_pdf' : 'play_circle',
+                icon: isInter ? 'quiz' : (isPdf ? 'picture_as_pdf' : 'play_circle'),
                 onClick: () => {
                     navigateTo('viewer', [res.batch.id, res.subject.id, res.chapter.id], res.item);
                 },
-                badge: res.subject.name,
-                isPdf: res.item.type === 'pdf',
-                actionText: 'Open Note',
+                badge: isInter ? 'Interactive Engine' : res.subject.name,
+                isPdf: isPdf,
+                isInteractive: isInter,
+                actionText: isInter ? 'Launch Engine' : (isPdf ? 'Read Notes' : 'Watch Lecture'),
                 index: idx
             });
+            if (isInter) card.classList.add('card-featured');
             grid.appendChild(card);
         });
 
@@ -487,14 +525,21 @@ function createSectionHeader(title, subtitle) {
     return header;
 }
 
-function createCard({ title, subtitle, icon, onClick, badge = null, isPdf = false, actionText = 'Explore', index = 0 }) {
+function createCard({ title, subtitle, icon, onClick, badge = null, isPdf = false, isInteractive = false, actionText = 'Explore', index = 0 }) {
     const card = document.createElement('div');
     card.className = 'card';
     card.style.setProperty('--i', index);
     card.onclick = onClick;
     
-    const iconClass = isPdf ? 'card-icon pdf-icon' : 'card-icon';
-    const badgeClass = isPdf ? 'card-badge pdf-badge' : 'card-badge';
+    let iconClass = 'card-icon';
+    let badgeClass = 'card-badge';
+    if (isInteractive) {
+        iconClass = 'card-icon interactive-icon';
+        badgeClass = 'card-badge interactive-badge';
+    } else if (isPdf) {
+        iconClass = 'card-icon pdf-icon';
+        badgeClass = 'card-badge pdf-badge';
+    }
 
     card.innerHTML = `
         <div class="card-top">
@@ -513,6 +558,75 @@ function createCard({ title, subtitle, icon, onClick, badge = null, isPdf = fals
         </div>
     `;
     return card;
+}
+
+// Interactive App & DPP Engine Viewer Component
+function createInteractiveViewer(item) {
+    const container = document.createElement('div');
+    container.className = 'interactive-viewer-container';
+
+    // Header
+    const header = document.createElement('div');
+    header.className = 'viewer-header';
+    header.innerHTML = `
+        <div class="viewer-title-wrap">
+            <span class="lecture-badge" style="color: #38bdf8; display:flex; align-items:center; gap:5px;">
+                <span class="material-symbols-outlined" style="font-size:16px;">bolt</span>
+                Interactive Engine • ICSE 2027 Geography
+            </span>
+            <h2>${item.title}</h2>
+        </div>
+        <div class="viewer-actions">
+            <button class="viewer-btn" id="interactive-back-btn">
+                <span class="material-symbols-outlined">arrow_back</span> Back
+            </button>
+            <a href="${item.file}" target="_blank" rel="noopener noreferrer" class="viewer-btn primary" title="Open in dedicated full screen tab">
+                <span class="material-symbols-outlined">open_in_new</span> Fullscreen Tab
+            </a>
+            <button class="viewer-btn" id="interactive-reload-btn" title="Reset or Reload Session">
+                <span class="material-symbols-outlined">refresh</span> Reload
+            </button>
+        </div>
+    `;
+
+    // Frame Wrapper
+    const frameWrapper = document.createElement('div');
+    frameWrapper.className = 'interactive-frame-wrapper';
+
+    const iframe = document.createElement('iframe');
+    iframe.src = item.file;
+    iframe.className = 'interactive-iframe';
+    iframe.title = item.title;
+    iframe.setAttribute('allow', 'fullscreen');
+
+    frameWrapper.appendChild(iframe);
+
+    // Footer
+    const footer = document.createElement('div');
+    footer.className = 'viewer-footer';
+    footer.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="material-symbols-outlined" style="color: #38bdf8;">quiz</span>
+            <span>${item.subtitle || 'ICSE 2027 Geography Master 100 MCQ DPP & 8-Year DNA Engine'}</span>
+        </div>
+        <div>
+            <span>100 Questions • Instant Practice & Timed DPP Modes • Live Chapter Diagnostic Report</span>
+        </div>
+    `;
+
+    container.appendChild(header);
+    container.appendChild(frameWrapper);
+    container.appendChild(footer);
+
+    header.querySelector('#interactive-back-btn').onclick = () => {
+        navigateTo('items', state.path.slice(0, 3));
+    };
+
+    header.querySelector('#interactive-reload-btn').onclick = () => {
+        iframe.src = item.file;
+    };
+
+    return container;
 }
 
 // PDF Reader & Viewer Component

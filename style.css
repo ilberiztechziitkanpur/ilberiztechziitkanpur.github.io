@@ -876,3 +876,94 @@ body {
         height: 380px;
     }
 }
+
+/* ==========================================================================
+   Featured & Interactive Engine Styles (Geography 100 MCQ Engine)
+   ========================================================================== */
+
+.nav-item-featured {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(99, 102, 241, 0.12));
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    margin: 8px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-item-featured:hover {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.22), rgba(99, 102, 241, 0.22));
+    border-color: rgba(56, 189, 248, 0.65);
+    box-shadow: 0 4px 18px rgba(56, 189, 248, 0.25);
+    transform: translateX(3px);
+}
+
+.nav-badge-hot {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 2px 7px;
+    background: linear-gradient(135deg, #f43f5e, #e11d48);
+    color: white;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(244, 63, 94, 0.4);
+}
+
+.interactive-viewer-container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+}
+
+.interactive-frame-wrapper {
+    width: 100%;
+    height: 82vh;
+    min-height: 680px;
+    background: #0f172a;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.interactive-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.card-icon.interactive-icon {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(168, 85, 247, 0.2));
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.card:hover .card-icon.interactive-icon {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.35), rgba(168, 85, 247, 0.35));
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+}
+
+.card-badge.interactive-badge {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(168, 85, 247, 0.15));
+    border-color: rgba(56, 189, 248, 0.45);
+    color: #7dd3fc;
+    font-weight: 700;
+}
+
+.card.card-featured {
+    border-color: rgba(56, 189, 248, 0.4);
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.75), rgba(15, 23, 42, 0.75));
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.12);
+}
+
+.card.card-featured::before {
+    opacity: 1;
+    background: linear-gradient(90deg, #38bdf8, #a855f7);
+    height: 3px;
+}
+

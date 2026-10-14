@@ -156,14 +156,38 @@ window.COURSE_DATA = {
                 {
                     "id": "sub-10-geo",
                     "name": "Geography",
-                    "description": "Climate, Soil, Natural Vegetation, Water, Minerals & Energy",
+                    "description": "Master 100 MCQ Engine, Climate, Soil, Vegetation, Water, Minerals, Agriculture & Industries",
                     "icon": "public",
                     "chapters": [
+                        {
+                            "id": "chap-geo-mcq",
+                            "name": "⚡ ICSE 2027 Geography Master 100 MCQ DPP & DNA Engine",
+                            "description": "100 Most Expected High-Yield MCQs across all 9 Units with 8-Year CISCE Frequency, Timed DPP & Explanations",
+                            "featured": true,
+                            "items": [
+                                {
+                                    "id": "geo-mcq-engine-full",
+                                    "title": "Master 100 MCQ DPP & 8-Year DNA Diagnostic Engine",
+                                    "subtitle": "Interactive Practice Mode, Strict Exam Timed DPP, Board Frequency & Diagnostic Report Card",
+                                    "type": "interactive",
+                                    "file": "geography-100-mcq-engine.html",
+                                    "badge": "100 MCQs • Interactive App"
+                                }
+                            ]
+                        },
                         {
                             "id": "chap-geo-climate",
                             "name": "Ch 1: Climate",
                             "description": "Factors affecting climate, seasons, monsoon mechanism & rainfall distribution",
                             "items": [
+                                {
+                                    "id": "geo-climate-dpp",
+                                    "title": "Climate of India — Master MCQ DPP Drill",
+                                    "subtitle": "Unit 1: 12 High-Yield Questions (Mawsynram, Monsoon Winds, Western Disturbances)",
+                                    "type": "interactive",
+                                    "file": "geography-100-mcq-engine.html?unit=Climate+of+India",
+                                    "badge": "Unit 1 DPP • 12 MCQs"
+                                },
                                 {
                                     "id": "geo-climate-01",
                                     "title": "Climate 01 Class Notes",
@@ -212,6 +236,14 @@ window.COURSE_DATA = {
                             "description": "Soil formation, types of soils in India, soil erosion and conservation",
                             "items": [
                                 {
+                                    "id": "geo-soil-dpp",
+                                    "title": "Soil Resources — Master MCQ DPP Drill",
+                                    "subtitle": "Unit 2: 12 High-Yield Questions (Alluvial, Black/Regur, Red, Laterite & Soil Conservation)",
+                                    "type": "interactive",
+                                    "file": "geography-100-mcq-engine.html?unit=Soil+Resources",
+                                    "badge": "Unit 2 DPP • 12 MCQs"
+                                },
+                                {
                                     "id": "geo-soil-01",
                                     "title": "Soil Resources 01 Class Notes",
                                     "subtitle": "Pedogenesis, Alluvial soil characteristics, distribution & crops",
@@ -242,6 +274,14 @@ window.COURSE_DATA = {
                             "name": "Ch 3: Natural Vegetation",
                             "description": "Forest types of India, distribution, economic importance & conservation",
                             "items": [
+                                {
+                                    "id": "geo-veg-dpp",
+                                    "title": "Natural Vegetation — Master MCQ DPP Drill",
+                                    "subtitle": "Unit 3: 12 High-Yield Questions (Evergreen, Deciduous, Mangrove, Desert & Montane)",
+                                    "type": "interactive",
+                                    "file": "geography-100-mcq-engine.html?unit=Natural+Vegetation",
+                                    "badge": "Unit 3 DPP • 12 MCQs"
+                                },
                                 {
                                     "id": "geo-veg-01",
                                     "title": "Natural Vegetation 01 Class Notes",
@@ -274,6 +314,14 @@ window.COURSE_DATA = {
                             "description": "Sources of water, irrigation necessity, methods & rainwater harvesting",
                             "items": [
                                 {
+                                    "id": "geo-water-dpp",
+                                    "title": "Water Resources — Master MCQ DPP Drill",
+                                    "subtitle": "Unit 4: 12 High-Yield Questions (Canals, Wells, Tube Wells, Drip/Sprinkler & Rainwater Harvesting)",
+                                    "type": "interactive",
+                                    "file": "geography-100-mcq-engine.html?unit=Water+Resources",
+                                    "badge": "Unit 4 DPP • 12 MCQs"
+                                },
+                                {
                                     "id": "geo-water-01",
                                     "title": "Water Resources 01 Class Notes",
                                     "subtitle": "Need for irrigation, traditional methods (wells & inundation canals)",
@@ -296,6 +344,14 @@ window.COURSE_DATA = {
                             "name": "Ch 5: Mineral Resources",
                             "description": "Metallic & non-metallic minerals: Iron Ore, Manganese, Copper & Bauxite",
                             "items": [
+                                {
+                                    "id": "geo-min-dpp",
+                                    "title": "Mineral Resources — Master MCQ DPP Drill",
+                                    "subtitle": "Unit 5: High-Yield Questions (Iron Ore, Manganese, Copper, Bauxite)",
+                                    "type": "interactive",
+                                    "file": "geography-100-mcq-engine.html?unit=Minerals+%26+Energy",
+                                    "badge": "Unit 5 DPP • Minerals"
+                                },
                                 {
                                     "id": "geo-min-01",
                                     "title": "Mineral Resources 01 Class Notes",
@@ -320,6 +376,14 @@ window.COURSE_DATA = {
                             "description": "Coal, Petroleum and Natural Gas: Formation, classification & fields",
                             "items": [
                                 {
+                                    "id": "geo-energy-dpp",
+                                    "title": "Conventional Sources of Energy — Master MCQ DPP Drill",
+                                    "subtitle": "Unit 5: High-Yield Questions (Coal, Petroleum, Natural Gas)",
+                                    "type": "interactive",
+                                    "file": "geography-100-mcq-engine.html?unit=Minerals+%26+Energy",
+                                    "badge": "Unit 5 DPP • Energy"
+                                },
+                                {
                                     "id": "geo-energy-01",
                                     "title": "Conventional Sources Of Energy 01 Class Notes",
                                     "subtitle": "Coal varieties (Anthracite, Bituminous, Lignite, Peat) & Gondwana/Tertiary fields",
@@ -334,6 +398,70 @@ window.COURSE_DATA = {
                                     "type": "pdf",
                                     "file": "notes/geography/Conventional_Sources_Of_Energy_02_Class_Notes.pdf",
                                     "size": "5.5 MB"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "chap-geo-agriculture",
+                            "name": "Ch 7: Agriculture in India",
+                            "description": "Types of farming, seasons (Kharif, Rabi, Zaid), food and commercial cash crops",
+                            "featured": true,
+                            "items": [
+                                {
+                                    "id": "geo-agri-dpp",
+                                    "title": "Agriculture in India — Master MCQ DPP Drill",
+                                    "subtitle": "Unit 6: 12 High-Yield Questions (Rice, Wheat, Millets, Sugarcane, Cotton, Tea, Coffee)",
+                                    "type": "interactive",
+                                    "file": "geography-100-mcq-engine.html?unit=Agriculture",
+                                    "badge": "Unit 6 DPP • 12 MCQs"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "chap-geo-manufacturing",
+                            "name": "Ch 8: Manufacturing Industries",
+                            "description": "Agro-based (Sugar, Textile) and Mineral-based (Iron & Steel, Heavy Engineering)",
+                            "featured": true,
+                            "items": [
+                                {
+                                    "id": "geo-mfg-dpp",
+                                    "title": "Manufacturing Industries — Master MCQ DPP Drill",
+                                    "subtitle": "Unit 7: 10 High-Yield Questions (Tata Steel, Rourkela, Bhilai, Cotton & Sugar industry)",
+                                    "type": "interactive",
+                                    "file": "geography-100-mcq-engine.html?unit=Manufacturing+Industries",
+                                    "badge": "Unit 7 DPP • 10 MCQs"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "chap-geo-transport",
+                            "name": "Ch 9: Transport in India",
+                            "description": "Roadways, Railways, Airways and Waterways: Advantages, expressways and ports",
+                            "featured": true,
+                            "items": [
+                                {
+                                    "id": "geo-transport-dpp",
+                                    "title": "Transport in India — Master MCQ DPP Drill",
+                                    "subtitle": "Unit 8: 10 High-Yield Questions (Golden Quadrilateral, National Waterways, Ports)",
+                                    "type": "interactive",
+                                    "file": "geography-100-mcq-engine.html?unit=Transport",
+                                    "badge": "Unit 8 DPP • 10 MCQs"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "chap-geo-waste",
+                            "name": "Ch 10: Waste Management",
+                            "description": "Impact of waste accumulation, segregation, safe disposal (landfills, incineration) & 3 R's",
+                            "featured": true,
+                            "items": [
+                                {
+                                    "id": "geo-waste-dpp",
+                                    "title": "Waste Management — Master MCQ DPP Drill",
+                                    "subtitle": "Unit 9: 8 High-Yield Questions (Eutrophication, Biomagnification, Composting, 3 R's)",
+                                    "type": "interactive",
+                                    "file": "geography-100-mcq-engine.html?unit=Waste+Management",
+                                    "badge": "Unit 9 DPP • 8 MCQs"
                                 }
                             ]
                         }
