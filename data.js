@@ -257,8 +257,16 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-geo-soil",
                             "name": "Ch 2: Soil Resources",
-                            "description": "Soil formation, types of soils in India, soil erosion and conservation",
+                            "description": "46 Most Expected Questions, 180+ Twisted Variations, Master MCQ DPP & 3 Full Class Notes",
                             "items": [
+                                {
+                                    "id": "geo-soil-theory-master",
+                                    "title": "Soil Resources Theory DPP — 46 Most Expected Questions Vault",
+                                    "subtitle": "46 Master Questions, 180+ Twisted Board Variations, 60-Sec Comparison Matrix, Active Recall Blur Mode & 15-Yr Board DNA",
+                                    "type": "interactive",
+                                    "file": "geography/soil/index.html",
+                                    "badge": "Theory DPP • 46 Master Qs"
+                                },
                                 {
                                     "id": "geo-soil-dpp",
                                     "title": "Soil Resources — Master MCQ DPP Drill",

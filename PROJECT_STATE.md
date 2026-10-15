@@ -19,6 +19,8 @@ ILBERIZ TECHZ IIT KANPUR/
 ├── geography/                       # ALL Geography subject content lives here
 │   ├── climate/                     # Chapter 1: Climate Theory Master DPP Vault
 │   │   └── index.html               # 42 Most Expected Theory Qs, 175+ Variations, Timer & Data Tables
+│   ├── soil/                        # Chapter 2: Soil Resources Theory Master DPP Vault
+│   │   └── index.html               # 46 Most Expected Theory Qs, 180+ Variations, 60s Matrix, Blur Mode
 │   ├── notes/                       # All 17 ICSE Class 10 Geography PDF notes
 │   │   ├── Climate_01_Class_Notes.pdf ... Climate_05_Class_Notes.pdf (5 files)
 │   │   ├── Soil_Resources_01_Class_Notes.pdf ... Soil_Resources_03_Class_Notes.pdf (3 files)
@@ -42,7 +44,7 @@ ILBERIZ TECHZ IIT KANPUR/
 ---
 
 ## 3. Strict Folder Organization Rules
-1. **Geography Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or interactive engines MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `notes/`, `mcq/`, `toposheet/`).
+1. **Geography Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or interactive engines MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `soil/`, `notes/`, `mcq/`, `toposheet/`).
 2. **No Empty Subject Folders**: Do NOT create directories for Mathematics, Physics, Chemistry, Biology, History, etc., until the user provides actual content/files for them. Currently, ONLY Geography has content.
 3. **No Root Clutter**: Never leave raw download files (like `gemini-code-*.html`) in the root directory. Process them into their proper folder (`geography/...`) and remove the loose download file immediately.
 4. **Leave Video Downloader Untouched**: The `Video_Downloader/` directory is for a completely different utility. Never modify, delete, or commit changes inside `Video_Downloader/`.
@@ -87,14 +89,29 @@ ILBERIZ TECHZ IIT KANPUR/
 - Offline Single-File HTML Download feature for WhatsApp/mobile distribution.
 - Persistent self-evaluation tracking via localStorage (`icse2027_climate_mastered`, `icse2027_climate_review`).
 
-### C. Master 100 MCQ DPP & DNA Engine (`geography/mcq/`)
+### C. Soil Resources Theory Master DPP & Most Expected Questions Engine (`geography/soil/`)
+- 46 Master High-Yield Theory Questions targeting 10/10 marks in Question 5 (Soil Resources).
+- 180+ Twisted Board Variations grouped under their core Council Marking Scheme answers.
+- 3 Study Modes:
+  1. 🎯 DPP Mode (Test): Collapsed answers, individual reveal toggles, self-evaluation.
+  2. ⚡ Go-Through Mode: Instant reveal of all official CISCE answers & keywords for rapid reading.
+  3. 🧠 Active Recall Blur Mode: Blurs technical keywords until clicked or hovered to test active memory retrieval.
+- Interactive 60-Second 4-Soil Comparison Matrix Cheat Sheet (Alluvial, Black, Red, Laterite).
+- Live Mastery Progress Bar at the top of the command bar.
+- Real-time Probability DNA Filtering (2027 Specimen, Highest Probability 6-10x, Alternate-Year, Safety Net).
+- Format Filters: Give Geographical Reasons, Conceptual 2-Markers, Differentiate, Case-Based, Alluvial vs Black vs Red vs Laterite, Soil Conservation & Erosion.
+- Live Exam Countdown Timer (15, 30, 45, 60 mins presets) with pulse alerts.
+- Offline Single-File HTML Download feature.
+- Persistent self-evaluation tracking via localStorage (`icse2027_soil_mastered`, `icse2027_soil_review`).
+
+### D. Master 100 MCQ DPP & DNA Engine (`geography/mcq/`)
 - 100 high-yield questions covering all 9 CISCE units.
 - 8-Year Board Frequency Matrix (2018–2026).
 - Practice & Timed DPP Exam modes with instant explanation drawers.
 - 100-Question Palette Modal navigator for instant jumping.
 - Hardware-accelerated CSS containment for 60fps lag-free scrolling.
 
-### D. Topography Question 1 Master Blueprint & Exam Engine (`geography/toposheet/`)
+### E. Topography Question 1 Master Blueprint & Exam Engine (`geography/toposheet/`)
 - 50 exact questions across 5 sets for Survey of India Map Sheets G43S10 & G43S7.
 - Live 15-Minute Target Timer (Board exam allocation) with countdown & drill modes.
 - Automated evaluation with CISCE marking scheme answers.

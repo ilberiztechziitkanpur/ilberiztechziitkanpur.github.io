@@ -238,6 +238,30 @@ function renderNav() {
         }
     };
     navMenu.appendChild(climateNav);
+
+    // Quick Launch: Soil Theory DPP (46 Expected Qs)
+    const soilNav = document.createElement('div');
+    const isSoilActive = state.currentItem?.id === 'geo-soil-theory-master';
+    soilNav.className = `nav-item nav-item-featured ${isSoilActive ? 'active' : ''}`;
+    soilNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #f59e0b;">landscape</span>
+        <span style="font-weight: 600;">Soil 46 Qs DPP</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706); color:#fff;">NEW</span>
+    `;
+    soilNav.onclick = () => {
+        closeSidebarOnMobile();
+        resetSearch();
+        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
+        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
+        const soilChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-soil');
+        const soilItem = soilChap?.items?.find(i => i.id === 'geo-soil-theory-master');
+        if (soilChap && soilItem) {
+            navigateTo('viewer', [batch.id, geoSub.id, soilChap.id], soilItem);
+        } else {
+            window.location.href = 'geography/soil/index.html';
+        }
+    };
+    navMenu.appendChild(soilNav);
 }
 
 function resetSearch() {

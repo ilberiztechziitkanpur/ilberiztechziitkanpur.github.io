@@ -1,0 +1,2405 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>ICSE 2027 Geography DPP — Chapter 2: Soil Resources (Extreme UI v2.0)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #06080d;
+      --bg-secondary: #0d121d;
+      --bg-card: rgba(16, 22, 35, 0.88);
+      --bg-card-hover: rgba(22, 30, 48, 0.96);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-amber: #f59e0b;
+      --accent-emerald: #10b981;
+      --accent-cyan: #06b6d4;
+      --accent-indigo: #6366f1;
+      --accent-rose: #f43f5e;
+      --border-subtle: rgba(148, 163, 184, 0.14);
+      --shadow-glow: 0 12px 35px -10px rgba(245, 158, 11, 0.18);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background-color: var(--bg-primary);
+      background-image: 
+        radial-gradient(circle at 10% 12%, rgba(245, 158, 11, 0.11) 0%, transparent 36%),
+        radial-gradient(circle at 88% 18%, rgba(16, 185, 129, 0.10) 0%, transparent 40%),
+        radial-gradient(circle at 50% 88%, rgba(99, 102, 241, 0.09) 0%, transparent 45%);
+      background-attachment: fixed;
+      color: var(--text-primary);
+      line-height: 1.65;
+      padding-bottom: 110px;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-amber); }
+
+    /* Top Sticky Command Bar + Mastery Progress Strip */
+    .command-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6, 8, 13, 0.9);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .progress-strip {
+      height: 3px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-amber), var(--accent-emerald), var(--accent-cyan));
+      transition: width 0.35s ease;
+    }
+
+    .command-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .home-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .home-nav-btn:hover {
+      background: rgba(245, 158, 11, 0.16);
+      border-color: var(--accent-amber);
+      color: var(--accent-amber);
+      transform: translateX(-2px);
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--accent-amber), #ea580c);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      box-shadow: 0 0 16px rgba(245, 158, 11, 0.35);
+    }
+
+    .brand-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+    }
+
+    .brand-sub {
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      display: block;
+    }
+
+    .controls-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* 3-Mode Pill Switcher */
+    .mode-pill {
+      display: inline-flex;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      padding: 3px;
+    }
+
+    .mode-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    .mode-btn.active {
+      background: linear-gradient(135deg, var(--accent-amber), #ea580c);
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(245, 158, 11, 0.35);
+    }
+
+    /* Timer Box */
+    .timer-widget {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .timer-display {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--accent-amber);
+      min-width: 58px;
+      text-align: center;
+    }
+
+    .timer-display.warning { color: #fb923c; }
+    .timer-display.danger { color: var(--accent-rose); animation: pulse 1s infinite; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .preset-select {
+      background: rgba(255,255,255,0.05);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 4px 7px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .preset-select option { background: var(--bg-secondary); color: var(--text-primary); }
+
+    .t-btn {
+      border: none;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .t-btn:hover { background: rgba(255, 255, 255, 0.16); }
+    .t-btn.start { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .t-btn.pause { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+
+    .container {
+      max-width: 1300px;
+      margin: 22px auto 0;
+      padding: 0 18px;
+    }
+
+    /* Hero Card */
+    .hero-card {
+      background: linear-gradient(145deg, rgba(18, 24, 38, 0.94), rgba(10, 14, 24, 0.96));
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-amber), var(--accent-emerald), var(--accent-cyan));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.65fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-amber);
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.4rem, 2.7vw, 2.05rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #ffffff, #fde68a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .syllabus-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .syl-pill {
+      font-size: 0.72rem;
+      color: #e2e8f0;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .cheat-toggle-btn {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(16, 185, 129, 0.2));
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      color: #fde68a;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cheat-toggle-btn:hover {
+      background: linear-gradient(135deg, var(--accent-amber), var(--accent-emerald));
+      color: #06080d;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stat-box {
+      background: rgba(13, 18, 29, 0.92);
+      border: 1px solid var(--border-subtle);
+      padding: 14px;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--accent-amber);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* Interactive 60-Second Soil Matrix Drawer */
+    .matrix-drawer {
+      background: var(--bg-card);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 22px;
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .matrix-drawer.open { display: block; }
+
+    .matrix-table-wrap {
+      overflow-x: auto;
+      margin-top: 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      min-width: 780px;
+      text-align: left;
+    }
+
+    .matrix-table th {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fde68a;
+      padding: 10px 12px;
+      border: 1px solid var(--border-subtle);
+      font-weight: 800;
+    }
+
+    .matrix-table td {
+      padding: 9px 12px;
+      border: 1px solid var(--border-subtle);
+      color: #e2e8f0;
+      background: rgba(13, 18, 29, 0.7);
+      vertical-align: top;
+    }
+
+    /* Filter & Search Panel */
+    .filter-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .search-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 220px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-amber);
+      box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+    }
+
+    .action-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 8px 13px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .action-btn:hover {
+      border-color: var(--accent-amber);
+      background: rgba(245, 158, 11, 0.14);
+    }
+
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .chip-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-right: 4px;
+    }
+
+    .f-chip {
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .f-chip:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.25); }
+    .f-chip.active {
+      background: rgba(245, 158, 11, 0.2);
+      color: #fbbf24;
+      border-color: var(--accent-amber);
+    }
+
+    /* Question Cards */
+    .questions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .q-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      transition: all 0.22s ease;
+      position: relative;
+    }
+
+    .q-card:hover {
+      border-color: rgba(245, 158, 11, 0.35);
+      box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.65);
+    }
+
+    .q-card.mastered { border-left: 4px solid var(--accent-emerald); }
+    .q-card.review-later { border-left: 4px solid var(--accent-amber); }
+
+    .q-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .q-num {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+
+    .prob-badge {
+      font-size: 0.71rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .prob-specimen {
+      background: rgba(16, 185, 129, 0.16);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .prob-highest {
+      background: rgba(244, 63, 94, 0.16);
+      color: #fb7185;
+      border: 1px solid rgba(244, 63, 94, 0.4);
+    }
+
+    .prob-alternate {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .prob-safety {
+      background: rgba(99, 102, 241, 0.16);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.4);
+    }
+
+    .topic-badge {
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    .marks-badge {
+      font-family: monospace;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-amber);
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .dna-box {
+      background: linear-gradient(90deg, rgba(245, 158, 11, 0.1), rgba(16, 185, 129, 0.05));
+      border-left: 3px solid var(--accent-amber);
+      padding: 10px 14px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 14px;
+      font-size: 0.83rem;
+      color: #e2e8f0;
+    }
+
+    .dna-box strong {
+      color: #fbbf24;
+      text-transform: uppercase;
+      font-size: 0.73rem;
+      letter-spacing: 0.05em;
+      margin-right: 6px;
+    }
+
+    .q-main {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.56;
+    }
+
+    .twists-container {
+      background: rgba(13, 18, 29, 0.78);
+      border: 1px dashed rgba(148, 163, 184, 0.26);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+
+    .twists-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-cyan);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .twists-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .twists-list li {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .twists-list li::before {
+      content: "↳";
+      position: absolute;
+      left: 0;
+      color: var(--accent-cyan);
+      font-weight: bold;
+    }
+
+    .q-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .reveal-btn {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(234, 88, 12, 0.2));
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      color: #fbbf24;
+      font-weight: 700;
+      font-size: 0.83rem;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reveal-btn:hover {
+      background: linear-gradient(135deg, var(--accent-amber), #ea580c);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+    }
+
+    .self-eval-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .eval-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .eval-btn.master-btn.active {
+      background: rgba(16, 185, 129, 0.22);
+      border-color: var(--accent-emerald);
+      color: #34d399;
+    }
+
+    .eval-btn.rev-btn.active {
+      background: rgba(245, 158, 11, 0.22);
+      border-color: var(--accent-amber);
+      color: #fbbf24;
+    }
+
+    /* Official Answer Box */
+    .answer-panel {
+      margin-top: 16px;
+      background: rgba(9, 14, 24, 0.94);
+      border: 1px solid rgba(16, 185, 129, 0.38);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: none;
+      animation: fadeIn 0.22s ease;
+    }
+
+    .answer-panel.visible { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ans-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .ans-badge {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #34d399;
+    }
+
+    .ans-body {
+      font-size: 0.92rem;
+      color: #e2e8f0;
+    }
+
+    .ans-body ul {
+      padding-left: 20px;
+      margin-top: 6px;
+    }
+
+    .ans-body li { margin-bottom: 7px; }
+
+    /* Highlighted Keywords & Active Recall Blur Mode */
+    .kw {
+      background: rgba(16, 185, 129, 0.16);
+      color: #6ee7b7;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      border-bottom: 1px dashed rgba(16, 185, 129, 0.5);
+      transition: filter 0.2s ease, background 0.2s ease;
+    }
+
+    body.blur-mode .kw:not(.unblurred) {
+      filter: blur(5px);
+      background: rgba(16, 185, 129, 0.28);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    body.blur-mode .kw:hover {
+      filter: blur(0px);
+    }
+
+    .examiner-tip {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 3px solid var(--accent-amber);
+      border-radius: 4px;
+      font-size: 0.82rem;
+      color: #fde68a;
+    }
+
+    /* Mobile Sticky Bar */
+    .mobile-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(8, 12, 20, 0.96);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-subtle);
+      padding: 10px 14px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 99;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .command-inner { flex-direction: column; align-items: stretch; }
+      .controls-group { justify-content: space-between; }
+      .mobile-bar { display: flex; }
+      .q-card { padding: 16px; }
+    }
+
+    @media print {
+      .command-bar, .filter-panel, .mobile-bar, .q-actions, .cheat-toggle-btn { display: none !important; }
+      .answer-panel { display: block !important; border: 1px solid #000; }
+      body { background: #fff; color: #000; }
+      .q-card { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP COMMAND BAR -->
+  <header class="command-bar">
+    <div class="progress-strip">
+      <div class="progress-fill" id="masteryProgressBar"></div>
+    </div>
+    <div class="command-inner">
+      <div class="brand-group">
+        <a href="../../index.html" class="home-nav-btn" target="_top" title="Back to Ilberiz Techz Dashboard">
+          <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>
+          <span>Ilberiz Techz</span>
+        </a>
+        <span class="brand-badge">ICSE 2027</span>
+        <div>
+          <span class="brand-title">Geography Theory DPP — Chapter 2: Soil Resources</span>
+          <span class="brand-sub">Question 5 Master Vault • 2027 Specimen + 15-Year Board DNA</span>
+        </div>
+      </div>
+
+      <div class="controls-group">
+        <!-- 3-Mode Switcher -->
+        <div class="mode-pill" role="group" aria-label="Study Mode">
+          <button class="mode-btn active" id="btnDppMode" onclick="setStudyMode('dpp')">
+            🎯 DPP Mode
+          </button>
+          <button class="mode-btn" id="btnGoMode" onclick="setStudyMode('gothrough')">
+            ⚡ Go-Through
+          </button>
+          <button class="mode-btn" id="btnBlurMode" onclick="setStudyMode('blur')" title="Blur keywords for active memory recall!">
+            🧠 Blur Keywords
+          </button>
+        </div>
+
+        <!-- Timer Widget -->
+        <div class="timer-widget">
+          <select id="timerPreset" class="preset-select" onchange="changeTimerPreset()">
+            <option value="900">15 Mins</option>
+            <option value="1800" selected>30 Mins</option>
+            <option value="2700">45 Mins</option>
+            <option value="3600">60 Mins</option>
+          </select>
+          <span class="timer-display" id="timerDisplay">30:00</span>
+          <button class="t-btn start" id="timerToggleBtn" onclick="toggleTimer()">Start</button>
+          <button class="t-btn" onclick="resetTimer()">Reset</button>
+        </div>
+
+        <button class="action-btn" onclick="downloadSelfHtml()" title="Download this HTML file to share with friends on mobile/laptop">
+          ⬇ Download .HTML
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO SECTION -->
+    <section class="hero-card">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-tag">🌱 Target 10/10 Marks in Question 5 (Soil Resources)</span>
+          <h1 class="hero-title">Soil Resources of India: Complete Board DNA & Twisted Question Vault</h1>
+          <p class="hero-desc">
+            Strictly verified against the <strong>Official ICSE 2027 Syllabus</strong> (Alluvial, Black, Red & Laterite Soils + Soil Erosion & Conservation), the <strong>2025, 2026 & 2027 Specimen Papers</strong>, and <strong>15 years of Board Papers</strong>. Every card groups all twisted farmer scenarios, riddle clues, and regional variations that share the exact same Council answer.
+          </p>
+          <div class="syllabus-pills">
+            <span class="syl-pill">✔ In-Situ vs Ex-Situ</span>
+            <span class="syl-pill">✔ Alluvial (Bhangar vs Khadar)</span>
+            <span class="syl-pill">✔ Black (Regur / Self-Ploughing)</span>
+            <span class="syl-pill">✔ Red Soil (Crystalline / Iron Oxide)</span>
+            <span class="syl-pill">✔ Laterite (Leaching / Bricks)</span>
+            <span class="syl-pill">✔ Sheet vs Rill vs Gully Erosion</span>
+            <span class="syl-pill">✔ Terrace, Contour, Strip & Shelter Belts</span>
+          </div>
+          <button class="cheat-toggle-btn" onclick="toggleMatrixDrawer()" id="matrixBtn">
+            📊 Open 60-Second 4-Soil Master Comparison Cheat Sheet
+          </button>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-num" id="statTotal">46</div>
+            <div class="stat-label">Master Theory Questions</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">215+</div>
+            <div class="stat-label">Twisted Board Variations</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" id="statMastered" style="color: var(--accent-emerald);">0</div>
+            <div class="stat-label">Mastered (Full Marks)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" id="statReview" style="color: var(--accent-amber);">0</div>
+            <div class="stat-label">Marked for Revision</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE 4-SOIL COMPARISON MATRIX DRAWER -->
+    <section class="matrix-drawer" id="matrixDrawer">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+        <h3 style="color:#fde68a; font-size:1.05rem;">📊 Official ICSE 4-Soil Master Comparison Matrix (1-Page Rapid Revision)</h3>
+        <button class="action-btn" onclick="toggleMatrixDrawer()">✖ Close Cheat Sheet</button>
+      </div>
+      <div class="matrix-table-wrap">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Feature / Criterion</th>
+              <th>1. Alluvial Soil</th>
+              <th>2. Black Soil (Regur)</th>
+              <th>3. Red Soil</th>
+              <th>4. Laterite Soil</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Category & Origin</strong></td>
+              <td><strong>Ex-situ (Transported)</strong> — Deposited by rivers (silt, sand, clay).</td>
+              <td><strong>In-situ (Residual)</strong> — Weathering of solidified <strong>lava / basalt rocks</strong> (Deccan Trap).</td>
+              <td><strong>In-situ (Residual)</strong> — Weathering of ancient <strong>crystalline & metamorphic rocks</strong>.</td>
+              <td><strong>In-situ (Residual)</strong> — Intense <strong>leaching</strong> due to heavy rain ($>200\text{ cm}$) & alternating wet/dry periods.</td>
+            </tr>
+            <tr>
+              <td><strong>Colour & Reason</strong></td>
+              <td>Light grey to deep black/yellow (depends on depth & organic matter).</td>
+              <td>Deep black to chestnut brown (iron & titanium compounds).</td>
+              <td><strong>Red</strong> due to high <strong>Iron Oxide ($Fe_2O_3$)</strong>; looks <strong>yellow</strong> when hydrated.</td>
+              <td>Reddish-brown (high iron oxide & aluminium left after leaching).</td>
+            </tr>
+            <tr>
+              <td><strong>Texture & Key Property</strong></td>
+              <td>Coarse in upper valley; fine silt in delta. <strong>Bhangar</strong> (old, kankar) vs <strong>Khadar</strong> (new, fertile).</td>
+              <td>Fine, clayey ($>60\%$ clay), <strong>high moisture-retentiveness</strong>, <strong>self-ploughing</strong> (cracks when dry).</td>
+              <td>Porous, friable (loose), coarse, does not retain moisture; responds well to fertilizers + irrigation.</td>
+              <td>Coarse, porous, acidic, infertile. <strong>Soft when wet, hardens like iron on exposure to air (used for bricks)</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Rich In (Minerals)</strong></td>
+              <td><strong>Potash & Lime</strong> (Ganga delta is also rich in Humus).</td>
+              <td><strong>L-I-M-P-C-A:</strong> Lime, Iron, Magnesium, Potash, Calcium, Alumina.</td>
+              <td><strong>Iron Oxide</strong> (and Potash in some areas).</td>
+              <td><strong>Iron Oxide & Aluminium compounds (Bauxite)</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Deficient In</strong></td>
+              <td>Nitrogen, Phosphorus & Humus (except Ganga delta).</td>
+              <td>Nitrogen, Phosphorus & Organic Matter (Humus).</td>
+              <td>Nitrogen, Phosphorus, Lime, Magnesia & Humus.</td>
+              <td>Lime, Silica (leached away), Nitrogen, Potash & Humus.</td>
+            </tr>
+            <tr>
+              <td><strong>Major Crops</strong></td>
+              <td>Rice, Wheat, Sugarcane, Jute, Pulses, Oilseeds (Food Basket).</td>
+              <td><strong>Cotton</strong>, Sugarcane, Jowar, Wheat, Linseed, Virginia Tobacco, Citrus fruits.</td>
+              <td>Millets (Ragi, Bajra), Groundnut, Pulses, Potato (Rice/Wheat with irrigation).</td>
+              <td><strong>Tea, Coffee, Rubber, Cashew nut</strong>, Tapioca, Cinchona (Plantation crops).</td>
+            </tr>
+            <tr>
+              <td><strong>Key States / Regions</strong></td>
+              <td>Punjab, Haryana, UP, Bihar, WB, Assam, Coastal Deltas (Godavari, Krishna, Kaveri, Mahanadi).</td>
+              <td>Maharashtra, Gujarat, Western MP, Andhra Pradesh, Telangana, N. Karnataka.</td>
+              <td>Tamil Nadu, Karnataka, Odisha, Andhra Pradesh, Chhattisgarh, Jharkhand.</td>
+              <td>Summits of Western & Eastern Ghats, Kerala, Goa, Karnataka, Odisha, Meghalaya (Khasi/Garo hills).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FILTER & SEARCH BAR -->
+    <section class="filter-panel">
+      <div class="search-row">
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="Search any keyword (e.g., 'Bhangar', 'Leaching', 'Self-ploughing', 'Chambal', 'Terrace', '2027 Specimen', 'Farmer')..."
+          oninput="renderQuestions()"
+        />
+        <button class="action-btn" onclick="expandAllAnswers()">👁 Show All Answers</button>
+        <button class="action-btn" onclick="collapseAllAnswers()">🙈 Hide All Answers</button>
+      </div>
+
+      <div class="filter-chips">
+        <span class="chip-label">Probability DNA:</span>
+        <button class="f-chip active" data-prob="all" onclick="setProbFilter('all', this)">All Questions (46)</button>
+        <button class="f-chip" data-prob="specimen" onclick="setProbFilter('specimen', this)">🚨 2027 Specimen & 2025–26 Board Pattern</button>
+        <button class="f-chip" data-prob="highest" onclick="setProbFilter('highest', this)">🔥 Highest Probability (6–12x Repeated)</button>
+        <button class="f-chip" data-prob="alternate" onclick="setProbFilter('alternate', this)">🔄 Alternate-Year & Competency Twist</button>
+        <button class="f-chip" data-prob="safety" onclick="setProbFilter('safety', this)">🛡️ Safety Net (100% Syllabus Lock)</button>
+      </div>
+
+      <div class="filter-chips">
+        <span class="chip-label">Topic & Format:</span>
+        <button class="f-chip active" data-type="all" onclick="setTypeFilter('all', this)">All Formats</button>
+        <button class="f-chip" data-type="alluvial_black" onclick="setTypeFilter('alluvial_black', this)">Alluvial & Black Soil</button>
+        <button class="f-chip" data-type="red_laterite" onclick="setTypeFilter('red_laterite', this)">Red & Laterite Soil</button>
+        <button class="f-chip" data-type="erosion" onclick="setTypeFilter('erosion', this)">Soil Erosion & Conservation</button>
+        <button class="f-chip" data-type="reason" onclick="setTypeFilter('reason', this)">Give Geographical Reasons</button>
+        <button class="f-chip" data-type="riddle" onclick="setTypeFilter('riddle', this)">Name the Soil / Farmer Case Riddles</button>
+        <button class="f-chip" data-type="revision" onclick="setTypeFilter('revision', this)">⭐ Marked for Revision</button>
+      </div>
+    </section>
+
+    <!-- QUESTIONS LIST -->
+    <div class="questions-list" id="questionsContainer"></div>
+  </main>
+
+  <!-- MOBILE STICKY BOTTOM BAR -->
+  <div class="mobile-bar">
+    <div>
+      <span style="font-size:0.68rem; color:var(--text-secondary); display:block;">EXAM TIMER</span>
+      <span class="timer-display" id="mobileTimerDisplay" style="font-size:0.95rem;">30:00</span>
+    </div>
+    <div style="display:flex; gap:6px;">
+      <button class="t-btn start" onclick="toggleTimer()" id="mobileTimerBtn">Start</button>
+      <button class="t-btn" onclick="cycleMobileMode()" id="mobileModeBtn">Mode: DPP</button>
+      <button class="t-btn" onclick="toggleMatrixDrawer()">📊 Matrix</button>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // COMPLETE 46-QUESTION MASTER DATASET FOR CHAPTER 2: SOIL RESOURCES
+    // =========================================================================
+    const soilQuestions = [
+      // --- SECTION 1: 2027 SPECIMEN PAPER & 2025–2026 BOARD EXAM DIRECT PATTERNS ---
+      {
+        id: 1,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN PAPER DIRECT • 99% PROBABILITY",
+        qType: "alluvial_black",
+        subTopic: "Chapter: Soil Resources • Black Soil vs Alluvial Soil (Farmer Competency Case)",
+        marks: "[2 Marks]",
+        whyChosen: "Appeared in the Official CISCE Specimen & Recent Board Pattern as Question 5(i): two farmers from different states (e.g., Maharashtra/Gujarat vs Uttar Pradesh/Punjab/Bihar) comparing their soils. This is CISCE's favourite competency format for Question 5(i).",
+        question: "Ramesh, a farmer in Maharashtra, grows cotton without frequent irrigation, while Suresh, a farmer in Uttar Pradesh (or Bihar), grows wheat and sugarcane on fertile river plains.<br>(a) Identify the two soil types being cultivated by Ramesh and Suresh respectively. [1]<br>(b) Why does Ramesh not require frequent irrigation for his crop? [1]",
+        twistedVersions: [
+          "Babulal in Gujarat and Sukhdev in Punjab obtain bumper harvests of cotton and wheat respectively. Name the soil found in each region and state one reason why each soil is suited to that crop.",
+          "Ramu found that his agricultural field in Akola (Maharashtra) developed deep wide cracks during the hot dry summer, yet retained sub-soil moisture. Identify the soil and explain this phenomenon.",
+          "Why is Black soil ideal for 'dry farming' (cultivation without irrigation)?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Identification of Soils:</strong>
+              <ul>
+                <li><strong>Ramesh (Maharashtra / Gujarat — Cotton):</strong> <span class="kw">Black Soil (Regur Soil / Black Cotton Soil)</span>.</li>
+                <li><strong>Suresh (Uttar Pradesh / Punjab / Bihar — Wheat/Sugarcane):</strong> <span class="kw">Alluvial Soil</span>.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Why Ramesh does not need frequent irrigation:</strong> Black soil is very <span class="kw">fine-grained and clayey in texture (up to 60% clay)</span>, which gives it <span class="kw">exceptionally high moisture-retentiveness</span>. Its sub-soil retains moisture for a long period even during dry spells, making it ideal for <span class="kw">dry farming</span>.</li>
+          </ul>
+          <div class="examiner-tip"><strong>Council Marking Keyword:</strong> Whenever a question mentions "dry farming" or "grows crops without irrigation", you MUST write <span class="kw">high moisture-retentiveness / retains moisture for a long time due to high clay content</span>.</div>
+        `
+      },
+      {
+        id: 2,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN PAPER DIRECT • 99% PROBABILITY",
+        qType: "alluvial_black",
+        subTopic: "Chapter: Soil Resources • Bhangar vs Khadar Alluvial Soil",
+        marks: "[2 Marks]",
+        whyChosen: "Asked in the 2027 Specimen Paper, 2025 Specimen Paper, 2024 Board, 2022 Board, 2019 Board, 2016 Board, and 2013 Board! Comparing Bhangar and Khadar (and why Khadar is more fertile) is the #1 most repeated comparison in the Soil chapter.",
+        question: "Differentiate between ‘Bhangar’ and ‘Khadar’ alluvial soils on any two bases, AND give a geographical reason why Khadar is much more fertile than Bhangar. [2 + 1]",
+        twistedVersions: [
+          "Give a geographical reason: Khadar soil is preferred over Bhangar soil for intensive agriculture. (Asked 11 times in Boards!)",
+          "State two points of difference between Older Alluvium and Newer Alluvium.",
+          "Which type of alluvial soil contains calcareous nodules ('kankar') and is found on higher river terraces above the flood level?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>Differences between Bhangar and Khadar:</strong>
+              <ul>
+                <li><strong>1. Age & Location:</strong> <span class="kw">Bhangar (Older Alluvium)</span> is found on <span class="kw">higher river terraces (~30 m above flood level)</span> where floodwaters do not reach; <span class="kw">Khadar (Newer Alluvium)</span> is found in the <span class="kw">lower floodplains and deltas</span> adjacent to river banks.</li>
+                <li><strong>2. Texture & Composition:</strong> <span class="kw">Bhangar</span> is coarse, clayey, darker, and contains <span class="kw">calcareous nodules called ‘kankar’</span>; <span class="kw">Khadar</span> consists of <span class="kw">fine silt and clay</span> without kankar nodules and is light in colour.</li>
+              </ul>
+            </li>
+            <li><strong>Why Khadar is More Fertile (Give Reason):</strong> <span class="kw">Khadar is replenished and renewed every year by fresh deposits of fine silt brought down by annual river floods</span>, whereas Bhangar lies above the flood level and is not renewed annually.</li>
+          </ul>
+        `
+      },
+      {
+        id: 3,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD DIRECT • 98% PROBABILITY",
+        qType: "red_laterite",
+        subTopic: "Chapter: Soil Resources • Laterite Soil & Leaching Process",
+        marks: "[2 Marks / 3 Marks]",
+        whyChosen: "Featured across the 2027 Specimen Paper, 2026 Board, 2023 Board, 2020 Board, and 2017 Board. Examiners test three exact angles on Laterite soil: (1) How is it formed (Leaching)? (2) Why is it infertile/acidic? (3) Why is it used for building bricks?",
+        question: "(a) Define ‘Leaching’ (or Desilication). Name the soil formed by this process in India. [1]<br>(b) Why is this soil unsuitable for cultivation of food crops without heavy manuring, yet considered highly valuable as a building material? [2]",
+        twistedVersions: [
+          "Give a geographical reason: Laterite soil is not suitable for cultivation (or has low fertility).",
+          "Give a geographical reason: Laterite soil is widely used for construction / making building bricks.",
+          "Explain how alternating wet and dry periods with heavy tropical rainfall lead to the formation of Laterite soil on the summits of the Western Ghats.",
+          "Why is Laterite soil acidic in nature?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Definition of Leaching & Soil Name:</strong> <span class="kw">Leaching (Desilication)</span> is the process in which <span class="kw">water-soluble fertile nutrients such as lime and silica percolate (wash) down</span> into the lower horizons of the soil profile due to <span class="kw">heavy tropical rainfall ($>200\\text{ cm}$) and high temperature</span>, leaving behind insoluble oxides of iron and aluminium in the topsoil. The soil formed is <span class="kw">Laterite Soil</span>.</li>
+            <li><strong>(b) Why Infertile & Acidic:</strong> It is <span class="kw">unsuitable for agriculture</span> because intense leaching washes away soluble plant nutrients (<span class="kw">deficient in lime, silica, nitrogen, potash, and humus</span>), making it <span class="kw">coarse, porous, non-moisture-retentive, and highly acidic</span> (since alkalis are leached away).</li>
+            <li><strong>(c) Why Valuable as a Building Material:</strong> Laterite soil is <span class="kw">soft when wet and can be easily cut into bricks with a spade, but hardens like iron upon exposure to air and drying</span>, making it a durable, weather-resistant building stone.</li>
+          </ul>
+        `
+      },
+      {
+        id: 4,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & 2025–26 BOARD • 98% PROBABILITY",
+        qType: "erosion",
+        subTopic: "Chapter: Soil Resources • Soil Conservation Methods by Topography",
+        marks: "[3 Marks]",
+        whyChosen: "In 2025, 2026, and the 2027 Specimen Paper, Q5(iii) or Q5(iv) asks students to suggest the EXACT soil conservation technique for a specific terrain (e.g., Steep Hill Slopes vs Arid Desert Margins vs River Valleys). Writing generic 'plant trees' loses marks if a specific farming technique is asked!",
+        question: "Suggest one specific soil conservation method suitable for each of the following terrains and state how it prevents soil erosion:<br>(a) Steep hilly slopes of the Himalayas or Nilgiris [1]<br>(b) Arid and semi-arid desert margins of Rajasthan (Thar Desert) [1]<br>(c) Deep gullies and ravines of the Chambal Valley [1]",
+        twistedVersions: [
+          "How does Terrace Farming help in conserving soil on steep mountain slopes?",
+          "What are 'Shelter Belts' (Windbreaks)? How do they check wind erosion in arid regions?",
+          "Which method of soil conservation is practiced in the North-Eastern hills to replace shifting cultivation (Jhum)?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Steep Hilly Slopes (Himalayas / Western Ghats / Meghalaya):</strong> <span class="kw">Terrace Farming</span> (or <span class="kw">Contour Ploughing</span>). Cutting wide step-like flat terraces across steep slopes <span class="kw">breaks the speed of surface water runoff</span>, preventing sheet and gully erosion.</li>
+            <li><strong>(b) Arid Desert Margins (Rajasthan / Gujarat):</strong> <span class="kw">Planting Shelter Belts (Windbreaks)</span>. Planting rows of trees and shrubs <span class="kw">perpendicular to the direction of wind</span> reduces wind velocity, prevents loose sandy topsoil from blowing away, and checks the <span class="kw">encroachment of desert sand dunes</span> onto fertile land.</li>
+            <li><strong>(c) Deep Gullies & Ravines (Chambal Valley):</strong> <span class="kw">Plugging of Gullies and Construction of Check Dams</span> (along with afforestation). Filling gullies with boulders, bunds, and check dams slows water flow, traps silt, and stops ravines from expanding.</li>
+          </ul>
+        `
+      },
+      {
+        id: 5,
+        probTier: "specimen",
+        probLabel: "🚨 2026 BOARD & SPECIMEN DIRECT • 97% PROBABILITY",
+        qType: "alluvial_black",
+        subTopic: "Chapter: Soil Resources • In-Situ (Residual) vs Ex-Situ (Transported) Soils",
+        marks: "[2 Marks / 3 Marks]",
+        whyChosen: "Asked in 2026 Specimen, 2025 Board, 2023 Board, 2020 Board, and 2017 Board. Examiners frequently ask 'Give a reason: Alluvial soil is called an ex-situ soil while Black/Red/Laterite soil is called an in-situ soil.'",
+        question: "(a) Differentiate between ‘In-situ’ (Residual) soil and ‘Ex-situ’ (Transported) soil with one example of each. [2]<br>(b) Give a geographical reason: Alluvial soil is also known as a transported (ex-situ) soil, whereas Black soil is known as a residual (in-situ) soil. [1]",
+        twistedVersions: [
+          "Why is Black soil (or Red / Laterite soil) referred to as a 'Residual' or 'In-situ' soil?",
+          "Why is Alluvial soil called an 'Ex-situ' soil?",
+          "How does the parent rock relationship of Alluvial soil differ from that of Black soil?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Difference:</strong>
+              <ul>
+                <li><strong>In-situ (Residual) Soil:</strong> Formed <span class="kw">in its original place of origin by the weathering of underlying parent rocks</span>; its chemical composition directly matches the underlying bedrock. <em>Examples:</em> <span class="kw">Black Soil, Red Soil, Laterite Soil</span>.</li>
+                <li><strong>Ex-situ (Transported) Soil:</strong> Formed when weathered rock particles (silt, sand, clay) are <span class="kw">eroded, carried away by agents of gradation (rivers/winds), and deposited far away</span> from their parent rock. <em>Example:</em> <span class="kw">Alluvial Soil</span>.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Geographical Reason:</strong> <span class="kw">Alluvial soil</span> is called an <em>ex-situ</em> soil because river streams transport weathered sediments from mountains and deposit them across distant plains/deltas; <span class="kw">Black soil</span> is called an <em>in-situ</em> soil because it is formed directly on the spot where <span class="kw">Deccan lava (basalt) rocks weathered</span> without being transported.</li>
+          </ul>
+        `
+      },
+      {
+        id: 6,
+        probTier: "specimen",
+        probLabel: "🚨 2025 & 2026 BOARD DIRECT • 97% PROBABILITY",
+        qType: "erosion",
+        subTopic: "Chapter: Soil Resources • Sheet Erosion vs Gully Erosion",
+        marks: "[2 Marks]",
+        whyChosen: "Asked in ICSE 2025 Board, 2023 Board, 2019 Board, and 2015 Board. Distinguishing the stages of water erosion (Splash → Sheet → Rill → Gully) is a guaranteed board target.",
+        question: "Differentiate between ‘Sheet Erosion’ and ‘Gully Erosion’ and name one region in India severely affected by Gully Erosion. [2]",
+        twistedVersions: [
+          "What is 'Badland Topography' (Ravines)? How is it formed and which river valley in India is famous for it?",
+          "Explain the progressive stages of soil erosion caused by running water (Sheet, Rill, and Gully erosion).",
+          "Why has the Chambal Valley become unfit for cultivation?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>Sheet Erosion:</strong> Occurs on gentle slopes when heavy torrential rain washes away a <span class="kw">thin, uniform surface layer of fertile topsoil</span> over a large area (common in Himalayan foothills, Nilgiris, Chota Nagpur).</li>
+            <li><strong>Gully Erosion:</strong> Occurs when heavy unchecked runoff cuts deep <span class="kw">finger-like rills that widen and deepen into steep-sided channels/ravines</span>, slicing the agricultural land into fragments called <span class="kw">Badland Topography</span> and making it completely unfit for cultivation.</li>
+            <li><strong>Region Affected by Gully Erosion:</strong> <span class="kw">Chambal Valley</span> (along the Chambal River in Madhya Pradesh, Rajasthan, and Uttar Pradesh).</li>
+          </ul>
+        `
+      },
+      {
+        id: 7,
+        probTier: "specimen",
+        probLabel: "🚨 2026 SPECIMEN & BOARD • 96% PROBABILITY",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Texture Variation of Alluvial Soil (Upper vs Lower Course)",
+        marks: "[1 Mark / 2 Marks]",
+        whyChosen: "Appeared in 2026 Specimen, 2024 Board, 2021, and 2018. Examiners love testing why Alluvial soil in Punjab/Piedmont is coarse whereas Alluvial soil in West Bengal (Ganga Delta) is fine and rich in humus.",
+        question: "Give a geographical reason for each of the following:<br>(a) The texture of Alluvial soil varies from coarse in the upper river course to fine in the lower deltaic region. [1]<br>(b) Deltaic alluvium of the Ganga-Brahmaputra delta is more fertile than inland/coastal alluvium. [1]",
+        twistedVersions: [
+          "Give a reason: Alluvial soil in the upper course of a river (Piedmont plain / Bhabar) consists of coarse sand and gravel, while in the lower course it is fine clay and silt.",
+          "Differentiate between Inland Alluvium (Northern Plains) and Deltaic Alluvium.",
+          "Why is Alluvial soil in West Bengal rich in humus whereas Alluvial soil in Punjab/UP is deficient in humus?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Texture Variation from Upper to Lower Course:</strong> In the <span class="kw">upper course</span> near the foothills, the river leaves heavy, large, and <span class="kw">coarse unassorted particles</span> first. As the river flows down towards the <span class="kw">lower course and delta</span>, the sediment particles collide, break down (attrition), and slow river velocity deposits only <span class="kw">extremely fine silt and clay</span>.</li>
+            <li><strong>(b) Why Ganga-Brahmaputra Deltaic Alluvium is More Fertile:</strong> Deltaic alluvium consists of <span class="kw">very fine, moisture-retentive silt</span> that is renewed annually and passes through dense marshy tidal forests (Sundarbans), making it <span class="kw">exceptionally rich in organic matter (humus)</span>, unlike inland or sandy coastal alluvium.</li>
+          </ul>
+        `
+      },
+      {
+        id: 8,
+        probTier: "specimen",
+        probLabel: "🚨 2025 BOARD PAPER DIRECT • 96% PROBABILITY",
+        qType: "erosion",
+        subTopic: "Chapter: Soil Resources • Contour Ploughing vs Terrace Farming vs Strip Cropping",
+        marks: "[3 Marks]",
+        whyChosen: "In 2025 and 2026, students lost marks because they wrote the definition of Terrace Farming when asked for Contour Ploughing or Strip Cropping. Memorize all three distinct definitions clearly!",
+        question: "Explain briefly how each of the following agricultural practices helps to prevent soil erosion:<br>(a) Contour Ploughing [1]<br>(b) Strip Cropping [1]<br>(c) Terrace Farming [1]",
+        twistedVersions: [
+          "Differentiate between Contour Ploughing and Terrace Farming.",
+          "How does growing tall crops alternating with cover crops (pulses/legumes) in parallel strips check soil erosion?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Contour Ploughing:</strong> Ploughing the land <span class="kw">along the contour lines (horizontally across a hill slope, perpendicular to the direction of water flow)</span> rather than up-and-down the slope. Each furrow acts as a miniature barrier that <span class="kw">slows down water runoff and allows water to percolate into the soil</span>.</li>
+            <li><strong>(b) Strip Cropping:</strong> Dividing large fields into <span class="kw">parallel strips and growing tall crops (like maize, jowar, bajra) alternating with soil-binding cover crops (like pulses, legumes, or grass)</span>. The cover strips catch eroded silt and break wind/water speed.</li>
+            <li><strong>(c) Terrace Farming:</strong> Cutting <span class="kw">broad, flat step-like horizontal platforms (terraces) on steep mountain slopes</span> with raised earthen bunds at the edges, which holds rainwater on each step and prevents topsoil from washing downhill.</li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 2: HIGHEST PROBABILITY CORE QUESTIONS (REPEATED 6 TO 12 TIMES IN BOARDS) ---
+      {
+        id: 9,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 12x IN BOARDS",
+        qType: "alluvial_black",
+        subTopic: "Chapter: Soil Resources • Black Soil — Self-Ploughing & Origin",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in almost every alternate ICSE Board Paper (2011, 2013, 2015, 2017, 2019, 2021, 2023, 2024, 2026). 'Why is Black soil called a self-ploughing soil?' is an absolute must-know.",
+        question: "With reference to Black Soil (Regur Soil) in India, answer the following:<br>(a) How was this soil formed? [1]<br>(b) Why is it said to possess a ‘self-ploughing’ quality? [1]<br>(c) Name any two minerals it is rich in and two minerals it is deficient in. [1]",
+        twistedVersions: [
+          "Give a geographical reason: Black soil is considered a self-ploughing soil.",
+          "Give a reason: Black soil needs to be tilled right after the first monsoon shower.",
+          "Why is Black soil also known as 'Deccan Trap Soil' or 'Lava Soil'?",
+          "Why does Black soil become difficult to plough when it is very wet or completely dry?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Formation / Origin:</strong> Black soil is formed <span class="kw">in-situ by the weathering (denudation) of solidified volcanic lava / basaltic rocks</span> of the Deccan Trap over millions of years.</li>
+            <li><strong>(b) Reason for ‘Self-Ploughing’ Quality:</strong> During the hot dry summer season, Black soil loses moisture, shrinks, and <span class="kw">develops deep, wide cracks</span>. These cracks <span class="kw">allow air (oxygen) to circulate deep into the soil (natural aeration)</span> and surface soil falls into the cracks, producing a <span class="kw">natural self-ploughing effect</span>. <em>(Note: When wet, it expands and becomes sticky, so it must be ploughed immediately after the first monsoon shower!)</em></li>
+            <li><strong>(c) Mineral Composition (L-I-M-P-C-A):</strong>
+              <ul>
+                <li><strong>Rich in:</strong> <span class="kw">Lime, Iron, Magnesium, Potash, Calcium, and Alumina</span> (any two).</li>
+                <li><strong>Deficient in:</strong> <span class="kw">Nitrogen, Phosphorus, and Organic Matter (Humus)</span>.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 10,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 10x IN BOARDS",
+        qType: "red_laterite",
+        subTopic: "Chapter: Soil Resources • Red Soil — Formation, Colour & Fertility",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2012, 2014, 2016, 2018, 2020, 2022, 2024, and 2025. Students often know why Red soil is red (Iron Oxide), but forget why it turns yellow in low-lying areas!",
+        question: "With reference to Red Soil in India:<br>(a) How is Red soil formed? [1]<br>(b) Why is it red in colour, and when does it appear yellow? [1]<br>(c) How can the productivity of Red soil be increased for growing crops like rice, wheat, and sugarcane? [1]",
+        twistedVersions: [
+          "Give a geographical reason: Red soil is red in colour, but looks yellowish in some low-lying areas.",
+          "Give a reason: Red soil is ideal for dry farming in Peninsular India.",
+          "Why does Red soil require regular irrigation and addition of fertilizers for cultivation?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Formation:</strong> Formed <span class="kw">in-situ by the prolonged weathering of ancient crystalline and metamorphic rocks</span> (such as granite and gneiss) of the Peninsular Plateau under warm and dry climatic conditions.</li>
+            <li><strong>(b) Reason for Red & Yellow Colour:</strong> It is red in colour due to the wide diffusion and high concentration of <span class="kw">Iron Oxide ($Fe_2O_3$)</span>. It appears <span class="kw">yellow when it occurs in a hydrated form</span> (absorbs water in low-lying valleys).</li>
+            <li><strong>(c) Increasing Productivity & Suitability for Dry Farming:</strong> Since Red soil is <span class="kw">porous, friable, does not retain moisture, and is deficient in nitrogen, phosphorus, lime, and humus</span>, its fertility can be greatly increased by <span class="kw">regular irrigation and the application of chemical fertilizers/manure</span>. It is suited to <span class="kw">dry farming</span> because it does not require much moisture to germinate drought-resistant crops like millets (ragi/bajra) and groundnut.</li>
+          </ul>
+        `
+      },
+      {
+        id: 11,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 10x IN BOARDS",
+        qType: "alluvial_black",
+        subTopic: "Chapter: Soil Resources • Alluvial Soil — Why Most Fertile & Agricultural Importance",
+        marks: "[3 Marks]",
+        whyChosen: "Alluvial soil covers 40% of India's land area and feeds the majority of India's population. Appears in almost every single board exam either as a 2-marker or 'Give Reason'.",
+        question: "(a) Why is Alluvial soil considered the most fertile and agriculturally important soil in India? Give two reasons. [2]<br>(b) Name two chemical nutrients Alluvial soil is rich in, and two nutrients it is deficient in. [1]",
+        twistedVersions: [
+          "Give a geographical reason: The Northern Plains of India are known as the 'Food Bowl / Granary of India'.",
+          "Why is Alluvial soil easily tillable and suitable for growing both Kharif and Rabi crops?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Why Most Fertile & Agriculturally Important:</strong>
+              <ul>
+                <li><strong>1. Fine Texture & Easy Tillability:</strong> It is a balanced mixture of <span class="kw">sand, clay, and fine silt (loamy)</span>, making it <span class="kw">light, porous, easily tillable, and moisture-retentive</span>.</li>
+                <li><strong>2. Annual Renewal & Mineral Wealth:</strong> It is <span class="kw">replenished annually with fresh fertile silt during river floods</span> and is rich in essential plant minerals like <span class="kw">potash and lime</span>, supporting intensive cultivation of rice, wheat, sugarcane, and jute.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Nutrient Profile:</strong>
+              <ul>
+                <li><strong>Rich in:</strong> <span class="kw">Potash and Lime</span>.</li>
+                <li><strong>Deficient in:</strong> <span class="kw">Nitrogen, Phosphorus, and Humus</span> <em>(Exception: Ganga deltaic alluvium is rich in humus)</em>.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 12,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 9x IN BOARDS",
+        qType: "alluvial_black",
+        subTopic: "Chapter: Soil Resources • Alluvial Soil vs Black Soil Comparison",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2013, 2016, 2018, 2021, 2023, and 2025. Comparing India's top two agricultural soils on origin, location, and crops is a staple 3-marker.",
+        question: "Differentiate between Alluvial Soil and Black Soil on the basis of:<br>(a) Mode of formation (Origin) [1]<br>(b) Major region/states of distribution [1]<br>(c) Chief crops grown [1]",
+        twistedVersions: [
+          "How does the soil of the Indo-Gangetic Plains differ from the soil of the Deccan Lava Plateau? State three differences.",
+          "State two differences between the soil best suited for Jute/Wheat and the soil best suited for Cotton."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Mode of Formation:</strong> <span class="kw">Alluvial Soil</span> is an <span class="kw">ex-situ (transported) sedimentary soil</span> formed by the deposition of silt brought down by rivers; <span class="kw">Black Soil</span> is an <span class="kw">in-situ (residual) volcanic soil</span> formed by the weathering of Deccan lava/basalt rocks.</li>
+            <li><strong>(b) Distribution:</strong> <span class="kw">Alluvial Soil</span> is found across the <span class="kw">Indo-Gangetic-Brahmaputra Plains</span> (Punjab, Haryana, UP, Bihar, West Bengal) and <span class="kw">Eastern Coastal Deltas</span>; <span class="kw">Black Soil</span> is found on the <span class="kw">Deccan Lava Trap</span> (Maharashtra, Gujarat, Western Madhya Pradesh, Northern Karnataka).</li>
+            <li><strong>(c) Chief Crops:</strong> <span class="kw">Alluvial Soil</span> is ideal for <span class="kw">Rice, Wheat, Sugarcane, and Jute</span>; <span class="kw">Black Soil</span> is ideal for <span class="kw">Cotton, Sugarcane, Jowar, and Virginia Tobacco</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 13,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 8x IN BOARDS",
+        qType: "red_laterite",
+        subTopic: "Chapter: Soil Resources • Red Soil vs Laterite Soil Comparison",
+        marks: "[2 Marks / 3 Marks]",
+        whyChosen: "Since BOTH Red soil and Laterite soil are red in colour, acidic, porous, and found in Peninsular India, examiners love asking students to differentiate between them!",
+        question: "Both Red Soil and Laterite Soil are red in colour and deficient in nitrogen and lime. How will you differentiate between them on the basis of:<br>(a) Process of formation [1]<br>(b) Areas of occurrence [1]<br>(c) Major crops associated [1]",
+        twistedVersions: [
+          "Give a geographical reason: Both Red soil and Laterite soil are red in colour, yet they are formed by completely different geological processes.",
+          "Differentiate between Red soil and Laterite soil."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Process of Formation:</strong> <span class="kw">Red Soil</span> is formed by the <span class="kw">weathering of ancient crystalline and metamorphic rocks</span> in regions of low-to-moderate rainfall; <span class="kw">Laterite Soil</span> is formed by <span class="kw">intense leaching (desilication)</span> under conditions of <span class="kw">heavy tropical rainfall ($>200\\text{ cm}$) and alternating wet and dry periods</span>.</li>
+            <li><strong>(b) Areas of Occurrence:</strong> <span class="kw">Red Soil</span> covers the interior plateau of <span class="kw">Tamil Nadu, Karnataka, Odisha, Andhra Pradesh, and Chhattisgarh</span>; <span class="kw">Laterite Soil</span> is found on the high <span class="kw">summits of the Western Ghats, Eastern Ghats, and Garo-Khasi-Jaintia Hills (Meghalaya)</span>.</li>
+            <li><strong>(c) Major Crops:</strong> <span class="kw">Red Soil</span> grows <span class="kw">Groundnut, Millets (Ragi, Bajra), Pulses, and Potatoes</span>; <span class="kw">Laterite Soil</span> grows plantation crops like <span class="kw">Tea, Coffee, Rubber, and Cashew nut</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 14,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 8x IN BOARDS",
+        qType: "erosion",
+        subTopic: "Chapter: Soil Resources • Causes of Soil Erosion in India",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2014, 2016, 2018, 2020, 2022, 2024, and 2026. Examiners frequently ask 'How is man largely responsible for soil erosion in India?'",
+        question: "“Human activities are more responsible for soil erosion in India than natural forces.” Justify this statement by explaining three major anthropogenic (man-made) causes of soil erosion. [3]",
+        twistedVersions: [
+          "State three causes of soil erosion in the hilly regions of India.",
+          "How do deforestation, overgrazing, and shifting cultivation (Jhum) accelerate soil erosion?",
+          "Give a geographical reason: Heavy population pressure in India has accelerated the rate of soil erosion."
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Deforestation (Reckless Cutting of Trees):</strong> Felling forests for timber, fuelwood, settlements, and agriculture <span class="kw">removes the protective vegetative canopy and tree roots that bind soil particles together</span>, exposing bare topsoil directly to heavy rain and wind.</li>
+            <li><strong>2. Overgrazing by Cattle:</strong> Unchecked grazing by large herds of cattle, sheep, and goats (especially in Rajasthan, Himachal Pradesh, and Madhya Pradesh) <span class="kw">strips the land of its grass cover</span> and hooves pulverize the dry soil into loose dust easily blown or washed away.</li>
+            <li><strong>3. Faulty Farming Practices (Shifting Cultivation / Jhum & Up-Down Ploughing):</strong> Tribal <span class="kw">slash-and-burn shifting cultivation (Jhum)</span> in North-East India and <span class="kw">ploughing up and down hill slopes</span> create natural channels for water runoff, causing severe sheet and gully erosion.</li>
+          </ul>
+        `
+      },
+      {
+        id: 15,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 8x IN BOARDS",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Why Black Soil Does Not Get Leached",
+        marks: "[1 Mark / 2 Marks]",
+        whyChosen: "A classic conceptual 'Give Reason' asked in 2015, 2018, 2021, 2023, and 2025 Specimen. Many students get stumped when asked why Black soil doesn't leach even when it rains!",
+        question: "Give a geographical reason: Black soil does not get leached (unlike Laterite soil).",
+        twistedVersions: [
+          "Why do water-soluble minerals like lime and potash remain trapped inside Black soil instead of percolating down?",
+          "Give a reason: Black soil becomes sticky and impervious when wet."
+        ],
+        answer: `
+          <ul>
+            <li>Black soil is <span class="kw">extremely fine-grained and clayey in texture (up to 60% clay)</span> with <span class="kw">high moisture-retentiveness</span>.</li>
+            <li>When wet, the clay particles <span class="kw">swell up, become sticky, and render the soil impervious</span>, preventing rainwater from percolating rapidly downwards. Hence, soluble minerals (lime, iron, potash, magnesium) are <span class="kw">not washed away (not leached)</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 16,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 7x IN BOARDS",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Why Foothills of Himalayas / Western Ghats Have Heavy Soil Erosion",
+        marks: "[1 Mark / 2 Marks]",
+        whyChosen: "Asked in 2014, 2017, 2019, 2022, and 2024. Combines topography (steep slope), climate (torrential rain), and human activity (deforestation).",
+        question: "Give a geographical reason: The foothills of the Himalayas (Siwaliks) and the slopes of the Western Ghats are prone to excessive soil erosion by running water.",
+        twistedVersions: [
+          "Why is water erosion the most destructive agent of soil erosion in the Siwalik range and the Nilgiris?",
+          "Give two reasons why hilly regions of Uttarakhand, Himachal Pradesh, and Meghalaya suffer from severe landslides and sheet erosion."
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Steep Gradient & Torrential Rainfall:</strong> These regions have <span class="kw">steep hill slopes</span> and receive <span class="kw">heavy, torrential monsoon rainfall</span>, causing rainwater to rush downhill at high velocity with immense erosive power.</li>
+            <li><strong>2. Large-Scale Deforestation:</strong> Reckless <span class="kw">felling of trees on mountain slopes</span> for roads, timber, and farming has removed the root systems that once bound the loose soil particles together.</li>
+          </ul>
+        `
+      },
+      {
+        id: 17,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 7x IN BOARDS",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Why Wind is the Main Agent of Erosion in Arid Regions",
+        marks: "[1 Mark / 2 Marks]",
+        whyChosen: "Asked in 2013, 2016, 2019, 2022, and 2024. A staple 1-mark 'Give Reason' in Q5(iii).",
+        question: "Give a geographical reason: Wind is the principal agent of soil erosion in arid and semi-arid regions (such as Western Rajasthan / Thar Desert).",
+        twistedVersions: [
+          "Why does Rajasthan suffer from severe wind erosion during the summer months?",
+          "Give a reason: Dry sandy soils in Kutch and Western Rajasthan are easily eroded by wind."
+        ],
+        answer: `
+          <ul>
+            <li>Arid and semi-arid regions like the Thar Desert receive <span class="kw">scanty rainfall ($<25\\text{ cm}$)</span> and have <span class="kw">little to no vegetative cover</span> to bind the soil.</li>
+            <li>Due to extreme heat and high evaporation, the topsoil is <span class="kw">completely dry, loose, sandy, and friable</span>, allowing strong summer winds to easily lift and blow away the fertile fine particles as dust storms.</li>
+          </ul>
+        `
+      },
+      {
+        id: 18,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 7x IN BOARDS",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Different Regions Have Different Kinds of Soil",
+        marks: "[1 Mark / 2 Marks]",
+        whyChosen: "Asked in 2015, 2018, 2021, 2023, and 2025 Specimen Paper ('Give a geographical reason: Different regions in India have different kinds of soil').",
+        question: "Give a geographical reason: Different regions in India have different kinds of soil.",
+        twistedVersions: [
+          "Why does India possess a rich variety of soils across its states?",
+          "State any three factors that govern the formation of soil (Pedogenesis) in India."
+        ],
+        answer: `
+          <ul>
+            <li>Soil formation (<span class="kw">pedogenesis</span>) depends on <span class="kw">parent rock material, relief/topography, climatic conditions (temperature & rainfall), and natural vegetation</span>.</li>
+            <li>Because India is a vast subcontinent with <span class="kw">widely varying rock structures, relief features, and climatic zones</span> across different regions, different types of soils have developed in different parts of the country.</li>
+          </ul>
+        `
+      },
+      {
+        id: 19,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 7x IN BOARDS",
+        qType: "erosion",
+        subTopic: "Chapter: Soil Resources • Need for Soil Conservation & Adverse Effects of Erosion",
+        marks: "[2 Marks / 3 Marks]",
+        whyChosen: "Appeared in 2025 Board, 2022, 2019, and 2016: 'What is meant by Soil Conservation? State two reasons why soil conservation is an urgent necessity in India.'",
+        question: "(a) What is meant by ‘Soil Conservation’? [1]<br>(b) State any two adverse effects of unchecked soil erosion that make soil conservation an urgent need in India. [2]",
+        twistedVersions: [
+          "Why is there an urgent need for soil conservation in an agrarian country like India?",
+          "How does soil erosion lead to frequent floods and silting of riverbeds and reservoirs?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Definition of Soil Conservation:</strong> <span class="kw">Soil Conservation</span> is a comprehensive effort made by man to <span class="kw">prevent soil erosion and loss of soil fertility</span> caused by natural agents, overuse, acidification, or salinization, and to reclaim degraded land.</li>
+            <li><strong>(b) Adverse Effects of Soil Erosion / Why Conservation is Needed:</strong>
+              <ul>
+                <li><strong>1. Loss of Agricultural Productivity:</strong> It takes <span class="kw">hundreds of years to form a single centimetre of topsoil</span>; washing away of the nutrient-rich humus layer drastically reduces crop yields and threatens food security.</li>
+                <li><strong>2. Silting of Riverbeds, Floods & Lowering of Water Table:</strong> Eroded silt accumulates on <span class="kw">riverbeds and dam reservoirs</span>, reducing their water-holding capacity and causing <span class="kw">devastating flash floods</span>, while reduced percolation lowers the <span class="kw">underground water table</span>.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 20,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 6x IN BOARDS",
+        qType: "alluvial_black",
+        subTopic: "Chapter: Soil Resources • Colour & Mineral Variations in Alluvial Soil",
+        marks: "[2 Marks]",
+        whyChosen: "Asked in 2016, 2019, 2022, and 2024. Examiners ask why Alluvial soil of the Deccan Coastal strip is dark/blackish while that of the Northern Plains is light grey/yellowish!",
+        question: "Give a geographical reason: The Alluvial soil of the Godavari and Krishna deltas (Deccan coastal strip) is dark/blackish in colour and more clayey than the light-coloured Alluvial soil of the Northern Plains (Ganga Valley).",
+        twistedVersions: [
+          "Differentiate between the Alluvial soil of the Northern Plains (Inland Alluvium) and the Alluvial soil of the Peninsular/Eastern Coastal Deltas.",
+          "Why do the rivers of the Deccan Plateau deposit dark-coloured, moisture-retentive alluvium?"
+        ],
+        answer: `
+          <ul>
+            <li>The Peninsular rivers (such as the <span class="kw">Godavari and Krishna</span>) flow through the <span class="kw">Deccan Lava Trap region covered with Black (Regur) soil</span>. As they erode and transport this black basaltic soil to their deltas, the deposited coastal/deltaic alluvium becomes <span class="kw">dark-coloured, clayey, and moisture-retentive</span>.</li>
+            <li>In contrast, the <span class="kw">Himalayan rivers (Ganga, Indus, Brahmaputra)</span> erode light-coloured <span class="kw">sedimentary rocks of the Himalayas</span>, forming light grey to yellowish sandy-loam alluvium in the Northern Plains.</li>
+          </ul>
+        `
+      },
+      {
+        id: 21,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 6x IN BOARDS",
+        qType: "red_laterite",
+        subTopic: "Chapter: Soil Resources • Upland Laterite vs Lowland Laterite",
+        marks: "[2 Marks]",
+        whyChosen: "Included in standard ICSE textbooks and tested when comparing why some Laterite soils in coastal valleys are slightly more fertile than those on hill summits.",
+        question: "Differentiate between ‘Upland Laterite’ and ‘Lowland Laterite’ soils. [2]",
+        twistedVersions: [
+          "How is Lowland Laterite soil formed from Upland Laterite soil?",
+          "Which of the two — Upland Laterite or Lowland Laterite — is residual (in-situ) and which is transported (ex-situ)?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>Upland Laterite:</strong> Formed <span class="kw">in-situ (residual) over high hill summits</span> (such as the Western Ghats, Eastern Ghats, and Meghalaya Plateau) by intense leaching of parent rocks. It is pale, coarse, gravelly, and less fertile.</li>
+            <li><strong>Lowland Laterite:</strong> Formed when eroded particles of Upland Laterite are <span class="kw">washed down by rainwater and deposited in low-lying coastal plains and valleys</span> (hence partly transported). It is finer, darker, and relatively more fertile than Upland Laterite.</li>
+          </ul>
+        `
+      },
+      {
+        id: 22,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 6x IN BOARDS",
+        qType: "erosion",
+        subTopic: "Chapter: Soil Resources • Role of Trees / Afforestation in Soil Conservation",
+        marks: "[2 Marks]",
+        whyChosen: "Asked in 2015, 2018, 2021, 2024, and 2026. Students must state BOTH mechanisms (root binding + canopy/windbreak effect) to score full 2 marks.",
+        question: "How does planting of trees (Afforestation and Reafforestation) prevent soil erosion by both water and wind? State two distinct mechanisms. [2]",
+        twistedVersions: [
+          "Give a geographical reason: Afforestation is the single most effective measure to check soil erosion.",
+          "Differentiate between Afforestation and Reafforestation.",
+          "How do forests help in checking floods and soil erosion simultaneously?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Root Binding Effect:</strong> The deep, dense <span class="kw">root systems of trees firmly bind the soil particles together</span>, preventing them from being detached and washed away by surface runoff or blown away by wind.</li>
+            <li><strong>2. Canopy & Humus Cushion (Checking Speed):</strong> The <span class="kw">leaf canopy breaks the direct impact (splash erosion) of heavy raindrops</span>, while fallen leaf litter forms sponge-like <span class="kw">humus that absorbs rainwater</span> and reduces surface runoff velocity. Rows of trees also act as windbreaks.</li>
+            <li><em>(Note: <strong>Afforestation</strong> = planting trees on new barren land; <strong>Reafforestation</strong> = planting 2 to 10 saplings to replace every felled tree in existing forest areas.)</em></li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 3: 'GIVE GEOGRAPHICAL REASONS' MASTER VAULT (EVERY TWIST COVERED) ---
+      {
+        id: 23,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Give Reason: Dry Farming in Red & Black Soils",
+        marks: "[1 Mark / 2 Marks]",
+        whyChosen: "Examiners ask 'Dry farming is preferred in areas with Red soil' AND 'Dry farming is practiced in Black soil'. Notice the two slightly different reasons for each!",
+        question: "Give a geographical reason for each:<br>(a) Dry farming is preferred in areas with Red soil. [1]<br>(b) Dry farming is successfully practiced in areas with Black soil. [1]",
+        twistedVersions: [
+          "Why is Red soil considered suitable for dry farming in Tamil Nadu and Karnataka?",
+          "Why can crops be grown on Black soil even after the rainy season has ended?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Red Soil & Dry Farming:</strong> Red soil is found in <span class="kw">regions of low rainfall</span> and is <span class="kw">porous and does not retain moisture</span>; hence, drought-resistant crops (like millets/ragi/bajra) that do not require much soil moisture are grown using <span class="kw">dry farming techniques</span>.</li>
+            <li><strong>(b) Black Soil & Dry Farming:</strong> Black soil is <span class="kw">fine-grained and clayey</span>, allowing its sub-soil to <span class="kw">retain moisture for a very long time</span> after the rains stop, sustaining crops without artificial irrigation.</li>
+          </ul>
+        `
+      },
+      {
+        id: 24,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Give Reason: Alluvial Soil is Called 'Riverine Soil'",
+        marks: "[1 Mark]",
+        whyChosen: "Frequently asked in 1-mark 'Give Reason' sub-parts.",
+        question: "Give a geographical reason: Alluvial soil is also known as ‘Riverine Soil’.",
+        twistedVersions: [
+          "Why is Alluvial soil predominantly found in river basins, floodplains, and deltas?"
+        ],
+        answer: `
+          <ul>
+            <li>Alluvial soil is called <span class="kw">‘Riverine Soil’</span> because it is <span class="kw">formed by the deposition of silt, sand, and clay (alluvium) brought down by rivers</span> and is primarily found along <span class="kw">river basins, floodplains, and deltas</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 25,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Give Reason: Soils of Western Ghats are Affected by Both Wind & Water / Leaching",
+        marks: "[1 Mark]",
+        whyChosen: "Tests the link between Chapter 1 (Climate — >200 cm orographic rain on Western Ghats) and Chapter 2 (Soil — Laterite formation & Sheet/Landslide erosion).",
+        question: "Give a geographical reason: The summits of the Western Ghats are covered mainly with Laterite soil and suffer from heavy sheet and slip erosion.",
+        twistedVersions: [
+          "Why is Laterite soil predominantly found along the crest of the Western Ghats and in Meghalaya (Garo-Khasi Hills)?",
+          "How does the climate of the Western Ghats determine the type of soil found on its summits?"
+        ],
+        answer: `
+          <ul>
+            <li>The summits of the Western Ghats (and Meghalaya hills) receive <span class="kw">heavy orographic rainfall ($>200\\text{ cm}$) from the South-West Monsoon</span> followed by dry spells.</li>
+            <li>This heavy rain causes <span class="kw">intense leaching (washing away of soluble lime and silica)</span> to form <span class="kw">Laterite soil</span>, while the steep slopes and torrential downpours cause severe <span class="kw">sheet erosion and landslides (slip erosion)</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 26,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Give Reason: Humus Content is Low in Most Indian Soils",
+        marks: "[1 Mark]",
+        whyChosen: "Have you noticed that Alluvial, Black, Red, and Laterite soils in India are ALL deficient in Humus (except Ganga delta)? Examiners love asking WHY!",
+        question: "Give a geographical reason: Most Indian soils (Alluvial, Black, Red, and Laterite) are generally deficient in organic matter (humus) and nitrogen.",
+        twistedVersions: [
+          "Why do tropical soils in India have low humus content despite having natural vegetation?"
+        ],
+        answer: `
+          <ul>
+            <li>Due to India’s <span class="kw">hot tropical climate</span>, high temperatures accelerate bacterial activity that <span class="kw">rapidly decomposes and destroys organic humus</span>, while heavy torrential monsoon rains wash away surface organic matter and soluble nitrogen compounds.</li>
+          </ul>
+        `
+      },
+      {
+        id: 27,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Give Reason: Black Soil Needs Tilling After First Monsoon Shower",
+        marks: "[1 Mark]",
+        whyChosen: "Appeared in ICSE Board Papers (2017, 2021, 2024). A very specific agricultural reason.",
+        question: "Give a geographical reason: Black soil has to be ploughed (tilled) immediately after the first monsoon shower (pre-monsoon rain).",
+        twistedVersions: [
+          "Why is it difficult for farmers to plough Black soil during the peak rainy season or in peak dry summer?"
+        ],
+        answer: `
+          <ul>
+            <li>Because of its high clay content, Black soil becomes <span class="kw">extremely sticky, heavy, and muddy when wet</span> during heavy rains (jamming the plough), and becomes <span class="kw">rock-hard with deep cracks when completely dry</span>. Hence, farmers must till it <span class="kw">immediately after the first light shower</span> when the soil is soft and friable.</li>
+          </ul>
+        `
+      },
+      {
+        id: 28,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Give Reason: Stream Bank Erosion in Kosi / Damodar / Brahmaputra",
+        marks: "[1 Mark]",
+        whyChosen: "Tests Stream Bank Erosion specifically.",
+        question: "Give a geographical reason: Rivers like the Kosi (in Bihar) and Brahmaputra (in Assam) cause severe stream bank erosion and frequently change their courses.",
+        twistedVersions: [
+          "How do perennial rivers in the Northern Plains cause stream bank erosion during the monsoon season?"
+        ],
+        answer: `
+          <ul>
+            <li>During the monsoon season, these rivers carry <span class="kw">huge volumes of floodwater and heavy silt loads</span>. As silt deposits choke their beds, the swollen rivers <span class="kw">undercut and erode their soft alluvial banks</span>, causing the banks to collapse and the rivers to shift their courses.</li>
+          </ul>
+        `
+      },
+      {
+        id: 29,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Give Reason: Jhum (Shifting) Cultivation is Being Discouraged",
+        marks: "[1 Mark]",
+        whyChosen: "Connects Northeast India's agriculture to Soil Conservation.",
+        question: "Give a geographical reason: Shifting cultivation (Jhuming) practiced in North-East India is strictly discouraged by the government.",
+        twistedVersions: [
+          "Why is 'Slash and Burn' agriculture harmful for soil conservation in Assam, Meghalaya, and Mizoram?"
+        ],
+        answer: `
+          <ul>
+            <li>In shifting cultivation (<span class="kw">Jhum</span>), patches of hill forests are <span class="kw">cleared by cutting and burning trees</span>. Once the ash fertility is exhausted in 2–3 years, the bare hill slope is abandoned and exposed to heavy monsoon rain, causing <span class="kw">catastrophic sheet and gully soil erosion and loss of forest cover</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 30,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Give Reason: Construction of Dams Helps in Soil Conservation",
+        marks: "[1 Mark]",
+        whyChosen: "Listed explicitly in the official syllabus under Soil Conservation measures.",
+        question: "Give a geographical reason: Construction of dams and barrages across upper courses of rivers helps in conserving soil.",
+        twistedVersions: [
+          "How do multipurpose river valley projects and check dams prevent soil erosion in river valleys?"
+        ],
+        answer: `
+          <ul>
+            <li>Dams and barrages <span class="kw">regulate the volume and velocity of rushing river water</span> during the monsoon season, <span class="kw">preventing flash floods and stream bank erosion</span> in the lower valleys.</li>
+          </ul>
+        `
+      },
+      {
+        id: 31,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Give Reason: Red Soil is Ideal for Groundnut and Millets",
+        marks: "[1 Mark]",
+        whyChosen: "Tests crop-soil matching for Red Soil.",
+        question: "Give a geographical reason: Red soil is well suited for the cultivation of groundnuts, pulses, and millets (ragi/bajra).",
+        twistedVersions: [
+          "Why do farmers in Tamil Nadu and Karnataka successfully grow ragi and groundnuts on Red soil?"
+        ],
+        answer: `
+          <ul>
+            <li>Red soil is <span class="kw">light, porous, friable (loose), and well-drained</span>. Groundnuts require loose friable soil for peg penetration beneath the ground, and millets/pulses are <span class="kw">drought-hardy crops</span> that thrive even in porous soils with low moisture retention.</li>
+          </ul>
+        `
+      },
+      {
+        id: 32,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Give Reason: Shelter Belts Are Planted Along Desert Margins",
+        marks: "[1 Mark]",
+        whyChosen: "Frequently asked in Q5(iii) as a 1-mark 'Give Reason'.",
+        question: "Give a geographical reason: Rows of trees (Shelter Belts) are planted along the margins of the Thar Desert.",
+        twistedVersions: [
+          "Why have shelter belts been planted in Western Rajasthan and Haryana?"
+        ],
+        answer: `
+          <ul>
+            <li>Rows of trees (<span class="kw">Shelter Belts / Windbreaks</span>) act as a barrier that <span class="kw">reduces the velocity of strong desert winds</span>, preventing wind erosion of topsoil and <span class="kw">stopping the eastward movement (encroachment) of shifting sand dunes</span> onto fertile agricultural fields.</li>
+          </ul>
+        `
+      },
+      {
+        id: 33,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Soil Resources • Give Reason: Soil is the Most Precious Natural Resource",
+        marks: "[1 Mark / 2 Marks]",
+        whyChosen: "Introductory syllabus concept tested in 2-mark value/significance questions.",
+        question: "Give a geographical reason: Soil is considered the most important and foundational natural resource of India.",
+        twistedVersions: [
+          "Why is soil fertility crucial for the economic prosperity of India?"
+        ],
+        answer: `
+          <ul>
+            <li>Soil forms the topmost fertile layer of the Earth’s crust that <span class="kw">supports all plant life, natural vegetation, and agriculture</span>—which directly provides <span class="kw">food, raw materials for agro-based industries, and livelihood for over half of India’s population</span>.</li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 4: SOIL EROSION, CONSERVATION SCHEMES & COMPETENCY CASE STUDIES ---
+      {
+        id: 34,
+        probTier: "alternate",
+        probLabel: "🔄 COMPETENCY CASE STUDY • 2027 BOARD TARGET",
+        qType: "erosion",
+        subTopic: "Chapter: Soil Resources • Case-Based: Soil Profile & Pedogenesis",
+        marks: "[3 Marks]",
+        whyChosen: "Tests understanding of what Soil is, what Pedogenesis is, and why Topsoil (O & A Horizons) must be protected.",
+        question: "(a) What is ‘Pedogenesis’? [1]<br>(b) What is ‘Humus’ and why is it vital for soil fertility? [1]<br>(c) Why does the removal of the top layer of soil (Topsoil) render land infertile? [1]",
+        twistedVersions: [
+          "Define Soil Fertility and state two characteristics of a fertile soil.",
+          "How does humus improve both the chemical fertility and moisture-holding capacity of soil?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Pedogenesis:</strong> The natural <span class="kw">geological and biological process of soil formation</span> through the weathering of parent rocks and decomposition of organic matter over thousands of years.</li>
+            <li><strong>(b) Humus & Its Importance:</strong> <span class="kw">Humus</span> is dark, organic matter formed by the <span class="kw">decomposition of dead plant and animal remains</span>. It enriches the soil with <span class="kw">nitrogen and essential nutrients</span>, improves soil structure, and <span class="kw">increases its moisture-retaining capacity</span>.</li>
+            <li><strong>(c) Why Removal of Topsoil Renders Land Infertile:</strong> Almost all the <span class="kw">humus, soluble plant nutrients, and beneficial soil microorganisms are concentrated in the thin topsoil layer</span>; once eroded, the underlying rocky sub-soil cannot support crop growth.</li>
+          </ul>
+        `
+      },
+      {
+        id: 35,
+        probTier: "alternate",
+        probLabel: "🔄 COMPETENCY CASE STUDY • 2027 BOARD TARGET",
+        qType: "erosion",
+        subTopic: "Chapter: Soil Resources • All 6 Types of Water Erosion (Complete Breakdown)",
+        marks: "[3 Marks]",
+        whyChosen: "Sometimes Q5(ii) asks you to define specific terms like 'Rill Erosion', 'Splash Erosion', 'Slip Erosion', or 'Sea-shore Erosion'. This card locks down every single one.",
+        question: "Define the following types of soil erosion caused by water:<br>(a) Splash Erosion [1]<br>(b) Rill Erosion [1]<br>(c) Slip Erosion (Landslides) [1]",
+        twistedVersions: [
+          "What is the intermediate stage between Sheet Erosion and Gully Erosion?",
+          "How does heavy rainfall on steep deforested mountain slopes cause Slip Erosion?",
+          "What is Sea-shore (Coastal) Erosion?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Splash Erosion:</strong> The <span class="kw">initial stage of water erosion</span> where heavy raindrops strike bare, unprotected soil with force, <span class="kw">dislodging andattering fine soil particles</span>.</li>
+            <li><strong>(b) Rill Erosion:</strong> The <span class="kw">intermediate stage between sheet erosion and gully erosion</span>, where surface runoff begins cutting <span class="kw">small, shallow finger-like grooves or channels (rills)</span> across the field. If not ploughed over, rills deepen into gullies.</li>
+            <li><strong>(c) Slip Erosion:</strong> When heavy rains saturate soil and weathered rock on steep, deforested mountain slopes, the <span class="kw">entire mass of topsoil and rock slides down the slope under gravity as a landslide</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 36,
+        probTier: "alternate",
+        probLabel: "🔄 COMPETENCY CASE STUDY • 2027 BOARD TARGET",
+        qType: "erosion",
+        subTopic: "Chapter: Soil Resources • Agronomic vs Mechanical Soil Conservation",
+        marks: "[3 Marks]",
+        whyChosen: "Matches the modern ICSE pattern where a student is asked to advise a village panchayat on soil conservation without expensive machinery.",
+        question: "A village panchayat in a hilly district of Uttarakhand is facing severe topsoil loss during the monsoon season and wants to adopt low-cost biological and agricultural conservation practices.<br>(a) Suggest any two biological/agronomic soil conservation methods they can adopt. [2]<br>(b) Suggest one mechanical/engineering method for their steepest slopes. [1]",
+        twistedVersions: [
+          "How do Crop Rotation and Cover Crops help in conserving soil fertility and preventing erosion?",
+          "State three methods of soil conservation practiced in India."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Biological / Agronomic Methods:</strong>
+              <ul>
+                <li><strong>1. Contour Ploughing & Strip Cropping:</strong> Ploughing across the slope along contours and planting alternating strips of leguminous cover crops (pulses/grasses) to bind soil and slow runoff.</li>
+                <li><strong>2. Afforestation & Controlled Grazing:</strong> Planting native deep-rooted trees on community wasteland and restricting cattle grazing to designated pastures.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Mechanical / Engineering Method for Steepest Slopes:</strong> <span class="kw">Terrace Farming</span> (cutting horizontal step-like terraces with bunds) and <span class="kw">constructing Check Dams / Plugging Gullies</span> across hill streams.</li>
+          </ul>
+        `
+      },
+      {
+        id: 37,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "alluvial_black",
+        subTopic: "Chapter: Soil Resources • Three Regional Sub-Types of Alluvial Soil",
+        marks: "[3 Marks]",
+        whyChosen: "The ICSE syllabus specifies 'Alluvial soil — distribution (Deltaic, Coastal, and Inland Alluvium)'. Knowing the 1-line distinction between all three guarantees no surprises.",
+        question: "Name and briefly describe the three regional types of Alluvial Soil found in India based on their location. [3]",
+        twistedVersions: [
+          "Where is Coastal Alluvium and Deltaic Alluvium found in India?",
+          "Why is Coastal Alluvium on the Western Coast less extensive and more sandy than Deltaic Alluvium on the Eastern Coast?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Inland Alluvium:</strong> Found across the vast <span class="kw">Indo-Gangetic-Brahmaputra Plains</span> (Punjab, Haryana, UP, Bihar, West Bengal, Assam); deposited by the Indus, Ganga, and Brahmaputra river systems.</li>
+            <li><strong>2. Deltaic Alluvium:</strong> Found in the <span class="kw">deltas of the Ganga-Brahmaputra, Mahanadi, Godavari, Krishna, and Kaveri rivers</span> along the Eastern Coast; consists of very fine, dark, moisture-retentive clay and silt rich in humus.</li>
+            <li><strong>3. Coastal Alluvium:</strong> Found along the <span class="kw">narrow coastal strips of Peninsular India</span> (Gujarat, Konkan, Malabar, and Coromandel coasts); caused by tidal action and short coastal streams, hence slightly <span class="kw">sandy and less fertile</span> than deltaic alluvium.</li>
+          </ul>
+        `
+      },
+      {
+        id: 38,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "red_laterite",
+        subTopic: "Chapter: Soil Resources • Why Tea, Coffee & Cashew Grow Well on Laterite Soil",
+        marks: "[2 Marks]",
+        whyChosen: "Tests the connection between Laterite soil on hill slopes and plantation agriculture.",
+        question: "Name any two plantation crops that grow well on Laterite Soil, and explain what agricultural inputs are needed to make Laterite soil productive. [2]",
+        twistedVersions: [
+          "Which soil in Kerala, Karnataka, and Assam hills is used for growing Tea, Coffee, Rubber, and Cashew nuts?",
+          "How have farmers in the Nilgiris and Western Ghats turned infertile Laterite soil into productive plantation land?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>Plantation Crops:</strong> <span class="kw">Tea, Coffee, Rubber, Cinchona, Coconut, and Cashew nut</span> (any two). <em>(Note: Cashew nut and Tapioca are the #1 board keywords for Laterite soil!)</em></li>
+            <li><strong>Agricultural Inputs Required:</strong> Since Laterite soil is acidic, porous, and leached of nutrients, it is made productive by <span class="kw">heavy application of manure/fertilizers, liming (to neutralize acidity), regular irrigation, and terrace farming</span> on well-drained hill slopes.</li>
+          </ul>
+        `
+      },
+      {
+        id: 39,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "erosion",
+        subTopic: "Chapter: Soil Resources • Regions Severely Affected by Soil Erosion in India",
+        marks: "[2 Marks]",
+        whyChosen: "Sometimes asked as 'Name two regions in India worst affected by water erosion and two regions affected by wind erosion.'",
+        question: "Name any two specific regions in India worst affected by:<br>(a) Soil erosion by running water (Sheet / Gully erosion) [1]<br>(b) Soil erosion by wind [1]",
+        twistedVersions: [
+          "Name the badlands/ravine belt of Central India.",
+          "Which states in India suffer the highest loss of topsoil due to wind erosion?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Regions Worst Affected by Water Erosion:</strong>
+              <ul>
+                <li><span class="kw">Chambal Valley Ravines</span> (Madhya Pradesh, Rajasthan, UP — Gully erosion).</li>
+                <li><span class="kw">Outer Himalayas / Siwalik Foothills</span>, <span class="kw">Chota Nagpur Plateau</span>, <span class="kw">Nilgiris / Western Ghats</span>, and <span class="kw">North-Eastern Hills (Assam/Meghalaya)</span>.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Regions Worst Affected by Wind Erosion:</strong>
+              <ul>
+                <li><span class="kw">Western Rajasthan (Thar Desert)</span>, <span class="kw">Southern Haryana / South-West Punjab</span>, and <span class="kw">Kutch region of Gujarat</span>.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 40,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "alluvial_black",
+        subTopic: "Chapter: Soil Resources • State-Wise Distribution of All 4 Soils",
+        marks: "[2 Marks]",
+        whyChosen: "In almost every paper, 1 mark is allotted to 'Name one state/region in India where X soil is largely found.' Never write a vague answer—memorize the #1 state for each soil!",
+        question: "Name two main states in India where each of the following soils is predominantly found:<br>(a) Alluvial Soil &nbsp; (b) Black Soil &nbsp; (c) Red Soil &nbsp; (d) Laterite Soil [2]",
+        twistedVersions: [
+          "Name the predominant soil found in: (i) Maharashtra and Gujarat, (ii) Uttar Pradesh and Punjab, (iii) Tamil Nadu and Odisha, (iv) Summits of Western Ghats and Meghalaya."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Alluvial Soil:</strong> <span class="kw">Uttar Pradesh, Punjab, Haryana, Bihar, West Bengal</span>.</li>
+            <li><strong>(b) Black (Regur) Soil:</strong> <span class="kw">Maharashtra, Gujarat, Western Madhya Pradesh</span> (Deccan Trap).</li>
+            <li><strong>(c) Red Soil:</strong> <span class="kw">Tamil Nadu, Karnataka, Odisha, Andhra Pradesh, Chhattisgarh</span>.</li>
+            <li><strong>(d) Laterite Soil:</strong> <span class="kw">Kerala, Goa, Karnataka (Western Ghats summits), Odisha (Eastern Ghats), Meghalaya (Khasi/Garo hills)</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 41,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "erosion",
+        subTopic: "Chapter: Soil Resources • Government & Community Role in Soil Conservation",
+        marks: "[2 Marks]",
+        whyChosen: "Covers the final line of the ICSE syllabus on Soil Conservation.",
+        question: "State any two ways in which local communities and farmers can actively participate in soil conservation programmes. [2]",
+        twistedVersions: [
+          "Mention two steps taken in India to reclaim ravines and check desert expansion.",
+          "How do Van Mahotsav and social forestry contribute to soil conservation?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Community Afforestation & Social Forestry:</strong> Participating in tree-planting drives (<span class="kw">Van Mahotsav / Reafforestation</span>) on village commons, riverbanks, and hill slopes, and stopping illegal felling of trees.</li>
+            <li><strong>2. Adopting Scientific Farming & Grazing Control:</strong> Practicing <span class="kw">contour ploughing, strip cropping, crop rotation, stall-feeding of cattle</span> (to prevent overgrazing), and replacing shifting cultivation (Jhum) with <span class="kw">terrace farming</span>.</li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 5: 'NAME THE SOIL / TERM' MASTER RIDDLES (GUARANTEED 3-MARK BOARD FORMAT) ---
+      {
+        id: 42,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD RIDDLE VAULT • 99% PROBABILITY",
+        qType: "riddle",
+        subTopic: "Chapter: Soil Resources • 'Name the Soil' Board Riddles (Set 1 — Most Repeated)",
+        marks: "[3 Marks]",
+        whyChosen: "In 9 out of the last 10 ICSE Geography Board Papers, Question 5(ii) or 5(iv) has been a 3-mark 'Name the soil which...' riddle! Mastering Sets 1 & 2 guarantees 3/3 marks in under 30 seconds.",
+        question: "Name the soil which:<br>(a) Is formed by the weathering of basic volcanic lava (Deccan Trap) rocks and is ideal for cotton cultivation. [1]<br>(b) Covers the largest area in India (about 40%) and forms the granary of the country. [1]<br>(c) Is formed due to intense leaching in areas of heavy tropical rainfall ($>200\\text{ cm}$) and is used for making building bricks. [1]",
+        twistedVersions: [
+          "Name the soil which: (i) Has self-ploughing capacity and retains moisture for a long time, (ii) Is an ex-situ soil deposited by rivers, (iii) Supports Cashew nut and Tapioca cultivation on the summits of the Western Ghats."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Volcanic / Cotton / Self-Ploughing Soil:</strong> <span class="kw">Black Soil (or Regur Soil)</span>.</li>
+            <li><strong>(b) Largest Area / River-Deposited / Granary Soil:</strong> <span class="kw">Alluvial Soil</span>.</li>
+            <li><strong>(c) Leached / Brick-Making / Cashew & Tapioca Soil:</strong> <span class="kw">Laterite Soil</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 43,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • 'NAME THE SOIL' RIDDLES (SET 2)",
+        qType: "riddle",
+        subTopic: "Chapter: Soil Resources • 'Name the Soil' Board Riddles (Set 2 — Tricky Clues)",
+        marks: "[3 Marks]",
+        whyChosen: "Covers the trickier clues used in recent board papers (hydrated yellow form, kankar nodules, acidic crystalline origin).",
+        question: "Name the soil which:<br>(a) Is formed by the weathering of ancient crystalline and metamorphic rocks, is rich in iron oxide, and appears yellow when hydrated. [1]<br>(b) Is the older alluvium found on higher river terraces containing calcareous ‘kankar’ nodules. [1]<br>(c) Is the newer alluvium replenished every year by river floods and is extremely fertile. [1]",
+        twistedVersions: [
+          "Name the soil which: (i) Is second largest in area in India and covers most of Tamil Nadu, (ii) Is known as Bhangar vs Khadar, (iii) Is rich in Lime, Iron, Magnesium, and Alumina (LIMPCA)."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Crystalline / Iron Oxide / Yellow when Hydrated:</strong> <span class="kw">Red Soil</span>.</li>
+            <li><strong>(b) Older Alluvium with Kankar Nodules:</strong> <span class="kw">Bhangar (Older Alluvial Soil)</span>.</li>
+            <li><strong>(c) Newer Alluvium Replenished Annually:</strong> <span class="kw">Khadar (Newer Alluvial Soil)</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 44,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • 'GIVE ONE GEOGRAPHICAL TERM' VAULT",
+        qType: "riddle",
+        subTopic: "Chapter: Soil Resources • One-Word Geographical Terms (Erosion & Conservation)",
+        marks: "[3 Marks]",
+        whyChosen: "Frequently asked in Q5(i) or Q5(iv): 'Give a single geographical term for each of the following descriptions.'",
+        question: "Give one geographical term for each of the following:<br>(1) The process of percolation of water-soluble minerals (lime and silica) downwards due to heavy rainfall.<br>(2) The slow, uniform removal of a thin surface layer of topsoil by heavy rain on gentle slopes.<br>(3) Deep channels/ravines cut by running water that turn agricultural land into badland topography.<br>(4) Ploughing along the outline of a hill slope perpendicular to the direction of water flow.<br>(5) Planting rows of trees perpendicular to the wind direction along desert margins.",
+        twistedVersions: [
+          "Name the term for: (i) Desilication, (ii) Soils found at their place of origin, (iii) Soils carried and deposited by agents of gradation."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Percolation of lime and silica downwards:</strong> <span class="kw">Leaching (or Desilication)</span>.</li>
+            <li><strong>(2) Uniform removal of thin surface layer of topsoil:</strong> <span class="kw">Sheet Erosion</span>.</li>
+            <li><strong>(3) Deep channels/ravines forming badlands:</strong> <span class="kw">Gully Erosion</span>.</li>
+            <li><strong>(4) Ploughing along hill contours:</strong> <span class="kw">Contour Ploughing</span>.</li>
+            <li><strong>(5) Rows of trees blocking desert wind:</strong> <span class="kw">Shelter Belts (or Windbreaks)</span>.</li>
+            <li><strong>Bonus:</strong> Soils at place of origin = <span class="kw">In-situ (Residual) Soil</span>; Transported soils = <span class="kw">Ex-situ (Transported) Soil</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 45,
+        probTier: "alternate",
+        probLabel: "🔄 COMPETENCY LAB TEST RIDDLE • 2027 SPECIMEN STYLE",
+        qType: "riddle",
+        subTopic: "Chapter: Soil Resources • Soil Sample Identification Case Study",
+        marks: "[3 Marks]",
+        whyChosen: "In the latest competency questions, a student collects three soil samples (Sample A, Sample B, Sample C) during a school excursion and records their properties in a table. You have to identify the soils and answer!",
+        question: "During a Geography field trip, Aryan collected three soil samples:<br>• <strong>Sample A:</strong> Collected from Ratnagiri / Goa hills; reddish-brown, coarse, acidic, and hardens like iron on drying.<br>• <strong>Sample B:</strong> Collected from Nagpur (Maharashtra); deep black, clayey, sticky when wet, and develops cracks when dry.<br>• <strong>Sample C:</strong> Collected from Madurai (Tamil Nadu); red, porous, friable, formed from crystalline gneiss rocks.<br><br>(a) Identify Soil Samples A, B, and C. [1.5]<br>(b) Suggest one ideal cash/plantation crop for Sample A and one for Sample B. [1]<br>(c) Which of the three samples has the highest moisture-retention capacity? [0.5]",
+        twistedVersions: [
+          "Match the soil sample with its parent rock and chief crop."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Identification:</strong>
+              <ul>
+                <li><strong>Sample A:</strong> <span class="kw">Laterite Soil</span>.</li>
+                <li><strong>Sample B:</strong> <span class="kw">Black Soil (Regur Soil)</span>.</li>
+                <li><strong>Sample C:</strong> <span class="kw">Red Soil</span>.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Ideal Crops:</strong>
+              <ul>
+                <li><strong>Sample A (Laterite):</strong> <span class="kw">Cashew nut / Tea / Coffee / Rubber / Tapioca</span>.</li>
+                <li><strong>Sample B (Black Soil):</strong> <span class="kw">Cotton / Sugarcane</span>.</li>
+              </ul>
+            </li>
+            <li><strong>(c) Highest Moisture-Retention Capacity:</strong> <span class="kw">Sample B (Black Soil)</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 46,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • COMPLETE MINERAL MNEMONIC & CROP LOCK",
+        qType: "riddle",
+        subTopic: "Chapter: Soil Resources • Ultimate Mineral & Crop Memory Check",
+        marks: "[3 Marks]",
+        whyChosen: "Students often mix up which soil is rich in Lime/Potash vs which soil is deficient in Lime! This final card gives you the ultimate 10-second memory hack so you never confuse soil minerals in the exam hall.",
+        question: "Answer the following rapid-fire mineral and crop questions to lock 100% accuracy:<br>(1) Which two soils in India are <strong>RICH in Lime and Potash</strong>? [1]<br>(2) Which two soils in India are <strong>DEFICIENT in Lime (and therefore Acidic)</strong>? [1]<br>(3) Which nutrient are <strong>ALL FOUR Indian soils deficient in</strong> (with only one deltaic exception)? [1]",
+        twistedVersions: [
+          "Name a soil in India that is acidic in nature and state why it is acidic.",
+          "State two chemical similarities between Alluvial soil and Black soil."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Soils RICH in Lime & Potash:</strong> <span class="kw">Alluvial Soil</span> and <span class="kw">Black Soil</span> (Remember for Black Soil: <strong>L-I-M-P-C-A</strong> = Lime, Iron, Magnesium, Potash, Calcium, Alumina).</li>
+            <li><strong>(2) Soils DEFICIENT in Lime (and Acidic in nature):</strong> <span class="kw">Red Soil</span> and <span class="kw">Laterite Soil</span> (acidic because alkalis/lime are absent or leached away).</li>
+            <li><strong>(3) Universal Deficiency Across All 4 Soils:</strong> All four Indian soils are deficient in <span class="kw">Nitrogen, Phosphorus, and Humus (Organic Matter)</span> — <em>the only exception is the <strong>Ganga-Brahmaputra Deltaic Alluvium</strong>, which is rich in humus!</em></li>
+          </ul>
+          <div class="examiner-tip"><strong>10-Second Exam Hall Cheat Code:</strong> If the examiner asks "Name one nutrient this soil is deficient in" for <em>any</em> soil in India, writing <span class="kw">Nitrogen / Phosphorus</span> is <strong>100% correct for ALL FOUR soils</strong>!</div>
+        `
+      }
+    ];
+
+    // =========================================================================
+    // APP STATE, MODE SWITCHER, BLUR RECALL, FILTERS & TIMER
+    // =========================================================================
+    let currentMode = 'dpp'; // 'dpp' | 'gothrough' | 'blur'
+    let currentProbFilter = 'all';
+    let currentTypeFilter = 'all';
+    let masteredIds = new Set(JSON.parse(localStorage.getItem('icse2027_soil_mastered') || '[]'));
+    let reviewIds = new Set(JSON.parse(localStorage.getItem('icse2027_soil_review') || '[]'));
+    let revealedIds = new Set();
+
+    let timerSeconds = 1800;
+    let timerInterval = null;
+    let isTimerRunning = false;
+
+    function saveProgress() {
+      localStorage.setItem('icse2027_soil_mastered', JSON.stringify([...masteredIds]));
+      localStorage.setItem('icse2027_soil_review', JSON.stringify([...reviewIds]));
+      updateStats();
+    }
+
+    function updateStats() {
+      document.getElementById('statMastered').textContent = masteredIds.size;
+      document.getElementById('statReview').textContent = reviewIds.size;
+      const pct = Math.round((masteredIds.size / soilQuestions.length) * 100);
+      const bar = document.getElementById('masteryProgressBar');
+      if (bar) bar.style.width = `${pct}%`;
+    }
+
+    function toggleMatrixDrawer() {
+      const drawer = document.getElementById('matrixDrawer');
+      const btn = document.getElementById('matrixBtn');
+      const isOpen = drawer.classList.toggle('open');
+      if (btn) {
+        btn.innerHTML = isOpen
+          ? '✖ Hide 60-Second 4-Soil Master Comparison Cheat Sheet'
+          : '📊 Open 60-Second 4-Soil Master Comparison Cheat Sheet';
+      }
+    }
+
+    function setStudyMode(mode) {
+      currentMode = mode;
+      document.getElementById('btnDppMode').classList.toggle('active', mode === 'dpp');
+      document.getElementById('btnGoMode').classList.toggle('active', mode === 'gothrough');
+      document.getElementById('btnBlurMode').classList.toggle('active', mode === 'blur');
+      document.body.classList.toggle('blur-mode', mode === 'blur');
+
+      const mBtn = document.getElementById('mobileModeBtn');
+      if (mBtn) {
+        const labelMap = { dpp: 'Mode: DPP', gothrough: 'Mode: Go-Through', blur: 'Mode: Blur' };
+        mBtn.textContent = labelMap[mode];
+      }
+      renderQuestions();
+    }
+
+    function cycleMobileMode() {
+      if (currentMode === 'dpp') setStudyMode('gothrough');
+      else if (currentMode === 'gothrough') setStudyMode('blur');
+      else setStudyMode('dpp');
+    }
+
+    function setProbFilter(prob, btnEl) {
+      currentProbFilter = prob;
+      document.querySelectorAll('[data-prob]').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      renderQuestions();
+    }
+
+    function setTypeFilter(type, btnEl) {
+      currentTypeFilter = type;
+      document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      renderQuestions();
+    }
+
+    function toggleAnswer(id) {
+      if (revealedIds.has(id)) revealedIds.delete(id);
+      else revealedIds.add(id);
+
+      const panel = document.getElementById(`ans-${id}`);
+      const btn = document.getElementById(`revbtn-${id}`);
+      if (panel && btn) {
+        const isShown = revealedIds.has(id);
+        panel.classList.toggle('visible', isShown);
+        btn.innerHTML = isShown ? '🙈 Hide Official Board Answer' : '👁 Show Official Board Answer';
+      }
+    }
+
+    function expandAllAnswers() {
+      soilQuestions.forEach(q => revealedIds.add(q.id));
+      renderQuestions();
+    }
+
+    function collapseAllAnswers() {
+      revealedIds.clear();
+      if (currentMode !== 'dpp') setStudyMode('dpp');
+      else renderQuestions();
+    }
+
+    function toggleMastered(id) {
+      if (masteredIds.has(id)) masteredIds.delete(id);
+      else {
+        masteredIds.add(id);
+        reviewIds.delete(id);
+      }
+      saveProgress();
+      renderQuestions();
+    }
+
+    function toggleReview(id) {
+      if (reviewIds.has(id)) reviewIds.delete(id);
+      else {
+        reviewIds.add(id);
+        masteredIds.delete(id);
+      }
+      saveProgress();
+      renderQuestions();
+    }
+
+    function getProbClass(tier) {
+      if (tier === 'specimen') return 'prob-specimen';
+      if (tier === 'highest') return 'prob-highest';
+      if (tier === 'alternate') return 'prob-alternate';
+      return 'prob-safety';
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      const query = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+
+      const filtered = soilQuestions.filter(q => {
+        if (currentProbFilter !== 'all' && q.probTier !== currentProbFilter) return false;
+        if (currentTypeFilter === 'revision') {
+          if (!reviewIds.has(q.id)) return false;
+        } else if (currentTypeFilter !== 'all' && q.qType !== currentTypeFilter) {
+          return false;
+        }
+        if (query) {
+          const hay = (
+            q.question + ' ' +
+            q.subTopic + ' ' +
+            q.whyChosen + ' ' +
+            q.twistedVersions.join(' ') + ' ' +
+            q.answer
+          ).toLowerCase();
+          return hay.includes(query);
+        }
+        return true;
+      });
+
+      document.getElementById('statTotal').textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="q-card" style="text-align:center; padding:40px;">
+            <h3 style="margin-bottom:8px;">No matching questions found</h3>
+            <p style="color:var(--text-secondary); font-size:0.9rem;">Try clearing your search bar or switching the filter chip back to "All Questions".</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(q => {
+        const isAnswerVisible = currentMode === 'gothrough' || currentMode === 'blur' || revealedIds.has(q.id);
+        const isMastered = masteredIds.has(q.id);
+        const isReview = reviewIds.has(q.id);
+
+        return `
+          <article class="q-card ${isMastered ? 'mastered' : ''} ${isReview ? 'review-later' : ''}" id="qcard-${q.id}">
+            <div class="q-header">
+              <div class="badge-group">
+                <span class="q-num">Q${q.id}</span>
+                <span class="prob-badge ${getProbClass(q.probTier)}">${q.probLabel}</span>
+                <span class="topic-badge">${q.subTopic}</span>
+              </div>
+              <span class="marks-badge">${q.marks}</span>
+            </div>
+
+            <div class="dna-box">
+              <strong>🧬 Why Chosen (Examiner Pattern DNA):</strong> ${q.whyChosen}
+            </div>
+
+            <div class="q-main">
+              ${q.question}
+            </div>
+
+            <div class="twists-container">
+              <div class="twists-title">
+                🔀 All Twisted / Same-Answer Board Variations (${q.twistedVersions.length} Variations):
+              </div>
+              <ul class="twists-list">
+                ${q.twistedVersions.map(t => `<li>${t}</li>`).join('')}
+              </ul>
+            </div>
+
+            <div class="q-actions">
+              ${currentMode === 'dpp' ? `
+                <button class="reveal-btn" id="revbtn-${q.id}" onclick="toggleAnswer(${q.id})">
+                  ${isAnswerVisible ? '🙈 Hide Official Board Answer' : '👁 Show Official Board Answer'}
+                </button>
+              ` : currentMode === 'blur' ? `
+                <span style="font-size:0.78rem; color:var(--accent-emerald); font-weight:700;">🧠 Active Recall Mode: Tap or hover any blurred green keyword below to reveal it!</span>
+              ` : `
+                <span style="font-size:0.78rem; color:var(--accent-amber); font-weight:700;">⚡ Go-Through Mode Active (Answer Expanded Below)</span>
+              `}
+
+              <div class="self-eval-group">
+                <button class="eval-btn master-btn ${isMastered ? 'active' : ''}" onclick="toggleMastered(${q.id})">
+                  ${isMastered ? '✔ Mastered' : 'Mark Mastered'}
+                </button>
+                <button class="eval-btn rev-btn ${isReview ? 'active' : ''}" onclick="toggleReview(${q.id})">
+                  ${isReview ? '⭐ In Revision List' : '⭐ Needs Revision'}
+                </button>
+              </div>
+            </div>
+
+            <div class="answer-panel ${isAnswerVisible ? 'visible' : ''}" id="ans-${q.id}">
+              <div class="ans-header">
+                <span class="ans-badge">✅ Official CISCE Council Marking Scheme Answer</span>
+              </div>
+              <div class="ans-body">
+                ${q.answer}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Allow tapping blurred keywords on mobile to toggle unblur
+    document.addEventListener('click', (e) => {
+      if (e.target && e.target.classList.contains('kw') && document.body.classList.contains('blur-mode')) {
+        e.target.classList.toggle('unblurred');
+      }
+    });
+
+    // =========================================================================
+    // COUNTDOWN TIMER & SELF-DOWNLOAD
+    // =========================================================================
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function updateTimerUI() {
+      const text = formatTime(timerSeconds);
+      const d1 = document.getElementById('timerDisplay');
+      const d2 = document.getElementById('mobileTimerDisplay');
+      [d1, d2].forEach(el => {
+        if (!el) return;
+        el.textContent = text;
+        el.classList.remove('warning', 'danger');
+        if (timerSeconds <= 60) el.classList.add('danger');
+        else if (timerSeconds <= 300) el.classList.add('warning');
+      });
+    }
+
+    function changeTimerPreset() {
+      const val = parseInt(document.getElementById('timerPreset').value, 10);
+      pauseTimer();
+      timerSeconds = val;
+      updateTimerUI();
+    }
+
+    function toggleTimer() {
+      if (isTimerRunning) pauseTimer();
+      else startTimer();
+    }
+
+    function startTimer() {
+      if (isTimerRunning) return;
+      isTimerRunning = true;
+      const btn = document.getElementById('timerToggleBtn');
+      const mBtn = document.getElementById('mobileTimerBtn');
+      if (btn) { btn.textContent = 'Pause'; btn.className = 't-btn pause'; }
+      if (mBtn) { mBtn.textContent = 'Pause'; mBtn.className = 't-btn pause'; }
+
+      timerInterval = setInterval(() => {
+        if (timerSeconds > 0) {
+          timerSeconds--;
+          updateTimerUI();
+        } else {
+          pauseTimer();
+          alert('⏰ Time is up! Check your answers against the Official CISCE Marking Scheme.');
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      isTimerRunning = false;
+      clearInterval(timerInterval);
+      const btn = document.getElementById('timerToggleBtn');
+      const mBtn = document.getElementById('mobileTimerBtn');
+      if (btn) { btn.textContent = 'Start'; btn.className = 't-btn start'; }
+      if (mBtn) { mBtn.textContent = 'Start'; mBtn.className = 't-btn start'; }
+    }
+
+    function resetTimer() {
+      pauseTimer();
+      timerSeconds = parseInt(document.getElementById('timerPreset').value, 10);
+      updateTimerUI();
+    }
+
+    function downloadSelfHtml() {
+      const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ICSE_2027_Geography_Soil_Resources_DPP.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      updateStats();
+      renderQuestions();
+      startTimer();
+    });
+  </script>
+</body>
+</html>
