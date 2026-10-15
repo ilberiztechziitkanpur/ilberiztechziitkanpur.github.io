@@ -1,0 +1,2650 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>ICSE 2027 Geography DPP — Chapter 9: Waste Management (Extreme UI v4.0)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #060907;
+      --bg-secondary: #0c130f;
+      --bg-card: rgba(15, 25, 20, 0.88);
+      --bg-card-hover: rgba(22, 36, 29, 0.96);
+      --text-primary: #f0fdf4;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-lime: #84cc16;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-cyan: #06b6d4;
+      --accent-rose: #f43f5e;
+      --border-subtle: rgba(148, 163, 184, 0.15);
+      --shadow-glow: 0 12px 35px -10px rgba(132, 204, 22, 0.2);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background-color: var(--bg-primary);
+      background-image: 
+        radial-gradient(circle at 12% 10%, rgba(132, 204, 22, 0.13) 0%, transparent 36%),
+        radial-gradient(circle at 88% 16%, rgba(16, 185, 129, 0.11) 0%, transparent 40%),
+        radial-gradient(circle at 50% 90%, rgba(245, 158, 11, 0.08) 0%, transparent 45%);
+      background-attachment: fixed;
+      color: var(--text-primary);
+      line-height: 1.65;
+      padding-bottom: 110px;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: #1a2e22; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-lime); }
+
+    /* Top Sticky Command Bar */
+    .command-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6, 9, 7, 0.9);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .progress-strip {
+      height: 3px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-lime), var(--accent-emerald), var(--accent-amber));
+      transition: width 0.35s ease;
+    }
+
+    .command-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .home-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .home-nav-btn:hover {
+      background: rgba(132, 204, 22, 0.16);
+      border-color: var(--accent-lime);
+      color: var(--accent-lime);
+      transform: translateX(-2px);
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--accent-lime), var(--accent-emerald));
+      color: #051109;
+      font-weight: 900;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      box-shadow: 0 0 16px rgba(132, 204, 22, 0.38);
+    }
+
+    .brand-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+    }
+
+    .brand-sub {
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      display: block;
+    }
+
+    .controls-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* 3-Mode Pill Switcher */
+    .mode-pill {
+      display: inline-flex;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      padding: 3px;
+    }
+
+    .mode-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    .mode-btn.active {
+      background: linear-gradient(135deg, var(--accent-lime), var(--accent-emerald));
+      color: #041208;
+      box-shadow: 0 2px 12px rgba(132, 204, 22, 0.35);
+    }
+
+    /* Timer Box */
+    .timer-widget {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .timer-display {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #bef264;
+      min-width: 58px;
+      text-align: center;
+    }
+
+    .timer-display.warning { color: var(--accent-amber); }
+    .timer-display.danger { color: var(--accent-rose); animation: pulse 1s infinite; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .preset-select {
+      background: rgba(255,255,255,0.05);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 4px 7px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .preset-select option { background: var(--bg-secondary); color: var(--text-primary); }
+
+    .t-btn {
+      border: none;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .t-btn:hover { background: rgba(255, 255, 255, 0.16); }
+    .t-btn.start { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .t-btn.pause { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+
+    .container {
+      max-width: 1300px;
+      margin: 22px auto 0;
+      padding: 0 18px;
+    }
+
+    /* Hero Card */
+    .hero-card {
+      background: linear-gradient(145deg, rgba(15, 27, 21, 0.94), rgba(8, 15, 11, 0.96));
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-lime), var(--accent-emerald), var(--accent-amber));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.65fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #bef264;
+      background: rgba(132, 204, 22, 0.14);
+      border: 1px solid rgba(132, 204, 22, 0.38);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.4rem, 2.7vw, 2.05rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #ffffff, #d9f99d);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .syllabus-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .syl-pill {
+      font-size: 0.72rem;
+      color: #ecfccb;
+      background: rgba(132, 204, 22, 0.08);
+      border: 1px solid rgba(132, 204, 22, 0.24);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .cheat-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cheat-toggle-btn {
+      background: linear-gradient(135deg, rgba(132, 204, 22, 0.22), rgba(16, 185, 129, 0.22));
+      border: 1px solid rgba(132, 204, 22, 0.48);
+      color: #bef264;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cheat-toggle-btn:hover {
+      background: linear-gradient(135deg, var(--accent-lime), var(--accent-emerald));
+      color: #051209;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stat-box {
+      background: rgba(9, 16, 12, 0.92);
+      border: 1px solid var(--border-subtle);
+      padding: 14px;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #bef264;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* Interactive Dual-Tab Cheat Sheet Drawer */
+    .matrix-drawer {
+      background: var(--bg-card);
+      border: 1px solid rgba(132, 204, 22, 0.42);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 22px;
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .matrix-drawer.open { display: block; }
+
+    .drawer-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .d-tab {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .d-tab.active {
+      background: rgba(132, 204, 22, 0.22);
+      color: #bef264;
+      border-color: var(--accent-lime);
+    }
+
+    .matrix-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.81rem;
+      min-width: 860px;
+      text-align: left;
+    }
+
+    .matrix-table th {
+      background: rgba(132, 204, 22, 0.16);
+      color: #ecfccb;
+      padding: 10px 12px;
+      border: 1px solid var(--border-subtle);
+      font-weight: 800;
+    }
+
+    .matrix-table td {
+      padding: 9px 12px;
+      border: 1px solid var(--border-subtle);
+      color: #e2e8f0;
+      background: rgba(9, 16, 12, 0.78);
+      vertical-align: top;
+    }
+
+    /* Filter & Search Panel */
+    .filter-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .search-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 220px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-lime);
+      box-shadow: 0 0 0 3px rgba(132, 204, 22, 0.18);
+    }
+
+    .action-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 8px 13px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .action-btn:hover {
+      border-color: var(--accent-lime);
+      background: rgba(132, 204, 22, 0.16);
+    }
+
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .chip-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-right: 4px;
+    }
+
+    .f-chip {
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .f-chip:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.25); }
+    .f-chip.active {
+      background: rgba(132, 204, 22, 0.22);
+      color: #bef264;
+      border-color: var(--accent-lime);
+    }
+
+    /* Question Cards */
+    .questions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .q-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      transition: all 0.22s ease;
+      position: relative;
+    }
+
+    .q-card:hover {
+      border-color: rgba(132, 204, 22, 0.42);
+      box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.65);
+    }
+
+    .q-card.mastered { border-left: 4px solid var(--accent-emerald); }
+    .q-card.review-later { border-left: 4px solid var(--accent-amber); }
+
+    .q-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .q-num {
+      background: linear-gradient(135deg, #1a2e22, #0b150f);
+      border: 1px solid rgba(132, 204, 22, 0.38);
+      color: #bef264;
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+
+    .prob-badge {
+      font-size: 0.71rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .prob-specimen {
+      background: rgba(16, 185, 129, 0.18);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+    }
+
+    .prob-highest {
+      background: rgba(244, 63, 94, 0.16);
+      color: #fb7185;
+      border: 1px solid rgba(244, 63, 94, 0.4);
+    }
+
+    .prob-alternate {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .prob-safety {
+      background: rgba(132, 204, 22, 0.18);
+      color: #bef264;
+      border: 1px solid rgba(132, 204, 22, 0.42);
+    }
+
+    .topic-badge {
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    .marks-badge {
+      font-family: monospace;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #bef264;
+      background: rgba(132, 204, 22, 0.14);
+      border: 1px solid rgba(132, 204, 22, 0.38);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .dna-box {
+      background: linear-gradient(90deg, rgba(132, 204, 22, 0.12), rgba(16, 185, 129, 0.04));
+      border-left: 3px solid var(--accent-lime);
+      padding: 10px 14px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 14px;
+      font-size: 0.83rem;
+      color: #e2e8f0;
+    }
+
+    .dna-box strong {
+      color: #bef264;
+      text-transform: uppercase;
+      font-size: 0.73rem;
+      letter-spacing: 0.05em;
+      margin-right: 6px;
+    }
+
+    .q-main {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.56;
+    }
+
+    .twists-container {
+      background: rgba(9, 16, 12, 0.82);
+      border: 1px dashed rgba(148, 163, 184, 0.26);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+
+    .twists-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-amber);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .twists-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .twists-list li {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .twists-list li::before {
+      content: "↳";
+      position: absolute;
+      left: 0;
+      color: var(--accent-amber);
+      font-weight: bold;
+    }
+
+    .q-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .reveal-btn {
+      background: linear-gradient(135deg, rgba(132, 204, 22, 0.22), rgba(16, 185, 129, 0.22));
+      border: 1px solid rgba(132, 204, 22, 0.5);
+      color: #bef264;
+      font-weight: 700;
+      font-size: 0.83rem;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reveal-btn:hover {
+      background: linear-gradient(135deg, var(--accent-lime), var(--accent-emerald));
+      color: #051209;
+      box-shadow: 0 4px 15px rgba(132, 204, 22, 0.35);
+    }
+
+    .self-eval-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .eval-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .eval-btn.master-btn.active {
+      background: rgba(16, 185, 129, 0.22);
+      border-color: var(--accent-emerald);
+      color: #34d399;
+    }
+
+    .eval-btn.rev-btn.active {
+      background: rgba(245, 158, 11, 0.22);
+      border-color: var(--accent-amber);
+      color: #fbbf24;
+    }
+
+    /* Official Answer Box */
+    .answer-panel {
+      margin-top: 16px;
+      background: rgba(7, 13, 10, 0.95);
+      border: 1px solid rgba(132, 204, 22, 0.4);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: none;
+      animation: fadeIn 0.22s ease;
+    }
+
+    .answer-panel.visible { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ans-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(132, 204, 22, 0.2);
+    }
+
+    .ans-badge {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #bef264;
+    }
+
+    .ans-body {
+      font-size: 0.92rem;
+      color: #e2e8f0;
+    }
+
+    .ans-body ul {
+      padding-left: 20px;
+      margin-top: 6px;
+    }
+
+    .ans-body li { margin-bottom: 7px; }
+
+    /* Highlighted Keywords & Active Recall Blur Mode */
+    .kw {
+      background: rgba(132, 204, 22, 0.18);
+      color: #d9f99d;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      border-bottom: 1px dashed rgba(132, 204, 22, 0.55);
+      transition: filter 0.2s ease, background 0.2s ease;
+    }
+
+    body.blur-mode .kw:not(.unblurred) {
+      filter: blur(5px);
+      background: rgba(132, 204, 22, 0.32);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    body.blur-mode .kw:hover {
+      filter: blur(0px);
+    }
+
+    .examiner-tip {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 3px solid var(--accent-amber);
+      border-radius: 4px;
+      font-size: 0.82rem;
+      color: #fde68a;
+    }
+
+    /* Mobile Sticky Bar */
+    .mobile-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(6, 10, 8, 0.96);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-subtle);
+      padding: 10px 14px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 99;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .command-inner { flex-direction: column; align-items: stretch; }
+      .controls-group { justify-content: space-between; }
+      .mobile-bar { display: flex; }
+      .q-card { padding: 16px; }
+    }
+
+    @media print {
+      .command-bar, .filter-panel, .mobile-bar, .q-actions, .cheat-btn-row { display: none !important; }
+      .answer-panel { display: block !important; border: 1px solid #000; }
+      body { background: #fff; color: #000; }
+      .q-card { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP COMMAND BAR -->
+  <header class="command-bar">
+    <div class="progress-strip">
+      <div class="progress-fill" id="masteryProgressBar"></div>
+    </div>
+    <div class="command-inner">
+      <div class="brand-group">
+        <a href="../../index.html" class="home-nav-btn" target="_top" title="Back to Ilberiz Techz Dashboard">
+          <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>
+          <span>Ilberiz Techz</span>
+        </a>
+        <span class="brand-badge">ICSE 2027</span>
+        <div>
+          <span class="brand-title">Geography Theory DPP — Chapter 9: Waste Management</span>
+          <span class="brand-sub">Question 12 Master Vault • 2027 Specimen + 15-Year Board DNA</span>
+        </div>
+      </div>
+
+      <div class="controls-group">
+        <!-- 3-Mode Switcher -->
+        <div class="mode-pill" role="group" aria-label="Study Mode">
+          <button class="mode-btn active" id="btnDppMode" onclick="setStudyMode('dpp')">
+            🎯 DPP Mode
+          </button>
+          <button class="mode-btn" id="btnGoMode" onclick="setStudyMode('gothrough')">
+            ⚡ Go-Through
+          </button>
+          <button class="mode-btn" id="btnBlurMode" onclick="setStudyMode('blur')" title="Blur keywords for active memory recall!">
+            🧠 Blur Keywords
+          </button>
+        </div>
+
+        <!-- Timer Widget -->
+        <div class="timer-widget">
+          <select id="timerPreset" class="preset-select" onchange="changeTimerPreset()">
+            <option value="900">15 Mins</option>
+            <option value="1800" selected>30 Mins</option>
+            <option value="2700">45 Mins</option>
+            <option value="3600">60 Mins</option>
+          </select>
+          <span class="timer-display" id="timerDisplay">30:00</span>
+          <button class="t-btn start" id="timerToggleBtn" onclick="toggleTimer()">Start</button>
+          <button class="t-btn" onclick="resetTimer()">Reset</button>
+        </div>
+
+        <button class="action-btn" onclick="downloadSelfHtml()" title="Download this HTML file to share with friends on mobile/laptop">
+          ⬇ Download .HTML
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO SECTION -->
+    <section class="hero-card">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-tag">♻️ Target 10/10 Marks in Question 12 (Waste Management)</span>
+          <h1 class="hero-title">Waste Management: Complete Board DNA &amp; Twisted Question Vault</h1>
+          <p class="hero-desc">
+            Every single question is verified against the <strong>Official ICSE 2027 Geography Syllabus</strong>, the <strong>2025, 2026 &amp; 2027 Specimen Papers</strong>, and <strong>2010–2026 Board Papers</strong>. Covers Impact of Waste Accumulation (Landscape, Health, Terrestrial, Freshwater &amp; Marine Life), Eutrophication, Biomagnification, Safe Disposal (Segregation, Sanitary Landfill, Composting, Vermicomposting, Incineration), and the 3Rs (Reduce, Reuse, Recycle).
+          </p>
+          <div class="syllabus-pills">
+            <span class="syl-pill">✔ Spoilage of Landscape &amp; Health</span>
+            <span class="syl-pill">✔ Terrestrial, Freshwater &amp; Marine Life</span>
+            <span class="syl-pill">✔ Eutrophication &amp; Biomagnification</span>
+            <span class="syl-pill">✔ Segregation (Blue &amp; Green Bins)</span>
+            <span class="syl-pill">✔ Sanitary Landfill vs Open Dumping</span>
+            <span class="syl-pill">✔ Composting &amp; Vermicomposting</span>
+            <span class="syl-pill">✔ Incineration &amp; E-Waste</span>
+            <span class="syl-pill">✔ 3Rs (Reduce, Reuse, Recycle)</span>
+          </div>
+          <div class="cheat-btn-row">
+            <button class="cheat-toggle-btn" onclick="openCheatTab('methods')" id="matrixBtn1">
+              📊 Open Safe Disposal Methods &amp; 3Rs Master Matrix
+            </button>
+            <button class="cheat-toggle-btn" onclick="openCheatTab('phenomena')" id="matrixBtn2">
+              🧪 Open Eutrophication, Diseases &amp; Waste-to-Wealth Vault
+            </button>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-num" id="statTotal">50</div>
+            <div class="stat-label">Master Theory Questions</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">260+</div>
+            <div class="stat-label">Twisted Board Variations</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" id="statMastered" style="color: var(--accent-emerald);">0</div>
+            <div class="stat-label">Mastered (Full Marks)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" id="statReview" style="color: var(--accent-amber);">0</div>
+            <div class="stat-label">Marked for Revision</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DUAL-TAB CHEAT SHEET DRAWER -->
+    <section class="matrix-drawer" id="matrixDrawer">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+        <div class="drawer-tabs">
+          <button class="d-tab active" id="tabBtnMethods" onclick="switchCheatTab('methods')">📊 Tab 1: Safe Disposal Methods &amp; 3Rs Master Matrix</button>
+          <button class="d-tab" id="tabBtnPhenomena" onclick="switchCheatTab('phenomena')">🧪 Tab 2: Environmental Phenomena, Diseases &amp; Waste-to-Wealth Vault</button>
+        </div>
+        <button class="action-btn" onclick="closeCheatDrawer()">✖ Close Cheat Sheet</button>
+      </div>
+
+      <!-- TAB 1: SAFE DISPOSAL METHODS & 3Rs MATRIX -->
+      <div id="tabContentMethods" class="matrix-table-wrap">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Method / Concept</th>
+              <th>Target Waste &amp; Mechanism</th>
+              <th>Top 3 Advantages (Pros)</th>
+              <th>Precautions / Limitations (Cons)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Segregation at Source</strong><br><em>(First &amp; Most Crucial Step)</em></td>
+              <td>Separating waste at household/source level into:<br>• <strong>Green Bin:</strong> Wet / Biodegradable.<br>• <strong>Blue Bin:</strong> Dry / Recyclable.<br>• <strong>Red/Black Bin:</strong> Hazardous / Biomedical.</td>
+              <td>• Prevents wet waste from contaminating dry recyclables.<br>• Makes <strong>composting of wet waste</strong> &amp; <strong>recycling of dry waste</strong> easy.<br>• Drastically <strong>reduces the volume of waste</strong> sent to landfills &amp; protects ragpickers from injury/infection.</td>
+              <td>• Requires strict public awareness and civic discipline.<br>• Municipal trucks must have separate compartments so segregated waste is not mixed again.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Sanitary Landfill</strong><br><em>(Engineered vs Open Dumping)</em></td>
+              <td>• Waste is compacted in thin layers in a pit lined with <strong>impervious clay &amp; plastic (HDPE) liners</strong>.<br>• Covered daily with a $15\text{ cm}$ layer of soil/earth.</td>
+              <td>• <strong>Prevents breeding of vectors</strong> (flies, mosquitoes, rats) &amp; foul odour due to daily soil cover.<br>• <strong>Bottom liner prevents ‘Leachate’</strong> from polluting underground water.<br>• Reclaimed landfill top can be developed into <strong>parks, golf courses, or gardens</strong>; generates <strong>Methane ($CH_4$)</strong> for energy.</td>
+              <td>• Must be located <strong>far away from human settlements, airports, and water bodies</strong>.<br>• Requires large land area and proper methane gas venting pipes to prevent underground fires/explosions.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Composting &amp; Vermicomposting</strong></td>
+              <td>• <strong>Target:</strong> Wet biodegradable organic waste (kitchen peels, crop residue, leaves, cow dung).<br>• <strong>Vermicomposting:</strong> Uses <strong>earthworms (Red Wigglers)</strong> to decompose organic matter.</td>
+              <td>• Converts foul organic waste into <strong>nutrient-rich natural humus/manure</strong> (rich in NPK).<br>• <strong>Enhances soil moisture-retention</strong> &amp; reduces need for chemical fertilizers.<br>• Diverts ~50% of municipal waste away from landfills.</td>
+              <td>• Cannot treat non-biodegradable waste (plastics, glass, metals, toxic chemicals).<br>• Vermicomposting requires shade, moisture, and moderate temperature so earthworms survive.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Incineration</strong><br><em>(Controlled High-Temp Burning)</em></td>
+              <td>• <strong>Target:</strong> <strong>Biomedical / Hospital waste</strong> (syringes, bandages) &amp; toxic industrial waste.<br>• Burned in closed furnaces at <strong>$800^\circ\text{C}$ to $1,200^\circ\text{C}$</strong>.</td>
+              <td>• <strong>Reduces weight and volume of waste by up to 90%</strong>.<br>• <strong>Completely destroys infectious pathogens/germs</strong> in medical waste.<br>• Heat generated can be used to <strong>produce steam and electricity (Waste-to-Energy)</strong>.</td>
+              <td>• <strong>Expensive</strong> to install and operate.<br>• Releases toxic gases (<strong>dioxins, furans, $SO_2$</strong>) and heavy-metal fly ash if chimneys lack <strong>scrubbers and electrostatic precipitators</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>5. The 3Rs Hierarchy</strong><br><em>(Reduce &rarr; Reuse &rarr; Recycle)</em></td>
+              <td>• <strong>Reduce:</strong> Generate less waste at source (buy unpacked/durable goods, avoid single-use plastic).<br>• <strong>Reuse:</strong> Use items multiple times without reprocessing (glass jars, cloth bags, old clothes).<br>• <strong>Recycle:</strong> Reprocess waste into new raw material (paper, glass, metal, plastic).</td>
+              <td>• <strong>Conserves scarce natural resources</strong> (trees, minerals, fossil fuels, water).<br>• <strong>Saves massive energy</strong> (e.g., recycling aluminium saves ~95% energy; recycling paper saves trees).<br>• Achieves <strong>Zero-Waste circular economy</strong>.</td>
+              <td>• <strong>Reuse is better than Recycle</strong> because Reuse requires <strong>zero energy or industrial reprocessing</strong>.<br>• Plastics can only be down-cycled a limited number of times.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TAB 2: ENVIRONMENTAL PHENOMENA, DISEASES & WASTE-TO-WEALTH VAULT -->
+      <div id="tabContentPhenomena" class="matrix-table-wrap" style="display:none;">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Term / Phenomenon</th>
+              <th>Pollutant / Source</th>
+              <th>Official CISCE Board Definition &amp; Impact Keyword</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Eutrophication</strong><br><em>(Algal Bloom)</em></td>
+              <td>Agricultural runoff (<strong>Nitrogen &amp; Phosphorus fertilizers</strong>) + Domestic sewage/detergents entering lakes/ponds.</td>
+              <td>Excess nutrients cause explosive growth of <strong>surface algae (Algal Bloom)</strong>. This blocks sunlight and <strong>depletes Dissolved Oxygen (DO)</strong> (increases BOD), causing <strong>suffocation and mass death of fish and aquatic life</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Biomagnification</strong><br><em>(Bioaccumulation)</em></td>
+              <td>Non-biodegradable toxic chemicals: <strong>DDT, Mercury, Lead, Arsenic, PCBs</strong> in water/soil food chains.</td>
+              <td>The <strong>progressive increase in the concentration of toxic non-biodegradable substances at each successive trophic level of a food chain</strong> (e.g., Water &rarr; Plankton &rarr; Small Fish &rarr; Large Fish &rarr; Fish-Eating Birds/Humans).</td>
+            </tr>
+            <tr>
+              <td><strong>3. Leachate</strong></td>
+              <td>Rainwater percolating through open garbage dumps / unlined landfills.</td>
+              <td>Foul, dark toxic liquid containing dissolved heavy metals and pathogens that <strong>seeps underground and contaminates groundwater aquifers and wells</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Minamata Disease &amp; Itai-Itai</strong></td>
+              <td>• <strong>Mercury (Methylmercury):</strong> Minamata Disease.<br>• <strong>Cadmium:</strong> Itai-Itai ("Ouch-Ouch") disease.<br>• <strong>Nitrates:</strong> Blue Baby Syndrome.</td>
+              <td><strong>Minamata:</strong> Industrial <strong>mercury waste</strong> dumped into Minamata Bay (Japan) bioaccumulated in fish; humans eating the fish suffered fatal nerve/brain damage, paralysis, and blindness.</td>
+            </tr>
+            <tr>
+              <td><strong>5. Acid Rain</strong></td>
+              <td><strong>Sulphur Dioxide ($SO_2$) &amp; Oxides of Nitrogen ($NO_x$)</strong> from thermal power plants, factories, and vehicles.</td>
+              <td>Reacts with rainwater to form <strong>Sulphuric Acid ($H_2SO_4$) and Nitric Acid ($HNO_3$)</strong>. Corrodes marble monuments (<strong>‘Marble Cancer’ on Taj Mahal</strong>), makes soil acidic, and kills fish.</td>
+            </tr>
+            <tr>
+              <td><strong>6. Global Warming &amp; Landfill Methane</strong></td>
+              <td><strong>Carbon Dioxide ($CO_2$), Methane ($CH_4$), Nitrous Oxide ($N_2O$), CFCs</strong>.</td>
+              <td>Anaerobic decomposition of organic waste in dumps releases <strong>Methane ($CH_4$ — Marsh Gas)</strong>, a potent greenhouse gas that traps terrestrial heat, melting polar ice caps and raising sea levels.</td>
+            </tr>
+            <tr>
+              <td><strong>7. Ozone Layer Depletion</strong></td>
+              <td><strong>Chlorofluorocarbons (CFCs)</strong> from old refrigerators, ACs, aerosol sprays, and styrofoam.</td>
+              <td>Chlorine atoms break down stratospheric Ozone ($O_3$), allowing harmful <strong>Ultraviolet (UV) rays</strong> to reach Earth, causing <strong>skin cancer, cataracts, lowered immunity, and damage to phytoplankton</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>8. Bagasse</strong><br><em>(Agro-Industrial Waste)</em></td>
+              <td>Fibrous crushed sugarcane residue left after extracting juice in sugar mills.</td>
+              <td>Used as raw material for manufacturing <strong>eco-friendly paper, paperboard, cardboard, and particle board</strong> (saving forest trees), and as biofuel for cogeneration of electricity.</td>
+            </tr>
+            <tr>
+              <td><strong>9. Fly Ash</strong><br><em>(Thermal Power Plant Waste)</em></td>
+              <td>Fine powdery ash produced by burning pulverized coal in thermal power stations.</td>
+              <td>Recycled to manufacture <strong>Fly Ash Bricks, Portland Pozzolana Cement, concrete blocks, and road embankments</strong> (prevents air pollution and saves topsoil used in clay bricks).</td>
+            </tr>
+            <tr>
+              <td><strong>10. Waste Plastic in Road Construction</strong></td>
+              <td>Shredded non-biodegradable waste plastic (carry bags, wrappers, PET bottles).</td>
+              <td>Mixed with heated <strong>Bitumen (asphalt)</strong> to lay durable, water-resistant, pothole-free <strong>‘Plastic Roads’</strong> (pioneered in India by Prof. Rajagopalan Vasudevan).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FILTER & SEARCH BAR -->
+    <section class="filter-panel">
+      <div class="search-row">
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="Search any keyword (e.g., 'Eutrophication', 'Biomagnification', 'Segregation', 'Sanitary Landfill', 'Composting', '3Rs', 'Bagasse', 'Minamata', '2027 Specimen')..."
+          oninput="renderQuestions()"
+        />
+        <button class="action-btn" onclick="expandAllAnswers()">👁 Show All Answers</button>
+        <button class="action-btn" onclick="collapseAllAnswers()">🙈 Hide All Answers</button>
+      </div>
+
+      <div class="filter-chips">
+        <span class="chip-label">Probability DNA:</span>
+        <button class="f-chip active" data-prob="all" onclick="setProbFilter('all', this)">All Questions (50)</button>
+        <button class="f-chip" data-prob="specimen" onclick="setProbFilter('specimen', this)">🚨 2027 Specimen &amp; 2025–26 Board Pattern</button>
+        <button class="f-chip" data-prob="highest" onclick="setProbFilter('highest', this)">🔥 Highest Probability (6–14x Repeated)</button>
+        <button class="f-chip" data-prob="alternate" onclick="setProbFilter('alternate', this)">🔄 Alternate-Year &amp; Competency Twist</button>
+        <button class="f-chip" data-prob="safety" onclick="setProbFilter('safety', this)">🛡️ Safety Net (100% Syllabus Lock)</button>
+      </div>
+
+      <div class="filter-chips">
+        <span class="chip-label">Topic &amp; Format:</span>
+        <button class="f-chip active" data-type="all" onclick="setTypeFilter('all', this)">All Formats</button>
+        <button class="f-chip" data-type="impact" onclick="setTypeFilter('impact', this)">Impact of Waste (Eutrophication, Health, Marine)</button>
+        <button class="f-chip" data-type="disposal" onclick="setTypeFilter('disposal', this)">Safe Disposal (Segregation, Landfill, Composting)</button>
+        <button class="f-chip" data-type="three_r" onclick="setTypeFilter('three_r', this)">3Rs (Reduce, Reuse, Recycle)</button>
+        <button class="f-chip" data-type="reason" onclick="setTypeFilter('reason', this)">Give Geographical Reasons</button>
+        <button class="f-chip" data-type="riddle" onclick="setTypeFilter('riddle', this)">Riddles, Diseases &amp; Case Studies</button>
+        <button class="f-chip" data-type="revision" onclick="setTypeFilter('revision', this)">⭐ Marked for Revision</button>
+      </div>
+    </section>
+
+    <!-- QUESTIONS LIST -->
+    <div class="questions-list" id="questionsContainer"></div>
+  </main>
+
+  <!-- MOBILE STICKY BOTTOM BAR -->
+  <div class="mobile-bar">
+    <div>
+      <span style="font-size:0.68rem; color:var(--text-secondary); display:block;">EXAM TIMER</span>
+      <span class="timer-display" id="mobileTimerDisplay" style="font-size:0.95rem;">30:00</span>
+    </div>
+    <div style="display:flex; gap:6px;">
+      <button class="t-btn start" onclick="toggleTimer()" id="mobileTimerBtn">Start</button>
+      <button class="t-btn" onclick="cycleMobileMode()" id="mobileModeBtn">Mode: DPP</button>
+      <button class="t-btn" onclick="openCheatTab('methods')">📊 Cheat Sheet</button>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // COMPLETE 50-QUESTION MASTER DATASET FOR CHAPTER 9: WASTE MANAGEMENT
+    // =========================================================================
+    const wasteQuestions = [
+      // --- SECTION 1: 2027 SPECIMEN PAPER & 2025–2026 BOARD EXAM DIRECT PATTERNS ---
+      {
+        id: 1,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD #1 FAVOURITE • 99% PROBABILITY",
+        qType: "disposal",
+        subTopic: "Chapter: Waste Management • Segregation of Waste at Source & Color-Coded Bins",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in the 2027 Specimen Paper, 2026 Board, 2025 Board, 2023 Board, 2021 Board, 2019 Board, and 2016 Board (14+ times!). Segregation is the #1 most tested concept in Question 12.",
+        question: "(a) What is meant by ‘Segregation of Waste’? Why is segregation at the source considered the most important first step in safe waste disposal? [2]<br>(b) What types of waste are placed in the <strong>Green Dustbin</strong> and the <strong>Blue Dustbin</strong> respectively? [1]",
+        twistedVersions: [
+          "Give a geographical reason: Waste must be segregated before it is disposed of.",
+          "How does segregating wet and dry waste at home make recycling and composting easier?",
+          "Why do municipal corporations insist on using separate Green and Blue bins in residential societies?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Definition &amp; Why Segregation at Source is the Crucial First Step:</strong>
+              <ul>
+                <li><strong>Meaning:</strong> <span class="kw">Segregation</span> is the scientific sorting and separation of municipal solid waste at the point of generation into distinct categories — <span class="kw">biodegradable (wet) waste, non-biodegradable (dry/recyclable) waste, and hazardous/biomedical waste</span>.</li>
+                <li><strong>Why Most Important:</strong> (1) It allows <span class="kw">wet organic waste to be sent directly for composting/biogas</span> and <span class="kw">dry waste (paper, plastic, metal, glass) to be sent directly for recycling</span> without getting soiled; (2) It <span class="kw">drastically reduces the volume of waste reaching landfills</span> and protects sanitation workers/ragpickers from injuries and infections caused by broken glass, needles, and toxic chemicals.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Color-Coded Dustbins:</strong>
+              <ul>
+                <li><strong>Green Dustbin:</strong> For <span class="kw">Wet / Biodegradable Organic Waste</span> (vegetable &amp; fruit peels, leftover food, garden leaves, tea leaves).</li>
+                <li><strong>Blue Dustbin:</strong> For <span class="kw">Dry / Non-Biodegradable Recyclable Waste</span> (plastic bottles, paper, cardboard, metal cans, glass). <em>(Note: <strong>Red / Black bins</strong> are used for biomedical and domestic hazardous/e-waste!)</em></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="examiner-tip"><strong>Council Marking Keyword:</strong> Always mention <span class="kw">"separating biodegradable (wet) and non-biodegradable (dry) waste at source"</span> + <span class="kw">"facilitates composting and recycling / reduces landfill burden"</span>.</div>
+        `
+      },
+      {
+        id: 2,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD DIRECT • 99% PROBABILITY",
+        qType: "impact",
+        subTopic: "Chapter: Waste Management • Eutrophication & Biomagnification (Effect on Aquatic Life)",
+        marks: "[3 Marks]",
+        whyChosen: "Appeared in 2027 Specimen, 2026 Board, 2024 Board, 2022 Board, and 2019 Board. Examiners test whether students can distinguish between 'Eutrophication' (nutrient enrichment/algal bloom) and 'Biomagnification' (toxin concentration up the food chain).",
+        question: "Explain the following two environmental phenomena and state how each affects freshwater and marine aquatic life:<br>(a) Eutrophication [1.5]<br>(b) Biomagnification (Bioaccumulation) [1.5]",
+        twistedVersions: [
+          "Give a geographical reason: Excessive use of chemical fertilizers on farms near a lake leads to the mass death of fish.",
+          "What is 'Algal Bloom'? How does it affect the Dissolved Oxygen (DO) and Biological Oxygen Demand (BOD) of a pond?",
+          "Why do fish-eating birds (like eagles/pelicans) and humans at the top of the aquatic food chain suffer the worst effects of DDT and Mercury pollution?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Eutrophication (Nutrient Enrichment &amp; Algal Bloom):</strong>
+              <ul>
+                <li><strong>Process:</strong> When <span class="kw">untreated domestic sewage, detergents, and agricultural runoff rich in Nitrogen and Phosphorus fertilizers</span> enter a lake or river, they cause an <span class="kw">explosive growth of surface algae called an ‘Algal Bloom’</span>.</li>
+                <li><strong>Impact on Aquatic Life:</strong> The thick mat of algae <span class="kw">blocks sunlight</span> from reaching submerged aquatic plants, and when decomposing bacteria break down the dead algae, they <span class="kw">consume almost all the Dissolved Oxygen (DO) in the water (increasing BOD)</span>, leading to the <span class="kw">suffocation and mass death of fish and aquatic organisms</span>.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Biomagnification (Toxic Amplification in Food Chain):</strong>
+              <ul>
+                <li><strong>Process:</strong> The <span class="kw">progressive increase in the concentration of toxic, non-biodegradable substances (such as Mercury, DDT, Lead, Arsenic) in the tissues of organisms at each successive higher trophic level of a food chain</span>.</li>
+                <li><strong>Impact on Aquatic Life &amp; Humans:</strong> Small amounts of mercury/DDT absorbed by plankton become highly concentrated in small fish $\rightarrow$ large predatory fish $\rightarrow$ <span class="kw">fish-eating birds and humans</span>, causing fatal nerve damage (e.g., <span class="kw">Minamata disease</span>) and thinning of bird eggshells.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 3,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD DIRECT • 99% PROBABILITY",
+        qType: "disposal",
+        subTopic: "Chapter: Waste Management • Open Dumping vs Sanitary Landfill",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2027 Specimen, 2026 Board, 2025 Board, 2023 Board, 2020 Board, and 2017 Board. Comparing unscientific Open Dumping with an engineered Sanitary Landfill is a staple 3-mark question.",
+        question: "(a) Why is ‘Open Dumping’ of municipal solid waste considered an unscientific and hazardous practice? Give two reasons. [1.5]<br>(b) How is a ‘Sanitary Landfill’ superior to an Open Dump? Mention two precautions taken while constructing a Sanitary Landfill. [1.5]",
+        twistedVersions: [
+          "Differentiate between Open Dumping and Sanitary Landfill on any three points.",
+          "Give a geographical reason: Sanitary landfills do not allow the breeding of flies, mosquitoes, or rats.",
+          "How does a Sanitary Landfill prevent groundwater contamination by leachate?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Why Open Dumping is Hazardous:</strong>
+              <ul>
+                <li><strong>1. Breeding Ground for Disease Vectors &amp; Foul Odour:</strong> Uncovered garbage heaps attract <span class="kw">houseflies, mosquitoes, cockroaches, and rodents (rats)</span> that spread cholera, typhoid, malaria, dengue, and plague, while spoiling the natural landscape and emitting foul gases.</li>
+                <li><strong>2. Groundwater Contamination by Leachate:</strong> Rainwater percolating through open dumps forms a toxic liquid called <span class="kw">‘leachate’</span> that seeps underground and poisons aquifers and wells.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Why Sanitary Landfill is Superior &amp; Precautions:</strong>
+              <ul>
+                <li><strong>1. Daily Soil Compaction Cover:</strong> In a Sanitary Landfill, waste is compacted in thin layers and <span class="kw">covered at the end of every day with a $15\text{ cm}$ layer of clean earth/soil</span>, which <span class="kw">prevents insects/rodents from breeding and eliminates foul smell</span>.</li>
+                <li><strong>2. Impervious Bottom Liner &amp; Methane Venting:</strong> The pit bottom is lined with <span class="kw">impervious clay and high-density plastic (HDPE) liners to stop leachate from seeping into groundwater</span>, and pipes are installed to vent or harvest <span class="kw">Methane ($CH_4$) gas</span> for power generation.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 4,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD DIRECT • 99% PROBABILITY",
+        qType: "disposal",
+        subTopic: "Chapter: Waste Management • Composting & Vermicomposting (Process & Benefits)",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2027 Specimen, 2025 Board, 2024 Board, 2022 Board, 2019 Board, and 2016 Board (12+ times!). Composting is the easiest and most eco-friendly biological method of waste disposal.",
+        question: "(a) What is ‘Composting’, and how does ‘Vermicomposting’ differ from ordinary composting? [1]<br>(b) State any four advantages of Composting for farmers and the environment. [2]",
+        twistedVersions: [
+          "Give a geographical reason: Composting is considered the best method for disposing of biodegradable household and agricultural waste.",
+          "How does compost improve the physical and chemical properties of agricultural soil?",
+          "Why are earthworms introduced into organic waste pits during vermicomposting?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Composting vs Vermicomposting:</strong>
+              <ul>
+                <li><strong>Composting:</strong> A biological process in which <span class="kw">aerobic or anaerobic microorganisms (bacteria and fungi) decompose biodegradable organic waste</span> (vegetable peels, leaves, crop residue, cow dung) into dark, nutrient-rich <span class="kw">humus (compost)</span>.</li>
+                <li><strong>Vermicomposting:</strong> A specialized form of aerobic composting where <span class="kw">earthworms (such as Red Wigglers / <em>Eisenia fetida</em>)</span> are added to organic waste; the worms consume the waste and excrete nutrient-dense <span class="kw">‘vermicast’</span> in half the time.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Four Advantages of Composting:</strong>
+              <ul>
+                <li><strong>1. Enriches Soil Fertility Naturally:</strong> Converts waste into high-grade organic manure rich in <span class="kw">Nitrogen, Phosphorus, and Potassium (NPK)</span>, reducing dependence on harmful chemical fertilizers.</li>
+                <li><strong>2. Improves Soil Texture &amp; Moisture Retention:</strong> Humus binds sandy soil, loosens stiff clay, <span class="kw">increases the water-holding capacity of soil</span>, and checks soil erosion.</li>
+                <li><strong>3. Reduces Landfill Burden by 50%:</strong> Diverts wet kitchen and garden waste away from municipal landfills.</li>
+                <li><strong>4. Eco-Friendly &amp; Zero Pollution:</strong> Prevents open burning of dry leaves/crop residue, eliminating smoke and air pollution.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 5,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD DIRECT • 99% PROBABILITY",
+        qType: "three_r",
+        subTopic: "Chapter: Waste Management • The 3Rs (Reduce, Reuse, Recycle) — Definitions & Applications",
+        marks: "[3 Marks]",
+        whyChosen: "Appeared in EVERY SINGLE ICSE Geography Board Paper and Specimen Paper from 2012 to 2027! Examiners test: (1) Difference between Reduce, Reuse, and Recycle, (2) Practical student/household examples of each, and (3) Industrial recycling of Bagasse, Fly Ash, and Plastic.",
+        question: "Explain the ‘3Rs’ of modern Waste Management — <strong>Reduce, Reuse, and Recycle</strong> — and give two practical daily-life or industrial examples of each. [3]",
+        twistedVersions: [
+          "How can you as a Class 10 student practice the 3Rs (Reduce, Reuse, Recycle) in your school and home?",
+          "Differentiate between 'Reusing' waste and 'Recycling' waste with suitable examples.",
+          "Why is 'Reduce' placed at the very top of the 3R waste management hierarchy?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. REDUCE (Minimizing Waste Generation at Source — Top Priority):</strong>
+              <ul>
+                <li><em>Meaning:</em> Lowering the amount of waste produced in the first place by changing consumption habits and production design.</li>
+                <li><em>Examples:</em> (i) Carrying <span class="kw">reusable cloth/jute bags</span> for shopping to avoid single-use plastic bags; (ii) Buying goods in bulk with minimal packaging, printing on both sides of paper, and using refillable pens/solar energy.</li>
+              </ul>
+            </li>
+            <li><strong>2. REUSE (Using Items Repeatedly Without Industrial Reprocessing):</strong>
+              <ul>
+                <li><em>Meaning:</em> Using discarded articles again for the same or a creative new purpose <span class="kw">without melting or chemically reprocessing them</span> (saves 100% energy).</li>
+                <li><em>Examples:</em> (i) Using empty <span class="kw">glass jam/pickle jars and tin cans</span> to store kitchen spices or as flowerpots; (ii) Donating old textbooks, clothes, furniture, and toys to underprivileged children, or using old tyres as garden swings.</li>
+              </ul>
+            </li>
+            <li><strong>3. RECYCLE (Industrial Reprocessing into New Products):</strong>
+              <ul>
+                <li><em>Meaning:</em> Collecting, sorting, and <span class="kw">mechanically/chemically processing waste materials (paper, glass, metal, plastic) in factories to manufacture new products</span>.</li>
+                <li><em>Examples:</em> (i) Using <span class="kw">Bagasse</span> (sugarcane residue) and waste paper to manufacture recycled paper/cardboard; (ii) Using <span class="kw">Fly Ash</span> from thermal plants to make bricks/cement, and mixing shredded waste <span class="kw">plastic with bitumen to lay durable roads</span>.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 6,
+        probTier: "specimen",
+        probLabel: "🚨 2026 & 2027 SPECIMEN DIRECT • 98% PROBABILITY",
+        qType: "impact",
+        subTopic: "Chapter: Waste Management • Biodegradable vs Non-Biodegradable Waste & Plastic Ban",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2027 Specimen, 2026 Board, 2025 Board, and 2023 Board. Why Plastics (especially single-use carry bags) are a severe threat to terrestrial and aquatic life is a top board favourite.",
+        question: "(a) Differentiate between ‘Biodegradable Waste’ and ‘Non-Biodegradable Waste’ with two examples of each. [1.5]<br>(b) State three reasons why non-biodegradable plastic carry bags and single-use plastics are a grave hazard to the environment and stray animals. [1.5]",
+        twistedVersions: [
+          "Give a geographical reason: The Government of India has banned single-use plastics and thin polythene carry bags.",
+          "How do discarded plastic bags cause urban flooding during the monsoon and harm stray cattle?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Biodegradable vs Non-Biodegradable Waste:</strong>
+              <ul>
+                <li><strong>Biodegradable Waste:</strong> Organic waste that can be <span class="kw">broken down naturally by microorganisms (bacteria, fungi, earthworms) into harmless simple compounds/humus</span> within a short time. <em>Examples:</em> Vegetable peels, paper, cotton cloth, cow dung.</li>
+                <li><strong>Non-Biodegradable Waste:</strong> Synthetic/inorganic waste that <span class="kw">cannot be decomposed by natural microorganisms</span> and persists in the environment for hundreds of years. <em>Examples:</em> Plastics, polythene, glass, aluminium cans, DDT, styrofoam.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Three Hazards of Plastic Carry Bags:</strong>
+              <ul>
+                <li><strong>1. Chokes Storm Drains &amp; Prevents Water Percolation:</strong> Discarded polythene bags <span class="kw">clog municipal sewers and storm drains</span> (causing severe urban waterlogging and mosquito breeding) and form an impervious layer in soil that stops rainwater percolation.</li>
+                <li><strong>2. Fatal to Stray Cattle &amp; Marine Animals:</strong> Stray cows and dogs foraging in garbage dumps <span class="kw">swallow plastic bags containing leftover food; the plastic chokes their alimentary canal (intestines)</span>, leading to starvation and death. Sea turtles and fish also die after ingesting marine plastics.</li>
+                <li><strong>3. Releases Toxic Dioxins on Burning:</strong> Burning plastics in the open releases <span class="kw">carcinogenic dioxins, furans, and carbon monoxide</span>, causing respiratory diseases and cancer.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 7,
+        probTier: "specimen",
+        probLabel: "🚨 2025 & 2026 BOARD DIRECT • 98% PROBABILITY",
+        qType: "disposal",
+        subTopic: "Chapter: Waste Management • E-Waste (Electronic Waste) & Biomedical Waste",
+        marks: "[3 Marks]",
+        whyChosen: "Featured in 2026 Board, 2025 Board, 2024 Board, and 2026 Specimen. With the boom in smartphones, computers, and hospital waste, E-waste and Biomedical waste appear in almost every recent paper.",
+        question: "(a) What is ‘E-Waste’ (Electronic Waste)? Name any two toxic heavy metals present in E-waste and state how they harm human health if dumped carelessly. [2]<br>(b) What is ‘Biomedical Waste’ and how should it be safely disposed of? [1]",
+        twistedVersions: [
+          "Give a geographical reason: Discarded mobile phones, computers, and batteries should not be thrown into regular household dustbins.",
+          "Why is the management of hospital (biomedical) waste much more critical than ordinary domestic garbage?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) E-Waste, Toxic Metals &amp; Health Impact:</strong>
+              <ul>
+                <li><strong>Definition:</strong> Discarded, obsolete, or broken <span class="kw">electrical and electronic appliances</span> such as old computers, mobile phones, TVs, circuit boards, refrigerators, and batteries.</li>
+                <li><strong>Toxic Heavy Metals &amp; Harm:</strong> Contains <span class="kw">Lead, Mercury, Cadmium, Beryllium, and Arsenic</span>. If dumped in landfills or burned in acid baths, these metals leach into groundwater and air, causing <span class="kw">brain and nervous system damage, kidney failure, damage to blood systems, and lung cancer</span>. (Must be handed over to <span class="kw">authorized E-waste recyclers</span>).</li>
+              </ul>
+            </li>
+            <li><strong>(b) Biomedical Waste &amp; Safe Disposal:</strong>
+              <ul>
+                <li><strong>Definition:</strong> Infectious waste generated during medical diagnosis, treatment, or immunization in <span class="kw">hospitals, clinics, and pathology labs</span> (used syringes, needles, blood-soaked bandages, expired medicines, body tissues).</li>
+                <li><strong>Safe Disposal:</strong> Must be segregated in color-coded biohazard bags, sterilized by <span class="kw">autoclaving</span>, and destroyed by high-temperature <span class="kw">Incineration</span> (or deep burial in secured pits) to prevent the spread of HIV, Hepatitis B/C, and infections.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 8,
+        probTier: "specimen",
+        probLabel: "🚨 2026 & 2027 SPECIMEN DIRECT • 97% PROBABILITY",
+        qType: "impact",
+        subTopic: "Chapter: Waste Management • Acid Rain, Global Warming & Ozone Layer Depletion",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2026 Board, 2025 Specimen, 2023 Board, 2020 Board, and 2018 Board. Atmospheric gaseous waste causes three global crises—you must know the exact gas responsible for each and two impacts of each.",
+        question: "With reference to gaseous waste accumulation in the atmosphere, name the primary pollutant gases responsible and state two harmful impacts for each of the following:<br>(a) Acid Rain [1]<br>(b) Global Warming (Greenhouse Effect) [1]<br>(c) Ozone Layer Depletion [1]",
+        twistedVersions: [
+          "Give a geographical reason: The white marble of the Taj Mahal in Agra is turning yellowish and pitting ('Marble Cancer').",
+          "How do rotting garbage dumps contribute to Global Warming?",
+          "Why has the use of Chlorofluorocarbons (CFCs) in refrigerators and aerosol sprays been phased out globally?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Acid Rain:</strong>
+              <ul>
+                <li><strong>Pollutant Gases:</strong> <span class="kw">Sulphur Dioxide ($SO_2$) and Oxides of Nitrogen ($NO_x$)</span> emitted by coal thermal plants, oil refineries (e.g., Mathura refinery), and vehicles react with rainwater to form <span class="kw">Sulphuric Acid ($H_2SO_4$) and Nitric Acid ($HNO_3$)</span>.</li>
+                <li><strong>Impacts:</strong> (1) Corrodes limestone and marble heritage monuments (<span class="kw">‘Stone/Marble Cancer’ on the Taj Mahal</span>); (2) Makes agricultural soil and freshwater lakes acidic, killing fish and scorching forest leaves.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Global Warming (Greenhouse Effect):</strong>
+              <ul>
+                <li><strong>Pollutant Gases:</strong> <span class="kw">Carbon Dioxide ($CO_2$), Methane ($CH_4$ — emitted by rotting organic landfills), Nitrous Oxide ($N_2O$), and CFCs</span>.</li>
+                <li><strong>Impacts:</strong> (1) <span class="kw">Melting of polar ice caps and Himalayan glaciers</span>, causing a rise in sea levels that submerges coastal islands/cities; (2) Triggers extreme weather events (heatwaves, erratic monsoons, severe cyclones).</li>
+              </ul>
+            </li>
+            <li><strong>(c) Ozone Layer Depletion:</strong>
+              <ul>
+                <li><strong>Pollutant Gases:</strong> <span class="kw">Chlorofluorocarbons (CFCs)</span>, halons, and nitrogen oxides from old refrigerators, ACs, foam industries, and supersonic jets break down stratospheric Ozone ($O_3$).</li>
+                <li><strong>Impacts:</strong> Allows harmful solar <span class="kw">Ultraviolet (UV-B) radiation</span> to reach Earth, causing <span class="kw">skin cancer, eye cataracts, weakened human immunity</span>, and destruction of marine phytoplankton.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 9,
+        probTier: "specimen",
+        probLabel: "🚨 2025 & 2026 BOARD DIRECT • 97% PROBABILITY",
+        qType: "disposal",
+        subTopic: "Chapter: Waste Management • Incineration (Meaning, Advantages & Limitations)",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2025 Board, 2023 Board, 2020 Board, and 2017 Board. Examiners test when Incineration should be used, its advantages, and its air-pollution drawback.",
+        question: "(a) What is ‘Incineration’? For which category of waste is it the most suitable disposal method? [1]<br>(b) State two advantages and one limitation (disadvantage) of Incineration. [2]",
+        twistedVersions: [
+          "How does Incineration help in generating electricity ('Waste-to-Energy') while reducing landfill volume?",
+          "Why must incinerators be fitted with scrubbers and electrostatic precipitators?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Definition &amp; Target Waste:</strong> <span class="kw">Incineration</span> is the process of <span class="kw">controlled combustion (burning) of solid waste at very high temperatures ($800^\circ\text{C}$ to $1,200^\circ\text{C}$)</span> in specially designed enclosed furnaces called incinerators. It is most suitable for <span class="kw">hazardous biomedical (hospital) waste and toxic chemical waste</span>.</li>
+            <li><strong>(b) Two Advantages &amp; One Limitation:</strong>
+              <ul>
+                <li><strong>Advantages:</strong> (1) <span class="kw">Reduces the volume and weight of solid waste by up to 90%</span>, saving huge landfill space; (2) <span class="kw">Completely sterilizes and destroys infectious disease pathogens</span>, and the intense heat can be harnessed to generate steam and <span class="kw">electricity (Waste-to-Energy)</span>.</li>
+                <li><strong>Limitation:</strong> Very <span class="kw">expensive to install and operate</span>, and burning chlorinated plastics releases <span class="kw">toxic dioxins, furans, acid gases, and heavy-metal ash</span> unless chimneys are fitted with costly <span class="kw">scrubbers and electrostatic precipitators</span>.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 10,
+        probTier: "specimen",
+        probLabel: "🚨 2027 COMPETENCY CASE STUDY • ZERO-WASTE SCHOOL / SOCIETY",
+        qType: "riddle",
+        subTopic: "Chapter: Waste Management • Case Study: Designing a Zero-Waste School or Residential Colony",
+        marks: "[3 Marks]",
+        whyChosen: "In 2025, 2026, and the 2027 Specimen Paper, CISCE asks an application-based question where you are appointed the Eco-Club President of your school or Secretary of your Resident Welfare Association (RWA) and must design a scientific waste-management plan.",
+        question: "As the President of your school’s Eco-Club, you notice that canteen food leftovers, Waste paper from classrooms, dry garden leaves, and broken computer parts from the IT lab are all being dumped together into a single open pit behind the school.<br><br>Design a 3-point scientific action plan explaining how you will segregate and safely manage:<br>(a) Canteen food leftovers and dry garden leaves [1]<br>(b) Classroom waste paper, cardboard, and plastic water bottles [1]<br>(c) Broken computer monitors, keyboards, and lab batteries [1]",
+        twistedVersions: [
+          "Suggest three practical steps a residential apartment society can take to reduce the amount of garbage it sends to the municipal landfill to nearly zero."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Canteen Food Leftovers &amp; Garden Leaves (Wet Biodegradable Waste):</strong> Collect in <span class="kw">Green Bins</span> and transfer to a school <span class="kw">Compost Pit or Vermicomposting unit</span> (using earthworms) to produce organic manure for the school garden (or feed into a biogas plant).</li>
+            <li><strong>(b) Classroom Paper, Cardboard &amp; Plastic Bottles (Dry Recyclable Waste):</strong> Collect in <span class="kw">Blue Bins</span>; reuse one-sided paper for rough work, set up a <span class="kw">school paper-recycling unit (papier-mâché)</span>, and hand over clean plastic bottles/cardboard to <span class="kw">authorized dry-waste recyclers</span>.</li>
+            <li><strong>(c) Broken Computers &amp; Lab Batteries (E-Waste / Hazardous):</strong> Store separately in a dedicated <span class="kw">E-Waste collection box</span> and hand over strictly to <span class="kw">certified E-waste Dismantlers / Manufacturers under Extended Producer Responsibility (EPR)</span> so toxic lead and mercury do not leach into the school ground.</li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 2: HIGHEST PROBABILITY CORE QUESTIONS (REPEATED 6 TO 14 TIMES IN BOARDS) ---
+      {
+        id: 11,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 11x IN BOARDS",
+        qType: "impact",
+        subTopic: "Chapter: Waste Management • Spoilage of Landscape & Vector-Borne Health Hazards",
+        marks: "[3 Marks]",
+        whyChosen: "The very first line of the ICSE syllabus for Waste Management is 'Impact of waste accumulation: spoilage of landscape, pollution, health hazards'. Asked in 2013, 2015, 2017, 2019, 2021, 2023, and 2025.",
+        question: "(a) Explain how unchecked accumulation of solid waste causes ‘Spoilage of Landscape’. [1]<br>(b) Explain how open garbage dumps act as a breeding ground for disease vectors, naming two specific vectors and two diseases spread by each. [2]",
+        twistedVersions: [
+          "Give a geographical reason: Uncollected municipal garbage heaps pose a serious threat to public health in Indian cities.",
+          "Name two water-borne and two vector-borne diseases caused by improper waste disposal."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Spoilage of Landscape:</strong> Heaps of uncollected garbage rotting along roadsides, open plots, and riverbanks <span class="kw">ruin the natural aesthetic beauty of the surroundings (visual pollution)</span>, emit obnoxious foul odours from bacterial putrefaction, and lower the tourism and property value of the area.</li>
+            <li><strong>(b) Breeding Ground for Disease Vectors &amp; Diseases Spread:</strong>
+              <ul>
+                <li><strong>1. Houseflies &amp; Cockroaches:</strong> Breed on rotting organic filth and carry germs on their legs to human food, spreading <span class="kw">Cholera, Typhoid, Dysentery, Diarrhoea, and Jaundice</span>.</li>
+                <li><strong>2. Mosquitoes (<em>Anopheles, Aedes, Culex</em>):</strong> Breed in stagnant rainwater collected in discarded tyres, coconut shells, plastic cups, and choked drains, spreading <span class="kw">Malaria, Dengue, Chikungunya, and Filariasis</span>.</li>
+                <li><strong>3. Rodents (Rats):</strong> Thrive in open dumps and spread <span class="kw">Plague, Leptospirosis, and Salmonellosis</span>.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 12,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 10x IN BOARDS",
+        qType: "impact",
+        subTopic: "Chapter: Waste Management • Effect of Waste Accumulation on Terrestrial Life",
+        marks: "[3 Marks]",
+        whyChosen: "Explicitly listed in the syllabus: 'Effect on terrestrial, aquatic (fresh water and marine) life'. Examiners ask for 3 distinct impacts on Terrestrial Life (Human beings, Plants/Trees, and Animals/Birds).",
+        question: "Explain how the accumulation of solid, liquid, and gaseous waste adversely affects the three components of ‘Terrestrial Life’:<br>(a) Human Beings [1]<br>(b) Plants and Trees [1]<br>(c) Domestic/Stray Animals and Birds [1]",
+        twistedVersions: [
+          "State three ways in which waste accumulation harms terrestrial organisms.",
+          "How do toxic air pollutants and soil pollutants affect plant growth (chlorosis and necrosis)?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Impact on Human Beings:</strong> Toxic air emissions ($SO_2$, $NO_x$, particulate dust, smoke) cause <span class="kw">asthma, bronchitis, lung cancer, and eye irritation</span>; contaminated drinking water causes <span class="kw">cholera, typhoid, and heavy-metal poisoning</span>; vectors spread malaria and dengue.</li>
+            <li><strong>(b) Impact on Plants &amp; Trees:</strong>
+              <ul>
+                <li>Dust, soot, and smoke settle on leaf surfaces, <span class="kw">blocking stomata and reducing photosynthesis</span>.</li>
+                <li><span class="kw">Acid rain ($SO_2 / NO_x$)</span> causes yellowing of leaves (<span class="kw">chlorosis</span>) and death of leaf tissue (<span class="kw">necrosis</span>), while toxic heavy metals/alkalis in soil inhibit root absorption.</li>
+              </ul>
+            </li>
+            <li><strong>(c) Impact on Terrestrial Animals &amp; Birds:</strong> Stray cattle (cows/dogs) <span class="kw">ingest polythene bags mixed with food scraps, choking their digestive tracts to death</span>; excessive use of chemical pesticides (DDT) and veterinary drugs (Diclofenac) causes <span class="kw">biomagnification, killing vultures, sparrows, and soil earthworms</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 13,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 9x IN BOARDS",
+        qType: "impact",
+        subTopic: "Chapter: Waste Management • Effect of Waste on Marine (Ocean) Life & Oil Spills",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2015, 2018, 2020, 2022, 2024, and 2026. The syllabus specifically separates 'Freshwater' and 'Marine' aquatic life. For Marine life, Oil Spills, Marine Plastics, and Mercury/Toxic Effluents are the three mandatory points.",
+        question: "Explain three major ways in which the dumping of waste and oil spills into seas and oceans adversely affects ‘Marine Life’. [3]",
+        twistedVersions: [
+          "Give a geographical reason: Oil spills from cargo tankers are devastating for marine birds, fish, and coral reefs.",
+          "How do plastic microbeads, ghost fishing nets, and toxic industrial effluents threaten ocean ecosystems?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Impact of Oil Spills (from Tankers &amp; Offshore Rigs):</strong> Crude oil floats as a <span class="kw">thick slick on the ocean surface</span>, which <span class="kw">cuts off the supply of dissolved oxygen and sunlight</span> to marine plankton and fish. Oil <span class="kw">coats the feathers of sea birds and fur of marine mammals</span>, destroying their natural insulation and buoyancy so they drown or die of hypothermia.</li>
+            <li><strong>2. Ingestion &amp; Entanglement in Marine Plastics:</strong> Millions of tonnes of plastic bags, microplastics, and discarded fishing nets enter oceans; <span class="kw">sea turtles, whales, and seabirds mistake floating plastic bags for jellyfish and swallow them</span>, dying of intestinal blockage.</li>
+            <li><strong>3. Toxic Heavy Metals, Sewage &amp; Coral Bleaching:</strong> Industrial effluents containing <span class="kw">mercury, lead, and cadmium bioaccumulate in marine fish</span> (causing Minamata disease in humans), while hot water discharge from coastal power plants (thermal pollution) <span class="kw">bleaches and kills coral reefs</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 14,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 8x IN BOARDS",
+        qType: "impact",
+        subTopic: "Chapter: Waste Management • Leachate & Groundwater / Soil Pollution",
+        marks: "[2 Marks]",
+        whyChosen: "Asked in 2016, 2019, 2021, 2023, and 2025. 'What is Leachate and how is it harmful?' is a classic 2-mark board question.",
+        question: "What is ‘Leachate’? Explain how it is formed in unlined garbage dumps and how it harms soil and underground water resources. [2]",
+        twistedVersions: [
+          "Give a geographical reason: Dumping of hazardous waste in unlined pits contaminates tube-well water in surrounding villages.",
+          "How can leachate formation and seepage be prevented in a modern landfill?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>Definition &amp; Formation:</strong> When rainwater falls on an open garbage dump or unlined landfill, it <span class="kw">percolates down through the decomposing waste, dissolving toxic chemicals, heavy metals (lead, mercury, cadmium), acids, and disease pathogens</span> to form a foul-smelling, dark toxic liquid called <span class="kw">‘Leachate’</span>.</li>
+            <li><strong>Harmful Impact:</strong> This toxic leachate <span class="kw">seeps deep into the soil and contaminates underground water aquifers</span>, making water from nearby wells, handpumps, and tubewells poisonous and unfit for drinking or irrigation.</li>
+          </ul>
+        `
+      },
+      {
+        id: 15,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 8x IN BOARDS",
+        qType: "disposal",
+        subTopic: "Chapter: Waste Management • Need for Waste Management in India",
+        marks: "[3 Marks]",
+        whyChosen: "Direct syllabus heading: 'Need for waste management'. Asked in 2014, 2017, 2020, 2023, and 2026.",
+        question: "State three compelling reasons why there is an urgent need for scientific Waste Management in rapidly urbanizing countries like India. [3]",
+        twistedVersions: [
+          "How have rapid urbanization, population growth, and changing consumer lifestyles created a waste crisis in India?",
+          "Why can we no longer rely on nature alone to decompose the waste generated by modern cities?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Prevent Deadly Epidemics &amp; Protect Public Health:</strong> Unmanaged waste contaminates air, drinking water, and soil, breeding vectors (flies, mosquitoes, rats) that trigger <span class="kw">deadly outbreaks of dengue, malaria, cholera, typhoid, and respiratory illnesses</span>.</li>
+            <li><strong>2. Explosion of Non-Biodegradable &amp; Toxic E-Waste:</strong> Rapid urbanization, population growth, and ‘use-and-throw’ consumerism have flooded cities with <span class="kw">plastics, packaging, electronic waste (E-waste), and biomedical waste</span> that nature cannot decompose on its own.</li>
+            <li><strong>3. Conserve Scarce Land &amp; Natural Resources (Circular Economy):</strong> Scientific waste management (3Rs and composting) <span class="kw">prevents fertile land from turning into toxic garbage mountains</span>, curbs greenhouse gas ($CH_4$) emissions, and recovers valuable raw materials (paper, metals, organic manure).</li>
+          </ul>
+        `
+      },
+      {
+        id: 16,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 8x IN BOARDS",
+        qType: "three_r",
+        subTopic: "Chapter: Waste Management • Recycling of Paper, Bagasse, Glass & Metals",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2015, 2018, 2020, 2022, 2024, and 2026. Examiners love asking how recycling paper and using Bagasse helps conserve forests and energy.",
+        question: "(a) What is ‘Bagasse’? How is its use in the paper industry an excellent example of waste recycling and forest conservation? [2]<br>(b) State two environmental benefits of recycling waste paper, glass, and aluminium cans. [1]",
+        twistedVersions: [
+          "Give a geographical reason: Sugar mills in India have become major suppliers of raw material to the paper and pulp industry.",
+          "How does recycling 1 tonne of waste paper save trees, water, and electricity?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Bagasse &amp; Forest Conservation:</strong>
+              <ul>
+                <li><strong>Meaning:</strong> <span class="kw">Bagasse</span> is the dry, fibrous <span class="kw">crushed residue of sugarcane stalks left behind after juice is extracted</span> in sugar mills.</li>
+                <li><strong>Ecological Benefit:</strong> Instead of burning it as waste, using bagasse as a primary raw material to manufacture <span class="kw">paper, newsprint, cardboard, and particle board saves millions of forest trees and bamboo</span> from being cut down, while turning agricultural waste into wealth.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Benefits of Recycling Paper, Glass &amp; Metals:</strong>
+              <ul>
+                <li><strong>1. Saves Natural Resources &amp; Energy:</strong> Recycling paper saves <span class="kw">trees and 70% of the water/energy</span> required to make virgin paper; recycling aluminium and steel cans <span class="kw">conserves scarce mineral ores (bauxite/iron ore) and saves up to 95% energy</span>.</li>
+                <li><strong>2. Reduces Air/Water Pollution &amp; Landfill Volume:</strong> Glass can be melted and recycled endlessly without losing quality, keeping non-biodegradable shards out of landfills.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 17,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 7x IN BOARDS",
+        qType: "three_r",
+        subTopic: "Chapter: Waste Management • Industrial Waste Recycling: Fly Ash & Plastic Roads",
+        marks: "[2 Marks / 3 Marks]",
+        whyChosen: "Asked in 2017, 2019, 2022, 2024, and 2026. Fly Ash from coal power plants and Shredded Plastic in road building are the two top textbook examples of industrial waste recycling.",
+        question: "Explain how the following two problematic industrial/urban wastes are now being recycled into valuable construction materials in India:<br>(a) Fly Ash from coal-based thermal power plants [1]<br>(b) Shredded non-biodegradable waste plastic [1]",
+        twistedVersions: [
+          "What is 'Fly Ash'? State two ways in which Fly Ash is utilized productively.",
+          "Give a geographical reason: Mixing shredded waste plastic with heated bitumen for laying roads is a boon for both road engineering and waste management."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Fly Ash Utilization:</strong> <span class="kw">Fly Ash</span> (fine powdery ash left after burning coal in thermal power plants) was once a major air and land pollutant; today it is recycled to manufacture <span class="kw">high-strength Fly Ash Bricks, Portland Pozzolana Cement, hollow concrete blocks, and highway embankments</span>, which also <span class="kw">saves fertile agricultural topsoil</span> otherwise dug up for making traditional clay bricks.</li>
+            <li><strong>(b) Waste Plastic in Road Construction:</strong> Non-biodegradable plastic carry bags, wrappers, and bottles are cleaned, shredded, and <span class="kw">melted with hot Bitumen (asphalt) to lay ‘Plastic Roads’</span>. This permanently locks away toxic plastic waste while making roads <span class="kw">water-resistant, stronger, and free from monsoon potholes</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 18,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 7x IN BOARDS",
+        qType: "disposal",
+        subTopic: "Chapter: Waste Management • Landfill Gas (Methane) & Biogas / Waste-to-Energy",
+        marks: "[2 Marks]",
+        whyChosen: "Tests how organic waste decomposition generates Methane ($CH_4$) and how this hazard can be turned into clean energy.",
+        question: "(a) Which inflammable greenhouse gas is generated by the anaerobic decomposition of organic waste in landfills and marshes, and why is it hazardous if not vented? [1]<br>(b) How can rural organic waste (cattle dung, crop residue, human waste) be used to generate both clean energy and manure simultaneously? [1]",
+        twistedVersions: [
+          "Why do massive garbage dumps (like Ghazipur in Delhi or Deonar in Mumbai) frequently catch fire on their own during summer?",
+          "State two benefits of setting up 'Gobar Gas' (Biogas) plants in Indian villages."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Landfill Gas (Methane — $CH_4$):</strong> Anaerobic bacteria decomposing buried organic waste produce <span class="kw">Methane gas ($CH_4$, also called Marsh Gas)</span>. It is a <span class="kw">highly inflammable gas and a potent greenhouse gas</span> (25x more heat-trapping than $CO_2$); if not vented or harvested via pipes, it builds up underground pressure and causes <span class="kw">spontaneous landfill explosions and toxic fires</span>.</li>
+            <li><strong>(b) Biogas (Gobar Gas) Plants:</strong> Fermenting cow dung, kitchen waste, and farm residue in an underground anaerobic digester produces <span class="kw">clean, smokeless Biogas (Methane) for cooking and lighting</span>, while the leftover <span class="kw">slurry serves as rich organic manure</span> for crops.</li>
+          </ul>
+        `
+      },
+      {
+        id: 19,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 6x IN BOARDS",
+        qType: "impact",
+        subTopic: "Chapter: Waste Management • Radioactive (Nuclear) Waste — Hazards & Safe Disposal",
+        marks: "[2 Marks]",
+        whyChosen: "Asked in 2015, 2018, 2021, and 2024. Nuclear waste is the most dangerous category of hazardous waste.",
+        question: "Why is ‘Radioactive (Nuclear) Waste’ considered far more hazardous than any other industrial waste, and how is it safely disposed of? [2]",
+        twistedVersions: [
+          "Give a geographical reason: Radioactive waste from nuclear power plants cannot be disposed of in ordinary landfills or incinerators.",
+          "State two health hazards of exposure to radioactive waste."
+        ],
+        answer: `
+          <ul>
+            <li><strong>Why Most Hazardous:</strong> Radioactive waste (from nuclear reactors, uranium mining, and cancer therapy) emits <span class="kw">invisible, lethal ionizing radiations (alpha, beta, and gamma rays) that remain active for thousands of years</span>. Exposure causes <span class="kw">genetic mutations (birth defects in future generations), leukemia (blood cancer), thyroid cancer, and cell destruction</span>.</li>
+            <li><strong>Safe Disposal Method:</strong> It cannot be burned or composted; it must be <span class="kw">sealed inside thick, leak-proof lead and concrete canisters and buried deep underground ($&gt;500\text{ metres}$) in stable geological rock formations</span> far away from aquifers and seismic zones.</li>
+          </ul>
+        `
+      },
+      {
+        id: 20,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 6x IN BOARDS",
+        qType: "disposal",
+        subTopic: "Chapter: Waste Management • Controlling Gaseous & Particulate Industrial Waste (Scrubbers & ESPs)",
+        marks: "[2 Marks]",
+        whyChosen: "Tests how factories and thermal power plants clean their smoke/gaseous waste before releasing it from chimneys.",
+        question: "Name and briefly explain two pollution-control devices installed in factory and thermal power plant chimneys to remove particulate and gaseous waste before emission. [2]",
+        twistedVersions: [
+          "What is the function of an 'Electrostatic Precipitator' (ESP) and a 'Wet Scrubber' in controlling industrial air pollution?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Electrostatic Precipitator (ESP):</strong> Installed in thermal power plant and cement chimneys; uses an <span class="kw">electric charge to attract and remove up to 99% of fine suspended particulate matter (dust, soot, and fly ash)</span> from exhaust smoke before it leaves the smokestack.</li>
+            <li><strong>2. Wet Scrubbers:</strong> Passes dirty industrial exhaust gas through a <span class="kw">fine spray of water and lime/alkaline solution</span>, which <span class="kw">absorbs and neutralizes toxic acidic gases like Sulphur Dioxide ($SO_2$) and Ammonia</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 21,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 6x IN BOARDS",
+        qType: "three_r",
+        subTopic: "Chapter: Waste Management • Role of Individuals & Government (Swachh Bharat Abhiyan)",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2017, 2020, 2023, and 2025. Examiners ask what role an individual citizen vs the Government/Municipality plays in waste management.",
+        question: "(a) State three ways in which an individual citizen can contribute to effective Waste Management every day. [1.5]<br>(b) State any two objectives of the ‘Swachh Bharat Abhiyan’ (Clean India Mission). [1.5]",
+        twistedVersions: [
+          "How can public awareness and community participation transform waste management in Indian cities?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Role of an Individual Citizen:</strong>
+              <ul>
+                <li><strong>1. Segregate at Source:</strong> Strictly separate wet kitchen waste (Green bin) and dry recyclable waste (Blue bin) at home.</li>
+                <li><strong>2. Practice the 3Rs &amp; Refuse Plastic:</strong> Carry cloth/jute bags, avoid single-use plastics/styrofoam, compost kitchen waste in home pots, and never litter in public places.</li>
+                <li><strong>3. Responsible E-Waste Disposal:</strong> Hand over old batteries and electronics only to authorized collection centres.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Objectives of Swachh Bharat Abhiyan:</strong>
+              <ul>
+                <li><strong>1.</strong> To achieve <span class="kw">100% scientific door-to-door collection, segregation, and processing of municipal solid waste</span> across urban and rural India.</li>
+                <li><strong>2.</strong> To eliminate open defecation (<span class="kw">Open Defecation Free — ODF status</span>) by constructing household and community toilets, promoting cleanliness and public hygiene.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 22,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 6x IN BOARDS",
+        qType: "impact",
+        subTopic: "Chapter: Waste Management • Agricultural Waste & Stubble Burning Crisis",
+        marks: "[2 Marks]",
+        whyChosen: "Every winter, crop residue (stubble/parali) burning in North India causes severe smog. High-probability competency question!",
+        question: "(a) Why is the burning of agricultural crop residue (stubble / parali) in Northern India during October–November harmful to both the atmosphere and the soil? [1]<br>(b) Suggest two eco-friendly alternatives for managing agricultural waste. [1]",
+        twistedVersions: [
+          "Give a geographical reason: Burning of paddy straw in Punjab and Haryana causes a severe winter smog crisis in Delhi-NCR."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Harm Caused by Stubble Burning:</strong> Releases massive plumes of <span class="kw">toxic particulate matter ($PM_{2.5}$ and $PM_{10}$), Carbon Monoxide, and greenhouse gases</span> that combine with winter fog to form <span class="kw">choking Smog</span>, while the intense surface heat <span class="kw">kills beneficial soil microorganisms/earthworms and destroys soil nitrogen and humus</span>.</li>
+            <li><strong>(b) Eco-Friendly Alternatives:</strong>
+              <ul>
+                <li><strong>1. In-Situ Mulching / Composting:</strong> Using <span class="kw">Bio-decomposer sprays (Pusa Decomposer)</span> or Happy Seeder machines to turn crop stubble into fertile soil mulch/compost.</li>
+                <li><strong>2. Industrial Biomass &amp; Biofuel:</strong> Compressing paddy straw into <span class="kw">biomass pellets to co-fire in thermal power plants</span>, produce bio-ethanol/biogas, or make cardboard and mushroom beds.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 23,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • COMPOSTING METHODS",
+        qType: "disposal",
+        subTopic: "Chapter: Waste Management • Aerobic (Indore) vs Anaerobic (Bengaluru) Composting",
+        marks: "[2 Marks]",
+        whyChosen: "Included in standard ICSE Geography textbooks under Composting methods in India.",
+        question: "Differentiate between the ‘Indore Method’ (Aerobic) and the ‘Bengaluru Method’ (Anaerobic) of composting practiced in India. [2]",
+        twistedVersions: [
+          "How does Aerobic composting differ from Anaerobic composting?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Indore Method (Aerobic Composting):</strong> Alternate layers of vegetable waste and cattle dung/night soil are piled in shallow pits or heaps and <span class="kw">turned regularly every few weeks so aerobic bacteria decompose the waste in the presence of oxygen</span>. It is faster (takes ~3–4 months) and odourless.</li>
+            <li><strong>2. Bengaluru Method (Anaerobic Composting):</strong> Alternate layers of organic refuse and night soil are packed into deep trenches and <span class="kw">sealed on top with a mud plaster without turning, so anaerobic bacteria decompose the waste in the absence of oxygen</span> over 5–6 months (ideal for low-rainfall areas as it conserves moisture and nitrogen).</li>
+          </ul>
+        `
+      },
+      {
+        id: 24,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • LIQUID WASTE TREATMENT",
+        qType: "disposal",
+        subTopic: "Chapter: Waste Management • Sewage & Effluent Treatment (Primary vs Secondary)",
+        marks: "[2 Marks]",
+        whyChosen: "Covers safe disposal of liquid waste (Municipal Sewage and Industrial Effluents) before discharging into rivers.",
+        question: "Why must domestic sewage and industrial liquid effluents be treated in Sewage/Effluent Treatment Plants (STPs/ETPs) before being discharged into rivers, and how can the treated water and sludge be reused? [2]",
+        twistedVersions: [
+          "What happens during Primary and Secondary treatment of municipal sewage?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>Why Treatment is Mandatory:</strong> Untreated sewage and industrial effluents contain <span class="kw">disease-causing bacteria/viruses, toxic heavy metals, acids, and high organic loads</span> that deplete river oxygen (causing <span class="kw">Eutrophication and fish deaths</span>) and spread water-borne epidemics like cholera, typhoid, and hepatitis.</li>
+            <li><strong>Reuse of Treated Output:</strong> After screening/sedimentation (Primary) and biological oxidation (Secondary), the <span class="kw">treated water can be safely reused for agricultural irrigation, gardening, and industrial cooling</span>, while the digested <span class="kw">biosolid sludge is used as manure and to generate Biogas</span>.</li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 3: 'GIVE GEOGRAPHICAL REASONS' MASTER VAULT (QUESTIONS 25 TO 40) ---
+      {
+        id: 25,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: Reusing is Better Than Recycling",
+        marks: "[1 Mark]",
+        whyChosen: "Asked in 2018, 2021, 2024, and 2026 Specimen. A favourite conceptual 1-marker.",
+        question: "Give a geographical reason: In the 3Rs hierarchy, ‘Reusing’ waste is considered even more eco-friendly and economical than ‘Recycling’ waste.",
+        twistedVersions: [
+          "Why should we prefer reusing a glass jar or cloth bag over sending it for recycling?"
+        ],
+        answer: `
+          <ul>
+            <li><span class="kw">Reusing</span> an item directly (like refilling a glass jar or carrying a cloth bag) <span class="kw">requires zero industrial energy, zero water, and zero chemical reprocessing</span>, whereas <span class="kw">Recycling</span> requires transporting waste to factories and consuming fuel, electricity, and water to melt and remanufacture it.</li>
+          </ul>
+        `
+      },
+      {
+        id: 26,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: Sanitary Landfills Must Be Far From Cities & Water Bodies",
+        marks: "[1 Mark]",
+        whyChosen: "Appeared in 2016, 2019, 2022, and 2025.",
+        question: "Give a geographical reason: Sanitary landfills and waste dumping grounds should always be located far away from human settlements, water bodies, and airports.",
+        twistedVersions: [
+          "Why should landfills not be constructed near rivers, lakes, or residential colonies?"
+        ],
+        answer: `
+          <ul>
+            <li>To prevent <span class="kw">toxic leachate from seeping into and poisoning nearby rivers, lakes, and drinking-water wells</span>, to protect residents from <span class="kw">foul odours, methane gas leaks, and disease vectors</span>, and to prevent scavenging birds (kites/crows) near dumps from causing <span class="kw">bird-hits to aircraft</span> near airports.</li>
+          </ul>
+        `
+      },
+      {
+        id: 27,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: Burning of Dry Leaves & Garbage in Open is Banned",
+        marks: "[1 Mark]",
+        whyChosen: "Asked in 2015, 2019, 2023, and 2025.",
+        question: "Give a geographical reason: Municipal authorities have strictly banned the open burning of dry fallen leaves and municipal garbage in parks and roadsides.",
+        twistedVersions: [
+          "Why should dry garden leaves be composted rather than burnt?"
+        ],
+        answer: `
+          <ul>
+            <li>Open burning of dry leaves and garbage releases <span class="kw">dense smoke, toxic Carbon Monoxide ($CO$), particulate soot, and carcinogenic dioxins</span> (causing asthma and smog), while <span class="kw">wasting valuable organic matter that could easily be composted into rich natural humus/manure</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 28,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: Hospital (Biomedical) Waste Must Be Incinerated",
+        marks: "[1 Mark]",
+        whyChosen: "Tests why biomedical waste cannot be composted or dumped.",
+        question: "Give a geographical reason: Biomedical waste from hospitals and pathology labs must be disposed of by incineration rather than dumping or composting.",
+        twistedVersions: [
+          "Why is incineration the safest method for managing medical waste?"
+        ],
+        answer: `
+          <ul>
+            <li>Biomedical waste (syringes, bandages, human tissues) is <span class="kw">highly infectious and contaminated with deadly pathogens (viruses and bacteria like HIV, Hepatitis, TB)</span>; burning it at $&gt;1,000^\circ\text{C}$ in an incinerator <span class="kw">completely sterilizes and destroys all pathogens</span> so they cannot spread epidemics.</li>
+          </ul>
+        `
+      },
+      {
+        id: 29,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: Earthworms Are Used in Vermicomposting",
+        marks: "[1 Mark]",
+        whyChosen: "Frequently asked in 1-mark 'Give Reason' sub-parts.",
+        question: "Give a geographical reason: Earthworms are added to biodegradable kitchen and farm waste pits in Vermicomposting.",
+        twistedVersions: [
+          "Why are earthworms called 'Nature’s Ploughmen' and a vital ally in organic waste management?"
+        ],
+        answer: `
+          <ul>
+            <li>Earthworms rapidly <span class="kw">ingest and digest decomposing organic waste and excrete nutrient-rich ‘vermicast’</span> (containing 5 times more nitrogen, phosphorus, and potash than ordinary soil), while their burrowing <span class="kw">aerates the compost pile</span> and eliminates foul odour.</li>
+          </ul>
+        `
+      },
+      {
+        id: 30,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: E-Waste Informal Recycling is Dangerous",
+        marks: "[1 Mark]",
+        whyChosen: "Tests the hazard of informal scrap-yard handling of E-waste.",
+        question: "Give a geographical reason: Dismantling and burning electronic waste (E-waste) in open backyard scrap yards is hazardous to workers and the environment.",
+        twistedVersions: [
+          "Why must E-waste be processed only in formal, authorized recycling plants?"
+        ],
+        answer: `
+          <ul>
+            <li>Informal burning of wires and acid-leaching of circuit boards releases <span class="kw">toxic fumes of Lead, Mercury, Cadmium, and brominated flame retardants</span> directly into the air, soil, and groundwater, causing <span class="kw">permanent neurological damage, kidney failure, and cancer</span> in workers and residents.</li>
+          </ul>
+        `
+      },
+      {
+        id: 31,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: Non-Biodegradable Pesticides Like DDT Are Banned",
+        marks: "[1 Mark]",
+        whyChosen: "Links Agriculture with Biomagnification.",
+        question: "Give a geographical reason: The use of synthetic chemical pesticides like DDT has been banned or restricted in agriculture.",
+        twistedVersions: [
+          "Why does DDT sprayed on crops end up harming humans and birds?"
+        ],
+        answer: `
+          <ul>
+            <li>DDT is a <span class="kw">non-biodegradable, fat-soluble toxic chemical</span> that does not break down in soil or water; instead, it enters the food chain and undergoes <span class="kw">Biomagnification (bioaccumulation)</span>, reaching lethal concentrations in fish, birds, and human breast milk.</li>
+          </ul>
+        `
+      },
+      {
+        id: 32,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: Thermal Power Plants Cause Both Air and Water Pollution",
+        marks: "[1 Mark]",
+        whyChosen: "Tests Fly Ash + Thermal Water Pollution.",
+        question: "Give a geographical reason: Coal-based thermal power plants are a major source of solid, gaseous, and thermal water pollution.",
+        twistedVersions: [
+          "How does hot water discharged from thermal and nuclear power plants affect aquatic life?"
+        ],
+        answer: `
+          <ul>
+            <li>Burning coal generates mountains of <span class="kw">solid Fly Ash</span> and emits <span class="kw">gaseous $SO_2$, $NO_x$, and $CO_2$</span> (causing acid rain and global warming), while discharging <span class="kw">heated cooling water into rivers raises water temperature (Thermal Pollution), depleting dissolved oxygen and killing fish</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 33,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: Manual Handling of Unsegregated Waste is Hazardous",
+        marks: "[1 Mark]",
+        whyChosen: "Appeared in 2022 and 2025 Specimen.",
+        question: "Give a geographical reason: Ragpickers and municipal sanitation workers face severe health risks when handling unsegregated municipal waste.",
+        twistedVersions: [
+          "How does household waste segregation protect sanitation workers?"
+        ],
+        answer: `
+          <ul>
+            <li>Unsegregated garbage contains <span class="kw">broken glass, rusty metal shards, used medical syringes/needles, toxic battery acid, and rotting filth</span>, exposing workers to <span class="kw">tetanus, HIV/Hepatitis infections, skin diseases, and respiratory allergies</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 34,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: Vehicles Must Undergo Regular PUC Checks & Use Unleaded/CNG Fuel",
+        marks: "[1 Mark]",
+        whyChosen: "Tests vehicular gaseous waste control.",
+        question: "Give a geographical reason: Public transport buses and auto-rickshaws in cities like Delhi and Mumbai have been switched from diesel/petrol to CNG and Electric (EV) power.",
+        twistedVersions: [
+          "Why was leaded petrol banned in India?"
+        ],
+        answer: `
+          <ul>
+            <li>Diesel and leaded petrol emit <span class="kw">toxic Carbon Monoxide ($CO$), Nitrogen Oxides ($NO_x$), unburnt hydrocarbons, soot, and Lead</span> (which causes brain damage in children), whereas <span class="kw">CNG (Compressed Natural Gas) and Electric Vehicles (EVs) burn cleanly with minimal or zero tailpipe emissions</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 35,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: Glass is 100% Recyclable and Eco-Friendly",
+        marks: "[1 Mark]",
+        whyChosen: "Tests why glass containers are better than plastic.",
+        question: "Give a geographical reason: Glass bottles and jars are considered much more environment-friendly for packaging than plastic containers.",
+        twistedVersions: [
+          "State two advantages of using glass over plastic."
+        ],
+        answer: `
+          <ul>
+            <li>Glass is chemically inert (does not leach toxic chemicals into food/water), can be <span class="kw">washed and reused dozens of times</span>, and is <span class="kw">100% recyclable endlessly by melting into cullet without any loss of quality or purity</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 36,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: Trees Planted Around Landfills & Factories Reduce Pollution",
+        marks: "[1 Mark]",
+        whyChosen: "Cross-chapter link between Natural Vegetation (Ch 3) and Waste Management (Ch 6).",
+        question: "Give a geographical reason: Wide green belts of trees are planted around sanitary landfills, sewage treatment plants, and industrial estates.",
+        twistedVersions: [
+          "How do trees help in mitigating the impact of gaseous and solid waste dumps?"
+        ],
+        answer: `
+          <ul>
+            <li>Dense green belts <span class="kw">absorb foul odours and greenhouse gases ($CO_2$), trap flying dust and particulate ash on their leaves</span>, screen the unsightly dump from public view, and <span class="kw">prevent soil erosion</span> around the landfill site.</li>
+          </ul>
+        `
+      },
+      {
+        id: 37,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: High BOD Indicates High Water Pollution",
+        marks: "[1 Mark]",
+        whyChosen: "Tests the relationship between Biological Oxygen Demand (BOD) and Dissolved Oxygen (DO).",
+        question: "Give a geographical reason: A river stretch receiving untreated city sewage shows a very high Biological Oxygen Demand (BOD) and a sharp drop in Dissolved Oxygen (DO).",
+        twistedVersions: [
+          "What is 'Biological Oxygen Demand' (BOD)? How does it relate to water pollution?"
+        ],
+        answer: `
+          <ul>
+            <li><span class="kw">Biological Oxygen Demand (BOD)</span> is the amount of oxygen required by aerobic bacteria to decompose organic waste in water; when heavy sewage enters a river, <span class="kw">bacteria multiply rapidly and consume almost all the Dissolved Oxygen (DO)</span>, causing BOD to spike and fish to suffocate.</li>
+          </ul>
+        `
+      },
+      {
+        id: 38,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: Mining & Quarrying Generate Huge Solid Waste ('Overburden')",
+        marks: "[1 Mark]",
+        whyChosen: "Covers mining waste.",
+        question: "Give a geographical reason: Open-cast mining and quarrying in states like Jharkhand and Odisha cause severe land degradation and dust pollution.",
+        twistedVersions: [
+          "What is 'Mine Overburden / Tailings' and how should it be managed?"
+        ],
+        answer: `
+          <ul>
+            <li>Open-cast mining strips away vegetation and generates huge heaps of <span class="kw">waste rock and metallic slag (‘overburden’ and ‘mine tailings’)</span>, which <span class="kw">choke nearby streams with toxic silt during rains and fill the air with fine silica/coal dust</span> (causing silicosis and black-lung disease in miners).</li>
+          </ul>
+        `
+      },
+      {
+        id: 39,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: Organic Farming Helps in Waste Reduction",
+        marks: "[1 Mark]",
+        whyChosen: "Connects agricultural practices with waste management.",
+        question: "Give a geographical reason: Shifting from chemical farming to Organic Farming helps solve both solid waste and water pollution problems.",
+        twistedVersions: [
+          "How does organic farming utilize rural waste while protecting lakes from eutrophication?"
+        ],
+        answer: `
+          <ul>
+            <li>Organic farming <span class="kw">recycles biodegradable farm waste, crop residue, and cattle dung into compost and vermicompost</span>, while eliminating the chemical fertilizers and toxic pesticides that cause <span class="kw">eutrophication and biomagnification</span> in water bodies.</li>
+          </ul>
+        `
+      },
+      {
+        id: 40,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Waste Management • Give Reason: 'Polluter Pays Principle' & Extended Producer Responsibility (EPR)",
+        marks: "[1 Mark]",
+        whyChosen: "Modern environmental policy concept tested in competency questions.",
+        question: "Give a geographical/economic reason: Electronics and plastic-packaging manufacturers in India are now legally bound under ‘Extended Producer Responsibility’ (EPR) to collect back their post-consumer waste.",
+        twistedVersions: [
+          "What is 'Extended Producer Responsibility' (EPR) in E-waste and plastic waste management?"
+        ],
+        answer: `
+          <ul>
+            <li>Under <span class="kw">Extended Producer Responsibility (EPR)</span>, the manufacturer who profits from selling electronics, batteries, or plastic packaging is made <span class="kw">financially and logistically responsible for collecting and scientifically recycling the product at the end of its useful life</span>, reducing the burden on municipal landfills.</li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 4: COMPETENCY COMPARISONS, DISEASE VAULT & BOARD RIDDLES (QUESTIONS 41 TO 50) ---
+      {
+        id: 41,
+        probTier: "specimen",
+        probLabel: "🚨 2027 COMPETENCY CASE STUDY • RIVER POLLUTION & TANNERIES",
+        qType: "riddle",
+        subTopic: "Chapter: Waste Management • Case Study: Industrial Effluents in Rivers (Ganga / Yamuna)",
+        marks: "[3 Marks]",
+        whyChosen: "Matches the 2025–2027 CISCE Competency Question pattern where an industrial town along a river faces water contamination and fish mortality.",
+        question: "Read the case below and answer the questions that follow:<br><em>“Villagers living downstream of an industrial cluster of leather tanneries, textile dyeing units, and chemical factories noticed that the river water had turned dark, foamy, and foul-smelling. Dead fish were seen floating on the surface, and villagers using handpumps near the riverbank developed skin rashes and stomach ailments.”</em><br><br>(a) Why did the fish in the river die? Explain the scientific mechanism. [1]<br>(b) Why did the water from underground handpumps near the riverbank also become contaminated? [1]<br>(c) Suggest two strict measures the government must enforce on these factories before they release liquid waste. [1]",
+        twistedVersions: [
+          "How do leather tanneries (e.g., in Kanpur) and textile dyeing factories pollute river ecosystems?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Reason for Mass Death of Fish:</strong> The factories discharged <span class="kw">untreated toxic chemical effluents (containing chromium, acids, and dyes) and high organic waste</span>, which <span class="kw">depleted the Dissolved Oxygen (DO) in the river water (increased BOD) and poisoned the aquatic food chain</span>, suffocating and killing the fish.</li>
+            <li><strong>(b) Reason for Handpump Contamination:</strong> Toxic heavy metals and chemical pollutants from the polluted river and unlined factory sludge pits <span class="kw">seeped/percolated downwards as ‘leachate’ into the shallow underground water table (aquifer)</span> feeding the handpumps.</li>
+            <li><strong>(c) Two Strict Government Measures:</strong>
+              <ul>
+                <li><strong>1. Mandatory Effluent Treatment Plants (ETPs):</strong> Every factory must treat its liquid waste through Primary, Secondary, and Tertiary treatment in a <span class="kw">Common Effluent Treatment Plant (CETP)</span> before discharge.</li>
+                <li><strong>2. Zero Liquid Discharge (ZLD) &amp; Heavy Penalties:</strong> Enforce recycling of treated industrial wastewater for cooling/flushing and shut down non-compliant polluting units.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 42,
+        probTier: "alternate",
+        probLabel: "🔄 COMPETENCY CASE STUDY • WASTE TO WEALTH",
+        qType: "three_r",
+        subTopic: "Chapter: Waste Management • 'Waste Is Wealth if Managed Properly' (3 Industrial Examples)",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in ICSE Board Papers: 'Waste is not waste until wasted — justify with three examples of turning waste into wealth.'",
+        question: "“Waste is actually misplaced wealth if managed scientifically.” Justify this statement by giving three concrete examples where different types of waste are converted into valuable economic resources. [3]",
+        twistedVersions: [
+          "Give three examples of 'Waste-to-Wealth' or 'Waste-to-Energy' initiatives in India."
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Organic Kitchen &amp; Farm Waste $\rightarrow$ Biogas &amp; Vermicompost:</strong> Biodegradable wet waste and cattle dung are decomposed to generate <span class="kw">clean Biogas (Methane) for cooking/electricity and nutrient-rich Vermicompost (organic fertilizer)</span> worth crores of rupees.</li>
+            <li><strong>2. Sugar Mill Bagasse $\rightarrow$ Paper &amp; Cardboard:</strong> Crushed sugarcane residue (<span class="kw">Bagasse</span>) is converted into <span class="kw">eco-friendly paper, packaging board, and biofuel cogeneration</span>, saving forest timber.</li>
+            <li><strong>3. Thermal Plant Fly Ash &amp; Waste Plastic $\rightarrow$ Bricks, Cement &amp; Roads:</strong> <span class="kw">Fly Ash</span> is turned into strong bricks and Portland cement, while shredded <span class="kw">waste plastic is mixed with bitumen to lay durable, water-resistant roads</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 43,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • COMPLETE COMPARISON",
+        qType: "disposal",
+        subTopic: "Chapter: Waste Management • Complete Comparison: Composting vs Incineration",
+        marks: "[3 Marks]",
+        whyChosen: "Compares biological decomposition of wet waste (Composting) with thermal combustion of hazardous waste (Incineration).",
+        question: "Differentiate between ‘Composting’ and ‘Incineration’ on the basis of:<br>(a) Nature of waste treated [1]<br>(b) Process / Mechanism [1]<br>(c) End-product &amp; Environmental impact [1]",
+        twistedVersions: [
+          "State three points of difference between Composting and Incineration."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Nature of Waste Treated:</strong> <span class="kw">Composting</span> treats only <span class="kw">biodegradable organic wet waste</span> (kitchen peels, garden leaves, farm residue); <span class="kw">Incineration</span> treats <span class="kw">infectious biomedical (hospital) waste and hazardous dry/chemical waste</span>.</li>
+            <li><strong>(b) Process / Mechanism:</strong> <span class="kw">Composting</span> is a slow <span class="kw">biological decomposition process by microorganisms/earthworms</span> at normal temperatures; <span class="kw">Incineration</span> is a rapid <span class="kw">thermal combustion (burning) process in closed furnaces at $800^\circ\text{C}\text{–}1,200^\circ\text{C}$</span>.</li>
+            <li><strong>(c) End-Product &amp; Environmental Impact:</strong> <span class="kw">Composting</span> yields <span class="kw">nutrient-rich humus/manure with zero air pollution</span>; <span class="kw">Incineration</span> yields <span class="kw">ash and heat/electricity</span>, but can cause air pollution (dioxins/smoke) if chimneys lack scrubbers.</li>
+          </ul>
+        `
+      },
+      {
+        id: 44,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • COMPLETE COMPARISON",
+        qType: "impact",
+        subTopic: "Chapter: Waste Management • Complete Comparison: Eutrophication vs Biomagnification",
+        marks: "[2 Marks]",
+        whyChosen: "Students frequently mix up Eutrophication and Biomagnification in the exam hall! This card locks down their exact distinction.",
+        question: "State two clear points of difference between ‘Eutrophication’ and ‘Biomagnification’. [2]",
+        twistedVersions: [
+          "How does the cause and effect of Eutrophication differ from that of Biomagnification?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Cause (Type of Pollutant):</strong> <span class="kw">Eutrophication</span> is caused by an excess of <span class="kw">inorganic plant nutrients (Nitrogen and Phosphorus from fertilizers and sewage)</span> in a water body; <span class="kw">Biomagnification</span> is caused by <span class="kw">non-biodegradable toxic chemicals and heavy metals (DDT, Mercury, Lead, Arsenic)</span> entering a food chain.</li>
+            <li><strong>2. Ecological Effect:</strong> <span class="kw">Eutrophication</span> causes dense <span class="kw">Algal Blooms that deplete Dissolved Oxygen (DO) and suffocate fish</span> in the water body; <span class="kw">Biomagnification</span> causes <span class="kw">increasing concentration of poison in the tissues of top predators (large fish, birds, and humans)</span> at the apex of the food chain.</li>
+          </ul>
+        `
+      },
+      {
+        id: 45,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "impact",
+        subTopic: "Chapter: Waste Management • Classification of Waste by Source (Domestic, Industrial, Agricultural, Municipal)",
+        marks: "[2 Marks]",
+        whyChosen: "Covers basic classification of waste sources tested in introductory 2-mark questions.",
+        question: "Define and give two examples each of:<br>(a) Domestic Waste &nbsp; (b) Industrial Waste &nbsp; (c) Agricultural Waste &nbsp; (d) Municipal Waste [2]",
+        twistedVersions: [
+          "Differentiate between Toxic (Hazardous) waste and Non-toxic waste."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Domestic Waste:</strong> Waste generated from household activities (cooking, cleaning). <em>Examples:</em> <span class="kw">Vegetable peels, leftover food, waste paper, plastic wrappers, old clothes</span>.</li>
+            <li><strong>(b) Industrial Waste:</strong> Solid, liquid, and gaseous waste from factories, mines, and power plants. <em>Examples:</em> <span class="kw">Fly ash, metallic slag, chemical effluents, $SO_2$ smoke</span>.</li>
+            <li><strong>(c) Agricultural Waste:</strong> Plant and animal residues from farming, poultry, and threshing. <em>Examples:</em> <span class="kw">Paddy straw (stubble), husks, bagasse, animal dung, chemical fertilizer/pesticide runoff</span>.</li>
+            <li><strong>(d) Municipal Waste:</strong> Collective solid and liquid waste generated in a town/city managed by the municipality. <em>Examples:</em> <span class="kw">Street sweepings, market garbage, sewage sludge, park trimmings</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 46,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD RIDDLE VAULT • 99% PROBABILITY",
+        qType: "riddle",
+        subTopic: "Chapter: Waste Management • 'Give One Geographical Term' Board Riddles (Set 1 — Phenomena & Gases)",
+        marks: "[3 Marks]",
+        whyChosen: "In almost every ICSE Geography paper, Question 12 includes a 2- or 3-mark 'Give one term for each of the following' riddle. Memorizing Sets 1 & 2 guarantees 100% accuracy.",
+        question: "Give one geographical/scientific term for each of the following descriptions:<br>(1) The process of nutrient enrichment of a water body leading to dense algal bloom and depletion of dissolved oxygen.<br>(2) The progressive increase in the concentration of non-biodegradable toxic substances (like DDT or Mercury) along successive trophic levels of a food chain.<br>(3) The foul, toxic liquid formed when rainwater percolates through an open garbage dump or landfill.<br>(4) The inflammable greenhouse gas produced by the anaerobic decomposition of organic waste in landfills and marshes.<br>(5) The synthetic chemical compounds used as refrigerants and aerosols that deplete the stratospheric Ozone layer.<br>(6) Rainwater that becomes acidic ($pH &lt; 5.6$) due to atmospheric Sulphur Dioxide ($SO_2$) and Nitrogen Oxides ($NO_x$).",
+        twistedVersions: [
+          "Identify the environmental phenomenon or gas from the clue provided."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Nutrient enrichment causing algal bloom &amp; oxygen depletion:</strong> <span class="kw">Eutrophication</span>.</li>
+            <li><strong>(2) Increasing toxin concentration up the food chain:</strong> <span class="kw">Biomagnification (or Bioaccumulation)</span>.</li>
+            <li><strong>(3) Toxic liquid seeping from garbage dumps into groundwater:</strong> <span class="kw">Leachate</span>.</li>
+            <li><strong>(4) Inflammable greenhouse gas from rotting landfills:</strong> <span class="kw">Methane ($CH_4$ / Marsh Gas)</span>.</li>
+            <li><strong>(5) Compounds depleting the Ozone layer:</strong> <span class="kw">Chlorofluorocarbons (CFCs)</span>.</li>
+            <li><strong>(6) Acidic precipitation caused by $SO_2$ and $NO_x$:</strong> <span class="kw">Acid Rain</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 47,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • 'GIVE ONE TERM' RIDDLES (SET 2)",
+        qType: "riddle",
+        subTopic: "Chapter: Waste Management • 'Give One Geographical Term' Board Riddles (Set 2 — Disposal & Wastes)",
+        marks: "[3 Marks]",
+        whyChosen: "Covers all remaining 1-word terms on waste types and disposal methods.",
+        question: "Give one geographical/scientific term for each of the following descriptions:<br>(1) Separating waste at the source of generation into biodegradable (wet) and non-biodegradable (dry) categories.<br>(2) Decomposition of organic biodegradable waste using earthworms to produce rich manure.<br>(3) Controlled burning of hazardous and biomedical waste at very high temperatures ($&gt;800^\circ\text{C}$) in enclosed furnaces.<br>(4) The fibrous crushed sugarcane residue from sugar mills used as raw material for manufacturing paper.<br>(5) The fine powdery ash produced by burning coal in thermal power plants that is recycled to make bricks and cement.<br>(6) Discarded, obsolete electrical and electronic appliances like computers, mobile phones, and TVs.",
+        twistedVersions: [
+          "Name the specific waste management method or industrial waste described."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Sorting waste into wet and dry categories at source:</strong> <span class="kw">Segregation</span>.</li>
+            <li><strong>(2) Composting organic waste using earthworms:</strong> <span class="kw">Vermicomposting</span>.</li>
+            <li><strong>(3) High-temperature enclosed burning of medical/hazardous waste:</strong> <span class="kw">Incineration</span>.</li>
+            <li><strong>(4) Sugarcane residue used for making paper:</strong> <span class="kw">Bagasse</span>.</li>
+            <li><strong>(5) Coal thermal power plant ash used for bricks/cement:</strong> <span class="kw">Fly Ash</span>.</li>
+            <li><strong>(6) Discarded electronic appliances:</strong> <span class="kw">E-Waste (Electronic Waste)</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 48,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • POLLUTANT-TO-DISEASE MATCHING VAULT",
+        qType: "riddle",
+        subTopic: "Chapter: Waste Management • Complete Disease-to-Pollutant Matching Vault",
+        marks: "[3 Marks]",
+        whyChosen: "Examiners frequently ask 1-mark questions matching a specific heavy metal or pollutant with the human disease it causes (especially Minamata Disease).",
+        question: "Name the specific disease or health disorder caused in humans by each of the following pollutants:<br>(1) <strong>Mercury (Methylmercury)</strong> poisoning through contaminated fish (first discovered in Japan)<br>(2) <strong>Cadmium</strong> poisoning through contaminated water/rice<br>(3) Excess <strong>Nitrates</strong> (from fertilizer runoff) in drinking water given to infants<br>(4) Inhaling fine <strong>Silica dust / Coal dust / Asbestos fibres</strong> in mines and factories<br>(5) <strong>Ultraviolet (UV) radiation</strong> reaching Earth due to Ozone layer depletion<br>(6) Drinking water contaminated with untreated <strong>human sewage / faecal bacteria</strong>",
+        twistedVersions: [
+          "What caused 'Minamata Disease' in Japan and what were its symptoms?",
+          "Which heavy metal causes 'Itai-Itai' disease and which pollutant causes 'Blue Baby Syndrome'?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Mercury (Methylmercury) Poisoning in Fish:</strong> <span class="kw">Minamata Disease</span> (causes numbness of limbs, blindness, brain damage, paralysis, and death).</li>
+            <li><strong>(2) Cadmium Poisoning:</strong> <span class="kw">Itai-Itai (“Ouch-Ouch”) Disease</span> (causes painful softening of bones and kidney failure).</li>
+            <li><strong>(3) Excess Nitrates in Drinking Water:</strong> <span class="kw">Blue Baby Syndrome (Methemoglobinemia)</span> (reduces oxygen-carrying capacity of blood in infants).</li>
+            <li><strong>(4) Inhaling Silica / Coal / Asbestos Dust:</strong> <span class="kw">Silicosis, Black-Lung Disease (Pneumoconiosis), and Asbestosis / Lung Cancer</span>.</li>
+            <li><strong>(5) UV Radiation from Ozone Depletion:</strong> <span class="kw">Skin Cancer, Eye Cataracts, and Snow Blindness</span>.</li>
+            <li><strong>(6) Sewage / Faecal Bacteria in Water:</strong> <span class="kw">Cholera, Typhoid, Dysentery, Diarrhoea, and Hepatitis A/E (Jaundice)</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 49,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • COLOR-CODED BINS & 5Rs LOCK",
+        qType: "disposal",
+        subTopic: "Chapter: Waste Management • Color-Coded Dustbins & Expanded 5Rs (Refuse & Repurpose)",
+        marks: "[2 Marks]",
+        whyChosen: "Sometimes competency questions ask about the 4 bin colors under Solid Waste Management Rules or the expanded 5Rs (Refuse, Reduce, Reuse, Repurpose, Recycle).",
+        question: "(a) Match the four standard Dustbin Colors used in India with the type of waste placed in each: <strong>Green, Blue, Red, and Black (or Yellow)</strong>. [1]<br>(b) In the expanded ‘5Rs’ of Zero-Waste living, what do <strong>‘Refuse’</strong> and <strong>‘Repurpose’ (Upcycle)</strong> mean? [1]",
+        twistedVersions: [
+          "Which color dustbin is used for domestic hazardous waste vs biodegradable waste?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Standard Color-Coded Dustbins:</strong>
+              <ul>
+                <li><strong>Green Bin:</strong> <span class="kw">Wet / Biodegradable Organic Waste</span> (food scraps, vegetable peels, garden waste).</li>
+                <li><strong>Blue Bin:</strong> <span class="kw">Dry / Recyclable Non-Biodegradable Waste</span> (paper, plastic, metal, glass).</li>
+                <li><strong>Red / Yellow Bin:</strong> <span class="kw">Biomedical / Pathological &amp; Infected Hospital Waste</span> (syringes, bandages, IV tubes).</li>
+                <li><strong>Black Bin:</strong> <span class="kw">Domestic Hazardous &amp; E-Waste</span> (used batteries, paint cans, CFL bulbs, expired medicines).</li>
+              </ul>
+            </li>
+            <li><strong>(b) ‘Refuse’ and ‘Repurpose’ (Upcycle):</strong>
+              <ul>
+                <li><strong>Refuse:</strong> Saying <span class="kw">‘NO’ to unnecessary single-use plastics, polythene bags, and disposable straws</span> before they even enter your home.</li>
+                <li><strong>Repurpose (Upcycle):</strong> Modifying a discarded item creatively for a <span class="kw">brand-new function</span> (e.g., painting old car tyres to make garden planters/seating, or turning old denim jeans into tote bags).</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 50,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ULTIMATE EXAM HALL CHEAT CODE",
+        qType: "three_r",
+        subTopic: "Chapter: Waste Management • 10-Second Exam Hall Master Cheat Code (Zero Marks Lost in Q12)",
+        marks: "[3 Marks]",
+        whyChosen: "Question 12 is the highest-scoring theory question in the entire Geography paper if you avoid the 3 classic student traps below!",
+        question: "Master the 3 biggest Examiner Traps in Question 12 (Waste Management):<br>(1) What is the exact difference between an example of <strong>‘Reuse’</strong> vs an example of <strong>‘Recycle’</strong>? (Why do students lose marks when they write 'making paper bags from old newspapers' under Recycle?) [1]<br>(2) When asked how waste affects <strong>‘Aquatic Life’</strong>, what two scientific terms MUST appear in your answer to guarantee full marks? [1]<br>(3) What is the difference between <strong>‘Dumping (Open Dumping)’</strong> and a <strong>‘Sanitary Landfill’</strong>? [1]",
+        twistedVersions: [
+          "How to score a guaranteed 10/10 in Question 12 (Waste Management)."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Trap #1 — ‘Reuse’ vs ‘Recycle’ Examples (Never Mix Them Up!):</strong>
+              <ul>
+                <li>If there is <strong>NO factory melting/pulping</strong> (e.g., <em>using empty glass jars in the kitchen, donating old clothes/books, making carry bags out of old newspapers/cloth at home</em>) $\rightarrow$ it is <span class="kw">REUSE</span>!</li>
+                <li>If waste is <strong>melted, pulped, or chemically reprocessed in a factory</strong> to make a new material (e.g., <em>pulping waste paper/Bagasse in a paper mill, melting broken glass/scrap metal, making Fly Ash bricks, mixing shredded plastic with hot bitumen for roads</em>) $\rightarrow$ it is <span class="kw">RECYCLE</span>!</li>
+              </ul>
+            </li>
+            <li><strong>(2) Trap #2 — Mandatory Keywords for ‘Aquatic Life’:</strong>
+              <ul>
+                <li>Always write <span class="kw">Eutrophication (Algal Bloom $\rightarrow$ depletion of Dissolved Oxygen / increase in BOD $\rightarrow$ suffocation of fish)</span> AND <span class="kw">Biomagnification (accumulation of Mercury/DDT up the food chain $\rightarrow$ Minamata disease)</span> + <span class="kw">Oil Spills</span>.</li>
+              </ul>
+            </li>
+            <li><strong>(3) Trap #3 — Open Dumping vs Sanitary Landfill:</strong>
+              <ul>
+                <li><strong>Open Dumping:</strong> Uncovered garbage heaps $\rightarrow$ <span class="kw">breeds vectors (flies/mosquitoes/rats), foul smell, and toxic Leachate pollutes groundwater</span>.</li>
+                <li><strong>Sanitary Landfill:</strong> Engineered pit with <span class="kw">impervious clay/plastic bottom liner (stops leachate) + daily $15\text{ cm}$ soil cover (stops vectors and smell) + methane gas recovery</span>.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      }
+    ];
+
+    // =========================================================================
+    // APP STATE, MODE SWITCHER, DUAL-TAB DRAWER, BLUR RECALL, FILTERS & TIMER
+    // =========================================================================
+    let currentMode = 'dpp'; // 'dpp' | 'gothrough' | 'blur'
+    let currentProbFilter = 'all';
+    let currentTypeFilter = 'all';
+    let masteredIds = new Set(JSON.parse(localStorage.getItem('icse2027_waste_mastered') || '[]'));
+    let reviewIds = new Set(JSON.parse(localStorage.getItem('icse2027_waste_review') || '[]'));
+    let revealedIds = new Set();
+
+    let timerSeconds = 1800;
+    let timerInterval = null;
+    let isTimerRunning = false;
+
+    function saveProgress() {
+      localStorage.setItem('icse2027_waste_mastered', JSON.stringify([...masteredIds]));
+      localStorage.setItem('icse2027_waste_review', JSON.stringify([...reviewIds]));
+      updateStats();
+    }
+
+    function updateStats() {
+      document.getElementById('statMastered').textContent = masteredIds.size;
+      document.getElementById('statReview').textContent = reviewIds.size;
+      const pct = Math.round((masteredIds.size / wasteQuestions.length) * 100);
+      const bar = document.getElementById('masteryProgressBar');
+      if (bar) bar.style.width = `${pct}%`;
+    }
+
+    function openCheatTab(tabName) {
+      const drawer = document.getElementById('matrixDrawer');
+      drawer.classList.add('open');
+      switchCheatTab(tabName);
+      drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function switchCheatTab(tabName) {
+      const isMethods = tabName === 'methods';
+      document.getElementById('tabContentMethods').style.display = isMethods ? 'block' : 'none';
+      document.getElementById('tabContentPhenomena').style.display = isMethods ? 'none' : 'block';
+      document.getElementById('tabBtnMethods').classList.toggle('active', isMethods);
+      document.getElementById('tabBtnPhenomena').classList.toggle('active', !isMethods);
+    }
+
+    function closeCheatDrawer() {
+      document.getElementById('matrixDrawer').classList.remove('open');
+    }
+
+    function setStudyMode(mode) {
+      currentMode = mode;
+      document.getElementById('btnDppMode').classList.toggle('active', mode === 'dpp');
+      document.getElementById('btnGoMode').classList.toggle('active', mode === 'gothrough');
+      document.getElementById('btnBlurMode').classList.toggle('active', mode === 'blur');
+      document.body.classList.toggle('blur-mode', mode === 'blur');
+
+      const mBtn = document.getElementById('mobileModeBtn');
+      if (mBtn) {
+        const labelMap = { dpp: 'Mode: DPP', gothrough: 'Mode: Go-Through', blur: 'Mode: Blur' };
+        mBtn.textContent = labelMap[mode];
+      }
+      renderQuestions();
+    }
+
+    function cycleMobileMode() {
+      if (currentMode === 'dpp') setStudyMode('gothrough');
+      else if (currentMode === 'gothrough') setStudyMode('blur');
+      else setStudyMode('dpp');
+    }
+
+    function setProbFilter(prob, btnEl) {
+      currentProbFilter = prob;
+      document.querySelectorAll('[data-prob]').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      renderQuestions();
+    }
+
+    function setTypeFilter(type, btnEl) {
+      currentTypeFilter = type;
+      document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      renderQuestions();
+    }
+
+    function toggleAnswer(id) {
+      if (revealedIds.has(id)) revealedIds.delete(id);
+      else revealedIds.add(id);
+
+      const panel = document.getElementById(`ans-${id}`);
+      const btn = document.getElementById(`revbtn-${id}`);
+      if (panel && btn) {
+        const isShown = revealedIds.has(id);
+        panel.classList.toggle('visible', isShown);
+        btn.innerHTML = isShown ? '🙈 Hide Official Board Answer' : '👁 Show Official Board Answer';
+      }
+    }
+
+    function expandAllAnswers() {
+      wasteQuestions.forEach(q => revealedIds.add(q.id));
+      renderQuestions();
+    }
+
+    function collapseAllAnswers() {
+      revealedIds.clear();
+      if (currentMode !== 'dpp') setStudyMode('dpp');
+      else renderQuestions();
+    }
+
+    function toggleMastered(id) {
+      if (masteredIds.has(id)) masteredIds.delete(id);
+      else {
+        masteredIds.add(id);
+        reviewIds.delete(id);
+      }
+      saveProgress();
+      renderQuestions();
+    }
+
+    function toggleReview(id) {
+      if (reviewIds.has(id)) reviewIds.delete(id);
+      else {
+        reviewIds.add(id);
+        masteredIds.delete(id);
+      }
+      saveProgress();
+      renderQuestions();
+    }
+
+    function getProbClass(tier) {
+      if (tier === 'specimen') return 'prob-specimen';
+      if (tier === 'highest') return 'prob-highest';
+      if (tier === 'alternate') return 'prob-alternate';
+      return 'prob-safety';
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      const query = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+
+      const filtered = wasteQuestions.filter(q => {
+        if (currentProbFilter !== 'all' && q.probTier !== currentProbFilter) return false;
+        if (currentTypeFilter === 'revision') {
+          if (!reviewIds.has(q.id)) return false;
+        } else if (currentTypeFilter !== 'all' && q.qType !== currentTypeFilter) {
+          return false;
+        }
+        if (query) {
+          const hay = (
+            q.question + ' ' +
+            q.subTopic + ' ' +
+            q.whyChosen + ' ' +
+            q.twistedVersions.join(' ') + ' ' +
+            q.answer
+          ).toLowerCase();
+          return hay.includes(query);
+        }
+        return true;
+      });
+
+      document.getElementById('statTotal').textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="q-card" style="text-align:center; padding:40px;">
+            <h3 style="margin-bottom:8px;">No matching questions found</h3>
+            <p style="color:var(--text-secondary); font-size:0.9rem;">Try clearing your search bar or switching the filter chip back to "All Questions".</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(q => {
+        const isAnswerVisible = currentMode === 'gothrough' || currentMode === 'blur' || revealedIds.has(q.id);
+        const isMastered = masteredIds.has(q.id);
+        const isReview = reviewIds.has(q.id);
+
+        return `
+          <article class="q-card ${isMastered ? 'mastered' : ''} ${isReview ? 'review-later' : ''}" id="qcard-${q.id}">
+            <div class="q-header">
+              <div class="badge-group">
+                <span class="q-num">Q${q.id}</span>
+                <span class="prob-badge ${getProbClass(q.probTier)}">${q.probLabel}</span>
+                <span class="topic-badge">${q.subTopic}</span>
+              </div>
+              <span class="marks-badge">${q.marks}</span>
+            </div>
+
+            <div class="dna-box">
+              <strong>🧬 Why Chosen (Examiner Pattern DNA):</strong> ${q.whyChosen}
+            </div>
+
+            <div class="q-main">
+              ${q.question}
+            </div>
+
+            <div class="twists-container">
+              <div class="twists-title">
+                🔀 All Twisted / Same-Answer Board Variations (${q.twistedVersions.length} Variations):
+              </div>
+              <ul class="twists-list">
+                ${q.twistedVersions.map(t => `<li>${t}</li>`).join('')}
+              </ul>
+            </div>
+
+            <div class="q-actions">
+              ${currentMode === 'dpp' ? `
+                <button class="reveal-btn" id="revbtn-${q.id}" onclick="toggleAnswer(${q.id})">
+                  ${isAnswerVisible ? '🙈 Hide Official Board Answer' : '👁 Show Official Board Answer'}
+                </button>
+              ` : currentMode === 'blur' ? `
+                <span style="font-size:0.78rem; color:#bef264; font-weight:700;">🧠 Active Recall Mode: Tap or hover any blurred lime keyword below to reveal it!</span>
+              ` : `
+                <span style="font-size:0.78rem; color:var(--accent-amber); font-weight:700;">⚡ Go-Through Mode Active (Answer Expanded Below)</span>
+              `}
+
+              <div class="self-eval-group">
+                <button class="eval-btn master-btn ${isMastered ? 'active' : ''}" onclick="toggleMastered(${q.id})">
+                  ${isMastered ? '✔ Mastered' : 'Mark Mastered'}
+                </button>
+                <button class="eval-btn rev-btn ${isReview ? 'active' : ''}" onclick="toggleReview(${q.id})">
+                  ${isReview ? '⭐ In Revision List' : '⭐ Needs Revision'}
+                </button>
+              </div>
+            </div>
+
+            <div class="answer-panel ${isAnswerVisible ? 'visible' : ''}" id="ans-${q.id}">
+              <div class="ans-header">
+                <span class="ans-badge">✅ Official CISCE Council Marking Scheme Answer</span>
+              </div>
+              <div class="ans-body">
+                ${q.answer}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Allow tapping blurred keywords on mobile to toggle unblur
+    document.addEventListener('click', (e) => {
+      if (e.target && e.target.classList.contains('kw') && document.body.classList.contains('blur-mode')) {
+        e.target.classList.toggle('unblurred');
+      }
+    });
+
+    // =========================================================================
+    // COUNTDOWN TIMER & SELF-DOWNLOAD
+    // =========================================================================
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function updateTimerUI() {
+      const text = formatTime(timerSeconds);
+      const d1 = document.getElementById('timerDisplay');
+      const d2 = document.getElementById('mobileTimerDisplay');
+      [d1, d2].forEach(el => {
+        if (!el) return;
+        el.textContent = text;
+        el.classList.remove('warning', 'danger');
+        if (timerSeconds <= 60) el.classList.add('danger');
+        else if (timerSeconds <= 300) el.classList.add('warning');
+      });
+    }
+
+    function changeTimerPreset() {
+      const val = parseInt(document.getElementById('timerPreset').value, 10);
+      pauseTimer();
+      timerSeconds = val;
+      updateTimerUI();
+    }
+
+    function toggleTimer() {
+      if (isTimerRunning) pauseTimer();
+      else startTimer();
+    }
+
+    function startTimer() {
+      if (isTimerRunning) return;
+      isTimerRunning = true;
+      const btn = document.getElementById('timerToggleBtn');
+      const mBtn = document.getElementById('mobileTimerBtn');
+      if (btn) { btn.textContent = 'Pause'; btn.className = 't-btn pause'; }
+      if (mBtn) { mBtn.textContent = 'Pause'; mBtn.className = 't-btn pause'; }
+
+      timerInterval = setInterval(() => {
+        if (timerSeconds > 0) {
+          timerSeconds--;
+          updateTimerUI();
+        } else {
+          pauseTimer();
+          alert('⏰ Time is up! Check your answers against the Official CISCE Marking Scheme.');
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      isTimerRunning = false;
+      clearInterval(timerInterval);
+      const btn = document.getElementById('timerToggleBtn');
+      const mBtn = document.getElementById('mobileTimerBtn');
+      if (btn) { btn.textContent = 'Start'; btn.className = 't-btn start'; }
+      if (mBtn) { mBtn.textContent = 'Start'; mBtn.className = 't-btn start'; }
+    }
+
+    function resetTimer() {
+      pauseTimer();
+      timerSeconds = parseInt(document.getElementById('timerPreset').value, 10);
+      updateTimerUI();
+    }
+
+    function downloadSelfHtml() {
+      const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ICSE_2027_Geography_Waste_Management_DPP.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      updateStats();
+      renderQuestions();
+      startTimer();
+    });
+  </script>
+</body>
+</html>

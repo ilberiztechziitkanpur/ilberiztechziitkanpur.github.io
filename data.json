@@ -507,10 +507,18 @@
                         },
                         {
                             "id": "chap-geo-waste",
-                            "name": "Ch 10: Waste Management",
-                            "description": "Impact of waste accumulation, segregation, safe disposal (landfills, incineration) & 3 R's",
+                            "name": "Ch 9: Waste Management",
+                            "description": "50 Most Expected Questions, 200+ Twisted Variations, Master MCQ DPP & Complete Modes Vault",
                             "featured": true,
                             "items": [
+                                {
+                                    "id": "geo-waste-theory-master",
+                                    "title": "Waste Management Theory DPP — 50 Most Expected Questions Vault",
+                                    "subtitle": "50 Master Questions, 200+ Variations, Disposal Methods & 3 R's Cheat Sheets, Active Recall Blur Mode",
+                                    "type": "interactive",
+                                    "file": "geography/waste/index.html",
+                                    "badge": "Theory DPP • 50 Master Qs"
+                                },
                                 {
                                     "id": "geo-waste-dpp",
                                     "title": "Waste Management — Master MCQ DPP Drill",

@@ -334,6 +334,30 @@ function renderNav() {
         }
     };
     navMenu.appendChild(transportNav);
+
+    // Quick Launch: Waste Management Theory DPP (50 Expected Qs)
+    const wasteNav = document.createElement('div');
+    const isWasteActive = state.currentItem?.id === 'geo-waste-theory-master';
+    wasteNav.className = `nav-item nav-item-featured ${isWasteActive ? 'active' : ''}`;
+    wasteNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #84cc16;">recycling</span>
+        <span style="font-weight: 600;">Waste 50 Qs DPP</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #84cc16, #10b981); color:#051109;">NEW</span>
+    `;
+    wasteNav.onclick = () => {
+        closeSidebarOnMobile();
+        resetSearch();
+        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
+        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
+        const wasteChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-waste');
+        const wasteItem = wasteChap?.items?.find(i => i.id === 'geo-waste-theory-master');
+        if (wasteChap && wasteItem) {
+            navigateTo('viewer', [batch.id, geoSub.id, wasteChap.id], wasteItem);
+        } else {
+            window.location.href = 'geography/waste/index.html';
+        }
+    };
+    navMenu.appendChild(wasteNav);
 }
 
 function resetSearch() {
