@@ -286,6 +286,30 @@ function renderNav() {
         }
     };
     navMenu.appendChild(vegNav);
+
+    // Quick Launch: Water Resources Theory DPP (48 Expected Qs)
+    const waterNav = document.createElement('div');
+    const isWaterActive = state.currentItem?.id === 'geo-water-theory-master';
+    waterNav.className = `nav-item nav-item-featured ${isWaterActive ? 'active' : ''}`;
+    waterNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #0ea5e9;">water_drop</span>
+        <span style="font-weight: 600;">Water 48 Qs DPP</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); color:#fff;">NEW</span>
+    `;
+    waterNav.onclick = () => {
+        closeSidebarOnMobile();
+        resetSearch();
+        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
+        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
+        const waterChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-water');
+        const waterItem = waterChap?.items?.find(i => i.id === 'geo-water-theory-master');
+        if (waterChap && waterItem) {
+            navigateTo('viewer', [batch.id, geoSub.id, waterChap.id], waterItem);
+        } else {
+            window.location.href = 'geography/water/index.html';
+        }
+    };
+    navMenu.appendChild(waterNav);
 }
 
 function resetSearch() {

@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>ICSE 2027 Geography DPP — Chapter 4: Water Resources (Extreme UI v3.0)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #040811;
+      --bg-secondary: #0a1222;
+      --bg-card: rgba(12, 22, 40, 0.88);
+      --bg-card-hover: rgba(18, 32, 56, 0.96);
+      --text-primary: #f0f9ff;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-cyan: #06b6d4;
+      --accent-sky: #0ea5e9;
+      --accent-blue: #3b82f6;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --border-subtle: rgba(148, 163, 184, 0.15);
+      --shadow-glow: 0 12px 35px -10px rgba(6, 182, 212, 0.22);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background-color: var(--bg-primary);
+      background-image: 
+        radial-gradient(circle at 12% 10%, rgba(6, 182, 212, 0.14) 0%, transparent 36%),
+        radial-gradient(circle at 88% 16%, rgba(59, 130, 246, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.08) 0%, transparent 45%);
+      background-attachment: fixed;
+      color: var(--text-primary);
+      line-height: 1.65;
+      padding-bottom: 110px;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: #152542; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-cyan); }
+
+    /* Top Sticky Command Bar */
+    .command-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(4, 8, 17, 0.9);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .progress-strip {
+      height: 3px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue), var(--accent-emerald));
+      transition: width 0.35s ease;
+    }
+
+    .command-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .home-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .home-nav-btn:hover {
+      background: rgba(6, 182, 212, 0.16);
+      border-color: var(--accent-cyan);
+      color: var(--accent-cyan);
+      transform: translateX(-2px);
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      box-shadow: 0 0 16px rgba(6, 182, 212, 0.38);
+    }
+
+    .brand-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+    }
+
+    .brand-sub {
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      display: block;
+    }
+
+    .controls-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* 3-Mode Pill Switcher */
+    .mode-pill {
+      display: inline-flex;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      padding: 3px;
+    }
+
+    .mode-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    .mode-btn.active {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #ffffff;
+      box-shadow: 0 2px 12px rgba(6, 182, 212, 0.35);
+    }
+
+    /* Timer Box */
+    .timer-widget {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .timer-display {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      min-width: 58px;
+      text-align: center;
+    }
+
+    .timer-display.warning { color: var(--accent-amber); }
+    .timer-display.danger { color: var(--accent-rose); animation: pulse 1s infinite; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .preset-select {
+      background: rgba(255,255,255,0.05);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 4px 7px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .preset-select option { background: var(--bg-secondary); color: var(--text-primary); }
+
+    .t-btn {
+      border: none;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .t-btn:hover { background: rgba(255, 255, 255, 0.16); }
+    .t-btn.start { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .t-btn.pause { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+
+    .container {
+      max-width: 1300px;
+      margin: 22px auto 0;
+      padding: 0 18px;
+    }
+
+    /* Hero Card */
+    .hero-card {
+      background: linear-gradient(145deg, rgba(12, 24, 44, 0.94), rgba(6, 13, 25, 0.96));
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue), var(--accent-emerald));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.65fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #38bdf8;
+      background: rgba(6, 182, 212, 0.12);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.4rem, 2.7vw, 2.05rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #ffffff, #7dd3fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .syllabus-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .syl-pill {
+      font-size: 0.72rem;
+      color: #bae6fd;
+      background: rgba(6, 182, 212, 0.08);
+      border: 1px solid rgba(6, 182, 212, 0.22);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .cheat-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cheat-toggle-btn {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.22), rgba(59, 130, 246, 0.22));
+      border: 1px solid rgba(6, 182, 212, 0.45);
+      color: #7dd3fc;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cheat-toggle-btn:hover {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #ffffff;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stat-box {
+      background: rgba(8, 15, 29, 0.92);
+      border: 1px solid var(--border-subtle);
+      padding: 14px;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--accent-cyan);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* Interactive Dual-Tab Cheat Sheet Drawer */
+    .matrix-drawer {
+      background: var(--bg-card);
+      border: 1px solid rgba(6, 182, 212, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 22px;
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .matrix-drawer.open { display: block; }
+
+    .drawer-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .d-tab {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .d-tab.active {
+      background: rgba(6, 182, 212, 0.2);
+      color: #7dd3fc;
+      border-color: var(--accent-cyan);
+    }
+
+    .matrix-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.81rem;
+      min-width: 860px;
+      text-align: left;
+    }
+
+    .matrix-table th {
+      background: rgba(6, 182, 212, 0.16);
+      color: #bae6fd;
+      padding: 10px 12px;
+      border: 1px solid var(--border-subtle);
+      font-weight: 800;
+    }
+
+    .matrix-table td {
+      padding: 9px 12px;
+      border: 1px solid var(--border-subtle);
+      color: #e2e8f0;
+      background: rgba(8, 15, 29, 0.78);
+      vertical-align: top;
+    }
+
+    /* Filter & Search Panel */
+    .filter-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .search-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 220px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.15);
+    }
+
+    .action-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 8px 13px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .action-btn:hover {
+      border-color: var(--accent-cyan);
+      background: rgba(6, 182, 212, 0.14);
+    }
+
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .chip-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-right: 4px;
+    }
+
+    .f-chip {
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .f-chip:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.25); }
+    .f-chip.active {
+      background: rgba(6, 182, 212, 0.22);
+      color: #7dd3fc;
+      border-color: var(--accent-cyan);
+    }
+
+    /* Question Cards */
+    .questions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .q-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      transition: all 0.22s ease;
+      position: relative;
+    }
+
+    .q-card:hover {
+      border-color: rgba(6, 182, 212, 0.4);
+      box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.65);
+    }
+
+    .q-card.mastered { border-left: 4px solid var(--accent-emerald); }
+    .q-card.review-later { border-left: 4px solid var(--accent-amber); }
+
+    .q-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .q-num {
+      background: linear-gradient(135deg, #10243e, #081221);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      color: #7dd3fc;
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+
+    .prob-badge {
+      font-size: 0.71rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .prob-specimen {
+      background: rgba(16, 185, 129, 0.18);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+    }
+
+    .prob-highest {
+      background: rgba(244, 63, 94, 0.16);
+      color: #fb7185;
+      border: 1px solid rgba(244, 63, 94, 0.4);
+    }
+
+    .prob-alternate {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .prob-safety {
+      background: rgba(6, 182, 212, 0.16);
+      color: #7dd3fc;
+      border: 1px solid rgba(6, 182, 212, 0.4);
+    }
+
+    .topic-badge {
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    .marks-badge {
+      font-family: monospace;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #38bdf8;
+      background: rgba(6, 182, 212, 0.12);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .dna-box {
+      background: linear-gradient(90deg, rgba(6, 182, 212, 0.12), rgba(59, 130, 246, 0.04));
+      border-left: 3px solid var(--accent-cyan);
+      padding: 10px 14px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 14px;
+      font-size: 0.83rem;
+      color: #e2e8f0;
+    }
+
+    .dna-box strong {
+      color: #38bdf8;
+      text-transform: uppercase;
+      font-size: 0.73rem;
+      letter-spacing: 0.05em;
+      margin-right: 6px;
+    }
+
+    .q-main {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.56;
+    }
+
+    .twists-container {
+      background: rgba(8, 15, 29, 0.82);
+      border: 1px dashed rgba(148, 163, 184, 0.26);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+
+    .twists-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-amber);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .twists-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .twists-list li {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .twists-list li::before {
+      content: "↳";
+      position: absolute;
+      left: 0;
+      color: var(--accent-amber);
+      font-weight: bold;
+    }
+
+    .q-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .reveal-btn {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.22), rgba(59, 130, 246, 0.22));
+      border: 1px solid rgba(6, 182, 212, 0.5);
+      color: #7dd3fc;
+      font-weight: 700;
+      font-size: 0.83rem;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reveal-btn:hover {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue));
+      color: #ffffff;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.32);
+    }
+
+    .self-eval-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .eval-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .eval-btn.master-btn.active {
+      background: rgba(16, 185, 129, 0.22);
+      border-color: var(--accent-emerald);
+      color: #34d399;
+    }
+
+    .eval-btn.rev-btn.active {
+      background: rgba(245, 158, 11, 0.22);
+      border-color: var(--accent-amber);
+      color: #fbbf24;
+    }
+
+    /* Official Answer Box */
+    .answer-panel {
+      margin-top: 16px;
+      background: rgba(6, 12, 24, 0.95);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: none;
+      animation: fadeIn 0.22s ease;
+    }
+
+    .answer-panel.visible { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ans-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .ans-badge {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #34d399;
+    }
+
+    .ans-body {
+      font-size: 0.92rem;
+      color: #e2e8f0;
+    }
+
+    .ans-body ul {
+      padding-left: 20px;
+      margin-top: 6px;
+    }
+
+    .ans-body li { margin-bottom: 7px; }
+
+    /* Highlighted Keywords & Active Recall Blur Mode */
+    .kw {
+      background: rgba(6, 182, 212, 0.18);
+      color: #67e8f9;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      border-bottom: 1px dashed rgba(6, 182, 212, 0.55);
+      transition: filter 0.2s ease, background 0.2s ease;
+    }
+
+    body.blur-mode .kw:not(.unblurred) {
+      filter: blur(5px);
+      background: rgba(6, 182, 212, 0.32);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    body.blur-mode .kw:hover {
+      filter: blur(0px);
+    }
+
+    .examiner-tip {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 3px solid var(--accent-amber);
+      border-radius: 4px;
+      font-size: 0.82rem;
+      color: #fde68a;
+    }
+
+    /* Mobile Sticky Bar */
+    .mobile-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(5, 10, 20, 0.96);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-subtle);
+      padding: 10px 14px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 99;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .command-inner { flex-direction: column; align-items: stretch; }
+      .controls-group { justify-content: space-between; }
+      .mobile-bar { display: flex; }
+      .q-card { padding: 16px; }
+    }
+
+    @media print {
+      .command-bar, .filter-panel, .mobile-bar, .q-actions, .cheat-btn-row { display: none !important; }
+      .answer-panel { display: block !important; border: 1px solid #000; }
+      body { background: #fff; color: #000; }
+      .q-card { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP COMMAND BAR -->
+  <header class="command-bar">
+    <div class="progress-strip">
+      <div class="progress-fill" id="masteryProgressBar"></div>
+    </div>
+    <div class="command-inner">
+      <div class="brand-group">
+        <a href="../../index.html" class="home-nav-btn" target="_top" title="Back to Ilberiz Techz Dashboard">
+          <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>
+          <span>Ilberiz Techz</span>
+        </a>
+        <span class="brand-badge">ICSE 2027</span>
+        <div>
+          <span class="brand-title">Geography Theory DPP — Chapter 4: Water Resources</span>
+          <span class="brand-sub">Question 7 Master Vault • 2027 Specimen + 15-Year Board DNA</span>
+        </div>
+      </div>
+
+      <div class="controls-group">
+        <!-- 3-Mode Switcher -->
+        <div class="mode-pill" role="group" aria-label="Study Mode">
+          <button class="mode-btn active" id="btnDppMode" onclick="setStudyMode('dpp')">
+            🎯 DPP Mode
+          </button>
+          <button class="mode-btn" id="btnGoMode" onclick="setStudyMode('gothrough')">
+            ⚡ Go-Through
+          </button>
+          <button class="mode-btn" id="btnBlurMode" onclick="setStudyMode('blur')" title="Blur keywords for active memory recall!">
+            🧠 Blur Keywords
+          </button>
+        </div>
+
+        <!-- Timer Widget -->
+        <div class="timer-widget">
+          <select id="timerPreset" class="preset-select" onchange="changeTimerPreset()">
+            <option value="900">15 Mins</option>
+            <option value="1800" selected>30 Mins</option>
+            <option value="2700">45 Mins</option>
+            <option value="3600">60 Mins</option>
+          </select>
+          <span class="timer-display" id="timerDisplay">30:00</span>
+          <button class="t-btn start" id="timerToggleBtn" onclick="toggleTimer()">Start</button>
+          <button class="t-btn" onclick="resetTimer()">Reset</button>
+        </div>
+
+        <button class="action-btn" onclick="downloadSelfHtml()" title="Download this HTML file to share with friends on mobile/laptop">
+          ⬇ Download .HTML
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO SECTION -->
+    <section class="hero-card">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-tag">💧 Target 10/10 Marks in Question 7 (Water Resources)</span>
+          <h1 class="hero-title">Water Resources of India: Complete Board DNA &amp; Twisted Question Vault</h1>
+          <p class="hero-desc">
+            Every single question is verified against the <strong>Official ICSE 2027 Geography Syllabus</strong>, the <strong>2025, 2026 &amp; 2027 Specimen Papers</strong>, and <strong>2010–2026 Board Papers</strong>. Covers Surface &amp; Groundwater, Need for Conservation, Rainwater Harvesting (Traditional &amp; Rooftop Diagram Systems), and all Conventional &amp; Modern Irrigation Methods.
+          </p>
+          <div class="syllabus-pills">
+            <span class="syl-pill">✔ Surface &amp; Groundwater</span>
+            <span class="syl-pill">✔ Need for Water Conservation</span>
+            <span class="syl-pill">✔ Rainwater Harvesting (Traditional &amp; Modern)</span>
+            <span class="syl-pill">✔ Wells vs Tubewells</span>
+            <span class="syl-pill">✔ Inundation vs Perennial Canals</span>
+            <span class="syl-pill">✔ Peninsular Tank Irrigation</span>
+            <span class="syl-pill">✔ Drip, Sprinkler, Furrow &amp; Bamboo Drip</span>
+          </div>
+          <div class="cheat-btn-row">
+            <button class="cheat-toggle-btn" onclick="openCheatTab('irrigation')" id="matrixBtn1">
+              📊 Open 7-Method Irrigation Master Comparison Matrix
+            </button>
+            <button class="cheat-toggle-btn" onclick="openCheatTab('rwh')" id="matrixBtn2">
+              🌧️ Open Traditional RWH Names &amp; Rooftop Blueprint Vault
+            </button>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-num" id="statTotal">48</div>
+            <div class="stat-label">Master Theory Questions</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">240+</div>
+            <div class="stat-label">Twisted Board Variations</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" id="statMastered" style="color: var(--accent-emerald);">0</div>
+            <div class="stat-label">Mastered (Full Marks)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" id="statReview" style="color: var(--accent-amber);">0</div>
+            <div class="stat-label">Marked for Revision</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DUAL-TAB CHEAT SHEET DRAWER -->
+    <section class="matrix-drawer" id="matrixDrawer">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+        <div class="drawer-tabs">
+          <button class="d-tab active" id="tabBtnIrrigation" onclick="switchCheatTab('irrigation')">📊 Tab 1: 7-Method Irrigation Master Matrix (Conditions, Pros, Cons, States)</button>
+          <button class="d-tab" id="tabBtnRwh" onclick="switchCheatTab('rwh')">🌧️ Tab 2: Traditional RWH Names &amp; Rooftop RWH Blueprint</button>
+        </div>
+        <button class="action-btn" onclick="closeCheatDrawer()">✖ Close Cheat Sheet</button>
+      </div>
+
+      <!-- TAB 1: IRRIGATION METHODS MASTER MATRIX -->
+      <div id="tabContentIrrigation" class="matrix-table-wrap">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Irrigation Method</th>
+              <th>Ideal Geographical Conditions</th>
+              <th>Top 3 Advantages (Pros)</th>
+              <th>Top 3 Disadvantages (Cons)</th>
+              <th>Leading States</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Surface / Open Wells</strong><br><em>(Persian Wheel, Lever/Dhenkli, Mhote)</em></td>
+              <td>• <strong>High water table</strong> (within 10–15 m depth).<br>• <strong>Soft alluvial soil</strong> (easy to dig).<br>• Clayey bed below to hold water.</td>
+              <td>• <strong>Very cheap &amp; simple</strong> to dig for poor farmers.<br>• <strong>Independent source</strong> (used whenever needed).<br>• Oxen kept for ploughing can operate Persian wheel at zero fuel cost.</td>
+              <td>• <strong>Irrigates a very small area</strong> (1 to 2 hectares only).<br>• <strong>Dries up during summer</strong> when water table drops.<br>• Well water may be <strong>brackish (salty)</strong>.</td>
+              <td><strong>Uttar Pradesh (#1)</strong>, Bihar, Punjab, Haryana, Rajasthan, Gujarat.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Tubewells</strong><br><em>(Deep Bore + Electric/Diesel Pump)</em></td>
+              <td>• <strong>Abundant underground water</strong> (aquifer).<br>• <strong>Soft, deep alluvial soil</strong>.<br>• <strong>Cheap &amp; regular supply of electricity</strong>.<br>• Fertile productive land to recover cost.</td>
+              <td>• <strong>Irrigates a much larger area</strong> (~400+ hectares) than surface wells.<br>• <strong>Perennial/Reliable even during summer droughts</strong> (draws from deep aquifers).<br>• <strong>Protected from evaporation</strong> &amp; surface dust/pollution.</td>
+              <td>• <strong>Expensive</strong> to bore and install pump sets.<br>• Requires continuous <strong>electricity or diesel</strong> (useless during power cuts).<br>• Over-drafting causes <strong>alarming depletion of water table</strong>.</td>
+              <td><strong>Uttar Pradesh (#1)</strong>, Punjab, Haryana, Bihar, Gujarat, West Bengal.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Inundation Canals</strong><br><em>(Flood-Water Canals)</em></td>
+              <td>• Low-lying flat floodplains adjacent to rivers that swell during monsoons.</td>
+              <td>• <strong>Very cheap</strong> to construct (no expensive dam/barrage needed).<br>• Helps control monsoon river floods.<br>• Floodwater brings <strong>rich fertile silt</strong>.</td>
+              <td>• <strong>Seasonal / Non-perennial</strong> — flows only during rainy floods.<br>• <strong>Useless during dry summer &amp; winter (Rabi)</strong> when crops need water most.<br>• Only irrigates low-lying land.</td>
+              <td>Punjab (Sutlej basin), West Bengal, Assam (mostly converted to perennial now).</td>
+            </tr>
+            <tr>
+              <td><strong>4. Perennial Canals</strong><br><em>(Dam/Barrage + Regulator)</em></td>
+              <td>• <strong>Perennial snow-fed rivers</strong>.<br>• <strong>Flat, gently sloping plain</strong>.<br>• <strong>Soft soil</strong> for easy canal digging.</td>
+              <td>• <strong>Provides water throughout the year</strong> (both Kharif &amp; Rabi crops).<br>• Transformed arid Rajasthan (Indira Gandhi Canal) &amp; Punjab into granaries.<br>• Cheap per hectare once built.</td>
+              <td>• Seepage from unlined canals causes <strong>Waterlogging</strong>.<br>• Capillary action brings up alkaline salts (<strong>‘Reh’ or ‘Kallar’</strong>), making soil barren.<br>• High initial construction cost &amp; breeding ground for mosquitoes.</td>
+              <td><strong>Uttar Pradesh, Punjab, Haryana</strong>, Rajasthan, Bihar, Andhra Pradesh.</td>
+            </tr>
+            <tr>
+              <td><strong>5. Tank Irrigation</strong><br><em>(Earthen/Masonry Bund across Depression)</em></td>
+              <td>• <strong>Hard, non-porous (impervious) crystalline rock underneath</strong> (prevents seepage).<br>• <strong>Uneven, undulating rocky plateau</strong> with natural depressions.</td>
+              <td>• <strong>Stores monsoon runoff</strong> that would otherwise flow wasted into the sea.<br>• <strong>Natural depressions</strong> in Deccan make construction cheap.<br>• Only viable method where hard rock prevents well/canal digging.</td>
+              <td>• <strong>Non-perennial:</strong> Tanks <strong>dry up in hot summer</strong> when needed most.<br>• <strong>Heavy loss of water by evaporation</strong> due to large shallow surface area.<br>• <strong>Silting of tank beds</strong> requires frequent desilting &amp; occupies large fertile area.</td>
+              <td><strong>Andhra Pradesh, Telangana, Tamil Nadu, Karnataka</strong>, Maharashtra.</td>
+            </tr>
+            <tr>
+              <td><strong>6. Drip Irrigation</strong><br><em>(Perforated Pipes at Plant Roots)</em></td>
+              <td>• Arid/semi-arid regions &amp; high-value orchards, vegetables, plantation crops.</td>
+              <td>• <strong>Highest water efficiency (saves 40–70% water)</strong>.<br>• <strong>Zero loss by evaporation or runoff</strong> (delivers water drop-by-drop to roots).<br>• Prevents weed growth &amp; allows <strong>fertigation</strong> (liquid fertilizer).</td>
+              <td>• <strong>High initial capital cost</strong> of pipes/emitters.<br>• Tiny nozzles/tubes <strong>get clogged easily</strong> by sediment or salt.<br>• Pipes can be damaged by rodents or sunlight.</td>
+              <td>Maharashtra, Karnataka, Tamil Nadu, Gujarat, Rajasthan, Andhra Pradesh.</td>
+            </tr>
+            <tr>
+              <td><strong>7. Sprinkler Irrigation</strong><br><em>(Overhead Revolving Nozzles)</em></td>
+              <td>• <strong>Uneven, undulating, or sandy/hilly terrain</strong> where levelling is impossible.</td>
+              <td>• <strong>No loss of water by seepage</strong> or open channel evaporation.<br>• <strong>Does not require land levelling</strong> (ideal for slopes/sandy soil).<br>• Uniform distribution like natural rain.</td>
+              <td>• <strong>Expensive</strong> to purchase and operate.<br>• <strong>High winds deflect water spray</strong> &amp; cause evaporation loss.<br>• High humidity on leaves can cause fungal crop diseases; only for small areas.</td>
+              <td>Haryana, Rajasthan, Madhya Pradesh, Karnataka, Kerala (Tea/Coffee estates).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TAB 2: TRADITIONAL RWH NAMES & ROOFTOP RWH BLUEPRINT -->
+      <div id="tabContentRwh" class="matrix-table-wrap" style="display:none;">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Traditional RWH Name</th>
+              <th>Region / State in India</th>
+              <th>Nature &amp; Mechanism (Official Board Keywords)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Johads &amp; Khadins</strong></td>
+              <td><strong>Rajasthan</strong> (Central &amp; Western — Jaisalmer)</td>
+              <td>Crescent-shaped earthen check dams / embankments built across seasonal streams to capture rainwater runoff and percolate it to recharge groundwater.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Tankas / Kunds</strong></td>
+              <td><strong>Western Rajasthan (Thar Desert — Bikaner, Barmer) &amp; Gujarat</strong></td>
+              <td>Covered <strong>underground cylindrical storage tanks</strong> (lined with lime) built inside house courtyards to store rooftop rainwater for drinking during dry summers.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Khatri &amp; Kuhl</strong></td>
+              <td><strong>Western Himalayas (Himachal Pradesh &amp; Jammu)</strong></td>
+              <td><strong>Kuhl:</strong> Surface diversion channels carrying glacial/stream water to terraced fields.<br><strong>Khatri:</strong> Chambers carved inside hard mountain rock where rainwater seeps through rock fissures and is stored.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Zing</strong></td>
+              <td><strong>Ladakh</strong> (Cold Desert)</td>
+              <td>Small tanks/reservoirs that collect <strong>melted glacier water</strong> through a network of channels during the day for irrigation.</td>
+            </tr>
+            <tr>
+              <td><strong>5. Surangam &amp; Korambu</strong></td>
+              <td><strong>Western Ghats (Kerala &amp; Karnataka — Kasaragod)</strong></td>
+              <td><strong>Surangam:</strong> Horizontal man-made tunnel dug into a laterite hill slope from which groundwater seeps out.<br><strong>Korambu:</strong> Temporary dam of brushwood, mud, and grass built across channels in Kerala.</td>
+            </tr>
+            <tr>
+              <td><strong>6. Cheruvu &amp; Eris</strong></td>
+              <td><strong>Andhra Pradesh (Cheruvu) &amp; Tamil Nadu (Eris / Ooranis)</strong></td>
+              <td>Large community storage reservoirs/tanks built to store monsoon surface runoff for irrigation and recharging surrounding wells.</td>
+            </tr>
+            <tr>
+              <td><strong>7. Bhandaras &amp; Kere</strong></td>
+              <td><strong>Deccan Plateau (Maharashtra — Bhandaras; Karnataka — Kere)</strong></td>
+              <td>Check dams / diversion weirs built across rivers to raise water level and channel it into canals or storage tanks.</td>
+            </tr>
+            <tr>
+              <td><strong>8. Dongs / Dungs &amp; Zabo</strong></td>
+              <td><strong>Assam (Brahmaputra Valley — Bodo tribes) &amp; Nagaland (Zabo)</strong></td>
+              <td><strong>Dongs:</strong> Ponds constructed by Bodo farmers in Assam to harvest rainwater for paddy irrigation.</td>
+            </tr>
+            <tr>
+              <td><strong>9. Baolis / Dighis / Jhalaras</strong></td>
+              <td><strong>Gangetic Plains (Delhi, UP — Baolis/Dighis) &amp; Rajasthan/Gujarat (Stepwells)</strong></td>
+              <td>Traditional masonry <strong>stepwells</strong> with descending flights of steps to reach the fluctuating groundwater table.</td>
+            </tr>
+            <tr>
+              <td><strong>10. Bamboo Drip System</strong></td>
+              <td><strong>Meghalaya (Khasi &amp; Jaintia Hills)</strong></td>
+              <td>200-year-old ingenious system using split <strong>bamboo pipes</strong> to divert hill-stream water over hundreds of metres by gravity, reducing flow to 20–80 drops/minute at betel leaf &amp; black pepper roots.</td>
+            </tr>
+            <tr>
+              <td colspan="3" style="background: rgba(6, 182, 212, 0.14); color: #7dd3fc;">
+                <strong>🏠 4 Mandatory Components of a Modern Rooftop Rainwater Harvesting System (For Diagram Questions):</strong><br>
+                <strong>1. Catchment:</strong> The terrace or rooftop of the building that receives rainfall directly.<br>
+                <strong>2. Conduits (Downpipes &amp; Gutters):</strong> PVC or GI drainpipes that carry rainwater from the rooftop catchment down to the ground.<br>
+                <strong>3. First-Flush Valve &amp; Filter Unit:</strong> Diverts the dirty first shower (containing bird droppings/dust) and filters the clean water through sand, gravel, charcoal, and boulders.<br>
+                <strong>4. Recharge Facility / Storage Tank:</strong> Underground storage tank or <strong>Percolation / Recharge Pit, Trench, or Abandoned Dugwell/Borewell</strong> that recharges the underground aquifer.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FILTER & SEARCH BAR -->
+    <section class="filter-panel">
+      <div class="search-row">
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="Search any keyword (e.g., 'Tank', 'Tubewell', 'Inundation', 'Reh', 'Drip', 'Rainwater', 'Cherrapunji', 'Surangam', '2027 Specimen')..."
+          oninput="renderQuestions()"
+        />
+        <button class="action-btn" onclick="expandAllAnswers()">👁 Show All Answers</button>
+        <button class="action-btn" onclick="collapseAllAnswers()">🙈 Hide All Answers</button>
+      </div>
+
+      <div class="filter-chips">
+        <span class="chip-label">Probability DNA:</span>
+        <button class="f-chip active" data-prob="all" onclick="setProbFilter('all', this)">All Questions (48)</button>
+        <button class="f-chip" data-prob="specimen" onclick="setProbFilter('specimen', this)">🚨 2027 Specimen &amp; 2025–26 Board Pattern</button>
+        <button class="f-chip" data-prob="highest" onclick="setProbFilter('highest', this)">🔥 Highest Probability (6–14x Repeated)</button>
+        <button class="f-chip" data-prob="alternate" onclick="setProbFilter('alternate', this)">🔄 Alternate-Year &amp; Competency Twist</button>
+        <button class="f-chip" data-prob="safety" onclick="setProbFilter('safety', this)">🛡️ Safety Net (100% Syllabus Lock)</button>
+      </div>
+
+      <div class="filter-chips">
+        <span class="chip-label">Topic &amp; Format:</span>
+        <button class="f-chip active" data-type="all" onclick="setTypeFilter('all', this)">All Formats</button>
+        <button class="f-chip" data-type="conservation_rwh" onclick="setTypeFilter('conservation_rwh', this)">Water Conservation &amp; RWH</button>
+        <button class="f-chip" data-type="wells_canals" onclick="setTypeFilter('wells_canals', this)">Wells, Tubewells &amp; Canals</button>
+        <button class="f-chip" data-type="tanks" onclick="setTypeFilter('tanks', this)">Peninsular Tank Irrigation</button>
+        <button class="f-chip" data-type="modern" onclick="setTypeFilter('modern', this)">Drip, Sprinkler &amp; Modern</button>
+        <button class="f-chip" data-type="reason" onclick="setTypeFilter('reason', this)">Give Geographical Reasons</button>
+        <button class="f-chip" data-type="revision" onclick="setTypeFilter('revision', this)">⭐ Marked for Revision</button>
+      </div>
+    </section>
+
+    <!-- QUESTIONS LIST -->
+    <div class="questions-list" id="questionsContainer"></div>
+  </main>
+
+  <!-- MOBILE STICKY BOTTOM BAR -->
+  <div class="mobile-bar">
+    <div>
+      <span style="font-size:0.68rem; color:var(--text-secondary); display:block;">EXAM TIMER</span>
+      <span class="timer-display" id="mobileTimerDisplay" style="font-size:0.95rem;">30:00</span>
+    </div>
+    <div style="display:flex; gap:6px;">
+      <button class="t-btn start" onclick="toggleTimer()" id="mobileTimerBtn">Start</button>
+      <button class="t-btn" onclick="cycleMobileMode()" id="mobileModeBtn">Mode: DPP</button>
+      <button class="t-btn" onclick="openCheatTab('irrigation')">📊 Cheat Sheet</button>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // COMPLETE 48-QUESTION MASTER DATASET FOR CHAPTER 4: WATER RESOURCES
+    // =========================================================================
+    const waterQuestions = [
+      // --- SECTION 1: 2027 SPECIMEN PAPER & 2025–2026 BOARD EXAM DIRECT PATTERNS ---
+      {
+        id: 1,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD #1 FAVOURITE • 99% PROBABILITY",
+        qType: "tanks",
+        subTopic: "Chapter: Water Resources • Why Tank Irrigation is Prevalent in Peninsular India (Deccan Plateau)",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in the 2027 Specimen Paper, 2026 Board, 2024 Board, 2022 Board, 2019 Board, 2017 Board, 2015 Board, and 2012 Board (14+ times total!). This is the single most repeated question in the entire Water Resources chapter.",
+        question: "Give three geographical reasons why Tank Irrigation is widely practiced in Peninsular India (especially in Andhra Pradesh, Telangana, Tamil Nadu, and Karnataka), AND explain why it is NOT common in the Northern Plains. [3]",
+        twistedVersions: [
+          "Give a geographical reason: Tank irrigation is preferred over well and canal irrigation in the Deccan Plateau.",
+          "Why are natural tanks abundant in Tamil Nadu and Andhra Pradesh?",
+          "How does the geological structure and relief of Peninsular India favour the construction of tanks?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>Three Reasons Why Tank Irrigation is Prevalent in Peninsular India (Deccan Plateau):</strong>
+              <ul>
+                <li><strong>1. Hard Impervious Rock Underneath:</strong> The Deccan Plateau is underlain by <span class="kw">hard, non-porous (impervious) crystalline rocks</span> which <span class="kw">do not allow stored rainwater to seep/percolate underground</span>, keeping water in the tank.</li>
+                <li><strong>2. Undulating Relief with Natural Depressions:</strong> The terrain is <span class="kw">uneven and undulating with natural depressions bordered by hard rocky hills</span>; a simple earthen or masonry bund built across a depression easily forms a tank at low cost.</li>
+                <li><strong>3. Difficult to Dig Wells/Canals &amp; Seasonal Rivers:</strong> The hard granite rock makes <span class="kw">digging wells and canals extremely difficult and expensive</span>, and Peninsular rivers are <span class="kw">rain-fed (seasonal)</span>, making rainwater storage in tanks essential.</li>
+              </ul>
+            </li>
+            <li><strong>Why Not Common in Northern Plains:</strong> The Northern Plains have <span class="kw">flat level land (no natural depressions)</span> and <span class="kw">porous alluvial soil</span> through which tank water would quickly seep down.</li>
+          </ul>
+          <div class="examiner-tip"><strong>Council Marking Keyword:</strong> Always write <span class="kw">"hard, non-porous (impervious) rock prevents percolation/seepage"</span> + <span class="kw">"undulating relief provides natural depressions"</span>.</div>
+        `
+      },
+      {
+        id: 2,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN PAPER DIRECT • 99% PROBABILITY",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • Need for Irrigation in India (Why Rainfall is Not Enough)",
+        marks: "[2 Marks / 3 Marks]",
+        whyChosen: "Appeared in 2027 Specimen Paper, 2025 Board, 2023 Board, 2020 Board, 2018 Board, and 2015 Board. Whenever Q7(i) asks 'Why is agriculture in India heavily dependent on artificial irrigation despite receiving monsoon rain?', these 4 points guarantee full marks.",
+        question: "State any three geographical reasons why artificial irrigation is an absolute necessity for Indian agriculture despite the country receiving monsoon rainfall. [3]",
+        twistedVersions: [
+          "Give a geographical reason: Without irrigation, development of agriculture is difficult in India.",
+          "How do the erratic nature and uneven distribution of monsoon rainfall create an urgent need for irrigation in India?",
+          "Why does India need year-round irrigation facilities to feed its growing population?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Uncertain &amp; Erratic Nature of Monsoon:</strong> The arrival and withdrawal of the South-West Monsoon are <span class="kw">highly irregular and unpredictable</span>; early or late arrival causes severe droughts and crop failure without irrigation.</li>
+            <li><strong>2. Short Seasonal Concentration (Only 3–4 Months):</strong> About <span class="kw">80% to 90% of annual rainfall is concentrated from June to September</span>, while the remaining 8 months are dry; <span class="kw">Rabi (winter) and Zaid (summer) crops</span> cannot grow without artificial irrigation.</li>
+            <li><strong>3. Uneven Spatial Distribution of Rainfall:</strong> While Meghalaya and the Western Coast get $&gt;200\text{ cm}$ rain, large agricultural belts in <span class="kw">Rajasthan, Punjab, Haryana, and the Deccan rain-shadow receive scanty rainfall ($&lt;50\text{ cm}$)</span>.</li>
+            <li><strong>4. Special Water Requirements of Crops &amp; HYV Seeds:</strong> Commercial crops like <span class="kw">Rice (Paddy), Sugarcane, and Jute</span>, as well as <span class="kw">High-Yielding Variety (HYV) seeds</span>, require a heavy, regular, and timely supply of water.</li>
+          </ul>
+        `
+      },
+      {
+        id: 3,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD DIRECT • 99% PROBABILITY",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • Inundation Canals vs Perennial Canals",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2027 Specimen, 2026 Board, 2024 Board, 2021 Board, 2018 Board, and 2014 Board! Examiners test two exact things: (1) Three differences between Inundation and Perennial canals, and (2) Why Inundation canals are being converted into Perennial canals.",
+        question: "(a) Differentiate between ‘Inundation Canals’ and ‘Perennial Canals’ on any two bases. [2]<br>(b) Give a geographical reason: Most Inundation canals in India are now being converted into Perennial canals. [1]",
+        twistedVersions: [
+          "Why are Perennial canals preferred over Inundation canals by Indian farmers?",
+          "Give a reason: Inundation canals are called 'flood-water canals' and are of little help during the winter (Rabi) season.",
+          "How does a barrage or weir distinguish a Perennial canal from an Inundation canal?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Differences between Inundation Canals and Perennial Canals:</strong>
+              <ul>
+                <li><strong>1. Construction (Barrage/Dam):</strong> <span class="kw">Inundation Canals</span> are taken out directly from rivers <span class="kw">without constructing any dam, weir, or barrage</span> at their head to regulate water flow; <span class="kw">Perennial Canals</span> are taken out from perennial rivers or reservoirs <span class="kw">by constructing a dam or barrage</span> to regulate flow.</li>
+                <li><strong>2. Duration of Water Supply:</strong> <span class="kw">Inundation Canals</span> are <span class="kw">seasonal</span> and have water <span class="kw">only during the rainy season when the river is in flood</span>; <span class="kw">Perennial Canals</span> supply water <span class="kw">throughout the year</span> (both Kharif and Rabi seasons).</li>
+              </ul>
+            </li>
+            <li><strong>(b) Why Inundation Canals are Converted into Perennial Canals:</strong> Because Inundation canals <span class="kw">dry up during the hot dry summer and winter seasons when crops need water most</span>, cannot irrigate higher-level fields, and are uncertain in supply.</li>
+          </ul>
+        `
+      },
+      {
+        id: 4,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD DIRECT • 98% PROBABILITY",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • Tubewell Irrigation (Conditions, Pros & Cons)",
+        marks: "[3 Marks]",
+        whyChosen: "Featured in 2027 Specimen, 2025 Board, 2023 Board, 2020 Board, and 2017 Board. Students frequently mix up the 'Advantages of Tubewells' with the 'Ideal Conditions Required for Installing a Tubewell'—read the question carefully!",
+        question: "With reference to Tubewell Irrigation in India, answer the following:<br>(a) State three ideal geographical/economic conditions necessary for the installation of a Tubewell. [1.5]<br>(b) State two advantages of Tubewells over ordinary Surface (Open) Wells, and one disadvantage of Tubewells. [1.5]",
+        twistedVersions: [
+          "Why is Tubewell irrigation extensively practiced in Uttar Pradesh, Punjab, and Haryana?",
+          "Give a geographical reason: Tubewells are more reliable than surface wells during periods of drought.",
+          "State two disadvantages of excessive Tubewell irrigation in North-West India."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Three Ideal Conditions for Installing a Tubewell:</strong>
+              <ul>
+                <li><strong>1. Abundant Groundwater:</strong> Availability of <span class="kw">plentiful potable underground water</span> at a reasonable depth.</li>
+                <li><strong>2. Soft Alluvial Soil &amp; Level Land:</strong> <span class="kw">Soft, deep alluvial soil</span> that allows easy and cheap boring/drilling of deep pipes.</li>
+                <li><strong>3. Cheap &amp; Regular Electricity:</strong> Availability of <span class="kw">cheap, uninterrupted electric power (or diesel)</span> to run the motor pump, and fertile agricultural land so high crop yields recover the high installation cost.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Advantages over Surface Wells &amp; Disadvantage:</strong>
+              <ul>
+                <li><strong>Advantages:</strong> (i) Can <span class="kw">irrigate a much larger area (~400+ hectares)</span> compared to 1–2 hectares by an open well; (ii) <span class="kw">Does not dry up during summer droughts</span> as it taps deep aquifers, and water is free from evaporation or surface dirt.</li>
+                <li><strong>Disadvantage:</strong> <span class="kw">Expensive to install and requires continuous electricity</span>; excessive extraction has caused an <span class="kw">alarming fall in the underground water table</span> in Punjab, Haryana, and Western UP.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 5,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & 2025–26 BOARD • 98% PROBABILITY",
+        qType: "modern",
+        subTopic: "Chapter: Water Resources • Modern Irrigation: Drip vs Sprinkler Irrigation",
+        marks: "[3 Marks]",
+        whyChosen: "Appeared in 2027 Specimen Paper, 2026 Board, 2025 Board, and 2024 Board! Modern micro-irrigation (Drip & Sprinkler) has appeared in EVERY single paper over the last 4 years.",
+        question: "(a) Why are modern methods of irrigation (Drip and Sprinkler) gaining rapid popularity over conventional canal and well irrigation in India? Give two reasons. [2]<br>(b) State one specific advantage of Drip Irrigation and one limitation of Sprinkler Irrigation. [1]",
+        twistedVersions: [
+          "Give a geographical reason: Drip irrigation is the most water-efficient method of irrigation for arid regions.",
+          "How does Sprinkler irrigation prevent water loss by seepage and evaporation?",
+          "Why do horticultural farmers growing fruits, vegetables, and flowers in Maharashtra and Gujarat prefer Drip irrigation?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Why Modern Methods (Drip &amp; Sprinkler) are Gaining Popularity:</strong>
+              <ul>
+                <li><strong>1. High Water-Use Efficiency (Minimal Wastage):</strong> Unlike open canals and flooding fields, modern methods <span class="kw">eliminate water loss through seepage (percolation) and surface evaporation</span>, saving 40% to 70% of scarce water.</li>
+                <li><strong>2. Prevents Soil Degradation:</strong> Because fields are never over-watered or flooded, there is <span class="kw">no risk of waterlogging, soil erosion, or alkaline salt efflorescence (‘Reh’/‘Kallar’)</span>.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Specific Advantage of Drip &amp; Limitation of Sprinkler:</strong>
+              <ul>
+                <li><strong>Drip Advantage:</strong> Delivers water <span class="kw">drop-by-drop directly to the root zone of each plant</span> through perforated pipes, preventing weed growth between rows and enabling liquid fertilizer application (fertigation).</li>
+                <li><strong>Sprinkler Limitation:</strong> <span class="kw">High initial installation cost</span>, and during <span class="kw">strong winds or extreme heat, the fine water spray gets blown away or evaporates</span> before reaching the crop roots.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 6,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD DIRECT • 98% PROBABILITY",
+        qType: "conservation_rwh",
+        subTopic: "Chapter: Water Resources • Rainwater Harvesting (Meaning, Objectives & Need)",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2027 Specimen, 2026 Board, 2025 Board, 2023 Board, and 2021 Board. Every student must know the definition of Rainwater Harvesting and at least 3 distinct objectives/benefits.",
+        question: "(a) What is meant by ‘Rainwater Harvesting’? [1]<br>(b) State any four main objectives (or benefits) of practicing Rainwater Harvesting in India. [2]",
+        twistedVersions: [
+          "Why is Rainwater Harvesting an urgent necessity in both urban and rural areas of India?",
+          "How does Rainwater Harvesting help in solving the twin problems of urban monsoon flooding and summer water scarcity?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Definition:</strong> <span class="kw">Rainwater Harvesting</span> is the scientific technique of <span class="kw">collecting, storing, and conserving rainwater locally</span> (from rooftops, courtyards, and land catchments) either for direct domestic/agricultural use or for <span class="kw">artificially recharging underground water aquifers</span> instead of letting it run off wasted.</li>
+            <li><strong>(b) Four Main Objectives of Rainwater Harvesting:</strong>
+              <ul>
+                <li><strong>1. Recharging Groundwater:</strong> To <span class="kw">raise the depleting underground water table</span> by augmenting natural percolation.</li>
+                <li><strong>2. Meeting Summer Water Demand:</strong> To meet the increasing demand for water in domestic, industrial, and agricultural sectors during dry summer months.</li>
+                <li><strong>3. Reducing Surface Runoff &amp; Urban Flooding:</strong> To <span class="kw">check surface runoff, prevent choking of storm drains, and reduce soil erosion and road flooding</span>.</li>
+                <li><strong>4. Improving Groundwater Quality:</strong> To dilute fluoride, nitrate, and salinity (brackishness) in underground aquifers.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 7,
+        probTier: "specimen",
+        probLabel: "🚨 2025–2027 DIAGRAM / CASE PATTERN • 97% PROBABILITY",
+        qType: "conservation_rwh",
+        subTopic: "Chapter: Water Resources • Rooftop Rainwater Harvesting Diagram & Mechanism",
+        marks: "[3 Marks]",
+        whyChosen: "In recent ICSE Board & Specimen papers, a sketch/diagram of a house collecting rainwater from its terrace into an underground pit is shown in Q7! You must know the 4 components and why the first shower is flushed out.",
+        question: "With reference to a ‘Rooftop Rainwater Harvesting System’ installed in an urban building:<br>(a) Name the four essential components of the system in sequential order from roof to ground. [2]<br>(b) Why should the rainwater from the very first monsoon shower NOT be allowed to enter the storage tank or recharge pit? [1]",
+        twistedVersions: [
+          "Explain briefly how Rooftop Rainwater Harvesting is carried out to recharge an underground borewell or dugwell.",
+          "What is the role of the 'Catchment', 'Conduits', and 'Sand-Gravel Filter' in Rooftop Rainwater Harvesting?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Four Sequential Components of Rooftop RWH:</strong>
+              <ul>
+                <li><strong>1. Catchment:</strong> The <span class="kw">flat terrace or sloping roof of the building</span> where rainwater falls and is collected.</li>
+                <li><strong>2. Conduits (Gutters &amp; Downpipes):</strong> <span class="kw">PVC or GI pipes</span> that channel the rainwater from the roof edge down to ground level.</li>
+                <li><strong>3. First-Flush Valve &amp; Filter Unit:</strong> A filtration chamber filled with <span class="kw">layers of coarse sand, gravel, pebbles, and charcoal</span> to remove suspended impurities.</li>
+                <li><strong>4. Storage Tank / Recharge Structure:</strong> An underground storage sump or <span class="kw">recharge pit, percolation trench, or abandoned dugwell/borewell</span> that replenishes the underground water table.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Why First Monsoon Shower is Flushed Out (Bypassed):</strong> The first spell of rain washes down <span class="kw">accumulated dust, bird droppings, dead leaves, soot, and chemical pollutants</span> from the roof surface; a <span class="kw">first-flush separator valve</span> diverts this dirty water so it does not contaminate the storage tank or clog the filter.</li>
+          </ul>
+        `
+      },
+      {
+        id: 8,
+        probTier: "specimen",
+        probLabel: "🚨 2026 BOARD & SPECIMEN DIRECT • 97% PROBABILITY",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • Canal Irrigation Drawbacks: Waterlogging & 'Reh' / 'Kallar'",
+        marks: "[2 Marks / 3 Marks]",
+        whyChosen: "Asked in 2026 Board, 2024 Board, 2022 Board, 2019 Board, and 2016 Board. Examiners ask how unlined Perennial Canals have ruined fertile agricultural fields in Punjab, Haryana, and Uttar Pradesh.",
+        question: "Explain two major environmental/agricultural disadvantages of Perennial Canal irrigation in states like Punjab, Haryana, and Uttar Pradesh, and suggest one remedy for each. [3]",
+        twistedVersions: [
+          "Give a geographical reason: Unlined perennial canals often make the surrounding agricultural land unproductive and barren.",
+          "What is 'Waterlogging' and 'Alkaline Efflorescence' (Reh / Kallar)? How are they caused by canal irrigation?",
+          "Why is it necessary to line canals with brick and cement mortar?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Problem of Waterlogging:</strong> Continuous <span class="kw">seepage of water through the sides and beds of unlined canals</span> raises the local underground water table until it reaches the root zone, <span class="kw">waterlogging the soil, cutting off oxygen to crop roots, and turning fertile fields into marshes/swamps</span>.</li>
+            <li><strong>2. Alkaline Salt Efflorescence (‘Reh’ or ‘Kallar’):</strong> Due to over-irrigation and capillary action during dry months, <span class="kw">underground alkaline salts (sodium, calcium, magnesium) rise to the topsoil surface</span> and form a white saline crust locally called <span class="kw">‘Reh’ or ‘Kallar’</span>, rendering the soil infertile and unfit for cultivation.</li>
+            <li><strong>Remedies:</strong> <span class="kw">Lining of canals with brick and cement</span> to stop seepage, digging proper drainage trenches, and growing salt-tolerant crops or adding gypsum.</li>
+          </ul>
+        `
+      },
+      {
+        id: 9,
+        probTier: "specimen",
+        probLabel: "🚨 2026 & 2027 COMPETENCY CASE STUDY • 97% PROBABILITY",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • Farmer Case Study: Choosing the Right Irrigation Method",
+        marks: "[3 Marks]",
+        whyChosen: "Matches CISCE's modern competency pattern where three farmers in three different Indian states face distinct geographical conditions and you must recommend the exact irrigation method with reasons.",
+        question: "Recommend the most suitable method of irrigation for each of the following three farmers and give one geographical reason to justify your choice:<br>(a) <strong>Gurpreet in Ludhiana (Punjab):</strong> Has a large 15-hectare farm on flat soft alluvial soil with deep aquifers and cheap rural electricity. [1]<br>(b) <strong>Venkat in Madurai (Tamil Nadu):</strong> Farms on undulating terrain underlain by hard, non-porous granite rock with seasonal monsoon streams. [1]<br>(c) <strong>Kiran in Nashik (Maharashtra):</strong> Grows high-value grapes and pomegranates in a semi-arid region facing acute summer water scarcity. [1]",
+        twistedVersions: [
+          "Why is Well and Canal irrigation widespread in Uttar Pradesh and Punjab, whereas Tank irrigation dominates in Tamil Nadu and Telangana?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Gurpreet in Punjab:</strong> <span class="kw">Tubewell Irrigation</span> (or <span class="kw">Perennial Canal Irrigation</span>) — because the <span class="kw">soft alluvial soil is easy to bore, deep aquifers provide abundant water</span>, and regular electricity allows year-round irrigation of his large farm.</li>
+            <li><strong>(b) Venkat in Tamil Nadu:</strong> <span class="kw">Tank Irrigation</span> — because the <span class="kw">undulating rocky terrain forms natural depressions</span> and the <span class="kw">hard, non-porous (impervious) granite bedrock prevents water from percolating underground</span>.</li>
+            <li><strong>(c) Kiran in Nashik (Maharashtra):</strong> <span class="kw">Drip Irrigation</span> — because it delivers water <span class="kw">drop-by-drop directly to the roots of fruit trees with zero loss by evaporation or runoff</span>, conserving scarce water in a semi-arid region.</li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 2: HIGHEST PROBABILITY CORE QUESTIONS (REPEATED 6 TO 12 TIMES IN BOARDS) ---
+      {
+        id: 10,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 11x IN BOARDS",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • Why Northern Plains Are Ideal for Well & Canal Irrigation",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2012, 2014, 2016, 2018, 2020, 2022, 2024, and 2025. Whether the examiner asks about Wells OR Canals in the Northern Plains (UP, Punjab, Haryana, Bihar), the 3 geographical reasons are practically identical!",
+        question: "Give three geographical reasons why the Northern Plains of India (Uttar Pradesh, Punjab, Haryana, and Bihar) are ideally suited for the development of both Well/Tubewell and Perennial Canal irrigation. [3]",
+        twistedVersions: [
+          "Give a geographical reason: Well irrigation is confined mainly to the alluvial plains of North India.",
+          "Why is Canal irrigation much more developed in the Northern Plains than in Peninsular India?",
+          "Why does Uttar Pradesh have the largest area under Well and Tubewell irrigation in India?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Soft, Pervious Alluvial Soil (Easy Digging &amp; Percolation):</strong> The Northern Plains are composed of <span class="kw">deep, soft, and porous alluvial soil</span>, which allows rainwater to percolate easily to maintain a <span class="kw">high underground water table</span> and makes <span class="kw">digging wells and canals very easy and cheap</span>.</li>
+            <li><strong>2. Perennial Snow-Fed Himalayan Rivers:</strong> Rivers like the <span class="kw">Ganga, Yamuna, Sutlej, and Indus are perennial</span> (fed by both monsoon rain and melting Himalayan snow/glaciers in summer), providing a continuous supply of water for perennial canals and recharging aquifers.</li>
+            <li><strong>3. Flat, Gently Sloping Terrain:</strong> The <span class="kw">vast, flat, and gently sloping plain</span> allows canal water to flow easily by gravity over long distances to fertile agricultural fields.</li>
+          </ul>
+        `
+      },
+      {
+        id: 11,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 10x IN BOARDS",
+        qType: "tanks",
+        subTopic: "Chapter: Water Resources • Disadvantages / Drawbacks of Tank Irrigation",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2013, 2015, 2017, 2019, 2021, 2023, and 2025. Almost every time Tank Irrigation is asked, part (a) is 'Why prevalent in Deccan?' and part (b) is 'State three disadvantages of Tank irrigation.'",
+        question: "State any three major disadvantages (limitations) of Tank Irrigation in India. [3]",
+        twistedVersions: [
+          "Give a geographical reason: Tanks are not a dependable source of irrigation during dry summer months or drought years.",
+          "Why is the area irrigated by tanks declining in South India in recent decades?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Non-Perennial (Dries Up in Summer):</strong> Since tanks depend entirely on monsoon rainwater, most tanks <span class="kw">dry up during the hot dry summer season</span> when crops need water the most, and fail completely if the monsoon fails.</li>
+            <li><strong>2. Heavy Loss of Water by Evaporation:</strong> Because tanks are generally <span class="kw">shallow with a very large exposed surface area</span>, a huge volume of stored water is lost through evaporation due to intense tropical heat.</li>
+            <li><strong>3. Silting of Tank Beds &amp; Waste of Fertile Land:</strong> Rainwater runoff carries mud and silt into the tank, requiring <span class="kw">frequent and expensive desilting</span>; moreover, tanks <span class="kw">occupy large tracts of fertile land</span> that could otherwise be used for growing crops.</li>
+          </ul>
+        `
+      },
+      {
+        id: 12,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 9x IN BOARDS",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • Advantages & Disadvantages of Surface / Open Well Irrigation",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2014, 2016, 2018, 2020, 2022, and 2024. Comparing Why Farmers Prefer Wells over Canals vs Limitations of Open Wells.",
+        question: "(a) State two reasons why a small Indian farmer often prefers Well Irrigation over Canal Irrigation. [2]<br>(b) State two disadvantages of conventional Surface (Open) Well irrigation. [1]",
+        twistedVersions: [
+          "Give a geographical reason: Well irrigation is still the most widespread and popular source of irrigation in India.",
+          "Why is well irrigation considered an 'independent' source of irrigation compared to canals?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Why Farmers Prefer Well Irrigation over Canals:</strong>
+              <ul>
+                <li><strong>1. Independent &amp; Reliable On-Demand Source:</strong> A well is owned privately by the farmer and <span class="kw">can be used whenever and wherever the crop needs water</span>, without waiting for government canal water turns or paying canal water taxes.</li>
+                <li><strong>2. Very Cheap to Dig &amp; Useful Mineral Content:</strong> Digging an unlined surface well in soft alluvial soil is <span class="kw">very cheap and simple</span>, and well water contains dissolved minerals (nitrates/chlorides) that add fertility without causing waterlogging.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Two Disadvantages of Conventional Open Wells:</strong>
+              <ul>
+                <li><strong>1. Limited Coverage:</strong> An ordinary open well can irrigate only a <span class="kw">very small area (1 to 2 hectares)</span>.</li>
+                <li><strong>2. Seasonal Drying &amp; Brackish Water:</strong> Surface wells <span class="kw">dry up during summer droughts</span> when the water table drops, and in some areas the underground water is <span class="kw">brackish (salty)</span> and unfit for irrigation.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 13,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 9x IN BOARDS",
+        qType: "conservation_rwh",
+        subTopic: "Chapter: Water Resources • Causes of Acute Water Scarcity in India & Need for Conservation",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2015, 2017, 2019, 2021, 2023, 2025, and 2026. Direct syllabus item: 'Need for conservation and conservation practices'.",
+        question: "“India is heading towards an acute freshwater crisis.” Explain any three major factors responsible for the rapid depletion and scarcity of freshwater resources in India. [3]",
+        twistedVersions: [
+          "Give a geographical reason: There is an urgent need to conserve water resources in India today.",
+          "Why is the per capita availability of freshwater declining rapidly in India?",
+          "How have rapid industrialization, urbanization, and the Green Revolution led to groundwater depletion?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Population Explosion &amp; Rapid Urbanization:</strong> India supports ~18% of the world’s population with only ~4% of the world’s freshwater resources; rising population and urban lifestyles have multiplied domestic water demand.</li>
+            <li><strong>2. Over-Exploitation of Groundwater for Agriculture:</strong> Over <span class="kw">85% of India’s freshwater is consumed by agriculture</span>; excessive pumping by millions of energized <span class="kw">tubewells and borewells</span> for water-intensive crops (paddy, sugarcane, HYV seeds) has caused a steep drop in the water table.</li>
+            <li><strong>3. Pollution of Surface Water Bodies:</strong> Discharge of <span class="kw">untreated industrial effluents, domestic sewage, and chemical fertilizers/pesticides</span> into rivers (like the Ganga and Yamuna) and lakes has rendered vast quantities of surface water toxic and unfit for human consumption.</li>
+            <li><strong>4. Deforestation &amp; Erratic Monsoon:</strong> Loss of forest cover reduces rainwater percolation into the soil, while global warming has made monsoon rainfall erratic.</li>
+          </ul>
+        `
+      },
+      {
+        id: 14,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 8x IN BOARDS",
+        qType: "conservation_rwh",
+        subTopic: "Chapter: Water Resources • Traditional Rainwater Harvesting Systems Across India",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2016, 2018, 2020, 2022, 2024, 2025, and 2026! Every single year, 1 or 2 marks in Q7 test whether you can match the traditional RWH structure (Johads, Tankas, Kuhl, Khatri, Surangam, Zing, Cheruvu, Dongs) with its exact state/region.",
+        question: "Name the traditional rainwater harvesting system practiced in each of the following regions of India:<br>(1) Western Rajasthan (Thar Desert) &nbsp; (2) Western Himalayas (Himachal Pradesh / Jammu)<br>(3) Western Ghats (Kerala / Karnataka) &nbsp; (4) Ladakh<br>(5) Assam (Brahmaputra Valley) &nbsp; (6) Deccan Plateau (Andhra Pradesh / Maharashtra) [3]",
+        twistedVersions: [
+          "What are 'Johads', 'Tankas (Kunds)', 'Khatri', 'Kuhl', and 'Surangam'? Name the state where each is practiced.",
+          "Match the traditional water harvesting structure with its geographical region."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Western Rajasthan (Thar Desert):</strong> <span class="kw">Johads, Khadins, and Tankas (or Kunds)</span> (also Stepwells / <em>Baolis / Jhalaras</em>).</li>
+            <li><strong>(2) Western Himalayas (Himachal Pradesh &amp; Jammu):</strong> <span class="kw">Khatri and Kuhl</span>.</li>
+            <li><strong>(3) Western Ghats (Kerala &amp; Karnataka):</strong> <span class="kw">Surangam and Korambu</span>.</li>
+            <li><strong>(4) Ladakh (Cold Desert):</strong> <span class="kw">Zing</span> (channels harvesting melted glacier water).</li>
+            <li><strong>(5) Assam (Brahmaputra Valley) &amp; Meghalaya:</strong> <span class="kw">Dongs (or Dungs)</span> in Assam; <span class="kw">Bamboo Drip Irrigation</span> in Meghalaya.</li>
+            <li><strong>(6) Deccan Plateau:</strong> <span class="kw">Cheruvu</span> (Andhra Pradesh), <span class="kw">Eris / Ooranis</span> (Tamil Nadu), <span class="kw">Kere</span> (Karnataka), and <span class="kw">Bhandaras</span> (Maharashtra).</li>
+          </ul>
+          <div class="examiner-tip"><strong>100% Board Lock:</strong> Memorize this 6-pair list cold—it has appeared in <strong>every single ICSE Board Paper since 2018</strong>!</div>
+        `
+      },
+      {
+        id: 15,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 8x IN BOARDS",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Why Cherrapunji / Mawsynram / Konkan Faces Summer Water Scarcity",
+        marks: "[2 Marks]",
+        whyChosen: "Asked in 2015, 2018, 2021, 2023, and 2026 Specimen. The ultimate geographical paradox: Mawsynram and Cherrapunji receive the highest rainfall in the world (>1,100 cm), yet face acute drinking water shortages in summer!",
+        question: "Give a geographical reason: Cherrapunji and Mawsynram (or the Konkan Coast / Kerala hills) receive some of the heaviest monsoon rainfall in the world, yet suffer from acute scarcity of drinking water during the dry summer months. [2]",
+        twistedVersions: [
+          "Why does rainwater harvesting need to be practiced even in high-rainfall regions like Meghalaya and Goa?",
+          "Why does heavy rainfall in hilly regions not automatically guarantee year-round water availability?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Rapid Surface Runoff on Steep Rocky Slopes:</strong> Because Cherrapunji/Mawsynram and the Western Ghats have <span class="kw">steep, rocky hill slopes and thin/deforested soil cover</span>, almost all the torrential rainwater <span class="kw">rushes rapidly down the slopes as surface runoff into rivers/seas</span> with very little percolation into the ground.</li>
+            <li><strong>2. Seasonal Concentration &amp; Lack of Storage:</strong> Since rain is concentrated within 4 monsoon months and there are <span class="kw">inadequate water storage reservoirs or rainwater harvesting structures</span>, the region faces acute water shortage during the dry winter and summer months.</li>
+          </ul>
+        `
+      },
+      {
+        id: 16,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 7x IN BOARDS",
+        qType: "modern",
+        subTopic: "Chapter: Water Resources • Furrow Irrigation vs Spray / Sprinkler Irrigation",
+        marks: "[2 Marks]",
+        whyChosen: "Explicitly mentioned in the ICSE syllabus under Modern/Surface Irrigation methods. Often asked as a 2-mark 'Differentiate between Furrow Irrigation and Spray/Sprinkler Irrigation'.",
+        question: "What is ‘Furrow Irrigation’? State one advantage and one disadvantage of Furrow Irrigation compared to Sprinkler/Drip Irrigation. [2]",
+        twistedVersions: [
+          "Differentiate between Furrow Irrigation and Sprinkler Irrigation.",
+          "Why must land be completely level for Furrow irrigation?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>Meaning of Furrow Irrigation:</strong> A type of surface irrigation in which <span class="kw">narrow, parallel channels (furrows) of equal dimensions are dug across a levelled field between rows of crops</span>, and water is let into the furrows to seep laterally into the plant roots (used for potatoes, sugarcane, cotton, vegetables).</li>
+            <li><strong>Advantage:</strong> <span class="kw">Much cheaper than Drip or Sprinkler systems</span> (requires no expensive pipes, pumps, or nozzles) and prevents flooding of the entire field surface.</li>
+            <li><strong>Disadvantage:</strong> Causes <span class="kw">significant loss of water through seepage and surface evaporation</span>, requires <span class="kw">abundant water and perfectly level land</span>, and cannot be used on hilly or sandy undulating terrain.</li>
+          </ul>
+        `
+      },
+      {
+        id: 17,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 7x IN BOARDS",
+        qType: "modern",
+        subTopic: "Chapter: Water Resources • Bamboo Drip Irrigation in Meghalaya",
+        marks: "[2 Marks]",
+        whyChosen: "Featured in ICSE Board Papers and Specimen Papers as a textbook case study of indigenous sustainable micro-irrigation.",
+        question: "Where is ‘Bamboo Drip Irrigation’ practiced in India? Briefly explain how this system works and state two of its advantages. [2]",
+        twistedVersions: [
+          "How do tribal farmers in the Khasi and Jaintia Hills irrigate their betel leaf and black pepper crops without electricity or metal pipes?",
+          "State two advantages of the Bamboo Drip Irrigation system."
+        ],
+        answer: `
+          <ul>
+            <li><strong>Region &amp; Crops:</strong> Practiced in the <span class="kw">Khasi and Jaintia Hills of Meghalaya</span> (North-East India) mainly for irrigating <span class="kw">betel leaf, black pepper, and arecanut</span> crops.</li>
+            <li><strong>Mechanism:</strong> Water from perennial hill streams and springs on hilltops is diverted by <span class="kw">gravity through a network of hollowed-out split bamboo channels</span> of varying diameters over hundreds of metres, reducing the flow to <span class="kw">20 to 80 drops per minute</span> right at the roots of the plants.</li>
+            <li><strong>Two Advantages:</strong> (1) <span class="kw">Extremely eco-friendly and low-cost</span> (uses locally available bamboo and natural gravity with <span class="kw">zero fuel or electricity</span>); (2) Prevents soil erosion on steep hill slopes and <span class="kw">minimizes water wastage</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 18,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 7x IN BOARDS",
+        qType: "conservation_rwh",
+        subTopic: "Chapter: Water Resources • Surface Water vs Groundwater Resources",
+        marks: "[2 Marks]",
+        whyChosen: "The very first line of the ICSE syllabus for Chapter 4 is 'Sources: Surface water and ground water'. Examiners frequently ask for the sources of each and why groundwater is preferred or depleting.",
+        question: "(a) Differentiate between ‘Surface Water’ and ‘Groundwater’ with two examples/sources of each. [2]<br>(b) Why is Groundwater generally safer for drinking than Surface Water, yet declining rapidly in India? [1]",
+        twistedVersions: [
+          "Name the four main sources of Surface Water in India.",
+          "How is Groundwater replenished naturally, and what is an 'Aquifer'?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Surface Water vs Groundwater:</strong>
+              <ul>
+                <li><strong>Surface Water:</strong> Water available on the surface of the Earth in <span class="kw">rivers, lakes, ponds, reservoirs, and tanks</span> (derived from rainfall and melting snow).</li>
+                <li><strong>Groundwater (Sub-surface Water):</strong> Rainwater and river water that <span class="kw">seeps/percolates down through porous soil and rock crevices</span> to collect above an impervious rock layer in underground water-bearing strata called <span class="kw">aquifers</span> (accessed via <span class="kw">wells, tubewells, and springs</span>).</li>
+              </ul>
+            </li>
+            <li><strong>(b) Why Safer Yet Declining:</strong> Groundwater undergoes <span class="kw">natural filtration as it percolates through layers of sand and rock</span>, making it free from surface dust and bacteria. It is declining rapidly due to <span class="kw">over-pumping by millions of tubewells for irrigation</span> and reduced percolation caused by urban concrete paving and deforestation.</li>
+          </ul>
+        `
+      },
+      {
+        id: 19,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 6x IN BOARDS",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • Traditional Methods of Lifting Water from Open Wells",
+        marks: "[2 Marks]",
+        whyChosen: "Asked in 2014, 2018, 2021, and 2024. Sometimes a picture of a Persian Wheel (Rehat) or Lever (Dhenkli) is shown, or you are asked to name the traditional water-lifting devices.",
+        question: "Name and briefly describe the three traditional methods used by Indian farmers to lift water from ordinary Surface (Open) Wells. [2]",
+        twistedVersions: [
+          "What is a 'Persian Wheel' (Rehat)? In which states is it commonly used?",
+          "Explain the 'Lever Method' (Dhenkli / Picottah) and the 'Inclined Plane Method' (Mhote) of lifting well water."
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Persian Wheel (Rehat):</strong> A <span class="kw">partly submerged vertical wheel with a continuous chain of small buckets</span> rotated by a pair of bullocks, buffaloes, or camels walking in a circle; lifts water from depths up to $10\text{–}15\text{ m}$ (common in Punjab, Haryana, Western UP).</li>
+            <li><strong>2. Inclined Plane Method (Mhote):</strong> A pair of bullocks walks down a <span class="kw">sloping ramp (inclined plane)</span> pulling a rope over a pulley to lift a large leather bucket (<em>charas</em>) from the well, and walks backward up the slope to lower it again.</li>
+            <li><strong>3. Lever Method (Dhenkli / Picottah):</strong> Uses a <span class="kw">long wooden beam balanced on a vertical forked post like a see-saw</span>, with a heavy stone counterweight at one end and a bucket tied to a rope at the other; economical for very shallow wells ($3\text{–}4\text{ m}$ deep) in Bihar, UP, and Andhra Pradesh.</li>
+          </ul>
+        `
+      },
+      {
+        id: 20,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 6x IN BOARDS",
+        qType: "conservation_rwh",
+        subTopic: "Chapter: Water Resources • Watershed Management",
+        marks: "[2 Marks]",
+        whyChosen: "Explicitly included in ICSE textbooks under Water Conservation practices. Often asked as a 2-mark short note.",
+        question: "What is meant by ‘Watershed Management’? State two ways in which it helps in water conservation and rural development. [2]",
+        twistedVersions: [
+          "How does Watershed Management help in recharging groundwater and preventing soil erosion simultaneously?",
+          "Mention two structures built under a Watershed Development Programme."
+        ],
+        answer: `
+          <ul>
+            <li><strong>Definition:</strong> <span class="kw">Watershed Management</span> refers to the <span class="kw">efficient conservation, regeneration, and judicious management of both surface and groundwater resources</span> within a natural drainage basin (catchment area) through check dams, percolation tanks, contour bunding, and afforestation.</li>
+            <li><strong>Two Benefits:</strong>
+              <ul>
+                <li><strong>1. Recharges Groundwater &amp; Prevents Runoff:</strong> Slows down rainwater flow, <span class="kw">increases underground percolation to raise the water table</span>, and checks soil erosion and flash floods.</li>
+                <li><strong>2. Boosts Agricultural Productivity:</strong> Ensures year-round water availability for drinking and multi-cropping in drought-prone villages (e.g., <em>Ralegan Siddhi</em> in Maharashtra).</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 21,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 6x IN BOARDS",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • Why Tamil Nadu Uses Canals, Tanks, AND Wells",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2016, 2019, 2022, and 2025. Tamil Nadu is a unique state where deltas use Canals, rocky uplands use Tanks, and winter rains recharge Wells.",
+        question: "Explain why Tamil Nadu is a unique state in India where all three conventional modes of irrigation—Canals, Tanks, and Wells—are extensively practiced. [3]",
+        twistedVersions: [
+          "Give a geographical reason: Canal irrigation in Tamil Nadu is confined to the Kaveri delta, while Tank irrigation dominates the interior districts.",
+          "Why are winter rains in Tamil Nadu supplemented by Tank and Well irrigation?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Canal Irrigation in Coastal Deltas:</strong> The fertile alluvial <span class="kw">deltas of the Kaveri, Palar, and Vaigai rivers</span> have flat terrain and soft soil, where diversion weirs/barrages (like the Grand Anicut) feed a dense network of canals.</li>
+            <li><strong>2. Tank Irrigation in Interior Rocky Uplands:</strong> The interior plateau districts of Tamil Nadu have <span class="kw">undulating relief with natural depressions and hard impervious crystalline rocks</span>, ideal for storing North-East Monsoon rainwater in thousands of tanks (<em>Eris</em>).</li>
+            <li><strong>3. Well &amp; Tubewell Irrigation:</strong> Because rainfall in Tamil Nadu is seasonal (concentrated in Oct–Dec) and canals/tanks dry up in summer, farmers dig <span class="kw">wells and filter-point tubewells</span> in coastal plains and near tanks to irrigate summer crops.</li>
+          </ul>
+        `
+      },
+      {
+        id: 22,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 6x IN BOARDS",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • Lined (Pucca) Wells vs Unlined (Kuchcha) Wells",
+        marks: "[2 Marks]",
+        whyChosen: "Tested when asking about Types of Surface Wells.",
+        question: "Differentiate between ‘Lined Wells’ (Pucca Wells) and ‘Unlined Wells’ (Kuchcha Wells). [2]",
+        twistedVersions: [
+          "Why are Lined wells preferred over Unlined wells for permanent irrigation?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>Lined Wells (Pucca Wells):</strong> Permanently constructed wells whose <span class="kw">inner walls are lined with bricks, stones, and cement mortar</span>; they are deeper, do not collapse during heavy rains, and provide a permanent source of water, though they are costlier to build.</li>
+            <li><strong>Unlined Wells (Kuchcha Wells):</strong> Temporary, shallow pits dug directly into soft soil near riverbanks <span class="kw">without any brick or stone lining</span>; they are very cheap to dig, but their walls cave in easily during the rainy season.</li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 3: 'GIVE GEOGRAPHICAL REASONS' MASTER VAULT (ALL BOARD VARIATIONS) ---
+      {
+        id: 23,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: Well Irrigation is Not Popular in Rocky Deccan Plateau",
+        marks: "[1 Mark]",
+        whyChosen: "Asked in 2015, 2018, 2021, and 2024.",
+        question: "Give a geographical reason: Well and Tubewell irrigation is not widely practiced in the rocky plateau of Peninsular India.",
+        twistedVersions: [
+          "Why is it difficult to dig wells in Maharashtra, Karnataka, and Telangana compared to Uttar Pradesh?"
+        ],
+        answer: `
+          <ul>
+            <li>Peninsular India is composed of <span class="kw">hard, non-porous (impervious) igneous and metamorphic rocks</span>. This makes <span class="kw">boring or digging wells extremely difficult and expensive</span>, and because rainwater cannot percolate easily through hard rock, the <span class="kw">underground water table is very low and scanty</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 24,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: Canal Irrigation Has Transformed Western Rajasthan",
+        marks: "[1 Mark]",
+        whyChosen: "Tests the impact of the Indira Gandhi Canal (Rajasthan Canal).",
+        question: "Give a geographical reason: Arid districts of Western Rajasthan (like Ganganagar, Bikaner, and Jaisalmer) are now able to grow water-intensive crops like wheat, cotton, and mustard.",
+        twistedVersions: [
+          "How has the Indira Gandhi Canal changed the agricultural landscape of the Thar Desert?"
+        ],
+        answer: `
+          <ul>
+            <li>The construction of the <span class="kw">Indira Gandhi Canal (India’s longest perennial canal, taking off from the Harike Barrage at the confluence of the Sutlej and Beas rivers)</span> brings perennial Himalayan river water into the dry Thar Desert, turning barren sandy tracts into fertile irrigated farmland.</li>
+          </ul>
+        `
+      },
+      {
+        id: 25,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: Sprinkler Irrigation is Ideal for Sandy or Hilly Land",
+        marks: "[1 Mark]",
+        whyChosen: "Appeared in 2022, 2024, and 2026 Specimen.",
+        question: "Give a geographical reason: Sprinkler irrigation is particularly useful for arid sandy soils (like Rajasthan/Haryana) and undulating hilly slopes (like tea/coffee estates in Kerala/Assam).",
+        twistedVersions: [
+          "Why is Sprinkler irrigation preferred on uneven terrain where surface canal irrigation is impossible?"
+        ],
+        answer: `
+          <ul>
+            <li>Sprinkler irrigation delivers water overhead through <span class="kw">pressurized pipes and revolving nozzles like natural rain</span>; hence, it <span class="kw">does not require levelling of undulating hilly slopes</span> and <span class="kw">prevents rapid seepage loss in porous sandy soils</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 26,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: Agriculture in Punjab & Haryana is Immune to Monsoon Failure",
+        marks: "[1 Mark]",
+        whyChosen: "Connects Green Revolution states with their dense network of Perennial Canals and Tubewells.",
+        question: "Give a geographical reason: Even though Punjab and Haryana receive low annual rainfall (less than 60 cm), they record the highest per-hectare agricultural yield in India.",
+        twistedVersions: [
+          "Why does a weak South-West Monsoon not cause crop failure in Punjab and Haryana?"
+        ],
+        answer: `
+          <ul>
+            <li>Over <span class="kw">85% to 95% of the net sown area in Punjab and Haryana is covered by assured, perennial irrigation</span> through a dense network of <span class="kw">Perennial Canals (Bhakra-Nangal system) and energized Tubewells</span>, making agriculture independent of erratic monsoon rains.</li>
+          </ul>
+        `
+      },
+      {
+        id: 27,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: Rivers of South India Are Not Ideal for Perennial Canals",
+        marks: "[1 Mark]",
+        whyChosen: "Asked in 2016, 2019, and 2023.",
+        question: "Give a geographical reason: Peninsular rivers are not ideal for constructing perennial canals without building large storage reservoirs/dams first.",
+        twistedVersions: [
+          "Why is canal irrigation less widespread in Peninsular India than in the Indo-Gangetic Plains?"
+        ],
+        answer: `
+          <ul>
+            <li>Peninsular rivers are <span class="kw">rain-fed (seasonal / non-perennial)</span> and shrink into thin trickles during the dry summer months, and they flow through <span class="kw">hard, rocky, uneven terrain</span> where digging long canal networks is difficult and expensive.</li>
+          </ul>
+        `
+      },
+      {
+        id: 28,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: Rainwater Harvesting is Mandatory in Metro Cities",
+        marks: "[1 Mark]",
+        whyChosen: "Connects urban concrete surfaces with groundwater depletion.",
+        question: "Give a geographical reason: Municipal corporations in cities like Chennai, Bengaluru, and Delhi have made Rooftop Rainwater Harvesting mandatory for all new buildings.",
+        twistedVersions: [
+          "Why do metropolitan cities experience a sharp fall in the underground water table alongside severe street flooding during rains?"
+        ],
+        answer: `
+          <ul>
+            <li>In metropolitan cities, <span class="kw">concrete buildings and tarred roads have sealed the soil surface</span>, preventing rainwater from percolating naturally into the ground while <span class="kw">excessive borewell pumping has dangerously depleted underground aquifers</span>. Mandatory rooftop RWH recharges groundwater and reduces urban street flooding.</li>
+          </ul>
+        `
+      },
+      {
+        id: 29,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: Rabi Crops Depend Almost Entirely on Irrigation",
+        marks: "[1 Mark]",
+        whyChosen: "Tests seasonal crop water needs.",
+        question: "Give a geographical reason: Winter (Rabi) crops like Wheat, Barley, and Mustard in India depend almost entirely on artificial irrigation.",
+        twistedVersions: [
+          "Why is irrigation indispensable for growing more than one crop a year (multiple cropping) in India?"
+        ],
+        answer: `
+          <ul>
+            <li>Rabi crops are grown during the <span class="kw">cold and dry winter season (October to March)</span> when the <span class="kw">offshore North-East Monsoon winds blow from land to sea and bring no rainfall</span> to most of India (except Tamil Nadu and brief Western Disturbances in NW India).</li>
+          </ul>
+        `
+      },
+      {
+        id: 30,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: Drip Irrigation Prevents Weed Growth",
+        marks: "[1 Mark]",
+        whyChosen: "A favourite conceptual 1-marker on Drip Irrigation.",
+        question: "Give a geographical reason: Drip irrigation significantly reduces the growth of unwanted weeds in agricultural fields.",
+        twistedVersions: [
+          "How does Drip irrigation keep the inter-row spaces dry and weed-free?"
+        ],
+        answer: `
+          <ul>
+            <li>In Drip irrigation, perforated pipes release water <span class="kw">drop-by-drop directly onto the root zone of each crop plant</span>, leaving the <span class="kw">soil between the rows completely dry</span> so weed seeds do not get moisture to germinate.</li>
+          </ul>
+        `
+      },
+      {
+        id: 31,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: Coastal Aquifers in Gujarat & Tamil Nadu Are Turning Saline",
+        marks: "[1 Mark]",
+        whyChosen: "Tests the environmental hazard of over-pumping tubewells near the sea coast.",
+        question: "Give a geographical reason: Underground water in several coastal districts of Gujarat and Tamil Nadu has turned brackish/saline and unfit for drinking or farming.",
+        twistedVersions: [
+          "How does excessive extraction of groundwater in coastal areas lead to seawater intrusion?"
+        ],
+        answer: `
+          <ul>
+            <li>Excessive pumping of freshwater through deep tubewells in coastal areas <span class="kw">lowers the freshwater table below sea level</span>, allowing <span class="kw">saline seawater to seep/intrude inland into the underground freshwater aquifers</span> (saline water intrusion).</li>
+          </ul>
+        `
+      },
+      {
+        id: 32,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: High-Yielding Variety (HYV) Seeds Require Assured Irrigation",
+        marks: "[1 Mark]",
+        whyChosen: "Links Green Revolution to Water Resources.",
+        question: "Give a geographical reason: The introduction of High-Yielding Variety (HYV) seeds and chemical fertilizers has greatly increased the demand for tubewell and canal irrigation.",
+        twistedVersions: [
+          "Why cannot HYV seeds be grown successfully under purely rain-fed conditions?"
+        ],
+        answer: `
+          <ul>
+            <li><span class="kw">HYV seeds require heavy doses of chemical fertilizers</span>, which in turn require <span class="kw">copious, timely, and regular supplies of moisture</span> at specific growth stages; without assured irrigation, the fertilizers burn the crop and yields fail.</li>
+          </ul>
+        `
+      },
+      {
+        id: 33,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: Water Must Be Recycled and Reused in Industries",
+        marks: "[1 Mark]",
+        whyChosen: "Covers industrial and domestic water conservation.",
+        question: "Give a geographical reason: Recycling and reusing treated wastewater in industries and urban housing societies is an effective way to conserve freshwater.",
+        twistedVersions: [
+          "State two ways in which industries and households can reduce their consumption of potable freshwater."
+        ],
+        answer: `
+          <ul>
+            <li>Using <span class="kw">recycled/treated greywater for non-potable purposes</span> such as <span class="kw">cooling industrial machinery, flushing toilets, washing vehicles, and watering gardens/parks</span> saves huge volumes of pure potable freshwater for human drinking and cooking.</li>
+          </ul>
+        `
+      },
+      {
+        id: 34,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: Tank Water Needs to Be Lifted to Irrigate Fields",
+        marks: "[1 Mark]",
+        whyChosen: "A subtle disadvantage of Tank irrigation often asked in 1-mark questions.",
+        question: "Give a geographical reason: Carrying water from a tank to agricultural fields is often costly and labour-intensive for farmers.",
+        twistedVersions: [
+          "Why cannot tank water always flow to surrounding fields purely by gravity?"
+        ],
+        answer: `
+          <ul>
+            <li>Since tanks are built in <span class="kw">low-lying natural depressions</span>, the surrounding agricultural fields often lie at a <span class="kw">slightly higher level</span>, requiring farmers to <span class="kw">manually or mechanically lift the water</span> and carry it through channels, adding to the cost.</li>
+          </ul>
+        `
+      },
+      {
+        id: 35,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: Sandy and Loamy Soils Need More Frequent Irrigation Than Clayey Black Soil",
+        marks: "[1 Mark]",
+        whyChosen: "Cross-chapter link between Soil Resources (Ch 2) and Water Resources (Ch 4) — frequently asked in ICSE Boards!",
+        question: "Give a geographical reason: Crops grown on Sandy or Red soil require much more frequent irrigation than crops grown on Black (Regur) soil.",
+        twistedVersions: [
+          "How does the nature of soil determine the frequency of irrigation required by a crop?"
+        ],
+        answer: `
+          <ul>
+            <li><span class="kw">Sandy and Red soils are coarse, porous, and friable</span> with very low water-holding capacity, so water percolates down or evaporates quickly; in contrast, <span class="kw">clayey Black soil is fine-grained and retains sub-soil moisture for a long period</span>, requiring far less frequent irrigation.</li>
+          </ul>
+        `
+      },
+      {
+        id: 36,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Water Resources • Give Reason: Check Dams Help Recharge Surrounding Wells",
+        marks: "[1 Mark]",
+        whyChosen: "Tests the link between surface check dams and groundwater levels.",
+        question: "Give a geographical reason: Construction of small check dams and percolation tanks across seasonal streams raises the water level in nearby village wells.",
+        twistedVersions: [
+          "How do Johads and Check Dams revive dry open wells in drought-prone villages?"
+        ],
+        answer: `
+          <ul>
+            <li>Check dams and percolation tanks <span class="kw">impound and slow down rushing monsoon surface runoff</span>, giving the standing water ample time to <span class="kw">percolate downwards through the soil and recharge the underground water table (aquifer)</span> that feeds nearby wells.</li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 4: COMPETENCY CASE-BASED, VISUAL & SCENARIO QUESTIONS (QUESTIONS 37 TO 43) ---
+      {
+        id: 37,
+        probTier: "specimen",
+        probLabel: "🚨 2027 COMPETENCY CASE STUDY • URBAN WATER CRISIS",
+        qType: "conservation_rwh",
+        subTopic: "Chapter: Water Resources • Case Study: Urban Lakes & Rainwater Harvesting (Bengaluru / Chennai)",
+        marks: "[3 Marks]",
+        whyChosen: "Recent headlines on Bengaluru and Chennai facing 'Day Zero' summer water crises followed by monsoon street flooding make this the #1 real-world competency question for 2027.",
+        question: "Read the scenario and answer the questions that follow:<br><em>“A major IT hub in South India experienced severe water-logging on its roads during October–November rains, yet just five months later in April, residential apartments had to buy water from private tankers as their borewells ran completely dry.”</em><br><br>(a) Identify two human actions in rapidly growing cities that cause both monsoon flooding and summer borewell failure. [1]<br>(b) Suggest two practical water-conservation measures that residential apartment societies can implement to become water self-sufficient. [2]",
+        twistedVersions: [
+          "How does encroachment of urban lakes/tanks and concretization of pavements disrupt the hydrological cycle?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Two Human Causes of Urban Flooding + Borewell Failure:</strong>
+              <ul>
+                <li><strong>1. Concretization of Land Surface:</strong> Paving open ground with concrete and asphalt prevents rainwater from percolating into the soil to recharge aquifers, forcing all rain to flood the streets.</li>
+                <li><strong>2. Encroachment &amp; Silting of Traditional Lakes/Tanks:</strong> Filling up natural urban lakes, wetlands, and storm drains for real-estate construction destroys natural water-storage sponges.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Two Practical Conservation Measures for Apartments:</strong>
+              <ul>
+                <li><strong>1. Mandatory Rooftop Rainwater Harvesting with Recharge Pits:</strong> Channeling terrace rainwater through sand-gravel filters directly into deep borewell recharge pits and underground storage sumps.</li>
+                <li><strong>2. Greywater Recycling &amp; Water-Saving Fixtures:</strong> Installing Sewage Treatment Plants (STPs) to reuse treated wastewater for flushing and gardening, and using dual-flush/aerated taps.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 38,
+        probTier: "alternate",
+        probLabel: "🔄 COMPETENCY COMPARISON • SURFACE WELLS VS TUBEWELLS",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • Complete Comparison: Surface (Open) Wells vs Tubewells",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2015, 2018, 2021, and 2024 as a direct 3-mark differentiation table.",
+        question: "Differentiate between ‘Surface (Open) Wells’ and ‘Tubewells’ on the basis of:<br>(a) Depth &amp; Method of lifting water [1]<br>(b) Area irrigated &amp; Reliability during summer [1]<br>(c) Cost of construction &amp; operation [1]",
+        twistedVersions: [
+          "State three points of difference between an ordinary traditional well and a modern tubewell."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Depth &amp; Lifting Method:</strong> <span class="kw">Surface Wells</span> are shallow ($5\text{–}15\text{ m}$ deep) and water is lifted manually or by animal power (<span class="kw">Persian wheel, Dhenkli, Mhote</span>); <span class="kw">Tubewells</span> are very deep ($15\text{–}100+\text{ m}$) narrow bores from which water is pumped up using <span class="kw">electric or diesel motor pumps</span>.</li>
+            <li><strong>(b) Area Irrigated &amp; Summer Reliability:</strong> <span class="kw">Surface Wells</span> irrigate only <span class="kw">1 to 2 hectares</span> and often dry up in summer; <span class="kw">Tubewells</span> irrigate <span class="kw">400+ hectares</span> and remain perennial even in summer droughts.</li>
+            <li><strong>(c) Cost:</strong> <span class="kw">Surface Wells</span> have a <span class="kw">very low initial and zero recurring fuel cost</span>; <span class="kw">Tubewells</span> require <span class="kw">high capital investment and continuous expenditure on electricity/diesel</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 39,
+        probTier: "alternate",
+        probLabel: "🔄 COMPETENCY COMPARISON • CANAL VS TANK IRRIGATION",
+        qType: "tanks",
+        subTopic: "Chapter: Water Resources • Complete Comparison: Canal Irrigation vs Tank Irrigation",
+        marks: "[3 Marks]",
+        whyChosen: "Compares North India's primary surface irrigation (Canals) with South India's traditional surface irrigation (Tanks).",
+        question: "Differentiate between ‘Perennial Canal Irrigation’ and ‘Tank Irrigation’ on the basis of:<br>(a) Topographical &amp; Geological conditions required [1]<br>(b) Nature/Reliability of water supply [1]<br>(c) Major states where practiced [1]",
+        twistedVersions: [
+          "Compare the geographical conditions that favour Canal irrigation in Uttar Pradesh with those that favour Tank irrigation in Andhra Pradesh."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Topographical &amp; Geological Conditions:</strong> <span class="kw">Perennial Canals</span> require <span class="kw">flat level plains, soft alluvial soil</span> for easy digging, and snow-fed perennial rivers; <span class="kw">Tanks</span> require <span class="kw">undulating rocky terrain with natural depressions</span> and <span class="kw">hard impervious bedrock</span> underneath to prevent seepage.</li>
+            <li><strong>(b) Reliability of Supply:</strong> <span class="kw">Perennial Canals</span> provide <span class="kw">assured water throughout the year</span>; <span class="kw">Tanks</span> are seasonal (rain-fed) and <span class="kw">often dry up in summer</span> due to high evaporation.</li>
+            <li><strong>(c) Major States:</strong> <span class="kw">Canals:</span> <span class="kw">Uttar Pradesh, Punjab, Haryana, Rajasthan</span>; <span class="kw">Tanks:</span> <span class="kw">Andhra Pradesh, Telangana, Tamil Nadu, Karnataka</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 40,
+        probTier: "alternate",
+        probLabel: "🔄 COMPETENCY COMPARISON • DRIP VS SPRINKLER",
+        qType: "modern",
+        subTopic: "Chapter: Water Resources • Complete Comparison: Drip Irrigation vs Sprinkler Irrigation",
+        marks: "[2 Marks / 3 Marks]",
+        whyChosen: "Students often treat Drip and Sprinkler as identical, but examiners ask you to differentiate between how they apply water and where each is best suited.",
+        question: "State two points of difference between ‘Drip Irrigation’ and ‘Sprinkler Irrigation’. [2]",
+        twistedVersions: [
+          "How does the mechanism of water delivery in Drip irrigation differ from that in Sprinkler irrigation?",
+          "Which of the two — Drip or Sprinkler — is affected by strong wind velocity and why?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Mechanism of Water Application:</strong> In <span class="kw">Drip Irrigation</span>, plastic pipes with tiny emitters laid on the ground deliver water <span class="kw">slowly drop-by-drop directly to the plant roots</span>; in <span class="kw">Sprinkler Irrigation</span>, water is pumped under pressure through vertical pipes and <span class="kw">sprayed overhead into the air through revolving nozzles like rain</span>.</li>
+            <li><strong>2. Evaporation &amp; Wind Impact:</strong> <span class="kw">Drip Irrigation</span> has <span class="kw">almost zero evaporation loss and is unaffected by wind</span>, keeping leaves dry; in <span class="kw">Sprinkler Irrigation</span>, <span class="kw">strong winds deflect the spray</span>, some water is lost to evaporation in the air, and wetting of leaves can promote fungal diseases.</li>
+          </ul>
+        `
+      },
+      {
+        id: 41,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "conservation_rwh",
+        subTopic: "Chapter: Water Resources • Surface Runoff Harvesting vs Rooftop Rainwater Harvesting",
+        marks: "[2 Marks]",
+        whyChosen: "The syllabus covers two broad methods of Rainwater Harvesting: (1) Rooftop RWH and (2) Surface Runoff Harvesting.",
+        question: "Differentiate between ‘Rooftop Rainwater Harvesting’ and ‘Surface Runoff Harvesting’ with two examples of structures used in each. [2]",
+        twistedVersions: [
+          "What are the two main methods of Rainwater Harvesting practiced in India?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Rooftop Rainwater Harvesting:</strong> Rainwater falling directly on the <span class="kw">roofs/terraces of houses and buildings</span> is collected via PVC gutters and downpipes, filtered, and stored in <span class="kw">underground Tankas/sumps or directed into Recharge Pits, Trenches, and Dugwells</span> (mainly in urban and semi-urban areas).</li>
+            <li><strong>2. Surface Runoff Harvesting:</strong> Rainwater flowing over the <span class="kw">ground surface, fields, and hill slopes</span> is intercepted and impounded using <span class="kw">Check Dams, Johads, Percolation Tanks, Farm Ponds, and Contour Bunds</span> to recharge rural aquifers and irrigate crops.</li>
+          </ul>
+        `
+      },
+      {
+        id: 42,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "conservation_rwh",
+        subTopic: "Chapter: Water Resources • Recharge Structures: Percolation Pit, Trench & Dugwell",
+        marks: "[2 Marks]",
+        whyChosen: "Included in the ICSE syllabus under Groundwater Recharge mechanisms.",
+        question: "Briefly explain how each of the following structures is used in Rainwater Harvesting to recharge groundwater:<br>(a) Recharge Pit (Percolation Pit) [1]<br>(b) Recharge Trench / Dugwell Recharge [1]",
+        twistedVersions: [
+          "What is a 'Percolation Pit' (Soak Pit) and what materials are filled inside it?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Recharge Pit (Percolation Pit):</strong> A rectangular or circular pit ($1\text{–}2\text{ m}$ wide and $2\text{–}3\text{ m}$ deep) dug in the ground and <span class="kw">filled with graded layers of boulders/pebbles at the bottom, gravel in the middle, and coarse sand at the top</span>; rooftop rainwater passes through these filtering layers and recharges shallow aquifers.</li>
+            <li><strong>(b) Recharge Trench / Abandoned Dugwell:</strong> <span class="kw">Recharge Trenches</span> are long shallow trenches filled with porous filter media dug across sloping land for large buildings; <span class="kw">Dugwell Recharge</span> pipes filtered rooftop water directly into dry or existing open wells to replenish deep aquifers.</li>
+          </ul>
+        `
+      },
+      {
+        id: 43,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • Crop-Wise Irrigation Needs (Kharif vs Rabi vs Zaid)",
+        marks: "[2 Marks]",
+        whyChosen: "Sometimes asked as a 2-mark question under 'Need for Irrigation: Crop requirements'.",
+        question: "Explain with examples how the water requirements of different crops and the three agricultural seasons (Kharif, Rabi, Zaid) create a continuous need for irrigation in India. [2]",
+        twistedVersions: [
+          "Why do crops like Sugarcane and Paddy require heavy irrigation compared to Bajra and Gram?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. High-Water Crops vs Drought-Hardy Crops:</strong> Crops like <span class="kw">Paddy (Rice) require standing water</span> in fields, and <span class="kw">Sugarcane is a 10-to-12-month long-duration crop</span> requiring regular heavy irrigation throughout the year, unlike millets or pulses.</li>
+            <li><strong>2. Three Cropping Seasons:</strong> While <span class="kw">Kharif (monsoon) crops</span> need irrigation during monsoon breaks, <span class="kw">Rabi (winter — wheat, mustard)</span> and <span class="kw">Zaid (hot dry summer — watermelon, cucumber, vegetables, fodder)</span> crops grow during rainless months and <span class="kw">depend 100% on artificial irrigation</span>.</li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 5: SAFETY NET & RAPID-FIRE RIDDLE / ONE-WORD VAULT (QUESTIONS 44 TO 48) ---
+      {
+        id: 44,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD RIDDLE VAULT • 99% PROBABILITY",
+        qType: "modern",
+        subTopic: "Chapter: Water Resources • 'Name the Irrigation Method' Board Riddles",
+        marks: "[3 Marks]",
+        whyChosen: "In almost every ICSE paper, Question 7 includes a 2- or 3-mark 'Name the mode of irrigation which...' riddle.",
+        question: "Name the specific mode of irrigation described in each of the following:<br>(1) Channels taken out directly from rivers without any barrage or dam that flow only during rainy floods.<br>(2) Overhead pipes with revolving nozzles that spray water under pressure like natural rainfall.<br>(3) Perforated plastic pipes that apply water slowly drop-by-drop directly to the roots of plants.<br>(4) Earthen or masonry bunds built across natural rocky depressions on the Deccan Plateau.<br>(5) Deep narrow bores sunk into underground aquifers operated by electric or diesel motor pumps.<br>(6) Indigenous gravity-based micro-irrigation using split bamboo channels in Meghalaya.",
+        twistedVersions: [
+          "Identify the method of irrigation from the clues provided."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Flood-water canals without dam/barrage:</strong> <span class="kw">Inundation Canals</span>.</li>
+            <li><strong>(2) Overhead pressurized revolving nozzles:</strong> <span class="kw">Sprinkler Irrigation</span>.</li>
+            <li><strong>(3) Drop-by-drop water to plant roots:</strong> <span class="kw">Drip Irrigation (Trickle Irrigation)</span>.</li>
+            <li><strong>(4) Bunds across rocky depressions in Deccan:</strong> <span class="kw">Tank Irrigation</span>.</li>
+            <li><strong>(5) Deep bore with electric/diesel pump:</strong> <span class="kw">Tubewell Irrigation</span>.</li>
+            <li><strong>(6) Split bamboo gravity channels in Meghalaya:</strong> <span class="kw">Bamboo Drip Irrigation</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 45,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • 'GIVE ONE GEOGRAPHICAL TERM' VAULT",
+        qType: "conservation_rwh",
+        subTopic: "Chapter: Water Resources • One-Word Geographical Terms Vault",
+        marks: "[3 Marks]",
+        whyChosen: "Locks down all 1-mark terminology questions asked in Q7(i) or Q7(iv).",
+        question: "Give one geographical term for each of the following:<br>(1) An underground layer of water-bearing permeable rock, sand, or gravel from which groundwater is extracted.<br>(2) The upper level of the underground zone of saturation below which soil and rocks are fully saturated with water.<br>(3) The white crust of alkaline salts deposited on the topsoil surface due to over-irrigation by unlined canals.<br>(4) Water that contains a high concentration of dissolved salts, making it salty and unfit for drinking or farming.<br>(5) A natural drainage basin or catchment area whose surface runoff drains into a common river or point.<br>(6) The surface area (such as a building terrace) that directly receives rainfall in a rainwater harvesting system.",
+        twistedVersions: [
+          "Define: (i) Aquifer, (ii) Water Table, (iii) Reh / Kallar, (iv) Brackish Water, (v) Watershed, (vi) Catchment."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Underground water-bearing rock layer:</strong> <span class="kw">Aquifer</span>.</li>
+            <li><strong>(2) Upper surface of underground saturation zone:</strong> <span class="kw">Water Table</span>.</li>
+            <li><strong>(3) White crust of alkaline salts from over-irrigation:</strong> <span class="kw">Reh / Kallar (or Efflorescence / Salinization)</span>.</li>
+            <li><strong>(4) Salty underground water unfit for crops:</strong> <span class="kw">Brackish Water</span>.</li>
+            <li><strong>(5) Natural drainage basin draining into a common point:</strong> <span class="kw">Watershed (or Catchment Basin)</span>.</li>
+            <li><strong>(6) Surface receiving direct rain in RWH:</strong> <span class="kw">Catchment (or Catchment Area)</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 46,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • LEADING STATES & CANALS MASTER LOCK",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • Leading States & Important Canals by State",
+        marks: "[2 Marks]",
+        whyChosen: "Sometimes 1 mark is allotted to 'Name the leading state in India for X irrigation' or 'Name two important canals in UP / Punjab / Haryana / Rajasthan / Bihar'.",
+        question: "(a) Name the #1 leading state in India for: (i) Well &amp; Tubewell Irrigation, (ii) Canal Irrigation, and (iii) Tank Irrigation. [1.5]<br>(b) Name one major perennial canal in Rajasthan, one in Uttar Pradesh, and one in Punjab/Haryana. [0.5]",
+        twistedVersions: [
+          "Which state in India has the highest percentage of its net irrigated area under Tank irrigation?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Leading States by Irrigation Method:</strong>
+              <ul>
+                <li><strong>(i) Well &amp; Tubewell Irrigation (#1 in India):</strong> <span class="kw">Uttar Pradesh</span> (followed by Punjab, Rajasthan, Gujarat, Bihar).</li>
+                <li><strong>(ii) Canal Irrigation (#1 in Area):</strong> <span class="kw">Uttar Pradesh</span> (followed by Punjab, Haryana, Rajasthan — note: <em>Punjab &amp; Haryana have the highest % of net sown area irrigated</em>).</li>
+                <li><strong>(iii) Tank Irrigation:</strong> <span class="kw">Andhra Pradesh, Telangana, and Tamil Nadu</span>.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Famous Perennial Canals:</strong>
+              <ul>
+                <li><strong>Rajasthan:</strong> <span class="kw">Indira Gandhi Canal (Rajasthan Canal)</span>.</li>
+                <li><strong>Uttar Pradesh:</strong> <span class="kw">Upper Ganga Canal, Lower Ganga Canal, Sharda Canal, Agra Canal</span>.</li>
+                <li><strong>Punjab / Haryana:</strong> <span class="kw">Bhakra Canal, Sirhind Canal, Western Yamuna Canal, Bari Doab Canal</span>.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 47,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • CONVENTIONAL VS MODERN IRRIGATION",
+        qType: "modern",
+        subTopic: "Chapter: Water Resources • Conventional vs Modern Irrigation Methods (Direct Comparison)",
+        marks: "[3 Marks]",
+        whyChosen: "Appeared in 2023 and 2025 Specimen Papers: 'Differentiate between Conventional (Traditional) methods of irrigation and Modern methods of irrigation.'",
+        question: "Differentiate between ‘Conventional (Traditional) Methods of Irrigation’ (Wells, Canals, Tanks) and ‘Modern Methods of Irrigation’ (Drip, Sprinkler) on three points. [3]",
+        twistedVersions: [
+          "State two advantages and one disadvantage of Modern irrigation methods over Traditional irrigation methods."
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Water Wastage &amp; Efficiency:</strong> <span class="kw">Conventional methods</span> involve flooding fields or open channels, causing <span class="kw">heavy loss of water through seepage and evaporation (low efficiency: 30–50%)</span>; <span class="kw">Modern methods</span> deliver water via closed pipes/nozzles with <span class="kw">minimal wastage (high efficiency: 80–95%)</span>.</li>
+            <li><strong>2. Impact on Soil Health:</strong> <span class="kw">Conventional methods</span> often cause <span class="kw">waterlogging, soil erosion, and alkaline salinity (‘Reh’/‘Kallar’)</span> due to over-irrigation; <span class="kw">Modern methods</span> supply controlled moisture, <span class="kw">preserving soil structure and preventing waterlogging</span>.</li>
+            <li><strong>3. Initial Cost &amp; Skill:</strong> <span class="kw">Conventional methods</span> (like open wells and inundation canals) are <span class="kw">simple and cheap for poor farmers</span>; <span class="kw">Modern methods</span> require <span class="kw">high initial capital investment and technical maintenance</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 48,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ULTIMATE EXAM HALL CHEAT CODE",
+        qType: "wells_canals",
+        subTopic: "Chapter: Water Resources • 10-Second Exam Hall Master Cheat Code (Zero Marks Lost)",
+        marks: "[3 Marks]",
+        whyChosen: "Students frequently lose 1 mark in Question 7 because they confuse 'Conditions Required for X' with 'Advantages of X'. This final card locks down the 3 golden distinctions.",
+        question: "Master the 3 biggest Examiner Traps in Question 7 (Water Resources):<br>(1) What is the difference between <strong>‘Conditions Required for Wells/Tubewells’</strong> vs <strong>‘Advantages of Wells/Tubewells’</strong>? [1]<br>(2) If asked why a method is <strong>NOT reliable in summer</strong>, which 3 methods share the exact same answer? [1]<br>(3) What is the #1 keyword for <strong>Tank Irrigation in Deccan</strong> vs <strong>Well/Canal Irrigation in Northern Plains</strong>? [1]",
+        twistedVersions: [
+          "How to avoid losing marks in Water Resources 'Conditions vs Advantages' questions."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Trap #1 — ‘Conditions Required’ vs ‘Advantages’:</strong>
+              <ul>
+                <li>If asked for <strong>Conditions Required</strong> (to dig a Well/Tubewell/Canal), write about geography: <span class="kw">Soft alluvial soil, High water table / abundant aquifer, Flat level land, Cheap regular electricity</span>.</li>
+                <li>If asked for <strong>Advantages</strong>, write about benefits to the farmer: <span class="kw">Independent source, Cheap to dig, Irrigates large area (Tubewell), Perennial supply</span>. <em>(Never write "soft soil" as an advantage!)</em></li>
+              </ul>
+            </li>
+            <li><strong>(2) Trap #2 — Universal ‘Not Reliable in Summer’ Answer:</strong>
+              <ul>
+                <li><strong>Open Surface Wells, Inundation Canals, and Tanks</strong> are ALL <span class="kw">seasonal / rain-fed</span> and <span class="kw">dry up during the hot dry summer months</span> when crops need water most!</li>
+              </ul>
+            </li>
+            <li><strong>(3) Trap #3 — Deccan vs Northern Plains Rock/Soil Contrast:</strong>
+              <ul>
+                <li><strong>Deccan Plateau (Tanks):</strong> <span class="kw">Hard, non-porous (impervious) crystalline rock + undulating relief with natural depressions</span>.</li>
+                <li><strong>Northern Plains (Wells &amp; Canals):</strong> <span class="kw">Soft, porous (pervious) alluvial soil + flat level land + perennial snow-fed rivers</span>.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      }
+    ];
+
+    // =========================================================================
+    // APP STATE, MODE SWITCHER, DUAL-TAB DRAWER, BLUR RECALL, FILTERS & TIMER
+    // =========================================================================
+    let currentMode = 'dpp'; // 'dpp' | 'gothrough' | 'blur'
+    let currentProbFilter = 'all';
+    let currentTypeFilter = 'all';
+    let masteredIds = new Set(JSON.parse(localStorage.getItem('icse2027_water_mastered') || '[]'));
+    let reviewIds = new Set(JSON.parse(localStorage.getItem('icse2027_water_review') || '[]'));
+    let revealedIds = new Set();
+
+    let timerSeconds = 1800;
+    let timerInterval = null;
+    let isTimerRunning = false;
+
+    function saveProgress() {
+      localStorage.setItem('icse2027_water_mastered', JSON.stringify([...masteredIds]));
+      localStorage.setItem('icse2027_water_review', JSON.stringify([...reviewIds]));
+      updateStats();
+    }
+
+    function updateStats() {
+      document.getElementById('statMastered').textContent = masteredIds.size;
+      document.getElementById('statReview').textContent = reviewIds.size;
+      const pct = Math.round((masteredIds.size / waterQuestions.length) * 100);
+      const bar = document.getElementById('masteryProgressBar');
+      if (bar) bar.style.width = `${pct}%`;
+    }
+
+    function openCheatTab(tabName) {
+      const drawer = document.getElementById('matrixDrawer');
+      drawer.classList.add('open');
+      switchCheatTab(tabName);
+      drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function switchCheatTab(tabName) {
+      const isIrrigation = tabName === 'irrigation';
+      document.getElementById('tabContentIrrigation').style.display = isIrrigation ? 'block' : 'none';
+      document.getElementById('tabContentRwh').style.display = isIrrigation ? 'none' : 'block';
+      document.getElementById('tabBtnIrrigation').classList.toggle('active', isIrrigation);
+      document.getElementById('tabBtnRwh').classList.toggle('active', !isIrrigation);
+    }
+
+    function closeCheatDrawer() {
+      document.getElementById('matrixDrawer').classList.remove('open');
+    }
+
+    function setStudyMode(mode) {
+      currentMode = mode;
+      document.getElementById('btnDppMode').classList.toggle('active', mode === 'dpp');
+      document.getElementById('btnGoMode').classList.toggle('active', mode === 'gothrough');
+      document.getElementById('btnBlurMode').classList.toggle('active', mode === 'blur');
+      document.body.classList.toggle('blur-mode', mode === 'blur');
+
+      const mBtn = document.getElementById('mobileModeBtn');
+      if (mBtn) {
+        const labelMap = { dpp: 'Mode: DPP', gothrough: 'Mode: Go-Through', blur: 'Mode: Blur' };
+        mBtn.textContent = labelMap[mode];
+      }
+      renderQuestions();
+    }
+
+    function cycleMobileMode() {
+      if (currentMode === 'dpp') setStudyMode('gothrough');
+      else if (currentMode === 'gothrough') setStudyMode('blur');
+      else setStudyMode('dpp');
+    }
+
+    function setProbFilter(prob, btnEl) {
+      currentProbFilter = prob;
+      document.querySelectorAll('[data-prob]').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      renderQuestions();
+    }
+
+    function setTypeFilter(type, btnEl) {
+      currentTypeFilter = type;
+      document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      renderQuestions();
+    }
+
+    function toggleAnswer(id) {
+      if (revealedIds.has(id)) revealedIds.delete(id);
+      else revealedIds.add(id);
+
+      const panel = document.getElementById(`ans-${id}`);
+      const btn = document.getElementById(`revbtn-${id}`);
+      if (panel && btn) {
+        const isShown = revealedIds.has(id);
+        panel.classList.toggle('visible', isShown);
+        btn.innerHTML = isShown ? '🙈 Hide Official Board Answer' : '👁 Show Official Board Answer';
+      }
+    }
+
+    function expandAllAnswers() {
+      waterQuestions.forEach(q => revealedIds.add(q.id));
+      renderQuestions();
+    }
+
+    function collapseAllAnswers() {
+      revealedIds.clear();
+      if (currentMode !== 'dpp') setStudyMode('dpp');
+      else renderQuestions();
+    }
+
+    function toggleMastered(id) {
+      if (masteredIds.has(id)) masteredIds.delete(id);
+      else {
+        masteredIds.add(id);
+        reviewIds.delete(id);
+      }
+      saveProgress();
+      renderQuestions();
+    }
+
+    function toggleReview(id) {
+      if (reviewIds.has(id)) reviewIds.delete(id);
+      else {
+        reviewIds.add(id);
+        masteredIds.delete(id);
+      }
+      saveProgress();
+      renderQuestions();
+    }
+
+    function getProbClass(tier) {
+      if (tier === 'specimen') return 'prob-specimen';
+      if (tier === 'highest') return 'prob-highest';
+      if (tier === 'alternate') return 'prob-alternate';
+      return 'prob-safety';
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      const query = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+
+      const filtered = waterQuestions.filter(q => {
+        if (currentProbFilter !== 'all' && q.probTier !== currentProbFilter) return false;
+        if (currentTypeFilter === 'revision') {
+          if (!reviewIds.has(q.id)) return false;
+        } else if (currentTypeFilter !== 'all' && q.qType !== currentTypeFilter) {
+          return false;
+        }
+        if (query) {
+          const hay = (
+            q.question + ' ' +
+            q.subTopic + ' ' +
+            q.whyChosen + ' ' +
+            q.twistedVersions.join(' ') + ' ' +
+            q.answer
+          ).toLowerCase();
+          return hay.includes(query);
+        }
+        return true;
+      });
+
+      document.getElementById('statTotal').textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="q-card" style="text-align:center; padding:40px;">
+            <h3 style="margin-bottom:8px;">No matching questions found</h3>
+            <p style="color:var(--text-secondary); font-size:0.9rem;">Try clearing your search bar or switching the filter chip back to "All Questions".</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(q => {
+        const isAnswerVisible = currentMode === 'gothrough' || currentMode === 'blur' || revealedIds.has(q.id);
+        const isMastered = masteredIds.has(q.id);
+        const isReview = reviewIds.has(q.id);
+
+        return `
+          <article class="q-card ${isMastered ? 'mastered' : ''} ${isReview ? 'review-later' : ''}" id="qcard-${q.id}">
+            <div class="q-header">
+              <div class="badge-group">
+                <span class="q-num">Q${q.id}</span>
+                <span class="prob-badge ${getProbClass(q.probTier)}">${q.probLabel}</span>
+                <span class="topic-badge">${q.subTopic}</span>
+              </div>
+              <span class="marks-badge">${q.marks}</span>
+            </div>
+
+            <div class="dna-box">
+              <strong>🧬 Why Chosen (Examiner Pattern DNA):</strong> ${q.whyChosen}
+            </div>
+
+            <div class="q-main">
+              ${q.question}
+            </div>
+
+            <div class="twists-container">
+              <div class="twists-title">
+                🔀 All Twisted / Same-Answer Board Variations (${q.twistedVersions.length} Variations):
+              </div>
+              <ul class="twists-list">
+                ${q.twistedVersions.map(t => `<li>${t}</li>`).join('')}
+              </ul>
+            </div>
+
+            <div class="q-actions">
+              ${currentMode === 'dpp' ? `
+                <button class="reveal-btn" id="revbtn-${q.id}" onclick="toggleAnswer(${q.id})">
+                  ${isAnswerVisible ? '🙈 Hide Official Board Answer' : '👁 Show Official Board Answer'}
+                </button>
+              ` : currentMode === 'blur' ? `
+                <span style="font-size:0.78rem; color:var(--accent-cyan); font-weight:700;">🧠 Active Recall Mode: Tap or hover any blurred cyan keyword below to reveal it!</span>
+              ` : `
+                <span style="font-size:0.78rem; color:var(--accent-amber); font-weight:700;">⚡ Go-Through Mode Active (Answer Expanded Below)</span>
+              `}
+
+              <div class="self-eval-group">
+                <button class="eval-btn master-btn ${isMastered ? 'active' : ''}" onclick="toggleMastered(${q.id})">
+                  ${isMastered ? '✔ Mastered' : 'Mark Mastered'}
+                </button>
+                <button class="eval-btn rev-btn ${isReview ? 'active' : ''}" onclick="toggleReview(${q.id})">
+                  ${isReview ? '⭐ In Revision List' : '⭐ Needs Revision'}
+                </button>
+              </div>
+            </div>
+
+            <div class="answer-panel ${isAnswerVisible ? 'visible' : ''}" id="ans-${q.id}">
+              <div class="ans-header">
+                <span class="ans-badge">✅ Official CISCE Council Marking Scheme Answer</span>
+              </div>
+              <div class="ans-body">
+                ${q.answer}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Allow tapping blurred keywords on mobile to toggle unblur
+    document.addEventListener('click', (e) => {
+      if (e.target && e.target.classList.contains('kw') && document.body.classList.contains('blur-mode')) {
+        e.target.classList.toggle('unblurred');
+      }
+    });
+
+    // =========================================================================
+    // COUNTDOWN TIMER & SELF-DOWNLOAD
+    // =========================================================================
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function updateTimerUI() {
+      const text = formatTime(timerSeconds);
+      const d1 = document.getElementById('timerDisplay');
+      const d2 = document.getElementById('mobileTimerDisplay');
+      [d1, d2].forEach(el => {
+        if (!el) return;
+        el.textContent = text;
+        el.classList.remove('warning', 'danger');
+        if (timerSeconds <= 60) el.classList.add('danger');
+        else if (timerSeconds <= 300) el.classList.add('warning');
+      });
+    }
+
+    function changeTimerPreset() {
+      const val = parseInt(document.getElementById('timerPreset').value, 10);
+      pauseTimer();
+      timerSeconds = val;
+      updateTimerUI();
+    }
+
+    function toggleTimer() {
+      if (isTimerRunning) pauseTimer();
+      else startTimer();
+    }
+
+    function startTimer() {
+      if (isTimerRunning) return;
+      isTimerRunning = true;
+      const btn = document.getElementById('timerToggleBtn');
+      const mBtn = document.getElementById('mobileTimerBtn');
+      if (btn) { btn.textContent = 'Pause'; btn.className = 't-btn pause'; }
+      if (mBtn) { mBtn.textContent = 'Pause'; mBtn.className = 't-btn pause'; }
+
+      timerInterval = setInterval(() => {
+        if (timerSeconds > 0) {
+          timerSeconds--;
+          updateTimerUI();
+        } else {
+          pauseTimer();
+          alert('⏰ Time is up! Check your answers against the Official CISCE Marking Scheme.');
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      isTimerRunning = false;
+      clearInterval(timerInterval);
+      const btn = document.getElementById('timerToggleBtn');
+      const mBtn = document.getElementById('mobileTimerBtn');
+      if (btn) { btn.textContent = 'Start'; btn.className = 't-btn start'; }
+      if (mBtn) { mBtn.textContent = 'Start'; mBtn.className = 't-btn start'; }
+    }
+
+    function resetTimer() {
+      pauseTimer();
+      timerSeconds = parseInt(document.getElementById('timerPreset').value, 10);
+      updateTimerUI();
+    }
+
+    function downloadSelfHtml() {
+      const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ICSE_2027_Geography_Water_Resources_DPP.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      updateStats();
+      renderQuestions();
+      startTimer();
+    });
+  </script>
+</body>
+</html>

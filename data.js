@@ -351,8 +351,16 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-geo-water",
                             "name": "Ch 4: Water Resources",
-                            "description": "Sources of water, irrigation necessity, methods & rainwater harvesting",
+                            "description": "48 Most Expected Questions, 190+ Twisted Variations, Master MCQ DPP & 2 Full Class Notes",
                             "items": [
+                                {
+                                    "id": "geo-water-theory-master",
+                                    "title": "Water Resources Theory DPP — 48 Most Expected Questions Vault",
+                                    "subtitle": "48 Master Questions, 190+ Twisted Variations, Dual-Tab Cheat Sheets, Active Recall Blur Mode & 15-Yr Board DNA",
+                                    "type": "interactive",
+                                    "file": "geography/water/index.html",
+                                    "badge": "Theory DPP • 48 Master Qs"
+                                },
                                 {
                                     "id": "geo-water-dpp",
                                     "title": "Water Resources — Master MCQ DPP Drill",
