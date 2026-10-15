@@ -214,6 +214,30 @@ function renderNav() {
         }
     };
     navMenu.appendChild(mcqNav);
+
+    // Quick Launch: Climate Theory DPP (42 Expected Qs)
+    const climateNav = document.createElement('div');
+    const isClimateActive = state.currentItem?.id === 'geo-climate-theory-master';
+    climateNav.className = `nav-item nav-item-featured ${isClimateActive ? 'active' : ''}`;
+    climateNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #34d399;">thermostat</span>
+        <span style="font-weight: 600;">Climate 42 Qs DPP</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669); color:#fff;">NEW</span>
+    `;
+    climateNav.onclick = () => {
+        closeSidebarOnMobile();
+        resetSearch();
+        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
+        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
+        const climateChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-climate');
+        const climateItem = climateChap?.items?.find(i => i.id === 'geo-climate-theory-master');
+        if (climateChap && climateItem) {
+            navigateTo('viewer', [batch.id, geoSub.id, climateChap.id], climateItem);
+        } else {
+            window.location.href = 'geography/climate/index.html';
+        }
+    };
+    navMenu.appendChild(climateNav);
 }
 
 function resetSearch() {

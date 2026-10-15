@@ -194,8 +194,16 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-geo-climate",
                             "name": "Ch 1: Climate",
-                            "description": "Factors affecting climate, seasons, monsoon mechanism & rainfall distribution",
+                            "description": "42 Most Expected Questions, 175+ Twisted Variations, Master MCQ DPP & 5 Full Class Notes",
                             "items": [
+                                {
+                                    "id": "geo-climate-theory-master",
+                                    "title": "Climate Theory DPP — 42 Most Expected Questions Vault",
+                                    "subtitle": "42 High-Yield Questions, 175+ Twisted Board Variations, Official CISCE Marking Scheme, DPP & Go-Through Modes, Live Timer & Data Tables",
+                                    "type": "interactive",
+                                    "file": "geography/climate/index.html",
+                                    "badge": "Theory DPP • 42 Master Qs"
+                                },
                                 {
                                     "id": "geo-climate-dpp",
                                     "title": "Climate of India — Master MCQ DPP Drill",
