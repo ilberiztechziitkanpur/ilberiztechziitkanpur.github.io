@@ -90,7 +90,8 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
+    flex-shrink: 0;
 }
 
 .logo-icon {
@@ -118,11 +119,18 @@ body {
 .nav-menu {
     flex: 1;
     overflow-y: auto;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain;
+    padding-right: 4px;
+    padding-bottom: 24px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 6px;
+    height: 0px;
 }
 ::-webkit-scrollbar-track {
     background: transparent;
@@ -133,6 +141,21 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-menu::-webkit-scrollbar {
+    width: 5px;
+    height: 0px;
+}
+.nav-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+.nav-menu::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+}
+.nav-menu::-webkit-scrollbar-thumb:hover {
+    background: rgba(56, 189, 248, 0.4);
 }
 
 .nav-item {
@@ -163,13 +186,25 @@ body {
 }
 
 .nav-item-featured {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(99, 102, 241, 0.12));
+    border: 1px solid rgba(56, 189, 248, 0.35);
+    margin-bottom: 8px;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    background: rgba(255, 255, 255, 0.02);
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    box-sizing: border-box;
 }
 
 .nav-item-featured:hover {
-    border-color: rgba(56, 189, 248, 0.25);
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.22), rgba(99, 102, 241, 0.22));
+    border-color: rgba(56, 189, 248, 0.65);
+    box-shadow: 0 4px 18px rgba(56, 189, 248, 0.25), inset 0 0 0 1px rgba(56, 189, 248, 0.2);
+}
+
+.nav-item:hover span.icon,
+.nav-item-featured:hover span.icon {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
 }
 
 .nav-badge-hot {
@@ -186,8 +221,9 @@ body {
 
 .sidebar-footer {
     margin-top: auto;
-    padding-top: 24px;
+    padding-top: 16px;
     border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
 }
 
 .telegram-link {
@@ -900,35 +936,8 @@ body {
 }
 
 /* ==========================================================================
-   Featured & Interactive Engine Styles (Geography 100 MCQ Engine)
+   Interactive Engine Container Styles
    ========================================================================== */
-
-.nav-item-featured {
-    background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(99, 102, 241, 0.12));
-    border: 1px solid rgba(56, 189, 248, 0.35);
-    margin: 8px 0;
-    position: relative;
-    overflow: hidden;
-}
-
-.nav-item-featured:hover {
-    background: linear-gradient(135deg, rgba(56, 189, 248, 0.22), rgba(99, 102, 241, 0.22));
-    border-color: rgba(56, 189, 248, 0.65);
-    box-shadow: 0 4px 18px rgba(56, 189, 248, 0.25);
-    transform: translateX(3px);
-}
-
-.nav-badge-hot {
-    margin-left: auto;
-    font-size: 10px;
-    font-weight: 800;
-    padding: 2px 7px;
-    background: linear-gradient(135deg, #f43f5e, #e11d48);
-    color: white;
-    border-radius: 12px;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 8px rgba(244, 63, 94, 0.4);
-}
 
 .interactive-viewer-container {
     width: 100%;
