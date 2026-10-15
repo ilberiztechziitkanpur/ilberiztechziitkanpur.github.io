@@ -310,6 +310,30 @@ function renderNav() {
         }
     };
     navMenu.appendChild(waterNav);
+
+    // Quick Launch: Transport Network Theory DPP (48 Expected Qs)
+    const transportNav = document.createElement('div');
+    const isTransportActive = state.currentItem?.id === 'geo-transport-theory-master';
+    transportNav.className = `nav-item nav-item-featured ${isTransportActive ? 'active' : ''}`;
+    transportNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #6366f1;">directions_transit</span>
+        <span style="font-weight: 600;">Transport 48 Qs DPP</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); color:#fff;">NEW</span>
+    `;
+    transportNav.onclick = () => {
+        closeSidebarOnMobile();
+        resetSearch();
+        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
+        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
+        const transChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-transport');
+        const transItem = transChap?.items?.find(i => i.id === 'geo-transport-theory-master');
+        if (transChap && transItem) {
+            navigateTo('viewer', [batch.id, geoSub.id, transChap.id], transItem);
+        } else {
+            window.location.href = 'geography/transport/index.html';
+        }
+    };
+    navMenu.appendChild(transportNav);
 }
 
 function resetSearch() {

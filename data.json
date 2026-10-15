@@ -484,9 +484,17 @@
                         {
                             "id": "chap-geo-transport",
                             "name": "Ch 9: Transport in India",
-                            "description": "Roadways, Railways, Airways and Waterways: Advantages, expressways and ports",
+                            "description": "48 Most Expected Questions, 190+ Twisted Variations, Master MCQ DPP & Dual-Tab Matrix Drawer",
                             "featured": true,
                             "items": [
+                                {
+                                    "id": "geo-transport-theory-master",
+                                    "title": "Transport Network Theory DPP — 48 Most Expected Questions Vault",
+                                    "subtitle": "48 Master Questions, 190+ Variations, Modes of Transport & 12 Major Ports Cheat Sheets, Active Recall Blur Mode",
+                                    "type": "interactive",
+                                    "file": "geography/transport/index.html",
+                                    "badge": "Theory DPP • 48 Master Qs"
+                                },
                                 {
                                     "id": "geo-transport-dpp",
                                     "title": "Transport in India — Master MCQ DPP Drill",

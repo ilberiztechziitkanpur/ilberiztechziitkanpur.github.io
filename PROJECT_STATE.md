@@ -28,6 +28,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # 46 Most Expected Theory Qs, 185+ Variations, Dual-Tab Drawer, Blur Mode
 │   ├── water/                       # Chapter 4: Water Resources Theory Master DPP Vault
 │   │   └── index.html               # 48 Most Expected Theory Qs, 190+ Variations, Dual-Tab Drawer, Blur Mode
+│   ├── transport/                   # Chapter 5: Transport Network Theory Master DPP Vault
+│   │   └── index.html               # 48 Most Expected Theory Qs, 190+ Variations, Dual-Tab Drawer, Blur Mode
 │   ├── notes/                       # All 17 ICSE Class 10 Geography PDF notes
 │   │   ├── Climate_01_Class_Notes.pdf ... Climate_05_Class_Notes.pdf (5 files)
 │   │   ├── Soil_Resources_01_Class_Notes.pdf ... Soil_Resources_03_Class_Notes.pdf (3 files)
@@ -52,7 +54,7 @@ ILBERIZ TECHZ IIT KANPUR/
 
 ## 3. Strict Autonomous Engineering Rules
 
-1. **Geography Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or chapter-specific interactive theory vaults MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `soil/`, `vegetation/`, `water/`, `notes/`, `mcq/`, `toposheet/`, etc.).
+1. **Geography Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or chapter-specific interactive theory vaults MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `soil/`, `vegetation/`, `water/`, `transport/`, `notes/`, `mcq/`, `toposheet/`, etc.).
 2. **Standard File Structure for Engines**: Each interactive chapter vault is named `index.html` inside its respective folder (e.g. `geography/<topic>/index.html`) so it can be served as a clean standalone web app or embedded smoothly inside the main dashboard iframe.
 3. **Always Include Navigation & Fonts**: Every chapter engine `index.html` MUST include:
    - Google Fonts (`Inter`, `Outfit`, `JetBrains Mono`) and `Material Symbols Outlined`.
@@ -148,14 +150,29 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Live Exam Countdown Timer**: 15, 30, 45, 60 mins presets with warning/danger pulse indicators.
 - **Persistent Progress**: `localStorage` tracking (`icse2027_water_mastered`, `icse2027_water_review`).
 
-### F. Master 100 MCQ DPP & DNA Diagnostic Engine (`geography/mcq/index.html`)
+### F. Chapter 5: Transport Network Theory Master DPP Vault (`geography/transport/index.html`)
+- **48 Master High-Yield Theory Questions** targeting 10/10 marks in Question 11 (Transport Network).
+- **190+ Twisted Board Variations** grouped under their core Council Marking Scheme answers.
+- **3 Interactive Study Modes**:
+  1. 🎯 DPP Mode (Test): Collapsed answers, individual reveal toggles, self-evaluation (Mastered vs Revision).
+  2. ⚡ Go-Through Mode: Instant reveal of all official CISCE answers & keywords for rapid reading.
+  3. 🧠 Active Recall Blur Mode: Blurs technical keywords until clicked or hovered to test active memory retrieval.
+- **Interactive Dual-Tab Cheat Sheet Drawer**:
+  - Tab 1: 4-Mode Transport Master Comparison Matrix (Roadways, Railways, Waterways, Airways across Advantages, Disadvantages & Best Uses).
+  - Tab 2: Highways, Rail Gauges, Inland Waterways (NW-1, NW-2, NW-3) & 12 Major Sea Ports of India (Kandla, Mumbai, JNPT, Mormugao, New Mangalore, Cochin, Tuticorin, Chennai, Ennore, Visakhapatnam, Paradip, Kolkata/Haldia).
+- **Live Mastery Progress Strip**: Visual progress bar in the top command bar tracking real-time question mastery percentage.
+- **Real-time Probability DNA & Format Filters**: 2027 Specimen, Highest Probability (6–10x), Give Reasons, 2-Markers, Differentiate, Case-Based, Golden Quadrilateral & Corridors, Ports & Waterways, Roadways vs Railways.
+- **Live Exam Countdown Timer**: 15, 30, 45, 60 mins presets with warning/danger pulse indicators.
+- **Persistent Progress**: `localStorage` tracking (`icse2027_transport_mastered`, `icse2027_transport_review`).
+
+### G. Master 100 MCQ DPP & DNA Diagnostic Engine (`geography/mcq/index.html`)
 - 100 high-yield questions covering all 9 CISCE units.
 - 8-Year Board Frequency Matrix (2018–2026).
 - Practice & Timed DPP Exam modes with instant explanation drawers.
 - 100-Question Palette Modal navigator for instant jumping.
 - Hardware-accelerated CSS containment for 60fps lag-free scrolling.
 
-### G. Topography Question 1 Master Blueprint & Exam Engine (`geography/toposheet/index.html`)
+### H. Topography Question 1 Master Blueprint & Exam Engine (`geography/toposheet/index.html`)
 - 50 exact questions across 5 sets for Survey of India Map Sheets G43S10 & G43S7.
 - Live 15-Minute Target Timer (Board exam allocation) with countdown & drill modes.
 - Automated evaluation with CISCE marking scheme answers.
