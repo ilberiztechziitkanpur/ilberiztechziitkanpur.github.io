@@ -304,8 +304,16 @@
                         {
                             "id": "chap-geo-vegetation",
                             "name": "Ch 3: Natural Vegetation",
-                            "description": "Forest types of India, distribution, economic importance & conservation",
+                            "description": "46 Most Expected Questions, 185+ Twisted Variations, Master MCQ DPP & 3 Full Class Notes",
                             "items": [
+                                {
+                                    "id": "geo-veg-theory-master",
+                                    "title": "Natural Vegetation Theory DPP — 46 Most Expected Questions Vault",
+                                    "subtitle": "46 Master Questions, 185+ Twisted Variations, Dual-Tab Cheat Sheets, Active Recall Blur Mode & 15-Yr Board DNA",
+                                    "type": "interactive",
+                                    "file": "geography/vegetation/index.html",
+                                    "badge": "Theory DPP • 46 Master Qs"
+                                },
                                 {
                                     "id": "geo-veg-dpp",
                                     "title": "Natural Vegetation — Master MCQ DPP Drill",

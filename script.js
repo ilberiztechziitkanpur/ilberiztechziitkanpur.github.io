@@ -262,6 +262,30 @@ function renderNav() {
         }
     };
     navMenu.appendChild(soilNav);
+
+    // Quick Launch: Natural Vegetation Theory DPP (46 Expected Qs)
+    const vegNav = document.createElement('div');
+    const isVegActive = state.currentItem?.id === 'geo-veg-theory-master';
+    vegNav.className = `nav-item nav-item-featured ${isVegActive ? 'active' : ''}`;
+    vegNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #10b981;">forest</span>
+        <span style="font-weight: 600;">Vegetation 46 Qs</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669); color:#fff;">NEW</span>
+    `;
+    vegNav.onclick = () => {
+        closeSidebarOnMobile();
+        resetSearch();
+        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
+        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
+        const vegChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-vegetation');
+        const vegItem = vegChap?.items?.find(i => i.id === 'geo-veg-theory-master');
+        if (vegChap && vegItem) {
+            navigateTo('viewer', [batch.id, geoSub.id, vegChap.id], vegItem);
+        } else {
+            window.location.href = 'geography/vegetation/index.html';
+        }
+    };
+    navMenu.appendChild(vegNav);
 }
 
 function resetSearch() {

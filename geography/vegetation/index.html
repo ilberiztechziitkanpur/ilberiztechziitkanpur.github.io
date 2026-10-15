@@ -1,0 +1,2537 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <title>ICSE 2027 Geography DPP — Chapter 3: Natural Vegetation (Extreme UI v2.5)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #050908;
+      --bg-secondary: #0b1411;
+      --bg-card: rgba(13, 24, 20, 0.88);
+      --bg-card-hover: rgba(18, 33, 28, 0.96);
+      --text-primary: #f0fdf4;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-emerald: #10b981;
+      --accent-teal: #14b8a6;
+      --accent-lime: #84cc16;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --border-subtle: rgba(148, 163, 184, 0.14);
+      --shadow-glow: 0 12px 35px -10px rgba(16, 185, 129, 0.2);
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background-color: var(--bg-primary);
+      background-image: 
+        radial-gradient(circle at 12% 10%, rgba(16, 185, 129, 0.12) 0%, transparent 36%),
+        radial-gradient(circle at 88% 16%, rgba(20, 184, 166, 0.10) 0%, transparent 40%),
+        radial-gradient(circle at 50% 90%, rgba(132, 204, 22, 0.08) 0%, transparent 45%);
+      background-attachment: fixed;
+      color: var(--text-primary);
+      line-height: 1.65;
+      padding-bottom: 110px;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: #132a23; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent-emerald); }
+
+    /* Top Sticky Command Bar */
+    .command-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5, 9, 8, 0.9);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .progress-strip {
+      height: 3px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-lime), var(--accent-teal));
+      transition: width 0.35s ease;
+    }
+
+    .command-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .home-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .home-nav-btn:hover {
+      background: rgba(16, 185, 129, 0.16);
+      border-color: var(--accent-emerald);
+      color: var(--accent-emerald);
+      transform: translateX(-2px);
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, var(--accent-emerald), #059669);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.74rem;
+      letter-spacing: 0.08em;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      text-transform: uppercase;
+      box-shadow: 0 0 16px rgba(16, 185, 129, 0.35);
+    }
+
+    .brand-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+    }
+
+    .brand-sub {
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      display: block;
+    }
+
+    .controls-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    /* 3-Mode Pill Switcher */
+    .mode-pill {
+      display: inline-flex;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 999px;
+      padding: 3px;
+    }
+
+    .mode-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    .mode-btn.active {
+      background: linear-gradient(135deg, var(--accent-emerald), var(--accent-teal));
+      color: #04130e;
+      box-shadow: 0 2px 12px rgba(16, 185, 129, 0.35);
+    }
+
+    /* Timer Box */
+    .timer-widget {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+
+    .timer-display {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--accent-emerald);
+      min-width: 58px;
+      text-align: center;
+    }
+
+    .timer-display.warning { color: var(--accent-amber); }
+    .timer-display.danger { color: var(--accent-rose); animation: pulse 1s infinite; }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .preset-select {
+      background: rgba(255,255,255,0.05);
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 4px 7px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .preset-select option { background: var(--bg-secondary); color: var(--text-primary); }
+
+    .t-btn {
+      border: none;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .t-btn:hover { background: rgba(255, 255, 255, 0.16); }
+    .t-btn.start { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .t-btn.pause { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+
+    .container {
+      max-width: 1300px;
+      margin: 22px auto 0;
+      padding: 0 18px;
+    }
+
+    /* Hero Card */
+    .hero-card {
+      background: linear-gradient(145deg, rgba(13, 26, 22, 0.94), rgba(7, 14, 12, 0.96));
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 26px;
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-emerald), var(--accent-lime), var(--accent-teal));
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.65fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-emerald);
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.4rem, 2.7vw, 2.05rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #ffffff, #a7f3d0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    .syllabus-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .syl-pill {
+      font-size: 0.72rem;
+      color: #d1fae5;
+      background: rgba(16, 185, 129, 0.07);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .cheat-btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .cheat-toggle-btn {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.22), rgba(20, 184, 166, 0.22));
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      color: #6ee7b7;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 9px 16px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cheat-toggle-btn:hover {
+      background: linear-gradient(135deg, var(--accent-emerald), var(--accent-teal));
+      color: #04130e;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stat-box {
+      background: rgba(9, 17, 14, 0.92);
+      border: 1px solid var(--border-subtle);
+      padding: 14px;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--accent-emerald);
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+
+    /* Interactive Dual-Tab Cheat Sheet Drawer */
+    .matrix-drawer {
+      background: var(--bg-card);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 22px;
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .matrix-drawer.open { display: block; }
+
+    .drawer-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .d-tab {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .d-tab.active {
+      background: rgba(16, 185, 129, 0.2);
+      color: #6ee7b7;
+      border-color: var(--accent-emerald);
+    }
+
+    .matrix-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.81rem;
+      min-width: 820px;
+      text-align: left;
+    }
+
+    .matrix-table th {
+      background: rgba(16, 185, 129, 0.16);
+      color: #a7f3d0;
+      padding: 10px 12px;
+      border: 1px solid var(--border-subtle);
+      font-weight: 800;
+    }
+
+    .matrix-table td {
+      padding: 9px 12px;
+      border: 1px solid var(--border-subtle);
+      color: #e2e8f0;
+      background: rgba(9, 17, 14, 0.75);
+      vertical-align: top;
+    }
+
+    /* Filter & Search Panel */
+    .filter-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .search-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 220px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-emerald);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+    }
+
+    .action-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 8px 13px;
+      border-radius: var(--radius-sm);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .action-btn:hover {
+      border-color: var(--accent-emerald);
+      background: rgba(16, 185, 129, 0.14);
+    }
+
+    .filter-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+    }
+
+    .chip-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-right: 4px;
+    }
+
+    .f-chip {
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    .f-chip:hover { color: var(--text-primary); border-color: rgba(255,255,255,0.25); }
+    .f-chip.active {
+      background: rgba(16, 185, 129, 0.2);
+      color: #6ee7b7;
+      border-color: var(--accent-emerald);
+    }
+
+    /* Question Cards */
+    .questions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .q-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      transition: all 0.22s ease;
+      position: relative;
+    }
+
+    .q-card:hover {
+      border-color: rgba(16, 185, 129, 0.38);
+      box-shadow: 0 12px 32px -12px rgba(0, 0, 0, 0.65);
+    }
+
+    .q-card.mastered { border-left: 4px solid var(--accent-emerald); }
+    .q-card.review-later { border-left: 4px solid var(--accent-amber); }
+
+    .q-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .q-num {
+      background: linear-gradient(135deg, #132a23, #091511);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #6ee7b7;
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: monospace;
+    }
+
+    .prob-badge {
+      font-size: 0.71rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .prob-specimen {
+      background: rgba(16, 185, 129, 0.18);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+    }
+
+    .prob-highest {
+      background: rgba(244, 63, 94, 0.16);
+      color: #fb7185;
+      border: 1px solid rgba(244, 63, 94, 0.4);
+    }
+
+    .prob-alternate {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .prob-safety {
+      background: rgba(20, 184, 166, 0.16);
+      color: #5eead4;
+      border: 1px solid rgba(20, 184, 166, 0.4);
+    }
+
+    .topic-badge {
+      font-size: 0.73rem;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    .marks-badge {
+      font-family: monospace;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-emerald);
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .dna-box {
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.11), rgba(20, 184, 166, 0.04));
+      border-left: 3px solid var(--accent-emerald);
+      padding: 10px 14px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-bottom: 14px;
+      font-size: 0.83rem;
+      color: #e2e8f0;
+    }
+
+    .dna-box strong {
+      color: #6ee7b7;
+      text-transform: uppercase;
+      font-size: 0.73rem;
+      letter-spacing: 0.05em;
+      margin-right: 6px;
+    }
+
+    .q-main {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.56;
+    }
+
+    .twists-container {
+      background: rgba(9, 17, 14, 0.82);
+      border: 1px dashed rgba(148, 163, 184, 0.26);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      margin-bottom: 16px;
+    }
+
+    .twists-title {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-amber);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .twists-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .twists-list li {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .twists-list li::before {
+      content: "↳";
+      position: absolute;
+      left: 0;
+      color: var(--accent-amber);
+      font-weight: bold;
+    }
+
+    .q-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .reveal-btn {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.22), rgba(20, 184, 166, 0.22));
+      border: 1px solid rgba(16, 185, 129, 0.5);
+      color: #6ee7b7;
+      font-weight: 700;
+      font-size: 0.83rem;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .reveal-btn:hover {
+      background: linear-gradient(135deg, var(--accent-emerald), var(--accent-teal));
+      color: #04130e;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+
+    .self-eval-group {
+      display: flex;
+      gap: 8px;
+    }
+
+    .eval-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 7px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .eval-btn.master-btn.active {
+      background: rgba(16, 185, 129, 0.22);
+      border-color: var(--accent-emerald);
+      color: #34d399;
+    }
+
+    .eval-btn.rev-btn.active {
+      background: rgba(245, 158, 11, 0.22);
+      border-color: var(--accent-amber);
+      color: #fbbf24;
+    }
+
+    /* Official Answer Box */
+    .answer-panel {
+      margin-top: 16px;
+      background: rgba(7, 14, 11, 0.95);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: none;
+      animation: fadeIn 0.22s ease;
+    }
+
+    .answer-panel.visible { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ans-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .ans-badge {
+      font-size: 0.74rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #34d399;
+    }
+
+    .ans-body {
+      font-size: 0.92rem;
+      color: #e2e8f0;
+    }
+
+    .ans-body ul {
+      padding-left: 20px;
+      margin-top: 6px;
+    }
+
+    .ans-body li { margin-bottom: 7px; }
+
+    /* Highlighted Keywords & Active Recall Blur Mode */
+    .kw {
+      background: rgba(16, 185, 129, 0.16);
+      color: #6ee7b7;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+      border-bottom: 1px dashed rgba(16, 185, 129, 0.5);
+      transition: filter 0.2s ease, background 0.2s ease;
+    }
+
+    body.blur-mode .kw:not(.unblurred) {
+      filter: blur(5px);
+      background: rgba(16, 185, 129, 0.3);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    body.blur-mode .kw:hover {
+      filter: blur(0px);
+    }
+
+    .examiner-tip {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: rgba(245, 158, 11, 0.1);
+      border-left: 3px solid var(--accent-amber);
+      border-radius: 4px;
+      font-size: 0.82rem;
+      color: #fde68a;
+    }
+
+    /* Mobile Sticky Bar */
+    .mobile-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(6, 11, 9, 0.96);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border-subtle);
+      padding: 10px 14px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 99;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .command-inner { flex-direction: column; align-items: stretch; }
+      .controls-group { justify-content: space-between; }
+      .mobile-bar { display: flex; }
+      .q-card { padding: 16px; }
+    }
+
+    @media print {
+      .command-bar, .filter-panel, .mobile-bar, .q-actions, .cheat-btn-row { display: none !important; }
+      .answer-panel { display: block !important; border: 1px solid #000; }
+      body { background: #fff; color: #000; }
+      .q-card { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP COMMAND BAR -->
+  <header class="command-bar">
+    <div class="progress-strip">
+      <div class="progress-fill" id="masteryProgressBar"></div>
+    </div>
+    <div class="command-inner">
+      <div class="brand-group">
+        <a href="../../index.html" class="home-nav-btn" target="_top" title="Back to Ilberiz Techz Dashboard">
+          <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>
+          <span>Ilberiz Techz</span>
+        </a>
+        <span class="brand-badge">ICSE 2027</span>
+        <div>
+          <span class="brand-title">Geography Theory DPP — Chapter 3: Natural Vegetation</span>
+          <span class="brand-sub">Question 6 Master Vault • 2027 Specimen + 15-Year Board DNA</span>
+        </div>
+      </div>
+
+      <div class="controls-group">
+        <!-- 3-Mode Switcher -->
+        <div class="mode-pill" role="group" aria-label="Study Mode">
+          <button class="mode-btn active" id="btnDppMode" onclick="setStudyMode('dpp')">
+            🎯 DPP Mode
+          </button>
+          <button class="mode-btn" id="btnGoMode" onclick="setStudyMode('gothrough')">
+            ⚡ Go-Through
+          </button>
+          <button class="mode-btn" id="btnBlurMode" onclick="setStudyMode('blur')" title="Blur keywords for active memory recall!">
+            🧠 Blur Keywords
+          </button>
+        </div>
+
+        <!-- Timer Widget -->
+        <div class="timer-widget">
+          <select id="timerPreset" class="preset-select" onchange="changeTimerPreset()">
+            <option value="900">15 Mins</option>
+            <option value="1800" selected>30 Mins</option>
+            <option value="2700">45 Mins</option>
+            <option value="3600">60 Mins</option>
+          </select>
+          <span class="timer-display" id="timerDisplay">30:00</span>
+          <button class="t-btn start" id="timerToggleBtn" onclick="toggleTimer()">Start</button>
+          <button class="t-btn" onclick="resetTimer()">Reset</button>
+        </div>
+
+        <button class="action-btn" onclick="downloadSelfHtml()" title="Download this HTML file to share with friends on mobile/laptop">
+          ⬇ Download .HTML
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO SECTION -->
+    <section class="hero-card">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-tag">🌲 Target 10/10 Marks in Question 6 (Natural Vegetation)</span>
+          <h1 class="hero-title">Natural Vegetation of India: Complete Board DNA & Twisted Question Vault</h1>
+          <p class="hero-desc">
+            Every question is verified against the <strong>Official ICSE 2027 Geography Syllabus</strong>, the <strong>2025, 2026 & 2027 Specimen Papers</strong>, and <strong>2010–2026 Board Papers</strong>. Includes all 5 Forest Belts, Plant Adaptations (Pneumatophores, Stilt Roots, Xerophytes, Conical Trees), 14 Mandatory Tree Species & Uses, and Forest Conservation Programmes.
+          </p>
+          <div class="syllabus-pills">
+            <span class="syl-pill">✔ Importance of Forests</span>
+            <span class="syl-pill">✔ Tropical Evergreen</span>
+            <span class="syl-pill">✔ Tropical Deciduous (Monsoon)</span>
+            <span class="syl-pill">✔ Tropical Desert (Thorn)</span>
+            <span class="syl-pill">✔ Littoral (Tidal / Mangrove)</span>
+            <span class="syl-pill">✔ Mountain (Montane)</span>
+            <span class="syl-pill">✔ Tree Species & Uses</span>
+            <span class="syl-pill">✔ Social & Agro-Forestry</span>
+          </div>
+          <div class="cheat-btn-row">
+            <button class="cheat-toggle-btn" onclick="openCheatTab('forests')" id="matrixBtn1">
+              📊 Open 5-Forest Master Comparison Matrix
+            </button>
+            <button class="cheat-toggle-btn" onclick="openCheatTab('trees')" id="matrixBtn2">
+              🪵 Open 14 Mandatory Trees & Economic Uses Vault
+            </button>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-num" id="statTotal">46</div>
+            <div class="stat-label">Master Theory Questions</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">225+</div>
+            <div class="stat-label">Twisted Board Variations</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" id="statMastered" style="color: var(--accent-emerald);">0</div>
+            <div class="stat-label">Mastered (Full Marks)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" id="statReview" style="color: var(--accent-amber);">0</div>
+            <div class="stat-label">Marked for Revision</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE DUAL-TAB CHEAT SHEET DRAWER -->
+    <section class="matrix-drawer" id="matrixDrawer">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+        <div class="drawer-tabs">
+          <button class="d-tab active" id="tabBtnForests" onclick="switchCheatTab('forests')">📊 Tab 1: 5-Forest Master Comparison Matrix</button>
+          <button class="d-tab" id="tabBtnTrees" onclick="switchCheatTab('trees')">🪵 Tab 2: 14 Mandatory ICSE Trees & Economic Uses</button>
+        </div>
+        <button class="action-btn" onclick="closeCheatDrawer()">✖ Close Cheat Sheet</button>
+      </div>
+
+      <!-- TAB 1: 5 FORESTS MATRIX -->
+      <div id="tabContentForests" class="matrix-table-wrap">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Forest Type</th>
+              <th>Rainfall & Temp</th>
+              <th>Key Characteristics & Adaptations</th>
+              <th>Important Trees</th>
+              <th>Major Distribution (Regions/States)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Tropical Evergreen (Rainforests)</strong></td>
+              <td><strong>Rain:</strong> &gt; 200 cm<br><strong>Temp:</strong> 25&deg;C–27&deg;C<br><strong>Humidity:</strong> &gt; 77%</td>
+              <td>• <strong>Evergreen:</strong> Trees have different shedding times, so forest never looks bare.<br>• <strong>Multi-layered canopy</strong> (40–60m tall) blocks sunlight; dark, damp floor.<br>• <strong>Mixed species</strong> (not in pure stands) &rarr; hard to exploit commercially.</td>
+              <td><strong>Rosewood, Ebony, Mahogany, Cinchona, Rubber, Gurjan, Toon, Shisham</strong></td>
+              <td><strong>Windward Western Slope of Western Ghats</strong> (Kerala, Karnataka, Maharashtra), <strong>Andaman &amp; Nicobar Islands</strong>, <strong>Garo-Khasi-Jaintia Hills (Meghalaya)</strong>, Assam.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Tropical Deciduous (Monsoon Forests)</strong><br><em>(Moist: 100–200 cm)<br>(Dry: 70–100 cm)</em></td>
+              <td><strong>Rain:</strong> 70 to 200 cm<br><strong>Temp:</strong> 24&deg;C–27&deg;C</td>
+              <td>• <strong>Shed leaves for 6–8 weeks in dry summer (March–May)</strong> to conserve water/check transpiration.<br>• <strong>Pure stands:</strong> Trees occur in single-species clusters.<br>• <strong>Most commercially exploited</strong> &amp; most widespread forest in India.</td>
+              <td><strong>Teak, Sal, Sandalwood, Semul, Myrobalan, Palas, Mahua, Arjun, Mulberry</strong></td>
+              <td><strong>Leeward Eastern Slope of Western Ghats</strong>, Foothills of Himalayas (Siwaliks), Chota Nagpur Plateau, Odisha, MP, Chhattisgarh, UP, Bihar, Karnataka.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Tropical Desert (Thorn &amp; Scrub)</strong></td>
+              <td><strong>Rain:</strong> &lt; 50 cm (often &lt; 25 cm)<br><strong>Temp:</strong> 25&deg;C–27&deg;C (Low humidity &lt; 47%)</td>
+              <td>• <strong>Xerophytic adaptations</strong> to survive acute drought:<br>1. <strong>Long taproots</strong> to draw deep underground water.<br>2. <strong>Leaves modified into sharp spines/thorns</strong> to reduce transpiration.<br>3. <strong>Fleshy stems / thick waxy bark</strong> to store water &amp; prevent grazing.</td>
+              <td><strong>Babool (Kikar), Ber, Date Palm, Khair, Neem, Cacti, Khejri</strong></td>
+              <td><strong>Western Rajasthan (Thar Desert)</strong>, Kutch &amp; Saurashtra (Gujarat), South-West Punjab, Haryana, Rain-shadow belt of Deccan Plateau.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Littoral (Tidal / Mangrove / Deltaic)</strong></td>
+              <td><strong>Rain:</strong> 150–200 cm (Wet coastal deltas)<br><strong>Temp:</strong> 26&deg;C–29&deg;C</td>
+              <td>• Grow in <strong>saline, waterlogged, marshy deltaic soil</strong> washed by tides:<br>1. <strong>Breathing Roots (Pneumatophores):</strong> Vertical roots with pores protruding above mud to take in oxygen during low tide.<br>2. <strong>Stilt / Prop Roots:</strong> Tangled root network above ground supporting trunk in soft shifting mud during high tide.</td>
+              <td><strong>Sundari, Gorjan, Hintal, Keora, Rhizophora, Agar, Casuarina</strong></td>
+              <td><strong>Ganga-Brahmaputra Delta (Sundarbans in West Bengal)</strong>, Deltas of <strong>Mahanadi, Godavari, Krishna, Kaveri</strong>, and Andaman Coast.</td>
+            </tr>
+            <tr>
+              <td><strong>5. Mountain (Montane) Forests</strong></td>
+              <td><strong>Rain:</strong> 100–250 cm<br><strong>Temp:</strong> 12&deg;C–20&deg;C (Varies with Altitude)</td>
+              <td>• <strong>Altitudinal Zonation:</strong> Vegetation changes from Tropical Deciduous (foothills) &rarr; Temperate Broad-leafed (1000–2000m) &rarr; <strong>Coniferous (1500–3300m)</strong> &rarr; Alpine Grass/Moss (&gt;3300m).<br>• Conifers have <strong>conical shape &amp; needle-like leaves</strong> to slide off snow.</td>
+              <td><strong>Chir Pine, Deodar, Silver Fir, Blue Pine, Spruce, Oak, Chestnut, Magnolia, Birch</strong><br><em>(Nilgiris: Sholas / Eucalyptus)</em></td>
+              <td><strong>Himalayan Region</strong> (Jammu &amp; Kashmir, Himachal Pradesh, Uttarakhand, Sikkim, Arunachal Pradesh) and <strong>Nilgiri / Anamalai / Palani Hills</strong> in South India.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TAB 2: 14 MANDATORY TREES & USES -->
+      <div id="tabContentTrees" class="matrix-table-wrap" style="display:none;">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>Tree Name</th>
+              <th>Forest Type &amp; Key State</th>
+              <th>Official CISCE Board Economic Uses &amp; Special Features</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Teak</strong></td>
+              <td>Tropical Moist Deciduous (MP, Maharashtra, Assam)</td>
+              <td>Moderately hard, durable, easy to season; <strong>contains natural oil that prevents rusting of iron nails</strong>. Used for <strong>ship-building, house construction, railway sleepers, and high-quality furniture</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Sal</strong></td>
+              <td>Tropical Moist Deciduous (Bihar, Odisha, Jharkhand, UP)</td>
+              <td>Very hard, heavy, tough, and immune to termite attack. Used for making <strong>railway sleepers, bridges, beams, door frames, and mine props</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Sandalwood</strong></td>
+              <td>Tropical Deciduous (<strong>Karnataka</strong> — #1 State, Tamil Nadu)</td>
+              <td>Aromatic heartwood; used for extracting <strong>sandalwood oil for perfumery, cosmetics, soaps, incense sticks (agarbattis)</strong>, and carving <strong>ornamental handicrafts/statues</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Sundari</strong></td>
+              <td>Littoral / Tidal / Mangrove (<strong>Sundarbans Delta, West Bengal</strong>)</td>
+              <td>Provides very hard, strong, durable, and <strong>water-resistant timber</strong> that does not rot in salty water. Used for <strong>making boats, barges, telephone posts, and house construction</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>5. Rosewood</strong></td>
+              <td>Tropical Evergreen (Kerala, Karnataka, Tamil Nadu)</td>
+              <td>Fine-grained, extremely hard, dark reddish-brown wood. Used for <strong>expensive luxury furniture, musical instruments, floorings, veneers, and ornamental carvings</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>6. Ebony</strong></td>
+              <td>Tropical Evergreen (Andaman, Western Ghats)</td>
+              <td>Coal-black, heavy, hard lustrous wood. Used for <strong>piano keys, ornamental carvings, musical instruments, and inlaid decorative furniture</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>7. Semul (Silk Cotton)</strong></td>
+              <td>Tropical Moist Deciduous (Assam, Bihar, Tamil Nadu)</td>
+              <td>Soft and white timber. Used for making <strong>matchboxes, matchsticks, toys, packing cases, and plywood</strong>; its fruit yields soft fibre for <strong>stuffing pillows</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>8. Myrobalan (Harar)</strong></td>
+              <td>Tropical Deciduous (MP, Odisha, Maharashtra)</td>
+              <td>Its fruit/nuts provide rich <strong>tannin used for tanning leather</strong> and for <strong>dyeing cotton, wool, and silk</strong>, as well as Ayurvedic medicines.</td>
+            </tr>
+            <tr>
+              <td><strong>9. Palas (Flame of Forest)</strong></td>
+              <td>Tropical Dry Deciduous (Chota Nagpur, Bihar, MP)</td>
+              <td>Leaves are used for <strong>rearing shellac worms (lac cultivation)</strong>; flowers yield natural dye.</td>
+            </tr>
+            <tr>
+              <td><strong>10. Babool (Kikar)</strong></td>
+              <td>Tropical Desert / Thorn (Rajasthan, Gujarat, Punjab)</td>
+              <td>Bark and pods are used for <strong>tanning leather</strong>; yields valuable <strong>gum (Gum Arabic)</strong>; thorny branches used for fencing and medicinal twigs (datun).</td>
+            </tr>
+            <tr>
+              <td><strong>11. Neem</strong></td>
+              <td>Tropical Desert / Dry Deciduous (All across Plains)</td>
+              <td>Bark, leaves, and seeds have powerful <strong>medicinal, antibacterial, and antifungal properties</strong>; used in <strong>cosmetics, soaps, medicines, and bio-pesticides/insecticides</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>12. Khair (Acacia Catechu)</strong></td>
+              <td>Tropical Desert / Thorn (Rajasthan, UP, MP)</td>
+              <td>Boiled heartwood yields <strong>‘Kattha’ (used in paan / betel leaf and medicines)</strong> and <strong>Cutch</strong> (used for dyeing and tanning).</td>
+            </tr>
+            <tr>
+              <td><strong>13. Deodar (Devadaru)</strong></td>
+              <td>Mountain / Coniferous (Himachal Pradesh, Kashmir)</td>
+              <td>Medium-weight, oily, durable, scented wood resistant to rot. Used for <strong>railway sleepers, bridge construction, beams, and window frames</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>14. Chir Pine &amp; Silver Fir</strong></td>
+              <td>Mountain / Coniferous (Uttarakhand, HP, J&amp;K)</td>
+              <td><strong>Chir Pine</strong> yields <strong>resin and turpentine oil</strong> (used in paints/varnishes) and wood for <strong>tea chests</strong>. <strong>Silver Fir</strong> soft wood is used for <strong>paper pulp, matchsticks, and packing cases</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FILTER & SEARCH BAR -->
+    <section class="filter-panel">
+      <div class="search-row">
+        <input 
+          type="text" 
+          id="searchInput" 
+          class="search-input" 
+          placeholder="Search any keyword (e.g., 'Pneumatophores', 'Teak', 'Sundari', 'Xerophytic', 'Social Forestry', 'Evergreen', '2027 Specimen')..."
+          oninput="renderQuestions()"
+        />
+        <button class="action-btn" onclick="expandAllAnswers()">👁 Show All Answers</button>
+        <button class="action-btn" onclick="collapseAllAnswers()">🙈 Hide All Answers</button>
+      </div>
+
+      <div class="filter-chips">
+        <span class="chip-label">Probability DNA:</span>
+        <button class="f-chip active" data-prob="all" onclick="setProbFilter('all', this)">All Questions (46)</button>
+        <button class="f-chip" data-prob="specimen" onclick="setProbFilter('specimen', this)">🚨 2027 Specimen &amp; 2025–26 Board Pattern</button>
+        <button class="f-chip" data-prob="highest" onclick="setProbFilter('highest', this)">🔥 Highest Probability (6–12x Repeated)</button>
+        <button class="f-chip" data-prob="alternate" onclick="setProbFilter('alternate', this)">🔄 Alternate-Year &amp; Competency Twist</button>
+        <button class="f-chip" data-prob="safety" onclick="setProbFilter('safety', this)">🛡️ Safety Net (100% Syllabus Lock)</button>
+      </div>
+
+      <div class="filter-chips">
+        <span class="chip-label">Topic &amp; Format:</span>
+        <button class="f-chip active" data-type="all" onclick="setTypeFilter('all', this)">All Formats</button>
+        <button class="f-chip" data-type="evergreen_deciduous" onclick="setTypeFilter('evergreen_deciduous', this)">Evergreen &amp; Deciduous</button>
+        <button class="f-chip" data-type="desert_tidal_mountain" onclick="setTypeFilter('desert_tidal_mountain', this)">Desert, Littoral &amp; Mountain</button>
+        <button class="f-chip" data-type="trees_uses" onclick="setTypeFilter('trees_uses', this)">Trees &amp; Economic Uses</button>
+        <button class="f-chip" data-type="conservation" onclick="setTypeFilter('conservation', this)">Importance &amp; Conservation</button>
+        <button class="f-chip" data-type="reason" onclick="setTypeFilter('reason', this)">Give Geographical Reasons</button>
+        <button class="f-chip" data-type="revision" onclick="setTypeFilter('revision', this)">⭐ Marked for Revision</button>
+      </div>
+    </section>
+
+    <!-- QUESTIONS LIST -->
+    <div class="questions-list" id="questionsContainer"></div>
+  </main>
+
+  <!-- MOBILE STICKY BOTTOM BAR -->
+  <div class="mobile-bar">
+    <div>
+      <span style="font-size:0.68rem; color:var(--text-secondary); display:block;">EXAM TIMER</span>
+      <span class="timer-display" id="mobileTimerDisplay" style="font-size:0.95rem;">30:00</span>
+    </div>
+    <div style="display:flex; gap:6px;">
+      <button class="t-btn start" onclick="toggleTimer()" id="mobileTimerBtn">Start</button>
+      <button class="t-btn" onclick="cycleMobileMode()" id="mobileModeBtn">Mode: DPP</button>
+      <button class="t-btn" onclick="openCheatTab('forests')">📊 Cheat Sheet</button>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // COMPLETE 46-QUESTION MASTER DATASET FOR CHAPTER 3: NATURAL VEGETATION
+    // =========================================================================
+    const vegQuestions = [
+      // --- SECTION 1: 2027 SPECIMEN PAPER & 2025–2026 BOARD DIRECT PATTERNS ---
+      {
+        id: 1,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD DIRECT • 99% PROBABILITY",
+        qType: "evergreen_deciduous",
+        subTopic: "Chapter: Natural Vegetation • Tropical Evergreen vs Tropical Deciduous (Commercial Value)",
+        marks: "[2 Marks / 3 Marks]",
+        whyChosen: "Appeared in the 2027 Specimen Paper, 2026 Board, 2024 Board, 2022 Board, 2019 Board, and 2016 Board! Asking why Tropical Evergreen forests are difficult to exploit commercially while Tropical Deciduous (Monsoon) forests are the most commercially exploited is the #1 most repeated question in this chapter.",
+        question: "Give a geographical reason for each of the following:<br>(a) Tropical Evergreen forests are difficult to exploit for commercial purposes. [2]<br>(b) Tropical Deciduous (Monsoon) forests are commercially the most exploited forests in India. [1]",
+        twistedVersions: [
+          "Why have Tropical Evergreen rainforests not been commercially exploited to their full potential despite having valuable hardwood trees like Rosewood and Ebony?",
+          "Why are Monsoon forests of greater commercial value than Tropical Evergreen forests?",
+          "State two obstacles faced in lumbering/felling of trees in the Tropical Evergreen forests of the Western Ghats and Assam."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Why Tropical Evergreen Forests are Difficult to Exploit Commercially:</strong>
+              <ul>
+                <li><strong>1. Lack of Pure Stands (Mixed Species):</strong> Trees do not grow in pure stands of a single species; many different species grow mixed together, making selective felling of a single timber variety difficult.</li>
+                <li><strong>2. Dense Undergrowth &amp; Lack of Transport:</strong> The forest is dark, damp, and impenetrable with <span class="kw">tangled undergrowth of canes, bamboos, ferns, and climbers</span>, and lacks proper <span class="kw">means of transport</span> to carry heavy hardwood logs.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Why Tropical Deciduous Forests are Commercially Most Exploited:</strong>
+              <ul>
+                <li>Trees grow in <span class="kw">pure stands (single species clusters)</span>, are <span class="kw">less dense / more open and easily accessible by transport</span>, and yield high-value commercial timber like <span class="kw">Teak, Sal, and Sandalwood</span>.</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="examiner-tip"><strong>Council Marking Keyword:</strong> Always include the phrase <span class="kw">"do not grow in pure stands (mixed species)"</span> and <span class="kw">"dense impenetrable undergrowth / lack of transport"</span> for Evergreen forests!</div>
+        `
+      },
+      {
+        id: 2,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN PAPER DIRECT • 99% PROBABILITY",
+        qType: "desert_tidal_mountain",
+        subTopic: "Chapter: Natural Vegetation • Littoral / Mangrove / Tidal Forests (Adaptations)",
+        marks: "[2 Marks / 3 Marks]",
+        whyChosen: "Featured in the 2027 Specimen Paper, 2026 Specimen, 2025 Board, 2023 Board, and 2019 Board. Examiners test the two exact structural root adaptations of Mangrove (Sundari) trees: Breathing Roots (Pneumatophores) and Stilt Roots.",
+        question: "With reference to Littoral (Tidal / Mangrove) forests in India, answer the following:<br>(a) State two characteristic root adaptations of these trees that help them survive in marshy, waterlogged deltaic soil. [2]<br>(b) Name the most prominent tree of this forest and state one of its economic uses. [1]",
+        twistedVersions: [
+          "Give a geographical reason: Trees in the Tidal (Littoral) forests have breathing roots (pneumatophores) and stilt roots.",
+          "How does vegetation in the Sundarbans delta adapt to survive in shifting mud and saline waterlogged soil?",
+          "Why do mangrove trees have aerial roots with pores protruding vertically above the ground?",
+          "Why is the Sundarbans delta so named? State one characteristic of its timber."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Two Root Adaptations of Littoral / Mangrove Trees:</strong>
+              <ul>
+                <li><strong>1. Breathing Roots (Pneumatophores):</strong> Because the waterlogged deltaic clay is deprived of oxygen, the trees develop <span class="kw">vertical aerial roots called pneumatophores with numerous pores (lenticels)</span> that stick out above the mud/water to <span class="kw">take in atmospheric oxygen for respiration during low tide</span>.</li>
+                <li><strong>2. Stilt / Prop Roots:</strong> The trunks are supported by a <span class="kw">tangled network of stilt roots visible above ground</span> during low tide, which provide <span class="kw">mechanical support and anchor the tree firmly in soft, shifting coastal mud</span> against strong tidal currents.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Prominent Tree &amp; Economic Use:</strong> <span class="kw">Sundari Tree</span> (after which the <em>Sundarbans</em> delta is named). It yields <span class="kw">very hard, durable, and water-resistant timber</span> used for <span class="kw">making boats, barges, and house construction</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 3,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN PAPER DIRECT • 99% PROBABILITY",
+        qType: "desert_tidal_mountain",
+        subTopic: "Chapter: Natural Vegetation • Tropical Desert / Thorn Forests (Xerophytic Adaptations)",
+        marks: "[2 Marks / 3 Marks]",
+        whyChosen: "Appeared in 2027 Specimen Paper, 2025 Board, 2023 Board, 2020 Board, and 2017 Board. Whenever a question asks how plants survive in Western Rajasthan (<50 cm rain) or why desert plants have spines/long roots, this 3-point answer guarantees full marks.",
+        question: "How do trees and plants in the Tropical Desert (Thorn and Scrub) forests adapt themselves to survive in arid conditions with scanty rainfall (less than 50 cm)? State three adaptations. [3]",
+        twistedVersions: [
+          "Give a geographical reason: Acacia (Babool) and Cacti have long taproots and leaves modified into sharp spines.",
+          "What are 'Xerophytes'? Mention two ways in which xerophytic vegetation adapts to high temperature and acute scarcity of water.",
+          "Why do trees in the Thar Desert have stunted growth, thick fleshy stems, and small waxy leaves?"
+        ],
+        answer: `
+          <ul>
+            <li>Plants that adapt to survive in extremely dry/arid conditions are called <span class="kw">Xerophytes</span>. Their three major adaptations are:</li>
+            <li><strong>1. Long Taproots:</strong> Trees have <span class="kw">very long, deep taproots</span> that penetrate deep into the soil in search of underground sub-soil water.</li>
+            <li><strong>2. Leaves Modified into Spines / Thorns:</strong> Leaves are <span class="kw">absent, very small, waxy, or modified into sharp spines/thorns</span> to <span class="kw">minimize loss of water through transpiration</span> and protect the plant from grazing animals.</li>
+            <li><strong>3. Fleshy Stems &amp; Thick Bark:</strong> Stems become <span class="kw">succulent (fleshy) and green to store water and perform photosynthesis</span>, and trunks are covered with <span class="kw">thick, coarse bark</span> to prevent evaporation.</li>
+          </ul>
+        `
+      },
+      {
+        id: 4,
+        probTier: "specimen",
+        probLabel: "🚨 2027 SPECIMEN & BOARD DIRECT • 98% PROBABILITY",
+        qType: "evergreen_deciduous",
+        subTopic: "Chapter: Natural Vegetation • Why Evergreen Never Looks Bare vs Why Deciduous Sheds Leaves",
+        marks: "[2 Marks]",
+        whyChosen: "Asked in 2027 Specimen, 2025 Board, 2023 Board, 2021, 2018, and 2015. Students often mistakenly think Evergreen trees NEVER shed their leaves! That is scientifically wrong—they DO shed leaves, just at different times of the year.",
+        question: "Give a geographical reason for each of the following:<br>(a) Tropical Evergreen forests appear green throughout the year (never look bare). [1]<br>(b) Tropical Deciduous (Monsoon) trees shed their leaves for about 6 to 8 weeks during March and April (dry summer). [1]",
+        twistedVersions: [
+          "Why do trees in Tropical Evergreen forests not shed their leaves simultaneously?",
+          "Why do Teak and Sal trees shed their leaves in spring/early summer?",
+          "How does leaf-shedding in Tropical Deciduous forests differ from that in Tropical Evergreen forests?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Why Tropical Evergreen Forests Never Look Bare:</strong> Because this region remains <span class="kw">warm and wet throughout the year (&gt;200 cm rainfall)</span> with no fixed dry season, different species of trees have <span class="kw">different times for shedding their leaves, flowering, and fruiting</span>. Hence, the forest as a whole appears green all year round.</li>
+            <li><strong>(b) Why Tropical Deciduous Trees Shed Leaves for 6–8 Weeks in Summer:</strong> During the hot dry months of March and April, there is an <span class="kw">acute shortage of sub-soil moisture</span>. To <span class="kw">conserve water and prevent excessive moisture loss through transpiration</span>, deciduous trees shed all their leaves simultaneously for 6 to 8 weeks.</li>
+          </ul>
+        `
+      },
+      {
+        id: 5,
+        probTier: "specimen",
+        probLabel: "🚨 2026 & 2027 SPECIMEN DIRECT • 98% PROBABILITY",
+        qType: "conservation",
+        subTopic: "Chapter: Natural Vegetation • Productive, Protective & Regulatory Functions of Forests",
+        marks: "[3 Marks]",
+        whyChosen: "Appeared in 2026 Board, 2025 Board, 2026 Specimen, and 2027 Specimen. Examiners ask how forests act as 'climate moderators', prevent floods/soil erosion (Protective), regulate O2/CO2 & water cycle (Regulatory), or provide timber/livelihood (Productive).",
+        question: "Explain with one example each how forests perform the following three vital functions for the environment and economy:<br>(a) Protective Function (Soil &amp; Flood Control) [1]<br>(b) Regulatory Function (Climate &amp; Carbon Cycle) [1]<br>(c) Productive Function (Economic Value) [1]",
+        twistedVersions: [
+          "Give a geographical reason: Forests are an important natural resource that help in moderating the climate and preventing floods.",
+          "How do forests help in recharging the underground water table and reducing global warming?",
+          "State three reasons why we must conserve our forest cover."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Protective Function:</strong> The dense root systems of trees <span class="kw">bind soil particles firmly to prevent soil erosion</span>, while fallen leaf litter forms sponge-like <span class="kw">humus that absorbs rainwater, checks the velocity of surface runoff, prevents flash floods, and recharges underground water</span>.</li>
+            <li><strong>(b) Regulatory Function:</strong> Forests act as <span class="kw">‘Carbon Sinks’</span> by absorbing atmospheric <span class="kw">Carbon Dioxide ($\text{CO}_2$) and releasing Oxygen ($\text{O}_2$)</span> during photosynthesis (mitigating global warming), and they <span class="kw">increase atmospheric humidity through transpiration</span>, inducing rainfall and moderating temperature.</li>
+            <li><strong>(c) Productive Function:</strong> Forests provide valuable <span class="kw">timber (Teak, Sal, Rosewood)</span> for furniture and construction, along with <span class="kw">minor forest products</span> like bamboo, lac, resin, turpentine, gums, medicinal herbs, and raw material for paper and match industries.</li>
+          </ul>
+        `
+      },
+      {
+        id: 6,
+        probTier: "specimen",
+        probLabel: "🚨 2025 & 2026 BOARD DIRECT • 97% PROBABILITY",
+        qType: "conservation",
+        subTopic: "Chapter: Natural Vegetation • Social Forestry vs Agro-Forestry & Van Mahotsav",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in ICSE 2025 Board, 2024 Board, 2022 Board, and 2019 Board. Distinguishing Social Forestry from Agro-forestry and stating their objectives is a guaranteed 2- or 3-mark sub-question.",
+        question: "(a) Differentiate between ‘Social Forestry’ and ‘Agro-Forestry’. [2]<br>(b) State two main objectives of Social Forestry (or Van Mahotsav / Joint Forest Management). [1]",
+        twistedVersions: [
+          "What is 'Social Forestry'? Mention two ways it reduces pressure on traditional natural forests.",
+          "What is 'Agro-forestry'? How does it benefit an Indian farmer more than traditional mono-cropping?",
+          "Explain the significance of 'Van Mahotsav' and 'Joint Forest Management (JFM)' in India."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Difference:</strong>
+              <ul>
+                <li><strong>Social Forestry:</strong> The <span class="kw">management and protection of forests and afforestation on barren community lands</span> (village commons, railway sidelines, roadsides, canal banks) <span class="kw">with the active participation of local rural communities</span> ("forestry of the people, by the people, for the people").</li>
+                <li><strong>Agro-Forestry:</strong> An integrated scientific land-use system where <span class="kw">a farmer grows trees, agricultural food crops, and rears livestock simultaneously on the same piece of private agricultural land</span>.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Objectives of Social Forestry:</strong>
+              <ul>
+                <li><strong>1.</strong> To <span class="kw">provide fuelwood, fodder, small timber, and minor forest produce</span> to rural communities locally, thereby <span class="kw">reducing pressure on traditional natural reserve forests</span>.</li>
+                <li><strong>2.</strong> To <span class="kw">utilize barren wasteland, prevent soil erosion</span>, and create rural employment.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 7,
+        probTier: "specimen",
+        probLabel: "🚨 2026 BOARD & SPECIMEN • 97% PROBABILITY",
+        qType: "evergreen_deciduous",
+        subTopic: "Chapter: Natural Vegetation • Western Ghats Windward vs Leeward Vegetation",
+        marks: "[2 Marks]",
+        whyChosen: "Links Chapter 1 (Climate) with Chapter 3 (Natural Vegetation). Asked in 2026 Specimen, 2024 Board, 2020 Board, and 2017 Board.",
+        question: "Give a geographical reason: The western slopes of the Western Ghats are covered with thick Tropical Evergreen forests, whereas the eastern slopes are covered with Tropical Deciduous (or Thorn) forests. [2]",
+        twistedVersions: [
+          "Why does the windward side of the Western Ghats have different natural vegetation from its leeward side?",
+          "As a traveller drives from Mangalore (coastal Karnataka) across the Western Ghats to Bellary (interior Deccan), what change in natural vegetation will they observe and why?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>Western (Windward) Slopes of Western Ghats:</strong> Face the moisture-laden Arabian Sea branch of the South-West Monsoon and receive <span class="kw">heavy orographic rainfall of over 200 cm</span> with high temperature ($25^\circ\text{C}\text{–}27^\circ\text{C}$), supporting dense <span class="kw">Tropical Evergreen Rainforests</span>.</li>
+            <li><strong>Eastern (Leeward) Slopes of Western Ghats:</strong> Lie in the <span class="kw">rain-shadow region</span> where descending winds shed much less rainfall (<span class="kw">100–150 cm, dropping to &lt;70 cm further inland</span>), therefore supporting <span class="kw">Tropical Deciduous and Tropical Thorn forests</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 8,
+        probTier: "specimen",
+        probLabel: "🚨 2025 & 2026 BOARD DIRECT • 96% PROBABILITY",
+        qType: "trees_uses",
+        subTopic: "Chapter: Natural Vegetation • Name the Tree & Forest Type Riddles",
+        marks: "[3 Marks]",
+        whyChosen: "In every single ICSE Geography paper, at least 2 to 3 marks in Question 6 are dedicated to identifying a tree from its use or stating the economic use of Teak, Sandalwood, Sundari, Rosewood, Semul, or Babool.",
+        question: "Name one tree and the type of forest in which it is found for each of the following economic uses:<br>(a) Its aromatic heartwood provides oil for perfumery, cosmetics, and soap, and is used for ornamental carvings. [1]<br>(b) Its wood contains a natural oil that prevents rusting of iron nails and is prized for ship-building and furniture. [1]<br>(c) Its soft white timber is used for making matchboxes, toys, and packing cases. [1]",
+        twistedVersions: [
+          "State one important use of each of the following trees and name the forest belt where it grows: (i) Sandalwood, (ii) Teak, (iii) Semul, (iv) Sundari, (v) Rosewood.",
+          "Which state in India is the leading producer of Sandalwood?",
+          "Why are iron nails not rusted when driven into Teak wood?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Aromatic oil for cosmetics/perfumery &amp; handicrafts:</strong> <span class="kw">Sandalwood</span> — found in <span class="kw">Tropical Deciduous (Monsoon) Forests</span> (chiefly in <strong>Karnataka</strong>).</li>
+            <li><strong>(b) Ship-building, furniture &amp; does not rust iron nails:</strong> <span class="kw">Teak</span> — found in <span class="kw">Tropical Moist Deciduous (Monsoon) Forests</span> (MP, Maharashtra, Assam).</li>
+            <li><strong>(c) Matchboxes, toys, packing cases &amp; pillow fibre:</strong> <span class="kw">Semul (Silk Cotton)</span> — found in <span class="kw">Tropical Moist Deciduous Forests</span>.</li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 2: HIGHEST PROBABILITY CORE QUESTIONS (REPEATED 6 TO 12 TIMES IN BOARDS) ---
+      {
+        id: 9,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 11x IN BOARDS",
+        qType: "evergreen_deciduous",
+        subTopic: "Chapter: Natural Vegetation • Tropical Evergreen vs Tropical Deciduous (Full Comparison)",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2012, 2014, 2016, 2018, 2020, 2022, 2024, and 2026. Comparing India's two main tropical forest belts on rainfall, characteristics, and trees is essential.",
+        question: "Differentiate between Tropical Evergreen Forests and Tropical Deciduous (Monsoon) Forests on the basis of:<br>(a) Annual Rainfall requirement [1]<br>(b) Canopy &amp; Leaf-shedding characteristic [1]<br>(c) Any two typical tree species of each [1]",
+        twistedVersions: [
+          "State three points of difference between Tropical Rainforests and Tropical Monsoon Forests.",
+          "Why is the floor of a Tropical Evergreen forest dark and devoid of grass, whereas a Tropical Deciduous forest has open undergrowth?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Annual Rainfall Requirement:</strong> <span class="kw">Tropical Evergreen Forests</span> require heavy rainfall of <span class="kw">more than 200 cm</span>; <span class="kw">Tropical Deciduous Forests</span> grow in regions receiving moderate rainfall of <span class="kw">70 cm to 200 cm</span>.</li>
+            <li><strong>(b) Canopy &amp; Leaf-Shedding:</strong> <span class="kw">Tropical Evergreen Forests</span> have a dense, multi-layered canopy (up to 60 m) that blocks sunlight and <span class="kw">do not have a fixed season for shedding leaves</span>; <span class="kw">Tropical Deciduous Forests</span> are less dense, grow in pure stands, and <span class="kw">shed their leaves for 6 to 8 weeks during dry summer (March–May)</span>.</li>
+            <li><strong>(c) Tree Species:</strong>
+              <ul>
+                <li><strong>Tropical Evergreen:</strong> <span class="kw">Rosewood, Ebony, Mahogany, Cinchona, Rubber</span>.</li>
+                <li><strong>Tropical Deciduous:</strong> <span class="kw">Teak, Sal, Sandalwood, Semul, Myrobalan</span>.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 10,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 10x IN BOARDS",
+        qType: "desert_tidal_mountain",
+        subTopic: "Chapter: Natural Vegetation • Mountain (Montane) Forests & Conical Trees",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2013, 2015, 2018, 2020, 2022, 2024, and 2026. Examiners test three exact concepts: (1) Why vegetation changes with altitude in the Himalayas, (2) Why coniferous trees are conical with needle-like leaves, and (3) Why southern slopes of Himalayas have thicker vegetation than northern slopes.",
+        question: "Give a geographical reason for each of the following regarding Mountain (Montane) Forests:<br>(a) The Himalayas show a succession of natural vegetation belts from tropical at the foothills to alpine at the snowline. [1]<br>(b) Trees in the coniferous belt (1,500 m to 3,300 m) have a conical shape with sloping branches and needle-like leaves. [1]<br>(c) The southern slopes of the Himalayas have thicker vegetation cover than the northern slopes. [1]",
+        twistedVersions: [
+          "Why does Mountain vegetation vary with altitude?",
+          "How are Chir Pine, Deodar, and Silver Fir adapted to survive heavy snowfall in Himachal Pradesh and Kashmir?",
+          "Why are the northern slopes of the Himalayas bare of thick forests compared to the southern Indian slopes?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Succession of Vegetation with Altitude:</strong> Temperature decreases with an increase in altitude (<span class="kw">Normal Lapse Rate of $1^\circ\text{C}$ per $165\text{ m}$</span>) along with variations in rainfall. Since natural vegetation is directly governed by temperature and precipitation, the Himalayas exhibit <span class="kw">distinct altitudinal zones</span> from Tropical Deciduous (foothills) &rarr; Temperate &rarr; Coniferous &rarr; Alpine pastures.</li>
+            <li><strong>(b) Conical Shape &amp; Needle-Like Leaves of Conifers:</strong> The <span class="kw">conical shape and flexible sloping branches allow heavy snow to slide off easily</span> without breaking the branches, while the <span class="kw">tough, waxy needle-like leaves have a small surface area to reduce water loss by transpiration</span> during freezing winters.</li>
+            <li><strong>(c) Southern vs Northern Slopes of Himalayas:</strong> The <span class="kw">southern slopes</span> receive <span class="kw">heavier rainfall from the South-West Monsoon winds</span> and <span class="kw">more direct sunlight (insolation)</span>, whereas the northern slopes lie in the cold, dry rain-shadow zone facing Central Asia.</li>
+          </ul>
+        `
+      },
+      {
+        id: 11,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 9x IN BOARDS",
+        qType: "conservation",
+        subTopic: "Chapter: Natural Vegetation • Causes of Shrinkage of Forest Cover (Deforestation)",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2014, 2017, 2019, 2021, 2023, and 2025. Direct syllabus requirement: 'Causes of shrinkage of forest area'.",
+        question: "(a) According to the National Forest Policy, what percentage of India’s total land area should ideally be under forest cover? [1]<br>(b) State any four major human causes responsible for the rapid shrinkage (depletion) of forest cover in India. [2]",
+        twistedVersions: [
+          "Give a geographical reason: Forest cover in India has shrunk rapidly over the last few decades.",
+          "How have rapid population growth, industrialization, and multipurpose river valley projects affected natural vegetation in India?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Ideal Forest Cover (National Forest Policy):</strong> <span class="kw">33.3% (One-third)</span> of the total geographical area (60% in hilly/mountainous regions and 20% in plains) should be under forest cover to maintain ecological balance.</li>
+            <li><strong>(b) Four Major Causes of Forest Shrinkage (Deforestation):</strong>
+              <ul>
+                <li><strong>1. Expansion of Agriculture:</strong> Clearing huge tracts of forest land to feed a rapidly growing population.</li>
+                <li><strong>2. Urbanization &amp; Industrialization:</strong> Felling forests for expanding cities, industries, highways, and railway networks.</li>
+                <li><strong>3. Multipurpose River Valley Projects &amp; Mining:</strong> Submergence of vast forest valleys behind large dams and open-cast mining (e.g., in Jharkhand/Odisha).</li>
+                <li><strong>4. Overgrazing, Shifting Cultivation (Jhum) &amp; Demand for Timber/Fuelwood:</strong> Reckless cutting of trees for rural firewood, commercial timber, and slash-and-burn farming in North-East India.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 12,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 8x IN BOARDS",
+        qType: "evergreen_deciduous",
+        subTopic: "Chapter: Natural Vegetation • Moist Deciduous vs Dry Deciduous Forests",
+        marks: "[2 Marks / 3 Marks]",
+        whyChosen: "The official ICSE syllabus divides Tropical Deciduous into two sub-categories: Moist Deciduous and Dry Deciduous. Examiners frequently test their rainfall range and tree species.",
+        question: "Differentiate between Tropical Moist Deciduous Forests and Tropical Dry Deciduous Forests on the basis of:<br>(a) Annual Rainfall range [1]<br>(b) Chief tree species [1]<br>(c) Areas of distribution in India [1]",
+        twistedVersions: [
+          "Into which two categories are Tropical Monsoon (Deciduous) forests divided? State the rainfall requirement of each.",
+          "Why do Dry Deciduous forests degenerate into Thorn and Scrub forests on their drier margins?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Annual Rainfall Range:</strong> <span class="kw">Moist Deciduous Forests</span> grow in areas receiving <span class="kw">100 cm to 200 cm</span> of annual rainfall; <span class="kw">Dry Deciduous Forests</span> grow in areas receiving <span class="kw">70 cm to 100 cm</span> of annual rainfall.</li>
+            <li><strong>(b) Chief Tree Species:</strong> <span class="kw">Moist Deciduous:</span> <span class="kw">Teak, Sal, Sandalwood, Semul, Shisham, Mahua</span>; <span class="kw">Dry Deciduous:</span> <span class="kw">Tendu, Palas, Amaltas, Bel, Khair, Axlewood</span>.</li>
+            <li><strong>(c) Areas of Distribution:</strong> <span class="kw">Moist Deciduous:</span> Foothills of Himalayas (Siwaliks), Eastern slopes of Western Ghats, Odisha, Jharkhand, Chhattisgarh; <span class="kw">Dry Deciduous:</span> Rainier parts of Peninsular Plateau and plains of Uttar Pradesh, Bihar, and central Madhya Pradesh.</li>
+          </ul>
+        `
+      },
+      {
+        id: 13,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 8x IN BOARDS",
+        qType: "trees_uses",
+        subTopic: "Chapter: Natural Vegetation • Complete Tree Identification & Economic Uses (Set 2)",
+        marks: "[3 Marks]",
+        whyChosen: "Covers the remaining high-frequency trees asked in ICSE Boards: Deodar, Chir Pine, Babool, Neem, Khair, Palas, Myrobalan, and Cinchona.",
+        question: "Name the specific tree associated with each of the following economic uses:<br>(1) Yields ‘Kattha’ (from its heartwood) used in betel leaves (paan) and medicines.<br>(2) Yields resin and turpentine oil, and its soft wood is used for making tea chests.<br>(3) Coniferous tree whose oily, scented, durable wood is extensively used for making railway sleepers and beams in Himachal Pradesh.<br>(4) Deciduous tree whose leaves are used for rearing shellac worms (lac) and Tendu leaves used for making bidis.<br>(5) Evergreen tree whose bark yields ‘Quinine’ used for treating malaria.<br>(6) Desert tree whose bark/pods are used for tanning leather and which yields Gum Arabic.",
+        twistedVersions: [
+          "State one economic use of: (i) Deodar, (ii) Chir Pine, (iii) Khair, (iv) Palas, (v) Cinchona, (vi) Babool, (vii) Myrobalan."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Yields Kattha &amp; Cutch:</strong> <span class="kw">Khair (Acacia Catechu)</span> — Tropical Desert / Dry Deciduous.</li>
+            <li><strong>(2) Yields Resin, Turpentine &amp; Tea Chests:</strong> <span class="kw">Chir Pine</span> — Mountain (Coniferous) Forest.</li>
+            <li><strong>(3) Scented Coniferous Wood for Railway Sleepers:</strong> <span class="kw">Deodar</span> — Mountain (Coniferous) Forest.</li>
+            <li><strong>(4) Rearing Shellac Worms (Lac):</strong> <span class="kw">Palas</span> (and <span class="kw">Kusum / Ber</span>).</li>
+            <li><strong>(5) Yields Quinine for Malaria:</strong> <span class="kw">Cinchona</span> — Tropical Evergreen Forest.</li>
+            <li><strong>(6) Bark for Tanning Leather &amp; Gum Arabic in Desert:</strong> <span class="kw">Babool (Kikar / Acacia)</span> — Tropical Desert Forest <em>(Note: In Deciduous forests, <strong>Myrobalan</strong> fruit provides tannin for tanning leather!)</em>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 14,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 8x IN BOARDS",
+        qType: "conservation",
+        subTopic: "Chapter: Natural Vegetation • Forest Conservation Measures (Afforestation, Reafforestation, JFM)",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2015, 2018, 2020, 2022, 2024, and 2026. Students must know the exact technical difference between Afforestation, Reafforestation, and Deforestation, plus government conservation steps.",
+        question: "(a) Differentiate between ‘Afforestation’ and ‘Reafforestation’ (Reforestation). [2]<br>(b) State any two other scientific measures adopted by the Government of India to conserve forests. [1]",
+        twistedVersions: [
+          "What is 'Reafforestation'? Why is it mandatory when trees are felled for industrial or developmental projects?",
+          "State three practical steps that should be taken to increase the forest cover in India to 33%."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Afforestation vs Reafforestation:</strong>
+              <ul>
+                <li><strong>Afforestation:</strong> Planting trees on <span class="kw">newly acquired barren land or wasteland that was not previously under forest cover</span> so as to create a brand-new forest.</li>
+                <li><strong>Reafforestation (Reforestation):</strong> Restoring a <span class="kw">cleared or degraded forest area by planting two to ten saplings for every single tree felled</span>.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Other Forest Conservation Measures:</strong>
+              <ul>
+                <li><strong>1. Stopping Indiscriminate Felling &amp; Replacing Jhum:</strong> Enforcing strict forest laws against illegal logging, replacing shifting cultivation (<span class="kw">Jhum</span>) with terrace farming, and promoting <span class="kw">alternative energy (LPG, solar, biogas)</span> in villages instead of firewood.</li>
+                <li><strong>2. People’s Participation Programmes:</strong> Implementing <span class="kw">Social Forestry, Agro-forestry, Joint Forest Management (JFM), and annual Van Mahotsav</span> drives, along with establishing Biosphere Reserves and National Parks.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 15,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 7x IN BOARDS",
+        qType: "reason",
+        subTopic: "Chapter: Natural Vegetation • Why Forest Floor of Tropical Evergreen is Dark & Lacks Grass",
+        marks: "[1 Mark / 2 Marks]",
+        whyChosen: "Asked in 2014, 2017, 2020, 2023, and 2025. Tests the canopy structure of Tropical Evergreen rainforests.",
+        question: "Give a geographical reason: The floor of a Tropical Evergreen forest is dark, damp, and devoid of short grasses, and the trees grow to great heights (40 m to 60 m).",
+        twistedVersions: [
+          "Why does sunlight fail to reach the ground in Tropical Evergreen rainforests?",
+          "Why do trees in Tropical Evergreen forests compete to grow very tall and form a multi-layered canopy?"
+        ],
+        answer: `
+          <ul>
+            <li>Due to heavy rainfall ($>200\text{ cm}$) and high temperature throughout the year, trees grow densely and <span class="kw">compete vigorously with one another to reach upward for sunlight</span>, attaining heights of $40\text{ m}$ to $60\text{ m}$.</li>
+            <li>Their crowns interlock to form a <span class="kw">thick, continuous multi-layered canopy that completely blocks sunlight from penetrating to the forest floor</span>, leaving the ground dark, damp, marshy, and unable to support short grass.</li>
+          </ul>
+        `
+      },
+      {
+        id: 16,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 7x IN BOARDS",
+        qType: "reason",
+        subTopic: "Chapter: Natural Vegetation • Correlation of Natural Vegetation with Environment (Climate & Soil)",
+        marks: "[2 Marks]",
+        whyChosen: "Explicitly highlighted in the ICSE 2027 Syllabus: 'Types of vegetation (distribution and correlation with their environment)'. Examiners love asking how each forest belt correlates with its soil and climate.",
+        question: "Explain with two suitable examples how the distribution of Natural Vegetation in India shows a direct correlation with climatic conditions (rainfall/temperature) and soil types. [2]",
+        twistedVersions: [
+          "Give a geographical reason: India possesses a rich diversity of natural vegetation ranging from tropical rainforests to alpine mosses.",
+          "How do rainfall and relief together determine the type of natural vegetation found in a region?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Correlation with Rainfall:</strong> Vegetation density directly mirrors annual rainfall — areas with <span class="kw">&gt;200 cm rainfall</span> (Western Ghats, Meghalaya) support dense <span class="kw">Tropical Evergreen forests</span>; areas with <span class="kw">70–200 cm rainfall</span> support <span class="kw">Tropical Deciduous forests</span>; and arid areas with <span class="kw">&lt;50 cm rainfall</span> (Thar Desert) support <span class="kw">Thorny Xerophytic Scrub</span>.</li>
+            <li><strong>2. Correlation with Soil &amp; Relief:</strong> <span class="kw">Saline, waterlogged deltaic alluvial soils</span> washed by sea tides (Ganga/Mahanadi deltas) support <span class="kw">Littoral (Mangrove) forests</span>, while <span class="kw">high-altitude mountain slopes</span> with low temperatures support <span class="kw">Montane Coniferous forests</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 17,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 7x IN BOARDS",
+        qType: "desert_tidal_mountain",
+        subTopic: "Chapter: Natural Vegetation • Nilgiri Mountain Forests ('Sholas')",
+        marks: "[2 Marks]",
+        whyChosen: "Asked in 2016, 2019, 2022, and 2025. Students know about Himalayan mountain forests, but forget that Peninsular India ALSO has Mountain vegetation in the Nilgiri, Anamalai, and Palani hills called 'Sholas'!",
+        question: "What are ‘Sholas’? Name the hill ranges in Peninsular India where they are found and mention two important trees growing there. [2]",
+        twistedVersions: [
+          "Why do the Nilgiri, Anamalai, and Palani hills have temperate mountain vegetation despite being located close to the Equator in South India?",
+          "Name the rolling grasslands and stunted temperate forests found above 1,500 metres in the hills of Tamil Nadu, Kerala, and Karnataka."
+        ],
+        answer: `
+          <ul>
+            <li><strong>Meaning &amp; Location:</strong> In Peninsular India, the <span class="kw">Nilgiri, Anamalai, and Palani Hills</span> (at altitudes above $1,500\text{ m}$) have a cool temperate climate where rolling grasslands are interspersed with patches of stunted temperate broad-leafed forests locally known as <span class="kw">‘Sholas’</span>.</li>
+            <li><strong>Important Trees:</strong> <span class="kw">Magnolia, Laurel, Cinchona, Wattle, and Eucalyptus</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 18,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • REPEATED 6x IN BOARDS",
+        qType: "reason",
+        subTopic: "Chapter: Natural Vegetation • Why Forests Are Grown Around Industrial Cities ('Green Belts')",
+        marks: "[1 Mark / 2 Marks]",
+        whyChosen: "Appeared in 2018, 2021, 2023, and 2025 Specimen Paper ('Give a reason: Trees are planted in and around heavy industrial cities / Iron and Steel plants').",
+        question: "Give a geographical reason: Wide belts of trees (‘Green Belts’) are planted in and around industrial cities and iron-and-steel plants.",
+        twistedVersions: [
+          "Why is afforestation essential around thermal power plants, cement factories, and metropolitan cities?",
+          "How do urban green belts help combat air and noise pollution?"
+        ],
+        answer: `
+          <ul>
+            <li>Trees act as a natural <span class="kw">anti-pollution barrier and carbon sink</span>: they <span class="kw">absorb toxic greenhouse gases like Carbon Dioxide ($\text{CO}_2$) and release Oxygen ($\text{O}_2$)</span>, trap suspended particulate dust and smoke on their leaves, <span class="kw">muffle industrial noise pollution</span>, and lower the local urban temperature.</li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 3: 'GIVE GEOGRAPHICAL REASONS' MASTER VAULT (ALL BOARD VARIATIONS) ---
+      {
+        id: 19,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Natural Vegetation • Give Reason: Nilgiri Hills Have Both Tropical & Temperate Vegetation",
+        marks: "[1 Mark]",
+        whyChosen: "Tests the effect of altitude in a tropical latitude.",
+        question: "Give a geographical reason: The lower slopes of the Nilgiris have tropical vegetation while the higher summits (above 1,500 m) have temperate vegetation (‘Sholas’).",
+        twistedVersions: [
+          "Why do the Western Ghats and Nilgiris exhibit different vegetation belts at their base and at their peaks?"
+        ],
+        answer: `
+          <ul>
+            <li>Because temperature decreases with increasing altitude (<span class="kw">$1^\circ\text{C}$ per $165\text{ m}$ ascent</span>), the warm lower foothills with heavy rainfall support <span class="kw">Tropical Evergreen/Deciduous forests</span>, whereas the cooler higher altitudes above $1,500\text{ m}$ experience lower temperatures that support <span class="kw">Temperate forests (‘Sholas’)</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 20,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Natural Vegetation • Give Reason: Sundari Trees Are Used for Boat Making",
+        marks: "[1 Mark]",
+        whyChosen: "Asked in 2015, 2019, 2022, and 2024.",
+        question: "Give a geographical reason: Sundari trees are extensively used for boat building and making harbour piles in West Bengal.",
+        twistedVersions: [
+          "Why is the wood of the Sundari tree ideal for making boats and water transport equipment?"
+        ],
+        answer: `
+          <ul>
+            <li>The timber of the <span class="kw">Sundari tree</span> is <span class="kw">extremely hard, strong, durable, and naturally water-resistant (does not rot or decay in brackish/saline water)</span>, making it ideal for building boats and harbour piles.</li>
+          </ul>
+        `
+      },
+      {
+        id: 21,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Natural Vegetation • Give Reason: Coromandel Coast Has Mostly Tropical Dry Evergreen / Scrub",
+        marks: "[1 Mark]",
+        whyChosen: "Connects winter rainfall of Tamil Nadu with its unique vegetation.",
+        question: "Give a geographical reason: The Coromandel Coast (Tamil Nadu Coast) does not have luxuriant Tropical Wet Evergreen rainforests like the Malabar Coast (Kerala Coast).",
+        twistedVersions: [
+          "Why does the Malabar Coast have dense Evergreen forests while the Tamil Nadu coast has Dry Evergreen or Deciduous vegetation?"
+        ],
+        answer: `
+          <ul>
+            <li>The <span class="kw">Malabar Coast</span> receives over $250\text{ cm}$ of heavy rainfall from the South-West Monsoon, supporting dense <span class="kw">Tropical Wet Evergreen forests</span>. In contrast, the <span class="kw">Coromandel Coast</span> lies in the summer rain-shadow of the Western Ghats and receives a lower total annual rainfall (about $100\text{–}125\text{ cm}$) mainly in winter from the North-East Monsoon.</li>
+          </ul>
+        `
+      },
+      {
+        id: 22,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Natural Vegetation • Give Reason: Forests Are Called the 'Handmaids of Agriculture'",
+        marks: "[1 Mark / 2 Marks]",
+        whyChosen: "A classic textbook & board statement question testing the direct link between Forests and Agriculture.",
+        question: "Give a geographical reason: Forests are often called the ‘Handmaids of Agriculture’ in India.",
+        twistedVersions: [
+          "How do forests directly support and sustain agriculture in India? Give two reasons."
+        ],
+        answer: `
+          <ul>
+            <li>Forests support agriculture by <span class="kw">inducing rainfall through transpiration</span>, <span class="kw">enriching the soil with fertile humus</span>, <span class="kw">preventing soil erosion and devastating floods</span>, and <span class="kw">recharging the underground water table</span> needed for well and tubewell irrigation.</li>
+          </ul>
+        `
+      },
+      {
+        id: 23,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Natural Vegetation • Give Reason: Littoral Forests Develop Along Estuaries & Deltas",
+        marks: "[1 Mark]",
+        whyChosen: "Tests why Littoral forests are concentrated on the East Coast rather than the West Coast.",
+        question: "Give a geographical reason: Littoral (Tidal / Mangrove) forests are much more extensive along the Eastern Coast of India than along the Western Coast.",
+        twistedVersions: [
+          "Why are Mangrove forests predominantly found in West Bengal, Odisha, and Andhra Pradesh?"
+        ],
+        answer: `
+          <ul>
+            <li>The <span class="kw">Eastern Coast has large, gently sloping muddy deltas</span> formed by major east-flowing rivers (<span class="kw">Ganga-Brahmaputra, Mahanadi, Godavari, Krishna, Kaveri</span>) where tidal seawater mixes with fresh river silt, providing ideal marshy conditions for Littoral forests. The Western Coast has short, swift rivers that form estuaries rather than wide deltas.</li>
+          </ul>
+        `
+      },
+      {
+        id: 24,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Natural Vegetation • Give Reason: Alpine Vegetation Above 3,500m is Stunted / Mosses",
+        marks: "[1 Mark]",
+        whyChosen: "Tests the upper limit of tree growth (Timberline / Snowline) in Mountain forests.",
+        question: "Give a geographical reason: Above an altitude of 3,500 metres in the Himalayas, tall trees are replaced by stunted shrubs, alpine pastures, mosses, and lichens, and above 4,500 m there is no vegetation at all.",
+        twistedVersions: [
+          "Why is there no tree growth above the snowline in the Great Himalayas?"
+        ],
+        answer: `
+          <ul>
+            <li>Above $3,500\text{ m}$ (near the <span class="kw">timberline/snowline</span>), the <span class="kw">temperature drops near or below freezing ($0^\circ\text{C}$)</span>, precipitation occurs mainly as <span class="kw">snow</span>, soils are thin and frozen, and icy high-velocity winds blow, preventing tall tree growth.</li>
+          </ul>
+        `
+      },
+      {
+        id: 25,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Natural Vegetation • Give Reason: Indo-Gangetic Plains Have Very Little Natural Forest Cover Left",
+        marks: "[1 Mark]",
+        whyChosen: "Often asked in map/reasoning questions: why UP, Punjab, Haryana, and Bihar have low forest cover despite good rainfall and fertile soil.",
+        question: "Give a geographical reason: The fertile Indo-Gangetic Plains (Punjab, Haryana, Uttar Pradesh, Bihar) have a very low percentage of natural forest cover today.",
+        twistedVersions: [
+          "Why has natural vegetation largely disappeared from the Northern Plains of India?"
+        ],
+        answer: `
+          <ul>
+            <li>Because the Indo-Gangetic Plains have <span class="kw">flat level land, fertile alluvial soil, and abundant water</span>, almost the entire natural deciduous forest cover was <span class="kw">cleared over centuries for intensive agriculture and dense human settlements</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 26,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • 'GIVE REASON' VAULT",
+        qType: "reason",
+        subTopic: "Chapter: Natural Vegetation • Give Reason: Coniferous Trees Provide Softwood for Paper & Pulp",
+        marks: "[1 Mark]",
+        whyChosen: "Tests the difference between Hardwood (Tropical) and Softwood (Montane Coniferous).",
+        question: "Give a geographical reason: Coniferous forests of the Himalayas (Chir Pine, Silver Fir, Spruce) are commercially important for the paper, pulp, match, and packing-case industries.",
+        twistedVersions: [
+          "Why is softwood from Mountain forests preferred over Tropical Evergreen hardwood for making paper and matchsticks?"
+        ],
+        answer: `
+          <ul>
+            <li>Coniferous trees yield <span class="kw">lightweight, resinous ‘softwood’</span> that is <span class="kw">easy to cut, peel, and pulp</span>, and these trees grow in <span class="kw">pure stands</span> along mountain slopes, making them ideal raw material for paper pulp, matchsticks, and tea-chest packing cases.</li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 4: COMPETENCY CASE STUDIES, MOVEMENTS & VISUAL/FIELD RIDDLES ---
+      {
+        id: 27,
+        probTier: "specimen",
+        probLabel: "🚨 2027 COMPETENCY CASE STUDY • 98% PROBABILITY",
+        qType: "desert_tidal_mountain",
+        subTopic: "Chapter: Natural Vegetation • Field Trip Case Study (Identifying 3 Forest Zones)",
+        marks: "[3 Marks]",
+        whyChosen: "Matches the exact 2025–2027 CISCE Competency Question format where a student travels across three Indian states and observes three distinct forest types.",
+        question: "A group of Class 10 students went on a botanical tour across three regions of India:<br>• <strong>Region P (Andaman &amp; Nicobar Islands):</strong> Observed 50-metre tall trees with a dark, damp floor and climbers; trees remained green all year.<br>• <strong>Region Q (Sundarbans, West Bengal):</strong> Observed trees growing in muddy tidal creeks with vertical roots sticking out of the mud.<br>• <strong>Region R (Jaisalmer, Rajasthan):</strong> Observed thorny bushes with deep roots and fleshy stems.<br><br>(a) Identify the natural vegetation belt of Region P, Region Q, and Region R. [1.5]<br>(b) Name one valuable tree found in Region P and one found in Region Q. [1]<br>(c) What is the technical term for the vertical roots observed in Region Q? [0.5]",
+        twistedVersions: [
+          "Identify the forest type from the climatic and botanical clues provided."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Identification of Forest Belts:</strong>
+              <ul>
+                <li><strong>Region P (Andaman &amp; Nicobar):</strong> <span class="kw">Tropical Evergreen Forests (Rainforests)</span>.</li>
+                <li><strong>Region Q (Sundarbans, WB):</strong> <span class="kw">Littoral (Tidal / Mangrove) Forests</span>.</li>
+                <li><strong>Region R (Jaisalmer, Rajasthan):</strong> <span class="kw">Tropical Desert (Thorn and Scrub) Forests</span>.</li>
+              </ul>
+            </li>
+            <li><strong>(b) Trees:</strong>
+              <ul>
+                <li><strong>Region P (Evergreen):</strong> <span class="kw">Rosewood / Mahogany / Ebony / Gurjan</span>.</li>
+                <li><strong>Region Q (Littoral):</strong> <span class="kw">Sundari / Gorjan / Hintal / Keora</span>.</li>
+              </ul>
+            </li>
+            <li><strong>(c) Technical Term for Vertical Breathing Roots:</strong> <span class="kw">Pneumatophores (Breathing Roots)</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 28,
+        probTier: "alternate",
+        probLabel: "🔄 COMPETENCY CASE STUDY • CONSERVATION MOVEMENTS",
+        qType: "conservation",
+        subTopic: "Chapter: Natural Vegetation • Chipko Movement, Van Mahotsav & Joint Forest Management (JFM)",
+        marks: "[3 Marks]",
+        whyChosen: "Listed in ICSE textbooks under People's Participation in Forest Conservation. Often asked as a 2-mark short note or 1-mark objective.",
+        question: "Briefly explain the role of each of the following in conserving India’s forests:<br>(a) Chipko Movement [1]<br>(b) Joint Forest Management (JFM) [1]<br>(c) Van Mahotsav [1]",
+        twistedVersions: [
+          "How did rural women in the Garhwal Himalayas protect trees from commercial contractors in the 1970s?",
+          "What is the main principle behind Joint Forest Management (JFM) launched in 1990?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Chipko Movement:</strong> A historic grassroots eco-movement started in the 1970s in the <span class="kw">Garhwal Himalayas (Uttarakhand)</span> (led by Sunderlal Bahuguna, Chandi Prasad Bhatt, and Gaura Devi) where <span class="kw">villagers embraced/hugged trees to prevent commercial loggers from felling them</span>.</li>
+            <li><strong>(b) Joint Forest Management (JFM):</strong> A collaborative partnership between <span class="kw">State Forest Departments and local village communities</span> where villagers actively guard and regenerate degraded forests in exchange for a <span class="kw">share in non-timber forest produce and timber revenue</span>.</li>
+            <li><strong>(c) Van Mahotsav:</strong> An <span class="kw">annual week-long tree-planting festival celebrated across India in the first week of July</span> (onset of monsoon) where millions of saplings are planted by schools, government bodies, and citizens to raise ecological awareness.</li>
+          </ul>
+        `
+      },
+      {
+        id: 29,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • FOREST CONSERVATION POLICY",
+        qType: "conservation",
+        subTopic: "Chapter: Natural Vegetation • National Forest Policy & Farm Forestry",
+        marks: "[2 Marks]",
+        whyChosen: "Covers Farm Forestry and the National Forest Policy (1952 / 1988) objectives.",
+        question: "(a) What is ‘Farm Forestry’? Which fast-growing tree is commonly planted by farmers under this programme and why is it sometimes criticized? [1]<br>(b) State two main objectives of India’s National Forest Policy. [1]",
+        twistedVersions: [
+          "Why has the planting of Eucalyptus trees under farm forestry been criticized by environmentalists?",
+          "State two objectives of the National Forest Policy of 1988."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Farm Forestry &amp; Eucalyptus:</strong> The practice of <span class="kw">growing trees for commercial and domestic purposes (timber, fuelwood, windbreaks) on private agricultural farmlands</span>. Farmers widely plant <span class="kw">Eucalyptus and Poplar</span> for the paper/pulp industry, though Eucalyptus is criticized because its <span class="kw">deep roots consume excessive groundwater and lower the water table</span>.</li>
+            <li><strong>(b) Objectives of National Forest Policy:</strong>
+              <ul>
+                <li><strong>1.</strong> To bring <span class="kw">33% of India’s total geographical land under forest/tree cover</span>.</li>
+                <li><strong>2.</strong> To conserve biodiversity, check soil erosion in river catchment areas, andcheck the extension of desert sand dunes.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+      {
+        id: 30,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • ALTITUDINAL ZONATION",
+        qType: "desert_tidal_mountain",
+        subTopic: "Chapter: Natural Vegetation • Complete Altitudinal Zonation of Himalayan Forests",
+        marks: "[3 Marks]",
+        whyChosen: "Sometimes Q6(iii) asks you to trace the exact sequence of vegetation belts from the base of the Himalayas (Siwaliks) up to 4,000+ metres.",
+        question: "Describe the four-tier vertical zonation of Mountain (Montane) vegetation in the Himalayas from the foothills to the snowline, naming one characteristic tree in each zone. [3]",
+        twistedVersions: [
+          "At what altitude in the Himalayas do we find Coniferous trees like Deodar, Chir Pine, and Silver Fir?",
+          "Name the type of vegetation found at the foothills of the Himalayas (Terai/Siwaliks) and the type found between 1,000 m and 2,000 m."
+        ],
+        answer: `
+          <ul>
+            <li><strong>Zone 1 — Foothills / Siwaliks &amp; Terai (Up to 1,000 m):</strong> Covered with <span class="kw">Tropical Moist Deciduous Forests</span>. <em>Chief Tree:</em> <span class="kw">Sal, Bamboo, Teak</span>.</li>
+            <li><strong>Zone 2 — Wet Temperate Zone (1,000 m to 2,000 m):</strong> Covered with <span class="kw">Broad-leafed Evergreen Temperate Trees</span>. <em>Chief Trees:</em> <span class="kw">Oak, Chestnut, Birch, Maple</span>.</li>
+            <li><strong>Zone 3 — Temperate Coniferous Zone (1,500 m to 3,300 m):</strong> Covered with cone-bearing <span class="kw">Coniferous Softwood Forests</span>. <em>Chief Trees:</em> <span class="kw">Chir Pine, Deodar, Silver Fir, Blue Pine, Spruce</span>.</li>
+            <li><strong>Zone 4 — Alpine Zone (Above 3,300 m up to Snowline):</strong> Stunted <span class="kw">Alpine shrubs (Junipers, Rhododendrons, Silver Birch)</span> merging into <span class="kw">Alpine pastures (Bugyals/Marg) and mosses/lichens</span> below the permanent snowline.</li>
+          </ul>
+        `
+      },
+      {
+        id: 31,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • DEFORESTATION EFFECTS",
+        qType: "conservation",
+        subTopic: "Chapter: Natural Vegetation • Effects of Declining Forest Cover on Environment",
+        marks: "[3 Marks]",
+        whyChosen: "Asked in 2016, 2019, 2022, and 2025. 'What are the consequences of deforestation?' requires clear cause-and-effect points.",
+        question: "Explain any three serious environmental consequences of reckless deforestation in India. [3]",
+        twistedVersions: [
+          "How does the destruction of forests lead to a twin crisis of droughts and floods?",
+          "Why does deforestation accelerate climate change and loss of wildlife habitat?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Severe Soil Erosion, Silting &amp; Flash Floods:</strong> Without tree roots to bind the soil and humus to absorb rainwater, topsoil washes into rivers, <span class="kw">silting up riverbeds and causing devastating floods</span>, while reduced percolation lowers the groundwater table.</li>
+            <li><strong>2. Decline in Rainfall &amp; Recurring Droughts:</strong> Loss of forest cover drastically <span class="kw">reduces atmospheric humidity from transpiration</span>, leading to lower rainfall and desertification.</li>
+            <li><strong>3. Global Warming &amp; Loss of Biodiversity:</strong> Fewer trees mean less absorption of <span class="kw">Carbon Dioxide ($\text{CO}_2$)</span>, intensifying the <span class="kw">Greenhouse Effect (Global Warming)</span>, while destroying the natural habitat of endangered flora and fauna.</li>
+          </ul>
+        `
+      },
+      {
+        id: 32,
+        probTier: "alternate",
+        probLabel: "🔄 ALTERNATE-YEAR DNA • FOREST FIRES",
+        qType: "conservation",
+        subTopic: "Chapter: Natural Vegetation • Forest Fires: Causes & Prevention",
+        marks: "[2 Marks]",
+        whyChosen: "In recent years, Uttarakhand and Himachal Pradesh forest fires have been in the news; CISCE includes forest fire prevention under Forest Conservation.",
+        question: "(a) Why are Tropical Deciduous and Himalayan Chir Pine forests particularly vulnerable to forest fires during April–May? [1]<br>(b) State any two measures to prevent or control forest fires. [1]",
+        twistedVersions: [
+          "How can forest fires be prevented in India's reserve forests?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Vulnerability in Summer:</strong> During the hot dry months of April–May, the ground is carpeted with a thick layer of <span class="kw">dry fallen deciduous leaves and highly flammable pine needles/resin</span>; high temperatures, low humidity, or human negligence (discarded matchsticks, slash-and-burn) easily ignite wildfires.</li>
+            <li><strong>(b) Prevention Measures:</strong>
+              <ul>
+                <li><strong>1. Clearing Fire-Lines (Firebreaks):</strong> Clearing wide strips of dry leaf litter and vegetation inside forests so fire cannot jump from one block to another.</li>
+                <li><strong>2. Watchtowers, Early Satellite Detection &amp; Banning Campfires:</strong> Strict patrolling and clearing inflammable dry pine needles from the forest floor before summer.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      },
+
+      // --- SECTION 5: SAFETY NET & COMPLETE TREE/STATE/CLIMATE LOCK (QUESTIONS 33 TO 46) ---
+      {
+        id: 33,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "evergreen_deciduous",
+        subTopic: "Chapter: Natural Vegetation • Climatic Conditions for All 5 Forest Types",
+        marks: "[3 Marks]",
+        whyChosen: "In almost every board paper, one sub-question asks: 'State the annual rainfall and average temperature required for X forest.' Having all 5 in one card locks down those marks.",
+        question: "State the exact Annual Rainfall and Average Temperature requirements for each of the five natural vegetation belts of India:<br>(1) Tropical Evergreen &nbsp; (2) Tropical Deciduous &nbsp; (3) Tropical Desert &nbsp; (4) Littoral (Tidal) &nbsp; (5) Mountain Forests [3]",
+        twistedVersions: [
+          "What are the temperature and rainfall conditions required for the growth of Tropical Monsoon forests?",
+          "State the climatic conditions under which Tropical Rainforests thrive."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Tropical Evergreen Forests:</strong> <strong>Rainfall:</strong> <span class="kw">More than 200 cm</span>; <strong>Temperature:</strong> <span class="kw">$25^\circ\text{C}$ to $27^\circ\text{C}$</span> (Humidity $&gt;77\%$).</li>
+            <li><strong>(2) Tropical Deciduous (Monsoon) Forests:</strong> <strong>Rainfall:</strong> <span class="kw">70 cm to 200 cm</span> (Moist: $100\text{–}200\text{ cm}$; Dry: $70\text{–}100\text{ cm}$); <strong>Temperature:</strong> <span class="kw">$24^\circ\text{C}$ to $27^\circ\text{C}$</span>.</li>
+            <li><strong>(3) Tropical Desert (Thorn) Forests:</strong> <strong>Rainfall:</strong> <span class="kw">Less than 50 cm (often $&lt;25\text{ cm}$)</span>; <strong>Temperature:</strong> <span class="kw">$25^\circ\text{C}$ to $27^\circ\text{C}$</span> (Humidity $&lt;47\%$).</li>
+            <li><strong>(4) Littoral (Tidal / Mangrove) Forests:</strong> <strong>Rainfall:</strong> <span class="kw">150 cm to 200 cm</span> (in wet coastal deltas); <strong>Temperature:</strong> <span class="kw">$26^\circ\text{C}$ to $29^\circ\text{C}$</span>.</li>
+            <li><strong>(5) Mountain (Montane) Forests:</strong> <strong>Rainfall:</strong> <span class="kw">100 cm to 250 cm</span>; <strong>Temperature:</strong> <span class="kw">$12^\circ\text{C}$ to $20^\circ\text{C}$</span> (decreases with altitude).</li>
+          </ul>
+        `
+      },
+      {
+        id: 34,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "trees_uses",
+        subTopic: "Chapter: Natural Vegetation • State/Region Identification for All 5 Forest Types",
+        marks: "[2 Marks]",
+        whyChosen: "Another guaranteed 1-mark sub-question: 'Name two states or regions in India where X forest is found.'",
+        question: "Name two specific geographical regions and two states in India for each of the following:<br>(a) Tropical Evergreen Forests<br>(b) Tropical Deciduous Forests<br>(c) Tropical Desert Forests<br>(d) Littoral (Tidal) Forests<br>(e) Mountain Forests [2]",
+        twistedVersions: [
+          "Name the type of natural vegetation found in: (i) Andaman & Nicobar Islands, (ii) Western Rajasthan, (iii) Sundarbans Delta, (iv) Chota Nagpur Plateau."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Tropical Evergreen:</strong> <em>Regions:</em> <span class="kw">Western slopes of Western Ghats, Andaman &amp; Nicobar Islands, Garo-Khasi-Jaintia Hills</span>. <em>States:</em> <span class="kw">Kerala, Meghalaya, Assam, Karnataka</span>.</li>
+            <li><strong>(b) Tropical Deciduous:</strong> <em>Regions:</em> <span class="kw">Eastern slopes of Western Ghats, Chota Nagpur Plateau, Siwalik foothills</span>. <em>States:</em> <span class="kw">Madhya Pradesh, Odisha, Chhattisgarh, Jharkhand, Uttar Pradesh</span>.</li>
+            <li><strong>(c) Tropical Desert:</strong> <em>Regions:</em> <span class="kw">Thar Desert, Kutch, Deccan Rain-shadow zone</span>. <em>States:</em> <span class="kw">Rajasthan, Gujarat, South-West Punjab, Haryana</span>.</li>
+            <li><strong>(d) Littoral (Tidal):</strong> <em>Regions:</em> <span class="kw">Sundarbans (Ganga-Brahmaputra Delta) &amp; Deltas of Mahanadi, Godavari, Krishna</span>. <em>States:</em> <span class="kw">West Bengal, Odisha, Andhra Pradesh</span>.</li>
+            <li><strong>(e) Mountain:</strong> <em>Regions:</em> <span class="kw">Himalayas &amp; Nilgiri Hills</span>. <em>States:</em> <span class="kw">Himachal Pradesh, Uttarakhand, Jammu &amp; Kashmir, Arunachal Pradesh</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 35,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "trees_uses",
+        subTopic: "Chapter: Natural Vegetation • Rosewood vs Ebony vs Mahogany (Evergreen Hardwoods)",
+        marks: "[2 Marks]",
+        whyChosen: "Ensures you never get stuck if asked for the specific uses of Tropical Evergreen trees.",
+        question: "State one characteristic property and one economic use of each of the following Tropical Evergreen trees:<br>(a) Rosewood [1]<br>(b) Ebony [1]",
+        twistedVersions: [
+          "Name two commercially valuable hardwood trees of the Tropical Evergreen forest and state what they are used for."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Rosewood:</strong> Fine-grained, extremely hard, durable dark reddish-brown wood (termite-resistant); used for making <span class="kw">expensive luxury furniture, floorings, musical instruments, and ornamental carvings</span>.</li>
+            <li><strong>(b) Ebony:</strong> Jet-black, heavy, hard, and lustrous wood; used for <span class="kw">piano keys, ornamental carvings, musical instruments, and decorative inlay work</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 36,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "trees_uses",
+        subTopic: "Chapter: Natural Vegetation • Sal vs Teak (The Two Giants of Monsoon Forests)",
+        marks: "[2 Marks]",
+        whyChosen: "Teak and Sal are the two pillars of Tropical Moist Deciduous forests.",
+        question: "Both Teak and Sal belong to the Tropical Moist Deciduous forest. State two economic uses of Sal and mention two states where Sal is abundantly found. [2]",
+        twistedVersions: [
+          "Why is Sal wood preferred for making railway sleepers and house beams?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>Properties &amp; Economic Uses of Sal:</strong> Sal wood is <span class="kw">very hard, heavy, tough, and naturally immune to white ants (termites)</span>. It is extensively used for making <span class="kw">railway sleepers, bridges, overhead beams, doors, window frames, and mine props</span>.</li>
+            <li><strong>Key States for Sal:</strong> <span class="kw">Bihar, Odisha, Jharkhand, Chhattisgarh, Madhya Pradesh, and Assam</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 37,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "trees_uses",
+        subTopic: "Chapter: Natural Vegetation • Neem, Ber & Date Palm (Desert Trees)",
+        marks: "[2 Marks]",
+        whyChosen: "Covers the uses of Neem, Ber, and Date Palm in Tropical Desert/Thorn forests.",
+        question: "State two economic/medicinal uses of the ‘Neem’ tree and one use of the ‘Ber’ tree. [2]",
+        twistedVersions: [
+          "Why is Neem considered a 'wonder tree' in India?",
+          "Name a fruit-bearing thorny tree of the Tropical Desert forest whose wood is used for agricultural implements and charcoal."
+        ],
+        answer: `
+          <ul>
+            <li><strong>Neem:</strong> Its bark, leaves, and seed oil possess strong <span class="kw">antibacterial, antifungal, and medicinal properties</span>; used for <span class="kw">treating skin diseases/allergies, making soaps/cosmetics, and as a natural bio-pesticide/insecticide</span> to protect stored food grains.</li>
+            <li><strong>Ber:</strong> Produces vitamin-rich sour-sweet <span class="kw">edible fruit</span> (eaten raw or pickled); its hard, tough wood is used for <span class="kw">boat ribs, agricultural implements, and charcoal</span>, and its leaves feed lac worms.</li>
+          </ul>
+        `
+      },
+      {
+        id: 38,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "desert_tidal_mountain",
+        subTopic: "Chapter: Natural Vegetation • Casuarina & Gorjan / Hintal in Littoral Belt",
+        marks: "[2 Marks]",
+        whyChosen: "Besides Sundari, examiners occasionally ask for a second tree in the Littoral belt (Gorjan, Hintal, Keora, Rhizophora, Casuarina).",
+        question: "Apart from the Sundari tree, name any two other trees found in the Littoral (Tidal) forests of India and state one use of Casuarina trees planted along sandy coasts. [2]",
+        twistedVersions: [
+          "Why are Casuarina trees planted along the coastal beaches of Odisha, Tamil Nadu, and Maharashtra?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>Other Littoral / Mangrove Trees:</strong> <span class="kw">Gorjan, Hintal, Keora, Agar, and Rhizophora</span> (used mainly as fuelwood and for extracting tannin from bark).</li>
+            <li><strong>Use of Coastal Casuarina Trees:</strong> Planted as <span class="kw">coastal shelterbelts/windbreaks</span> along sandy beaches to <span class="kw">bind coastal sand dunes, check coastal erosion, and reduce the destructive force of tropical cyclones and tsunamis</span>; also provides excellent fuelwood.</li>
+          </ul>
+        `
+      },
+      {
+        id: 39,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "desert_tidal_mountain",
+        subTopic: "Chapter: Natural Vegetation •Tropical Desert vs Littoral Forests Comparison",
+        marks: "[2 Marks]",
+        whyChosen: "A favourite contrast question comparing India's driest forest (Desert) with India's wettest coastal marsh forest (Littoral).",
+        question: "Differentiate between Tropical Desert (Thorn) Forests and Littoral (Tidal) Forests on the basis of:<br>(a) Root characteristics [1]<br>(b) Regions of occurrence &amp; chief trees [1]",
+        twistedVersions: [
+          "How do the roots of a Babool tree in Rajasthan differ in structure and function from the roots of a Sundari tree in West Bengal?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Root Characteristics:</strong> <span class="kw">Tropical Desert trees</span> have <span class="kw">long, deep vertical taproots</span> that penetrate deep underground in search of scarce water; <span class="kw">Littoral (Tidal) trees</span> have <span class="kw">aerial breathing roots (pneumatophores)</span> sticking out of waterlogged mud to take in oxygen, and tangled <span class="kw">stilt roots</span> for support during tides.</li>
+            <li><strong>(b) Regions &amp; Trees:</strong> <span class="kw">Tropical Desert:</span> Found in <span class="kw">Western Rajasthan &amp; Kutch</span> (Trees: <em>Babool, Ber, Khair, Date Palm</em>); <span class="kw">Littoral:</span> Found in the <span class="kw">Sundarbans &amp; Eastern Coastal Deltas</span> (Trees: <em>Sundari, Gorjan, Hintal</em>).</li>
+          </ul>
+        `
+      },
+      {
+        id: 40,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "conservation",
+        subTopic: "Chapter: Natural Vegetation • Accessory Functions & Indirect Benefits of Forests",
+        marks: "[2 Marks]",
+        whyChosen: "Completes the 4 functions of forests: Productive, Protective, Regulatory, and Accessory.",
+        question: "What are the ‘Accessory Functions’ of forests? State two ways in which forests benefit wildlife and tribal communities. [2]",
+        twistedVersions: [
+          "Differentiate between the direct (productive) benefits and indirect (protective/regulatory/accessory) benefits of forests."
+        ],
+        answer: `
+          <ul>
+            <li><strong>Accessory Functions:</strong> Forests provide <span class="kw">natural habitat and sanctuary for diverse wildlife (fauna)</span>, offer <span class="kw">recreation, eco-tourism, and aesthetic beauty</span> through National Parks and Wildlife Sanctuaries, and sustain the <span class="kw">livelihood, food, and culture of indigenous forest tribal communities</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 41,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "trees_uses",
+        subTopic: "Chapter: Natural Vegetation • Bamboo, Tendu & Eucalyptus",
+        marks: "[2 Marks]",
+        whyChosen: "Frequently asked in 1-mark sub-parts on minor forest products.",
+        question: "State one major industrial/economic use for each of the following:<br>(a) Bamboo &nbsp; (b) Tendu leaves &nbsp; (c) Eucalyptus &nbsp; (d) Mulberry [2]",
+        twistedVersions: [
+          "Which forest product is known as 'Green Gold' and is the primary raw material for paper pulp in India?",
+          "Which tree's leaves are used for rearing silkworms (Sericulture)?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Bamboo:</strong> Primary raw material for the <span class="kw">paper and rayon pulp industry</span>, as well as scaffolding, baskets, mats, and rural house construction.</li>
+            <li><strong>(b) Tendu Leaves:</strong> Used for <span class="kw">wrapping ‘bidis’</span> (indigenous cigarettes) in Madhya Pradesh, Odisha, and Chhattisgarh.</li>
+            <li><strong>(c) Eucalyptus:</strong> Fast-growing tree used for <span class="kw">paper pulp, rayon, timber poles</span>, and extracting medicinal <span class="kw">Eucalyptus oil</span>.</li>
+            <li><strong>(d) Mulberry:</strong> Leaves are used for <span class="kw">rearing silkworms (Sericulture)</span>; its flexible tough wood is used for making <span class="kw">sports goods (hockey sticks, cricket bats, tennis rackets)</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 42,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "conservation",
+        subTopic: "Chapter: Natural Vegetation • Why Agro-Forestry is Less Vulnerable to Climate Shock",
+        marks: "[2 Marks]",
+        whyChosen: "Appeared in recent competency questions: 'Why is Agro-forestry not vulnerable to population stress and crop failure?'",
+        question: "Give two reasons why ‘Agro-Forestry’ is considered a more sustainable and resilient system for Indian farmers than traditional mono-cropping. [2]",
+        twistedVersions: [
+          "State two advantages of Agro-forestry over conventional agriculture."
+        ],
+        answer: `
+          <ul>
+            <li><strong>1. Economic Security &amp; Diversified Income:</strong> Even if seasonal food crops fail due to erratic monsoons, the farmer still earns steady income from <span class="kw">timber, fruit trees, fodder, and cattle rearing</span> on the same land.</li>
+            <li><strong>2. Soil Enrichment &amp; Micro-Climate Protection:</strong> Deep-rooted trees <span class="kw">check soil erosion, fix nitrogen, add leaf-litter humus to the soil</span>, and act as windbreaks to protect the standing agricultural crops.</li>
+          </ul>
+        `
+      },
+      {
+        id: 43,
+        probTier: "highest",
+        probLabel: "🔥 HIGHEST PROBABILITY • ONE-WORD / RIDDLE VAULT",
+        qType: "trees_uses",
+        subTopic: "Chapter: Natural Vegetation • 'Name the Following' Rapid-Fire Board Vault",
+        marks: "[3 Marks]",
+        whyChosen: "Locks down all 1-mark 'Name the following' questions from 2010–2026.",
+        question: "Give one geographical term or name for each of the following:<br>(1) The natural vegetation that grows without any human aid or interference.<br>(2) The most widespread and commercially important forest belt of India.<br>(3) Vertical aerial roots with pores found in Littoral/Mangrove trees for taking in oxygen.<br>(4) Plants adapted to survive in arid desert conditions with minimal water.<br>(5) Stunted temperate forests found in the higher reaches of the Nilgiri, Anamalai, and Palani hills.<br>(6) The state in India having the largest area under forest cover (and the state having the highest percentage of forest cover).",
+        twistedVersions: [
+          "Differentiate between 'Flora' and 'Vegetation' / 'Natural (Virgin) Vegetation'."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Untouched Plant Cover:</strong> <span class="kw">Natural Vegetation (or Virgin Vegetation)</span>.</li>
+            <li><strong>(2) Most Widespread &amp; Commercially Exploited Forest:</strong> <span class="kw">Tropical Deciduous (Monsoon) Forests</span>.</li>
+            <li><strong>(3) Vertical Aerial Breathing Roots:</strong> <span class="kw">Pneumatophores</span>.</li>
+            <li><strong>(4) Drought-Resistant Desert Plants:</strong> <span class="kw">Xerophytes</span>.</li>
+            <li><strong>(5) Temperate Forests in Nilgiris:</strong> <span class="kw">Sholas</span>.</li>
+            <li><strong>(6) Forest Area Leaders:</strong> Largest total area under forests = <span class="kw">Madhya Pradesh</span>; Highest percentage of geographical area under forests = <span class="kw">Mizoram (and Lakshadweep / Andaman &amp; Nicobar Islands)</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 44,
+        probTier: "alternate",
+        probLabel: "🔄 COMPETENCY CASE STUDY • ECO-SENSITIVE TOURISM",
+        qType: "conservation",
+        subTopic: "Chapter: Natural Vegetation • Case Study: Mangrove Destruction & Coastal Protection",
+        marks: "[2 Marks]",
+        whyChosen: "In recent years, cyclones in the Bay of Bengal (Amphan, Remal, Dana) have highlighted the role of Sundarbans mangroves as a bio-shield. Very high probability as a competency question!",
+        question: "During recent severe cyclones in the Bay of Bengal, coastal villages located behind dense Mangrove (Littoral) forests in the Sundarbans suffered significantly less damage than areas where mangroves had been cleared for shrimp farming.<br>(a) Explain how Littoral (Mangrove) forests act as a natural ‘Bio-Shield’ for coastal areas. [1]<br>(b) State one other ecological role of Mangrove forests. [1]",
+        twistedVersions: [
+          "Why is the conservation of Tidal (Mangrove) forests along the Odisha and West Bengal coast crucial for disaster management?"
+        ],
+        answer: `
+          <ul>
+            <li><strong>(a) Natural Bio-Shield Against Cyclones:</strong> The dense canopy and <span class="kw">tangled network of stilt/prop roots of Mangrove trees break the high velocity of cyclonic winds and absorb the impact of destructive tidal storm surges and tsunamis</span>, preventing coastal flooding and erosion.</li>
+            <li><strong>(b) Other Ecological Role:</strong> They act as <span class="kw">vital breeding grounds and nurseries for marine fish, crabs, and estuarine biodiversity</span> (including the Royal Bengal Tiger) and trap coastal sediment to stabilize shorelines.</li>
+          </ul>
+        `
+      },
+      {
+        id: 45,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ZERO-RISK SYLLABUS COVERAGE",
+        qType: "conservation",
+        subTopic: "Chapter: Natural Vegetation • Forest Products: Timber (Major) vs Minor Forest Produce",
+        marks: "[2 Marks]",
+        whyChosen: "Ensures clarity if the board asks you to distinguish between Major and Minor forest products with examples.",
+        question: "Differentiate between ‘Major Forest Products’ and ‘Minor Forest Products’ (Non-Timber Forest Produce) with two examples of each. [2]",
+        twistedVersions: [
+          "Name any four minor forest products obtained from Indian forests and state their uses."
+        ],
+        answer: `
+          <ul>
+            <li><strong>Major Forest Products:</strong> Consist of <span class="kw">wood/timber (both Hardwood and Softwood) and fuelwood</span> obtained by felling trees. <em>Examples:</em> <span class="kw">Teak, Sal, Rosewood, Deodar timber, and Charcoal/Firewood</span>.</li>
+            <li><strong>Minor Forest Products (Non-Timber):</strong> All products obtained from forests <span class="kw">without felling the trees</span>. <em>Examples:</em> <span class="kw">Bamboo, Cane, Lac (Shellac), Resin &amp; Turpentine, Gums, Tannin, Tendu leaves, Honey, and Medicinal herbs</span>.</li>
+          </ul>
+        `
+      },
+      {
+        id: 46,
+        probTier: "safety",
+        probLabel: "🛡️ SAFETY NET • ULTIMATE EXAM HALL CHEAT CODE",
+        qType: "trees_uses",
+        subTopic: "Chapter: Natural Vegetation • 10-Second Exam Hall Master Cheat Code",
+        marks: "[3 Marks]",
+        whyChosen: "A final high-speed synthesis of the most common traps students fall into in Question 6, guaranteeing 10/10 marks.",
+        question: "Avoid the 3 biggest student blunders in the exam hall by answering:<br>(1) If asked for a tree of <strong>Tropical Evergreen</strong> vs <strong>Tropical Deciduous</strong>, which trees must you NEVER mix up? [1]<br>(2) What is the exact difference between why <strong>Desert plants shed/modify leaves</strong> vs why <strong>Deciduous trees shed leaves</strong>? [1]<br>(3) Why do <strong>Coniferous trees have needle-like leaves</strong> vs why <strong>Desert trees have spines</strong>? [1]",
+        twistedVersions: [
+          "Compare the leaf adaptations of Tropical Desert vegetation, Tropical Deciduous vegetation, and Mountain Coniferous vegetation."
+        ],
+        answer: `
+          <ul>
+            <li><strong>(1) Never Mix Up Evergreen vs Deciduous Trees:</strong>
+              <ul>
+                <li><strong>Evergreen (R-E-M-C):</strong> <span class="kw">Rosewood, Ebony, Mahogany, Cinchona</span>.</li>
+                <li><strong>Deciduous (T-S-S-S-M):</strong> <span class="kw">Teak, Sal, Sandalwood, Semul, Myrobalan</span>. <em>(Never write Teak or Sandalwood under Evergreen!)</em></li>
+              </ul>
+            </li>
+            <li><strong>(2) Desert vs Deciduous Leaf Adaptation:</strong>
+              <ul>
+                <li><strong>Desert Plants:</strong> Have leaves permanently <span class="kw">modified into sharp spines/thorns throughout the year</span> because annual rainfall is always $&lt;50\text{ cm}$.</li>
+                <li><strong>Deciduous Trees:</strong> Have broad leaves during the rainy season and <span class="kw">shed their leaves temporarily for 6–8 weeks in dry summer (March–May)</span> to conserve moisture.</li>
+              </ul>
+            </li>
+            <li><strong>(3) Coniferous Needles vs Desert Spines:</strong>
+              <ul>
+                <li><strong>Coniferous Needles + Conical Shape:</strong> Adaptation to <span class="kw">extreme cold and heavy snowfall</span> (slides snow off branches and reduces transpiration when soil water is frozen).</li>
+                <li><strong>Desert Spines + Long Taproots:</strong> Adaptation to <span class="kw">extreme heat and aridity ($&lt;50\text{ cm}$ rain)</span>.</li>
+              </ul>
+            </li>
+          </ul>
+        `
+      }
+    ];
+
+    // =========================================================================
+    // APP STATE, MODE SWITCHER, DUAL-TAB DRAWER, BLUR RECALL, FILTERS & TIMER
+    // =========================================================================
+    let currentMode = 'dpp'; // 'dpp' | 'gothrough' | 'blur'
+    let currentProbFilter = 'all';
+    let currentTypeFilter = 'all';
+    let masteredIds = new Set(JSON.parse(localStorage.getItem('icse2027_veg_mastered') || '[]'));
+    let reviewIds = new Set(JSON.parse(localStorage.getItem('icse2027_veg_review') || '[]'));
+    let revealedIds = new Set();
+
+    let timerSeconds = 1800;
+    let timerInterval = null;
+    let isTimerRunning = false;
+
+    function saveProgress() {
+      localStorage.setItem('icse2027_veg_mastered', JSON.stringify([...masteredIds]));
+      localStorage.setItem('icse2027_veg_review', JSON.stringify([...reviewIds]));
+      updateStats();
+    }
+
+    function updateStats() {
+      document.getElementById('statMastered').textContent = masteredIds.size;
+      document.getElementById('statReview').textContent = reviewIds.size;
+      const pct = Math.round((masteredIds.size / vegQuestions.length) * 100);
+      const bar = document.getElementById('masteryProgressBar');
+      if (bar) bar.style.width = `${pct}%`;
+    }
+
+    function openCheatTab(tabName) {
+      const drawer = document.getElementById('matrixDrawer');
+      drawer.classList.add('open');
+      switchCheatTab(tabName);
+      drawer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function switchCheatTab(tabName) {
+      const isForests = tabName === 'forests';
+      document.getElementById('tabContentForests').style.display = isForests ? 'block' : 'none';
+      document.getElementById('tabContentTrees').style.display = isForests ? 'none' : 'block';
+      document.getElementById('tabBtnForests').classList.toggle('active', isForests);
+      document.getElementById('tabBtnTrees').classList.toggle('active', !isForests);
+    }
+
+    function closeCheatDrawer() {
+      document.getElementById('matrixDrawer').classList.remove('open');
+    }
+
+    function setStudyMode(mode) {
+      currentMode = mode;
+      document.getElementById('btnDppMode').classList.toggle('active', mode === 'dpp');
+      document.getElementById('btnGoMode').classList.toggle('active', mode === 'gothrough');
+      document.getElementById('btnBlurMode').classList.toggle('active', mode === 'blur');
+      document.body.classList.toggle('blur-mode', mode === 'blur');
+
+      const mBtn = document.getElementById('mobileModeBtn');
+      if (mBtn) {
+        const labelMap = { dpp: 'Mode: DPP', gothrough: 'Mode: Go-Through', blur: 'Mode: Blur' };
+        mBtn.textContent = labelMap[mode];
+      }
+      renderQuestions();
+    }
+
+    function cycleMobileMode() {
+      if (currentMode === 'dpp') setStudyMode('gothrough');
+      else if (currentMode === 'gothrough') setStudyMode('blur');
+      else setStudyMode('dpp');
+    }
+
+    function setProbFilter(prob, btnEl) {
+      currentProbFilter = prob;
+      document.querySelectorAll('[data-prob]').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      renderQuestions();
+    }
+
+    function setTypeFilter(type, btnEl) {
+      currentTypeFilter = type;
+      document.querySelectorAll('[data-type]').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      renderQuestions();
+    }
+
+    function toggleAnswer(id) {
+      if (revealedIds.has(id)) revealedIds.delete(id);
+      else revealedIds.add(id);
+
+      const panel = document.getElementById(`ans-${id}`);
+      const btn = document.getElementById(`revbtn-${id}`);
+      if (panel && btn) {
+        const isShown = revealedIds.has(id);
+        panel.classList.toggle('visible', isShown);
+        btn.innerHTML = isShown ? '🙈 Hide Official Board Answer' : '👁 Show Official Board Answer';
+      }
+    }
+
+    function expandAllAnswers() {
+      vegQuestions.forEach(q => revealedIds.add(q.id));
+      renderQuestions();
+    }
+
+    function collapseAllAnswers() {
+      revealedIds.clear();
+      if (currentMode !== 'dpp') setStudyMode('dpp');
+      else renderQuestions();
+    }
+
+    function toggleMastered(id) {
+      if (masteredIds.has(id)) masteredIds.delete(id);
+      else {
+        masteredIds.add(id);
+        reviewIds.delete(id);
+      }
+      saveProgress();
+      renderQuestions();
+    }
+
+    function toggleReview(id) {
+      if (reviewIds.has(id)) reviewIds.delete(id);
+      else {
+        reviewIds.add(id);
+        masteredIds.delete(id);
+      }
+      saveProgress();
+      renderQuestions();
+    }
+
+    function getProbClass(tier) {
+      if (tier === 'specimen') return 'prob-specimen';
+      if (tier === 'highest') return 'prob-highest';
+      if (tier === 'alternate') return 'prob-alternate';
+      return 'prob-safety';
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      const query = (document.getElementById('searchInput').value || '').trim().toLowerCase();
+
+      const filtered = vegQuestions.filter(q => {
+        if (currentProbFilter !== 'all' && q.probTier !== currentProbFilter) return false;
+        if (currentTypeFilter === 'revision') {
+          if (!reviewIds.has(q.id)) return false;
+        } else if (currentTypeFilter !== 'all' && q.qType !== currentTypeFilter) {
+          return false;
+        }
+        if (query) {
+          const hay = (
+            q.question + ' ' +
+            q.subTopic + ' ' +
+            q.whyChosen + ' ' +
+            q.twistedVersions.join(' ') + ' ' +
+            q.answer
+          ).toLowerCase();
+          return hay.includes(query);
+        }
+        return true;
+      });
+
+      document.getElementById('statTotal').textContent = filtered.length;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="q-card" style="text-align:center; padding:40px;">
+            <h3 style="margin-bottom:8px;">No matching questions found</h3>
+            <p style="color:var(--text-secondary); font-size:0.9rem;">Try clearing your search bar or switching the filter chip back to "All Questions".</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(q => {
+        const isAnswerVisible = currentMode === 'gothrough' || currentMode === 'blur' || revealedIds.has(q.id);
+        const isMastered = masteredIds.has(q.id);
+        const isReview = reviewIds.has(q.id);
+
+        return `
+          <article class="q-card ${isMastered ? 'mastered' : ''} ${isReview ? 'review-later' : ''}" id="qcard-${q.id}">
+            <div class="q-header">
+              <div class="badge-group">
+                <span class="q-num">Q${q.id}</span>
+                <span class="prob-badge ${getProbClass(q.probTier)}">${q.probLabel}</span>
+                <span class="topic-badge">${q.subTopic}</span>
+              </div>
+              <span class="marks-badge">${q.marks}</span>
+            </div>
+
+            <div class="dna-box">
+              <strong>🧬 Why Chosen (Examiner Pattern DNA):</strong> ${q.whyChosen}
+            </div>
+
+            <div class="q-main">
+              ${q.question}
+            </div>
+
+            <div class="twists-container">
+              <div class="twists-title">
+                🔀 All Twisted / Same-Answer Board Variations (${q.twistedVersions.length} Variations):
+              </div>
+              <ul class="twists-list">
+                ${q.twistedVersions.map(t => `<li>${t}</li>`).join('')}
+              </ul>
+            </div>
+
+            <div class="q-actions">
+              ${currentMode === 'dpp' ? `
+                <button class="reveal-btn" id="revbtn-${q.id}" onclick="toggleAnswer(${q.id})">
+                  ${isAnswerVisible ? '🙈 Hide Official Board Answer' : '👁 Show Official Board Answer'}
+                </button>
+              ` : currentMode === 'blur' ? `
+                <span style="font-size:0.78rem; color:var(--accent-emerald); font-weight:700;">🧠 Active Recall Mode: Tap or hover any blurred green keyword below to reveal it!</span>
+              ` : `
+                <span style="font-size:0.78rem; color:var(--accent-amber); font-weight:700;">⚡ Go-Through Mode Active (Answer Expanded Below)</span>
+              `}
+
+              <div class="self-eval-group">
+                <button class="eval-btn master-btn ${isMastered ? 'active' : ''}" onclick="toggleMastered(${q.id})">
+                  ${isMastered ? '✔ Mastered' : 'Mark Mastered'}
+                </button>
+                <button class="eval-btn rev-btn ${isReview ? 'active' : ''}" onclick="toggleReview(${q.id})">
+                  ${isReview ? '⭐ In Revision List' : '⭐ Needs Revision'}
+                </button>
+              </div>
+            </div>
+
+            <div class="answer-panel ${isAnswerVisible ? 'visible' : ''}" id="ans-${q.id}">
+              <div class="ans-header">
+                <span class="ans-badge">✅ Official CISCE Council Marking Scheme Answer</span>
+              </div>
+              <div class="ans-body">
+                ${q.answer}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // Allow tapping blurred keywords on mobile to toggle unblur
+    document.addEventListener('click', (e) => {
+      if (e.target && e.target.classList.contains('kw') && document.body.classList.contains('blur-mode')) {
+        e.target.classList.toggle('unblurred');
+      }
+    });
+
+    // =========================================================================
+    // COUNTDOWN TIMER & SELF-DOWNLOAD
+    // =========================================================================
+    function formatTime(sec) {
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    function updateTimerUI() {
+      const text = formatTime(timerSeconds);
+      const d1 = document.getElementById('timerDisplay');
+      const d2 = document.getElementById('mobileTimerDisplay');
+      [d1, d2].forEach(el => {
+        if (!el) return;
+        el.textContent = text;
+        el.classList.remove('warning', 'danger');
+        if (timerSeconds <= 60) el.classList.add('danger');
+        else if (timerSeconds <= 300) el.classList.add('warning');
+      });
+    }
+
+    function changeTimerPreset() {
+      const val = parseInt(document.getElementById('timerPreset').value, 10);
+      pauseTimer();
+      timerSeconds = val;
+      updateTimerUI();
+    }
+
+    function toggleTimer() {
+      if (isTimerRunning) pauseTimer();
+      else startTimer();
+    }
+
+    function startTimer() {
+      if (isTimerRunning) return;
+      isTimerRunning = true;
+      const btn = document.getElementById('timerToggleBtn');
+      const mBtn = document.getElementById('mobileTimerBtn');
+      if (btn) { btn.textContent = 'Pause'; btn.className = 't-btn pause'; }
+      if (mBtn) { mBtn.textContent = 'Pause'; mBtn.className = 't-btn pause'; }
+
+      timerInterval = setInterval(() => {
+        if (timerSeconds > 0) {
+          timerSeconds--;
+          updateTimerUI();
+        } else {
+          pauseTimer();
+          alert('⏰ Time is up! Check your answers against the Official CISCE Marking Scheme.');
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      isTimerRunning = false;
+      clearInterval(timerInterval);
+      const btn = document.getElementById('timerToggleBtn');
+      const mBtn = document.getElementById('mobileTimerBtn');
+      if (btn) { btn.textContent = 'Start'; btn.className = 't-btn start'; }
+      if (mBtn) { mBtn.textContent = 'Start'; mBtn.className = 't-btn start'; }
+    }
+
+    function resetTimer() {
+      pauseTimer();
+      timerSeconds = parseInt(document.getElementById('timerPreset').value, 10);
+      updateTimerUI();
+    }
+
+    function downloadSelfHtml() {
+      const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ICSE_2027_Geography_Natural_Vegetation_DPP.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      updateStats();
+      renderQuestions();
+      startTimer();
+    });
+  </script>
+</body>
+</html>
