@@ -358,6 +358,27 @@ function renderNav() {
         }
     };
     navMenu.appendChild(wasteNav);
+
+    // Quick Launch: 1857 First War of Independence Class Notes
+    const hisNav = document.createElement('div');
+    const isHisActive = state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-1';
+    hisNav.className = `nav-item nav-item-featured ${isHisActive ? 'active' : ''}`;
+    hisNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #f43f5e;">history_edu</span>
+        <span style="font-weight: 600;">1857 Revolt Notes</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f43f5e, #e11d48); color:#fff;">NEW</span>
+    `;
+    hisNav.onclick = () => {
+        closeSidebarOnMobile();
+        resetSearch();
+        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
+        const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
+        const hisChap = hisSub?.chapters?.find(c => c.id === 'chap-his-1');
+        if (hisChap) {
+            navigateTo('items', [batch.id, hisSub.id, hisChap.id]);
+        }
+    };
+    navMenu.appendChild(hisNav);
 }
 
 function resetSearch() {
@@ -646,7 +667,7 @@ function renderSearchResults(query) {
         emptyState.innerHTML = `
             <span class="material-symbols-outlined icon">search_off</span>
             <h3>No matching notes found</h3>
-            <p>Try searching for topics like "Climate", "Soil", "Vegetation", "Water", "Energy" or "Mineral".</p>
+            <p>Try searching for topics like "1857", "First War", "Climate", "Soil", "Vegetation", "Water", "Energy" or "Mineral".</p>
         `;
         wrapper.appendChild(emptyState);
     } else {

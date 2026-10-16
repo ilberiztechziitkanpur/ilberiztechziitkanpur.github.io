@@ -43,6 +43,10 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # Main interactive MCQ web app (hardware accelerated)
 │   └── toposheet/                   # Topography (Question 1) Master Blueprint & DNA Engine
 │       └── index.html               # Main interactive Topo Exam & Blueprint web app
+├── history/                         # ALL History subject content lives strictly here
+│   └── notes/                       # ICSE Class 10 History PDF notes
+│       ├── The_First_War_Of_Independence_01_Class_Notes.pdf (5.8 MB) — Causes & factors
+│       └── The_First_War_Of_Independence_02_Class_Notes.pdf (4.0 MB) — Events & consequences
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -56,13 +60,13 @@ ILBERIZ TECHZ IIT KANPUR/
 
 ## 3. Strict Autonomous Engineering Rules
 
-1. **Geography Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or chapter-specific interactive theory vaults MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `soil/`, `vegetation/`, `water/`, `transport/`, `waste/`, `notes/`, `mcq/`, `toposheet/`, etc.).
+1. **Subject Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or chapter-specific interactive theory vaults MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `soil/`, `vegetation/`, `water/`, `transport/`, `waste/`, `notes/`, `mcq/`, `toposheet/`, etc.). All History notes and content MUST reside strictly inside `history/` (e.g. `history/notes/`). Never place loose subject files in the repository root.
 2. **Standard File Structure for Engines**: Each interactive chapter vault is named `index.html` inside its respective folder (e.g. `geography/<topic>/index.html`) so it can be served as a clean standalone web app or embedded smoothly inside the main dashboard iframe.
 3. **Always Include Navigation & Fonts**: Every chapter engine `index.html` MUST include:
    - Google Fonts (`Inter`, `Outfit`, `JetBrains Mono`) and `Material Symbols Outlined`.
    - The `.home-nav-btn` linking back to `../../index.html` with `target="_top"` so students can easily return to the dashboard.
-4. **No Empty Subject Folders**: Do NOT create empty directories for Mathematics, Physics, Chemistry, Biology, History, etc., until the user provides actual files for them. Currently, ONLY Geography has content.
-5. **No Root Clutter**: Never leave raw download files (like `gemini-code-*.html` or `temp_*.html`) in the root directory. Process them into their proper folder (`geography/...`) and remove the loose download file immediately.
+4. **No Empty Subject Folders**: Do NOT create empty directories for Mathematics, Physics, Chemistry, Biology, etc., until the user provides actual files for them. Active content folders currently exist for Geography (`geography/`) and History (`history/notes/`). Full authentic ICSE Class 10 chapter syllabi for all 9 subjects are mapped in `data.js` and `data.json`.
+5. **No Root Clutter**: Never leave raw download files (like `gemini-code-*.html` or `temp_*.html`) in the root directory. Process them into their proper folder (`geography/...`, `history/...`) and remove the loose download file immediately.
 6. **Leave Video Downloader Untouched**: The `Video_Downloader/` directory is for a completely different utility. Never modify, delete, or commit changes inside `Video_Downloader/`.
 7. **Always Synchronize `data.js` and `data.json`**: When adding a new item or chapter, update both files in parallel. `data.js` attaches to `window.COURSE_DATA` for offline `file://` usage, while `data.json` is for standard HTTP fetching.
 8. **Git Push Protocol**: Always commit changes and use `BypassSandbox: true` for `git push origin main` because sandbox restricts network access.
@@ -200,6 +204,125 @@ ILBERIZ TECHZ IIT KANPUR/
   3. Formula & Scale Calculation Master Cheat Sheet
   4. Survey Conventional Symbols & Color Codes Cheat Sheet
 - CSS containment (`content-visibility: auto`) for zero lag.
+
+### J. History Notes (2 PDFs in `history/notes/`)
+- **`The_First_War_Of_Independence_01_Class_Notes.pdf` (5.8 MB)**:
+  - Political, socio-religious, economic & military causes of 1857 Revolt.
+  - Doctrine of Lapse, annexation of Awadh, disrespect to Bahadur Shah Zafar.
+  - Interference with customs (General Service Enlistment Act, Religious Disabilities Act, taxation on temples/mosques).
+  - Economic exploitation, drain of wealth, ruin of handicrafts.
+  - Military grievances & Immediate cause: Introduction of the Enfield rifle greased cartridge.
+- **`The_First_War_Of_Independence_02_Class_Notes.pdf` (4.0 MB)**:
+  - Major storm centres & suppression (Meerut, Delhi, Kanpur, Lucknow, Jhansi).
+  - Results and consequences: Government of India Act 1858 (transfer of rule from British East India Company to the Crown).
+  - Queen Victoria's Proclamation of 1858 (pledge of religious non-interference and equal treatment).
+  - Military reorganization (ratio of European to Indian troops increased, artillery placed exclusively in British hands).
+  - Policy of Divide and Rule, financial burden, and rise of Indian nationalism.
+
+### K. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
+All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
+1. **Mathematics (`sub-10-math`) — 15 Chapters**:
+   - Ch 1: Goods and Services Tax (GST)
+   - Ch 2: Banking (Recurring Deposit)
+   - Ch 3: Shares and Dividends
+   - Ch 4: Linear Inequations
+   - Ch 5: Quadratic Equations in One Variable
+   - Ch 6: Factorisation of Polynomials (Remainder & Factor Theorems)
+   - Ch 7: Matrices (2x2)
+   - Ch 8: Arithmetic & Geometric Progression
+   - Ch 9: Coordinate Geometry & Reflection
+   - Ch 10: Similarity of Triangles
+   - Ch 11: Circles & Tangents
+   - Ch 12: Mensuration (Cylinder, Cone, Sphere)
+   - Ch 13: Trigonometrical Identities, Heights & Distances
+   - Ch 14: Statistics (Mean, Median, Mode, Ogive & Quartiles)
+   - Ch 15: Probability
+2. **Physics (`sub-10-phy`) — 11 Chapters**:
+   - Ch 1: Force, Work, Power and Energy
+   - Ch 2: Simple Machines (Levers & Pulleys)
+   - Ch 3: Refraction of Light at Plane Surfaces (TIR & Critical Angle)
+   - Ch 4: Refraction through a Lens
+   - Ch 5: Spectrum & Electromagnetic Waves
+   - Ch 6: Sound (Echoes & Resonance)
+   - Ch 7: Current Electricity (Ohm's Law & Internal Resistance)
+   - Ch 8: Electrical Power & Household Circuits (Ring System & 3-pin plug)
+   - Ch 9: Electro-Magnetism
+   - Ch 10: Calorimetry
+   - Ch 11: Radioactivity & Nuclear Energy
+3. **Chemistry (`sub-10-chem`) — 12 Chapters**:
+   - Ch 1: Periodic Properties and Variations
+   - Ch 2: Chemical Bonding (Electrovalent, Covalent & Coordinate)
+   - Ch 3: Acids, Bases and Salts
+   - Ch 4: Analytical Chemistry (NaOH & NH4OH action)
+   - Ch 5: Mole Concept and Stoichiometry
+   - Ch 6: Electrolysis
+   - Ch 7: Metallurgy (Extraction of Aluminium)
+   - Ch 8: Study of Compounds — Hydrogen Chloride
+   - Ch 9: Study of Compounds — Ammonia
+   - Ch 10: Study of Compounds — Nitric Acid
+   - Ch 11: Study of Compounds — Sulphuric Acid
+   - Ch 12: Organic Chemistry (Hydrocarbons, Alcohols & Carboxylic Acids)
+4. **Biology (`sub-10-bio`) — 12 Chapters**:
+   - Ch 1: Cell Division & Structure of Chromosomes
+   - Ch 2: Genetics — Fundamentals & Mendel's Laws
+   - Ch 3: Absorption by Roots (Osmosis & Active Transport)
+   - Ch 4: Transpiration
+   - Ch 5: Photosynthesis
+   - Ch 6: The Circulatory System
+   - Ch 7: The Excretory System
+   - Ch 8: The Nervous System & Sense Organs
+   - Ch 9: The Endocrine System
+   - Ch 10: The Reproductive System
+   - Ch 11: Human Population
+   - Ch 12: Pollution — Environmental Challenges
+5. **Geography (`sub-10-geo`) — 12 Units / Interactive Engines**:
+   - Topography Q1 Master Blueprint (50 Qs)
+   - Master 100 MCQ Diagnostic Engine
+   - 6 Theory DPP Master Vaults (Climate, Soil, Vegetation, Water, Transport, Waste)
+   - 17 Complete Class Notes PDFs (Climate, Soil, Vegetation, Water, Minerals, Energy)
+   - Agriculture & Manufacturing Industries MCQ DPPs
+6. **History & Civics (`sub-10-his`) — 19 Chapters**:
+   - *History*:
+     - Ch 1: The First War of Independence (1857) [2 Class Notes PDFs Live]
+     - Ch 2: Growth of Nationalism & Early Nationalists
+     - Ch 3: Assertive Nationalism & Partition of Bengal
+     - Ch 4: The Muslim League & Lucknow Pact
+     - Ch 5: Mahatma Gandhi & National Movement (1919–1934)
+     - Ch 6: The Quit India Movement
+     - Ch 7: Forward Bloc and the INA
+     - Ch 8: Independence & Partition of India
+     - Ch 9: The First World War (1914–1918)
+     - Ch 10: Rise of Dictatorships (Fascism & Nazism)
+     - Ch 11: The Second World War (1939–1945)
+     - Ch 12: United Nations Organization
+     - Ch 13: Major Agencies of the United Nations
+     - Ch 14: The Non-Aligned Movement (NAM)
+   - *Civics*:
+     - Civics Ch 1: The Union Parliament
+     - Civics Ch 2: The Executive — President & Vice-President
+     - Civics Ch 3: The Prime Minister & Council of Ministers
+     - Civics Ch 4: The Supreme Court
+     - Civics Ch 5: The High Courts & Subordinate Courts
+7. **English (`sub-10-eng`) — 4 Chapters**:
+   - Ch 1: Drama — Julius Caesar (Acts III, IV, V)
+   - Ch 2: Treasure Chest — ICSE Poems
+   - Ch 3: Treasure Chest — ICSE Short Stories
+   - Ch 4: English Language — Composition & Applied Grammar
+8. **Hindi (`sub-10-hin`) — 4 Chapters**:
+   - Ch 1: Sahitya Sagar — Gadya Sankalan (Short Stories)
+   - Ch 2: Sahitya Sagar — Padya Sankalan (Poems)
+   - Ch 3: Naya Raasta / Ekanki Sanchay
+   - Ch 4: Hindi Vyakaran, Nibandh evam Patra Lekhan
+9. **Computer Applications (`sub-10-comp`) — 9 Chapters**:
+   - Ch 1: Revision of Class IX Java Concepts
+   - Ch 2: Principles of OOP & Classes
+   - Ch 3: User-Defined Methods
+   - Ch 4: Constructors in Java
+   - Ch 5: Library Classes & Wrapper Classes
+   - Ch 6: Encapsulation & Access Specifiers
+   - Ch 7: Arrays (1D & 2D, Searching & Sorting)
+   - Ch 8: String Handling in Java
+   - Ch 9: Exception Handling in Java
 
 ---
 

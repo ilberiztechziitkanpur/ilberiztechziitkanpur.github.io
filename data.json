@@ -10,43 +10,97 @@
                 {
                     "id": "sub-10-math",
                     "name": "Mathematics",
-                    "description": "Algebra, Trigonometry, Coordinate Geometry & Statistics",
+                    "description": "Commercial Mathematics, Algebra, Geometry, Mensuration, Trigonometry, Statistics & Probability",
                     "icon": "calculate",
                     "chapters": [
                         {
                             "id": "chap-math-1",
-                            "name": "Ch 1: Real Numbers & Polynomials",
-                            "description": "Euclid's division lemma, fundamental theorem of arithmetic & polynomials",
+                            "name": "Ch 1: Goods and Services Tax (GST)",
+                            "description": "CGST, SGST, IGST calculations, intra-state and inter-state trade, input tax credit",
                             "items": []
                         },
                         {
                             "id": "chap-math-2",
-                            "name": "Ch 2: Linear Equations & Quadratic Equations",
-                            "description": "Pair of linear equations in two variables & quadratic formula",
+                            "name": "Ch 2: Banking (Recurring Deposit)",
+                            "description": "Computation of interest and maturity value of recurring deposit accounts",
                             "items": []
                         },
                         {
                             "id": "chap-math-3",
-                            "name": "Ch 3: Arithmetic Progressions & Triangles",
-                            "description": "nth term, sum of n terms & similarity criteria for triangles",
+                            "name": "Ch 3: Shares and Dividends",
+                            "description": "Face value, market value, dividend, rate of return and investment calculations",
                             "items": []
                         },
                         {
                             "id": "chap-math-4",
-                            "name": "Ch 4: Coordinate Geometry & Trigonometry",
-                            "description": "Distance, section formula & trigonometric identities",
+                            "name": "Ch 4: Linear Inequations",
+                            "description": "Solving linear inequations in one variable and number line representation",
                             "items": []
                         },
                         {
                             "id": "chap-math-5",
-                            "name": "Ch 5: Circles, Surface Areas & Volumes",
-                            "description": "Tangents to circles, surface areas & volume calculations",
+                            "name": "Ch 5: Quadratic Equations in One Variable",
+                            "description": "Factorisation, quadratic formula, nature of discriminant and applied word problems",
                             "items": []
                         },
                         {
                             "id": "chap-math-6",
-                            "name": "Ch 6: Statistics & Probability",
-                            "description": "Mean, median, mode of grouped data and theoretical probability",
+                            "name": "Ch 6: Factorisation of Polynomials",
+                            "description": "Remainder theorem, Factor theorem and complete factorisation of polynomials",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-math-7",
+                            "name": "Ch 7: Matrices",
+                            "description": "Order of matrix, addition, subtraction, scalar and 2x2 matrix multiplication",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-math-8",
+                            "name": "Ch 8: Arithmetic & Geometric Progression",
+                            "description": "General nth term, sum of first n terms of AP and introduction to GP",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-math-9",
+                            "name": "Ch 9: Coordinate Geometry & Reflection",
+                            "description": "Reflection across axes/origin, Section & Mid-point formulas, equation of a straight line",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-math-10",
+                            "name": "Ch 10: Similarity of Triangles",
+                            "description": "Axioms of similarity (AAA, SAS, SSS), basic proportionality and scale factors",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-math-11",
+                            "name": "Ch 11: Circles & Tangents",
+                            "description": "Angle and chord properties, cyclic quadrilaterals, tangent-chord theorem",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-math-12",
+                            "name": "Ch 12: Mensuration",
+                            "description": "Surface area and volume of right circular cylinders, cones and spheres/hemispheres",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-math-13",
+                            "name": "Ch 13: Trigonometrical Identities, Heights & Distances",
+                            "description": "Fundamental identities, proofs, angles of elevation and depression with two right triangles",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-math-14",
+                            "name": "Ch 14: Statistics",
+                            "description": "Mean (Direct, Short-cut, Step-deviation), Median, Mode for grouped data and Ogives",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-math-15",
+                            "name": "Ch 15: Probability",
+                            "description": "Random experiments, sample spaces, elementary events and theoretical probability",
                             "items": []
                         }
                     ]
@@ -54,31 +108,73 @@
                 {
                     "id": "sub-10-phy",
                     "name": "Physics",
-                    "description": "Light, Electricity, Magnetism & Sources of Energy",
+                    "description": "Mechanics, Light, Sound, Electricity, Magnetism, Heat & Modern Physics",
                     "icon": "science",
                     "chapters": [
                         {
                             "id": "chap-phy-1",
-                            "name": "Ch 1: Light - Reflection and Refraction",
-                            "description": "Spherical mirrors, lenses, magnification and refractive index",
+                            "name": "Ch 1: Force, Work, Power and Energy",
+                            "description": "Turning effect, moment of couple, equilibrium, work, power, kinetic & potential energy conservation",
                             "items": []
                         },
                         {
                             "id": "chap-phy-2",
-                            "name": "Ch 2: The Human Eye and Colourful World",
-                            "description": "Structure of eye, defects of vision, prism dispersion and scattering",
+                            "name": "Ch 2: Simple Machines",
+                            "description": "Mechanical advantage, velocity ratio, efficiency, levers Class I, II, III and pulley systems",
                             "items": []
                         },
                         {
                             "id": "chap-phy-3",
-                            "name": "Ch 3: Electricity",
-                            "description": "Ohm's law, resistance, series-parallel combinations and Joule's heating",
+                            "name": "Ch 3: Refraction of Light at Plane Surfaces",
+                            "description": "Laws of refraction, refractive index, real & apparent depth, critical angle and total internal reflection",
                             "items": []
                         },
                         {
                             "id": "chap-phy-4",
-                            "name": "Ch 4: Magnetic Effects of Electric Current",
-                            "description": "Field lines, right-hand thumb rule, solenoid and electromagnetic induction",
+                            "name": "Ch 4: Refraction through a Lens",
+                            "description": "Convex & concave lenses, principal focus, ray diagrams, lens formula, magnification and power",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-phy-5",
+                            "name": "Ch 5: Spectrum & Electromagnetic Waves",
+                            "description": "Prism dispersion, electromagnetic spectrum regions (UV, visible, IR, X-rays) and scattering",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-phy-6",
+                            "name": "Ch 6: Sound",
+                            "description": "Reflection of sound, echoes (calculation of distance), natural, damped and resonant vibrations",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-phy-7",
+                            "name": "Ch 7: Current Electricity",
+                            "description": "Ohm's law, resistance factors, resistivity, EMF, terminal voltage and series-parallel networks",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-phy-8",
+                            "name": "Ch 8: Electrical Power & Household Circuits",
+                            "description": "Electrical energy and power, kWh calculations, ring system, 3-pin plug, earthing and fuse",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-phy-9",
+                            "name": "Ch 9: Electro-Magnetism",
+                            "description": "Oersted effect, solenoid, Fleming's left-hand rule, electric motor, induction and transformers",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-phy-10",
+                            "name": "Ch 10: Calorimetry",
+                            "description": "Specific heat capacity, heat capacity, principle of method of mixtures and latent heat of fusion",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-phy-11",
+                            "name": "Ch 11: Radioactivity & Nuclear Energy",
+                            "description": "Atomic nucleus, alpha, beta, gamma decay, radiation properties, background radiation and safety",
                             "items": []
                         }
                     ]
@@ -86,31 +182,79 @@
                 {
                     "id": "sub-10-chem",
                     "name": "Chemistry",
-                    "description": "Chemical Reactions, Acids, Bases, Metals & Carbon",
+                    "description": "Periodic Properties, Bonding, Acids & Bases, Stoichiometry, Metallurgy, Study of Compounds & Organic Chemistry",
                     "icon": "biotech",
                     "chapters": [
                         {
                             "id": "chap-chem-1",
-                            "name": "Ch 1: Chemical Reactions and Equations",
-                            "description": "Types of chemical reactions, balancing and oxidation-reduction",
+                            "name": "Ch 1: Periodic Properties and Variations",
+                            "description": "Periodic trends across periods and down groups: atomic radius, ionisation energy, electron affinity, electronegativity",
                             "items": []
                         },
                         {
                             "id": "chap-chem-2",
-                            "name": "Ch 2: Acids, Bases and Salts",
-                            "description": "pH scale, neutralization, properties and important chemical compounds",
+                            "name": "Ch 2: Chemical Bonding",
+                            "description": "Electrovalent, covalent and coordinate bonding in NaCl, MgCl2, CaO, CH4, H2O, NH3, NH4+ and H3O+",
                             "items": []
                         },
                         {
                             "id": "chap-chem-3",
-                            "name": "Ch 3: Metals and Non-metals",
-                            "description": "Physical & chemical properties, reactivity series and metallurgy",
+                            "name": "Ch 3: Acids, Bases and Salts",
+                            "description": "Definitions, classification, chemical properties, pH scale and preparation of soluble/insoluble salts",
                             "items": []
                         },
                         {
                             "id": "chap-chem-4",
-                            "name": "Ch 4: Carbon and its Compounds",
-                            "description": "Covalent bonding, homologous series, functional groups and soaps",
+                            "name": "Ch 4: Analytical Chemistry",
+                            "description": "Action of NaOH and NH4OH on cation solutions (Ca, Fe, Cu, Zn, Pb) and amphoteric oxides/hydroxides",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-chem-5",
+                            "name": "Ch 5: Mole Concept and Stoichiometry",
+                            "description": "Gay-Lussac's law, Avogadro's law, mole concept, empirical/molecular formulas and stoichiometry calculations",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-chem-6",
+                            "name": "Ch 6: Electrolysis",
+                            "description": "Electrolytes, preferential discharge, molten PbBr2, acidified water, CuSO4 electrolysis and electroplating",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-chem-7",
+                            "name": "Ch 7: Metallurgy",
+                            "description": "Ores, dressing, roasting, calcination, extraction of Aluminium by Hall-Héroult's process and alloys",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-chem-8",
+                            "name": "Ch 8: Study of Compounds — Hydrogen Chloride",
+                            "description": "Lab preparation from NaCl, fountain experiment, physical/chemical properties and precipitation tests",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-chem-9",
+                            "name": "Ch 9: Study of Compounds — Ammonia",
+                            "description": "Lab preparation, Haber's process, fountain experiment, basic nature and catalytic oxidation",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-chem-10",
+                            "name": "Ch 10: Study of Compounds — Nitric Acid",
+                            "description": "Lab preparation from KNO3/NaNO3, Ostwald's process, oxidising properties and brown ring test",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-chem-11",
+                            "name": "Ch 11: Study of Compounds — Sulphuric Acid",
+                            "description": "Industrial manufacture by Contact Process, acidic, oxidising and dehydrating properties",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-chem-12",
+                            "name": "Ch 12: Organic Chemistry",
+                            "description": "Catenation, tetravalency, homologous series, IUPAC nomenclature of alkanes, alkenes, alkynes, alcohols, carboxylic acids",
                             "items": []
                         }
                     ]
@@ -118,37 +262,79 @@
                 {
                     "id": "sub-10-bio",
                     "name": "Biology",
-                    "description": "Life Processes, Control, Reproduction & Heredity",
+                    "description": "Cell Biology, Genetics, Plant Physiology, Human Anatomy & Physiology, Population & Pollution",
                     "icon": "psychology_alt",
                     "chapters": [
                         {
                             "id": "chap-bio-1",
-                            "name": "Ch 1: Life Processes",
-                            "description": "Nutrition, respiration, transportation and excretion in living organisms",
+                            "name": "Ch 1: Cell Division & Structure of Chromosomes",
+                            "description": "DNA structure, nucleosome, stages of mitosis (prophase, metaphase, anaphase, telophase) and significance",
                             "items": []
                         },
                         {
                             "id": "chap-bio-2",
-                            "name": "Ch 2: Control and Coordination",
-                            "description": "Nervous system, reflex arc, brain and plant/animal hormones",
+                            "name": "Ch 2: Genetics — Fundamentals & Mendel's Laws",
+                            "description": "Monohybrid and dihybrid crosses, Mendel's laws of inheritance, sex determination and sex-linked inheritance",
                             "items": []
                         },
                         {
                             "id": "chap-bio-3",
-                            "name": "Ch 3: How do Organisms Reproduce?",
-                            "description": "Asexual and sexual reproduction in plants and human beings",
+                            "name": "Ch 3: Absorption by Roots",
+                            "description": "Root hair structure, imbibition, diffusion, osmosis, turgidity, plasmolysis and active transport",
                             "items": []
                         },
                         {
                             "id": "chap-bio-4",
-                            "name": "Ch 4: Heredity and Evolution",
-                            "description": "Mendelian genetics, traits, sex determination and evolutionary mechanisms",
+                            "name": "Ch 4: Transpiration",
+                            "description": "Stomatal mechanism, cuticular/lenticular transpiration, factors affecting rate, potometer and guttation",
                             "items": []
                         },
                         {
                             "id": "chap-bio-5",
-                            "name": "Ch 5: Our Environment",
-                            "description": "Ecosystem, food chains, trophic levels and ozone layer depletion",
+                            "name": "Ch 5: Photosynthesis",
+                            "description": "Chloroplast, light-dependent and light-independent phases, factors affecting rate and destarching experiments",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-bio-6",
+                            "name": "Ch 6: The Circulatory System",
+                            "description": "Blood composition, ABO & Rh groups, heart anatomy, double circulation, cardiac cycle and blood vessels",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-bio-7",
+                            "name": "Ch 7: The Excretory System",
+                            "description": "Kidney structure, nephron anatomy, ultrafiltration, selective reabsorption, tubular secretion and dialysis",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-bio-8",
+                            "name": "Ch 8: The Nervous System & Sense Organs",
+                            "description": "Neuron, synapses, central nervous system (brain, spinal cord), reflex arc and structure of eye and ear",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-bio-9",
+                            "name": "Ch 9: The Endocrine System",
+                            "description": "Endocrine glands, hormones (pituitary, thyroid, adrenal, pancreas) and hyposecretion/hypersecretion disorders",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-bio-10",
+                            "name": "Ch 10: The Reproductive System",
+                            "description": "Male and female reproductive organs, menstrual cycle, fertilisation, implantation and gestation",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-bio-11",
+                            "name": "Ch 11: Human Population",
+                            "description": "Demographic trends, reasons for population explosion in India and birth control measures",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-bio-12",
+                            "name": "Ch 12: Pollution — Environmental Challenges",
+                            "description": "Air, water, soil and noise pollution sources, acid rain, greenhouse effect, ozone depletion and control",
                             "items": []
                         }
                     ]
@@ -534,31 +720,138 @@
                 {
                     "id": "sub-10-his",
                     "name": "History",
-                    "description": "National Movement, Contemporary World & Civics",
+                    "description": "Indian National Movement, Contemporary World & Civics",
                     "icon": "history_edu",
                     "chapters": [
                         {
                             "id": "chap-his-1",
                             "name": "Ch 1: The First War of Independence (1857)",
-                            "description": "Political, socio-religious, economic and military causes with consequences",
-                            "items": []
+                            "description": "Political, socio-religious, economic, military causes, immediate cartridge cause & consequences (Queen's Proclamation 1858)",
+                            "items": [
+                                {
+                                    "id": "his-1857-notes-01",
+                                    "title": "The First War Of Independence 01 Class Notes",
+                                    "subtitle": "Causes of 1857 Revolt: Political, Socio-Religious, Economic & Military factors, Enfield rifle cartridge incident",
+                                    "type": "pdf",
+                                    "file": "history/notes/The_First_War_Of_Independence_01_Class_Notes.pdf",
+                                    "size": "5.8 MB"
+                                },
+                                {
+                                    "id": "his-1857-notes-02",
+                                    "title": "The First War Of Independence 02 Class Notes",
+                                    "subtitle": "Events, suppression, Queen Victoria's 1858 Proclamation, Government of India Act 1858 & consequences",
+                                    "type": "pdf",
+                                    "file": "history/notes/The_First_War_Of_Independence_02_Class_Notes.pdf",
+                                    "size": "4.0 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-his-2",
-                            "name": "Ch 2: Growth of Nationalism & National Movement",
-                            "description": "Early nationalists, assertive phase, Non-Cooperation and Civil Disobedience",
+                            "name": "Ch 2: Growth of Nationalism & Early Nationalists",
+                            "description": "Factors promoting nationalism, role of press, socio-religious reformers, Early Nationalists (Naoroji, Banerjea, Gokhale)",
                             "items": []
                         },
                         {
                             "id": "chap-his-3",
-                            "name": "Ch 3: The Contemporary World & World Wars",
-                            "description": "First World War, Rise of Fascism/Nazism, Second World War & United Nations",
+                            "name": "Ch 3: Assertive Nationalism & Partition of Bengal",
+                            "description": "Causes of radical nationalism, methods, Assertive leaders (Tilak, Pal, Rai), Partition of Bengal, Swadeshi & Boycott, Surat Split",
                             "items": []
                         },
                         {
                             "id": "chap-his-4",
-                            "name": "Ch 4: Union Legislature & Judiciary",
-                            "description": "Lok Sabha, Rajya Sabha, President, Prime Minister & Supreme Court",
+                            "name": "Ch 4: The Muslim League & Lucknow Pact",
+                            "description": "Factors leading to formation of Muslim League, objectives, Nawab Salimullah, Aga Khan, and Lucknow Pact 1916",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-5",
+                            "name": "Ch 5: Mahatma Gandhi & National Movement (1919–1934)",
+                            "description": "Non-Cooperation Movement (Rowlatt Act, Jallianwala Bagh, Chauri Chaura) & Civil Disobedience Movement (Dandi March, Gandhi-Irwin Pact)",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-6",
+                            "name": "Ch 6: The Quit India Movement",
+                            "description": "Failure of Cripps Mission, Quit India Resolution (Do or Die), Japanese threat and nationwide impact",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-7",
+                            "name": "Ch 7: Forward Bloc and the INA",
+                            "description": "Subhas Chandra Bose: Forward Bloc objectives, Indian National Army (INA) formation, Netaji's contributions",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-8",
+                            "name": "Ch 8: Independence & Partition of India",
+                            "description": "Cabinet Mission Plan, Direct Action Day, Mountbatten Plan, Indian Independence Act 1947 provisions",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-9",
+                            "name": "Ch 9: The First World War (1914–1918)",
+                            "description": "Causes: Nationalism, Imperialism, Hostile Alliances, Sarajevo Crisis; Results: Treaty of Versailles & League of Nations",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-10",
+                            "name": "Ch 10: Rise of Dictatorships (Fascism & Nazism)",
+                            "description": "Causes for rise of Fascism in Italy (Mussolini) and Nazism in Germany (Hitler), similarities between Fascism and Nazism",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-11",
+                            "name": "Ch 11: The Second World War (1939–1945)",
+                            "description": "Causes: Treaty of Versailles, rise of dictators, failure of League of Nations, invasion of Poland; Consequences: UN formation, Cold War",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-12",
+                            "name": "Ch 12: United Nations Organization",
+                            "description": "Origin, UN Charter, Purposes and Principles, Major Organs: General Assembly, Security Council, International Court of Justice",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-13",
+                            "name": "Ch 13: Major Agencies of the United Nations",
+                            "description": "UNICEF, WHO, UNESCO: objectives, headquarters, key functions and global welfare achievements",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-14",
+                            "name": "Ch 14: The Non-Aligned Movement (NAM)",
+                            "description": "Definition, architects (Nehru, Tito, Nasser), Panchsheel principles, role of Jawaharlal Nehru and modern relevance",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-civ-1",
+                            "name": "Civics Ch 1: The Union Parliament",
+                            "description": "Lok Sabha & Rajya Sabha: composition, qualifications, terms, Speaker, parliamentary procedures & legislative powers",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-civ-2",
+                            "name": "Civics Ch 2: The Executive — President & Vice-President",
+                            "description": "Qualifications, election, tenure, impeachment, executive, legislative, financial, judicial, and emergency powers",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-civ-3",
+                            "name": "Civics Ch 3: The Prime Minister & Council of Ministers",
+                            "description": "Appointment, functions, position of Prime Minister, collective responsibility, Cabinet vs Council of Ministers",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-civ-4",
+                            "name": "Civics Ch 4: The Supreme Court",
+                            "description": "Composition, qualifications, appointment of judges, independence of judiciary, Original, Appellate, Advisory jurisdictions & Judicial Review",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-his-civ-5",
+                            "name": "Civics Ch 5: The High Courts & Subordinate Courts",
+                            "description": "Composition, qualifications, jurisdictions, writs, Lok Adalats and distinction between District Judge and Sessions Courts",
                             "items": []
                         }
                     ]
@@ -566,25 +859,31 @@
                 {
                     "id": "sub-10-eng",
                     "name": "English",
-                    "description": "Literature, Language, Grammar & Writing Skills",
+                    "description": "Literature (Julius Caesar, Treasure Chest Poems & Short Stories) & Language (Grammar & Composition)",
                     "icon": "menu_book",
                     "chapters": [
                         {
                             "id": "chap-eng-1",
-                            "name": "Ch 1: Literature Prose & Drama",
-                            "description": "Prescribed prose chapters, thematic analysis, character sketches & extracts",
+                            "name": "Ch 1: Drama — Julius Caesar (William Shakespeare)",
+                            "description": "Acts III, IV and V: Speeches of Brutus and Antony, Forum scene, tent scene, Battle of Philippi and themes",
                             "items": []
                         },
                         {
                             "id": "chap-eng-2",
-                            "name": "Ch 2: Poetry & Literary Devices",
-                            "description": "Poetic appreciation, rhyme scheme, figures of speech and stanzas",
+                            "name": "Ch 2: Treasure Chest — ICSE Poems",
+                            "description": "Haunted Houses, The Glove and the Lions, When Great Trees Fall, A Considerable Speck, The Power of Music",
                             "items": []
                         },
                         {
                             "id": "chap-eng-3",
-                            "name": "Ch 3: English Grammar & Composition",
-                            "description": "Tenses, prepositions, synthesis of sentences, notices and essays",
+                            "name": "Ch 3: Treasure Chest — ICSE Short Stories",
+                            "description": "With the Photographer, The Elevator, The Girl Who Can, The Last Lesson: analysis, characters and extracts",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-eng-4",
+                            "name": "Ch 4: English Language — Composition & Applied Grammar",
+                            "description": "Essays, formal/informal letters, Notice & Email writing, comprehension and grammar transformations",
                             "items": []
                         }
                     ]
@@ -592,25 +891,31 @@
                 {
                     "id": "sub-10-hin",
                     "name": "Hindi",
-                    "description": "Sahitya, Vyakaran, Lekhan Evam Bodh",
+                    "description": "Sahitya Sagar (Gadya evam Kavya Sankalan), Vyakaran, Nibandh evam Apathit Bodh",
                     "icon": "translate",
                     "chapters": [
                         {
                             "id": "chap-hin-1",
-                            "name": "Ch 1: Gadya Khand (Prose)",
-                            "description": "Pathya pustak gadya path, saransh, prashnottar evam vyakhya",
+                            "name": "Ch 1: Sahitya Sagar — Gadya Sankalan (Short Stories)",
+                            "description": "Baat Athanni Ki, Kaki, Mahayagya Ka Puraskar, Netaji Ka Chashma, Apna Apna Bhagya, Bade Ghar Ki Beti",
                             "items": []
                         },
                         {
                             "id": "chap-hin-2",
-                            "name": "Ch 2: Kavya Khand (Poetry)",
-                            "description": "Kavitaon ka bhavarth, shilp saundarya evam prashnottar",
+                            "name": "Ch 2: Sahitya Sagar — Padya Sankalan (Poems)",
+                            "description": "Kabir Ke Dohe, Sur Ke Pad, Vinay Ke Pad, Girdhar Ki Kundaliyan, Swarg Bana Sakte Hain, Wah Janmabhumi Meri",
                             "items": []
                         },
                         {
                             "id": "chap-hin-3",
-                            "name": "Ch 3: Vyakaran Evam Rachanatmak Lekhan",
-                            "description": "Vakya bhed, samas, muhavare, patra lekhan evam nibandh",
+                            "name": "Ch 3: Naya Raasta / Ekanki Sanchay",
+                            "description": "Patra parichay, kathanak, charitra chitran, mukhya sandesh evam aashay spashtikaran",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-hin-4",
+                            "name": "Ch 4: Hindi Vyakaran, Nibandh evam Patra Lekhan",
+                            "description": "Vakya roopantaran, samas, muhavare, ashuddhi shodhan, nibandh lekhan, prarthana patra evam apathit gadyansh",
                             "items": []
                         }
                     ]
@@ -618,31 +923,61 @@
                 {
                     "id": "sub-10-comp",
                     "name": "Computer",
-                    "description": "Computer Applications, Java Programming & OOP Concepts",
+                    "description": "Computer Applications with Java, Object-Oriented Programming, Arrays, Strings & Exception Handling",
                     "icon": "terminal",
                     "chapters": [
                         {
                             "id": "chap-comp-1",
-                            "name": "Ch 1: Principles of Object-Oriented Programming",
-                            "description": "Abstraction, encapsulation, inheritance, polymorphism and class syntax",
+                            "name": "Ch 1: Revision of Class IX Java Concepts",
+                            "description": "Tokens, data types, variables, operators, operator precedence and conditional statements",
                             "items": []
                         },
                         {
                             "id": "chap-comp-2",
-                            "name": "Ch 2: Java Fundamentals & Control Structures",
-                            "description": "Data types, operators, if-else, switch-case, loops and iterations",
+                            "name": "Ch 2: Principles of Object-Oriented Programming & Classes",
+                            "description": "Abstraction, encapsulation, inheritance, polymorphism, class as an object factory and state/behavior",
                             "items": []
                         },
                         {
                             "id": "chap-comp-3",
-                            "name": "Ch 3: User-Defined Methods & Arrays",
-                            "description": "Method definition, overloading, single and multidimensional arrays",
+                            "name": "Ch 3: User-Defined Methods",
+                            "description": "Syntax, parameter passing (pass-by-value, pass-by-reference), return values, method overloading and pure/impure methods",
                             "items": []
                         },
                         {
                             "id": "chap-comp-4",
-                            "name": "Ch 4: String Handling in Java",
-                            "description": "String functions (length, charAt, indexOf, substring) and character operations",
+                            "name": "Ch 4: Constructors in Java",
+                            "description": "Definition, default vs parameterized constructors, constructor overloading and 'this' keyword",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-comp-5",
+                            "name": "Ch 5: Library Classes & Wrapper Classes",
+                            "description": "Character methods (isDigit, isLetter, isUpperCase, toLowerCase), wrapper classes, auto-boxing and unboxing",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-comp-6",
+                            "name": "Ch 6: Encapsulation & Access Specifiers",
+                            "description": "Public, private, protected access specifiers, scope of variables and data hiding",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-comp-7",
+                            "name": "Ch 7: Arrays (Single & Double Dimensional)",
+                            "description": "Array declaration, linear search, binary search, bubble sort, selection sort and 2D matrix operations",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-comp-8",
+                            "name": "Ch 8: String Handling in Java",
+                            "description": "String immutability, length(), charAt(), indexOf(), substring(), toUpperCase(), equals(), compareTo(), trim()",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-comp-9",
+                            "name": "Ch 9: Exception Handling in Java",
+                            "description": "Types of errors (syntax, runtime, logical), try-catch blocks and common runtime exceptions",
                             "items": []
                         }
                     ]
