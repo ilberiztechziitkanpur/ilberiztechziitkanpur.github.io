@@ -28,6 +28,7 @@ async function init() {
         state.data = window.COURSE_DATA;
         renderNav();
         renderView();
+        if (contentArea) contentArea.scrollTop = 0;
         return;
     }
 
@@ -38,6 +39,7 @@ async function init() {
         state.data = await response.json();
         renderNav();
         renderView();
+        if (contentArea) contentArea.scrollTop = 0;
     } catch (error) {
         contentArea.innerHTML = `
             <div class="no-results">
@@ -379,6 +381,27 @@ function renderNav() {
         }
     };
     navMenu.appendChild(hisNav);
+
+    // Quick Launch: Growth of Nationalism Class Notes (Ch 2)
+    const natNav = document.createElement('div');
+    const isNatActive = state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-2';
+    natNav.className = `nav-item nav-item-featured ${isNatActive ? 'active' : ''}`;
+    natNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #ec4899;">flag</span>
+        <span style="font-weight: 600;">Nationalism Notes</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #ec4899, #db2777); color:#fff;">NEW</span>
+    `;
+    natNav.onclick = () => {
+        closeSidebarOnMobile();
+        resetSearch();
+        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
+        const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
+        const natChap = hisSub?.chapters?.find(c => c.id === 'chap-his-2');
+        if (natChap) {
+            navigateTo('items', [batch.id, hisSub.id, natChap.id]);
+        }
+    };
+    navMenu.appendChild(natNav);
 }
 
 function resetSearch() {
@@ -482,6 +505,7 @@ function navigateTo(view, pathArgs, item = null) {
 // Main View Rendering
 function renderView() {
     contentArea.innerHTML = '';
+    if (contentArea) contentArea.scrollTop = 0;
     const wrapper = document.createElement('div');
     wrapper.className = 'fade-in';
 
@@ -632,6 +656,7 @@ function renderView() {
 // Search Results Rendering
 function renderSearchResults(query) {
     contentArea.innerHTML = '';
+    if (contentArea) contentArea.scrollTop = 0;
     const wrapper = document.createElement('div');
     wrapper.className = 'fade-in';
 

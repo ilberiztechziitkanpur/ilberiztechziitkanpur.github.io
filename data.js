@@ -758,7 +758,16 @@ window.COURSE_DATA = {
                             "id": "chap-his-2",
                             "name": "Ch 2: Growth of Nationalism & Early Nationalists",
                             "description": "Factors promoting nationalism, role of press, socio-religious reformers, Early Nationalists (Naoroji, Banerjea, Gokhale)",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "his-nationalism-notes-01",
+                                    "title": "Growth Of Nationalism 01 Class Notes",
+                                    "subtitle": "Economic exploitation, repressive colonial policies, role of press, socio-religious reform movements & INC foundation",
+                                    "type": "pdf",
+                                    "file": "history/notes/Growth_Of_Nationalism_01_Class_Notes.pdf",
+                                    "size": "3.3 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-his-3",
