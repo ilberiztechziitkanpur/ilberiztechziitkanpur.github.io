@@ -756,13 +756,13 @@ window.COURSE_DATA = {
                         },
                         {
                             "id": "chap-his-2",
-                            "name": "Ch 2: Growth of Nationalism & Early Nationalists",
-                            "description": "Factors promoting nationalism, role of press, socio-religious reformers, Early Nationalists (Naoroji, Banerjea, Gokhale)",
+                            "name": "Ch 2: Growth of Nationalism",
+                            "description": "Factors promoting nationalism, economic exploitation, repressive colonial policies of Lord Lytton, socio-religious reformers & foundation of INC (1885)",
                             "items": [
                                 {
                                     "id": "his-nationalism-notes-01",
                                     "title": "Growth Of Nationalism 01 Class Notes",
-                                    "subtitle": "Economic exploitation, repressive colonial policies, role of press, socio-religious reform movements & INC foundation",
+                                    "subtitle": "Economic exploitation, repressive colonial policies (Vernacular Press Act, Arms Act), socio-religious reforms (Raja Ram Mohan Roy) & Ilbert Bill",
                                     "type": "pdf",
                                     "file": "history/notes/Growth_Of_Nationalism_01_Class_Notes.pdf",
                                     "size": "3.3 MB"
@@ -770,7 +770,7 @@ window.COURSE_DATA = {
                                 {
                                     "id": "his-nationalism-notes-02",
                                     "title": "Growth Of Nationalism 02 Class Notes",
-                                    "subtitle": "Early Nationalists (Moderates): Objectives, methods, constitutional agitation & contributions of Naoroji, Banerjea, Gokhale",
+                                    "subtitle": "Jyotiba Phule, Swami Vivekananda, Swami Dayanand Saraswati, role of the press, pre-cursors to Congress & foundation of INC (1885)",
                                     "type": "pdf",
                                     "file": "history/notes/Growth_Of_Nationalism_02_Class_Notes.pdf",
                                     "size": "3.6 MB"
@@ -779,73 +779,96 @@ window.COURSE_DATA = {
                         },
                         {
                             "id": "chap-his-3",
-                            "name": "Ch 3: Assertive Nationalism & Partition of Bengal",
+                            "name": "Ch 3: First Phase of the Indian National Movement (1885–1907)",
+                            "description": "Early Nationalists (Moderates): Objectives, methods of constitutional agitation (3 P's), beliefs, demands, achievements, criticisms & contributions of Dadabhai Naoroji, Gopal Krishna Gokhale, Surendranath Banerjea",
+                            "items": [
+                                {
+                                    "id": "his-first-phase-notes-01",
+                                    "title": "First Phase Of The Indian National Movement 01 Class Notes",
+                                    "subtitle": "Early Nationalists (Moderates): Beliefs, demands, methods of constitutional agitation (Petitions, Prayers, Protests), achievements, criticism & Dadabhai Naoroji contributions",
+                                    "type": "pdf",
+                                    "file": "history/notes/First_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf",
+                                    "size": "3.3 MB"
+                                },
+                                {
+                                    "id": "his-first-phase-notes-02",
+                                    "title": "First Phase Of The Indian National Movement 02 Class Notes",
+                                    "subtitle": "Contributions of Gopal Krishna Gokhale (Servants of India Society, Imperial Council) & Surendranath Banerjea (Father of Indian Nationalism, Indian Association)",
+                                    "type": "pdf",
+                                    "file": "history/notes/First_Phase_Of_The_Indian_National_Movement_02_Class_Notes.pdf",
+                                    "size": "2.6 MB"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "chap-his-4",
+                            "name": "Ch 4: Second Phase of the Indian National Movement (Assertive Nationalism)",
                             "description": "Causes of radical nationalism, methods, Assertive leaders (Tilak, Pal, Rai), Partition of Bengal, Swadeshi & Boycott, Surat Split",
                             "items": []
                         },
                         {
-                            "id": "chap-his-4",
-                            "name": "Ch 4: The Muslim League & Lucknow Pact",
+                            "id": "chap-his-5",
+                            "name": "Ch 5: The Muslim League & Lucknow Pact",
                             "description": "Factors leading to formation of Muslim League, objectives, Nawab Salimullah, Aga Khan, and Lucknow Pact 1916",
                             "items": []
                         },
                         {
-                            "id": "chap-his-5",
-                            "name": "Ch 5: Mahatma Gandhi & National Movement (1919–1934)",
+                            "id": "chap-his-6",
+                            "name": "Ch 6: Mahatma Gandhi & National Movement (1919–1934)",
                             "description": "Non-Cooperation Movement (Rowlatt Act, Jallianwala Bagh, Chauri Chaura) & Civil Disobedience Movement (Dandi March, Gandhi-Irwin Pact)",
                             "items": []
                         },
                         {
-                            "id": "chap-his-6",
-                            "name": "Ch 6: The Quit India Movement",
+                            "id": "chap-his-7",
+                            "name": "Ch 7: The Quit India Movement",
                             "description": "Failure of Cripps Mission, Quit India Resolution (Do or Die), Japanese threat and nationwide impact",
                             "items": []
                         },
                         {
-                            "id": "chap-his-7",
-                            "name": "Ch 7: Forward Bloc and the INA",
+                            "id": "chap-his-8",
+                            "name": "Ch 8: Forward Bloc and the INA",
                             "description": "Subhas Chandra Bose: Forward Bloc objectives, Indian National Army (INA) formation, Netaji's contributions",
                             "items": []
                         },
                         {
-                            "id": "chap-his-8",
-                            "name": "Ch 8: Independence & Partition of India",
+                            "id": "chap-his-9",
+                            "name": "Ch 9: Independence & Partition of India",
                             "description": "Cabinet Mission Plan, Direct Action Day, Mountbatten Plan, Indian Independence Act 1947 provisions",
                             "items": []
                         },
                         {
-                            "id": "chap-his-9",
-                            "name": "Ch 9: The First World War (1914–1918)",
+                            "id": "chap-his-10",
+                            "name": "Ch 10: The First World War (1914–1918)",
                             "description": "Causes: Nationalism, Imperialism, Hostile Alliances, Sarajevo Crisis; Results: Treaty of Versailles & League of Nations",
                             "items": []
                         },
                         {
-                            "id": "chap-his-10",
-                            "name": "Ch 10: Rise of Dictatorships (Fascism & Nazism)",
+                            "id": "chap-his-11",
+                            "name": "Ch 11: Rise of Dictatorships (Fascism & Nazism)",
                             "description": "Causes for rise of Fascism in Italy (Mussolini) and Nazism in Germany (Hitler), similarities between Fascism and Nazism",
                             "items": []
                         },
                         {
-                            "id": "chap-his-11",
-                            "name": "Ch 11: The Second World War (1939–1945)",
+                            "id": "chap-his-12",
+                            "name": "Ch 12: The Second World War (1939–1945)",
                             "description": "Causes: Treaty of Versailles, rise of dictators, failure of League of Nations, invasion of Poland; Consequences: UN formation, Cold War",
                             "items": []
                         },
                         {
-                            "id": "chap-his-12",
-                            "name": "Ch 12: United Nations Organization",
+                            "id": "chap-his-13",
+                            "name": "Ch 13: United Nations Organization",
                             "description": "Origin, UN Charter, Purposes and Principles, Major Organs: General Assembly, Security Council, International Court of Justice",
                             "items": []
                         },
                         {
-                            "id": "chap-his-13",
-                            "name": "Ch 13: Major Agencies of the United Nations",
+                            "id": "chap-his-14",
+                            "name": "Ch 14: Major Agencies of the United Nations",
                             "description": "UNICEF, WHO, UNESCO: objectives, headquarters, key functions and global welfare achievements",
                             "items": []
                         },
                         {
-                            "id": "chap-his-14",
-                            "name": "Ch 14: The Non-Aligned Movement (NAM)",
+                            "id": "chap-his-15",
+                            "name": "Ch 15: The Non-Aligned Movement (NAM)",
                             "description": "Definition, architects (Nehru, Tito, Nasser), Panchsheel principles, role of Jawaharlal Nehru and modern relevance",
                             "items": []
                         },

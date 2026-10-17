@@ -48,8 +48,10 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── The_First_War_Of_Independence_01_Class_Notes.pdf (5.8 MB) — Causes & factors
 │       ├── The_First_War_Of_Independence_02_Class_Notes.pdf (4.0 MB) — Events & consequences
 │       ├── The_First_War_Of_Independence_03_Class_Notes.pdf (4.2 MB) — Consequences & revision
-│       ├── Growth_Of_Nationalism_01_Class_Notes.pdf (3.3 MB) — Factors & INC foundation
-│       └── Growth_Of_Nationalism_02_Class_Notes.pdf (3.6 MB) — Early Nationalists (Moderates)
+│       ├── Growth_Of_Nationalism_01_Class_Notes.pdf (3.3 MB) — Factors & Lord Lytton's repressive policies
+│       ├── Growth_Of_Nationalism_02_Class_Notes.pdf (3.6 MB) — Reformers, Press & INC foundation
+│       ├── First_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf (3.3 MB) — Early Nationalists & Naoroji
+│       └── First_Phase_Of_The_Indian_National_Movement_02_Class_Notes.pdf (2.6 MB) — Gokhale & Banerjea
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -74,6 +76,7 @@ ILBERIZ TECHZ IIT KANPUR/
 7. **Always Synchronize `data.js` and `data.json`**: When adding a new item or chapter, update both files in parallel. `data.js` attaches to `window.COURSE_DATA` for offline `file://` usage, while `data.json` is for standard HTTP fetching.
 8. **Git Push Protocol**: Always commit changes and use `BypassSandbox: true` for `git push origin main` because sandbox restricts network access.
 9. **Sidebar Navigation Stability**: Keep `.nav-menu` with `overflow-x: hidden !important;`, `overscroll-behavior: contain;`, and `padding-bottom: 24px;`. Prevent any hover `translateX` on `.nav-item` / `.nav-item-featured` that triggers horizontal scrollbars or boundary oscillation loops. Both `.logo-area` and `.sidebar-footer` must have `flex-shrink: 0;`.
+10. **Sidebar & Landing View Cleanliness Protocol (MANDATORY)**: The left navigation sidebar (`.nav-menu`) must NEVER accumulate past chapter buttons or older DPP engines into a massive scrolling list. Only **Overview**, curriculum batch links, and the **single latest update** (e.g. newly published chapter notes or active focus module) with a `NEW` badge are displayed in the sidebar quick-launch area. All previously published chapters, notes, and engines remain permanently accessible through their respective Subject and Chapter dashboard pages with all their original tags and badges. This ensures the dashboard on laptops and mobile devices remains uncluttered, elegant, and immediately signals to returning students what has just been updated.
 
 ---
 
@@ -208,29 +211,17 @@ ILBERIZ TECHZ IIT KANPUR/
   4. Survey Conventional Symbols & Color Codes Cheat Sheet
 - CSS containment (`content-visibility: auto`) for zero lag.
 
-### J. History Notes (5 PDFs in `history/notes/`)
-- **`The_First_War_Of_Independence_01_Class_Notes.pdf` (5.8 MB)**:
-  - Political, socio-religious, economic & military causes of 1857 Revolt.
-  - Doctrine of Lapse, annexation of Awadh, disrespect to Bahadur Shah Zafar.
-  - Interference with customs (General Service Enlistment Act, Religious Disabilities Act, taxation on temples/mosques).
-  - Economic exploitation, drain of wealth, ruin of handicrafts.
-  - Military grievances & Immediate cause: Introduction of the Enfield rifle greased cartridge.
-- **`The_First_War_Of_Independence_02_Class_Notes.pdf` (4.0 MB)**:
-  - Major storm centres & suppression (Meerut, Delhi, Kanpur, Lucknow, Jhansi).
-  - Results and consequences: Government of India Act 1858 (transfer of rule from British East India Company to the Crown).
-  - Queen Victoria's Proclamation of 1858 (pledge of religious non-interference and equal treatment).
-  - Military reorganization (ratio of European to Indian troops increased, artillery placed exclusively in British hands).
-  - Policy of Divide and Rule, financial burden, and rise of Indian nationalism.
-- **`The_First_War_Of_Independence_03_Class_Notes.pdf` (4.2 MB)**:
-  - Long-term consequences, British policy shifts, army reorganisation & comprehensive revision notes.
-- **`Growth_Of_Nationalism_01_Class_Notes.pdf` (3.3 MB)**:
-  - Economic exploitation, repressive colonial policies of Lord Lytton (Vernacular Press Act, Arms Act).
-  - Role of press (Amrita Bazar Patrika, The Bengalee, Rast Goftar) & socio-religious reformers (Raja Rammohan Roy, Jyotirao Phule).
-  - Precursors to the Congress & foundation of the Indian National Congress (1885, A.O. Hume, W.C. Bonnerjee).
-- **`Growth_Of_Nationalism_02_Class_Notes.pdf` (3.6 MB)**:
-  - Early Nationalists (Moderates): Beliefs, demands, and methods of constitutional agitation (3 P's: Petitions, Prayers, Protests).
-  - Major contributions of Dadabhai Naoroji (Drain of Wealth theory, 'Poverty and Un-British Rule in India').
-  - Contributions of Surendranath Banerjea (Indian Association, convene of Indian National Conference) and Gopal Krishna Gokhale (Servants of India Society, Imperial Legislative Council role).
+### J. History Notes (7 PDFs in `history/notes/` across 3 Active Chapters)
+- **Chapter 1: The First War of Independence (1857) (3 Notes)**:
+  - `The_First_War_Of_Independence_01_Class_Notes.pdf` (5.8 MB) — Political, socio-religious, economic & military causes of 1857 Revolt, Enfield rifle cartridge incident.
+  - `The_First_War_Of_Independence_02_Class_Notes.pdf` (4.0 MB) — Major storm centres, suppression, Queen Victoria's Proclamation of 1858, Government of India Act 1858 & consequences.
+  - `The_First_War_Of_Independence_03_Class_Notes.pdf` (4.2 MB) — Long-term consequences, British policy shifts, army reorganisation & comprehensive revision notes.
+- **Chapter 2: Growth of Nationalism (2 Notes)**:
+  - `Growth_Of_Nationalism_01_Class_Notes.pdf` (3.3 MB) — Economic exploitation, repressive policies of Lord Lytton (Vernacular Press Act 1878, Arms Act 1878), socio-religious reforms (Raja Rammohan Roy, Brahmo Samaj, abolition of Sati 1829), and Ilbert Bill controversy (1883).
+  - `Growth_Of_Nationalism_02_Class_Notes.pdf` (3.6 MB) — Reformers (Jyotiba Phule, Swami Dayanand Saraswati & Arya Samaj, Swami Vivekananda & Ramakrishna Mission), role of the Press (Amrita Bazar Patrika, Bengalee, Tribune), pre-cursors to Congress (East India Association, Indian Association, Indian National Conference), and foundation of the Indian National Congress (1885, A.O. Hume, W.C. Bonnerjee, 72 delegates at Gokuldas Tejpal Sanskrit College Mumbai, 2nd session Calcutta 1886 Dadabhai Naoroji).
+- **Chapter 3: First Phase of the Indian National Movement (1885–1907) (2 Notes)**:
+  - `First_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf` (3.3 MB) — Early Nationalists (Moderates): Definition, beliefs, faith in British sense of justice, demands (constitutional, economic, administrative, civil rights), methods of constitutional agitation (3 P's: Petitions, Prayers, Protests), achievements (Public Service Commission 1886, Welby Commission 1895, Indian Councils Act 1892), criticisms, British attitude shift (Lord Dufferin's 'microscopic minority'), and contributions of Dadabhai Naoroji (Grand Old Man of India, London India Society 1865, East India Association 1866, thrice INC President, 1906 Swaraj demand, 'Poverty and Un-British Rule in India', Drain Theory).
+  - `First_Phase_Of_The_Indian_National_Movement_02_Class_Notes.pdf` (2.6 MB) — Contributions of Gopal Krishna Gokhale (Servants of India Society 1905, Imperial Legislative Council, Welby Commission evidence, Minto-Morley reforms role, political mentor to Mahatma Gandhi, 1905 Varanasi session president) and Surendranath Banerjea (Father of Indian Nationalism, Indian Association 1876, Indian National Conference 1883, Ripon College founder, editor of 'The Bengalee', author of 'A Nation in the Making', Knighted 1921).
 
 ### K. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
 All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
@@ -294,22 +285,23 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
    - 6 Theory DPP Master Vaults (Climate, Soil, Vegetation, Water, Transport, Waste)
    - 17 Complete Class Notes PDFs (Climate, Soil, Vegetation, Water, Minerals, Energy)
    - Agriculture & Manufacturing Industries MCQ DPPs
-6. **History & Civics (`sub-10-his`) — 19 Chapters**:
+6. **History & Civics (`sub-10-his`) — 20 Chapters**:
    - *History*:
-     - Ch 1: The First War of Independence (1857) [2 Class Notes PDFs Live]
-     - Ch 2: Growth of Nationalism & Early Nationalists
-     - Ch 3: Assertive Nationalism & Partition of Bengal
-     - Ch 4: The Muslim League & Lucknow Pact
-     - Ch 5: Mahatma Gandhi & National Movement (1919–1934)
-     - Ch 6: The Quit India Movement
-     - Ch 7: Forward Bloc and the INA
-     - Ch 8: Independence & Partition of India
-     - Ch 9: The First World War (1914–1918)
-     - Ch 10: Rise of Dictatorships (Fascism & Nazism)
-     - Ch 11: The Second World War (1939–1945)
-     - Ch 12: United Nations Organization
-     - Ch 13: Major Agencies of the United Nations
-     - Ch 14: The Non-Aligned Movement (NAM)
+     - Ch 1: The First War of Independence (1857) [3 Class Notes PDFs Live]
+     - Ch 2: Growth of Nationalism [2 Class Notes PDFs Live]
+     - Ch 3: First Phase of the Indian National Movement (1885–1907) [2 Class Notes PDFs Live]
+     - Ch 4: Second Phase of the Indian National Movement (Assertive Nationalism)
+     - Ch 5: The Muslim League & Lucknow Pact
+     - Ch 6: Mahatma Gandhi & National Movement (1919–1934)
+     - Ch 7: The Quit India Movement
+     - Ch 8: Forward Bloc and the INA
+     - Ch 9: Independence & Partition of India
+     - Ch 10: The First World War (1914–1918)
+     - Ch 11: Rise of Dictatorships (Fascism & Nazism)
+     - Ch 12: The Second World War (1939–1945)
+     - Ch 13: United Nations Organization
+     - Ch 14: Major Agencies of the United Nations
+     - Ch 15: The Non-Aligned Movement (NAM)
    - *Civics*:
      - Civics Ch 1: The Union Parliament
      - Civics Ch 2: The Executive — President & Vice-President
@@ -397,4 +389,12 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
 5. **Card Keyboard Accessibility & Animation Stagger Capping**:
    - Added `role="button"`, `tabindex="0"`, and Enter/Space keyboard handlers on dashboard cards.
    - Capped `--i` animation delay variable (`Math.min(index, 10)`) to eliminate animation lag for distant cards in long grids.
+6. **Sidebar Navigation Decluttering & Latest Update Focus (User Mandate)**:
+   - *Problem*: Over successive sessions, every added interactive vault and note was being appended directly to `.nav-menu` in `renderNav()`. This created a 10+ item scrolling sidebar that pushed essential links down, cluttered the landing view on laptop screens, and made it difficult for students to immediately see what was newly updated.
+   - *Fix*: Removed older accumulated quick-launch shortcuts (Toposheet, 100 MCQ, Climate, Soil, Vegetation, Water, Transport, Waste, 1857, and Nationalism) from the main sidebar. Replaced them with a single clean, high-priority featured button for the newest published content: **"First Phase Notes"** (`chap-his-3`) with a `NEW` badge. All previous engines and notes remain 100% active and accessible with their full metadata and badges under their respective Subject (`geography/`, `history/`) and Chapter pages.
+7. **Addition of Chapter 3: First Phase of the Indian National Movement (1885–1907)**:
+   - Added `First_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf` (3.3 MB) covering Early Nationalists (Moderates), beliefs, demands, methods (3 P's), achievements, criticisms, and Dadabhai Naoroji.
+   - Added `First_Phase_Of_The_Indian_National_Movement_02_Class_Notes.pdf` (2.6 MB) covering Gopal Krishna Gokhale and Surendranath Banerjea.
+   - Refined Chapter 2 (`Growth of Nationalism`) to cleanly focus on factors promoting nationalism and INC foundation, and properly renumbered subsequent History syllabus chapters (Ch 4 to Ch 15).
+
 

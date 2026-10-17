@@ -222,237 +222,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Quick Launch: Topography Master Engine
-    const topoNav = document.createElement('div');
-    const isTopoActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-toposheet-engine-full';
-    topoNav.className = `nav-item nav-item-featured ${isTopoActive ? 'active' : ''}`;
-    topoNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #fbbf24;">map</span>
-        <span style="font-weight: 600;">Toposheet Q1 Blueprint</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706); color:#fff;">NEW</span>
-    `;
-    topoNav.onclick = () => {
-        closeSidebarOnMobile();
-        resetSearch();
-        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const topoChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-toposheet');
-        if (topoChap && topoChap.items.length > 0) {
-            navigateTo('viewer', [batch.id, geoSub.id, topoChap.id], topoChap.items[0]);
-        } else {
-            window.location.href = 'geography/toposheet/index.html';
-        }
-    };
-    navMenu.appendChild(topoNav);
-
-    // Quick Launch: Geography 100 MCQ Engine
-    const mcqNav = document.createElement('div');
-    const isMcqActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-mcq-engine-full';
-    mcqNav.className = `nav-item nav-item-featured ${isMcqActive ? 'active' : ''}`;
-    mcqNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #38bdf8;">bolt</span>
-        <span style="font-weight: 600;">Geography 100 MCQs</span>
-        <span class="nav-badge-hot">HOT</span>
-    `;
-    mcqNav.onclick = () => {
-        closeSidebarOnMobile();
-        resetSearch();
-        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const mcqChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-mcq');
-        if (mcqChap && mcqChap.items.length > 0) {
-            navigateTo('viewer', [batch.id, geoSub.id, mcqChap.id], mcqChap.items[0]);
-        } else {
-            window.location.href = 'geography/mcq/index.html';
-        }
-    };
-    navMenu.appendChild(mcqNav);
-
-    // Quick Launch: Climate Theory DPP (42 Expected Qs)
-    const climateNav = document.createElement('div');
-    const isClimateActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-climate-theory-master';
-    climateNav.className = `nav-item nav-item-featured ${isClimateActive ? 'active' : ''}`;
-    climateNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #34d399;">thermostat</span>
-        <span style="font-weight: 600;">Climate 42 Qs DPP</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669); color:#fff;">NEW</span>
-    `;
-    climateNav.onclick = () => {
-        closeSidebarOnMobile();
-        resetSearch();
-        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const climateChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-climate');
-        const climateItem = climateChap?.items?.find(i => i.id === 'geo-climate-theory-master');
-        if (climateChap && climateItem) {
-            navigateTo('viewer', [batch.id, geoSub.id, climateChap.id], climateItem);
-        } else {
-            window.location.href = 'geography/climate/index.html';
-        }
-    };
-    navMenu.appendChild(climateNav);
-
-    // Quick Launch: Soil Theory DPP (46 Expected Qs)
-    const soilNav = document.createElement('div');
-    const isSoilActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-soil-theory-master';
-    soilNav.className = `nav-item nav-item-featured ${isSoilActive ? 'active' : ''}`;
-    soilNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #f59e0b;">landscape</span>
-        <span style="font-weight: 600;">Soil 46 Qs DPP</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706); color:#fff;">NEW</span>
-    `;
-    soilNav.onclick = () => {
-        closeSidebarOnMobile();
-        resetSearch();
-        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const soilChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-soil');
-        const soilItem = soilChap?.items?.find(i => i.id === 'geo-soil-theory-master');
-        if (soilChap && soilItem) {
-            navigateTo('viewer', [batch.id, geoSub.id, soilChap.id], soilItem);
-        } else {
-            window.location.href = 'geography/soil/index.html';
-        }
-    };
-    navMenu.appendChild(soilNav);
-
-    // Quick Launch: Natural Vegetation Theory DPP (46 Expected Qs)
-    const vegNav = document.createElement('div');
-    const isVegActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-veg-theory-master';
-    vegNav.className = `nav-item nav-item-featured ${isVegActive ? 'active' : ''}`;
-    vegNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #10b981;">forest</span>
-        <span style="font-weight: 600;">Vegetation 46 Qs</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669); color:#fff;">NEW</span>
-    `;
-    vegNav.onclick = () => {
-        closeSidebarOnMobile();
-        resetSearch();
-        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const vegChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-vegetation');
-        const vegItem = vegChap?.items?.find(i => i.id === 'geo-veg-theory-master');
-        if (vegChap && vegItem) {
-            navigateTo('viewer', [batch.id, geoSub.id, vegChap.id], vegItem);
-        } else {
-            window.location.href = 'geography/vegetation/index.html';
-        }
-    };
-    navMenu.appendChild(vegNav);
-
-    // Quick Launch: Water Resources Theory DPP (48 Expected Qs)
-    const waterNav = document.createElement('div');
-    const isWaterActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-water-theory-master';
-    waterNav.className = `nav-item nav-item-featured ${isWaterActive ? 'active' : ''}`;
-    waterNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #0ea5e9;">water_drop</span>
-        <span style="font-weight: 600;">Water 48 Qs DPP</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); color:#fff;">NEW</span>
-    `;
-    waterNav.onclick = () => {
-        closeSidebarOnMobile();
-        resetSearch();
-        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const waterChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-water');
-        const waterItem = waterChap?.items?.find(i => i.id === 'geo-water-theory-master');
-        if (waterChap && waterItem) {
-            navigateTo('viewer', [batch.id, geoSub.id, waterChap.id], waterItem);
-        } else {
-            window.location.href = 'geography/water/index.html';
-        }
-    };
-    navMenu.appendChild(waterNav);
-
-    // Quick Launch: Transport Network Theory DPP (48 Expected Qs)
-    const transportNav = document.createElement('div');
-    const isTransportActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-transport-theory-master';
-    transportNav.className = `nav-item nav-item-featured ${isTransportActive ? 'active' : ''}`;
-    transportNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #6366f1;">directions_transit</span>
-        <span style="font-weight: 600;">Transport 48 Qs DPP</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); color:#fff;">NEW</span>
-    `;
-    transportNav.onclick = () => {
-        closeSidebarOnMobile();
-        resetSearch();
-        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const transChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-transport');
-        const transItem = transChap?.items?.find(i => i.id === 'geo-transport-theory-master');
-        if (transChap && transItem) {
-            navigateTo('viewer', [batch.id, geoSub.id, transChap.id], transItem);
-        } else {
-            window.location.href = 'geography/transport/index.html';
-        }
-    };
-    navMenu.appendChild(transportNav);
-
-    // Quick Launch: Waste Management Theory DPP (50 Expected Qs)
-    const wasteNav = document.createElement('div');
-    const isWasteActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-waste-theory-master';
-    wasteNav.className = `nav-item nav-item-featured ${isWasteActive ? 'active' : ''}`;
-    wasteNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #84cc16;">recycling</span>
-        <span style="font-weight: 600;">Waste 50 Qs DPP</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #84cc16, #10b981); color:#051109;">NEW</span>
-    `;
-    wasteNav.onclick = () => {
-        closeSidebarOnMobile();
-        resetSearch();
-        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const wasteChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-waste');
-        const wasteItem = wasteChap?.items?.find(i => i.id === 'geo-waste-theory-master');
-        if (wasteChap && wasteItem) {
-            navigateTo('viewer', [batch.id, geoSub.id, wasteChap.id], wasteItem);
-        } else {
-            window.location.href = 'geography/waste/index.html';
-        }
-    };
-    navMenu.appendChild(wasteNav);
-
-    // Quick Launch: 1857 First War of Independence Class Notes
-    const hisNav = document.createElement('div');
-    const isHisActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-1';
-    hisNav.className = `nav-item nav-item-featured ${isHisActive ? 'active' : ''}`;
-    hisNav.innerHTML = `
+    // Latest Update Quick Launch: First Phase of the Indian National Movement Class Notes (Ch 3)
+    const firstPhaseNav = document.createElement('div');
+    const isFirstPhaseActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-3';
+    firstPhaseNav.className = `nav-item nav-item-featured ${isFirstPhaseActive ? 'active' : ''}`;
+    firstPhaseNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #f43f5e;">history_edu</span>
-        <span style="font-weight: 600;">1857 Revolt Notes</span>
+        <span style="font-weight: 600;">First Phase Notes</span>
         <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f43f5e, #e11d48); color:#fff;">NEW</span>
     `;
-    hisNav.onclick = () => {
+    firstPhaseNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
-        const hisChap = hisSub?.chapters?.find(c => c.id === 'chap-his-1');
-        if (hisChap) {
-            navigateTo('items', [batch.id, hisSub.id, hisChap.id]);
+        const firstPhaseChap = hisSub?.chapters?.find(c => c.id === 'chap-his-3');
+        if (firstPhaseChap) {
+            navigateTo('items', [batch.id, hisSub.id, firstPhaseChap.id]);
         }
     };
-    navMenu.appendChild(hisNav);
-
-    // Quick Launch: Growth of Nationalism Class Notes (Ch 2)
-    const natNav = document.createElement('div');
-    const isNatActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-2';
-    natNav.className = `nav-item nav-item-featured ${isNatActive ? 'active' : ''}`;
-    natNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #ec4899;">flag</span>
-        <span style="font-weight: 600;">Nationalism Notes</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #ec4899, #db2777); color:#fff;">NEW</span>
-    `;
-    natNav.onclick = () => {
-        closeSidebarOnMobile();
-        resetSearch();
-        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
-        const natChap = hisSub?.chapters?.find(c => c.id === 'chap-his-2');
-        if (natChap) {
-            navigateTo('items', [batch.id, hisSub.id, natChap.id]);
-        }
-    };
-    navMenu.appendChild(natNav);
+    navMenu.appendChild(firstPhaseNav);
 }
 
 function resetSearch() {
