@@ -766,6 +766,14 @@ window.COURSE_DATA = {
                                     "type": "pdf",
                                     "file": "history/notes/Growth_Of_Nationalism_01_Class_Notes.pdf",
                                     "size": "3.3 MB"
+                                },
+                                {
+                                    "id": "his-nationalism-notes-02",
+                                    "title": "Growth Of Nationalism 02 Class Notes",
+                                    "subtitle": "Early Nationalists (Moderates): Objectives, methods, constitutional agitation & contributions of Naoroji, Banerjea, Gokhale",
+                                    "type": "pdf",
+                                    "file": "history/notes/Growth_Of_Nationalism_02_Class_Notes.pdf",
+                                    "size": "3.6 MB"
                                 }
                             ]
                         },
