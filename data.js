@@ -693,7 +693,7 @@ window.COURSE_DATA = {
                         },
                         {
                             "id": "chap-geo-waste",
-                            "name": "Ch 9: Waste Management",
+                            "name": "Ch 10: Waste Management",
                             "description": "50 Most Expected Questions, 200+ Twisted Variations, Master MCQ DPP & Complete Modes Vault",
                             "featured": true,
                             "items": [

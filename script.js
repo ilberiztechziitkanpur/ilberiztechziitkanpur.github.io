@@ -18,6 +18,55 @@ const sidebarOverlay = document.getElementById('sidebar-overlay');
 const searchInput = document.getElementById('search-input');
 const clearSearchBtn = document.getElementById('clear-search-btn');
 
+// Pre-computed search index for instant zero-overhead lookups
+let searchIndex = [];
+
+function buildSearchIndex() {
+    searchIndex = [];
+    if (!state.data || !state.data.batches) return;
+
+    state.data.batches.forEach(batch => {
+        batch.subjects.forEach(subject => {
+            subject.chapters.forEach(chapter => {
+                const items = chapter.items || [];
+                items.forEach(item => {
+                    const searchBlob = [
+                        item.title,
+                        item.subtitle || '',
+                        chapter.name,
+                        subject.name,
+                        batch.name
+                    ].join(' ').toLowerCase();
+                    searchIndex.push({
+                        type: 'item',
+                        batch,
+                        subject,
+                        chapter,
+                        item,
+                        searchBlob
+                    });
+                });
+
+                // Also index chapter so topics and chapters without uploaded PDFs can be discovered
+                const chapBlob = [
+                    chapter.name,
+                    chapter.description || '',
+                    subject.name,
+                    batch.name
+                ].join(' ').toLowerCase();
+                searchIndex.push({
+                    type: 'chapter',
+                    batch,
+                    subject,
+                    chapter,
+                    itemCount: items.length,
+                    searchBlob: chapBlob
+                });
+            });
+        });
+    });
+}
+
 // Initialize App
 async function init() {
     setupMobileMenu();
@@ -26,6 +75,7 @@ async function init() {
     // 1. Direct local load (works when double-clicking index.html offline via file://)
     if (window.COURSE_DATA) {
         state.data = window.COURSE_DATA;
+        buildSearchIndex();
         renderNav();
         renderView();
         if (contentArea) contentArea.scrollTop = 0;
@@ -37,6 +87,7 @@ async function init() {
         const response = await fetch('data.json');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         state.data = await response.json();
+        buildSearchIndex();
         renderNav();
         renderView();
         if (contentArea) contentArea.scrollTop = 0;
@@ -157,7 +208,7 @@ function renderNav() {
     // Batches
     state.data.batches.forEach(batch => {
         const item = document.createElement('div');
-        const isActive = state.path[0] === batch.id && state.currentView !== 'viewer';
+        const isActive = state.currentView !== 'search' && state.currentView !== 'viewer' && state.path[0] === batch.id && state.path.length <= 1;
         item.className = `nav-item ${isActive ? 'active' : ''}`;
         item.innerHTML = `
             <span class="material-symbols-outlined icon">${batch.icon || 'school'}</span>
@@ -173,7 +224,7 @@ function renderNav() {
 
     // Quick Launch: Topography Master Engine
     const topoNav = document.createElement('div');
-    const isTopoActive = state.currentItem?.id === 'geo-toposheet-engine-full';
+    const isTopoActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-toposheet-engine-full';
     topoNav.className = `nav-item nav-item-featured ${isTopoActive ? 'active' : ''}`;
     topoNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #fbbf24;">map</span>
@@ -196,7 +247,7 @@ function renderNav() {
 
     // Quick Launch: Geography 100 MCQ Engine
     const mcqNav = document.createElement('div');
-    const isMcqActive = state.currentItem?.id === 'geo-mcq-engine-full';
+    const isMcqActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-mcq-engine-full';
     mcqNav.className = `nav-item nav-item-featured ${isMcqActive ? 'active' : ''}`;
     mcqNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #38bdf8;">bolt</span>
@@ -219,7 +270,7 @@ function renderNav() {
 
     // Quick Launch: Climate Theory DPP (42 Expected Qs)
     const climateNav = document.createElement('div');
-    const isClimateActive = state.currentItem?.id === 'geo-climate-theory-master';
+    const isClimateActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-climate-theory-master';
     climateNav.className = `nav-item nav-item-featured ${isClimateActive ? 'active' : ''}`;
     climateNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #34d399;">thermostat</span>
@@ -243,7 +294,7 @@ function renderNav() {
 
     // Quick Launch: Soil Theory DPP (46 Expected Qs)
     const soilNav = document.createElement('div');
-    const isSoilActive = state.currentItem?.id === 'geo-soil-theory-master';
+    const isSoilActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-soil-theory-master';
     soilNav.className = `nav-item nav-item-featured ${isSoilActive ? 'active' : ''}`;
     soilNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #f59e0b;">landscape</span>
@@ -267,7 +318,7 @@ function renderNav() {
 
     // Quick Launch: Natural Vegetation Theory DPP (46 Expected Qs)
     const vegNav = document.createElement('div');
-    const isVegActive = state.currentItem?.id === 'geo-veg-theory-master';
+    const isVegActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-veg-theory-master';
     vegNav.className = `nav-item nav-item-featured ${isVegActive ? 'active' : ''}`;
     vegNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #10b981;">forest</span>
@@ -291,7 +342,7 @@ function renderNav() {
 
     // Quick Launch: Water Resources Theory DPP (48 Expected Qs)
     const waterNav = document.createElement('div');
-    const isWaterActive = state.currentItem?.id === 'geo-water-theory-master';
+    const isWaterActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-water-theory-master';
     waterNav.className = `nav-item nav-item-featured ${isWaterActive ? 'active' : ''}`;
     waterNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #0ea5e9;">water_drop</span>
@@ -315,7 +366,7 @@ function renderNav() {
 
     // Quick Launch: Transport Network Theory DPP (48 Expected Qs)
     const transportNav = document.createElement('div');
-    const isTransportActive = state.currentItem?.id === 'geo-transport-theory-master';
+    const isTransportActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-transport-theory-master';
     transportNav.className = `nav-item nav-item-featured ${isTransportActive ? 'active' : ''}`;
     transportNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #6366f1;">directions_transit</span>
@@ -339,7 +390,7 @@ function renderNav() {
 
     // Quick Launch: Waste Management Theory DPP (50 Expected Qs)
     const wasteNav = document.createElement('div');
-    const isWasteActive = state.currentItem?.id === 'geo-waste-theory-master';
+    const isWasteActive = state.currentView === 'viewer' && state.currentItem?.id === 'geo-waste-theory-master';
     wasteNav.className = `nav-item nav-item-featured ${isWasteActive ? 'active' : ''}`;
     wasteNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #84cc16;">recycling</span>
@@ -363,7 +414,7 @@ function renderNav() {
 
     // Quick Launch: 1857 First War of Independence Class Notes
     const hisNav = document.createElement('div');
-    const isHisActive = state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-1';
+    const isHisActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-1';
     hisNav.className = `nav-item nav-item-featured ${isHisActive ? 'active' : ''}`;
     hisNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #f43f5e;">history_edu</span>
@@ -384,7 +435,7 @@ function renderNav() {
 
     // Quick Launch: Growth of Nationalism Class Notes (Ch 2)
     const natNav = document.createElement('div');
-    const isNatActive = state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-2';
+    const isNatActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-2';
     natNav.className = `nav-item nav-item-featured ${isNatActive ? 'active' : ''}`;
     natNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #ec4899;">flag</span>
@@ -417,14 +468,17 @@ function renderBreadcrumbs() {
     breadcrumbs.innerHTML = '';
 
     // Home
+    const isHomeActive = state.currentView === 'batches' && state.path.length === 0;
     const homeBtn = document.createElement('span');
-    homeBtn.className = 'breadcrumb-item material-symbols-outlined';
+    homeBtn.className = `breadcrumb-item material-symbols-outlined ${isHomeActive ? 'active' : ''}`;
     homeBtn.textContent = 'home';
     homeBtn.title = 'Back to Overview';
-    homeBtn.onclick = () => {
-        resetSearch();
-        navigateTo('batches', []);
-    };
+    if (!isHomeActive) {
+        homeBtn.onclick = () => {
+            resetSearch();
+            navigateTo('batches', []);
+        };
+    }
     breadcrumbs.appendChild(homeBtn);
 
     if (state.currentView === 'search') {
@@ -440,7 +494,8 @@ function renderBreadcrumbs() {
         addCrumbSeparator();
         const batch = state.data.batches.find(b => b.id === state.path[0]);
         if (batch) {
-            addCrumb(batch.name, () => navigateTo('subjects', [batch.id]));
+            const isCurrent = state.currentView === 'subjects' && state.path.length === 1;
+            addCrumb(batch.name, isCurrent ? null : () => navigateTo('subjects', [batch.id]), isCurrent);
         }
     }
 
@@ -449,7 +504,8 @@ function renderBreadcrumbs() {
         const batch = state.data.batches.find(b => b.id === state.path[0]);
         const subject = batch?.subjects?.find(s => s.id === state.path[1]);
         if (subject) {
-            addCrumb(subject.name, () => navigateTo('chapters', [batch.id, subject.id]));
+            const isCurrent = state.currentView === 'chapters' && state.path.length === 2;
+            addCrumb(subject.name, isCurrent ? null : () => navigateTo('chapters', [batch.id, subject.id]), isCurrent);
         }
     }
 
@@ -459,7 +515,8 @@ function renderBreadcrumbs() {
         const subject = batch?.subjects?.find(s => s.id === state.path[1]);
         const chapter = subject?.chapters?.find(c => c.id === state.path[2]);
         if (chapter) {
-            addCrumb(chapter.name, () => navigateTo('items', state.path.slice(0, 3)));
+            const isCurrent = state.currentView === 'items';
+            addCrumb(chapter.name, isCurrent ? null : () => navigateTo('items', state.path.slice(0, 3)), isCurrent);
         }
     }
 
@@ -479,11 +536,11 @@ function addCrumbSeparator() {
     breadcrumbs.appendChild(sep);
 }
 
-function addCrumb(name, onClick) {
+function addCrumb(name, onClick, isActive = false) {
     const crumb = document.createElement('span');
-    crumb.className = 'breadcrumb-item';
+    crumb.className = `breadcrumb-item ${isActive ? 'active' : ''}`;
     crumb.textContent = name;
-    crumb.onclick = onClick;
+    if (onClick && !isActive) crumb.onclick = onClick;
     breadcrumbs.appendChild(crumb);
 }
 
@@ -491,10 +548,7 @@ function addCrumb(name, onClick) {
 function navigateTo(view, pathArgs, item = null) {
     state.currentView = view;
     state.path = pathArgs;
-
-    if (item) {
-        state.currentItem = item;
-    }
+    state.currentItem = (view === 'viewer') ? item : null;
 
     renderNav();
     renderBreadcrumbs();
@@ -661,45 +715,47 @@ function renderSearchResults(query) {
     wrapper.className = 'fade-in';
 
     const normalizedQuery = query.toLowerCase();
-    const results = [];
+    const itemResults = [];
+    const chapterResults = [];
+    const seenChapterIds = new Set();
 
-    state.data.batches.forEach(batch => {
-        batch.subjects.forEach(subject => {
-            subject.chapters.forEach(chapter => {
-                const items = chapter.items || [];
-                items.forEach(item => {
-                    const match = item.title.toLowerCase().includes(normalizedQuery) ||
-                                  (item.subtitle && item.subtitle.toLowerCase().includes(normalizedQuery)) ||
-                                  chapter.name.toLowerCase().includes(normalizedQuery) ||
-                                  subject.name.toLowerCase().includes(normalizedQuery);
-                    if (match) {
-                        results.push({ batch, subject, chapter, item });
-                    }
-                });
-            });
-        });
+    searchIndex.forEach(entry => {
+        if (!entry.searchBlob.includes(normalizedQuery)) return;
+        if (entry.type === 'item') {
+            itemResults.push(entry);
+            seenChapterIds.add(entry.chapter.id);
+        } else if (entry.type === 'chapter') {
+            if (!seenChapterIds.has(entry.chapter.id)) {
+                chapterResults.push(entry);
+            }
+        }
     });
+
+    const standaloneChapters = chapterResults.filter(ch => !seenChapterIds.has(ch.chapter.id));
+    const totalResults = itemResults.length + standaloneChapters.length;
 
     const header = createSectionHeader(
         `Search Results for "${query}"`,
-        `Found ${results.length} matching document${results.length === 1 ? '' : 's'}`
+        `Found ${totalResults} matching study resource${totalResults === 1 ? '' : 's'}`
     );
     wrapper.appendChild(header);
 
-    if (results.length === 0) {
+    if (totalResults === 0) {
         const emptyState = document.createElement('div');
         emptyState.className = 'no-results';
         emptyState.innerHTML = `
             <span class="material-symbols-outlined icon">search_off</span>
             <h3>No matching notes found</h3>
-            <p>Try searching for topics like "1857", "First War", "Climate", "Soil", "Vegetation", "Water", "Energy" or "Mineral".</p>
+            <p>Try searching for topics like "1857", "Nationalism", "Climate", "Soil", "Vegetation", "Water", "Energy", "GST" or "Trigonometry".</p>
         `;
         wrapper.appendChild(emptyState);
     } else {
         const grid = document.createElement('div');
         grid.className = 'cards-grid';
+        let cardIndex = 0;
 
-        results.forEach((res, idx) => {
+        // 1. Direct Item Matches (Notes & Interactive Engines)
+        itemResults.forEach((res) => {
             const isInter = res.item.type === 'interactive' || res.item.type === 'app';
             const isPdf = res.item.type === 'pdf';
             const card = createCard({
@@ -707,15 +763,36 @@ function renderSearchResults(query) {
                 subtitle: `${res.batch.name} • ${res.subject.name} • ${res.chapter.name}`,
                 icon: isInter ? 'quiz' : (isPdf ? 'picture_as_pdf' : 'play_circle'),
                 onClick: () => {
+                    resetSearch();
                     navigateTo('viewer', [res.batch.id, res.subject.id, res.chapter.id], res.item);
                 },
                 badge: isInter ? 'Interactive Engine' : res.subject.name,
                 isPdf: isPdf,
                 isInteractive: isInter,
                 actionText: isInter ? 'Launch Engine' : (isPdf ? 'Read Notes' : 'Watch Lecture'),
-                index: idx
+                index: cardIndex++
             });
             if (isInter) card.classList.add('card-featured');
+            grid.appendChild(card);
+        });
+
+        // 2. Standalone Chapter Matches (for subject/chapter searches)
+        standaloneChapters.forEach((res) => {
+            const count = res.itemCount;
+            const card = createCard({
+                title: res.chapter.name,
+                subtitle: `${res.batch.name} • ${res.subject.name} • ${res.chapter.description || 'Chapter Overview'}`,
+                icon: 'auto_stories',
+                onClick: () => {
+                    resetSearch();
+                    navigateTo('items', [res.batch.id, res.subject.id, res.chapter.id]);
+                },
+                badge: count > 0 ? `${count} Notes Ready` : 'Class 10 Syllabus',
+                isPdf: false,
+                isInteractive: false,
+                actionText: 'Open Chapter',
+                index: cardIndex++
+            });
             grid.appendChild(card);
         });
 
@@ -741,8 +818,16 @@ function createSectionHeader(title, subtitle) {
 function createCard({ title, subtitle, icon, onClick, badge = null, isPdf = false, isInteractive = false, actionText = 'Explore', index = 0 }) {
     const card = document.createElement('div');
     card.className = 'card';
-    card.style.setProperty('--i', index);
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.style.setProperty('--i', Math.min(index, 10));
     card.onclick = onClick;
+    card.onkeydown = (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (onClick) onClick();
+        }
+    };
     
     let iconClass = 'card-icon';
     let badgeClass = 'card-badge';
@@ -876,6 +961,7 @@ function createPdfViewer(item) {
     iframe.src = `${item.file}#view=FitH`;
     iframe.className = 'pdf-iframe';
     iframe.title = item.title;
+    iframe.setAttribute('allow', 'fullscreen');
 
     frameWrapper.appendChild(iframe);
 

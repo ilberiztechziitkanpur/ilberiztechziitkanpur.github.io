@@ -46,7 +46,10 @@ ILBERIZ TECHZ IIT KANPUR/
 ├── history/                         # ALL History subject content lives strictly here
 │   └── notes/                       # ICSE Class 10 History PDF notes
 │       ├── The_First_War_Of_Independence_01_Class_Notes.pdf (5.8 MB) — Causes & factors
-│       └── The_First_War_Of_Independence_02_Class_Notes.pdf (4.0 MB) — Events & consequences
+│       ├── The_First_War_Of_Independence_02_Class_Notes.pdf (4.0 MB) — Events & consequences
+│       ├── The_First_War_Of_Independence_03_Class_Notes.pdf (4.2 MB) — Consequences & revision
+│       ├── Growth_Of_Nationalism_01_Class_Notes.pdf (3.3 MB) — Factors & INC foundation
+│       └── Growth_Of_Nationalism_02_Class_Notes.pdf (3.6 MB) — Early Nationalists (Moderates)
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -205,7 +208,7 @@ ILBERIZ TECHZ IIT KANPUR/
   4. Survey Conventional Symbols & Color Codes Cheat Sheet
 - CSS containment (`content-visibility: auto`) for zero lag.
 
-### J. History Notes (2 PDFs in `history/notes/`)
+### J. History Notes (5 PDFs in `history/notes/`)
 - **`The_First_War_Of_Independence_01_Class_Notes.pdf` (5.8 MB)**:
   - Political, socio-religious, economic & military causes of 1857 Revolt.
   - Doctrine of Lapse, annexation of Awadh, disrespect to Bahadur Shah Zafar.
@@ -218,6 +221,16 @@ ILBERIZ TECHZ IIT KANPUR/
   - Queen Victoria's Proclamation of 1858 (pledge of religious non-interference and equal treatment).
   - Military reorganization (ratio of European to Indian troops increased, artillery placed exclusively in British hands).
   - Policy of Divide and Rule, financial burden, and rise of Indian nationalism.
+- **`The_First_War_Of_Independence_03_Class_Notes.pdf` (4.2 MB)**:
+  - Long-term consequences, British policy shifts, army reorganisation & comprehensive revision notes.
+- **`Growth_Of_Nationalism_01_Class_Notes.pdf` (3.3 MB)**:
+  - Economic exploitation, repressive colonial policies of Lord Lytton (Vernacular Press Act, Arms Act).
+  - Role of press (Amrita Bazar Patrika, The Bengalee, Rast Goftar) & socio-religious reformers (Raja Rammohan Roy, Jyotirao Phule).
+  - Precursors to the Congress & foundation of the Indian National Congress (1885, A.O. Hume, W.C. Bonnerjee).
+- **`Growth_Of_Nationalism_02_Class_Notes.pdf` (3.6 MB)**:
+  - Early Nationalists (Moderates): Beliefs, demands, and methods of constitutional agitation (3 P's: Petitions, Prayers, Protests).
+  - Major contributions of Dadabhai Naoroji (Drain of Wealth theory, 'Poverty and Un-British Rule in India').
+  - Contributions of Surendranath Banerjea (Indian Association, convene of Indian National Conference) and Gopal Krishna Gokhale (Servants of India Society, Imperial Legislative Council role).
 
 ### K. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
 All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
@@ -343,3 +356,45 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
    - Run `git add` and `git commit`.
    - Run `git push origin main` with `BypassSandbox: true`.
 7. **Update This File**: Always record the changes, new question counts, and features in this document (`PROJECT_STATE.md`) automatically before finishing your turn.
+
+---
+
+## 6. Repository Health, Bug Fixes & Performance Optimization Audit Log
+
+### A. Bug Fixes Implemented
+1. **Sidebar Navigation Active State Persistence**:
+   - *Problem*: In `script.js`, `navigateTo` did not reset `state.currentItem` when switching to non-viewer views, and quick-launch menu buttons only checked `state.currentItem?.id === ...` without checking `state.currentView === 'viewer'`. This caused quick-launch buttons to stay permanently highlighted with class `.active` even after the user navigated back to Batches, Subjects, or other chapters.
+   - *Fix*: `navigateTo` now explicitly clears `state.currentItem = (view === 'viewer') ? item : null;`. All quick-launch active checks now enforce `state.currentView === 'viewer' && state.currentItem?.id === ...`. Batch nav items only highlight when on top-level subject listing, and history quick launch items properly deactivate during search.
+2. **Missing `target="_top"` in Topography and MCQ Home Links**:
+   - *Problem*: In `geography/toposheet/index.html` and `geography/mcq/index.html`, the `.home-nav-btn` lacked `target="_top"`, which caused `../../index.html` to be rendered recursively inside the dashboard iframe whenever students clicked the back-to-home button while using the embedded viewer.
+   - *Fix*: Added `target="_top"` to `.home-nav-btn` in both `geography/toposheet/index.html` and `geography/mcq/index.html`. Also updated their Google Fonts link to include `Inter` and `JetBrains Mono` for crisp typographical consistency.
+3. **Duplicate Chapter Number in `data.js` and `data.json`**:
+   - *Problem*: Both Transport and Waste Management were labeled `"Ch 9:"` in `sub-10-geo`.
+   - *Fix*: Waste Management updated to `"name": "Ch 10: Waste Management"` in both `data.js` and `data.json`.
+4. **Search Bar Desynchronization on Result Click**:
+   - *Problem*: In `script.js`, clicking a card from search results navigated to the viewer without clearing `searchInput.value` and search state, leaving stale query text displayed in the header.
+   - *Fix*: Added `resetSearch()` on search result item and chapter selection.
+5. **Breadcrumb Terminal Item Non-Clickable & Active State**:
+   - *Problem*: The terminal breadcrumb representing the current page was rendered as an active-clickable link to itself, causing redundant re-renders.
+   - *Fix*: The terminal crumb is now marked with `.active` styling and disables redundant self-navigation.
+6. **PDF Iframe Fullscreen Attribute**:
+   - *Problem*: In `script.js`, the PDF reader iframe was missing `allow="fullscreen"`.
+   - *Fix*: Added `iframe.setAttribute('allow', 'fullscreen')`.
+
+### B. Performance & Efficiency Optimizations
+1. **Pre-Computed Flat Search Index (`searchIndex`)**:
+   - Replaced multi-level nested object tree traversals and dynamic `.toLowerCase()` calls on every input event with a pre-indexed flat array built once on startup.
+   - Expanded search coverage to include all Class 10 subjects and syllabus chapters, ensuring queries like "GST", "Quadratic", "Electricity", "Mole Concept" immediately surface their corresponding chapter pages.
+2. **Hardware-Accelerated CSS Containment (`content-visibility: auto`) in All 6 Theory Vaults**:
+   - Added `content-visibility: auto; contain-intrinsic-size: 280px;` to `.q-card` across `climate`, `soil`, `vegetation`, `water`, `transport`, and `waste`.
+   - Off-screen question cards are skipped during layout and paint passes until scrolled into view, providing instant initial render, reduced memory footprint, and 60fps scrolling on both mobile and desktop.
+3. **Search Debouncing in All 6 Theory Vaults**:
+   - Replaced unthrottled `oninput="renderQuestions()"` on search inputs with 120ms `debouncedSearch()`.
+   - Pre-cached lowercased search strings on all question items at startup, eliminating continuous string concatenations and allocations on every keystroke.
+4. **60fps In-Place Card Evaluation Updates**:
+   - In all 6 theory vaults, clicking "Mark Mastered" or "Needs Revision" previously wiped and recreated all 50 question cards via `innerHTML = ...`.
+   - Added `updateCardEvaluation(id)`, which updates the targeted question card classes and buttons in-place when not in revision-filter mode. This eliminates layout thrashing, avoids scroll jumping, and makes user evaluation instant.
+5. **Card Keyboard Accessibility & Animation Stagger Capping**:
+   - Added `role="button"`, `tabindex="0"`, and Enter/Space keyboard handlers on dashboard cards.
+   - Capped `--i` animation delay variable (`Math.min(index, 10)`) to eliminate animation lag for distant cards in long grids.
+

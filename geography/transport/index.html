@@ -548,6 +548,8 @@
       padding: 22px;
       transition: all 0.22s ease;
       position: relative;
+      content-visibility: auto;
+      contain-intrinsic-size: 280px;
     }
 
     .q-card:hover {
@@ -1093,7 +1095,7 @@
           id="searchInput" 
           class="search-input" 
           placeholder="Search any keyword (e.g., 'Golden Quadrilateral', 'Broad Gauge', 'Peninsular rivers', 'Kandla', 'Kolkata', 'Pawan Hans', 'BRO', '2027 Specimen')..."
-          oninput="renderQuestions()"
+          oninput="debouncedSearch()"
         />
         <button class="action-btn" onclick="expandAllAnswers()">👁 Show All Answers</button>
         <button class="action-btn" onclick="collapseAllAnswers()">🙈 Hide All Answers</button>
@@ -2393,6 +2395,25 @@
       else renderQuestions();
     }
 
+    // Pre-cache lowercased search text for instant 0-cost search
+    transportQuestions.forEach(q => {
+      q._searchText = (
+        q.question + ' ' +
+        q.subTopic + ' ' +
+        q.whyChosen + ' ' +
+        q.twistedVersions.join(' ') + ' ' +
+        q.answer
+      ).toLowerCase();
+    });
+
+    let searchDebounceTimer = null;
+    function debouncedSearch() {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(() => {
+        renderQuestions();
+      }, 120);
+    }
+
     function toggleMastered(id) {
       if (masteredIds.has(id)) masteredIds.delete(id);
       else {
@@ -2400,7 +2421,11 @@
         reviewIds.delete(id);
       }
       saveProgress();
-      renderQuestions();
+      if (currentTypeFilter === 'revision') {
+        renderQuestions();
+      } else {
+        updateCardEvaluation(id);
+      }
     }
 
     function toggleReview(id) {
@@ -2410,7 +2435,33 @@
         masteredIds.delete(id);
       }
       saveProgress();
-      renderQuestions();
+      if (currentTypeFilter === 'revision') {
+        renderQuestions();
+      } else {
+        updateCardEvaluation(id);
+      }
+    }
+
+    function updateCardEvaluation(id) {
+      const card = document.getElementById(`qcard-${id}`);
+      if (!card) return;
+      const isMastered = masteredIds.has(id);
+      const isReview = reviewIds.has(id);
+
+      card.classList.toggle('mastered', isMastered);
+      card.classList.toggle('review-later', isReview);
+
+      const mBtn = card.querySelector('.master-btn');
+      if (mBtn) {
+        mBtn.classList.toggle('active', isMastered);
+        mBtn.textContent = isMastered ? '✔ Mastered' : 'Mark Mastered';
+      }
+
+      const rBtn = card.querySelector('.rev-btn');
+      if (rBtn) {
+        rBtn.classList.toggle('active', isReview);
+        rBtn.textContent = isReview ? '⭐ In Revision List' : '⭐ Needs Revision';
+      }
     }
 
     function getProbClass(tier) {
@@ -2432,14 +2483,7 @@
           return false;
         }
         if (query) {
-          const hay = (
-            q.question + ' ' +
-            q.subTopic + ' ' +
-            q.whyChosen + ' ' +
-            q.twistedVersions.join(' ') + ' ' +
-            q.answer
-          ).toLowerCase();
-          return hay.includes(query);
+          return (q._searchText || '').includes(query);
         }
         return true;
       });
