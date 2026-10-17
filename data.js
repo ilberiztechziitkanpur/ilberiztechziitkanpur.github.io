@@ -812,6 +812,14 @@ window.COURSE_DATA = {
                                     "type": "pdf",
                                     "file": "history/notes/Second_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf",
                                     "size": "2.6 MB"
+                                },
+                                {
+                                    "id": "his-second-phase-notes-02",
+                                    "title": "Second Phase Of The Indian National Movement 02 Class Notes",
+                                    "subtitle": "Contributions of Lal-Bal-Pal (Bal Gangadhar Tilak, Bipin Chandra Pal, Lala Lajpat Rai), assertive methods & Surat Split 1907",
+                                    "type": "pdf",
+                                    "file": "history/notes/Second_Phase_Of_The_Indian_National_Movement_02_Class_Notes.pdf",
+                                    "size": "2.9 MB"
                                 }
                             ]
                         },
@@ -819,7 +827,24 @@ window.COURSE_DATA = {
                             "id": "chap-his-5",
                             "name": "Ch 5: The Muslim League & Lucknow Pact",
                             "description": "Factors leading to formation of Muslim League, objectives, Nawab Salimullah, Aga Khan, and Lucknow Pact 1916",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "his-muslim-league-notes-01",
+                                    "title": "The Muslim League 01 Class Notes",
+                                    "subtitle": "Factors promoting Muslim separatism: British Divide & Rule policy, Sir Syed Ahmad Khan, Aligarh Movement & Shimla Deputation 1906",
+                                    "type": "pdf",
+                                    "file": "history/notes/The_Muslim_League_01_Class_Notes.pdf",
+                                    "size": "3.1 MB"
+                                },
+                                {
+                                    "id": "his-muslim-league-notes-02",
+                                    "title": "The Muslim League 02 Class Notes",
+                                    "subtitle": "Founding of Muslim League (Dhaka 1906, Nawab Salimullah), objectives, and Lucknow Pact (1916) joint scheme & significance",
+                                    "type": "pdf",
+                                    "file": "history/notes/The_Muslim_League_02_Class_Notes.pdf",
+                                    "size": "8.4 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-his-6",

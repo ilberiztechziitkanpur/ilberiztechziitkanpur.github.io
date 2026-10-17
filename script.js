@@ -222,26 +222,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Second Phase of the Indian National Movement Class Notes (Ch 4)
-    const secondPhaseNav = document.createElement('div');
-    const isSecondPhaseActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-4';
-    secondPhaseNav.className = `nav-item nav-item-featured ${isSecondPhaseActive ? 'active' : ''}`;
-    secondPhaseNav.innerHTML = `
+    // Latest Update Quick Launch: The Muslim League & Lucknow Pact Class Notes (Ch 5)
+    const muslimLeagueNav = document.createElement('div');
+    const isMuslimLeagueActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-5';
+    muslimLeagueNav.className = `nav-item nav-item-featured ${isMuslimLeagueActive ? 'active' : ''}`;
+    muslimLeagueNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #f43f5e;">history_edu</span>
-        <span style="font-weight: 600;">Second Phase Notes</span>
+        <span style="font-weight: 600;">Muslim League Notes</span>
         <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f43f5e, #e11d48); color:#fff;">NEW</span>
     `;
-    secondPhaseNav.onclick = () => {
+    muslimLeagueNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
-        const secondPhaseChap = hisSub?.chapters?.find(c => c.id === 'chap-his-4');
-        if (secondPhaseChap) {
-            navigateTo('items', [batch.id, hisSub.id, secondPhaseChap.id]);
+        const muslimLeagueChap = hisSub?.chapters?.find(c => c.id === 'chap-his-5');
+        if (muslimLeagueChap) {
+            navigateTo('items', [batch.id, hisSub.id, muslimLeagueChap.id]);
         }
     };
-    navMenu.appendChild(secondPhaseNav);
+    navMenu.appendChild(muslimLeagueNav);
 }
 
 function resetSearch() {
@@ -535,7 +535,7 @@ function renderSearchResults(query) {
         emptyState.innerHTML = `
             <span class="material-symbols-outlined icon">search_off</span>
             <h3>No matching notes found</h3>
-            <p>Try searching for topics like "1857", "Nationalism", "First Phase", "Second Phase", "Assertive", "Climate", "Soil", "Vegetation", "Water", "Energy", "GST" or "Trigonometry".</p>
+            <p>Try searching for topics like "1857", "Nationalism", "First Phase", "Second Phase", "Assertive", "Muslim League", "Lucknow Pact", "Climate", "Soil", "Vegetation", "Water", "Energy", "GST" or "Trigonometry".</p>
         `;
         wrapper.appendChild(emptyState);
     } else {
