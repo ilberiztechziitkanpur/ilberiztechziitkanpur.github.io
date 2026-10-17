@@ -51,7 +51,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Growth_Of_Nationalism_01_Class_Notes.pdf (3.3 MB) — Factors & Lord Lytton's repressive policies
 │       ├── Growth_Of_Nationalism_02_Class_Notes.pdf (3.6 MB) — Reformers, Press & INC foundation
 │       ├── First_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf (3.3 MB) — Early Nationalists & Naoroji
-│       └── First_Phase_Of_The_Indian_National_Movement_02_Class_Notes.pdf (2.6 MB) — Gokhale & Banerjea
+│       ├── First_Phase_Of_The_Indian_National_Movement_02_Class_Notes.pdf (2.6 MB) — Gokhale & Banerjea
+│       └── Second_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf (2.6 MB) — Assertive Nationalism, Curzon & Partition of Bengal
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -211,7 +212,7 @@ ILBERIZ TECHZ IIT KANPUR/
   4. Survey Conventional Symbols & Color Codes Cheat Sheet
 - CSS containment (`content-visibility: auto`) for zero lag.
 
-### J. History Notes (7 PDFs in `history/notes/` across 3 Active Chapters)
+### J. History Notes (8 PDFs in `history/notes/` across 4 Active Chapters)
 - **Chapter 1: The First War of Independence (1857) (3 Notes)**:
   - `The_First_War_Of_Independence_01_Class_Notes.pdf` (5.8 MB) — Political, socio-religious, economic & military causes of 1857 Revolt, Enfield rifle cartridge incident.
   - `The_First_War_Of_Independence_02_Class_Notes.pdf` (4.0 MB) — Major storm centres, suppression, Queen Victoria's Proclamation of 1858, Government of India Act 1858 & consequences.
@@ -222,6 +223,8 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Chapter 3: First Phase of the Indian National Movement (1885–1907) (2 Notes)**:
   - `First_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf` (3.3 MB) — Early Nationalists (Moderates): Definition, beliefs, faith in British sense of justice, demands (constitutional, economic, administrative, civil rights), methods of constitutional agitation (3 P's: Petitions, Prayers, Protests), achievements (Public Service Commission 1886, Welby Commission 1895, Indian Councils Act 1892), criticisms, British attitude shift (Lord Dufferin's 'microscopic minority'), and contributions of Dadabhai Naoroji (Grand Old Man of India, London India Society 1865, East India Association 1866, thrice INC President, 1906 Swaraj demand, 'Poverty and Un-British Rule in India', Drain Theory).
   - `First_Phase_Of_The_Indian_National_Movement_02_Class_Notes.pdf` (2.6 MB) — Contributions of Gopal Krishna Gokhale (Servants of India Society 1905, Imperial Legislative Council, Welby Commission evidence, Minto-Morley reforms role, political mentor to Mahatma Gandhi, 1905 Varanasi session president) and Surendranath Banerjea (Father of Indian Nationalism, Indian Association 1876, Indian National Conference 1883, Ripon College founder, editor of 'The Bengalee', author of 'A Nation in the Making', Knighted 1921).
+- **Chapter 4: Second Phase of the Indian National Movement (Assertive Nationalism) (1 Note)**:
+  - `Second_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf` (2.6 MB) — Assertive Nationalism: Causes for rise, repressive policies of Lord Curzon (Calcutta Corporation Act 1899, Official Secrets Act 1904, Indian Universities Act 1904), Partition of Bengal (1905 — pretext vs real motives), anti-partition agitation, Swadeshi & Boycott movements, assertive methods, and contributions of Lal-Bal-Pal (Bal Gangadhar Tilak, Bipin Chandra Pal, Lala Lajpat Rai).
 
 ### K. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
 All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
@@ -290,7 +293,7 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
      - Ch 1: The First War of Independence (1857) [3 Class Notes PDFs Live]
      - Ch 2: Growth of Nationalism [2 Class Notes PDFs Live]
      - Ch 3: First Phase of the Indian National Movement (1885–1907) [2 Class Notes PDFs Live]
-     - Ch 4: Second Phase of the Indian National Movement (Assertive Nationalism)
+     - Ch 4: Second Phase of the Indian National Movement (Assertive Nationalism) [1 Class Notes PDF Live]
      - Ch 5: The Muslim League & Lucknow Pact
      - Ch 6: Mahatma Gandhi & National Movement (1919–1934)
      - Ch 7: The Quit India Movement
@@ -391,10 +394,15 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
    - Capped `--i` animation delay variable (`Math.min(index, 10)`) to eliminate animation lag for distant cards in long grids.
 6. **Sidebar Navigation Decluttering & Latest Update Focus (User Mandate)**:
    - *Problem*: Over successive sessions, every added interactive vault and note was being appended directly to `.nav-menu` in `renderNav()`. This created a 10+ item scrolling sidebar that pushed essential links down, cluttered the landing view on laptop screens, and made it difficult for students to immediately see what was newly updated.
-   - *Fix*: Removed older accumulated quick-launch shortcuts (Toposheet, 100 MCQ, Climate, Soil, Vegetation, Water, Transport, Waste, 1857, and Nationalism) from the main sidebar. Replaced them with a single clean, high-priority featured button for the newest published content: **"First Phase Notes"** (`chap-his-3`) with a `NEW` badge. All previous engines and notes remain 100% active and accessible with their full metadata and badges under their respective Subject (`geography/`, `history/`) and Chapter pages.
+   - *Fix*: Removed older accumulated quick-launch shortcuts from the main sidebar. Replaced them with a single clean, high-priority featured button for the newest published content: **"Second Phase Notes"** (`chap-his-4`) with a `NEW` badge. All previous engines and notes remain 100% active and accessible with their full metadata and badges under their respective Subject (`geography/`, `history/`) and Chapter pages.
 7. **Addition of Chapter 3: First Phase of the Indian National Movement (1885–1907)**:
    - Added `First_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf` (3.3 MB) covering Early Nationalists (Moderates), beliefs, demands, methods (3 P's), achievements, criticisms, and Dadabhai Naoroji.
    - Added `First_Phase_Of_The_Indian_National_Movement_02_Class_Notes.pdf` (2.6 MB) covering Gopal Krishna Gokhale and Surendranath Banerjea.
    - Refined Chapter 2 (`Growth of Nationalism`) to cleanly focus on factors promoting nationalism and INC foundation, and properly renumbered subsequent History syllabus chapters (Ch 4 to Ch 15).
+8. **Addition of Chapter 4: Second Phase of the Indian National Movement (Assertive Nationalism)**:
+   - Added `Second_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf` (2.6 MB) covering Assertive Nationalism, causes for its rise, Lord Curzon's repressive policies, Partition of Bengal (1905), Swadeshi & Boycott movements, Lal-Bal-Pal, and assertive methods.
+   - Synchronized `data.js` and `data.json` under `sub-10-his` -> `chap-his-4`.
+   - Updated quick-launch navigation in `script.js` to highlight "Second Phase Notes" with a glowing `NEW` badge.
+   - Updated search suggestion placeholder to include "Second Phase" and "Assertive".
 
 

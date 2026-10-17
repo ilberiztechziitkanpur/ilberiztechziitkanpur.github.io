@@ -222,26 +222,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: First Phase of the Indian National Movement Class Notes (Ch 3)
-    const firstPhaseNav = document.createElement('div');
-    const isFirstPhaseActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-3';
-    firstPhaseNav.className = `nav-item nav-item-featured ${isFirstPhaseActive ? 'active' : ''}`;
-    firstPhaseNav.innerHTML = `
+    // Latest Update Quick Launch: Second Phase of the Indian National Movement Class Notes (Ch 4)
+    const secondPhaseNav = document.createElement('div');
+    const isSecondPhaseActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-4';
+    secondPhaseNav.className = `nav-item nav-item-featured ${isSecondPhaseActive ? 'active' : ''}`;
+    secondPhaseNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #f43f5e;">history_edu</span>
-        <span style="font-weight: 600;">First Phase Notes</span>
+        <span style="font-weight: 600;">Second Phase Notes</span>
         <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f43f5e, #e11d48); color:#fff;">NEW</span>
     `;
-    firstPhaseNav.onclick = () => {
+    secondPhaseNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
-        const firstPhaseChap = hisSub?.chapters?.find(c => c.id === 'chap-his-3');
-        if (firstPhaseChap) {
-            navigateTo('items', [batch.id, hisSub.id, firstPhaseChap.id]);
+        const secondPhaseChap = hisSub?.chapters?.find(c => c.id === 'chap-his-4');
+        if (secondPhaseChap) {
+            navigateTo('items', [batch.id, hisSub.id, secondPhaseChap.id]);
         }
     };
-    navMenu.appendChild(firstPhaseNav);
+    navMenu.appendChild(secondPhaseNav);
 }
 
 function resetSearch() {
@@ -535,7 +535,7 @@ function renderSearchResults(query) {
         emptyState.innerHTML = `
             <span class="material-symbols-outlined icon">search_off</span>
             <h3>No matching notes found</h3>
-            <p>Try searching for topics like "1857", "Nationalism", "Climate", "Soil", "Vegetation", "Water", "Energy", "GST" or "Trigonometry".</p>
+            <p>Try searching for topics like "1857", "Nationalism", "First Phase", "Second Phase", "Assertive", "Climate", "Soil", "Vegetation", "Water", "Energy", "GST" or "Trigonometry".</p>
         `;
         wrapper.appendChild(emptyState);
     } else {

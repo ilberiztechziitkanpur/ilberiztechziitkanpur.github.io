@@ -804,7 +804,16 @@
                             "id": "chap-his-4",
                             "name": "Ch 4: Second Phase of the Indian National Movement (Assertive Nationalism)",
                             "description": "Causes of radical nationalism, methods, Assertive leaders (Tilak, Pal, Rai), Partition of Bengal, Swadeshi & Boycott, Surat Split",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "his-second-phase-notes-01",
+                                    "title": "Second Phase Of The Indian National Movement 01 Class Notes",
+                                    "subtitle": "Assertive Nationalism: Causes for rise, Lord Curzon's repressive policies, Partition of Bengal (1905), Swadeshi & Boycott movements, Lal-Bal-Pal & methods",
+                                    "type": "pdf",
+                                    "file": "history/notes/Second_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf",
+                                    "size": "2.6 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-his-5",
