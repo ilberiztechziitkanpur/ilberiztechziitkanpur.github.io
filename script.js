@@ -783,7 +783,6 @@ function createInteractiveViewer(item) {
 
 // PDF Reader & Viewer Component with Fullscreen, In-Chapter Note Switcher, Persistent Slides & Chapter Switcher
 let activeViewerCleanup = null;
-let switchingChapters = false;
 
 function createPdfViewer(initialItem) {
     if (activeViewerCleanup) {
@@ -797,9 +796,9 @@ function createPdfViewer(initialItem) {
     // Contextual Data
     const batch = state.data.batches.find(b => b.id === state.path[0]);
     const subject = batch?.subjects?.find(s => s.id === state.path[1]);
-    const currentChapter = subject?.chapters?.find(c => c.id === state.path[2]);
+    let currentChapter = subject?.chapters?.find(c => c.id === state.path[2]);
     const allChapters = subject?.chapters || [];
-    const chapterNotes = (currentChapter?.items || []).filter(it => it.type === 'pdf');
+    let chapterNotes = (currentChapter?.items || []).filter(it => it.type === 'pdf');
 
     // Live DOM iframe cache: preserves exact reading slide & zoom when switching notes
     const iframeCache = new Map();
@@ -842,41 +841,6 @@ function createPdfViewer(initialItem) {
         `;
     });
 
-    // Note Switcher Tab Strip HTML
-    let noteTabsHtml = '';
-    if (chapterNotes.length > 1) {
-        let pillsHtml = '';
-        chapterNotes.forEach((note, idx) => {
-            const isActive = note.id === initialItem.id;
-            pillsHtml += `
-                <button class="note-pill-btn ${isActive ? 'active' : ''}" data-note-id="${note.id}" title="${note.title}">
-                    <span class="material-symbols-outlined pill-icon">description</span>
-                    <span>Note ${String(idx + 1).padStart(2, '0')}</span>
-                </button>
-            `;
-        });
-        noteTabsHtml = `
-            <div class="notes-tab-group">
-                <button class="note-nav-arrow" id="prev-note-btn" title="Previous Note (Alt + ←)">
-                    <span class="material-symbols-outlined">chevron_left</span>
-                </button>
-                <div class="note-pills-container">
-                    ${pillsHtml}
-                </div>
-                <button class="note-nav-arrow" id="next-note-btn" title="Next Note (Alt + →)">
-                    <span class="material-symbols-outlined">chevron_right</span>
-                </button>
-            </div>
-        `;
-    } else if (chapterNotes.length === 1) {
-        noteTabsHtml = `
-            <div class="single-note-badge">
-                <span class="material-symbols-outlined">description</span>
-                <span>Part 01 • Complete Notes</span>
-            </div>
-        `;
-    }
-
     header.innerHTML = `
         <div class="viewer-left-group">
             <button class="viewer-btn" id="viewer-back-btn" title="Back to Chapter Grid">
@@ -908,9 +872,7 @@ function createPdfViewer(initialItem) {
             </div>
         </div>
 
-        <div class="viewer-center-group">
-            ${noteTabsHtml}
-        </div>
+        <div class="viewer-center-group"></div>
 
         <div class="viewer-actions">
             <button class="viewer-btn viewer-fullscreen-btn" id="viewer-fullscreen-btn" title="Full Screen View (Press F or F11)">
@@ -1036,36 +998,162 @@ function createPdfViewer(initialItem) {
         if (footerSize) footerSize.textContent = targetItem.size || 'Document';
     }
 
-    // Initialize with first note
-    showNote(initialItem);
+    // Render Center Note Tabs dynamically
+    function renderNoteTabsUI() {
+        const centerGroup = header.querySelector('.viewer-center-group');
+        if (!centerGroup) return;
 
-    // Event: Note Pill Click
-    const pillBtns = header.querySelectorAll('.note-pill-btn');
-    pillBtns.forEach(pill => {
-        pill.onclick = () => {
-            const targetNote = chapterNotes.find(n => n.id === pill.dataset.noteId);
-            if (targetNote) showNote(targetNote);
-        };
-    });
+        let noteTabsHtml = '';
+        if (chapterNotes.length > 1) {
+            let pillsHtml = '';
+            chapterNotes.forEach((note, idx) => {
+                const isActive = note.id === currentNoteItem.id;
+                pillsHtml += `
+                    <button class="note-pill-btn ${isActive ? 'active' : ''}" data-note-id="${note.id}" title="${note.title}">
+                        <span class="material-symbols-outlined pill-icon">description</span>
+                        <span>Note ${String(idx + 1).padStart(2, '0')}</span>
+                    </button>
+                `;
+            });
+            noteTabsHtml = `
+                <div class="notes-tab-group">
+                    <button class="note-nav-arrow" id="prev-note-btn" title="Previous Note (Alt + ←)">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <div class="note-pills-container">
+                        ${pillsHtml}
+                    </div>
+                    <button class="note-nav-arrow" id="next-note-btn" title="Next Note (Alt + →)">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </div>
+            `;
+        } else if (chapterNotes.length === 1) {
+            noteTabsHtml = `
+                <div class="single-note-badge">
+                    <span class="material-symbols-outlined">description</span>
+                    <span>Part 01 • Complete Notes</span>
+                </div>
+            `;
+        } else {
+            noteTabsHtml = `
+                <div class="single-note-badge">
+                    <span class="material-symbols-outlined">description</span>
+                    <span>No Notes Available</span>
+                </div>
+            `;
+        }
 
-    // Event: Prev / Next Note
-    const prevNoteBtn = header.querySelector('#prev-note-btn');
-    if (prevNoteBtn) {
-        prevNoteBtn.onclick = () => {
+        centerGroup.innerHTML = noteTabsHtml;
+
+        // Bind Note Pill Clicks
+        const pillBtns = centerGroup.querySelectorAll('.note-pill-btn');
+        pillBtns.forEach(pill => {
+            pill.onclick = () => {
+                const targetNote = chapterNotes.find(n => n.id === pill.dataset.noteId);
+                if (targetNote) showNote(targetNote);
+            };
+        });
+
+        // Bind Prev / Next Note Buttons
+        const prevNoteBtn = centerGroup.querySelector('#prev-note-btn');
+        if (prevNoteBtn) {
             const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
-            if (curIdx > 0) showNote(chapterNotes[curIdx - 1]);
-        };
+            prevNoteBtn.disabled = (curIdx <= 0);
+            prevNoteBtn.onclick = () => {
+                const idx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
+                if (idx > 0) showNote(chapterNotes[idx - 1]);
+            };
+        }
+
+        const nextNoteBtn = centerGroup.querySelector('#next-note-btn');
+        if (nextNoteBtn) {
+            const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
+            nextNoteBtn.disabled = (curIdx >= chapterNotes.length - 1 || curIdx === -1);
+            nextNoteBtn.onclick = () => {
+                const idx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
+                if (idx < chapterNotes.length - 1 && idx !== -1) {
+                    showNote(chapterNotes[idx + 1]);
+                }
+            };
+        }
     }
 
-    const nextNoteBtn = header.querySelector('#next-note-btn');
-    if (nextNoteBtn) {
-        nextNoteBtn.onclick = () => {
-            const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
-            if (curIdx < chapterNotes.length - 1 && curIdx !== -1) {
-                showNote(chapterNotes[curIdx + 1]);
+    // In-Place Chapter Switching: preserves existing container in DOM, keeping pure F11 native fullscreen 100% active
+    function switchChapterInViewer(targetChapId) {
+        const targetChap = allChapters.find(c => c.id === targetChapId);
+        if (!targetChap) return;
+
+        const pdfs = (targetChap.items || []).filter(i => i.type === 'pdf');
+        if (pdfs.length === 0) {
+            state.isFullscreenActive = false;
+            exitPureFullscreen();
+            const appContainer = document.querySelector('.app-container');
+            document.body.classList.remove('viewer-active');
+            document.body.classList.remove('theater-fullscreen-active');
+            if (appContainer) {
+                appContainer.classList.remove('viewer-active');
+                appContainer.classList.remove('theater-fullscreen-active');
             }
-        };
+            navigateTo('items', [batch.id, subject.id, targetChap.id]);
+            return;
+        }
+
+        // 1. Update Chapter References & State without unmounting container
+        currentChapter = targetChap;
+        chapterNotes = pdfs;
+        state.path = [batch.id, subject.id, targetChap.id];
+        currentNoteItem = pdfs[0];
+        state.currentItem = pdfs[0];
+
+        // 2. Update Header Dropdown UI
+        const chapTitleText = header.querySelector('.chapter-select-text');
+        if (chapTitleText) chapTitleText.textContent = targetChap.name || 'Chapter';
+
+        header.querySelectorAll('.chapter-dropdown-item').forEach(itemEl => {
+            if (itemEl.dataset.chapId === targetChap.id) {
+                itemEl.classList.add('active');
+            } else {
+                itemEl.classList.remove('active');
+            }
+        });
+
+        // 3. Update Quick Prev / Next Chapter Buttons
+        const curChapIdx = allChapters.findIndex(c => c.id === targetChap.id);
+        const newPrev = curChapIdx > 0 ? allChapters[curChapIdx - 1] : null;
+        const newNext = curChapIdx >= 0 && curChapIdx < allChapters.length - 1 ? allChapters[curChapIdx + 1] : null;
+
+        const qPrev = header.querySelector('#quick-prev-chap');
+        if (qPrev) {
+            qPrev.disabled = !newPrev;
+            qPrev.title = newPrev ? `Previous: ${newPrev.name}` : 'No Previous Chapter';
+        }
+
+        const qNext = header.querySelector('#quick-next-chap');
+        if (qNext) {
+            qNext.disabled = !newNext;
+            qNext.title = newNext ? `Next: ${newNext.name}` : 'No Next Chapter';
+        }
+
+        // 4. Reset iframes & cache, mount new note immediately
+        frameWrapper.innerHTML = '';
+        iframeCache.clear();
+        showNote(pdfs[0]);
+
+        // 5. Re-render Note Tabs
+        renderNoteTabsUI();
+
+        // 6. Sync background breadcrumbs & navigation
+        renderBreadcrumbs();
+        renderNav();
+
+        // 7. Close dropdown menu
+        if (chapterDropdownMenu) chapterDropdownMenu.classList.remove('open');
     }
+
+    // Initialize with first note and render center note tabs
+    showNote(initialItem);
+    renderNoteTabsUI();
 
     // Event: Chapter Selector Dropdown Toggle
     const chapterSelectBtn = header.querySelector('#chapter-select-btn');
@@ -1079,65 +1167,35 @@ function createPdfViewer(initialItem) {
         };
     }
 
-    // Event: Chapter Item Click (Preserves Fullscreen if active)
+    // Event: Chapter Item Click (In-Place Chapter Switch, preserving Fullscreen)
     const chapItems = header.querySelectorAll('.chapter-dropdown-item');
     chapItems.forEach(itemEl => {
         itemEl.onclick = (e) => {
             e.stopPropagation();
-            chapterDropdownMenu.classList.remove('open');
-            const targetChapId = itemEl.dataset.chapId;
-            const targetChap = allChapters.find(c => c.id === targetChapId);
-            if (!targetChap) return;
-
-            switchingChapters = true;
-            const pdfs = (targetChap.items || []).filter(i => i.type === 'pdf');
-            if (pdfs.length > 0) {
-                navigateTo('viewer', [batch.id, subject.id, targetChap.id], pdfs[0]);
-            } else if (targetChap.items && targetChap.items.length > 0) {
-                navigateTo('viewer', [batch.id, subject.id, targetChap.id], targetChap.items[0]);
-            } else {
-                state.isFullscreenActive = false;
-                exitPureFullscreen();
-                navigateTo('items', [batch.id, subject.id, targetChap.id]);
-            }
-            setTimeout(() => { switchingChapters = false; }, 400);
+            switchChapterInViewer(itemEl.dataset.chapId);
         };
     });
 
-    // Quick Prev/Next Chapter Buttons (Preserves Fullscreen if active)
+    // Event: Quick Prev/Next Chapter Buttons
     const quickPrevChap = header.querySelector('#quick-prev-chap');
-    if (quickPrevChap && prevChapter) {
+    if (quickPrevChap) {
         quickPrevChap.onclick = (e) => {
             e.stopPropagation();
-            chapterDropdownMenu.classList.remove('open');
-            switchingChapters = true;
-            const pdfs = (prevChapter.items || []).filter(i => i.type === 'pdf');
-            if (pdfs.length > 0) {
-                navigateTo('viewer', [batch.id, subject.id, prevChapter.id], pdfs[0]);
-            } else {
-                state.isFullscreenActive = false;
-                exitPureFullscreen();
-                navigateTo('items', [batch.id, subject.id, prevChapter.id]);
+            const curChapIdx = allChapters.findIndex(c => c.id === currentChapter.id);
+            if (curChapIdx > 0) {
+                switchChapterInViewer(allChapters[curChapIdx - 1].id);
             }
-            setTimeout(() => { switchingChapters = false; }, 400);
         };
     }
 
     const quickNextChap = header.querySelector('#quick-next-chap');
-    if (quickNextChap && nextChapter) {
+    if (quickNextChap) {
         quickNextChap.onclick = (e) => {
             e.stopPropagation();
-            chapterDropdownMenu.classList.remove('open');
-            switchingChapters = true;
-            const pdfs = (nextChapter.items || []).filter(i => i.type === 'pdf');
-            if (pdfs.length > 0) {
-                navigateTo('viewer', [batch.id, subject.id, nextChapter.id], pdfs[0]);
-            } else {
-                state.isFullscreenActive = false;
-                exitPureFullscreen();
-                navigateTo('items', [batch.id, subject.id, nextChapter.id]);
+            const curChapIdx = allChapters.findIndex(c => c.id === currentChapter.id);
+            if (curChapIdx >= 0 && curChapIdx < allChapters.length - 1) {
+                switchChapterInViewer(allChapters[curChapIdx + 1].id);
             }
-            setTimeout(() => { switchingChapters = false; }, 400);
         };
     }
 
@@ -1183,7 +1241,6 @@ function createPdfViewer(initialItem) {
 
     // Event: Back Button
     header.querySelector('#viewer-back-btn').onclick = () => {
-        switchingChapters = false;
         state.isFullscreenActive = false;
         exitPureFullscreen();
         const appContainer = document.querySelector('.app-container');
@@ -1229,7 +1286,6 @@ function createPdfViewer(initialItem) {
     }
 
     function handleFullscreenChange() {
-        if (switchingChapters) return;
         const fsEl = getNativeFullscreenElement();
         if (!fsEl && isTheaterFullscreen) {
             toggleTheaterFullscreen(false);
@@ -1245,18 +1301,13 @@ function createPdfViewer(initialItem) {
     document.addEventListener('mozfullscreenchange', handleFullscreenChange);
 
     activeViewerCleanup = () => {
-        if (!switchingChapters) {
-            state.isFullscreenActive = false;
-            exitPureFullscreen();
-            document.body.classList.remove('theater-fullscreen-active');
-            const appContainer = document.querySelector('.app-container');
-            if (appContainer) {
-                appContainer.classList.remove('theater-fullscreen-active');
-            }
-        }
+        state.isFullscreenActive = false;
+        exitPureFullscreen();
+        document.body.classList.remove('theater-fullscreen-active');
         document.body.classList.remove('viewer-active');
         const appContainer = document.querySelector('.app-container');
         if (appContainer) {
+            appContainer.classList.remove('theater-fullscreen-active');
             appContainer.classList.remove('viewer-active');
         }
         document.removeEventListener('keydown', handleViewerKeydown);

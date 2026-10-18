@@ -453,15 +453,14 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Styled native `:fullscreen` and `:-webkit-full-screen` pseudo-classes on the viewer container, header, frame wrapper, iframe, and footer, with `:fullscreen::backdrop { background: #090a0f !important; }`.
       - Eliminates all upper browser UI (Chrome tabs, address bar) and lower Windows OS UI (taskbar, open apps), achieving true distraction-free F11 reading.
       - Bound `F11`, `F`, and `f` keys to toggle native fullscreen mode with `Esc` or the `Exit` button to return.
-    - **Persistent Fullscreen Across In-Viewer Chapter Navigation**:
-      - Stored `isFullscreenActive` in application `state` to persist fullscreen state across view re-renders.
-      - Added transition guard `switchingChapters = true` in chapter dropdown selections and quick prev/next chapter buttons.
-      - Guarded `fullscreenchange`, `webkitfullscreenchange`, and `activeViewerCleanup()` so changing chapters keeps the student in pure fullscreen mode without dropping back to dashboard or requiring re-entering fullscreen.
-      - Back button click resets `state.isFullscreenActive = false` and invokes `exitPureFullscreen()` cleanly.
+    - **In-Place Seamless Chapter Switching in Fullscreen (Zero Bezel Dropout)**:
+      - *Root Cause Analysis*: When changing chapters, calling `navigateTo('viewer', ...)` previously executed `contentArea.innerHTML = ''`, which detached the active `.pdf-viewer-container` element from the DOM. Under the W3C Fullscreen API, detaching the fullscreen element forces the browser to immediately exit native fullscreen, exposing the upper Chrome outline/tabs and the lower Windows taskbar while leaving only the CSS theater mode active.
+      - *Architectural Fix*: Implemented in-place chapter switching (`switchChapterInViewer`). When a user selects a chapter from the dropdown or uses quick next/prev chapter arrows, the existing `.pdf-viewer-container` remains permanently mounted in the DOM. The viewer dynamically updates its chapter data, dropdown button, center note tabs (`renderNoteTabsUI()`), and PDF iframes in-place.
+      - *Result*: The active fullscreen element is never detached. The browser remains continuously in 100% pure native fullscreen mode across unlimited chapter transitions with zero bezels, zero toolbar dropouts, and zero layout flicker.
     - **Removal of Redundant Sidebar Toggle Button (`#viewer-sidebar-toggle-btn`)**:
-      - Completely removed the confusing `space_dashboard` panel toggle button from the viewer header.
+      - Completely removed the confusing `space_dashboard` panel toggle button (`â—«`) from the viewer header.
       - Streamlined the header to essential actions: `[Back]`, `[Chapter Selector Dropdown]`, `[Note Tabs]`, `[Fullscreen / Exit]`, `[New Tab]`, and `[Download]`.
     - **Asset Cache Invalidation**:
-      - Updated `index.html` with cache-busting version queries (`style.css?v=2.1`, `script.js?v=2.1`) to ensure instant client deployment on GitHub Pages.
+      - Updated `index.html` with cache-busting version queries (`style.css?v=2.2`, `script.js?v=2.2`) to ensure instant client deployment on GitHub Pages.
     - **End-to-End Browser Subagent Verification**:
-      - Verified header cleanliness, instant pure fullscreen activation, seamless chapter switching without exiting fullscreen, and clean exit transitions.
+      - Verified initial fullscreen entry, in-place chapter switching across multiple chapters (Ch 6 -> Ch 2), note switching (Note 01 -> Note 02) within fullscreen, and clean exit transitions.
