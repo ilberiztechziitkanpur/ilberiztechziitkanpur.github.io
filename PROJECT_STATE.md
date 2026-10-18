@@ -1,4 +1,4 @@
-# PROJECT STATE & AGENT SYSTEM GUIDE
+﻿# PROJECT STATE & AGENT SYSTEM GUIDE
 
 > 🚨 **MANDATORY AUTONOMOUS RULE FOR ALL AI AGENTS**:
 > 1. **Read this file at the start of EVERY chat** before inspecting or modifying any files in this repository.
@@ -447,6 +447,21 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
      - **Removed Redundant 'Jump' Box**: Removed the confusing `Slide / Page: [input] [Jump]` box from the footer, since the native browser PDF toolbar already contains a full-featured page number input (`1 / 46`) and page navigation, keeping the footer sleek, clean, and distraction-free.
      - **Live Browser Verification**: Tested both normal mode and theater fullscreen mode via browser subagent across 1536x730 laptop resolution, confirming zero gaps, zero clipping, smooth note/chapter switching, and clean exit transitions.
 
-
-
-
+13. **Pure Native F11 Fullscreen Mode, Persistent Chapter Switching & Header UI Streamlining**:
+    - **Pure Native Browser Fullscreen (F11 Equivalent)**:
+      - Integrated native Fullscreen API (`requestFullscreen`, `webkitRequestFullscreen`, `mozRequestFullScreen`) targeting `.pdf-viewer-container`.
+      - Styled native `:fullscreen` and `:-webkit-full-screen` pseudo-classes on the viewer container, header, frame wrapper, iframe, and footer, with `:fullscreen::backdrop { background: #090a0f !important; }`.
+      - Eliminates all upper browser UI (Chrome tabs, address bar) and lower Windows OS UI (taskbar, open apps), achieving true distraction-free F11 reading.
+      - Bound `F11`, `F`, and `f` keys to toggle native fullscreen mode with `Esc` or the `Exit` button to return.
+    - **Persistent Fullscreen Across In-Viewer Chapter Navigation**:
+      - Stored `isFullscreenActive` in application `state` to persist fullscreen state across view re-renders.
+      - Added transition guard `switchingChapters = true` in chapter dropdown selections and quick prev/next chapter buttons.
+      - Guarded `fullscreenchange`, `webkitfullscreenchange`, and `activeViewerCleanup()` so changing chapters keeps the student in pure fullscreen mode without dropping back to dashboard or requiring re-entering fullscreen.
+      - Back button click resets `state.isFullscreenActive = false` and invokes `exitPureFullscreen()` cleanly.
+    - **Removal of Redundant Sidebar Toggle Button (`#viewer-sidebar-toggle-btn`)**:
+      - Completely removed the confusing `space_dashboard` panel toggle button from the viewer header.
+      - Streamlined the header to essential actions: `[Back]`, `[Chapter Selector Dropdown]`, `[Note Tabs]`, `[Fullscreen / Exit]`, `[New Tab]`, and `[Download]`.
+    - **Asset Cache Invalidation**:
+      - Updated `index.html` with cache-busting version queries (`style.css?v=2.1`, `script.js?v=2.1`) to ensure instant client deployment on GitHub Pages.
+    - **End-to-End Browser Subagent Verification**:
+      - Verified header cleanliness, instant pure fullscreen activation, seamless chapter switching without exiting fullscreen, and clean exit transitions.

@@ -6,6 +6,7 @@ const state = {
     path: [], // [batchId, subjectId, chapterId]
     currentItem: null,
     searchQuery: '',
+    isFullscreenActive: false, // Persists true F11 fullscreen across note & chapter switches
 };
 
 // DOM Elements
@@ -17,6 +18,47 @@ const sidebar = document.getElementById('sidebar');
 const sidebarOverlay = document.getElementById('sidebar-overlay');
 const searchInput = document.getElementById('search-input');
 const clearSearchBtn = document.getElementById('clear-search-btn');
+
+// Native F11 Fullscreen Helpers
+function getNativeFullscreenElement() {
+    return document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null;
+}
+
+async function requestPureFullscreen(element) {
+    const el = element || document.documentElement;
+    const req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+    if (req) {
+        try {
+            await req.call(el);
+            return true;
+        } catch (err) {
+            console.warn('Native requestFullscreen failed:', err);
+            if (el !== document.documentElement) {
+                const docReq = document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen || document.documentElement.mozRequestFullScreen || document.documentElement.msRequestFullscreen;
+                if (docReq) {
+                    try {
+                        await docReq.call(document.documentElement);
+                        return true;
+                    } catch (e) {
+                        console.warn('Fallback fullscreen failed:', e);
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
+
+async function exitPureFullscreen() {
+    const exit = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen;
+    if (getNativeFullscreenElement() && exit) {
+        try {
+            await exit.call(document);
+        } catch (err) {
+            console.warn('exitFullscreen failed:', err);
+        }
+    }
+}
 
 // Pre-computed search index for instant zero-overhead lookups
 let searchIndex = [];
@@ -354,8 +396,14 @@ function renderView() {
         if (state.currentView === 'viewer') {
             document.body.classList.add('viewer-active');
             if (appContainer) appContainer.classList.add('viewer-active');
+            if (state.isFullscreenActive) {
+                document.body.classList.add('theater-fullscreen-active');
+                if (appContainer) appContainer.classList.add('theater-fullscreen-active');
+            }
             contentArea.classList.add('viewer-active');
         } else {
+            state.isFullscreenActive = false;
+            exitPureFullscreen();
             document.body.classList.remove('viewer-active');
             document.body.classList.remove('theater-fullscreen-active');
             if (appContainer) {
@@ -735,6 +783,7 @@ function createInteractiveViewer(item) {
 
 // PDF Reader & Viewer Component with Fullscreen, In-Chapter Note Switcher, Persistent Slides & Chapter Switcher
 let activeViewerCleanup = null;
+let switchingChapters = false;
 
 function createPdfViewer(initialItem) {
     if (activeViewerCleanup) {
@@ -755,7 +804,7 @@ function createPdfViewer(initialItem) {
     // Live DOM iframe cache: preserves exact reading slide & zoom when switching notes
     const iframeCache = new Map();
     let currentNoteItem = initialItem;
-    let isTheaterFullscreen = false;
+    let isTheaterFullscreen = !!state.isFullscreenActive;
 
     // Header element
     const header = document.createElement('div');
@@ -834,9 +883,6 @@ function createPdfViewer(initialItem) {
                 <span class="material-symbols-outlined">arrow_back</span>
                 <span class="btn-label">Back</span>
             </button>
-            <button class="viewer-btn icon-only" id="viewer-sidebar-toggle-btn" title="Toggle Sidebar for maximum reading space">
-                <span class="material-symbols-outlined">space_dashboard</span>
-            </button>
             <div class="chapter-select-wrapper" id="chapter-select-wrapper">
                 <button class="viewer-btn chapter-select-btn" id="chapter-select-btn" title="Switch Chapter in ${subject?.name || 'Subject'}">
                     <span class="material-symbols-outlined icon">menu_book</span>
@@ -867,7 +913,7 @@ function createPdfViewer(initialItem) {
         </div>
 
         <div class="viewer-actions">
-            <button class="viewer-btn viewer-fullscreen-btn" id="viewer-fullscreen-btn" title="Full Screen View (Press F)">
+            <button class="viewer-btn viewer-fullscreen-btn" id="viewer-fullscreen-btn" title="Full Screen View (Press F or F11)">
                 <span class="material-symbols-outlined">fullscreen</span>
                 <span class="btn-label">Fullscreen</span>
             </button>
@@ -905,6 +951,25 @@ function createPdfViewer(initialItem) {
     container.appendChild(header);
     container.appendChild(frameWrapper);
     container.appendChild(footer);
+
+    const fullscreenBtn = header.querySelector('#viewer-fullscreen-btn');
+    if (isTheaterFullscreen) {
+        container.classList.add('theater-fullscreen');
+        document.body.classList.add('theater-fullscreen-active');
+        const appContainer = document.querySelector('.app-container');
+        if (appContainer) appContainer.classList.add('theater-fullscreen-active');
+        if (fullscreenBtn) {
+            fullscreenBtn.classList.add('active');
+            const iconEl = fullscreenBtn.querySelector('.material-symbols-outlined');
+            const labelEl = fullscreenBtn.querySelector('.btn-label');
+            if (iconEl) iconEl.textContent = 'fullscreen_exit';
+            if (labelEl) labelEl.textContent = 'Exit';
+            fullscreenBtn.title = 'Exit Fullscreen (Esc, F, or F11)';
+        }
+        if (!getNativeFullscreenElement()) {
+            requestPureFullscreen(container);
+        }
+    }
 
     // Note Switcher Function preserving live DOM scroll & slide position
     function showNote(targetItem) {
@@ -1014,7 +1079,7 @@ function createPdfViewer(initialItem) {
         };
     }
 
-    // Event: Chapter Item Click
+    // Event: Chapter Item Click (Preserves Fullscreen if active)
     const chapItems = header.querySelectorAll('.chapter-dropdown-item');
     chapItems.forEach(itemEl => {
         itemEl.onclick = (e) => {
@@ -1024,29 +1089,37 @@ function createPdfViewer(initialItem) {
             const targetChap = allChapters.find(c => c.id === targetChapId);
             if (!targetChap) return;
 
+            switchingChapters = true;
             const pdfs = (targetChap.items || []).filter(i => i.type === 'pdf');
             if (pdfs.length > 0) {
                 navigateTo('viewer', [batch.id, subject.id, targetChap.id], pdfs[0]);
             } else if (targetChap.items && targetChap.items.length > 0) {
                 navigateTo('viewer', [batch.id, subject.id, targetChap.id], targetChap.items[0]);
             } else {
+                state.isFullscreenActive = false;
+                exitPureFullscreen();
                 navigateTo('items', [batch.id, subject.id, targetChap.id]);
             }
+            setTimeout(() => { switchingChapters = false; }, 400);
         };
     });
 
-    // Quick Prev/Next Chapter Buttons
+    // Quick Prev/Next Chapter Buttons (Preserves Fullscreen if active)
     const quickPrevChap = header.querySelector('#quick-prev-chap');
     if (quickPrevChap && prevChapter) {
         quickPrevChap.onclick = (e) => {
             e.stopPropagation();
             chapterDropdownMenu.classList.remove('open');
+            switchingChapters = true;
             const pdfs = (prevChapter.items || []).filter(i => i.type === 'pdf');
             if (pdfs.length > 0) {
                 navigateTo('viewer', [batch.id, subject.id, prevChapter.id], pdfs[0]);
             } else {
+                state.isFullscreenActive = false;
+                exitPureFullscreen();
                 navigateTo('items', [batch.id, subject.id, prevChapter.id]);
             }
+            setTimeout(() => { switchingChapters = false; }, 400);
         };
     }
 
@@ -1055,62 +1128,52 @@ function createPdfViewer(initialItem) {
         quickNextChap.onclick = (e) => {
             e.stopPropagation();
             chapterDropdownMenu.classList.remove('open');
+            switchingChapters = true;
             const pdfs = (nextChapter.items || []).filter(i => i.type === 'pdf');
             if (pdfs.length > 0) {
                 navigateTo('viewer', [batch.id, subject.id, nextChapter.id], pdfs[0]);
             } else {
+                state.isFullscreenActive = false;
+                exitPureFullscreen();
                 navigateTo('items', [batch.id, subject.id, nextChapter.id]);
             }
+            setTimeout(() => { switchingChapters = false; }, 400);
         };
     }
 
-    // Event: Sidebar Collapse Toggle
-    const sidebarToggleBtn = header.querySelector('#viewer-sidebar-toggle-btn');
-    if (sidebarToggleBtn) {
-        sidebarToggleBtn.onclick = () => {
-            const appContainer = document.querySelector('.app-container');
-            if (appContainer) {
-                appContainer.classList.toggle('sidebar-collapsed');
-                sidebarToggleBtn.classList.toggle('active');
-            }
-        };
-    }
+    // Event: Fullscreen Toggle (Pure Native F11 Fullscreen)
+    async function toggleTheaterFullscreen(forcedState = null) {
+        const nextState = (forcedState !== null) ? forcedState : !isTheaterFullscreen;
+        isTheaterFullscreen = nextState;
+        state.isFullscreenActive = nextState;
 
-    // Event: Fullscreen Toggle (Theater Fullscreen + Browser Fullscreen)
-    const fullscreenBtn = header.querySelector('#viewer-fullscreen-btn');
-    function toggleTheaterFullscreen(forcedState = null) {
-        isTheaterFullscreen = (forcedState !== null) ? forcedState : !isTheaterFullscreen;
-
-        const iconEl = fullscreenBtn.querySelector('.material-symbols-outlined');
-        const labelEl = fullscreenBtn.querySelector('.btn-label');
+        const iconEl = fullscreenBtn ? fullscreenBtn.querySelector('.material-symbols-outlined') : null;
+        const labelEl = fullscreenBtn ? fullscreenBtn.querySelector('.btn-label') : null;
         const appContainer = document.querySelector('.app-container');
 
         if (isTheaterFullscreen) {
             document.body.classList.add('theater-fullscreen-active');
             if (appContainer) appContainer.classList.add('theater-fullscreen-active');
             container.classList.add('theater-fullscreen');
-            fullscreenBtn.classList.add('active');
-            if (iconEl) iconEl.textContent = 'fullscreen_exit';
-            if (labelEl) labelEl.textContent = 'Exit';
-            fullscreenBtn.title = 'Exit Fullscreen (Esc or F)';
-            try {
-                if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
-                    document.documentElement.requestFullscreen().catch(() => {});
-                }
-            } catch (err) {}
+            if (fullscreenBtn) {
+                fullscreenBtn.classList.add('active');
+                if (iconEl) iconEl.textContent = 'fullscreen_exit';
+                if (labelEl) labelEl.textContent = 'Exit';
+                fullscreenBtn.title = 'Exit Fullscreen (Esc, F, or F11)';
+            }
+            await requestPureFullscreen(container);
         } else {
+            state.isFullscreenActive = false;
             document.body.classList.remove('theater-fullscreen-active');
             if (appContainer) appContainer.classList.remove('theater-fullscreen-active');
             container.classList.remove('theater-fullscreen');
-            fullscreenBtn.classList.remove('active');
-            if (iconEl) iconEl.textContent = 'fullscreen';
-            if (labelEl) labelEl.textContent = 'Fullscreen';
-            fullscreenBtn.title = 'Full Screen View (Press F)';
-            try {
-                if (document.fullscreenElement && document.exitFullscreen) {
-                    document.exitFullscreen().catch(() => {});
-                }
-            } catch (err) {}
+            if (fullscreenBtn) {
+                fullscreenBtn.classList.remove('active');
+                if (iconEl) iconEl.textContent = 'fullscreen';
+                if (labelEl) labelEl.textContent = 'Fullscreen';
+                fullscreenBtn.title = 'Full Screen View (Press F or F11)';
+            }
+            await exitPureFullscreen();
         }
     }
 
@@ -1118,11 +1181,11 @@ function createPdfViewer(initialItem) {
         fullscreenBtn.onclick = () => toggleTheaterFullscreen();
     }
 
-
-
     // Event: Back Button
     header.querySelector('#viewer-back-btn').onclick = () => {
-        if (isTheaterFullscreen) toggleTheaterFullscreen(false);
+        switchingChapters = false;
+        state.isFullscreenActive = false;
+        exitPureFullscreen();
         const appContainer = document.querySelector('.app-container');
         document.body.classList.remove('viewer-active');
         document.body.classList.remove('theater-fullscreen-active');
@@ -1138,7 +1201,7 @@ function createPdfViewer(initialItem) {
     function handleViewerKeydown(e) {
         if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
-        if (e.key === 'f' || e.key === 'F') {
+        if (e.key === 'F11' || e.key === 'f' || e.key === 'F') {
             e.preventDefault();
             toggleTheaterFullscreen();
         } else if (e.key === 'Escape' && isTheaterFullscreen) {
@@ -1166,26 +1229,41 @@ function createPdfViewer(initialItem) {
     }
 
     function handleFullscreenChange() {
-        if (!document.fullscreenElement && isTheaterFullscreen) {
+        if (switchingChapters) return;
+        const fsEl = getNativeFullscreenElement();
+        if (!fsEl && isTheaterFullscreen) {
             toggleTheaterFullscreen(false);
+        } else if (fsEl && !isTheaterFullscreen) {
+            toggleTheaterFullscreen(true);
         }
     }
 
     document.addEventListener('keydown', handleViewerKeydown);
     document.addEventListener('click', handleDocClick);
     document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
 
     activeViewerCleanup = () => {
-        document.body.classList.remove('theater-fullscreen-active');
+        if (!switchingChapters) {
+            state.isFullscreenActive = false;
+            exitPureFullscreen();
+            document.body.classList.remove('theater-fullscreen-active');
+            const appContainer = document.querySelector('.app-container');
+            if (appContainer) {
+                appContainer.classList.remove('theater-fullscreen-active');
+            }
+        }
         document.body.classList.remove('viewer-active');
         const appContainer = document.querySelector('.app-container');
         if (appContainer) {
-            appContainer.classList.remove('theater-fullscreen-active');
             appContainer.classList.remove('viewer-active');
         }
         document.removeEventListener('keydown', handleViewerKeydown);
         document.removeEventListener('click', handleDocClick);
         document.removeEventListener('fullscreenchange', handleFullscreenChange);
+        document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
     };
 
     return container;

@@ -859,7 +859,9 @@ body.theater-fullscreen-active .content-area > .fade-in {
 }
 
 body.theater-fullscreen-active .pdf-viewer-container,
-.pdf-viewer-container.theater-fullscreen {
+.pdf-viewer-container.theater-fullscreen,
+.pdf-viewer-container:fullscreen,
+.pdf-viewer-container:-webkit-full-screen {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -882,8 +884,15 @@ body.theater-fullscreen-active .pdf-viewer-container,
     overflow: hidden !important;
 }
 
+.pdf-viewer-container:fullscreen::backdrop,
+.pdf-viewer-container:-webkit-full-screen::backdrop {
+    background: #090a0f !important;
+}
+
 body.theater-fullscreen-active .viewer-header,
-.pdf-viewer-container.theater-fullscreen .viewer-header {
+.pdf-viewer-container.theater-fullscreen .viewer-header,
+.pdf-viewer-container:fullscreen .viewer-header,
+.pdf-viewer-container:-webkit-full-screen .viewer-header {
     background: rgba(12, 13, 20, 0.98) !important;
     padding: 0 16px !important;
     height: 38px !important;
@@ -894,7 +903,9 @@ body.theater-fullscreen-active .viewer-header,
 }
 
 body.theater-fullscreen-active .pdf-frame-wrapper,
-.pdf-viewer-container.theater-fullscreen .pdf-frame-wrapper {
+.pdf-viewer-container.theater-fullscreen .pdf-frame-wrapper,
+.pdf-viewer-container:fullscreen .pdf-frame-wrapper,
+.pdf-viewer-container:-webkit-full-screen .pdf-frame-wrapper {
     flex: 1 !important;
     width: 100vw !important;
     height: calc(100vh - 64px) !important;
@@ -907,7 +918,9 @@ body.theater-fullscreen-active .pdf-frame-wrapper,
 }
 
 body.theater-fullscreen-active .pdf-iframe,
-.pdf-viewer-container.theater-fullscreen .pdf-iframe {
+.pdf-viewer-container.theater-fullscreen .pdf-iframe,
+.pdf-viewer-container:fullscreen .pdf-iframe,
+.pdf-viewer-container:-webkit-full-screen .pdf-iframe {
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
@@ -917,7 +930,9 @@ body.theater-fullscreen-active .pdf-iframe,
 }
 
 body.theater-fullscreen-active .viewer-footer,
-.pdf-viewer-container.theater-fullscreen .viewer-footer {
+.pdf-viewer-container.theater-fullscreen .viewer-footer,
+.pdf-viewer-container:fullscreen .viewer-footer,
+.pdf-viewer-container:-webkit-full-screen .viewer-footer {
     background: rgba(8, 9, 14, 0.98) !important;
     padding: 0 16px !important;
     height: 26px !important;
