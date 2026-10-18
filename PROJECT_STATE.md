@@ -433,7 +433,19 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
    - **In-Chapter Note Switcher with Live DOM Slide Memory**: Built an interactive pill tab strip (`Note 01`, `Note 02`, `Note 03`) with Prev/Next buttons (`Alt + ←/→`). Implemented a live DOM iframe cache (`iframeCache`) where inactive notes are merely hidden with `opacity: 0; pointer-events: none` instead of unmounted. When students toggle between Note 1 and Note 2, their exact reading slide and scroll position are 100% preserved.
    - **Slide / Page Bookmark & Jump**: Added slide jump control in the footer (`Slide/Page: [__] Jump`) with persistent memory (`localStorage.setItem('icse_last_page_' + noteId)`).
    - **In-Viewer Chapter Switcher**: Added a glassmorphic chapter selector dropdown directly in the viewer header, allowing students to switch between all prescribed subject chapters and jump straight to their notes without navigating back through multiple dashboard levels. Includes quick Prev/Next chapter navigation buttons.
-   - **Accessibility & Shortcuts**: Added keyboard shortcuts (`F` for Fullscreen, `Esc` to Exit, `Alt + ←/→` to switch notes, `Enter` to jump slide) and mobile-responsive collapse layout.
+   - **Accessibility & Shortcuts**: Added keyboard shortcuts (`F` for Fullscreen, `Esc` to Exit, `Alt + ←/→` to switch notes) and mobile-responsive collapse layout.
+12. **Elimination of Notes Reader Gaps, True Edge-to-Edge Fullscreen & Slide Fit Optimization**:
+   - **Root Cause Analysis**:
+     - In the initial implementation, fullscreen mode had container styling nested inside transformed parent blocks (`.fade-in` and `.content-area`), which created a containing block offset by 280px from the left and 80px from the top. This pushed the right half of the viewer offscreen.
+     - In normal viewing mode, the dashboard's 80px `.top-bar` stacked above the viewer header, and `.pdf-frame-wrapper` had hardcoded `calc(100vh - 165px)` styles with excess padding, leaving large empty gaps above and below the reader.
+     - PDFs with 16:9 widescreen slides loaded with `#view=FitH` (Fit Width) scaled horizontally to 1536px, exceeding screen height (730px) and cutting off the bottom half of the slides.
+   - **Architectural & Design Solutions Implemented**:
+     - **Zero Vertical Gaps & Immediate Top Alignment**: In viewer mode, `.top-bar` is hidden (`display: none !important`), pulling the viewer header up to `y = 0`. All content-area padding is removed (`padding: 0 !important`).
+     - **Pulled Completely Down to Bottom Edge**: Replaced hardcoded heights with dynamic flex sizing (`flex: 1; height: 100%; min-height: 0;`), pulling the PDF reader all the way down to the bottom footer (28px).
+     - **Flawless Theater Fullscreen (100vw × 100vh)**: `body.theater-fullscreen-active` and `.pdf-viewer-container.theater-fullscreen` are fixed edge-to-edge (`top: 0; left: 0; width: 100vw; height: 100vh; z-index: 99999`), hiding the sidebar, top-bar, and background decorations. Zero horizontal clipping, zero vertical overflow.
+     - **100% Complete Slide Visibility (`#view=Fit`)**: Changed PDF loading parameters to `#view=Fit`, ensuring landscape slides fit perfectly within the viewport with zero text or teacher name cut-offs.
+     - **Removed Redundant 'Jump' Box**: Removed the confusing `Slide / Page: [input] [Jump]` box from the footer, since the native browser PDF toolbar already contains a full-featured page number input (`1 / 46`) and page navigation, keeping the footer sleek, clean, and distraction-free.
+     - **Live Browser Verification**: Tested both normal mode and theater fullscreen mode via browser subagent across 1536x730 laptop resolution, confirming zero gaps, zero clipping, smooth note/chapter switching, and clean exit transitions.
 
 
 

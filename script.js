@@ -348,14 +348,22 @@ function navigateTo(view, pathArgs, item = null) {
 // Main View Rendering
 function renderView() {
     contentArea.innerHTML = '';
+    const appContainer = document.querySelector('.app-container');
     if (contentArea) {
         contentArea.scrollTop = 0;
         if (state.currentView === 'viewer') {
+            document.body.classList.add('viewer-active');
+            if (appContainer) appContainer.classList.add('viewer-active');
             contentArea.classList.add('viewer-active');
         } else {
+            document.body.classList.remove('viewer-active');
+            document.body.classList.remove('theater-fullscreen-active');
+            if (appContainer) {
+                appContainer.classList.remove('viewer-active');
+                appContainer.classList.remove('theater-fullscreen-active');
+                appContainer.classList.remove('sidebar-collapsed');
+            }
             contentArea.classList.remove('viewer-active');
-            const appContainer = document.querySelector('.app-container');
-            if (appContainer) appContainer.classList.remove('sidebar-collapsed');
         }
     }
     const wrapper = document.createElement('div');
@@ -887,18 +895,10 @@ function createPdfViewer(initialItem) {
             <span id="footer-note-title" class="footer-note-title">${initialItem.title}</span>
             <span class="footer-badge" id="footer-note-size">${initialItem.size || 'Document'}</span>
         </div>
-        <div class="viewer-footer-center">
-            <div class="slide-jump-box">
-                <span class="material-symbols-outlined icon">bookmark</span>
-                <span>Slide / Page:</span>
-                <input type="number" min="1" max="150" class="slide-jump-input" id="slide-jump-input" placeholder="1" title="Type slide number & press Enter">
-                <button class="slide-jump-btn" id="slide-jump-btn" title="Jump to Slide">Jump</button>
-            </div>
-        </div>
         <div class="viewer-footer-right">
             <span class="viewer-shortcut-hint"><kbd>F</kbd> Fullscreen</span>
             <span class="viewer-shortcut-hint"><kbd>Esc</kbd> Exit</span>
-            <span class="viewer-shortcut-hint"><kbd>Alt+←/→</kbd> Note</span>
+            <span class="viewer-shortcut-hint"><kbd>Alt+←/→</kbd> Switch Notes</span>
         </div>
     `;
 
@@ -938,7 +938,7 @@ function createPdfViewer(initialItem) {
             activeIframe.setAttribute('allow', 'fullscreen');
 
             const savedPage = localStorage.getItem('icse_last_page_' + targetItem.id);
-            const pageHash = savedPage ? `#page=${savedPage}&view=FitH` : '#view=FitH';
+            const pageHash = savedPage ? `#page=${savedPage}&view=Fit` : '#view=Fit';
             activeIframe.src = `${targetItem.file}${pageHash}`;
 
             frameWrapper.appendChild(activeIframe);
@@ -969,12 +969,6 @@ function createPdfViewer(initialItem) {
 
         const footerSize = footer.querySelector('#footer-note-size');
         if (footerSize) footerSize.textContent = targetItem.size || 'Document';
-
-        const jumpInput = footer.querySelector('#slide-jump-input');
-        if (jumpInput) {
-            const savedPage = localStorage.getItem('icse_last_page_' + targetItem.id);
-            jumpInput.value = savedPage || '';
-        }
     }
 
     // Initialize with first note
@@ -1089,8 +1083,11 @@ function createPdfViewer(initialItem) {
 
         const iconEl = fullscreenBtn.querySelector('.material-symbols-outlined');
         const labelEl = fullscreenBtn.querySelector('.btn-label');
+        const appContainer = document.querySelector('.app-container');
 
         if (isTheaterFullscreen) {
+            document.body.classList.add('theater-fullscreen-active');
+            if (appContainer) appContainer.classList.add('theater-fullscreen-active');
             container.classList.add('theater-fullscreen');
             fullscreenBtn.classList.add('active');
             if (iconEl) iconEl.textContent = 'fullscreen_exit';
@@ -1102,6 +1099,8 @@ function createPdfViewer(initialItem) {
                 }
             } catch (err) {}
         } else {
+            document.body.classList.remove('theater-fullscreen-active');
+            if (appContainer) appContainer.classList.remove('theater-fullscreen-active');
             container.classList.remove('theater-fullscreen');
             fullscreenBtn.classList.remove('active');
             if (iconEl) iconEl.textContent = 'fullscreen';
@@ -1119,36 +1118,19 @@ function createPdfViewer(initialItem) {
         fullscreenBtn.onclick = () => toggleTheaterFullscreen();
     }
 
-    // Event: Slide / Page Jump
-    const jumpInput = footer.querySelector('#slide-jump-input');
-    const jumpBtn = footer.querySelector('#slide-jump-btn');
 
-    function applySlideJump() {
-        const val = parseInt(jumpInput?.value, 10);
-        if (isNaN(val) || val < 1) return;
-        localStorage.setItem('icse_last_page_' + currentNoteItem.id, val);
-        const curIframe = iframeCache.get(currentNoteItem.id);
-        if (curIframe) {
-            curIframe.src = `${currentNoteItem.file}#page=${val}&view=FitH`;
-        }
-    }
-
-    if (jumpBtn) jumpBtn.onclick = applySlideJump;
-    if (jumpInput) {
-        jumpInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                applySlideJump();
-                jumpInput.blur();
-            }
-        });
-    }
 
     // Event: Back Button
     header.querySelector('#viewer-back-btn').onclick = () => {
         if (isTheaterFullscreen) toggleTheaterFullscreen(false);
         const appContainer = document.querySelector('.app-container');
-        if (appContainer) appContainer.classList.remove('sidebar-collapsed');
+        document.body.classList.remove('viewer-active');
+        document.body.classList.remove('theater-fullscreen-active');
+        if (appContainer) {
+            appContainer.classList.remove('viewer-active');
+            appContainer.classList.remove('theater-fullscreen-active');
+            appContainer.classList.remove('sidebar-collapsed');
+        }
         navigateTo('items', state.path.slice(0, 3));
     };
 
@@ -1194,6 +1176,13 @@ function createPdfViewer(initialItem) {
     document.addEventListener('fullscreenchange', handleFullscreenChange);
 
     activeViewerCleanup = () => {
+        document.body.classList.remove('theater-fullscreen-active');
+        document.body.classList.remove('viewer-active');
+        const appContainer = document.querySelector('.app-container');
+        if (appContainer) {
+            appContainer.classList.remove('theater-fullscreen-active');
+            appContainer.classList.remove('viewer-active');
+        }
         document.removeEventListener('keydown', handleViewerKeydown);
         document.removeEventListener('click', handleDocClick);
         document.removeEventListener('fullscreenchange', handleFullscreenChange);
