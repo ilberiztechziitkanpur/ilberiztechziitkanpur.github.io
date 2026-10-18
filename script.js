@@ -348,7 +348,16 @@ function navigateTo(view, pathArgs, item = null) {
 // Main View Rendering
 function renderView() {
     contentArea.innerHTML = '';
-    if (contentArea) contentArea.scrollTop = 0;
+    if (contentArea) {
+        contentArea.scrollTop = 0;
+        if (state.currentView === 'viewer') {
+            contentArea.classList.add('viewer-active');
+        } else {
+            contentArea.classList.remove('viewer-active');
+            const appContainer = document.querySelector('.app-container');
+            if (appContainer) appContainer.classList.remove('sidebar-collapsed');
+        }
+    }
     const wrapper = document.createElement('div');
     wrapper.className = 'fade-in';
 
@@ -716,54 +725,180 @@ function createInteractiveViewer(item) {
     return container;
 }
 
-// PDF Reader & Viewer Component
-function createPdfViewer(item) {
+// PDF Reader & Viewer Component with Fullscreen, In-Chapter Note Switcher, Persistent Slides & Chapter Switcher
+let activeViewerCleanup = null;
+
+function createPdfViewer(initialItem) {
+    if (activeViewerCleanup) {
+        activeViewerCleanup();
+        activeViewerCleanup = null;
+    }
+
     const container = document.createElement('div');
     container.className = 'pdf-viewer-container';
 
-    // Header
+    // Contextual Data
+    const batch = state.data.batches.find(b => b.id === state.path[0]);
+    const subject = batch?.subjects?.find(s => s.id === state.path[1]);
+    const currentChapter = subject?.chapters?.find(c => c.id === state.path[2]);
+    const allChapters = subject?.chapters || [];
+    const chapterNotes = (currentChapter?.items || []).filter(it => it.type === 'pdf');
+
+    // Live DOM iframe cache: preserves exact reading slide & zoom when switching notes
+    const iframeCache = new Map();
+    let currentNoteItem = initialItem;
+    let isTheaterFullscreen = false;
+
+    // Header element
     const header = document.createElement('div');
     header.className = 'viewer-header';
+
+    // Build Chapter Dropdown items
+    const currentChapIdx = allChapters.findIndex(c => c.id === currentChapter?.id);
+    const prevChapter = currentChapIdx > 0 ? allChapters[currentChapIdx - 1] : null;
+    const nextChapter = currentChapIdx >= 0 && currentChapIdx < allChapters.length - 1 ? allChapters[currentChapIdx + 1] : null;
+
+    let chapterDropdownHtml = '';
+    allChapters.forEach((chap) => {
+        const pCount = (chap.items || []).filter(i => i.type === 'pdf').length;
+        const iCount = (chap.items || []).filter(i => i.type === 'interactive' || i.type === 'app').length;
+        let badgeHtml = '';
+        if (pCount > 0) {
+            badgeHtml = `<span class="chap-drop-badge notes">${pCount} Note${pCount === 1 ? '' : 's'}</span>`;
+        } else if (iCount > 0) {
+            badgeHtml = `<span class="chap-drop-badge dpp">Theory Vault</span>`;
+        } else {
+            badgeHtml = `<span class="chap-drop-badge empty">In Progress</span>`;
+        }
+        const isActive = chap.id === currentChapter?.id;
+        const chapLabel = chap.name.includes(':') ? chap.name.split(':')[0] : 'Ch';
+        const chapTitle = chap.name.includes(':') ? chap.name.split(':').slice(1).join(':').trim() : chap.name;
+
+        chapterDropdownHtml += `
+            <div class="chapter-dropdown-item ${isActive ? 'active' : ''}" data-chap-id="${chap.id}">
+                <div class="chap-drop-info">
+                    <span class="chap-drop-num">${chapLabel}</span>
+                    <span class="chap-drop-title">${chapTitle}</span>
+                </div>
+                ${badgeHtml}
+            </div>
+        `;
+    });
+
+    // Note Switcher Tab Strip HTML
+    let noteTabsHtml = '';
+    if (chapterNotes.length > 1) {
+        let pillsHtml = '';
+        chapterNotes.forEach((note, idx) => {
+            const isActive = note.id === initialItem.id;
+            pillsHtml += `
+                <button class="note-pill-btn ${isActive ? 'active' : ''}" data-note-id="${note.id}" title="${note.title}">
+                    <span class="material-symbols-outlined pill-icon">description</span>
+                    <span>Note ${String(idx + 1).padStart(2, '0')}</span>
+                </button>
+            `;
+        });
+        noteTabsHtml = `
+            <div class="notes-tab-group">
+                <button class="note-nav-arrow" id="prev-note-btn" title="Previous Note (Alt + ←)">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                </button>
+                <div class="note-pills-container">
+                    ${pillsHtml}
+                </div>
+                <button class="note-nav-arrow" id="next-note-btn" title="Next Note (Alt + →)">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </button>
+            </div>
+        `;
+    } else if (chapterNotes.length === 1) {
+        noteTabsHtml = `
+            <div class="single-note-badge">
+                <span class="material-symbols-outlined">description</span>
+                <span>Part 01 • Complete Notes</span>
+            </div>
+        `;
+    }
+
     header.innerHTML = `
-        <div class="viewer-title-wrap">
-            <span class="lecture-badge">Class Notes Document</span>
-            <h2>${item.title}</h2>
-        </div>
-        <div class="viewer-actions">
-            <button class="viewer-btn" id="viewer-back-btn">
-                <span class="material-symbols-outlined">arrow_back</span> Back
+        <div class="viewer-left-group">
+            <button class="viewer-btn" id="viewer-back-btn" title="Back to Chapter Grid">
+                <span class="material-symbols-outlined">arrow_back</span>
+                <span class="btn-label">Back</span>
             </button>
-            <a href="${item.file}" target="_blank" rel="noopener noreferrer" class="viewer-btn">
-                <span class="material-symbols-outlined">open_in_new</span> Open in New Tab
+            <button class="viewer-btn icon-only" id="viewer-sidebar-toggle-btn" title="Toggle Sidebar for maximum reading space">
+                <span class="material-symbols-outlined">space_dashboard</span>
+            </button>
+            <div class="chapter-select-wrapper" id="chapter-select-wrapper">
+                <button class="viewer-btn chapter-select-btn" id="chapter-select-btn" title="Switch Chapter in ${subject?.name || 'Subject'}">
+                    <span class="material-symbols-outlined icon">menu_book</span>
+                    <span class="chapter-select-text">${currentChapter?.name || 'Chapter'}</span>
+                    <span class="material-symbols-outlined arrow">expand_more</span>
+                </button>
+                <div class="chapter-dropdown-menu" id="chapter-dropdown-menu">
+                    <div class="chapter-dropdown-header">
+                        <span>Chapters in ${subject?.name || 'Subject'}</span>
+                        <div class="chapter-nav-quick">
+                            <button class="chap-quick-btn" id="quick-prev-chap" ${!prevChapter ? 'disabled' : ''} title="Previous Chapter">
+                                <span class="material-symbols-outlined">arrow_back_ios</span>
+                            </button>
+                            <button class="chap-quick-btn" id="quick-next-chap" ${!nextChapter ? 'disabled' : ''} title="Next Chapter">
+                                <span class="material-symbols-outlined">arrow_forward_ios</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chapter-dropdown-list">
+                        ${chapterDropdownHtml}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="viewer-center-group">
+            ${noteTabsHtml}
+        </div>
+
+        <div class="viewer-actions">
+            <button class="viewer-btn viewer-fullscreen-btn" id="viewer-fullscreen-btn" title="Full Screen View (Press F)">
+                <span class="material-symbols-outlined">fullscreen</span>
+                <span class="btn-label">Fullscreen</span>
+            </button>
+            <a href="${initialItem.file}" target="_blank" rel="noopener noreferrer" class="viewer-btn icon-only-mobile" id="viewer-newtab-btn" title="Open PDF in Browser Tab">
+                <span class="material-symbols-outlined">open_in_new</span>
+                <span class="btn-label">New Tab</span>
             </a>
-            <a href="${item.file}" download="${item.title}.pdf" class="viewer-btn primary">
-                <span class="material-symbols-outlined">download</span> Download PDF
+            <a href="${initialItem.file}" download="${initialItem.title}.pdf" class="viewer-btn primary icon-only-mobile" id="viewer-download-btn" title="Download Offline Copy">
+                <span class="material-symbols-outlined">download</span>
+                <span class="btn-label">Download</span>
             </a>
         </div>
     `;
 
-    // PDF Frame Wrapper
+    // Frame Wrapper for Persistent Iframes
     const frameWrapper = document.createElement('div');
     frameWrapper.className = 'pdf-frame-wrapper';
-
-    const iframe = document.createElement('iframe');
-    iframe.src = `${item.file}#view=FitH`;
-    iframe.className = 'pdf-iframe';
-    iframe.title = item.title;
-    iframe.setAttribute('allow', 'fullscreen');
-
-    frameWrapper.appendChild(iframe);
 
     // Footer
     const footer = document.createElement('div');
     footer.className = 'viewer-footer';
     footer.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 8px;">
+        <div class="viewer-footer-left">
             <span class="material-symbols-outlined" style="color: #f87171;">picture_as_pdf</span>
-            <span>${item.title} &bull; File Size: ${item.size || 'Document'}</span>
+            <span id="footer-note-title" class="footer-note-title">${initialItem.title}</span>
+            <span class="footer-badge" id="footer-note-size">${initialItem.size || 'Document'}</span>
         </div>
-        <div>
-            <span>Use browser reader controls or pinch-to-zoom to read smoothly.</span>
+        <div class="viewer-footer-center">
+            <div class="slide-jump-box">
+                <span class="material-symbols-outlined icon">bookmark</span>
+                <span>Slide / Page:</span>
+                <input type="number" min="1" max="150" class="slide-jump-input" id="slide-jump-input" placeholder="1" title="Type slide number & press Enter">
+                <button class="slide-jump-btn" id="slide-jump-btn" title="Jump to Slide">Jump</button>
+            </div>
+        </div>
+        <div class="viewer-footer-right">
+            <span class="viewer-shortcut-hint"><kbd>F</kbd> Fullscreen</span>
+            <span class="viewer-shortcut-hint"><kbd>Esc</kbd> Exit</span>
+            <span class="viewer-shortcut-hint"><kbd>Alt+←/→</kbd> Note</span>
         </div>
     `;
 
@@ -771,8 +906,297 @@ function createPdfViewer(item) {
     container.appendChild(frameWrapper);
     container.appendChild(footer);
 
+    // Note Switcher Function preserving live DOM scroll & slide position
+    function showNote(targetItem) {
+        if (!targetItem) return;
+        currentNoteItem = targetItem;
+        state.currentItem = targetItem;
+        renderBreadcrumbs();
+
+        // 1. Update Note Tabs UI
+        const pillBtns = header.querySelectorAll('.note-pill-btn');
+        pillBtns.forEach(pill => {
+            if (pill.dataset.noteId === targetItem.id) {
+                pill.classList.add('active');
+            } else {
+                pill.classList.remove('active');
+            }
+        });
+
+        const curIdx = chapterNotes.findIndex(n => n.id === targetItem.id);
+        const prevNoteBtn = header.querySelector('#prev-note-btn');
+        const nextNoteBtn = header.querySelector('#next-note-btn');
+        if (prevNoteBtn) prevNoteBtn.disabled = (curIdx <= 0);
+        if (nextNoteBtn) nextNoteBtn.disabled = (curIdx >= chapterNotes.length - 1 || curIdx === -1);
+
+        // 2. Manage Iframes without destroying: keep active in view, hide inactive
+        let activeIframe = iframeCache.get(targetItem.id);
+        if (!activeIframe) {
+            activeIframe = document.createElement('iframe');
+            activeIframe.className = 'pdf-iframe active';
+            activeIframe.title = targetItem.title;
+            activeIframe.setAttribute('allow', 'fullscreen');
+
+            const savedPage = localStorage.getItem('icse_last_page_' + targetItem.id);
+            const pageHash = savedPage ? `#page=${savedPage}&view=FitH` : '#view=FitH';
+            activeIframe.src = `${targetItem.file}${pageHash}`;
+
+            frameWrapper.appendChild(activeIframe);
+            iframeCache.set(targetItem.id, activeIframe);
+        } else {
+            activeIframe.className = 'pdf-iframe active';
+        }
+
+        // Hide other iframes smoothly while keeping them mounted in DOM
+        iframeCache.forEach((frame, id) => {
+            if (id !== targetItem.id) {
+                frame.className = 'pdf-iframe inactive';
+            }
+        });
+
+        // 3. Update actions & footer
+        const newTabBtn = header.querySelector('#viewer-newtab-btn');
+        if (newTabBtn) newTabBtn.href = targetItem.file;
+
+        const downloadBtn = header.querySelector('#viewer-download-btn');
+        if (downloadBtn) {
+            downloadBtn.href = targetItem.file;
+            downloadBtn.download = `${targetItem.title}.pdf`;
+        }
+
+        const footerTitle = footer.querySelector('#footer-note-title');
+        if (footerTitle) footerTitle.textContent = targetItem.title;
+
+        const footerSize = footer.querySelector('#footer-note-size');
+        if (footerSize) footerSize.textContent = targetItem.size || 'Document';
+
+        const jumpInput = footer.querySelector('#slide-jump-input');
+        if (jumpInput) {
+            const savedPage = localStorage.getItem('icse_last_page_' + targetItem.id);
+            jumpInput.value = savedPage || '';
+        }
+    }
+
+    // Initialize with first note
+    showNote(initialItem);
+
+    // Event: Note Pill Click
+    const pillBtns = header.querySelectorAll('.note-pill-btn');
+    pillBtns.forEach(pill => {
+        pill.onclick = () => {
+            const targetNote = chapterNotes.find(n => n.id === pill.dataset.noteId);
+            if (targetNote) showNote(targetNote);
+        };
+    });
+
+    // Event: Prev / Next Note
+    const prevNoteBtn = header.querySelector('#prev-note-btn');
+    if (prevNoteBtn) {
+        prevNoteBtn.onclick = () => {
+            const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
+            if (curIdx > 0) showNote(chapterNotes[curIdx - 1]);
+        };
+    }
+
+    const nextNoteBtn = header.querySelector('#next-note-btn');
+    if (nextNoteBtn) {
+        nextNoteBtn.onclick = () => {
+            const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
+            if (curIdx < chapterNotes.length - 1 && curIdx !== -1) {
+                showNote(chapterNotes[curIdx + 1]);
+            }
+        };
+    }
+
+    // Event: Chapter Selector Dropdown Toggle
+    const chapterSelectBtn = header.querySelector('#chapter-select-btn');
+    const chapterDropdownMenu = header.querySelector('#chapter-dropdown-menu');
+    const chapterSelectWrapper = header.querySelector('#chapter-select-wrapper');
+
+    if (chapterSelectBtn && chapterDropdownMenu) {
+        chapterSelectBtn.onclick = (e) => {
+            e.stopPropagation();
+            chapterDropdownMenu.classList.toggle('open');
+        };
+    }
+
+    // Event: Chapter Item Click
+    const chapItems = header.querySelectorAll('.chapter-dropdown-item');
+    chapItems.forEach(itemEl => {
+        itemEl.onclick = (e) => {
+            e.stopPropagation();
+            chapterDropdownMenu.classList.remove('open');
+            const targetChapId = itemEl.dataset.chapId;
+            const targetChap = allChapters.find(c => c.id === targetChapId);
+            if (!targetChap) return;
+
+            const pdfs = (targetChap.items || []).filter(i => i.type === 'pdf');
+            if (pdfs.length > 0) {
+                navigateTo('viewer', [batch.id, subject.id, targetChap.id], pdfs[0]);
+            } else if (targetChap.items && targetChap.items.length > 0) {
+                navigateTo('viewer', [batch.id, subject.id, targetChap.id], targetChap.items[0]);
+            } else {
+                navigateTo('items', [batch.id, subject.id, targetChap.id]);
+            }
+        };
+    });
+
+    // Quick Prev/Next Chapter Buttons
+    const quickPrevChap = header.querySelector('#quick-prev-chap');
+    if (quickPrevChap && prevChapter) {
+        quickPrevChap.onclick = (e) => {
+            e.stopPropagation();
+            chapterDropdownMenu.classList.remove('open');
+            const pdfs = (prevChapter.items || []).filter(i => i.type === 'pdf');
+            if (pdfs.length > 0) {
+                navigateTo('viewer', [batch.id, subject.id, prevChapter.id], pdfs[0]);
+            } else {
+                navigateTo('items', [batch.id, subject.id, prevChapter.id]);
+            }
+        };
+    }
+
+    const quickNextChap = header.querySelector('#quick-next-chap');
+    if (quickNextChap && nextChapter) {
+        quickNextChap.onclick = (e) => {
+            e.stopPropagation();
+            chapterDropdownMenu.classList.remove('open');
+            const pdfs = (nextChapter.items || []).filter(i => i.type === 'pdf');
+            if (pdfs.length > 0) {
+                navigateTo('viewer', [batch.id, subject.id, nextChapter.id], pdfs[0]);
+            } else {
+                navigateTo('items', [batch.id, subject.id, nextChapter.id]);
+            }
+        };
+    }
+
+    // Event: Sidebar Collapse Toggle
+    const sidebarToggleBtn = header.querySelector('#viewer-sidebar-toggle-btn');
+    if (sidebarToggleBtn) {
+        sidebarToggleBtn.onclick = () => {
+            const appContainer = document.querySelector('.app-container');
+            if (appContainer) {
+                appContainer.classList.toggle('sidebar-collapsed');
+                sidebarToggleBtn.classList.toggle('active');
+            }
+        };
+    }
+
+    // Event: Fullscreen Toggle (Theater Fullscreen + Browser Fullscreen)
+    const fullscreenBtn = header.querySelector('#viewer-fullscreen-btn');
+    function toggleTheaterFullscreen(forcedState = null) {
+        isTheaterFullscreen = (forcedState !== null) ? forcedState : !isTheaterFullscreen;
+
+        const iconEl = fullscreenBtn.querySelector('.material-symbols-outlined');
+        const labelEl = fullscreenBtn.querySelector('.btn-label');
+
+        if (isTheaterFullscreen) {
+            container.classList.add('theater-fullscreen');
+            fullscreenBtn.classList.add('active');
+            if (iconEl) iconEl.textContent = 'fullscreen_exit';
+            if (labelEl) labelEl.textContent = 'Exit';
+            fullscreenBtn.title = 'Exit Fullscreen (Esc or F)';
+            try {
+                if (!document.fullscreenElement && document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen().catch(() => {});
+                }
+            } catch (err) {}
+        } else {
+            container.classList.remove('theater-fullscreen');
+            fullscreenBtn.classList.remove('active');
+            if (iconEl) iconEl.textContent = 'fullscreen';
+            if (labelEl) labelEl.textContent = 'Fullscreen';
+            fullscreenBtn.title = 'Full Screen View (Press F)';
+            try {
+                if (document.fullscreenElement && document.exitFullscreen) {
+                    document.exitFullscreen().catch(() => {});
+                }
+            } catch (err) {}
+        }
+    }
+
+    if (fullscreenBtn) {
+        fullscreenBtn.onclick = () => toggleTheaterFullscreen();
+    }
+
+    // Event: Slide / Page Jump
+    const jumpInput = footer.querySelector('#slide-jump-input');
+    const jumpBtn = footer.querySelector('#slide-jump-btn');
+
+    function applySlideJump() {
+        const val = parseInt(jumpInput?.value, 10);
+        if (isNaN(val) || val < 1) return;
+        localStorage.setItem('icse_last_page_' + currentNoteItem.id, val);
+        const curIframe = iframeCache.get(currentNoteItem.id);
+        if (curIframe) {
+            curIframe.src = `${currentNoteItem.file}#page=${val}&view=FitH`;
+        }
+    }
+
+    if (jumpBtn) jumpBtn.onclick = applySlideJump;
+    if (jumpInput) {
+        jumpInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                applySlideJump();
+                jumpInput.blur();
+            }
+        });
+    }
+
+    // Event: Back Button
     header.querySelector('#viewer-back-btn').onclick = () => {
+        if (isTheaterFullscreen) toggleTheaterFullscreen(false);
+        const appContainer = document.querySelector('.app-container');
+        if (appContainer) appContainer.classList.remove('sidebar-collapsed');
         navigateTo('items', state.path.slice(0, 3));
+    };
+
+    // Global Keydown & Document Click Listeners
+    function handleViewerKeydown(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+        if (e.key === 'f' || e.key === 'F') {
+            e.preventDefault();
+            toggleTheaterFullscreen();
+        } else if (e.key === 'Escape' && isTheaterFullscreen) {
+            e.preventDefault();
+            toggleTheaterFullscreen(false);
+        } else if (e.altKey && e.key === 'ArrowRight') {
+            e.preventDefault();
+            const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
+            if (curIdx < chapterNotes.length - 1 && curIdx !== -1) {
+                showNote(chapterNotes[curIdx + 1]);
+            }
+        } else if (e.altKey && e.key === 'ArrowLeft') {
+            e.preventDefault();
+            const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
+            if (curIdx > 0) {
+                showNote(chapterNotes[curIdx - 1]);
+            }
+        }
+    }
+
+    function handleDocClick(e) {
+        if (chapterSelectWrapper && !chapterSelectWrapper.contains(e.target)) {
+            if (chapterDropdownMenu) chapterDropdownMenu.classList.remove('open');
+        }
+    }
+
+    function handleFullscreenChange() {
+        if (!document.fullscreenElement && isTheaterFullscreen) {
+            toggleTheaterFullscreen(false);
+        }
+    }
+
+    document.addEventListener('keydown', handleViewerKeydown);
+    document.addEventListener('click', handleDocClick);
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+
+    activeViewerCleanup = () => {
+        document.removeEventListener('keydown', handleViewerKeydown);
+        document.removeEventListener('click', handleDocClick);
+        document.removeEventListener('fullscreenchange', handleFullscreenChange);
     };
 
     return container;

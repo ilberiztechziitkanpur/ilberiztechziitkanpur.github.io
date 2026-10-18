@@ -1,4 +1,4 @@
-﻿# PROJECT STATE & AGENT SYSTEM GUIDE
+# PROJECT STATE & AGENT SYSTEM GUIDE
 
 > 🚨 **MANDATORY AUTONOMOUS RULE FOR ALL AI AGENTS**:
 > 1. **Read this file at the start of EVERY chat** before inspecting or modifying any files in this repository.
@@ -426,6 +426,15 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
    - Updated quick-launch navigation in `script.js` to highlight **"Mahatma Gandhi Notes"** (`chap-his-6`) with an amber icon and glowing `NEW` badge in accordance with the single latest update sidebar cleanliness protocol.
    - Updated search index and search suggestion hints in `script.js` to include "Mahatma Gandhi", "Rowlatt Act", "Jallianwala Bagh", and "Non-Cooperation".
    - Verified functionality with browser subagent across all interactions (sidebar navigation, chapter cards, PDF reader rendering, and real-time search).
+11. **Notes Reader Space Maximization, Theater Fullscreen, Live Note Tabs & Chapter Navigator**:
+   - **Maximized In-Site Space**: Removed arbitrary `1100px` max-width constraint on `.pdf-viewer-container` and reduced `.content-area.viewer-active` padding to `8px 12px`, reclaiming over 60px of vertical and 56px of horizontal space for full-bleed reading.
+   - **Collapsible Sidebar**: Added sidebar collapse toggle (`.app-container.sidebar-collapsed`), allowing students to collapse the 280px sidebar to 0px on laptops for full 100% window width reading without leaving the dashboard.
+   - **Theater Fullscreen Mode**: Added dedicated Fullscreen button (`F` shortcut) that expands the reader to 100vw x 100vh edge-to-edge, hiding all global menus/search bars and showing exclusively the note content and essential study controls.
+   - **In-Chapter Note Switcher with Live DOM Slide Memory**: Built an interactive pill tab strip (`Note 01`, `Note 02`, `Note 03`) with Prev/Next buttons (`Alt + ←/→`). Implemented a live DOM iframe cache (`iframeCache`) where inactive notes are merely hidden with `opacity: 0; pointer-events: none` instead of unmounted. When students toggle between Note 1 and Note 2, their exact reading slide and scroll position are 100% preserved.
+   - **Slide / Page Bookmark & Jump**: Added slide jump control in the footer (`Slide/Page: [__] Jump`) with persistent memory (`localStorage.setItem('icse_last_page_' + noteId)`).
+   - **In-Viewer Chapter Switcher**: Added a glassmorphic chapter selector dropdown directly in the viewer header, allowing students to switch between all prescribed subject chapters and jump straight to their notes without navigating back through multiple dashboard levels. Includes quick Prev/Next chapter navigation buttons.
+   - **Accessibility & Shortcuts**: Added keyboard shortcuts (`F` for Fullscreen, `Esc` to Exit, `Alt + ←/→` to switch notes, `Enter` to jump slide) and mobile-responsive collapse layout.
+
 
 
 
