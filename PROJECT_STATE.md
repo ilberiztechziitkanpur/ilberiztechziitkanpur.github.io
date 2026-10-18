@@ -1,4 +1,4 @@
-# PROJECT STATE & AGENT SYSTEM GUIDE
+﻿# PROJECT STATE & AGENT SYSTEM GUIDE
 
 > 🚨 **MANDATORY AUTONOMOUS RULE FOR ALL AI AGENTS**:
 > 1. **Read this file at the start of EVERY chat** before inspecting or modifying any files in this repository.
@@ -55,7 +55,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Second_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf (2.6 MB) — Assertive Nationalism, Curzon & Partition of Bengal
 │       ├── Second_Phase_Of_The_Indian_National_Movement_02_Class_Notes.pdf (2.9 MB) — Lal-Bal-Pal, assertive methods & Surat Split
 │       ├── The_Muslim_League_01_Class_Notes.pdf (3.1 MB) — Factors promoting separatism & Shimla Deputation
-│       └── The_Muslim_League_02_Class_Notes.pdf (8.4 MB) — Foundation (1906), objectives & Lucknow Pact 1916
+│       ├── The_Muslim_League_02_Class_Notes.pdf (8.4 MB) — Foundation (1906), objectives & Lucknow Pact 1916
+│       └── Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf (3.8 MB) — Early life, Champaran, Ahmedabad, Kheda, Rowlatt Act & Jallianwala Bagh
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -215,7 +216,7 @@ ILBERIZ TECHZ IIT KANPUR/
   4. Survey Conventional Symbols & Color Codes Cheat Sheet
 - CSS containment (`content-visibility: auto`) for zero lag.
 
-### J. History Notes (11 PDFs in `history/notes/` across 5 Active Chapters)
+### J. History Notes (12 PDFs in `history/notes/` across 6 Active Chapters)
 - **Chapter 1: The First War of Independence (1857) (3 Notes)**:
   - `The_First_War_Of_Independence_01_Class_Notes.pdf` (5.8 MB) — Political, socio-religious, economic & military causes of 1857 Revolt, Enfield rifle cartridge incident.
   - `The_First_War_Of_Independence_02_Class_Notes.pdf` (4.0 MB) — Major storm centres, suppression, Queen Victoria's Proclamation of 1858, Government of India Act 1858 & consequences.
@@ -232,6 +233,8 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Chapter 5: The Muslim League & Lucknow Pact (2 Notes)**:
   - `The_Muslim_League_01_Class_Notes.pdf` (3.1 MB) — Factors leading to formation of Muslim League: British policy of Divide & Rule, educational/economic backwardness of Muslims, Sir Syed Ahmad Khan & Aligarh Movement, Hindi-Urdu controversy, and the Shimla Deputation (1906, Lord Minto & Aga Khan).
   - `The_Muslim_League_02_Class_Notes.pdf` (8.4 MB) — Foundation of the All India Muslim League (30 December 1906 at Dhaka, Nawab Salimullah, Waqar-ul-Mulk, Aga Khan), original aims and objectives, impact on the National Movement, and the Lucknow Pact (1916: circumstances, joint scheme of political reforms, Hindu-Muslim unity, significance & weaknesses).
+- **Chapter 6: Mahatma Gandhi and the National Movement (1 Note)**:
+  - `Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf` (3.8 MB) — Mahatma Gandhi's early life, legal career in South Africa (1893–1914), Pietermaritzburg/train racial discrimination, Natal Indian Congress, Satyagraha principles (truth and non-violence), return to India (9 Jan 1915), Champaran Satyagraha (1917, abolition of Tinkathia system), Ahmedabad Mill Strike (1918, 35% wage hike, first hunger strike), Kheda Satyagraha (1918, remission of land revenue), Rowlatt Act (1919, 'No Vakeel, No Appeal, No Daleel', in-camera trials, suspension of Habeas Corpus), Rowlatt Satyagraha (6 April 1919), arrest of Dr. Saifuddin Kitchlew & Dr. Satyapal, Jallianwala Bagh Massacre (13 April 1919, General Dyer, martial law, Tagore's Knighthood renunciation, Hunter Committee), and introduction to Khilafat Movement (Ali Brothers).
 
 ### K. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
 All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
@@ -302,7 +305,7 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
      - Ch 3: First Phase of the Indian National Movement (1885–1907) [2 Class Notes PDFs Live]
      - Ch 4: Second Phase of the Indian National Movement (Assertive Nationalism) [2 Class Notes PDFs Live]
      - Ch 5: The Muslim League & Lucknow Pact [2 Class Notes PDFs Live]
-     - Ch 6: Mahatma Gandhi & National Movement (1919–1934)
+     - Ch 6: Mahatma Gandhi and the National Movement [1 Class Notes PDF Live]
      - Ch 7: The Quit India Movement
      - Ch 8: Forward Bloc and the INA
      - Ch 9: Independence & Partition of India
@@ -416,5 +419,13 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
    - Synchronized `data.js` and `data.json` under `sub-10-his` -> `chap-his-5`.
    - Updated quick-launch navigation in `script.js` to highlight "Muslim League Notes" with a glowing `NEW` badge.
    - Updated search suggestion placeholder to include "Muslim League" and "Lucknow Pact".
+10. **Addition of Chapter 6: Mahatma Gandhi and the National Movement**:
+   - Added `Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf` (3.8 MB) covering Gandhi's early life, South African struggle, Champaran, Ahmedabad, Kheda, Rowlatt Act, and Jallianwala Bagh Massacre.
+   - Accurately named the chapter to authentic ICSE title: `Ch 6: Mahatma Gandhi and the National Movement` across `data.js`, `data.json`, and `PROJECT_STATE.md`.
+   - Synchronized `data.js` and `data.json` under `sub-10-his` -> `chap-his-6`.
+   - Updated quick-launch navigation in `script.js` to highlight **"Mahatma Gandhi Notes"** (`chap-his-6`) with an amber icon and glowing `NEW` badge in accordance with the single latest update sidebar cleanliness protocol.
+   - Updated search index and search suggestion hints in `script.js` to include "Mahatma Gandhi", "Rowlatt Act", "Jallianwala Bagh", and "Non-Cooperation".
+   - Verified functionality with browser subagent across all interactions (sidebar navigation, chapter cards, PDF reader rendering, and real-time search).
+
 
 

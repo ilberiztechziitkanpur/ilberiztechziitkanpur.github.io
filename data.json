@@ -848,9 +848,18 @@
                         },
                         {
                             "id": "chap-his-6",
-                            "name": "Ch 6: Mahatma Gandhi & National Movement (1919–1934)",
-                            "description": "Non-Cooperation Movement (Rowlatt Act, Jallianwala Bagh, Chauri Chaura) & Civil Disobedience Movement (Dandi March, Gandhi-Irwin Pact)",
-                            "items": []
+                            "name": "Ch 6: Mahatma Gandhi and the National Movement",
+                            "description": "Early life, Champaran, Ahmedabad, Kheda, Rowlatt Act, Jallianwala Bagh Tragedy, Khilafat & Non-Cooperation Movement",
+                            "items": [
+                                {
+                                    "id": "his-gandhi-notes-01",
+                                    "title": "Mahatma Gandhi And The National Movement 01 Class Notes",
+                                    "subtitle": "Early life, Champaran, Ahmedabad & Kheda Satyagrahas, Rowlatt Act & Jallianwala Bagh Massacre",
+                                    "type": "pdf",
+                                    "file": "history/notes/Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf",
+                                    "size": "3.8 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-his-7",
