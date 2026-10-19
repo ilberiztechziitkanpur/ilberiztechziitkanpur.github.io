@@ -1,8 +1,11 @@
 # PROJECT STATE & AGENT SYSTEM GUIDE
 
-> 🚨 **MANDATORY AUTONOMOUS RULE FOR ALL AI AGENTS**:
-> 1. **Read this file at the start of EVERY chat** before inspecting or modifying any files in this repository.
-> 2. **AUTOMATICALLY UPDATE THIS FILE**: Whenever you add, modify, or reorganize any files, chapters, or interactive engines in this repository, you **MUST automatically update this file (`PROJECT_STATE.md`)** before concluding your turn without needing the user to ask or remind you. Keep this guide as the live single source of truth.
+> 🚨 **MANDATORY AUTONOMOUS RULES FOR ALL AI AGENTS**:
+> 1. **Written for Agents, by Agents**: The user does not manage or read this document — **it exists exclusively for you (and future agents)** to preserve 100% technical continuity, remember every critical nuance, and avoid any regressions across chats.
+> 2. **Read at the Start of EVERY Chat**: Always review this guide before inspecting, proposing, or modifying any code in this repository.
+> 3. **Consistency Over Fragmentation (Do NOT Poison the Architecture)**: Strictly adhere to the established project patterns, directory structures, and conventions documented here. Do NOT invent arbitrary or unnecessary new approaches on each session, as doing so slowly fragments and degrades ("poisons") the codebase over time.
+> 4. **Pragmatic Flexibility & Adaptive Evolution**: While these rules define the standard baseline for regular operations, if the user explicitly requests an implementation that cannot be done using the current approach, or if a demonstrably more efficient, robust, or technically superior method is available, you are **explicitly authorized to adapt and improve the approach**.
+> 5. **AUTOMATICALLY UPDATE THIS FILE**: Whenever you add, adapt, optimize, or reorganize any files, chapters, engines, or paradigms, you **MUST automatically update this file (`PROJECT_STATE.md`)** before concluding your turn without needing the user to ask or remind you. Document the change, rationale, and new state thoroughly so that no knowledge or operational wisdom is ever forgotten.
 
 ---
 
@@ -95,6 +98,11 @@ ILBERIZ TECHZ IIT KANPUR/
     - During automated UI testing via `browser_subagent`, Chromium's native security sandboxing blocks `file://` iframes from reading local PDFs and blocks cross-origin requests to `data.json`.
     - **Standard Test Port**: Agents MUST always standardize on **port 8080** for temporary browser testing (`python -m http.server 8080` with `BypassSandbox: true` and `IsDaemon: true`).
     - **Mandatory Server Teardown**: Immediately upon completion of `browser_subagent` verification, the agent MUST explicitly terminate the server task (`manage_task kill <TaskId>`) and verify port 8080 is released (`Get-NetTCPConnection -LocalPort 8080`). Never leave test servers lingering or convey to the user that a local server is needed for normal site usage.
+12. **Architecture Continuity vs. Adaptive Evolution Protocol (Anti-Degradation Mandate)**:
+    - **Established Standards as Baseline**: All directory structures, subject isolations, dual data synchronization (`data.js` + `data.json`), sidebar cleanliness protocols, and port 8080 testing conventions documented in this guide constitute the golden baseline for regular tasks.
+    - **Anti-Degradation Mandate**: Resist the temptation to casually introduce divergent tooling, unvetted frameworks, or random new architectural paradigms from session to session. Arbitrary drift degrades ("poisons") the stability and predictability of the system.
+    - **Authorized Evolution & Efficiency Pivots**: If a user requirement genuinely conflicts with an existing pattern, or if an objective technical bottleneck can be solved more efficiently and cleanly with a modern technique, agents are explicitly empowered to adopt the superior method.
+    - **Compulsory State Synchronisation**: Any pivot, refinement, or new pattern must immediately be codified back into `PROJECT_STATE.md` with clear architectural reasoning so subsequent agents inherit the upgraded approach rather than reverting to deprecated patterns.
 
 ---
 
@@ -509,3 +517,8 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - Formally documented Rule 11 in Section 3 and updated Step 5 in Section 5 of `PROJECT_STATE.md` establishing port 8080 as the standard temporary local server port solely for `browser_subagent` headless verification.
     - Explicitly clarified that the site is 100% static (`file://` offline and GitHub Pages online) and requires no runtime server.
     - Standardized the mandatory protocol: start `python -m http.server 8080`, test via `browser_subagent`, and immediately terminate the task and verify port closure.
+
+16. **Codification of Architecture Continuity & Adaptive Evolution Protocol**:
+    - Embedded the user-mandated balance between consistency and pragmatic flexibility across the introductory autonomous rules and Rule 12.
+    - Clarified that this guide is maintained by agents for agents to prevent architectural degradation ("poisoning the codebase with random new approaches") while explicitly sanctioning efficiency-driven pivots when required by technical constraints or user needs.
+    - Reaffirmed mandatory autonomous updates to `PROJECT_STATE.md` whenever an approach is upgraded so all future sessions inherit the latest proven wisdom.
