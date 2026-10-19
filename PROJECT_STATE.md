@@ -536,3 +536,15 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - **Cache Invalidation**: Bumped cache-busting queries in `index.html` to `v=2.4`.
       - **Automated Verification**: Verified via `browser_subagent` that pressing `F` enters fullscreen, pressing `F` exits fullscreen, and pressing `Escape` exits fullscreen cleanly.
 
+18. **Consecutive `Alt + ArrowLeft/Right` Note Switching Fix**:
+    - **Root Cause Analysis**:
+      - Pressing `Alt + ArrowRight` or `Alt + ArrowLeft` was skipping multiple notes at once (jumping from Note 01 straight to Note 03 or Note 04) instead of advancing consecutively.
+      - *Mechanism*: The `handleViewerKeydown` listener had been attached to `window`, `document`, and `container` simultaneously in the capture phase. Because `e.stopPropagation()` was not called within the `Alt + Arrow` branch, a single keydown event triggered the handler 3 times in a row, updating the active note index 3 times. Additionally, holding down the Alt and arrow keys fired unthrottled OS `keydown` repeats.
+    - **Architectural Solution**:
+      - **Propagation Stoppage**: Added `e.stopPropagation()` and `e.preventDefault()` to both `Alt + ArrowRight` and `Alt + ArrowLeft` blocks to guarantee event containment.
+      - **Key-Repeat Debounce**: Added `if (e.repeat) return;` to prevent OS key-repeat loops from skipping notes when the key combination is held down.
+      - **Single Root Capture Listener**: Removed redundant listeners on `document` and `container`, keeping a single capture listener exclusively on `window` (`window.addEventListener('keydown', handleViewerKeydown, true)`).
+      - **Cache Invalidation**: Bumped cache-busting queries in `index.html` to `v=2.5`.
+      - **Automated Browser Subagent Verification**: Verified sequential stepping: Note 01 -> Note 02 -> Note 03 -> Note 02 -> Note 01 in both normal and fullscreen modes.
+
+

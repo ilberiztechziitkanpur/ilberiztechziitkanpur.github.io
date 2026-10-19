@@ -1307,6 +1307,8 @@ function createPdfViewer(initialItem) {
 
         const isFKey = e.key === 'f' || e.key === 'F' || e.code === 'KeyF' || e.key === 'F11' || e.code === 'F11';
         const isEscKey = e.key === 'Escape' || e.code === 'Escape';
+        const isNextNote = e.altKey && (e.key === 'ArrowRight' || e.code === 'ArrowRight');
+        const isPrevNote = e.altKey && (e.key === 'ArrowLeft' || e.code === 'ArrowLeft');
 
         if (isFKey) {
             e.preventDefault();
@@ -1316,14 +1318,18 @@ function createPdfViewer(initialItem) {
             e.preventDefault();
             e.stopPropagation();
             toggleTheaterFullscreen(false);
-        } else if (e.altKey && (e.key === 'ArrowRight' || e.code === 'ArrowRight')) {
+        } else if (isNextNote) {
             e.preventDefault();
+            e.stopPropagation();
+            if (e.repeat) return; // Prevent key-repeat from skipping multiple notes
             const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
             if (curIdx < chapterNotes.length - 1 && curIdx !== -1) {
                 showNote(chapterNotes[curIdx + 1]);
             }
-        } else if (e.altKey && (e.key === 'ArrowLeft' || e.code === 'ArrowLeft')) {
+        } else if (isPrevNote) {
             e.preventDefault();
+            e.stopPropagation();
+            if (e.repeat) return; // Prevent key-repeat from skipping multiple notes
             const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
             if (curIdx > 0) {
                 showNote(chapterNotes[curIdx - 1]);
@@ -1352,10 +1358,7 @@ function createPdfViewer(initialItem) {
     }
 
     window.addEventListener('keydown', handleViewerKeydown, true);
-    document.addEventListener('keydown', handleViewerKeydown, true);
-    container.addEventListener('keydown', handleViewerKeydown, true);
     window.addEventListener('mousemove', reclaimViewerFocus, { passive: true });
-    container.addEventListener('mousemove', reclaimViewerFocus, { passive: true });
     window.addEventListener('blur', handleWindowBlur);
     document.addEventListener('click', handleDocClick);
     document.addEventListener('fullscreenchange', handleFullscreenChange);
@@ -1373,10 +1376,7 @@ function createPdfViewer(initialItem) {
             appContainer.classList.remove('viewer-active');
         }
         window.removeEventListener('keydown', handleViewerKeydown, true);
-        document.removeEventListener('keydown', handleViewerKeydown, true);
-        container.removeEventListener('keydown', handleViewerKeydown, true);
         window.removeEventListener('mousemove', reclaimViewerFocus);
-        container.removeEventListener('mousemove', reclaimViewerFocus);
         window.removeEventListener('blur', handleWindowBlur);
         document.removeEventListener('click', handleDocClick);
         document.removeEventListener('fullscreenchange', handleFullscreenChange);
