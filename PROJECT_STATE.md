@@ -90,6 +90,11 @@ ILBERIZ TECHZ IIT KANPUR/
 8. **Git Push Protocol**: Always commit changes and use `BypassSandbox: true` for `git push origin main` because sandbox restricts network access.
 9. **Sidebar Navigation Stability**: Keep `.nav-menu` with `overflow-x: hidden !important;`, `overscroll-behavior: contain;`, and `padding-bottom: 24px;`. Prevent any hover `translateX` on `.nav-item` / `.nav-item-featured` that triggers horizontal scrollbars or boundary oscillation loops. Both `.logo-area` and `.sidebar-footer` must have `flex-shrink: 0;`.
 10. **Sidebar & Landing View Cleanliness Protocol (MANDATORY)**: The left navigation sidebar (`.nav-menu`) must NEVER accumulate past chapter buttons or older DPP engines into a massive scrolling list. Only **Overview**, curriculum batch links, and the **single latest update** (e.g. newly published chapter notes or active focus module) with a `NEW` badge are displayed in the sidebar quick-launch area. All previously published chapters, notes, and engines remain permanently accessible through their respective Subject and Chapter dashboard pages with all their original tags and badges. This ensures the dashboard on laptops and mobile devices remains uncluttered, elegant, and immediately signals to returning students what has just been updated.
+11. **Browser Testing Protocol & Standard Port 8080 Temporary Server Convention**:
+    - The repository is 100% static (HTML/CSS/JS) and runs offline via `file://` or online on GitHub Pages without requiring any background runtime server.
+    - During automated UI testing via `browser_subagent`, Chromium's native security sandboxing blocks `file://` iframes from reading local PDFs and blocks cross-origin requests to `data.json`.
+    - **Standard Test Port**: Agents MUST always standardize on **port 8080** for temporary browser testing (`python -m http.server 8080` with `BypassSandbox: true` and `IsDaemon: true`).
+    - **Mandatory Server Teardown**: Immediately upon completion of `browser_subagent` verification, the agent MUST explicitly terminate the server task (`manage_task kill <TaskId>`) and verify port 8080 is released (`Get-NetTCPConnection -LocalPort 8080`). Never leave test servers lingering or convey to the user that a local server is needed for normal site usage.
 
 ---
 
@@ -373,7 +378,10 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
 4. **Wire Data**:
    - Update `data.js` and `data.json` under the respective chapter in `sub-10-geo` with the new interactive theory DPP master item.
    - Update `script.js` to add a quick-launch shortcut with an icon and `NEW` badge in `renderNav()`.
-5. **Test in Browser**: Launch `browser_subagent` to verify navigation, modes, timer, and drawer rendering.
+5. **Standardized Browser Verification on Port 8080**:
+   - Start temporary test server: Run `python -m http.server 8080` (`BypassSandbox: true`, `IsDaemon: true`).
+   - Run `browser_subagent` targeting `http://localhost:8080/index.html` to verify navigation, PDF rendering, tabs, search, and modes.
+   - Clean shutdown: Immediately kill the background server task with `manage_task kill <TaskId>` and verify port 8080 is released (`Get-NetTCPConnection -LocalPort 8080`).
 6. **Commit & Push to GitHub**:
    - Run `git add` and `git commit`.
    - Run `git push origin main` with `BypassSandbox: true`.
@@ -496,3 +504,8 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Search Engine Expansion**: Augmented search suggestion topics and search index in `script.js` with "Julius Caesar", "Act 3 Scene 1", "Act 3 Scene 2", and "Antony Speech".
     - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=2.3`.
     - **Automated Verification**: Conducted automated end-to-end browser subagent testing verifying sidebar link, cards grid, 6-note pill switcher, note transitions, back navigation, and real-time search.
+
+15. **Standardization of Port 8080 Temporary Test Server Protocol**:
+    - Formally documented Rule 11 in Section 3 and updated Step 5 in Section 5 of `PROJECT_STATE.md` establishing port 8080 as the standard temporary local server port solely for `browser_subagent` headless verification.
+    - Explicitly clarified that the site is 100% static (`file://` offline and GitHub Pages online) and requires no runtime server.
+    - Standardized the mandatory protocol: start `python -m http.server 8080`, test via `browser_subagent`, and immediately terminate the task and verify port closure.
