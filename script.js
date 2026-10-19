@@ -792,6 +792,8 @@ function createPdfViewer(initialItem) {
 
     const container = document.createElement('div');
     container.className = 'pdf-viewer-container';
+    container.setAttribute('tabindex', '-1');
+    container.style.outline = 'none';
 
     // Contextual Data
     const batch = state.data.batches.find(b => b.id === state.path[0]);
@@ -967,6 +969,14 @@ function createPdfViewer(initialItem) {
             const savedPage = localStorage.getItem('icse_last_page_' + targetItem.id);
             const pageHash = savedPage ? `#page=${savedPage}&view=Fit` : '#view=Fit';
             activeIframe.src = `${targetItem.file}${pageHash}`;
+
+            activeIframe.onload = () => {
+                setTimeout(() => {
+                    if (document.body.contains(container)) {
+                        container.focus();
+                    }
+                }, 100);
+            };
 
             frameWrapper.appendChild(activeIframe);
             iframeCache.set(targetItem.id, activeIframe);
@@ -1154,6 +1164,11 @@ function createPdfViewer(initialItem) {
     // Initialize with first note and render center note tabs
     showNote(initialItem);
     renderNoteTabsUI();
+    setTimeout(() => {
+        if (document.body.contains(container)) {
+            container.focus();
+        }
+    }, 50);
 
     // Event: Chapter Selector Dropdown Toggle
     const chapterSelectBtn = header.querySelector('#chapter-select-btn');
@@ -1220,6 +1235,11 @@ function createPdfViewer(initialItem) {
                 fullscreenBtn.title = 'Exit Fullscreen (Esc, F, or F11)';
             }
             await requestPureFullscreen(container);
+            setTimeout(() => {
+                if (document.body.contains(container)) {
+                    container.focus();
+                }
+            }, 50);
         } else {
             state.isFullscreenActive = false;
             document.body.classList.remove('theater-fullscreen-active');
@@ -1232,6 +1252,11 @@ function createPdfViewer(initialItem) {
                 fullscreenBtn.title = 'Full Screen View (Press F or F11)';
             }
             await exitPureFullscreen();
+            setTimeout(() => {
+                if (document.body.contains(container)) {
+                    container.focus();
+                }
+            }, 50);
         }
     }
 
@@ -1254,23 +1279,50 @@ function createPdfViewer(initialItem) {
         navigateTo('items', state.path.slice(0, 3));
     };
 
+    // Active Focus Reclaim: Keep keyboard events routed to container even when PDF iframe is clicked
+    function reclaimViewerFocus() {
+        if (!document.body.contains(container)) return;
+        if (document.activeElement && document.activeElement.tagName === 'IFRAME') {
+            window.focus();
+            container.focus();
+        }
+    }
+
+    function handleWindowBlur() {
+        if (isTheaterFullscreen || state.currentView === 'viewer') {
+            setTimeout(() => {
+                if (document.body.contains(container)) {
+                    if (document.activeElement && document.activeElement.tagName === 'IFRAME') {
+                        window.focus();
+                        container.focus();
+                    }
+                }
+            }, 60);
+        }
+    }
+
     // Global Keydown & Document Click Listeners
     function handleViewerKeydown(e) {
-        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
 
-        if (e.key === 'F11' || e.key === 'f' || e.key === 'F') {
+        const isFKey = e.key === 'f' || e.key === 'F' || e.code === 'KeyF' || e.key === 'F11' || e.code === 'F11';
+        const isEscKey = e.key === 'Escape' || e.code === 'Escape';
+
+        if (isFKey) {
             e.preventDefault();
+            e.stopPropagation();
             toggleTheaterFullscreen();
-        } else if (e.key === 'Escape' && isTheaterFullscreen) {
+        } else if (isEscKey && isTheaterFullscreen) {
             e.preventDefault();
+            e.stopPropagation();
             toggleTheaterFullscreen(false);
-        } else if (e.altKey && e.key === 'ArrowRight') {
+        } else if (e.altKey && (e.key === 'ArrowRight' || e.code === 'ArrowRight')) {
             e.preventDefault();
             const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
             if (curIdx < chapterNotes.length - 1 && curIdx !== -1) {
                 showNote(chapterNotes[curIdx + 1]);
             }
-        } else if (e.altKey && e.key === 'ArrowLeft') {
+        } else if (e.altKey && (e.key === 'ArrowLeft' || e.code === 'ArrowLeft')) {
             e.preventDefault();
             const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
             if (curIdx > 0) {
@@ -1292,9 +1344,19 @@ function createPdfViewer(initialItem) {
         } else if (fsEl && !isTheaterFullscreen) {
             toggleTheaterFullscreen(true);
         }
+        setTimeout(() => {
+            if (document.body.contains(container)) {
+                container.focus();
+            }
+        }, 50);
     }
 
-    document.addEventListener('keydown', handleViewerKeydown);
+    window.addEventListener('keydown', handleViewerKeydown, true);
+    document.addEventListener('keydown', handleViewerKeydown, true);
+    container.addEventListener('keydown', handleViewerKeydown, true);
+    window.addEventListener('mousemove', reclaimViewerFocus, { passive: true });
+    container.addEventListener('mousemove', reclaimViewerFocus, { passive: true });
+    window.addEventListener('blur', handleWindowBlur);
     document.addEventListener('click', handleDocClick);
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
@@ -1310,7 +1372,12 @@ function createPdfViewer(initialItem) {
             appContainer.classList.remove('theater-fullscreen-active');
             appContainer.classList.remove('viewer-active');
         }
-        document.removeEventListener('keydown', handleViewerKeydown);
+        window.removeEventListener('keydown', handleViewerKeydown, true);
+        document.removeEventListener('keydown', handleViewerKeydown, true);
+        container.removeEventListener('keydown', handleViewerKeydown, true);
+        window.removeEventListener('mousemove', reclaimViewerFocus);
+        container.removeEventListener('mousemove', reclaimViewerFocus);
+        window.removeEventListener('blur', handleWindowBlur);
         document.removeEventListener('click', handleDocClick);
         document.removeEventListener('fullscreenchange', handleFullscreenChange);
         document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);

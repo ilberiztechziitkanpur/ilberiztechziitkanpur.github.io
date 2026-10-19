@@ -522,3 +522,17 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - Embedded the user-mandated balance between consistency and pragmatic flexibility across the introductory autonomous rules and Rule 12.
     - Clarified that this guide is maintained by agents for agents to prevent architectural degradation ("poisoning the codebase with random new approaches") while explicitly sanctioning efficiency-driven pivots when required by technical constraints or user needs.
     - Reaffirmed mandatory autonomous updates to `PROJECT_STATE.md` whenever an approach is upgraded so all future sessions inherit the latest proven wisdom.
+
+17. **Bidirectional `F` Key Fullscreen Toggle with Iframe Focus Reclamation**:
+    - **Root Cause Analysis**:
+      - In previous implementations, pressing `F` could enter fullscreen, and pressing `Escape` could exit fullscreen, but pressing `F` while inside fullscreen failed to exit.
+      - *Mechanism*: When the PDF viewer iframe loaded or was interacted with, Chromium automatically shifted keyboard focus into the PDF plugin within the iframe. Pressing `Escape` worked because Chromium intercepts `Escape` at the native browser C++ layer to exit HTML5 fullscreen and fires `fullscreenchange` on the document. However, `F` is a normal character key; Chromium routed it directly into the PDF iframe plugin, which does not bubble keyboard events across the iframe boundary to the parent `window`/`document` listeners.
+    - **Architectural & Focus Management Solution**:
+      - **Focusable Container**: Set `tabindex="-1"` and `outline: none` on `.pdf-viewer-container` so the viewer root can maintain keyboard focus cleanly without focus rings.
+      - **Capture Phase Dispatch**: Registered `handleViewerKeydown` on `window`, `document`, and `container` with `useCapture: true`, listening for `e.key === 'f' || e.key === 'F' || e.code === 'KeyF' || e.key === 'F11' || e.code === 'F11'`.
+      - **Immediate Refocus on State Transition**: In `toggleTheaterFullscreen()`, both on entering and exiting fullscreen, scheduled `container.focus()` and `window.focus()`.
+      - **Active Focus Reclamation**: Added `reclaimViewerFocus()` and `handleWindowBlur()` listeners. If focus shifts into the iframe, focus is smoothly reclaimed back to `container` within 60ms and on any cursor movement (`mousemove`), ensuring that single-key hotkeys (`F` to toggle, `Escape` to exit, `Alt + ←/→` to switch notes) are always received by the viewer without interrupting PDF reading or mouse-wheel scrolling.
+      - **Clean Teardown**: Updated `activeViewerCleanup()` to unbind all capture keydown, blur, mousemove, and fullscreen change listeners.
+      - **Cache Invalidation**: Bumped cache-busting queries in `index.html` to `v=2.4`.
+      - **Automated Verification**: Verified via `browser_subagent` that pressing `F` enters fullscreen, pressing `F` exits fullscreen, and pressing `Escape` exits fullscreen cleanly.
+

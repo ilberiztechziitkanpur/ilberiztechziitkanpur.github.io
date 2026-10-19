@@ -960,6 +960,7 @@ body.theater-fullscreen-active .viewer-footer,
     flex-direction: column !important;
     position: relative !important;
     box-shadow: none !important;
+    outline: none !important;
 }
 
 /* Viewer Header */
