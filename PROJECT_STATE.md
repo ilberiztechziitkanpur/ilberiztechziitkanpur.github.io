@@ -559,5 +559,17 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - **Escape & Exit Preservation**: `Escape` key continues to cleanly exit fullscreen natively from anywhere, and the `Exit` button remains directly accessible in the header.
       - **Cache Invalidation**: Bumped cache-busting queries in `index.html` to `v=2.6`.
 
+20. **Permanent Stabilization of `Alt + ArrowLeft/Right` Note Switching & Viewer Focus Control**:
+    - **Root Cause Analysis**:
+      - In entry 19, the `frameWrapper.addEventListener('mouseenter')` and automatic iframe focus handlers were shifting keyboard focus into the PDF iframe plugin whenever the cursor moved across the viewer area.
+      - *Mechanism*: In Chromium/Edge on Windows, once an embedded PDF iframe receives focus, the browser intercepts `Alt + ArrowLeft` as native "History Back" and `Alt + ArrowRight` as native "History Forward", preventing `window` keydown listeners from receiving the combination. This caused note switching to appear completely dead when trying to switch between notes.
+    - **Architectural Solution**:
+      - **Elimination of Auto-Focus on Iframe**: Completely removed `frameWrapper.addEventListener('mouseenter', handleFrameEnter)` and eliminated `activeIframe.focus()` from `onload`, `showNote`, and `toggleTheaterFullscreen`.
+      - **Container Root Keyboard Anchor**: Focused the viewer container (`container.focus()`) on initialization, after note transitions, and upon entering/exiting fullscreen.
+      - **Expanded Key Code Recognition**: Augmented `handleViewerKeydown` to support `e.key`, `e.code`, and legacy `e.keyCode`/`e.which` (`ArrowRight` / `Right` / `39` and `ArrowLeft` / `Left` / `37`) with `e.altKey`.
+      - **Active Blur Restoration**: Added `handleWindowBlur` listener ensuring focus is retained by `container` if focus ever drifts, ensuring `Alt + ArrowLeft/Right`, `F`, and `Escape` always trigger reliably.
+      - **Cache Invalidation**: Bumped cache-busting version query in `index.html` to `v=2.7`.
+
+
 
 

@@ -973,16 +973,16 @@ function createPdfViewer(initialItem) {
             activeIframe.onload = () => {
                 setTimeout(() => {
                     if (document.body.contains(container)) {
-                        activeIframe.focus();
+                        container.focus();
                     }
-                }, 100);
+                }, 50);
             };
 
             frameWrapper.appendChild(activeIframe);
             iframeCache.set(targetItem.id, activeIframe);
         } else {
             activeIframe.className = 'pdf-iframe active';
-            activeIframe.focus();
+            container.focus();
         }
 
         // Hide other iframes smoothly while keeping them mounted in DOM
@@ -1232,9 +1232,8 @@ function createPdfViewer(initialItem) {
             }
             await requestPureFullscreen(container);
             setTimeout(() => {
-                const activeIframe = iframeCache.get(currentNoteItem.id);
-                if (activeIframe) activeIframe.focus();
-            }, 60);
+                container.focus();
+            }, 50);
         } else {
             state.isFullscreenActive = false;
             document.body.classList.remove('theater-fullscreen-active');
@@ -1248,9 +1247,8 @@ function createPdfViewer(initialItem) {
             }
             await exitPureFullscreen();
             setTimeout(() => {
-                const activeIframe = iframeCache.get(currentNoteItem.id);
-                if (activeIframe) activeIframe.focus();
-            }, 60);
+                container.focus();
+            }, 50);
         }
     }
 
@@ -1273,18 +1271,13 @@ function createPdfViewer(initialItem) {
         navigateTo('items', state.path.slice(0, 3));
     };
 
-    // When hovering over controls (header or footer), give container focus so shortcuts/actions trigger smoothly
+    // When clicking or hovering over viewer controls, give container focus so shortcuts trigger smoothly
     const handleHeaderEnter = () => container.focus();
     const handleFooterEnter = () => container.focus();
+    const handleContainerClick = () => container.focus();
     header.addEventListener('mouseenter', handleHeaderEnter);
     if (footer) footer.addEventListener('mouseenter', handleFooterEnter);
-
-    // When cursor is over or interacting with slides, ensure active iframe keeps focus for smooth arrow slide navigation
-    const handleFrameEnter = () => {
-        const activeIframe = iframeCache.get(currentNoteItem.id);
-        if (activeIframe) activeIframe.focus();
-    };
-    frameWrapper.addEventListener('mouseenter', handleFrameEnter);
+    container.addEventListener('click', handleContainerClick);
 
     // Global Keydown & Document Click Listeners
     function handleViewerKeydown(e) {
@@ -1292,9 +1285,12 @@ function createPdfViewer(initialItem) {
 
         const isFKey = e.key === 'f' || e.key === 'F' || e.code === 'KeyF' || e.key === 'F11' || e.code === 'F11';
         const isEscKey = e.key === 'Escape' || e.code === 'Escape';
-        const isNextNote = e.altKey && (e.key === 'ArrowRight' || e.code === 'ArrowRight');
-        const isPrevNote = e.altKey && (e.key === 'ArrowLeft' || e.code === 'ArrowLeft');
-        const isSlideNav = (e.key === 'ArrowRight' || e.code === 'ArrowRight' || e.key === 'ArrowLeft' || e.code === 'ArrowLeft' || e.key === 'PageDown' || e.key === 'PageUp' || e.key === ' ') && !e.altKey && !e.ctrlKey && !e.metaKey;
+        const isNextNote = e.altKey && (
+            e.key === 'ArrowRight' || e.code === 'ArrowRight' || e.key === 'Right' || e.keyCode === 39
+        );
+        const isPrevNote = e.altKey && (
+            e.key === 'ArrowLeft' || e.code === 'ArrowLeft' || e.key === 'Left' || e.keyCode === 37
+        );
 
         if (isFKey) {
             e.preventDefault();
@@ -1312,6 +1308,7 @@ function createPdfViewer(initialItem) {
             if (curIdx < chapterNotes.length - 1 && curIdx !== -1) {
                 showNote(chapterNotes[curIdx + 1]);
             }
+            container.focus();
         } else if (isPrevNote) {
             e.preventDefault();
             e.stopPropagation();
@@ -1320,12 +1317,7 @@ function createPdfViewer(initialItem) {
             if (curIdx > 0) {
                 showNote(chapterNotes[curIdx - 1]);
             }
-        } else if (isSlideNav) {
-            // If focus happens to be on parent container/window, route focus immediately to active PDF iframe
-            const activeIframe = iframeCache.get(currentNoteItem.id);
-            if (activeIframe) {
-                activeIframe.focus();
-            }
+            container.focus();
         }
     }
 
@@ -1344,11 +1336,28 @@ function createPdfViewer(initialItem) {
         }
     }
 
+    // Keep focus attached to container if focus attempts to wander
+    const handleWindowBlur = () => {
+        setTimeout(() => {
+            if (document.body.contains(container)) {
+                container.focus();
+            }
+        }, 150);
+    };
+
     window.addEventListener('keydown', handleViewerKeydown, true);
+    window.addEventListener('blur', handleWindowBlur);
     document.addEventListener('click', handleDocClick);
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
     document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+
+    // Initial focus on container
+    setTimeout(() => {
+        if (document.body.contains(container)) {
+            container.focus();
+        }
+    }, 60);
 
     activeViewerCleanup = () => {
         state.isFullscreenActive = false;
@@ -1361,13 +1370,14 @@ function createPdfViewer(initialItem) {
             appContainer.classList.remove('viewer-active');
         }
         window.removeEventListener('keydown', handleViewerKeydown, true);
+        window.removeEventListener('blur', handleWindowBlur);
         document.removeEventListener('click', handleDocClick);
         document.removeEventListener('fullscreenchange', handleFullscreenChange);
         document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
         document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
         header.removeEventListener('mouseenter', handleHeaderEnter);
         if (footer) footer.removeEventListener('mouseenter', handleFooterEnter);
-        frameWrapper.removeEventListener('mouseenter', handleFrameEnter);
+        container.removeEventListener('click', handleContainerClick);
     };
 
     return container;
