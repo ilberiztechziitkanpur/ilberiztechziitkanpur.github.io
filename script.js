@@ -784,6 +784,36 @@ function createInteractiveViewer(item) {
 // PDF Reader & Viewer Component with Fullscreen, In-Chapter Note Switcher, Persistent Slides & Chapter Switcher
 let activeViewerCleanup = null;
 
+// High-Responsiveness Pointer & Click Binder
+// Fixes browser focus de-activation delays when clicking HTML UI out of native PDF plugins
+function bindInstantClick(btn, action) {
+    if (!btn) return;
+    let lastTrigger = 0;
+    const trigger = (e) => {
+        if (btn.disabled || btn.getAttribute('aria-disabled') === 'true') {
+            return;
+        }
+        const now = Date.now();
+        if (now - lastTrigger < 220) return;
+        lastTrigger = now;
+        window.focus();
+        if (e && typeof e.stopPropagation === 'function') {
+            e.stopPropagation();
+        }
+        action(e);
+    };
+
+    // Primary events: pointerdown fires immediately on the very first touch/mouse press before browser click suppression
+    btn.addEventListener('pointerdown', trigger);
+    btn.addEventListener('mousedown', trigger);
+    btn.addEventListener('click', trigger);
+    btn.addEventListener('touchend', trigger);
+
+    // Proactively reclaim window focus the instant mouse cursor enters the button
+    btn.addEventListener('pointerenter', () => window.focus(), { passive: true });
+    btn.addEventListener('mouseenter', () => window.focus(), { passive: true });
+}
+
 function createPdfViewer(initialItem) {
     if (activeViewerCleanup) {
         activeViewerCleanup();
@@ -909,19 +939,17 @@ function createPdfViewer(initialItem) {
     floatNextBtn.innerHTML = '<span class="material-symbols-outlined">chevron_right</span>';
     floatNextBtn.setAttribute('aria-label', 'Next Note');
 
-    floatPrevBtn.onclick = (e) => {
-        e.stopPropagation();
+    bindInstantClick(floatPrevBtn, (e) => {
         const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
         if (curIdx > 0) showNote(chapterNotes[curIdx - 1]);
-    };
+    });
 
-    floatNextBtn.onclick = (e) => {
-        e.stopPropagation();
+    bindInstantClick(floatNextBtn, (e) => {
         const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
         if (curIdx < chapterNotes.length - 1 && curIdx !== -1) {
             showNote(chapterNotes[curIdx + 1]);
         }
-    };
+    });
 
     frameWrapper.appendChild(floatPrevBtn);
     frameWrapper.appendChild(floatNextBtn);
@@ -945,6 +973,21 @@ function createPdfViewer(initialItem) {
     container.appendChild(header);
     container.appendChild(frameWrapper);
     container.appendChild(footer);
+
+    // Proactive Window Focus Reclamation: When cursor hovers over header, controls, or footer,
+    // seamlessly bring window focus back to main document so single clicks and key shortcuts work on the very first event
+    header.addEventListener('pointerenter', () => window.focus(), { passive: true });
+    header.addEventListener('mouseenter', () => window.focus(), { passive: true });
+    header.addEventListener('pointerdown', () => window.focus(), { passive: true });
+    header.addEventListener('mousedown', () => window.focus(), { passive: true });
+
+    footer.addEventListener('pointerenter', () => window.focus(), { passive: true });
+    footer.addEventListener('pointerdown', () => window.focus(), { passive: true });
+
+    const newTabLink = header.querySelector('#viewer-newtab-btn');
+    if (newTabLink) newTabLink.addEventListener('pointerenter', () => window.focus(), { passive: true });
+    const downloadLink = header.querySelector('#viewer-download-btn');
+    if (downloadLink) downloadLink.addEventListener('pointerenter', () => window.focus(), { passive: true });
 
     const fullscreenBtn = header.querySelector('#viewer-fullscreen-btn');
     if (isTheaterFullscreen) {
@@ -1088,13 +1131,13 @@ function createPdfViewer(initialItem) {
 
         centerGroup.innerHTML = noteTabsHtml;
 
-        // Bind Note Pill Clicks
+        // Bind Note Pill Clicks (Instant responsiveness on very first touch or click)
         const pillBtns = centerGroup.querySelectorAll('.note-pill-btn');
         pillBtns.forEach(pill => {
-            pill.onclick = () => {
+            bindInstantClick(pill, () => {
                 const targetNote = chapterNotes.find(n => n.id === pill.dataset.noteId);
                 if (targetNote) showNote(targetNote);
-            };
+            });
         });
 
         // Bind Prev / Next Note Buttons
@@ -1102,22 +1145,22 @@ function createPdfViewer(initialItem) {
         if (prevNoteBtn) {
             const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
             prevNoteBtn.disabled = (curIdx <= 0);
-            prevNoteBtn.onclick = () => {
+            bindInstantClick(prevNoteBtn, () => {
                 const idx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
                 if (idx > 0) showNote(chapterNotes[idx - 1]);
-            };
+            });
         }
 
         const nextNoteBtn = centerGroup.querySelector('#next-note-btn');
         if (nextNoteBtn) {
             const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
             nextNoteBtn.disabled = (curIdx >= chapterNotes.length - 1 || curIdx === -1);
-            nextNoteBtn.onclick = () => {
+            bindInstantClick(nextNoteBtn, () => {
                 const idx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
                 if (idx < chapterNotes.length - 1 && idx !== -1) {
                     showNote(chapterNotes[idx + 1]);
                 }
-            };
+            });
         }
     }
 
@@ -1203,42 +1246,38 @@ function createPdfViewer(initialItem) {
     const chapterSelectWrapper = header.querySelector('#chapter-select-wrapper');
 
     if (chapterSelectBtn && chapterDropdownMenu) {
-        chapterSelectBtn.onclick = (e) => {
-            e.stopPropagation();
+        bindInstantClick(chapterSelectBtn, (e) => {
             chapterDropdownMenu.classList.toggle('open');
-        };
+        });
     }
 
     // Event: Chapter Item Click (In-Place Chapter Switch, preserving Fullscreen)
     const chapItems = header.querySelectorAll('.chapter-dropdown-item');
     chapItems.forEach(itemEl => {
-        itemEl.onclick = (e) => {
-            e.stopPropagation();
+        bindInstantClick(itemEl, () => {
             switchChapterInViewer(itemEl.dataset.chapId);
-        };
+        });
     });
 
     // Event: Quick Prev/Next Chapter Buttons
     const quickPrevChap = header.querySelector('#quick-prev-chap');
     if (quickPrevChap) {
-        quickPrevChap.onclick = (e) => {
-            e.stopPropagation();
+        bindInstantClick(quickPrevChap, () => {
             const curChapIdx = allChapters.findIndex(c => c.id === currentChapter.id);
             if (curChapIdx > 0) {
                 switchChapterInViewer(allChapters[curChapIdx - 1].id);
             }
-        };
+        });
     }
 
     const quickNextChap = header.querySelector('#quick-next-chap');
     if (quickNextChap) {
-        quickNextChap.onclick = (e) => {
-            e.stopPropagation();
+        bindInstantClick(quickNextChap, () => {
             const curChapIdx = allChapters.findIndex(c => c.id === currentChapter.id);
             if (curChapIdx >= 0 && curChapIdx < allChapters.length - 1) {
                 switchChapterInViewer(allChapters[curChapIdx + 1].id);
             }
-        };
+        });
     }
 
     // Event: Fullscreen Toggle (Pure Native F11 Fullscreen)
@@ -1278,23 +1317,26 @@ function createPdfViewer(initialItem) {
     }
 
     if (fullscreenBtn) {
-        fullscreenBtn.onclick = () => toggleTheaterFullscreen();
+        bindInstantClick(fullscreenBtn, () => toggleTheaterFullscreen());
     }
 
     // Event: Back Button
-    header.querySelector('#viewer-back-btn').onclick = () => {
-        state.isFullscreenActive = false;
-        exitPureFullscreen();
-        const appContainer = document.querySelector('.app-container');
-        document.body.classList.remove('viewer-active');
-        document.body.classList.remove('theater-fullscreen-active');
-        if (appContainer) {
-            appContainer.classList.remove('viewer-active');
-            appContainer.classList.remove('theater-fullscreen-active');
-            appContainer.classList.remove('sidebar-collapsed');
-        }
-        navigateTo('items', state.path.slice(0, 3));
-    };
+    const viewerBackBtn = header.querySelector('#viewer-back-btn');
+    if (viewerBackBtn) {
+        bindInstantClick(viewerBackBtn, () => {
+            state.isFullscreenActive = false;
+            exitPureFullscreen();
+            const appContainer = document.querySelector('.app-container');
+            document.body.classList.remove('viewer-active');
+            document.body.classList.remove('theater-fullscreen-active');
+            if (appContainer) {
+                appContainer.classList.remove('viewer-active');
+                appContainer.classList.remove('theater-fullscreen-active');
+                appContainer.classList.remove('sidebar-collapsed');
+            }
+            navigateTo('items', state.path.slice(0, 3));
+        });
+    }
 
     // Global Keydown & Document Click Listeners
     function handleViewerKeydown(e) {
@@ -1346,6 +1388,7 @@ function createPdfViewer(initialItem) {
     }
 
     window.addEventListener('keydown', handleViewerKeydown, true);
+    document.addEventListener('pointerdown', handleDocClick);
     document.addEventListener('click', handleDocClick);
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
@@ -1362,6 +1405,7 @@ function createPdfViewer(initialItem) {
             appContainer.classList.remove('viewer-active');
         }
         window.removeEventListener('keydown', handleViewerKeydown, true);
+        document.removeEventListener('pointerdown', handleDocClick);
         document.removeEventListener('click', handleDocClick);
         document.removeEventListener('fullscreenchange', handleFullscreenChange);
         document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);

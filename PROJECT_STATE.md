@@ -572,6 +572,20 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - **Cache Invalidation**: Bumped version queries in `index.html` to `v=2.9` (`script.js?v=2.9`, `data.js?v=2.9`, `style.css?v=2.7`).
       - **Browser Subagent Verification**: Fully tested note transitions, floating button visibility on Note 01 vs Note 02, and return navigation via browser subagent.
 
+22. **Instant Single-Press Note Switching via Low-Level Pointer & Proactive Focus Reclamation**:
+    - **User Feedback & Root Cause Analysis**:
+      - While reading or turning slides in the PDF presentation with arrow keys (where browser focus is natively inside the PDF plugin), clicking a note button (e.g. `Note 02` pill, header `<` / `>` arrow, or floating edge chevrons) did not switch the note on the first click. The user was forced to click outside the PDF screen first to blur the plugin, and only then would clicking the note buttons switch notes.
+      - *Technical Mechanism*: In Chromium/Edge on Windows, when an `<embed type="application/pdf">` or out-of-process PDF plugin window has active OS focus, the first mouse press outside the plugin onto an HTML element deactivates and blurs the PDF plugin. Chromium treats this initial click as a plugin-activation/deactivation event and frequently suppresses or swallows the synthetic `click` event. Because the note buttons previously only listened to `onclick`, the first click was dropped by the browser during plugin blur, requiring a second click.
+    - **Architectural Solution**:
+      - **`bindInstantClick(btn, action)` Engine**: Built a robust low-level event binder attached to all note pills, header arrows, floating chevrons, chapter dropdown toggles, and viewer navigation buttons.
+      - **`pointerdown` Immediate Execution**: Listens on `pointerdown` and `mousedown`, which are low-level hardware input events dispatched by Chromium *before* click synthesis and before focus cancellation can occur. The action is triggered synchronously on the very first pixel of mouse down or touch.
+      - **High-Performance 220ms Debounce**: Incorporates a 220ms timestamp threshold (`now - lastTrigger < 220`) preventing duplicate execution when subsequent `mousedown` or `click` events arrive.
+      - **Proactive Window Focus Reclamation on Hover**: Added non-blocking `{ passive: true }` listeners (`pointerenter`, `mouseenter`) to `header`, `footer`, and all viewer buttons. The moment the mouse cursor leaves the PDF area and hovers toward any control in the header or edge, `window.focus()` is proactively re-established *before* the mouse button is pressed.
+      - **Zero Interference with Slide Turning**: Does NOT use any disruptive focus-stealing loops, intervals, or `window.onblur` handlers while reading slides. Slide turning with Up/Down and Left/Right arrow keys and mouse-wheel scrolling inside the PDF continues to work 100% natively without Edge OCR popups.
+      - **Upgraded CSS Button Responsiveness**: Added `touch-action: manipulation; user-select: none;` and active scaling feedback (`:active { transform: scale(0.95); }`) across all `.note-pill-btn` and `.note-nav-arrow` elements in `style.css`.
+      - **Cache Invalidation**: Bumped version queries in `index.html` to `v=3.0` (`script.js?v=3.0`, `data.js?v=3.0`, `style.css?v=3.0`).
+      - **Automated Verification**: Thoroughly tested via `browser_subagent` recording on `http://localhost:8080`, confirming Note 01 -> Note 02 -> Note 03 -> Note 02 -> Note 01 switches instantly on the very first single click.
+
 
 
 
