@@ -896,6 +896,36 @@ function createPdfViewer(initialItem) {
     const frameWrapper = document.createElement('div');
     frameWrapper.className = 'pdf-frame-wrapper';
 
+    // Floating Edge Note Navigation Buttons (Effortless 1-click note switching)
+    const floatPrevBtn = document.createElement('button');
+    floatPrevBtn.className = 'floating-note-nav prev-note-float';
+    floatPrevBtn.id = 'float-prev-note';
+    floatPrevBtn.innerHTML = '<span class="material-symbols-outlined">chevron_left</span>';
+    floatPrevBtn.setAttribute('aria-label', 'Previous Note');
+
+    const floatNextBtn = document.createElement('button');
+    floatNextBtn.className = 'floating-note-nav next-note-float';
+    floatNextBtn.id = 'float-next-note';
+    floatNextBtn.innerHTML = '<span class="material-symbols-outlined">chevron_right</span>';
+    floatNextBtn.setAttribute('aria-label', 'Next Note');
+
+    floatPrevBtn.onclick = (e) => {
+        e.stopPropagation();
+        const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
+        if (curIdx > 0) showNote(chapterNotes[curIdx - 1]);
+    };
+
+    floatNextBtn.onclick = (e) => {
+        e.stopPropagation();
+        const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
+        if (curIdx < chapterNotes.length - 1 && curIdx !== -1) {
+            showNote(chapterNotes[curIdx + 1]);
+        }
+    };
+
+    frameWrapper.appendChild(floatPrevBtn);
+    frameWrapper.appendChild(floatNextBtn);
+
     // Footer
     const footer = document.createElement('div');
     footer.className = 'viewer-footer';
@@ -908,7 +938,7 @@ function createPdfViewer(initialItem) {
         <div class="viewer-footer-right">
             <span class="viewer-shortcut-hint"><kbd>F</kbd> Fullscreen</span>
             <span class="viewer-shortcut-hint"><kbd>Esc</kbd> Exit</span>
-            <span class="viewer-shortcut-hint"><kbd>Alt+←/→</kbd> Switch Notes</span>
+            <span class="viewer-shortcut-hint"><kbd>[</kbd> / <kbd>]</kbd> Switch Notes</span>
         </div>
     `;
 
@@ -958,6 +988,16 @@ function createPdfViewer(initialItem) {
         if (prevNoteBtn) prevNoteBtn.disabled = (curIdx <= 0);
         if (nextNoteBtn) nextNoteBtn.disabled = (curIdx >= chapterNotes.length - 1 || curIdx === -1);
 
+        // Update Floating Edge Chevrons
+        if (floatPrevBtn) {
+            floatPrevBtn.style.display = (chapterNotes.length > 1 && curIdx > 0) ? 'flex' : 'none';
+            floatPrevBtn.title = (curIdx > 0) ? `Previous Note (${chapterNotes[curIdx - 1]?.title || ''})` : '';
+        }
+        if (floatNextBtn) {
+            floatNextBtn.style.display = (chapterNotes.length > 1 && curIdx < chapterNotes.length - 1 && curIdx !== -1) ? 'flex' : 'none';
+            floatNextBtn.title = (curIdx < chapterNotes.length - 1 && curIdx !== -1) ? `Next Note (${chapterNotes[curIdx + 1]?.title || ''})` : '';
+        }
+
         // 2. Manage Iframes without destroying: keep active in view, hide inactive
         let activeIframe = iframeCache.get(targetItem.id);
         if (!activeIframe) {
@@ -970,19 +1010,10 @@ function createPdfViewer(initialItem) {
             const pageHash = savedPage ? `#page=${savedPage}&view=Fit` : '#view=Fit';
             activeIframe.src = `${targetItem.file}${pageHash}`;
 
-            activeIframe.onload = () => {
-                setTimeout(() => {
-                    if (document.body.contains(container)) {
-                        container.focus();
-                    }
-                }, 50);
-            };
-
             frameWrapper.appendChild(activeIframe);
             iframeCache.set(targetItem.id, activeIframe);
         } else {
             activeIframe.className = 'pdf-iframe active';
-            container.focus();
         }
 
         // Hide other iframes smoothly while keeping them mounted in DOM
@@ -1147,7 +1178,7 @@ function createPdfViewer(initialItem) {
         }
 
         // 4. Reset iframes & cache, mount new note immediately
-        frameWrapper.innerHTML = '';
+        frameWrapper.querySelectorAll('.pdf-iframe').forEach(el => el.remove());
         iframeCache.clear();
         showNote(pdfs[0]);
 
@@ -1231,9 +1262,6 @@ function createPdfViewer(initialItem) {
                 fullscreenBtn.title = 'Exit Fullscreen (Esc, F, or F11)';
             }
             await requestPureFullscreen(container);
-            setTimeout(() => {
-                container.focus();
-            }, 50);
         } else {
             state.isFullscreenActive = false;
             document.body.classList.remove('theater-fullscreen-active');
@@ -1246,9 +1274,6 @@ function createPdfViewer(initialItem) {
                 fullscreenBtn.title = 'Full Screen View (Press F or F11)';
             }
             await exitPureFullscreen();
-            setTimeout(() => {
-                container.focus();
-            }, 50);
         }
     }
 
@@ -1271,26 +1296,16 @@ function createPdfViewer(initialItem) {
         navigateTo('items', state.path.slice(0, 3));
     };
 
-    // When clicking or hovering over viewer controls, give container focus so shortcuts trigger smoothly
-    const handleHeaderEnter = () => container.focus();
-    const handleFooterEnter = () => container.focus();
-    const handleContainerClick = () => container.focus();
-    header.addEventListener('mouseenter', handleHeaderEnter);
-    if (footer) footer.addEventListener('mouseenter', handleFooterEnter);
-    container.addEventListener('click', handleContainerClick);
-
     // Global Keydown & Document Click Listeners
     function handleViewerKeydown(e) {
         if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
 
         const isFKey = e.key === 'f' || e.key === 'F' || e.code === 'KeyF' || e.key === 'F11' || e.code === 'F11';
         const isEscKey = e.key === 'Escape' || e.code === 'Escape';
-        const isNextNote = e.altKey && (
-            e.key === 'ArrowRight' || e.code === 'ArrowRight' || e.key === 'Right' || e.keyCode === 39
-        );
-        const isPrevNote = e.altKey && (
-            e.key === 'ArrowLeft' || e.code === 'ArrowLeft' || e.key === 'Left' || e.keyCode === 37
-        );
+        
+        // Clean, non-conflicting note switching shortcuts for keyboard users
+        const isNextNote = (e.key === ']' || e.code === 'BracketRight' || e.key === 'n' || e.key === 'N' || (e.altKey && (e.key === 'ArrowRight' || e.code === 'ArrowRight')));
+        const isPrevNote = (e.key === '[' || e.code === 'BracketLeft' || e.key === 'p' || e.key === 'P' || (e.altKey && (e.key === 'ArrowLeft' || e.code === 'ArrowLeft')));
 
         if (isFKey) {
             e.preventDefault();
@@ -1301,23 +1316,17 @@ function createPdfViewer(initialItem) {
             e.stopPropagation();
             toggleTheaterFullscreen(false);
         } else if (isNextNote) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (e.repeat) return; // Prevent key-repeat from skipping multiple notes
+            if (e.repeat) return;
             const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
             if (curIdx < chapterNotes.length - 1 && curIdx !== -1) {
                 showNote(chapterNotes[curIdx + 1]);
             }
-            container.focus();
         } else if (isPrevNote) {
-            e.preventDefault();
-            e.stopPropagation();
-            if (e.repeat) return; // Prevent key-repeat from skipping multiple notes
+            if (e.repeat) return;
             const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
             if (curIdx > 0) {
                 showNote(chapterNotes[curIdx - 1]);
             }
-            container.focus();
         }
     }
 
@@ -1336,28 +1345,11 @@ function createPdfViewer(initialItem) {
         }
     }
 
-    // Keep focus attached to container if focus attempts to wander
-    const handleWindowBlur = () => {
-        setTimeout(() => {
-            if (document.body.contains(container)) {
-                container.focus();
-            }
-        }, 150);
-    };
-
     window.addEventListener('keydown', handleViewerKeydown, true);
-    window.addEventListener('blur', handleWindowBlur);
     document.addEventListener('click', handleDocClick);
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
     document.addEventListener('mozfullscreenchange', handleFullscreenChange);
-
-    // Initial focus on container
-    setTimeout(() => {
-        if (document.body.contains(container)) {
-            container.focus();
-        }
-    }, 60);
 
     activeViewerCleanup = () => {
         state.isFullscreenActive = false;
@@ -1370,14 +1362,10 @@ function createPdfViewer(initialItem) {
             appContainer.classList.remove('viewer-active');
         }
         window.removeEventListener('keydown', handleViewerKeydown, true);
-        window.removeEventListener('blur', handleWindowBlur);
         document.removeEventListener('click', handleDocClick);
         document.removeEventListener('fullscreenchange', handleFullscreenChange);
         document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
         document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
-        header.removeEventListener('mouseenter', handleHeaderEnter);
-        if (footer) footer.removeEventListener('mouseenter', handleFooterEnter);
-        container.removeEventListener('click', handleContainerClick);
     };
 
     return container;

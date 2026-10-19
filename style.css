@@ -1259,11 +1259,11 @@ body.theater-fullscreen-active .viewer-footer,
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     border-radius: 50%;
-    background: transparent;
-    border: none;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     color: var(--text-secondary);
     cursor: pointer;
     flex-shrink: 0;
@@ -1271,17 +1271,21 @@ body.theater-fullscreen-active .viewer-footer,
 }
 
 .note-nav-arrow:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.12);
-    color: var(--text-primary);
+    background: rgba(99, 102, 241, 0.25);
+    border-color: rgba(99, 102, 241, 0.5);
+    color: #fff;
+    transform: scale(1.08);
 }
 
 .note-nav-arrow:disabled {
-    opacity: 0.25;
+    opacity: 0.2;
     cursor: not-allowed;
+    background: transparent;
+    border-color: transparent;
 }
 
 .note-nav-arrow span {
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .note-pill-btn {
@@ -1378,6 +1382,59 @@ body.theater-fullscreen-active .viewer-footer,
     visibility: hidden;
     pointer-events: none;
     z-index: 1;
+}
+
+/* Floating Edge Note Switcher (Professional Kindle / Drive style) */
+.floating-note-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 15;
+    width: 42px;
+    height: 70px;
+    background: rgba(13, 15, 24, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.35;
+    transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    outline: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    user-select: none;
+}
+
+.floating-note-nav:hover {
+    opacity: 1;
+    background: rgba(26, 30, 48, 0.95);
+    border-color: rgba(99, 102, 241, 0.5);
+    color: #818cf8;
+    transform: translateY(-50%) scale(1.06);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(99, 102, 241, 0.25);
+}
+
+.floating-note-nav.prev-note-float {
+    left: 8px;
+    border-radius: 0 12px 12px 0;
+}
+
+.floating-note-nav.next-note-float {
+    right: 8px;
+    border-radius: 12px 0 0 12px;
+}
+
+.floating-note-nav span.material-symbols-outlined {
+    font-size: 28px;
+}
+
+.floating-note-nav:disabled,
+.floating-note-nav.hidden {
+    display: none !important;
+    pointer-events: none;
 }
 
 .pdf-fallback {

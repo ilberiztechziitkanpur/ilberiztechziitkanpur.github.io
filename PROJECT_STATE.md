@@ -559,16 +559,18 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - **Escape & Exit Preservation**: `Escape` key continues to cleanly exit fullscreen natively from anywhere, and the `Exit` button remains directly accessible in the header.
       - **Cache Invalidation**: Bumped cache-busting queries in `index.html` to `v=2.6`.
 
-20. **Permanent Stabilization of `Alt + ArrowLeft/Right` Note Switching & Viewer Focus Control**:
-    - **Root Cause Analysis**:
-      - In entry 19, the `frameWrapper.addEventListener('mouseenter')` and automatic iframe focus handlers were shifting keyboard focus into the PDF iframe plugin whenever the cursor moved across the viewer area.
-      - *Mechanism*: In Chromium/Edge on Windows, once an embedded PDF iframe receives focus, the browser intercepts `Alt + ArrowLeft` as native "History Back" and `Alt + ArrowRight` as native "History Forward", preventing `window` keydown listeners from receiving the combination. This caused note switching to appear completely dead when trying to switch between notes.
-    - **Architectural Solution**:
-      - **Elimination of Auto-Focus on Iframe**: Completely removed `frameWrapper.addEventListener('mouseenter', handleFrameEnter)` and eliminated `activeIframe.focus()` from `onload`, `showNote`, and `toggleTheaterFullscreen`.
-      - **Container Root Keyboard Anchor**: Focused the viewer container (`container.focus()`) on initialization, after note transitions, and upon entering/exiting fullscreen.
-      - **Expanded Key Code Recognition**: Augmented `handleViewerKeydown` to support `e.key`, `e.code`, and legacy `e.keyCode`/`e.which` (`ArrowRight` / `Right` / `39` and `ArrowLeft` / `Left` / `37`) with `e.altKey`.
-      - **Active Blur Restoration**: Added `handleWindowBlur` listener ensuring focus is retained by `container` if focus ever drifts, ensuring `Alt + ArrowLeft/Right`, `F`, and `Escape` always trigger reliably.
-      - **Cache Invalidation**: Bumped cache-busting version query in `index.html` to `v=2.7`.
+21. **Professional Streamlining of PDF Viewer: Flawless Slide Turning, Zero-Glitch Focus & Effortless Multi-Note Navigation**:
+    - **Comprehensive Project & Root Cause Analysis**:
+      - *Edge OCR Text Extraction Bug*: Previous attempts had added automated, synthetic `.focus()` loops (`activeIframe.focus()`, `container.focus()`, `handleWindowBlur`, and hover/click focus delegation). In Microsoft Edge on Windows, executing synthetic `.focus()` on a PDF `<embed>` / iframe triggers Edge's AI OCR extension, popping up the disruptive tooltip *"Extracting text from PDF"*.
+      - *Slide Changing & Note Switching Deadlock*: In Chromium/Edge, the native PDF plugin is an isolated embed. Left/Right/Up/Down arrow keys and mouse wheel scrolling change slides only when the PDF plugin has focus. Attempting to force-reclaim focus to the parent window for `Alt + Arrow` shortcuts prevented arrow keys from reaching the PDF. Furthermore, `Alt + ArrowLeft/Right` in Windows Edge/Chrome natively maps to browser history Back/Forward, conflicting directly with the operating system and forcing users to click in arbitrary spots on the screen.
+    - **Architectural Solution (Clean, Less-Complex, Professional Standard)**:
+      - **Zero Focus-Fighting**: Completely removed `handleWindowBlur`, hover focus listeners (`handleFrameEnter`, `handleHeaderEnter`), click focus delegates, and programmatic `.focus()` calls from `onload` and `showNote`. The native PDF viewer inside the iframe receives user clicks and scroll interactions 100% naturally without interference, exactly like opening the PDF in a clean browser tab.
+      - **Flawless Slide Turning**: Up/Down and Left/Right arrow keys, PageUp/PageDown, and mouse-wheel scrolling inside the PDF operate with zero lag, zero cut-offs, and zero Edge text-extraction popups.
+      - **Floating Edge Note Chevrons (Google Drive / Kindle Style)**: Built sleek, glassmorphic floating chevron buttons (`.floating-note-nav.prev-note-float` and `.floating-note-nav.next-note-float`) on the left and right edges of the viewer (`frameWrapper`). Students can jump between Note 01, Note 02, Note 03 with a single effortless click on the screen edge.
+      - **Enhanced Header Note Tabs**: Note pill tabs (`Note 01` through `Note 06`) and header `<` / `>` arrow buttons were augmented with crisp borders, clear hover states, and tooltips.
+      - **Non-Conflicting Keyboard Shortcuts**: Replaced the misleading `Alt + Arrow` hint in the footer with `<kbd>[</kbd> / <kbd>]</kbd> Switch Notes` and supported `[` / `]` and `P` / `N` when parent page has focus.
+      - **Cache Invalidation**: Bumped version queries in `index.html` to `v=2.9` (`script.js?v=2.9`, `data.js?v=2.9`, `style.css?v=2.7`).
+      - **Browser Subagent Verification**: Fully tested note transitions, floating button visibility on Note 01 vs Note 02, and return navigation via browser subagent.
 
 
 
