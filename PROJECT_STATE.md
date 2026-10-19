@@ -547,4 +547,17 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - **Cache Invalidation**: Bumped cache-busting queries in `index.html` to `v=2.5`.
       - **Automated Browser Subagent Verification**: Verified sequential stepping: Note 01 -> Note 02 -> Note 03 -> Note 02 -> Note 01 in both normal and fullscreen modes.
 
+19. **Preservation of Native Left/Right Arrow Slide Changing in Normal & Fullscreen Modes**:
+    - **Root Cause Analysis**:
+      - Pressing the left and right arrow keys alone (without Alt) stopped changing slides/pages within the PDF presentation.
+      - *Mechanism*: The previously added `handleWindowBlur` and `reclaimViewerFocus` listeners aggressively reclaimed keyboard focus to the parent `container` whenever an iframe received focus. Because Chromium's native PDF viewer plugin requires focus inside the iframe to capture arrow keys for slide navigation, stealing focus to the parent container prevented the PDF plugin from receiving any arrow keydown events. Furthermore, `container.focus()` was executed on entering fullscreen mode, leaving the iframe un-focused.
+    - **Architectural Solution**:
+      - **Removed Disruptive Focus Stealing**: Completely eliminated `reclaimViewerFocus` and `handleWindowBlur` listeners so the active PDF iframe retains focus naturally for reading and slide turning.
+      - **Direct Iframe Focus on Fullscreen Entry**: In `toggleTheaterFullscreen()`, scheduled `activeIframe.focus()` so that upon entering or exiting fullscreen, the slide deck is immediately responsive to keyboard arrow inputs.
+      - **Contextual Hover Routing**: Attached clean `mouseenter` listeners on `header` and `footer` to give `container` focus when interacting with viewer controls, and on `frameWrapper` to restore focus to `activeIframe` when hovering over slides.
+      - **Keyboard Arrow Delegation**: In `handleViewerKeydown`, if `ArrowLeft` or `ArrowRight` (alone) is pressed while focus happens to be on `container`, focus is immediately delegated to `activeIframe`.
+      - **Escape & Exit Preservation**: `Escape` key continues to cleanly exit fullscreen natively from anywhere, and the `Exit` button remains directly accessible in the header.
+      - **Cache Invalidation**: Bumped cache-busting queries in `index.html` to `v=2.6`.
+
+
 

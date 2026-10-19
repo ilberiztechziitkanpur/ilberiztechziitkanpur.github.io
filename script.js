@@ -973,7 +973,7 @@ function createPdfViewer(initialItem) {
             activeIframe.onload = () => {
                 setTimeout(() => {
                     if (document.body.contains(container)) {
-                        container.focus();
+                        activeIframe.focus();
                     }
                 }, 100);
             };
@@ -982,6 +982,7 @@ function createPdfViewer(initialItem) {
             iframeCache.set(targetItem.id, activeIframe);
         } else {
             activeIframe.className = 'pdf-iframe active';
+            activeIframe.focus();
         }
 
         // Hide other iframes smoothly while keeping them mounted in DOM
@@ -1164,11 +1165,6 @@ function createPdfViewer(initialItem) {
     // Initialize with first note and render center note tabs
     showNote(initialItem);
     renderNoteTabsUI();
-    setTimeout(() => {
-        if (document.body.contains(container)) {
-            container.focus();
-        }
-    }, 50);
 
     // Event: Chapter Selector Dropdown Toggle
     const chapterSelectBtn = header.querySelector('#chapter-select-btn');
@@ -1236,10 +1232,9 @@ function createPdfViewer(initialItem) {
             }
             await requestPureFullscreen(container);
             setTimeout(() => {
-                if (document.body.contains(container)) {
-                    container.focus();
-                }
-            }, 50);
+                const activeIframe = iframeCache.get(currentNoteItem.id);
+                if (activeIframe) activeIframe.focus();
+            }, 60);
         } else {
             state.isFullscreenActive = false;
             document.body.classList.remove('theater-fullscreen-active');
@@ -1253,10 +1248,9 @@ function createPdfViewer(initialItem) {
             }
             await exitPureFullscreen();
             setTimeout(() => {
-                if (document.body.contains(container)) {
-                    container.focus();
-                }
-            }, 50);
+                const activeIframe = iframeCache.get(currentNoteItem.id);
+                if (activeIframe) activeIframe.focus();
+            }, 60);
         }
     }
 
@@ -1279,27 +1273,18 @@ function createPdfViewer(initialItem) {
         navigateTo('items', state.path.slice(0, 3));
     };
 
-    // Active Focus Reclaim: Keep keyboard events routed to container even when PDF iframe is clicked
-    function reclaimViewerFocus() {
-        if (!document.body.contains(container)) return;
-        if (document.activeElement && document.activeElement.tagName === 'IFRAME') {
-            window.focus();
-            container.focus();
-        }
-    }
+    // When hovering over controls (header or footer), give container focus so shortcuts/actions trigger smoothly
+    const handleHeaderEnter = () => container.focus();
+    const handleFooterEnter = () => container.focus();
+    header.addEventListener('mouseenter', handleHeaderEnter);
+    if (footer) footer.addEventListener('mouseenter', handleFooterEnter);
 
-    function handleWindowBlur() {
-        if (isTheaterFullscreen || state.currentView === 'viewer') {
-            setTimeout(() => {
-                if (document.body.contains(container)) {
-                    if (document.activeElement && document.activeElement.tagName === 'IFRAME') {
-                        window.focus();
-                        container.focus();
-                    }
-                }
-            }, 60);
-        }
-    }
+    // When cursor is over or interacting with slides, ensure active iframe keeps focus for smooth arrow slide navigation
+    const handleFrameEnter = () => {
+        const activeIframe = iframeCache.get(currentNoteItem.id);
+        if (activeIframe) activeIframe.focus();
+    };
+    frameWrapper.addEventListener('mouseenter', handleFrameEnter);
 
     // Global Keydown & Document Click Listeners
     function handleViewerKeydown(e) {
@@ -1309,6 +1294,7 @@ function createPdfViewer(initialItem) {
         const isEscKey = e.key === 'Escape' || e.code === 'Escape';
         const isNextNote = e.altKey && (e.key === 'ArrowRight' || e.code === 'ArrowRight');
         const isPrevNote = e.altKey && (e.key === 'ArrowLeft' || e.code === 'ArrowLeft');
+        const isSlideNav = (e.key === 'ArrowRight' || e.code === 'ArrowRight' || e.key === 'ArrowLeft' || e.code === 'ArrowLeft' || e.key === 'PageDown' || e.key === 'PageUp' || e.key === ' ') && !e.altKey && !e.ctrlKey && !e.metaKey;
 
         if (isFKey) {
             e.preventDefault();
@@ -1334,6 +1320,12 @@ function createPdfViewer(initialItem) {
             if (curIdx > 0) {
                 showNote(chapterNotes[curIdx - 1]);
             }
+        } else if (isSlideNav) {
+            // If focus happens to be on parent container/window, route focus immediately to active PDF iframe
+            const activeIframe = iframeCache.get(currentNoteItem.id);
+            if (activeIframe) {
+                activeIframe.focus();
+            }
         }
     }
 
@@ -1350,16 +1342,9 @@ function createPdfViewer(initialItem) {
         } else if (fsEl && !isTheaterFullscreen) {
             toggleTheaterFullscreen(true);
         }
-        setTimeout(() => {
-            if (document.body.contains(container)) {
-                container.focus();
-            }
-        }, 50);
     }
 
     window.addEventListener('keydown', handleViewerKeydown, true);
-    window.addEventListener('mousemove', reclaimViewerFocus, { passive: true });
-    window.addEventListener('blur', handleWindowBlur);
     document.addEventListener('click', handleDocClick);
     document.addEventListener('fullscreenchange', handleFullscreenChange);
     document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
@@ -1376,12 +1361,13 @@ function createPdfViewer(initialItem) {
             appContainer.classList.remove('viewer-active');
         }
         window.removeEventListener('keydown', handleViewerKeydown, true);
-        window.removeEventListener('mousemove', reclaimViewerFocus);
-        window.removeEventListener('blur', handleWindowBlur);
         document.removeEventListener('click', handleDocClick);
         document.removeEventListener('fullscreenchange', handleFullscreenChange);
         document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
         document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
+        header.removeEventListener('mouseenter', handleHeaderEnter);
+        if (footer) footer.removeEventListener('mouseenter', handleFooterEnter);
+        frameWrapper.removeEventListener('mouseenter', handleFrameEnter);
     };
 
     return container;
