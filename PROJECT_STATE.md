@@ -1,4 +1,4 @@
-﻿# PROJECT STATE & AGENT SYSTEM GUIDE
+# PROJECT STATE & AGENT SYSTEM GUIDE
 
 > 🚨 **MANDATORY AUTONOMOUS RULE FOR ALL AI AGENTS**:
 > 1. **Read this file at the start of EVERY chat** before inspecting or modifying any files in this repository.
@@ -57,6 +57,14 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── The_Muslim_League_01_Class_Notes.pdf (3.1 MB) — Factors promoting separatism & Shimla Deputation
 │       ├── The_Muslim_League_02_Class_Notes.pdf (8.4 MB) — Foundation (1906), objectives & Lucknow Pact 1916
 │       └── Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf (3.8 MB) — Early life, Champaran, Ahmedabad, Kheda, Rowlatt Act & Jallianwala Bagh
+├── english/                         # ALL English subject content lives strictly here
+│   └── notes/                       # ICSE Class 10 English Literature PDF notes
+│       ├── Julius_Caesar_01_Class_Notes.pdf (4.4 MB) — Act 3 Scene 1 (Part 1): Warm-up, recap, line-by-line & MCQs
+│       ├── Julius_Caesar_02_Class_Notes.pdf (3.7 MB) — Act 3 Scene 1 (Part 2): Conspirators, assassination, mind maps & MCQs
+│       ├── Julius_Caesar_03_Class_Notes.pdf (5.6 MB) — Act 3 Scene 2 (Part 1): Scene 1 conclusion & Brutus' funeral speech
+│       ├── Julius_Caesar_04_Class_Notes.pdf (9.1 MB) — Act 3 Scene 2 (Part 2): Antony's speech, Caesar's will & mob riot
+│       ├── Julius_Caesar_05_Class_Notes.pdf (4.0 MB) — Act 3 Scene 3: Killing of Cinna the Poet, mind maps & PYQs
+│       └── Julius_Caesar_06_Class_Notes.pdf (2.9 MB) — Act 4 Scene 1: Triumvirate meeting, character analysis & grammar
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -70,12 +78,12 @@ ILBERIZ TECHZ IIT KANPUR/
 
 ## 3. Strict Autonomous Engineering Rules
 
-1. **Subject Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or chapter-specific interactive theory vaults MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `soil/`, `vegetation/`, `water/`, `transport/`, `waste/`, `notes/`, `mcq/`, `toposheet/`, etc.). All History notes and content MUST reside strictly inside `history/` (e.g. `history/notes/`). Never place loose subject files in the repository root.
+1. **Subject Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or chapter-specific interactive theory vaults MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `soil/`, `vegetation/`, `water/`, `transport/`, `waste/`, `notes/`, `mcq/`, `toposheet/`, etc.). All History notes and content MUST reside strictly inside `history/` (e.g. `history/notes/`). All English notes and literature content MUST reside strictly inside `english/` (e.g. `english/notes/`). Never place loose subject files in the repository root.
 2. **Standard File Structure for Engines**: Each interactive chapter vault is named `index.html` inside its respective folder (e.g. `geography/<topic>/index.html`) so it can be served as a clean standalone web app or embedded smoothly inside the main dashboard iframe.
 3. **Always Include Navigation & Fonts**: Every chapter engine `index.html` MUST include:
    - Google Fonts (`Inter`, `Outfit`, `JetBrains Mono`) and `Material Symbols Outlined`.
    - The `.home-nav-btn` linking back to `../../index.html` with `target="_top"` so students can easily return to the dashboard.
-4. **No Empty Subject Folders**: Do NOT create empty directories for Mathematics, Physics, Chemistry, Biology, etc., until the user provides actual files for them. Active content folders currently exist for Geography (`geography/`) and History (`history/notes/`). Full authentic ICSE Class 10 chapter syllabi for all 9 subjects are mapped in `data.js` and `data.json`.
+4. **No Empty Subject Folders**: Do NOT create empty directories for Mathematics, Physics, Chemistry, Biology, etc., until the user provides actual files for them. Active content folders currently exist for Geography (`geography/`), History (`history/notes/`), and English (`english/notes/`). Full authentic ICSE Class 10 chapter syllabi for all 9 subjects are mapped in `data.js` and `data.json`.
 5. **No Root Clutter**: Never leave raw download files (like `gemini-code-*.html` or `temp_*.html`) in the root directory. Process them into their proper folder (`geography/...`, `history/...`) and remove the loose download file immediately.
 6. **Leave Video Downloader Untouched**: The `Video_Downloader/` directory is for a completely different utility. Never modify, delete, or commit changes inside `Video_Downloader/`.
 7. **Always Synchronize `data.js` and `data.json`**: When adding a new item or chapter, update both files in parallel. `data.js` attaches to `window.COURSE_DATA` for offline `file://` usage, while `data.json` is for standard HTTP fetching.
@@ -236,7 +244,16 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Chapter 6: Mahatma Gandhi and the National Movement (1 Note)**:
   - `Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf` (3.8 MB) — Mahatma Gandhi's early life, legal career in South Africa (1893–1914), Pietermaritzburg/train racial discrimination, Natal Indian Congress, Satyagraha principles (truth and non-violence), return to India (9 Jan 1915), Champaran Satyagraha (1917, abolition of Tinkathia system), Ahmedabad Mill Strike (1918, 35% wage hike, first hunger strike), Kheda Satyagraha (1918, remission of land revenue), Rowlatt Act (1919, 'No Vakeel, No Appeal, No Daleel', in-camera trials, suspension of Habeas Corpus), Rowlatt Satyagraha (6 April 1919), arrest of Dr. Saifuddin Kitchlew & Dr. Satyapal, Jallianwala Bagh Massacre (13 April 1919, General Dyer, martial law, Tagore's Knighthood renunciation, Hunter Committee), and introduction to Khilafat Movement (Ali Brothers).
 
-### K. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
+### K. English Literature Notes (6 PDFs in `english/notes/` for Julius Caesar)
+- **Chapter 1: Drama — Julius Caesar (William Shakespeare) (6 Notes)**:
+  - `Julius_Caesar_01_Class_Notes.pdf` (4.4 MB) — Act 3 Scene 1 (Part 1): Warm-up activity, Act 1 & 2 recap, line-by-line explanation of Act 3 Scene 1, character motives & MCQs.
+  - `Julius_Caesar_02_Class_Notes.pdf` (3.7 MB) — Act 3 Scene 1 (Part 2): Line-by-line explanation of Act 3 Scene 1 (conspirators' speeches, Caesar's assassination), mind maps & MCQs.
+  - `Julius_Caesar_03_Class_Notes.pdf` (5.6 MB) — Act 3 Scene 2 (Part 1): Act 3 Scene 1 remaining portion, Act 3 Scene 2 funeral speeches (Brutus' oration to the Roman mob), extract-based questions & MCQs.
+  - `Julius_Caesar_04_Class_Notes.pdf` (9.1 MB) — Act 3 Scene 2 (Part 2): Antony's famous funeral speech ('Friends, Romans, countrymen'), reading of Caesar's will, mob manipulation, extract questions & MCQs.
+  - `Julius_Caesar_05_Class_Notes.pdf` (4.0 MB) — Act 3 Scene 3: The killing of Cinna the Poet, mob fury unleashed, complete Act 3 mind maps, ICSE PYQs & Specimen Paper Questions.
+  - `Julius_Caesar_06_Class_Notes.pdf` (2.9 MB) — Act 4 Scene 1: The Triumvirate meeting (Antony, Octavius & Lepidus, proscription list), character analysis, summary, PYQs/SPQs & grammar transformations.
+
+### L. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
 All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
 1. **Mathematics (`sub-10-math`) — 15 Chapters**:
    - Ch 1: Goods and Services Tax (GST)
@@ -322,7 +339,7 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
      - Civics Ch 4: The Supreme Court
      - Civics Ch 5: The High Courts & Subordinate Courts
 7. **English (`sub-10-eng`) — 4 Chapters**:
-   - Ch 1: Drama — Julius Caesar (Acts III, IV, V)
+   - Ch 1: Drama — Julius Caesar (Acts III, IV, V) [6 Class Notes PDFs Live]
    - Ch 2: Treasure Chest — ICSE Poems
    - Ch 3: Treasure Chest — ICSE Short Stories
    - Ch 4: English Language — Composition & Applied Grammar
@@ -464,3 +481,18 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Updated `index.html` with cache-busting version queries (`style.css?v=2.2`, `script.js?v=2.2`) to ensure instant client deployment on GitHub Pages.
     - **End-to-End Browser Subagent Verification**:
       - Verified initial fullscreen entry, in-place chapter switching across multiple chapters (Ch 6 -> Ch 2), note switching (Note 01 -> Note 02) within fullscreen, and clean exit transitions.
+
+14. **Addition of English Literature Notes: Julius Caesar (Acts 3 & 4)**:
+    - **Visual Slide Verification**: Inspected the title slides and lecture metadata of all 6 class notes PDFs from the Victory 2027 batch (Nupur Ma'am / PW) directly:
+      - Lecture 01: Act 3 Scene 1 (Part 1) — Warm-Up Activity, Act 1 & 2 Summary, Line by Line Explanation, MCQs (`Julius_Caesar_01_Class_Notes.pdf`, 4.4 MB)
+      - Lecture 02: Act 3 Scene 1 (Part 2) — Line by Line Explanation, Mind Maps, MCQs (`Julius_Caesar_02_Class_Notes.pdf`, 3.7 MB)
+      - Lecture 03: Act 3 Scene 2 (Part 1) — Act 3 Scene 1 Remaining Portion, Act 3 Scene 2, Extract Based Questions, MCQs (`Julius_Caesar_03_Class_Notes.pdf`, 5.6 MB)
+      - Lecture 04: Act 3 Scene 2 (Part 2) — Overview, Act 3 Scene 2 (Part 2), Extract Based Questions, MCQs (`Julius_Caesar_04_Class_Notes.pdf`, 9.1 MB)
+      - Lecture 05: Act 3 Scene 3 — Act 3 Scene 3 Line by Line, Act 3 Mind Maps, PYQs & SPQs (`Julius_Caesar_05_Class_Notes.pdf`, 4.0 MB)
+      - Lecture 06: Act 4 Scene 1 — Act 4 Scene 1 Line by Line, PYQs/SPQs/CPQs, Summary & Analysis, Transformation of Sentences (`Julius_Caesar_06_Class_Notes.pdf`, 2.9 MB)
+    - **Subject Folder Isolation**: Created dedicated `english/notes/` directory in accordance with Rule 1 & Rule 4.
+    - **Parallel Data Synchronization**: Synchronized `data.js` and `data.json` under `sub-10-eng` -> `chap-eng-1` with rich descriptions, exact file paths, and accurate MB sizes.
+    - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Julius Caesar Notes"** (`chap-eng-1`) with a theater icon and glowing `NEW` badge.
+    - **Search Engine Expansion**: Augmented search suggestion topics and search index in `script.js` with "Julius Caesar", "Act 3 Scene 1", "Act 3 Scene 2", and "Antony Speech".
+    - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=2.3`.
+    - **Automated Verification**: Conducted automated end-to-end browser subagent testing verifying sidebar link, cards grid, 6-note pill switcher, note transitions, back navigation, and real-time search.

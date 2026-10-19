@@ -957,7 +957,56 @@
                             "id": "chap-eng-1",
                             "name": "Ch 1: Drama — Julius Caesar (William Shakespeare)",
                             "description": "Acts III, IV and V: Speeches of Brutus and Antony, Forum scene, tent scene, Battle of Philippi and themes",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "eng-jc-notes-01",
+                                    "title": "Julius Caesar 01 Class Notes — Act 3 Scene 1 (Part 1)",
+                                    "subtitle": "Warm-up activity, Act 1 & 2 recap, line-by-line explanation of Act 3 Scene 1, character motives & MCQs",
+                                    "type": "pdf",
+                                    "file": "english/notes/Julius_Caesar_01_Class_Notes.pdf",
+                                    "size": "4.4 MB"
+                                },
+                                {
+                                    "id": "eng-jc-notes-02",
+                                    "title": "Julius Caesar 02 Class Notes — Act 3 Scene 1 (Part 2)",
+                                    "subtitle": "Line-by-line explanation of Act 3 Scene 1 (conspirators' speeches, Caesar's assassination), mind maps & MCQs",
+                                    "type": "pdf",
+                                    "file": "english/notes/Julius_Caesar_02_Class_Notes.pdf",
+                                    "size": "3.7 MB"
+                                },
+                                {
+                                    "id": "eng-jc-notes-03",
+                                    "title": "Julius Caesar 03 Class Notes — Act 3 Scene 2 (Part 1)",
+                                    "subtitle": "Act 3 Scene 1 remaining portion, Act 3 Scene 2 funeral speeches (Brutus' oration to the Roman mob), extract-based questions & MCQs",
+                                    "type": "pdf",
+                                    "file": "english/notes/Julius_Caesar_03_Class_Notes.pdf",
+                                    "size": "5.6 MB"
+                                },
+                                {
+                                    "id": "eng-jc-notes-04",
+                                    "title": "Julius Caesar 04 Class Notes — Act 3 Scene 2 (Part 2)",
+                                    "subtitle": "Antony's famous funeral speech ('Friends, Romans, countrymen'), reading of Caesar's will, mob manipulation, extract questions & MCQs",
+                                    "type": "pdf",
+                                    "file": "english/notes/Julius_Caesar_04_Class_Notes.pdf",
+                                    "size": "9.1 MB"
+                                },
+                                {
+                                    "id": "eng-jc-notes-05",
+                                    "title": "Julius Caesar 05 Class Notes — Act 3 Scene 3",
+                                    "subtitle": "The killing of Cinna the Poet, mob fury unleashed, complete Act 3 mind maps, ICSE PYQs & Specimen Paper Questions",
+                                    "type": "pdf",
+                                    "file": "english/notes/Julius_Caesar_05_Class_Notes.pdf",
+                                    "size": "4.0 MB"
+                                },
+                                {
+                                    "id": "eng-jc-notes-06",
+                                    "title": "Julius Caesar 06 Class Notes — Act 4 Scene 1",
+                                    "subtitle": "The Triumvirate meeting (Antony, Octavius & Lepidus, proscription list), character analysis, summary, PYQs/SPQs & grammar transformations",
+                                    "type": "pdf",
+                                    "file": "english/notes/Julius_Caesar_06_Class_Notes.pdf",
+                                    "size": "2.9 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-eng-2",

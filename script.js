@@ -264,26 +264,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Mahatma Gandhi and the National Movement Class Notes (Ch 6)
-    const gandhiNav = document.createElement('div');
-    const isGandhiActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-6';
-    gandhiNav.className = `nav-item nav-item-featured ${isGandhiActive ? 'active' : ''}`;
-    gandhiNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #f59e0b;">history_edu</span>
-        <span style="font-weight: 600;">Mahatma Gandhi Notes</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706); color:#fff;">NEW</span>
+    // Latest Update Quick Launch: Julius Caesar Class Notes (English Literature Ch 1)
+    const jcNav = document.createElement('div');
+    const isJcActive = state.currentView !== 'search' && state.path[1] === 'sub-10-eng' && state.path[2] === 'chap-eng-1';
+    jcNav.className = `nav-item nav-item-featured ${isJcActive ? 'active' : ''}`;
+    jcNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #a855f7;">theater_comedy</span>
+        <span style="font-weight: 600;">Julius Caesar Notes</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #a855f7, #7c3aed); color:#fff;">NEW</span>
     `;
-    gandhiNav.onclick = () => {
+    jcNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
-        const gandhiChap = hisSub?.chapters?.find(c => c.id === 'chap-his-6');
-        if (gandhiChap) {
-            navigateTo('items', [batch.id, hisSub.id, gandhiChap.id]);
+        const engSub = batch?.subjects?.find(s => s.id === 'sub-10-eng');
+        const jcChap = engSub?.chapters?.find(c => c.id === 'chap-eng-1');
+        if (jcChap) {
+            navigateTo('items', [batch.id, engSub.id, jcChap.id]);
         }
     };
-    navMenu.appendChild(gandhiNav);
+    navMenu.appendChild(jcNav);
 }
 
 function resetSearch() {
@@ -600,7 +600,7 @@ function renderSearchResults(query) {
         emptyState.innerHTML = `
             <span class="material-symbols-outlined icon">search_off</span>
             <h3>No matching notes found</h3>
-            <p>Try searching for topics like "Mahatma Gandhi", "Rowlatt Act", "Jallianwala Bagh", "Non-Cooperation", "Muslim League", "1857", "Nationalism", "First Phase", "Second Phase", "Climate", "Soil", "Vegetation", "Water", "Energy", "GST" or "Trigonometry".</p>
+            <p>Try searching for topics like "Julius Caesar", "Act 3 Scene 1", "Act 3 Scene 2", "Antony Speech", "Mahatma Gandhi", "Rowlatt Act", "Jallianwala Bagh", "Non-Cooperation", "Muslim League", "1857", "Nationalism", "First Phase", "Second Phase", "Climate", "Soil", "Vegetation", "Water", "Energy", "GST" or "Trigonometry".</p>
         `;
         wrapper.appendChild(emptyState);
     } else {
