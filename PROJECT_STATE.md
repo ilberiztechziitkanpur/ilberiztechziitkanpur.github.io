@@ -586,6 +586,17 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - **Cache Invalidation**: Bumped version queries in `index.html` to `v=3.0` (`script.js?v=3.0`, `data.js?v=3.0`, `style.css?v=3.0`).
       - **Automated Verification**: Thoroughly tested via `browser_subagent` recording on `http://localhost:8080`, confirming Note 01 -> Note 02 -> Note 03 -> Note 02 -> Note 01 switches instantly on the very first single click.
 
+23. **Resolution of Fullscreen Activation & PDF Plugin Focus Boundaries**:
+    - **User Feedback & Root Cause Analysis**:
+      - The user reported: *"The button is also not working. Right now when I pressed F while I was inside the PDF, it was not working. When I have already clicked on the PDF, at that time when I pressed F, it was also not working."*
+      - *Root Cause 1 (Fullscreen Button)*: In Entry 22, `#viewer-fullscreen-btn` had been bound via `bindInstantClick`. In modern Chromium/Edge, `Element.requestFullscreen()` strictly requires a transient user gesture (such as `click` or `touchend`). `pointerdown` and `mousedown` do NOT grant user gesture activation for the Fullscreen API. Because `pointerdown` triggered `toggleTheaterFullscreen()`, `container.requestFullscreen()` was rejected by the browser (`API can only be initiated by a user gesture.`), and the 220ms debounce subsequently dropped the legitimate `click` event. As a result, clicking the Fullscreen button failed to enter fullscreen.
+      - *Root Cause 2 (The F Key when inside PDF)*: When the user clicks on the PDF presentation (or navigates slides using arrow keys), OS focus moves into Chromium's native out-of-process PDFium plugin inside the `<iframe>`. Chromium's browser security boundary routes character keystrokes (like the letter `F`) exclusively into the plugin process, which does not bubble unhandled key events across the cross-origin boundary to the parent `window`. Consequently, pressing `F` while focus is inside the PDF never reaches `window.keydown`.
+    - **Architectural Solution**:
+      - **Trusted User-Gesture Event Binding for Fullscreen**: Removed `pointerdown` interception from `#viewer-fullscreen-btn`, attaching direct `click` and `touchend` listeners with `window.focus()` and proactive hover listeners (`pointerenter`). Clicking the Fullscreen button now reliably acquires user gesture activation and enters/exits fullscreen seamlessly on the very first click from any state.
+      - **Universal `F11` Browser-Level Shortcut**: Documented and updated the viewer footer and tooltips to feature `<kbd>F11</kbd> / <kbd>F</kbd> Fullscreen`. Unlike regular character keys, `F11` is intercepted globally by the Windows Chromium browser process *before* dispatching to child plugins, guaranteeing that `F11` toggles fullscreen instantly even when clicked deep inside the PDF presentation.
+      - **`F` Key Support on Page Focus**: Maintained global `F` key handler on `window` (`keydown` capture), which triggers whenever the user hovers over the header, footer, side navigation areas, or interacts with the page outside the PDF plugin.
+      - **Cache Invalidation**: Bumped version query in `index.html` to `script.js?v=3.1`.
+
 
 
 

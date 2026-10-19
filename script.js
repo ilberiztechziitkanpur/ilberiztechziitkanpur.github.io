@@ -964,7 +964,7 @@ function createPdfViewer(initialItem) {
             <span class="footer-badge" id="footer-note-size">${initialItem.size || 'Document'}</span>
         </div>
         <div class="viewer-footer-right">
-            <span class="viewer-shortcut-hint"><kbd>F</kbd> Fullscreen</span>
+            <span class="viewer-shortcut-hint"><kbd>F11</kbd> / <kbd>F</kbd> Fullscreen</span>
             <span class="viewer-shortcut-hint"><kbd>Esc</kbd> Exit</span>
             <span class="viewer-shortcut-hint"><kbd>[</kbd> / <kbd>]</kbd> Switch Notes</span>
         </div>
@@ -1317,7 +1317,20 @@ function createPdfViewer(initialItem) {
     }
 
     if (fullscreenBtn) {
-        bindInstantClick(fullscreenBtn, () => toggleTheaterFullscreen());
+        fullscreenBtn.addEventListener('pointerenter', () => window.focus(), { passive: true });
+        fullscreenBtn.addEventListener('mouseenter', () => window.focus(), { passive: true });
+        fullscreenBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            window.focus();
+            toggleTheaterFullscreen();
+        });
+        fullscreenBtn.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            window.focus();
+            toggleTheaterFullscreen();
+        });
     }
 
     // Event: Back Button
