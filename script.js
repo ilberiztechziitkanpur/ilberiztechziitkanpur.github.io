@@ -264,26 +264,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Water Resources 10-Year MCQ Suite (Geography Ch 4)
-    const waterNav = document.createElement('div');
-    const isWaterActive = state.currentView !== 'search' && state.path[1] === 'sub-10-geo' && state.path[2] === 'chap-geo-water';
-    waterNav.className = `nav-item nav-item-featured ${isWaterActive ? 'active' : ''}`;
-    waterNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #06b6d4;">quiz</span>
-        <span style="font-weight: 600;">Water 10-Yr MCQs</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #06b6d4, #0284c7); color:#fff;">NEW</span>
+    // Latest Update Quick Launch: Mahatma Gandhi and the National Movement (History Ch 6)
+    const gandhiNav = document.createElement('div');
+    const isGandhiActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-6';
+    gandhiNav.className = `nav-item nav-item-featured ${isGandhiActive ? 'active' : ''}`;
+    gandhiNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #f59e0b;">menu_book</span>
+        <span style="font-weight: 600;">Mahatma Gandhi Notes</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706); color:#fff;">NEW</span>
     `;
-    waterNav.onclick = () => {
+    gandhiNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const waterChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-water');
-        if (waterChap) {
-            navigateTo('items', [batch.id, geoSub.id, waterChap.id]);
+        const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
+        const gandhiChap = hisSub?.chapters?.find(c => c.id === 'chap-his-6');
+        if (gandhiChap) {
+            navigateTo('items', [batch.id, hisSub.id, gandhiChap.id]);
         }
     };
-    navMenu.appendChild(waterNav);
+    navMenu.appendChild(gandhiNav);
 }
 
 function resetSearch() {

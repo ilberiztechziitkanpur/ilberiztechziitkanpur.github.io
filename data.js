@@ -890,7 +890,7 @@ window.COURSE_DATA = {
                                 {
                                     "id": "his-gandhi-notes-01",
                                     "title": "Mahatma Gandhi And The National Movement 01 Class Notes",
-                                    "subtitle": "Early life, Champaran, Ahmedabad & Kheda Satyagrahas, Rowlatt Act & Jallianwala Bagh Massacre",
+                                    "subtitle": "Early life, Champaran, Ahmedabad & Kheda Satyagrahas, Rowlatt Act, Jallianwala Bagh Massacre & Causes of Non-Cooperation Movement",
                                     "type": "pdf",
                                     "file": "history/notes/Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf",
                                     "size": "3.8 MB"

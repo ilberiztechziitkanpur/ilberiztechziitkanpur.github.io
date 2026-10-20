@@ -756,6 +756,26 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - **Cache Invalidation**: Bumped version queries in `index.html` to `style.css?v=3.6`, `data.js?v=3.6`, and `script.js?v=3.6`.
       - **Automated Verification**: Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming single-tap open, stay-open persistence, chapter switching to Soil Resources, clean reopen on second tap, outside dismissal, Fullscreen mode persistence, Natural Vegetation chapter switch in fullscreen, and Escape dismissal, followed by port release.
 
+29. **Wiring & Featured Promotion of Chapter 6: Mahatma Gandhi and the National Movement 01 Class Notes**:
+    - **Source Material Processing & Verification**:
+      - Processed `Mahatma Gandhi And The National Movement 01  Class Notes.pdf` (3.8 MB, 33 widescreen presentation slides, Kunal Sir / Victory 2027 batch) into `history/notes/Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf` in strict adherence to Rule 1 (Subject Folder Isolation).
+      - Cleaned up raw download files from Downloads and workspace root (Rule 5).
+    - **Lecture Content Coverage**:
+      - Early life, legal career in South Africa (1893–1914), Pietermaritzburg discrimination, Natal Indian Congress, Satyagraha philosophy (Truth & Ahimsa).
+      - Return to India (9 January 1915 — Pravasi Bharatiya Divas) and early regional satyagrahas: Champaran (1917, abolition of Tinkathia system), Ahmedabad Mill Strike (1918, 35% wage hike, first hunger strike), and Kheda Satyagraha (1918, crop failure & land revenue remission).
+      - Rowlatt Act (1919, 'Black Act', arrest without warrant, in-camera trials without appeal), Rowlatt Satyagraha (6 April 1919), arrest of Dr. Saifuddin Kitchlew & Dr. Satyapal.
+      - Jallianwala Bagh Massacre (13 April 1919, General Dyer, martial law, Rabindranath Tagore renouncing Knighthood, Hunter Commission).
+      - Khilafat Movement (Ali Brothers — Maulana Azad, Shaukat Ali & Mohammad Ali) & Causes of the Non-Cooperation Movement (NCM).
+    - **Dual Data Synchronization**:
+      - Synchronized `data.js` and `data.json` under `sub-10-his` -> `chap-his-6` with refined metadata, title, and subtitle.
+    - **Sidebar Navigation Protocol (Rule 10)**:
+      - Updated quick-launch navigation in `script.js` to feature **"Mahatma Gandhi Notes"** (`chap-his-6`) with an amber book icon (`menu_book`), bold text (`font-weight: 600`), and a glowing `NEW` badge.
+    - **Asset Cache Invalidation**:
+      - Bumped version queries in `index.html` to `data.js?v=3.7` and `script.js?v=3.7`.
+    - **Automated Verification**:
+      - Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming quick launch navigation, card display, iframe engine rendering, note tabs, back button, real-time search filtering, and clean port release.
+
+
 
 
 
