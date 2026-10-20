@@ -26,7 +26,7 @@ ILBERIZ TECHZ IIT KANPUR/
 │   ├── climate/                     # Chapter 1: Climate Theory Master DPP Vault
 │   │   └── index.html               # 42 Most Expected Theory Qs, 175+ Variations, Timer & Data Tables
 │   ├── climate-mcq/                 # Chapter 1: Climate 10-Year MCQ Master Suite (2016–2026)
-│   │   └── index.html               # 30 Unique Archetypes, 115+ Hits, Instant & Exam Modes, Scorecard Generator
+│   │   └── index.html               # 34 Playable MCQs, 125+ Hits, Tables & Diagrams, Instant & Exam Modes
 │   ├── soil/                        # Chapter 2: Soil Resources Theory Master DPP Vault
 │   │   └── index.html               # 46 Most Expected Theory Qs, 180+ Variations, 60s Matrix, Blur Mode
 │   ├── vegetation/                  # Chapter 3: Natural Vegetation Theory Master DPP Vault
@@ -149,15 +149,15 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Persistent Progress**: `localStorage` tracking (`icse2027_climate_mastered`, `icse2027_climate_review`).
 
 ### C. Chapter 1: Climate 10-Year PYQ & Specimen MCQ Master Suite (`geography/climate-mcq/index.html`)
-- **30 High-Yield Master Question Archetypes** representing 115+ total PYQ hits from 2016–2026.
-- **Full Coverage**: 2021–22 Semester-1 100% MCQ board paper, 2023–2026 Board & Specimen papers, and 2016–2020 core concepts tested as MCQs.
-- **Deduplicated Variations Accordion**: Every question features a 1-click expandable history accordion displaying all twisted ways CISCE has framed that question across past papers.
+- **34 Playable Master Questions** representing 125+ total PYQ hits from 2016–2026.
+- **Full Coverage**: 2021–22 Semester-1 100% MCQ board paper, 2023–2026 Board & Specimen papers, 2016–2020 core concepts, Climatic Data Table calculation sub-questions, and Visual Map/Diagram MCQs.
+- **Global & Individual Deduplicated Variations**: Features an instant `📂 Expand All Variations` toggle as well as individual card toggles displaying all twisted ways CISCE has framed that question across past papers.
 - **Official CISCE Marking Scheme Explanations**: Detailed meteorological rationales (e.g. Garo/Khasi/Jaintia orographic funneling, Himalayan climatic barrier, Western Disturbances jet stream origins).
 - **Dual Quiz Modes**:
   1. ⚡ Instant Check Mode: Immediate reveal of correct/incorrect status with explanation upon option selection.
   2. 📝 Strict Exam Mode: Options highlighted as selected without revealing answers until submission.
 - **Live Exam Countdown Timer**: 15, 30, and 45 mins presets with auto-start on first click, warning pulse, and auto-submit.
-- **Live Probability DNA & Topic Filters**: All Questions (30), Very High Probability (90%+), Monsoon Winds & Branches, Local Winds & Cyclones, Relief & Latitude, Climatic Data Tables.
+- **Live Probability DNA & Topic Filters**: All Questions (34), Very High Probability (90%+), Tables & Diagrams (6), Monsoon Winds & Branches, Local Winds & Cyclones, Relief & Latitude.
 - **Automated Report & 1-Click Brag Card Generator**: Powered by `html2canvas` generating a high-resolution PNG scorecard screenshot with student name, score, accuracy %, time taken, achievement tiers (Grandmaster, Tactician, Contender), and sub-topic breakdown bars.
 - **Direct Cross-Linking**: Seamless companion buttons connecting to Ilberiz Techz Dashboard (`../../index.html` with `target="_top"`) and Climate Theory Vault (`../climate/index.html`).
 - **Hardware-Accelerated CSS Containment**: `.q-card` configured with `content-visibility: auto; contain-intrinsic-size: 320px;` and 120ms debounced search for zero lag.
@@ -614,13 +614,13 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - **Cache Invalidation**: Bumped version query in `index.html` to `script.js?v=3.1`.
 
 24. **Addition of Chapter 1: Climate 10-Year PYQ & Specimen MCQ Master Suite (2016–2026)**:
-    - **Source Material Processing**: Ingested and processed `gemini-code-1792469674122.html` from `Downloads` into `geography/climate-mcq/index.html` in strict adherence to Rule 1 (Subject Folder Isolation) and Rule 2 (Standard File Structure for Engines), immediately removing raw files from `Downloads` and workspace root (Rule 5).
-    - **Comprehensive Coverage**: 30 High-Yield Question Archetypes deduplicating 115+ past board and specimen questions (including 2021–22 Semester-1 100% MCQ paper, 2023–2026 Board & Specimen papers, and 2016–2020 core concepts).
+    - **Source Material Processing**: Ingested and processed updated master file `gemini-code-1792471431599.html` (superseding initial `1792469674122`) from `Downloads` into `geography/climate-mcq/index.html` in strict adherence to Rule 1 (Subject Folder Isolation) and Rule 2 (Standard File Structure for Engines), immediately removing raw files from `Downloads` and workspace root (Rule 5).
+    - **Comprehensive Coverage**: 34 Playable Question Archetypes deduplicating 125+ past board and specimen questions (including 2021–22 Semester-1 100% MCQ paper, 2023–2026 Board & Specimen papers, 2016–2020 core concepts, Climatic Data Table calculation sub-questions for Annual Range, Total Rainfall, Wettest/Driest Month, and Visual Map/Diagram MCQs).
     - **Interactive Features**:
       - Dual quiz modes: `Instant Check Mode` (immediate evaluation with official CISCE marking scheme explanations) and `Strict Exam Mode` (deferred reveal upon submit).
       - Live countdown timer with 15m, 30m, and 45m presets, warning/danger pulses, and auto-submit.
-      - Expandable historical variations accordion on every question showing the precise phrasing across different board years.
-      - Topic & Probability filtering: Very High Probability (90%+), Monsoon Winds, Local Winds, Relief & Latitude, and Climatic Data Tables.
+      - Global `📂 Expand All Variations` toggle and individual card history accordions displaying all twisted CISCE variations.
+      - Topic & Probability filtering: Very High Probability (90%+), Tables & Diagrams (6), Monsoon Winds, Local Winds, Relief & Latitude.
       - Automated scorecard and 1-click shareable brag screenshot generator powered by `html2canvas` with student name, score, accuracy %, time taken, achievement tiers, and sub-topic mastery breakdown bars.
     - **Design System & Performance Optimization**:
       - Integrated Google Fonts (`Inter`, `Outfit`, `JetBrains Mono`, `Space Grotesk`) and `Material Symbols Outlined` (Rule 3).

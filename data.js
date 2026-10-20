@@ -380,16 +380,16 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-geo-climate",
                             "name": "Ch 1: Climate",
-                            "description": "10-Year MCQ Suite (115+ Hits), 42 Theory Questions (175+ Variations) & 5 Full Class Notes",
+                            "description": "10-Year MCQ Suite (125+ Hits), 42 Theory Questions (175+ Variations) & 5 Full Class Notes",
                             "featured": true,
                             "items": [
                                 {
                                     "id": "geo-climate-mcq-master",
                                     "title": "Climate 10-Year PYQ & Specimen MCQ Master Suite (2016–2026)",
-                                    "subtitle": "30 Unique Archetypes, 115+ PYQ Hits, Instant Check & Strict Exam Modes, Timers & Automatic Scorecard Generator",
+                                    "subtitle": "34 Playable MCQs, 125+ PYQ Hits, Tables & Diagrams, Instant Check & Strict Exam Modes, Timers & Scorecard Generator",
                                     "type": "interactive",
                                     "file": "geography/climate-mcq/index.html",
-                                    "badge": "10-Year MCQs • 30 Master Qs • 115+ Hits"
+                                    "badge": "10-Year MCQs • 34 Master Qs • 125+ Hits"
                                 },
                                 {
                                     "id": "geo-climate-theory-master",
