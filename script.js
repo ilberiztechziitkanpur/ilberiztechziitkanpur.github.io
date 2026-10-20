@@ -264,26 +264,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Climate 10-Year MCQ Suite (Geography Ch 1)
-    const climateNav = document.createElement('div');
-    const isClimateActive = state.currentView !== 'search' && state.path[1] === 'sub-10-geo' && state.path[2] === 'chap-geo-climate';
-    climateNav.className = `nav-item nav-item-featured ${isClimateActive ? 'active' : ''}`;
-    climateNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #38bdf8;">quiz</span>
-        <span style="font-weight: 600;">Climate 10-Yr MCQs</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0284c7, #2563eb); color:#fff;">NEW</span>
+    // Latest Update Quick Launch: Soil Resources 10-Year MCQ Suite (Geography Ch 2)
+    const soilNav = document.createElement('div');
+    const isSoilActive = state.currentView !== 'search' && state.path[1] === 'sub-10-geo' && state.path[2] === 'chap-geo-soil';
+    soilNav.className = `nav-item nav-item-featured ${isSoilActive ? 'active' : ''}`;
+    soilNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #f59e0b;">quiz</span>
+        <span style="font-weight: 600;">Soil 10-Yr MCQs</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706); color:#fff;">NEW</span>
     `;
-    climateNav.onclick = () => {
+    soilNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const climateChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-climate');
-        if (climateChap) {
-            navigateTo('items', [batch.id, geoSub.id, climateChap.id]);
+        const soilChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-soil');
+        if (soilChap) {
+            navigateTo('items', [batch.id, geoSub.id, soilChap.id]);
         }
     };
-    navMenu.appendChild(climateNav);
+    navMenu.appendChild(soilNav);
 }
 
 function resetSearch() {

@@ -452,8 +452,17 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-geo-soil",
                             "name": "Ch 2: Soil Resources",
-                            "description": "46 Most Expected Questions, 180+ Twisted Variations, Master MCQ DPP & 3 Full Class Notes",
+                            "description": "10-Year MCQ Suite (135+ Hits), 46 Theory Questions (180+ Variations) & 3 Full Class Notes",
+                            "featured": true,
                             "items": [
+                                {
+                                    "id": "geo-soil-mcq-master",
+                                    "title": "Soil Resources 10-Year PYQ & Specimen MCQ Master Suite (2016–2026)",
+                                    "subtitle": "35 Playable MCQs, 135+ PYQ Hits, Tables & Diagrams, Instant Check & Strict Exam Modes, Timers & Scorecard Generator",
+                                    "type": "interactive",
+                                    "file": "geography/soil-mcq/index.html",
+                                    "badge": "10-Year MCQs • 35 Master Qs • 135+ Hits"
+                                },
                                 {
                                     "id": "geo-soil-theory-master",
                                     "title": "Soil Resources Theory DPP — 46 Most Expected Questions Vault",

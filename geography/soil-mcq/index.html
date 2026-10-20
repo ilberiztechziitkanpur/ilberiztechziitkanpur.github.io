@@ -1,0 +1,2611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CISCE Class 10 Soil Resources — 10-Year PYQ & Specimen Master Suite (2016–2026)</title>
+  <!-- Google Fonts & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Outfit:wght@500;600;700;800&family=Space+Grotesk:wght@600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+  <!-- html2canvas for 1-Click Brag Screenshot Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    :root {
+      --bg-main: #090d16;
+      --bg-card: #111827;
+      --bg-card-hover: #182235;
+      --bg-glass: rgba(17, 24, 39, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.09);
+      --border-highlight: rgba(245, 158, 11, 0.45);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-cyan: #38bdf8;
+      --accent-indigo: #6366f1;
+      --accent-purple: #a855f7;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --shadow-glow: 0 10px 35px -5px rgba(245, 158, 11, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-main);
+      background-image: 
+        radial-gradient(circle at 12% 10%, rgba(245, 158, 11, 0.12), transparent 32%),
+        radial-gradient(circle at 88% 15%, rgba(16, 185, 129, 0.11), transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(56, 189, 248, 0.08), transparent 40%);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    /* Sticky Top Command Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(9, 13, 22, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 24px;
+      transition: all 0.3s ease;
+    }
+
+    .top-bar-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-cluster {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .home-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-subtle);
+      padding: 7px 13px;
+      border-radius: 10px;
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .home-nav-btn:hover {
+      background: rgba(245, 158, 11, 0.16);
+      border-color: var(--accent-amber);
+      color: var(--accent-amber);
+      transform: translateX(-2px);
+    }
+
+    .home-nav-btn.theory-btn {
+      border-color: rgba(16, 185, 129, 0.35);
+      color: #6ee7b7;
+    }
+
+    .home-nav-btn.theory-btn:hover {
+      background: rgba(16, 185, 129, 0.2);
+      border-color: var(--accent-emerald);
+      color: #a7f3d0;
+      transform: translateY(-1px);
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent-amber), var(--accent-emerald));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+    }
+
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+
+    /* Timer & Action Controls */
+    .timer-cluster {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 12px;
+      border-radius: 14px;
+    }
+
+    .preset-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .preset-btn {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-secondary);
+      border: 1px solid transparent;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .preset-btn.active {
+      background: rgba(245, 158, 11, 0.18);
+      color: var(--accent-amber);
+      border-color: rgba(245, 158, 11, 0.45);
+    }
+
+    .clock-display {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent-emerald);
+      min-width: 82px;
+      text-align: center;
+      letter-spacing: 0.04em;
+      padding: 2px 8px;
+      border-radius: 8px;
+      background: rgba(16, 185, 129, 0.1);
+    }
+
+    .clock-display.warning {
+      color: var(--accent-amber);
+      background: rgba(245, 158, 11, 0.12);
+      animation: pulseWarn 1.2s infinite;
+    }
+
+    .clock-display.danger {
+      color: var(--accent-rose);
+      background: rgba(244, 63, 94, 0.15);
+      animation: pulseWarn 0.7s infinite;
+    }
+
+    @keyframes pulseWarn {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .btn {
+      border: none;
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-start {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    }
+
+    .btn-start:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    .btn-pause {
+      background: rgba(245, 158, 11, 0.18);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .btn-reset {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .btn-reset:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-finish {
+      background: linear-gradient(135deg, var(--accent-indigo), var(--accent-purple));
+      color: white;
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+    }
+
+    .btn-finish:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.1);
+    }
+
+    /* Progress Bar under Top Bar */
+    .progress-track {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      margin-top: 10px;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-amber), var(--accent-emerald), var(--accent-cyan));
+      transition: width 0.3s ease;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1140px;
+      margin: 28px auto 0;
+      padding: 0 20px;
+    }
+
+    /* Hero Banner */
+    .hero-card {
+      background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.92));
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-glow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .hero-desc {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      margin-bottom: 18px;
+    }
+
+    .user-setup-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .name-input {
+      background: rgba(9, 13, 22, 0.75);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      min-width: 240px;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .name-input:focus {
+      border-color: var(--accent-amber);
+    }
+
+    .mode-switch {
+      display: inline-flex;
+      background: rgba(9, 13, 22, 0.75);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 4px;
+    }
+
+    .mode-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      border-radius: 7px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .mode-btn.active {
+      background: var(--accent-indigo);
+      color: #fff;
+    }
+
+    .stats-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stat-box {
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid var(--border-subtle);
+      padding: 14px;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent-amber);
+    }
+
+    .stat-lbl {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* Filter & Search Bar */
+    .filter-bar {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 6px 13px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-pill:hover, .filter-pill.active {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fbbf24;
+      border-color: rgba(245, 158, 11, 0.45);
+    }
+
+    .expand-all-btn {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.25));
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      color: #7dd3fc;
+      padding: 7px 14px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .expand-all-btn:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(99, 102, 241, 0.35));
+    }
+
+    .search-box {
+      background: rgba(9, 13, 22, 0.65);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 8px 14px;
+      border-radius: 99px;
+      font-size: 0.84rem;
+      min-width: 220px;
+      outline: none;
+    }
+
+    .search-box:focus {
+      border-color: var(--accent-amber);
+    }
+
+    /* Question Cards */
+    .questions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .q-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: border-color 0.25s ease, transform 0.2s ease;
+      position: relative;
+      content-visibility: auto;
+      contain-intrinsic-size: 320px;
+    }
+
+    .q-card:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .q-card.answered-correct {
+      border-color: rgba(16, 185, 129, 0.45);
+    }
+
+    .q-card.answered-wrong {
+      border-color: rgba(244, 63, 94, 0.45);
+    }
+
+    .q-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .q-meta-left {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .q-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      background: linear-gradient(135deg, var(--accent-amber), #ea580c);
+      color: #fff;
+      padding: 4px 11px;
+      border-radius: 8px;
+    }
+
+    .q-topic-tag {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .prob-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 99px;
+    }
+
+    .prob-very-high {
+      background: rgba(244, 63, 94, 0.16);
+      color: #fb7185;
+      border: 1px solid rgba(244, 63, 94, 0.35);
+    }
+
+    .prob-high {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
+    .prob-medium {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    /* Year Appearances Row */
+    .years-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+      padding: 8px 12px;
+      background: rgba(9, 13, 22, 0.55);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .freq-count {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--accent-emerald);
+      margin-right: 4px;
+    }
+
+    .year-chip {
+      font-size: 0.71rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(99, 102, 241, 0.16);
+      color: #a5b4fc;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    .year-chip.specimen {
+      background: rgba(168, 85, 247, 0.16);
+      color: #d8b4fe;
+      border-color: rgba(168, 85, 247, 0.3);
+    }
+
+    .q-stem {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      line-height: 1.55;
+    }
+
+    /* Data Table inside MCQ */
+    .soil-table-wrap {
+      overflow-x: auto;
+      margin: 12px 0 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .soil-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      text-align: left;
+      background: rgba(9, 13, 22, 0.75);
+    }
+
+    .soil-table th, .soil-table td {
+      padding: 9px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .soil-table th {
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      font-weight: 700;
+    }
+
+    /* Visual Diagram Container inside MCQ */
+    .diagram-box {
+      margin: 14px 0 18px;
+      padding: 16px;
+      background: rgba(9, 13, 22, 0.8);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .diagram-panel {
+      flex: 1 1 280px;
+      max-width: 460px;
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fbbf24;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Options Grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 680px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .option-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 13px 16px;
+      text-align: left;
+      color: var(--text-primary);
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: all 0.2s ease;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .opt-letter {
+      width: 26px;
+      height: 26px;
+      min-width: 26px;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.07);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .option-btn.selected-exam {
+      background: rgba(99, 102, 241, 0.18);
+      border-color: var(--accent-indigo);
+    }
+    .option-btn.selected-exam .opt-letter {
+      background: var(--accent-indigo);
+      color: #fff;
+    }
+
+    .option-btn.correct-reveal {
+      background: rgba(16, 185, 129, 0.16) !important;
+      border-color: var(--accent-emerald) !important;
+      color: #ecfdf5;
+    }
+    .option-btn.correct-reveal .opt-letter {
+      background: var(--accent-emerald);
+      color: #fff;
+    }
+
+    .option-btn.wrong-reveal {
+      background: rgba(244, 63, 94, 0.16) !important;
+      border-color: var(--accent-rose) !important;
+      color: #ffe4e6;
+    }
+    .option-btn.wrong-reveal .opt-letter {
+      background: var(--accent-rose);
+      color: #fff;
+    }
+
+    /* ============================================================================
+       EYE-CATCHING GLOWING "SEE BOARD VARIATIONS" BUTTON & PANEL
+       ============================================================================ */
+    .variations-box {
+      margin-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 14px;
+    }
+
+    .var-toggle-btn {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.14) 0%, rgba(99, 102, 241, 0.2) 50%, rgba(168, 85, 247, 0.16) 100%);
+      border: 1.5px solid rgba(56, 189, 248, 0.5);
+      border-radius: 12px;
+      padding: 11px 16px;
+      color: #f8fafc;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: 0 4px 18px rgba(56, 189, 248, 0.14);
+      transition: all 0.25s ease;
+    }
+
+    .var-toggle-btn:hover {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.24) 0%, rgba(99, 102, 241, 0.3) 50%, rgba(168, 85, 247, 0.26) 100%);
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.26);
+    }
+
+    .var-btn-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+      flex-wrap: wrap;
+    }
+
+    .var-pulse-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #f59e0b;
+      box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+      animation: pulseDot 1.6s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulseDot {
+      0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    }
+
+    .var-count-pill {
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .var-chevron {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: var(--accent-cyan);
+      font-weight: 800;
+      transition: transform 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .var-toggle-btn.active-open {
+      border-color: var(--accent-amber);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(99, 102, 241, 0.22));
+    }
+
+    .variations-content {
+      display: none;
+      margin-top: 12px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 27, 75, 0.7));
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-left: 4px solid var(--accent-amber);
+      padding: 16px 18px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.4);
+    }
+
+    .variations-content.open {
+      display: block;
+      animation: fadeSlideDown 0.25s ease;
+    }
+
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .var-header-title {
+      color: #fbbf24;
+      font-weight: 700;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .variations-content ul {
+      padding-left: 20px;
+      margin-top: 6px;
+    }
+
+    .variations-content li {
+      margin-bottom: 8px;
+      line-height: 1.55;
+    }
+
+    /* Explanation Box */
+    .explanation-box {
+      display: none;
+      margin-top: 14px;
+      background: rgba(16, 185, 129, 0.09);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      color: #d1fae5;
+    }
+
+    .explanation-box.show {
+      display: block;
+    }
+
+    /* Report & Brag Card Modal */
+    .report-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(5, 8, 15, 0.88);
+      backdrop-filter: blur(12px);
+      overflow-y: auto;
+      padding: 30px 16px;
+    }
+
+    .report-overlay.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .report-modal {
+      max-width: 780px;
+      width: 100%;
+    }
+
+    .report-actions-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    /* The Screenshot Brag Card */
+    #brag-card {
+      background: linear-gradient(145deg, #0f172a 0%, #1e1b4b 55%, #090d16 100%);
+      border: 2px solid rgba(245, 158, 11, 0.5);
+      border-radius: 24px;
+      padding: 32px;
+      color: #f8fafc;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brag-watermark {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.25), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .brag-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .brag-tag {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    .brag-student {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .brag-quote {
+      font-size: 0.9rem;
+      color: #94a3b8;
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    .brag-rank-pill {
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 14px;
+      text-align: right;
+      box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+    }
+
+    .brag-rank-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+    }
+
+    .brag-rank-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .brag-score-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .brag-score-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .brag-metric {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 16px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .brag-metric-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--accent-amber);
+    }
+
+    .brag-metric-lbl {
+      font-size: 0.76rem;
+      color: #cbd5e1;
+      margin-top: 4px;
+    }
+
+    .topic-breakdown-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #94a3b8;
+      margin-bottom: 12px;
+    }
+
+    .topic-bars {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .topic-bars {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .topic-bar-item {
+      background: rgba(9, 13, 22, 0.55);
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .topic-bar-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .topic-bar-track {
+      height: 7px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .topic-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-amber), var(--accent-emerald));
+      border-radius: 99px;
+    }
+
+    .brag-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.78rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY TOP COMMAND BAR -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <div class="brand-cluster">
+        <a href="../../index.html" class="home-nav-btn" target="_top" title="Back to Ilberiz Techz Dashboard">
+          <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="../soil/index.html" class="home-nav-btn theory-btn" title="Open Soil Resources Theory Master Vault (46 Qs & Variations)">
+          <span class="material-symbols-outlined" style="font-size:18px;">menu_book</span>
+          <span>Theory Vault</span>
+        </a>
+        <div class="brand-icon">🌱</div>
+        <div>
+          <div class="brand-title">CISCE Class 10 • SOIL RESOURCES Master Bank</div>
+          <div class="brand-sub">100% Complete 10-Year PYQs, Specimen, Table & Diagram MCQs (2016–2026)</div>
+        </div>
+      </div>
+
+      <div class="timer-cluster">
+        <div class="preset-group" id="presetGroup">
+          <button class="preset-btn active" onclick="setTimerPreset(15)">15m</button>
+          <button class="preset-btn" onclick="setTimerPreset(30)">30m</button>
+          <button class="preset-btn" onclick="setTimerPreset(45)">45m</button>
+        </div>
+        <div class="clock-display" id="clockDisplay">15:00</div>
+        <button class="btn btn-start" id="startPauseBtn" onclick="toggleTimer()">▶ Start Timer</button>
+        <button class="btn btn-reset" onclick="resetQuiz()">↺ Reset</button>
+        <button class="btn btn-finish" onclick="generateReport()">🏆 Finish & Report</button>
+      </div>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressBar"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO SECTION -->
+    <section class="hero-card">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-badge">🔥 Complete 10-Year Archive + Table & Diagram Sub-Questions (2016–2026)</span>
+          <h1 class="hero-title">Chapter: Soil Resources of India — Complete Board & Specimen MCQs</h1>
+          <p class="hero-desc">
+            Includes every single Board & Specimen question from the last 10 years (2016–2026), all <strong>2021–22 Sem-1 MCQs</strong>, <strong>2023–2026 Direct MCQs & Case Studies</strong>, and <strong>6 Dedicated Table & Visual Diagram MCQs</strong> (Soil Profile Horizons, 4-Soil Matrix, Khadar vs. Bhangar, Water Erosion Stages, and Conservation Diagrams). Click the glowing <strong>"SEE ALL BOARD & SPECIMEN VARIATIONS"</strong> button on any question to view every exam twist!
+          </p>
+          <div class="user-setup-row">
+            <input type="text" id="studentNameInput" class="name-input" placeholder="Enter your name for Scorecard..." value="Future CISCE Topper" />
+            <div class="mode-switch">
+              <button class="mode-btn active" id="modeInstantBtn" onclick="setQuizMode('instant')">⚡ Instant Check Mode</button>
+              <button class="mode-btn" id="modeExamBtn" onclick="setQuizMode('exam')">📝 Strict Exam Mode</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-mini-grid">
+          <div class="stat-box">
+            <div class="stat-num" id="statAttempted">0 / 35</div>
+            <div class="stat-lbl">Questions Answered</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" id="statAccuracy">0%</div>
+            <div class="stat-lbl">Live Accuracy</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">35</div>
+            <div class="stat-lbl">Playable MCQs (135+ PYQ Hits)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">2016–26</div>
+            <div class="stat-lbl">100% Board + Specimen + Diagrams</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTER & SEARCH BAR -->
+    <section class="filter-bar">
+      <div class="filter-pills">
+        <button class="filter-pill active" onclick="filterQuestions('ALL', this)">All Questions (35)</button>
+        <button class="filter-pill" onclick="filterQuestions('VERY_HIGH', this)">🔥 Very High Probability (90%+)</button>
+        <button class="filter-pill" onclick="filterQuestions('DATA', this)">📊 Tables & Diagrams (6)</button>
+        <button class="filter-pill" onclick="filterQuestions('ALLUVIAL_BLACK', this)">🌾 Alluvial & Black Soil</button>
+        <button class="filter-pill" onclick="filterQuestions('RED_LATERITE', this)">🧱 Red & Laterite Soil</button>
+        <button class="filter-pill" onclick="filterQuestions('EROSION', this)">🛡️ Erosion & Conservation</button>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+        <button class="expand-all-btn" id="expandAllBtn" onclick="toggleAllVariations()">📂 Expand All Variations</button>
+        <input type="text" id="searchBox" class="search-box" placeholder="Search year (2026, 2025) or keyword..." oninput="debouncedSearch()" />
+      </div>
+    </section>
+
+    <!-- QUESTIONS CONTAINER -->
+    <section class="questions-list" id="questionsContainer"></section>
+  </main>
+
+  <!-- AUTOMATIC REPORT & SCREENSHOT BRAG MODAL -->
+  <div class="report-overlay" id="reportOverlay">
+    <div class="report-modal">
+      <div class="report-actions-top">
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn btn-start" onclick="downloadScorecardImage()">📸 Download Scorecard Screenshot (PNG)</button>
+          <button class="btn btn-finish" onclick="copyShareText()">📋 Copy Brag Message</button>
+        </div>
+        <button class="btn btn-reset" onclick="closeReport()">✕ Close & Review Answers</button>
+      </div>
+
+      <!-- SHAREABLE BRAG CARD -->
+      <div id="brag-card">
+        <div class="brag-watermark"></div>
+        <div class="brag-header">
+          <div>
+            <span class="brag-tag">✓ Official CISCE Class 10 Soil Resources PYQ Challenge (2016–2026)</span>
+            <div class="brag-student" id="reportStudentName">Future CISCE Topper</div>
+            <div class="brag-quote">"See, I achieved this match on the 10-Year CISCE Soil Resources Board Archive!"</div>
+          </div>
+          <div class="brag-rank-pill">
+            <div class="brag-rank-title">Achievement Tier</div>
+            <div class="brag-rank-val" id="reportBadgeTitle">🏆 Pedology Grandmaster</div>
+          </div>
+        </div>
+
+        <div class="brag-score-grid">
+          <div class="brag-metric">
+            <div class="brag-metric-val" id="reportScore">0 / 35</div>
+            <div class="brag-metric-lbl">Final Score</div>
+          </div>
+          <div class="brag-metric">
+            <div class="brag-metric-val" id="reportAccuracy">0%</div>
+            <div class="brag-metric-lbl">Accuracy Rate</div>
+          </div>
+          <div class="brag-metric">
+            <div class="brag-metric-val" id="reportTimeTaken">00:00</div>
+            <div class="brag-metric-lbl">Time Taken</div>
+          </div>
+          <div class="brag-metric">
+            <div class="brag-metric-val" id="reportHighProbScore">0%</div>
+            <div class="brag-metric-lbl">High-Prob PYQ Mastery</div>
+          </div>
+        </div>
+
+        <div class="topic-breakdown-title">Sub-Topic Mastery Breakdown</div>
+        <div class="topic-bars" id="reportTopicBars"></div>
+
+        <div class="brag-footer">
+          <span>🌱 Chapter: Soil Resources of India (10-Year Board + Specimen + Table/Diagram MCQs)</span>
+          <span id="reportTimestamp">Completed Today</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ============================================================================
+    // COMPLETE 10-YEAR DEDUPLICATED QUESTION BANK — SOIL RESOURCES (35 MCQs)
+    // ============================================================================
+    const QUESTIONS_DATA = [
+      {
+        id: 1,
+        topic: "RED_LATERITE",
+        topicLabel: "Red & Laterite Soil",
+        probability: "VERY_HIGH",
+        probText: "98% Exam Probability (Very High)",
+        freqCount: 9,
+        years: ["Board 2026", "Board 2024", "Specimen 2024", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "Choose the characteristic that is TRUE about Laterite soil:",
+        options: [
+          "It is a fine-textured clayey soil",
+          "It is highly moisture-retentive",
+          "It is rich in calcium and nitrogen",
+          "It undergoes desilication (leaching)"
+        ],
+        correct: 3,
+        variations: [
+          "<strong>Board 2026 Q3(ii) (Direct MCQ):</strong> 'Choose the characteristic that is true about Laterite soil: (a) It is a clayey soil (b) It is moisture retentive (c) It is rich in calcium (d) It undergoes desilication.'",
+          "<strong>Process Definition Variation (Board 2024 Q5(iii), Sem-1 2021, 2018):</strong> 'Name the process by which soluble minerals (lime and silica) dissolve in rainwater and percolate down the soil profile due to heavy tropical rains and high temperature with alternating wet and dry periods.' → <strong>Leaching (or Desilication)</strong>.",
+          "<strong>Assertion-Reason Variation:</strong> 'Assertion (A): Laterite soil is acidic and unsuitable for intensive cultivation without fertilizers. Reason (R): Heavy rainfall causes leaching of lime and silica from the top layer.'"
+        ],
+        explanation: "Laterite soil forms under conditions of high temperature and heavy rainfall with alternating wet and dry periods. Heavy tropical rains wash away soluble silica and lime downwards (a process called leaching or desilication), leaving behind insoluble oxides of iron and aluminium in the topsoil."
+      },
+      {
+        id: 2,
+        topic: "ALLUVIAL_BLACK",
+        topicLabel: "Alluvial & Black Soil",
+        probability: "VERY_HIGH",
+        probText: "98% Exam Probability (Very High)",
+        freqCount: 9,
+        years: ["Specimen 2026", "Specimen 2025", "Board 2024", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "The predominant 'Ex-situ' (transported) soil found in India is __________.",
+        options: [
+          "Alluvial soil",
+          "Black soil",
+          "Laterite soil",
+          "Red soil"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Specimen 2026 & Specimen 2025 Q3(ii) (Direct MCQ):</strong> 'Ex-situ soil found in India is ______: (a) Alluvial soil (b) Black soil (c) Laterite soil (d) Red soil.'",
+          "<strong>In-situ vs. Ex-situ Distinction (Board 2024 Q5(ii)(b), 2019, 2017):</strong> 'Distinguish between Transported (Ex-situ) soil and Residual (In-situ) soil.' → <strong>Alluvial soil</strong> is carried and deposited by rivers away from its parent rock (Ex-situ), whereas <strong>Black, Red, and Laterite soils</strong> are formed where they are found right over their parent rock (In-situ / Residual) and have a well-defined soil profile.",
+          "<strong>Assertion-Reason Twist:</strong> 'Assertion (A): Transported soils do not have a well-defined soil profile. Reason (R): They consist of sediments carried and deposited by agents of gradation like rivers.'"
+        ],
+        explanation: "Alluvial soil is an Ex-situ (transported or riverine) soil because it is formed by the deposition of silt, sand, and clay brought down by the Indus, Ganga, and Brahmaputra river systems (as well as peninsular deltaic rivers) far away from the parent rock."
+      },
+      {
+        id: 3,
+        topic: "RED_LATERITE",
+        topicLabel: "Red & Laterite Soil",
+        probability: "VERY_HIGH",
+        probText: "95% Exam Probability (Very High)",
+        freqCount: 7,
+        years: ["Board 2025", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "Which of the following correctly states a key similarity between Red Soil and Laterite Soil?",
+        options: [
+          "Both are transported (ex-situ) soils deposited by Himalayan rivers",
+          "Both are red in colour due to a high content of Iron Oxide, are coarse/friable/porous, do not retain moisture, and are deficient in lime, nitrogen, and humus",
+          "Both are rich in lime, humus, and nitrogen and become sticky when wet",
+          "Both are formed by the solidification of volcanic lava in the Deccan Trap"
+        ],
+        correct: 1,
+        variations: [
+          "<strong>Board 2025 Q3(ii) (Direct MCQ):</strong> Tested the shared properties of Red soil and Laterite soil (both are rich in iron oxide giving them a reddish colour, have a coarse texture, and are well-drained/porous).",
+          "<strong>Board 2019 & 2017 Variation:</strong> 'Mention two similarities between Red soil and Laterite soil.' → (1) Both are red in colour due to Iron Oxide; (2) Both are residual (in-situ), porous, friable, non-moisture-retentive, and deficient in lime, nitrogen, phosphorus, and humus."
+        ],
+        explanation: "Red soil and Laterite soil share several characteristics: both are residual (in-situ) soils, red in colour due to high Iron Oxide content, porous and friable in texture, poor in moisture retention, and deficient in nitrogen, lime, phosphorus, and organic matter (humus)."
+      },
+      {
+        id: 4,
+        topic: "EROSION",
+        topicLabel: "Erosion & Conservation",
+        probability: "VERY_HIGH",
+        probText: "96% Exam Probability (Very High)",
+        freqCount: 8,
+        years: ["Board 2024", "Specimen 2026", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2016"],
+        question: "Which of the following practices is an effective biological method to prevent soil erosion and conserve soil?",
+        options: [
+          "Shifting cultivation (Jhum) and overgrazing",
+          "Afforestation and Re-afforestation (planting trees so roots bind the loose soil particles)",
+          "Ploughing up and down parallel to the steep hill slope",
+          "Uncontrolled open-cast mining and deforestation"
+        ],
+        correct: 1,
+        variations: [
+          "<strong>Board 2024 Q3(ii) (Direct MCQ):</strong> Identified <strong>Afforestation</strong> as the correct option that protects soil from erosion.",
+          "<strong>Terminology Variation (Board 2019, 2016):</strong> 'How does Re-afforestation differ from Afforestation?' → <strong>Afforestation</strong> is planting trees on barren land where there were no trees previously; <strong>Re-afforestation</strong> is planting two saplings in place of every tree cut down in deforested areas."
+        ],
+        explanation: "Afforestation (planting new forests) and Re-afforestation (restoring cleared forests) are the most effective biological soil conservation measures because tree roots bind the soil firmly and the canopy breaks the impact of heavy raindrops and wind."
+      },
+      {
+        id: 5,
+        topic: "ALLUVIAL_BLACK",
+        topicLabel: "Alluvial & Black Soil",
+        probability: "VERY_HIGH",
+        probText: "97% Exam Probability (Very High)",
+        freqCount: 8,
+        years: ["Board 2026", "Specimen 2026", "Specimen 2025", "Board 2024", "Sem-1 2021", "Board 2020", "Board 2018", "Board 2016"],
+        question: "Nathu, a farmer in Bihar, does not get good yields as the soil he tills on a higher river terrace is coarse and full of calcareous lime nodules (kankars). Motilal, on the other hand, has his field in the lower floodplain closer to the river and gets bumper yields every year. Identify the two sub-types of Alluvial soil being tilled by Nathu and Motilal respectively:",
+        options: [
+          "Nathu = Khadar (Newer Alluvium); Motilal = Bhangar (Older Alluvium)",
+          "Nathu = Bhangar (Older Alluvium); Motilal = Khadar (Newer Alluvium)",
+          "Nathu = Regur Soil; Motilal = Laterite Soil",
+          "Nathu = Bhabar Soil; Motilal = Red Soil"
+        ],
+        correct: 1,
+        variations: [
+          "<strong>Specimen 2026 & Specimen 2025 Q5(i) (Direct Case-Study Question):</strong> 'Nathu, a farmer in Bihar, does not get good yields as the soil he tills is coarse and has a fair proportion of kankars. Motilal on the other hand has his field closer to the river and gets better yields. Identify the two types of soil and explain why Motilal benefits.'",
+          "<strong>Sem-1 2021 & Board 2020 Direct MCQ:</strong> 'Why is Khadar more fertile than Bhangar?' → Because Khadar is newer alluvium composed of fine silt and clay that gets replenished every year by annual river floods, whereas Bhangar is older alluvium lying ~30m above flood level and contains coarse kankar pebbles."
+        ],
+        explanation: "Bhangar is older alluvium found on river terraces above the flood level; it is coarse and contains calcareous nodules called 'kankars' (tilled by Nathu). Khadar is newer alluvium found in lower floodplains; it consists of fine silt and clay and is replenished annually by floodwaters, making it far more fertile (tilled by Motilal)."
+      },
+      {
+        id: 6,
+        topic: "ALLUVIAL_BLACK",
+        topicLabel: "Alluvial & Black Soil",
+        probability: "VERY_HIGH",
+        probText: "98% Exam Probability (Very High)",
+        freqCount: 10,
+        years: ["Specimen 2026", "Board 2025", "Specimen 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "Why is Black Soil (Regur Soil) known for its 'self-ploughing' characteristic and high moisture-retentiveness?",
+        options: [
+          "It has over 50% fine clay content, so it expands and becomes sticky when wet to retain moisture in its subsoil, and shrinks to develop deep wide cracks when dry, allowing natural air circulation",
+          "It is composed of 90% coarse sand particles that allow water to percolate rapidly",
+          "It is replenished every year by Himalayan glacial rivers",
+          "Earthworms only live in volcanic rocks of the Deccan Plateau"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Specimen 2026 Q5(iv)(a) & Board 2025 Q5(iv)(b):</strong> 'Give a reason: Black soil has a self-ploughing property / How is black soil able to retain moisture for a long period?'",
+          "<strong>Sem-1 2021 Direct MCQ:</strong> 'Which soil is sticky when wet and develops deep cracks when dry, helping in self-aeration?' → <strong>Black Soil (Regur / Black Cotton Soil)</strong>.",
+          "<strong>Dry Farming Twist (Board 2019, 2017):</strong> 'Why can crops grow on Black soil even during dry spells without irrigation?' → Because its fine clayey subsoil stores moisture for a long period."
+        ],
+        explanation: "Black (Regur) soil contains up to 50–60% fine clay. When wet, it swells and becomes sticky, retaining moisture deep in its subsoil for long periods. During the dry hot season, it shrinks and develops deep surface cracks, which allow air to circulate naturally into the soil — a phenomenon called 'self-ploughing'."
+      },
+      {
+        id: 7,
+        topic: "ALLUVIAL_BLACK",
+        topicLabel: "Alluvial & Black Soil",
+        probability: "VERY_HIGH",
+        probText: "96% Exam Probability (Very High)",
+        freqCount: 9,
+        years: ["Board 2025", "Specimen 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "How is Black Soil (Regur Soil) formed, and in which region of India is it predominantly found?",
+        options: [
+          "Formed in-situ by the denudation/weathering of solidified basic volcanic lava rocks (basalt) of the Deccan Trap; found in Maharashtra, Gujarat, and western Madhya Pradesh",
+          "Formed ex-situ by river deposition in the Ganga-Brahmaputra delta; found in West Bengal and Bihar",
+          "Formed by intense leaching on the summits of the Khasi and Jaintia Hills",
+          "Formed by wind deposition of sand dunes in Western Rajasthan"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2025 Q5(iv)(a):</strong> 'With reference to Black soil of India: How is this soil formed?'",
+          "<strong>Give Reason Variation (Board 2020, 2018):</strong> 'Why are large tracts of Maharashtra and Gujarat covered with Black soil?' → Because this region (the Deccan Trap) experienced fissure volcanic eruptions where basic basaltic lava solidified and weathered in-situ.",
+          "<strong>Map & Crop Match (Specimen 2026 Q2(i)):</strong> 'Name the soil of volcanic origin most suitable for Cotton and Sugarcane in Maharashtra and Gujarat.' → <strong>Black Cotton Soil (Regur)</strong>."
+        ],
+        explanation: "Black soil (Regur) is an in-situ (residual) soil formed by the weathering and denudation of igneous basaltic lava rocks (Deccan Trap) formed after volcanic activity. It covers large parts of Maharashtra, Gujarat (Saurashtra), Madhya Pradesh, Andhra Pradesh, and northern Karnataka."
+      },
+      {
+        id: 8,
+        topic: "ALLUVIAL_BLACK",
+        topicLabel: "Alluvial & Black Soil",
+        probability: "HIGH",
+        probText: "89% Exam Probability (High)",
+        freqCount: 6,
+        years: ["Board 2026", "Board 2023", "Sem-1 2021", "Board 2019", "Board 2018", "Board 2016"],
+        question: "Which organic component of soil is derived from the decomposition of dead plants and animal remains, and is critical for adding fertility and moisture-retention capacity to the soil?",
+        options: [
+          "Silica",
+          "Humus",
+          "Kankar (Calcium nodules)",
+          "Bauxite"
+        ],
+        correct: 1,
+        variations: [
+          "<strong>Board 2026 Q5 & Board 2023 Q3(ii):</strong> 'Name the soil component derived from the decay of dead plants and animals. Why is this component important for agriculture?' → <strong>Humus</strong>; it enriches soil fertility with organic nutrients and improves soil structure and water-holding capacity.",
+          "<strong>Deficiency Question (Sem-1 2021):</strong> 'Why are most Indian soils (Alluvial in northern plains, Black, Red, and Laterite) generally deficient in Humus, except the Ganga Delta?' → Due to rapid bacterial decomposition under high tropical temperatures and low forest litter."
+        ],
+        explanation: "Humus is the dark, organic matter formed in the topsoil (O and A horizons) by the microbial decay of dead plant leaves, roots, and animal remains. It is vital for agriculture because it supplies nitrogen and organic nutrients while helping the soil retain moisture."
+      },
+      {
+        id: 9,
+        topic: "RED_LATERITE",
+        topicLabel: "Red & Laterite Soil",
+        probability: "VERY_HIGH",
+        probText: "95% Exam Probability (Very High)",
+        freqCount: 8,
+        years: ["Specimen 2026", "Specimen 2025", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2016"],
+        question: "With reference to Red Soil, which of the following combinations of (1) Parent Rock Formation, (2) Cause of Red Colour, and (3) Colour Change when Hydrated is CORRECT?",
+        options: [
+          "(1) Weathering of ancient crystalline and metamorphic rocks; (2) Wide diffusion of Iron Oxide (Ferric Oxide); (3) Appears Yellow when it occurs in a hydrated (moist) form",
+          "(1) Deposition by rivers; (2) Presence of Potassium; (3) Appears Black when wet",
+          "(1) Weathering of basaltic lava; (2) Presence of Aluminium; (3) Appears White when dry",
+          "(1) Leaching in heavy rainfall areas; (2) Presence of Humus; (3) Appears Green in valleys"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Specimen 2026 Q5(iii) & Sample 2026:</strong> 'With reference to Red Soil: (a) How is it formed? (b) What gives Red soil its distinct colour? (c) Why is it less fertile than Alluvial soil?'",
+          "<strong>Sem-1 2021 Direct MCQ:</strong> 'Which soil forms the SECOND largest soil group in India (after Alluvial soil) and looks yellow in hydrated form?' → <strong>Red Soil</strong>."
+        ],
+        explanation: "Red soil (the 2nd largest soil group in India) develops in-situ on old crystalline igneous and metamorphic rocks of the Peninsular plateau under low-to-moderate rainfall. Its red colour is due to high Iron Oxide (Ferric Oxide) content, and it appears yellow when hydrated (in low-lying moist areas)."
+      },
+      {
+        id: 10,
+        topic: "RED_LATERITE",
+        topicLabel: "Red & Laterite Soil",
+        probability: "HIGH",
+        probText: "88% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Sem-1 2021", "Specimen 2022", "Board 2020", "Board 2018", "Board 2016"],
+        question: "Why is Red Soil considered ideal for 'Dry Farming' (cultivation of drought-resistant crops like millets/ragi, pulses, groundnut, and tobacco), and how can its productivity be increased?",
+        options: [
+          "It is formed in areas of poor/scanty rainfall and does not get waterlogged; it responds exceedingly well to regular application of fertilizers and irrigation",
+          "It retains moisture for 10 months without any rain",
+          "It is naturally rich in nitrogen, humus, and lime",
+          "It turns hard like iron bricks when exposed to air"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Sem-1 2021 Specimen (Direct MCQ):</strong> 'Why is Red soil considered ideal for dry farming? (a) It is formed in areas with poor rainfall and porous structure (b) It is rich in humus...'",
+          "<strong>Distribution MCQ (Specimen 2026 Q5(iii)(c)):</strong> 'Name two states where Red soil is extensively found.' → <strong>Tamil Nadu, Odisha, Jharkhand, Chhattisgarh, Karnataka</strong> (encircling the Black soil tract of the Peninsular Plateau)."
+        ],
+        explanation: "Red soil is porous, friable, and found in regions of low rainfall. While naturally deficient in nitrogen, phosphorus, lime, and humus, it is light, aerated, and responds very well to irrigation and manures/chemical fertilizers — making it ideal for dry farming (Ragi/Millets, Pulses, Groundnuts, Potatoes, Vegetables, Rice, and Tobacco)."
+      },
+      {
+        id: 11,
+        topic: "RED_LATERITE",
+        topicLabel: "Red & Laterite Soil",
+        probability: "VERY_HIGH",
+        probText: "93% Exam Probability (Very High)",
+        freqCount: 7,
+        years: ["Board 2024", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "Why is Laterite Soil widely used as a durable 'building material' (for cutting bricks for construction), and which commercial crops grow well on it when manured?",
+        options: [
+          "It is rich in limestone and cement; suited for Wheat and Mustard",
+          "It is soft when wet but hardens like iron when exposed to air and dried; suited for Tea, Coffee, Rubber, Cashew nuts, and Tapioca when manured",
+          "It never undergoes weathering; suited for Jute cultivation",
+          "It contains 80% pure clay; suited for Zaid vegetables"
+        ],
+        correct: 1,
+        variations: [
+          "<strong>Board 2024 Q5(iii) & Sem-1 2021 MCQ:</strong> '(a) Why is Laterite soil used as a building material? (b) How can Laterite soil be made productive, and which crops are grown on it? (c) Name one region where it is found.'",
+          "<strong>Location & Map Pointing (Board 2026 Q2(vi), 2019, 2017):</strong> 'Name the soil found on the summits of the Western Ghats, Eastern Ghats, and Meghalaya/Assam hills (North-East India).' → <strong>Laterite Soil</strong>."
+        ],
+        explanation: "The word 'Laterite' comes from the Latin word 'Later' meaning brick. Because it is rich in iron and aluminium oxides and loses moisture rapidly, it becomes hard like iron upon exposure to air, making it a prized building brick material. With heavy manuring and irrigation, it supports plantation crops like Tea, Coffee, Rubber, Cinchona, Cashew nuts, and Tapioca."
+      },
+      {
+        id: 12,
+        topic: "ALLUVIAL_BLACK",
+        topicLabel: "Alluvial & Black Soil",
+        probability: "VERY_HIGH",
+        probText: "94% Exam Probability (Very High)",
+        freqCount: 7,
+        years: ["Specimen 2026", "Board 2024", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017"],
+        question: "How does the Alluvial soil of the Upper Course (e.g., Uttarakhand / Piedmont zone) differ from the Alluvial soil of the Lower Course (e.g., West Bengal / Ganga-Brahmaputra Delta)?",
+        options: [
+          "Upper course alluvium is coarse, porous, and contains large pebbles/gravel (Bhabar), whereas Lower course alluvium is fine-textured, compact, moist, and rich in humus",
+          "Upper course alluvium is fine and clayey, whereas Lower course alluvium is coarse and rocky",
+          "Upper course alluvium is black in colour, whereas Lower course alluvium is bright red",
+          "There is no difference in texture along the river course"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2024 Q5(ii)(a):</strong> 'Differentiate between Alluvial soil of Uttarakhand and Alluvial soil of West Bengal.'",
+          "<strong>Specimen 2026 Q5(iv)(c):</strong> 'Give a reason: Alluvial soil has varying texture.' → Because rivers deposit heavy, coarse, porous sediments in the upper course (foothills) and progressively finer silt and clay in the lower course and deltas."
+        ],
+        explanation: "As a river leaves the mountains in its upper course (e.g., Uttarakhand), its speed drops suddenly and it deposits heavy, coarse, porous boulders and pebbles. By the time the river reaches its lower course and delta (e.g., West Bengal), sediments are ground down into very fine, compact, moisture-retentive silt and clay."
+      },
+      {
+        id: 13,
+        topic: "ALLUVIAL_BLACK",
+        topicLabel: "Alluvial & Black Soil",
+        probability: "HIGH",
+        probText: "86% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2016"],
+        question: "How does the Inland Alluvial soil of the Northern Plains (Punjab, UP, Bihar) differ from the Coastal Alluvial soil of Peninsular India (Godavari, Krishna, Kaveri deltas)?",
+        options: [
+          "Northern Plains alluvium is light-coloured (light grey to yellowish), porous, and sandy/loamy, whereas Coastal/Peninsular alluvium is dark-coloured (dark grey to black), clayey, and non-porous",
+          "Northern Plains alluvium is non-porous and pitch black, whereas Coastal alluvium is coarse and yellow",
+          "Coastal alluvium is formed by Himalayan rivers, whereas Northern alluvium is formed by Peninsular rivers",
+          "Coastal alluvium is rich in kankar nodules and found 50m above sea level"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2019 & 2016 Direct Question:</strong> 'Mention two differences between the Alluvial soil of the Northern Plains and the Alluvial soil on the Coastal Plains of India.'",
+          "<strong>Why is Peninsular Coastal Alluvium dark?</strong> Because the Peninsular rivers (Godavari, Krishna, Mahanadi, Kaveri) flow across the Deccan Trap (Black lava rock region) before depositing their silt along the eastern coastal deltas."
+        ],
+        explanation: "Alluvial soil of the Northern Plains is brought down by Himalayan rivers and is light grey, porous, and loamy. In contrast, Coastal/Deltaic alluvium of Peninsular India is deposited by rivers flowing over the black basaltic Deccan plateau, making it darker, more clayey, and non-porous."
+      },
+      {
+        id: 14,
+        topic: "ALLUVIAL_BLACK",
+        topicLabel: "Alluvial & Black Soil",
+        probability: "VERY_HIGH",
+        probText: "95% Exam Probability (Very High)",
+        freqCount: 8,
+        years: ["Board 2025", "Sem-1 2021", "Specimen 2022", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "Why is the Indo-Gangetic Plain (Alluvial Soil region) called the 'Food Bowl of India', and which minerals is Alluvial Soil rich and deficient in?",
+        options: [
+          "Rich in Potash and Lime; Deficient in Nitrogen, Phosphorus, and Humus (except the Ganga-Brahmaputra delta which is rich in humus); light, friable, and easily tillable for both Rabi and Kharif crops",
+          "Rich in Nitrogen and Phosphorus; Deficient in Potash and Lime",
+          "Rich in Bauxite and Iron Oxide; unsuitable for food grains",
+          "Composed only of coarse gravel and supports only xerophytic thorny bushes"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2025 Q5(i):</strong> 'The Ganga Plain is known for its fertile soil and is often referred to as the food bowl of India. Name the soil and give two properties which help it produce a variety of crops (rice, wheat, pulses, jute, sugarcane).'",
+          "<strong>Total Geography / Sem-1 2021 Trap MCQ:</strong> 'Alluvial soil is rich in which of the following: (a) Iron (b) Nitrogen (c) Phosphorus (d) None of the above (Potash & Lime).' → Correct: <strong>Potash and Lime</strong> (or 'None of the above' if only Iron/N/P are listed!)."
+        ],
+        explanation: "Alluvial soil covers ~40% of India's land area and is the most agriculturally important soil. It is rich in Potash and Lime (though deficient in Nitrogen, Phosphorus, and Humus — except in the Sundarbans/Ganga-Brahmaputra delta where it is humus-rich and ideal for Jute and Rice)."
+      },
+      {
+        id: 15,
+        topic: "ALLUVIAL_BLACK",
+        topicLabel: "Alluvial & Black Soil",
+        probability: "HIGH",
+        probText: "88% Exam Probability (High)",
+        freqCount: 6,
+        years: ["Board 2025", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2017", "Board 2016"],
+        question: "Using the popular CISCE mnemonic 'LIMCAP', which set of minerals is Black (Regur) Soil rich in, and which nutrients is it deficient in?",
+        options: [
+          "Rich in Lime, Iron, Magnesium, Calcium, Alumina, and Potash (LIMCAP); Deficient in Nitrogen, Phosphorus, and Organic matter (Humus)",
+          "Rich in Nitrogen, Phosphorus, and Humus; Deficient in Lime, Iron, and Magnesium",
+          "Rich only in Silica and Sodium salts; Deficient in Clay",
+          "Rich in Uranium and Thorium; Deficient in Calcium Carbonate"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2025 Q5(iv)(c):</strong> 'With reference to Black soil of India: Mention any two minerals present in this soil.' → Lime, Iron, Magnesium, Calcium carbonate, Alumina, Potash.",
+          "<strong>Crop Match Variation (Board 2020, 2018):</strong> 'Besides Cotton, name two other crops that grow well in Black/Regur soil.' → <strong>Sugarcane, Jowar, Wheat, Linseed, Gram, Virginia Tobacco, and Citrus fruits</strong>."
+        ],
+        explanation: "Black (Regur) soil is chemically rich in Lime, Iron, Magnesium, Calcium carbonate, Alumina, and Potash (remembered as LIMCAP). Like most Indian soils, it is deficient in Nitrogen, Phosphoric acid, and Organic matter (Humus)."
+      },
+      {
+        id: 16,
+        topic: "EROSION",
+        topicLabel: "Erosion & Conservation",
+        probability: "VERY_HIGH",
+        probText: "94% Exam Probability (Very High)",
+        freqCount: 7,
+        years: ["Board 2025", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "When heavy downpours of rain cut deep channels and steep-sided ravines in clayey/alluvial soil, turning agricultural land into 'Badland Topography' (as seen in the Chambal Valley of Madhya Pradesh/UP/Rajasthan), what is this type of erosion called?",
+        options: [
+          "Sheet Erosion",
+          "Splash Erosion",
+          "Gully Erosion (and Ravine formation)",
+          "Wind Erosion"
+        ],
+        correct: 2,
+        variations: [
+          "<strong>Sem-1 2021 & Board 2019 Direct Question:</strong> 'Name a region in India famous for Gully Erosion and Badland Topography.' → <strong>Chambal Valley (Chambal Ravines)</strong>.",
+          "<strong>Progression of Water Erosion MCQ:</strong> 1st stage = <em>Splash Erosion</em> (raindrop impact) → 2nd stage = <em>Sheet Erosion</em> (uniform removal of thin topsoil film on gentle slopes) → 3rd stage = <em>Rill Erosion</em> (small finger-like grooves) → 4th stage = <em>Gully Erosion</em> (deep water-worn channels/ravines)."
+        ],
+        explanation: "When rills are not checked, heavy runoff deepens and widens them into large gullies (Gully Erosion). In the Chambal Valley (along the Chambal River in MP, Rajasthan, and UP), extensive gully erosion has created deep ravines known as 'Badland Topography', rendering the land unfit for cultivation."
+      },
+      {
+        id: 17,
+        topic: "EROSION",
+        topicLabel: "Erosion & Conservation",
+        probability: "HIGH",
+        probText: "87% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2016"],
+        question: "The slow and uniform removal of a thin surface layer of fertile topsoil by rainwater runoff over gentle slopes (especially on bare hill slopes of the Himalayas, Nilgiris, and North-East India) is known as:",
+        options: [
+          "Sheet Erosion",
+          "Gully Erosion",
+          "Stream Bank Erosion",
+          "Shore Erosion"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Sem-1 2021 Direct Definition MCQ:</strong> 'Which type of erosion involves the slow removal of a thin layer of topsoil when vegetation is destroyed on gentle slopes?' → <strong>Sheet Erosion</strong>.",
+          "<strong>Stream Bank Erosion Variation:</strong> 'When rivers in flood undercut their banks and change course (like the Kosi or Damodar), which erosion occurs?' → <strong>Stream Bank Erosion</strong>."
+        ],
+        explanation: "Sheet erosion occurs on gentle slopes stripped of vegetation when heavy rain washes away a thin, even layer of fertile topsoil across a wide area. Because no deep channels appear initially, it often goes unnoticed until productivity drops sharply."
+      },
+      {
+        id: 18,
+        topic: "EROSION",
+        topicLabel: "Erosion & Conservation",
+        probability: "VERY_HIGH",
+        probText: "93% Exam Probability (Very High)",
+        freqCount: 7,
+        years: ["Board 2026", "Board 2025", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017"],
+        question: "Why is Wind a predominant agent of soil erosion in arid and semi-arid regions like the Thar Desert (Western Rajasthan)?",
+        options: [
+          "Because the region receives over 300 cm of cyclonic rainfall",
+          "Because of scanty rainfall, absence of protective vegetative cover, high-velocity winds, and loose, dry, sandy soil lacking moisture to bind particles together",
+          "Because the soil contains 80% sticky clay",
+          "Because perennial rivers flood the desert every month"
+        ],
+        correct: 1,
+        variations: [
+          "<strong>Board 2026 Q5(iv)(a) (Direct Board Question):</strong> 'Give a reason: Wind is a common agent of soil erosion in arid regions.'",
+          "<strong>Conservation Match (Sem-1 2021, Board 2020):</strong> 'Which soil conservation method is specifically used in arid/desert regions to check wind velocity and stop the expansion of sand dunes?' → <strong>Planting Shelter Belts (Windbreaks)</strong> — rows of trees planted perpendicular to the wind direction."
+        ],
+        explanation: "In arid and semi-arid regions (such as Rajasthan and parts of Gujarat/Haryana), low rainfall results in sparse vegetation and dry, loose, sandy soil devoid of moisture. Strong winds easily lift and blow away the fine topsoil particles (deflation) and deposit sand sheets over adjacent fertile lands."
+      },
+      {
+        id: 19,
+        topic: "EROSION",
+        topicLabel: "Erosion & Conservation",
+        probability: "VERY_HIGH",
+        probText: "95% Exam Probability (Very High)",
+        freqCount: 8,
+        years: ["Specimen 2026", "Specimen 2025", "Board 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2018", "Board 2017"],
+        question: "On hilly slopes of the Himalayas and the Western Ghats, which pair of agricultural techniques is most effective in checking the speed of surface water runoff and preventing soil erosion?",
+        options: [
+          "Terrace Farming (cutting broad flat steps along hill slopes) and Contour Ploughing (ploughing along contour lines perpendicular to the slope)",
+          "Shifting cultivation (Slash and burn) and Ploughing vertically up and down the hill slope",
+          "Overgrazing and Deforestation",
+          "Building deep ravines and removing bunds"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Specimen 2026 Q5(ii)(b) & Board 2023 Q3(iv):</strong> 'Mention any two innovative agricultural techniques that can help to prevent soil erosion.' → <strong>Terrace Farming, Contour Ploughing, Strip Cropping, Shelter Belts</strong>.",
+          "<strong>Sem-1 2021 Trap MCQ:</strong> 'An agricultural method that LEADS to severe soil erosion in mountains is: (a) Terrace farming (b) Contour ploughing (c) Ploughing parallel to the slope of the mountain (up and down) (d) Strip cropping.' → <strong>(c) Ploughing parallel to the slope</strong> (and Jhum/Shifting cultivation)."
+        ],
+        explanation: "On hill slopes, Terrace Farming (cutting step-like flat terraces that act as bunds) and Contour Ploughing (ploughing horizontally along equal-elevation contours at right angles to the slope) slow down running water, allow water to percolate into the soil, and prevent topsoil wash-off."
+      },
+      {
+        id: 20,
+        topic: "EROSION",
+        topicLabel: "Erosion & Conservation",
+        probability: "HIGH",
+        probText: "88% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Specimen 2026", "Sem-1 2021", "Board 2020", "Board 2018", "Board 2016"],
+        question: "What is the difference between 'Strip Cropping' and 'Shelter Belts' as methods of soil conservation?",
+        options: [
+          "Strip Cropping involves growing alternate strips of parallel crops (e.g., grass/pulses between tall row crops like maize/millet) whose different harvesting times and root systems check water/wind runoff; Shelter Belts are rows of trees planted perpendicular to wind direction to reduce wind velocity",
+          "Strip Cropping is cutting steps on mountains; Shelter Belts are dams built across rivers",
+          "Both terms mean burning forest patches in North-East India",
+          "Strip Cropping is only for deserts; Shelter Belts are only for underwater deltas"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Sem-1 2021 Direct MCQ:</strong> 'Farmers plant trees in several rows perpendicular to the wind direction to check soil erosion by wind. This is known as:' → <strong>Shelter Belts</strong>.",
+          "<strong>Crop Rotation & Nitrogen Fixation Variation (Board 2019, 2017):</strong> 'How can farmers naturally restore Nitrogen fertility to exhausted soil while conserving it?' → By growing <strong>Leguminous crops (pulses, gram, peas, groundnut)</strong> in rotation with cereal crops, as Rhizobium bacteria in root nodules fix atmospheric nitrogen."
+        ],
+        explanation: "In Strip Cropping, large fields are divided into strips, and cover crops (like grasses or pulses/legumes) are grown alternating with erosion-prone row crops (like maize or cotton) to break runoff and wind. Shelter Belts are multiple rows of trees/shrubs planted along desert margins or coastal belts to break wind speed."
+      },
+      {
+        id: 21,
+        topic: "EROSION",
+        topicLabel: "Erosion & Conservation",
+        probability: "HIGH",
+        probText: "86% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Specimen 2026", "Specimen 2025", "Board 2023", "Board 2019", "Board 2017"],
+        question: "How does increasing population pressure directly accelerate soil erosion in India?",
+        options: [
+          "It leads to reckless deforestation (for timber, fuelwood, and expanding farmland), overgrazing by livestock, rapid urbanization, and mining, which strip the land of its protective vegetation cover",
+          "It increases the thickness of the humus layer in forests",
+          "It reduces the speed of monsoon winds",
+          "It converts Bhangar soil into Khadar soil automatically"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Specimen 2026 & Specimen 2025 Q5(ii)(a):</strong> 'How does population pressure affect soil erosion?' → Leads to deforestation, overgrazing, mining, urbanization, and faulty intensive farming practices that expose bare topsoil to wind and water.",
+          "<strong>Foothills of Himalayas Variation (Board 2019, 2017):</strong> 'Why are the foothills of the Himalayas (Shiwaliks) and the Western Ghats prone to excessive soil erosion?' → Due to steep slopes, torrential monsoon downpours, and large-scale deforestation/lumbering."
+        ],
+        explanation: "Rising population pressure forces clearing of forests for housing, industry, roads, and agriculture, alongside overgrazing of pastures. Without vegetation roots to anchor the soil, heavy monsoon rains and winds rapidly erode the exposed topsoil."
+      },
+      {
+        id: 22,
+        topic: "EROSION",
+        topicLabel: "Erosion & Conservation",
+        probability: "HIGH",
+        probText: "84% Exam Probability (High)",
+        freqCount: 4,
+        years: ["Sem-1 2021", "Board 2020", "Board 2018", "Board 2016"],
+        question: "In which region of India is 'Shifting Cultivation' (Slash-and-Burn agriculture, locally called Jhum) a major anthropogenic (human-made) cause of soil erosion, and why?",
+        options: [
+          "North-Eastern hilly states (Assam, Arunachal Pradesh, Meghalaya, Mizoram, Nagaland) — because tribal farmers clear and burn forest patches on steep hill slopes and abandon them after 2–3 years, exposing bare slopes to heavy monsoon rain",
+          "Punjab and Haryana — because of canal irrigation",
+          "Kerala backwaters — because of fishing",
+          "Kutch region of Gujarat — because of salt pans"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2020 & Sem-1 2021 MCQ:</strong> 'Why is Jhum (shifting cultivation) discouraged by the government?' → Because burning forests on steep North-Eastern hills destroys flora and causes severe sheet and gully erosion during heavy rains."
+        ],
+        explanation: "In North-East India, Jhum (shifting cultivation) involves cutting and burning forest patches on hill slopes. Once soil fertility drops in 2–3 years, the patch is abandoned. Torrential rains in the North-East rapidly wash away the unprotected topsoil."
+      },
+      {
+        id: 23,
+        topic: "ALLUVIAL_BLACK",
+        topicLabel: "Alluvial & Black Soil",
+        probability: "HIGH",
+        probText: "85% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Board 2026", "Sem-1 2021", "Board 2019", "Board 2018", "Board 2016"],
+        question: "What is 'Loam' (Loamy Soil), and why is Alluvial Soil extensively found across the Northern Plains of India?",
+        options: [
+          "Loam is a fertile balanced mixture of sand, clay, and silt; Alluvial soil is extensively found in the Northern Plains because numerous perennial Himalayan rivers (Indus, Ganga, Brahmaputra and their tributaries) erode soft Himalayan sedimentary rocks and deposit vast quantities of silt when they enter the flat plains",
+          "Loam is pure volcanic rock; found in the Northern Plains due to volcanoes",
+          "Loam is a mixture of iron ore and bauxite; found in the Northern Plains due to leaching",
+          "Loam is coarse desert sand; brought by Loo winds"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2026 Q5(iv)(c) (Direct Board Question):</strong> 'Give a reason: Alluvial soil is extensively found in the Northern Plains.'",
+          "<strong>Definition Variation (Board 2018):</strong> 'What is Loam?' → Soil containing an almost equal, balanced mixture of sand, silt, and clay (characteristic of fertile Alluvial soil)."
+        ],
+        explanation: "Loam is an ideal agricultural mixture of sand, clay, and silt that offers both good drainage and moisture retention. The Northern Plains have the world's largest tract of Alluvial soil because the perennial Himalayan rivers carry huge loads of eroded silt and deposit it across the flat Indo-Gangetic trough."
+      },
+      {
+        id: 24,
+        topic: "RED_LATERITE",
+        topicLabel: "Red & Laterite Soil",
+        probability: "HIGH",
+        probText: "83% Exam Probability (High)",
+        freqCount: 4,
+        years: ["Sem-1 2021", "Specimen 2022", "Board 2019", "Board 2017"],
+        question: "Which of the following soils vary significantly in colour, texture, and fertility from place to place depending directly upon the underlying parent rock and local climatic conditions?",
+        options: [
+          "Residual (In-situ) soils such as Red Soil, Laterite Soil, and Black Soil",
+          "Transported (Ex-situ) Riverine Alluvial Soil",
+          "Only Deltaic Khadar Soil",
+          "None of the above"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Sem-1 2021 Specimen (Direct MCQ):</strong> 'Which of the following soils vary from place to place on the basis of the parental rocks and climatic conditions?' → <strong>Residual soils (Red / Black / Laterite)</strong>."
+        ],
+        explanation: "Because Residual (In-situ) soils like Red, Black, and Laterite are formed right over their parent rocks via weathering, their mineral composition, texture, and colour directly mirror the local parent rock and climate."
+      },
+      {
+        id: 25,
+        topic: "ALLUVIAL_BLACK",
+        topicLabel: "Alluvial & Black Soil",
+        probability: "HIGH",
+        probText: "87% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Sample 2026", "Board 2023", "Sem-1 2021", "Board 2019", "Board 2017"],
+        question: "A farmer in Maharashtra finds that his dark-coloured soil is rich in clay and retains moisture well for growing Cotton and Jowar, while a farmer in Western Rajasthan faces challenges due to high salt content and poor water retention in his alkaline sandy soil. Identify the two soils:",
+        options: [
+          "Maharashtra = Black (Regur) Soil; Western Rajasthan = Desert (Arid / Sandy) Soil",
+          "Maharashtra = Laterite Soil; Western Rajasthan = Khadar Alluvial Soil",
+          "Maharashtra = Red Soil; Western Rajasthan = Marshy Peaty Soil",
+          "Maharashtra = Bhangar Soil; Western Rajasthan = Black Soil"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Sample 2025-26 Q5(i) & Board 2019 Q5(c):</strong> '(a) Identify the two types of soil described in Maharashtra and Rajasthan. (b) Give a geographical reason: Jowar/Cotton is grown in Maharashtra whereas Bajra is grown in Rajasthan.' → Bajra is a hardy drought-resistant millet suited to sandy Arid soil of Rajasthan, while Cotton/Jowar thrive in moisture-retentive Black Regur soil of Maharashtra."
+        ],
+        explanation: "Maharashtra lies in the Deccan Trap with moisture-retentive Black (Regur) soil ideal for Cotton, Sugarcane, and Jowar. Western Rajasthan has Arid (Desert) sandy soil with low humus and high soluble salt content, supporting hardy crops like Bajra and pulses when irrigated."
+      },
+      {
+        id: 26,
+        topic: "EROSION",
+        topicLabel: "Erosion & Conservation",
+        probability: "MEDIUM",
+        probText: "79% Exam Probability (Medium)",
+        freqCount: 3,
+        years: ["Board 2023", "Sem-1 2021", "Board 2018"],
+        question: "The scientific study of soil in its natural environment is called __________, whereas the natural process of soil formation through rock weathering and organic addition is called __________.",
+        options: [
+          "Pedology; Pedogenesis",
+          "Petrology; Orogenesis",
+          "Seismology; Desilication",
+          "Climatology; Laterization"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Direct One-Word / MCQ Concept:</strong> 'Which branch of science deals with the study of soil?' → <strong>Pedology</strong>. 'What is the process of soil formation called?' → <strong>Pedogenesis</strong>."
+        ],
+        explanation: "Pedology is the scientific study of soils (their nature, properties, and distribution), and Pedogenesis is the evolutionary process of soil formation from parent rock through physical, chemical, and biological weathering."
+      },
+      {
+        id: 27,
+        topic: "EROSION",
+        topicLabel: "Erosion & Conservation",
+        probability: "HIGH",
+        probText: "85% Exam Probability (High)",
+        freqCount: 4,
+        years: ["Board 2024", "Sem-1 2021", "Board 2019", "Board 2017"],
+        question: "How are deep Gullies and Ravines reclaimed and prevented from spreading further in areas like the Chambal Valley?",
+        options: [
+          "By plugging gullies with stone/earthen check-dams, bundling, and planting deep-rooted trees/grasses (afforestation) along gully slopes",
+          "By cutting down all shrubs and ploughing vertically down the gully walls",
+          "By diverting floodwaters into the gullies at high speed",
+          "By removing all clay from the riverbed"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2019 & Sem-1 2021 MCQ:</strong> 'Which mechanical and biological measure specifically checks Gully Erosion?' → <strong>Plugging of Gullies (constructing check-dams / bunds across gullies) and planting soil-binding grasses and trees</strong>."
+        ],
+        explanation: "Gully erosion is controlled by 'Plugging the Gullies' — building small check-dams, stone bunds, or boulder barriers across the gully bed to trap silt and slow water velocity, combined with planting soil-binding grasses and trees."
+      },
+      {
+        id: 28,
+        topic: "ALLUVIAL_BLACK",
+        topicLabel: "Alluvial & Black Soil",
+        probability: "HIGH",
+        probText: "86% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Board 2025", "Sem-1 2021", "Board 2020", "Board 2018", "Board 2016"],
+        question: "Assertion (A): Black soil does NOT undergo leaching even when it receives rainfall.<br>Reason (R): Black soil is fine-textured, clayey, and non-porous; when wet, it swells and becomes sticky, retaining moisture rather than allowing water and soluble minerals to percolate rapidly downwards.",
+        options: [
+          "Both (A) and (R) are true and (R) is the correct explanation for (A)",
+          "Both (A) and (R) are true but (R) is NOT the correct explanation for (A)",
+          "(A) is true and (R) is false",
+          "(A) is false and (R) is true"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Conceptual Give-Reason Question:</strong> 'Does Black soil undergo leaching? Give a reason for your answer.' → No, because its high clay content makes it swell and become impervious/sticky when wet, preventing downward percolation of soluble nutrients."
+        ],
+        explanation: "Leaching requires porous soil where rainwater can percolate rapidly downwards (like Laterite soil). Because Black soil is rich in fine clay, it swells and becomes sticky when wet, holding moisture and preventing soluble minerals like lime and potash from leaching away."
+      },
+      {
+        id: 29,
+        topic: "RED_LATERITE",
+        topicLabel: "Red & Laterite Soil",
+        probability: "HIGH",
+        probText: "84% Exam Probability (High)",
+        freqCount: 4,
+        years: ["Board 2026", "Specimen 2024", "Sem-1 2021", "Board 2018"],
+        question: "Why is Laterite Soil acidic in nature and low in fertility?",
+        options: [
+          "Becausealkaline bases like Lime (Calcium), Potash, and Silica are leached away by heavy tropical rains, and humus-forming bacteria are destroyed or organic matter is rapidly consumed under high temperatures",
+          "Because farmers add sulphuric acid to the soil",
+          "Because it is submerged under seawater in the Rann of Kutch",
+          "Because it is formed from limestone rocks in cold deserts"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2026 Q5(iv)(b) & Specimen 2026 Q5(iv)(b):</strong> 'Give a reason: Laterite soil is not suitable for cultivation.' → Due to intense leaching caused by heavy rainfall, essential nutrients (lime, silica, nitrogen) percolate down, leaving the topsoil acidic, coarse, and infertile."
+        ],
+        explanation: "When alkaline bases (especially Lime/Calcium and Potassium) are washed out of the topsoil by heavy rain (leaching), the remaining soil rich in iron and aluminium oxides becomes strongly acidic (low pH) and infertile unless treated with lime and manure."
+      },
+      {
+        id: 30,
+        topic: "DATA",
+        topicLabel: "Tables & Visual Diagrams",
+        probability: "VERY_HIGH",
+        probText: "99% Exam Probability (Very High)",
+        freqCount: 11,
+        years: ["Board 2026", "Specimen 2026", "Board 2025", "Board 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "<strong>[Table Sub-Question 1: 4-Soil Master Identification Matrix]</strong><br>Study the comparative soil data table below for Soils <strong>P, Q, R, and S</strong> and choose the option that correctly identifies all four soils:",
+        tableHtml: `
+          <div class="soil-table-wrap">
+            <table class="soil-table">
+              <thead>
+                <tr><th>Soil Code</th><th>Origin & Formation</th><th>Key Physical / Chemical Feature</th><th>Signature Crops & Region</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>Soil P</th><td>Ex-situ; deposited by rivers</td><td>Rich in Potash & Lime; divided into Khadar & Bhangar</td><td>Rice, Wheat, Sugarcane, Jute (Northern Plains & Deltas)</td></tr>
+                <tr><th>Soil Q</th><td>In-situ; weathering of Deccan Trap basaltic lava</td><td>Self-ploughing; sticky when wet, deep cracks when dry</td><td>Cotton, Sugarcane, Jowar (Maharashtra, Gujarat, MP)</td></tr>
+                <tr><th>Soil R</th><td>In-situ; weathering of ancient crystalline & metamorphic rocks</td><td>Porous, friable; red due to Iron Oxide, yellow when hydrated</td><td>Millets (Ragi), Pulses, Groundnut, Tobacco (Tamil Nadu, Odisha)</td></tr>
+                <tr><th>Soil S</th><td>In-situ; intense leaching (desilication) in heavy rain & high temp</td><td>Acidic; hardens like iron when exposed to air (building bricks)</td><td>Tea, Coffee, Cashew nuts, Tapioca (Summits of W. & E. Ghats)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        `,
+        options: [
+          "P = Alluvial Soil; Q = Black (Regur) Soil; R = Red Soil; S = Laterite Soil",
+          "P = Black Soil; Q = Alluvial Soil; R = Laterite Soil; S = Red Soil",
+          "P = Red Soil; Q = Laterite Soil; R = Alluvial Soil; S = Black Soil",
+          "P = Alluvial Soil; Q = Red Soil; R = Black Soil; S = Laterite Soil"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Every Board & Specimen Paper (2016–2026 Q5):</strong> Tests at least 2 of these 4 rows directly in tabular or passage form.",
+          "<strong>Revision Tip:</strong> Memorize this 4-row table — it covers 90% of all identification questions ever asked in CISCE Geography Q5!"
+        ],
+        explanation: "Soil P is Alluvial Soil (ex-situ riverine, Khadar/Bhangar, Potash & Lime). Soil Q is Black/Regur Soil (in-situ volcanic lava, self-ploughing, Cotton). Soil R is Red Soil (in-situ crystalline rocks, Iron Oxide, yellow when hydrated). Soil S is Laterite Soil (in-situ leaching/desilication, acidic, building bricks, Tea/Coffee/Cashew)."
+      },
+      {
+        id: 31,
+        topic: "DATA",
+        topicLabel: "Tables & Visual Diagrams",
+        probability: "VERY_HIGH",
+        probText: "96% Exam Probability (Very High)",
+        freqCount: 8,
+        years: ["Specimen 2026", "Specimen 2025", "Board 2024", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2016"],
+        question: "<strong>[Table Sub-Question 2: Khadar vs. Bhangar Comparative Table]</strong><br>Examine the comparison table between the two varieties of Alluvial Soil below and identify the option that correctly fills in the missing blanks <strong>(1), (2), and (3)</strong>:",
+        tableHtml: `
+          <div class="soil-table-wrap">
+            <table class="soil-table">
+              <thead>
+                <tr><th>Parameter</th><th>Sub-Type A: Bhangar Soil</th><th>Sub-Type B: Khadar Soil</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>Age & Position</th><td>Older alluvium; found on river terraces ~30m above flood level</td><td><strong>(1) ________________________</strong></td></tr>
+                <tr><th>Composition & Texture</th><td><strong>(2) ________________________</strong></td><td>Fine silt and clay; light in colour and very compact</td></tr>
+                <tr><th>Agricultural Fertility</th><td>Less fertile; requires manure and irrigation</td><td><strong>(3) ________________________</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        `,
+        options: [
+          "(1) Newer alluvium found in lower floodplains and deltas; (2) Coarse texture full of calcareous lime nodules (kankars); (3) Extremely fertile as it is replenished every year by fresh flood silt",
+          "(1) Residual volcanic soil on hills; (2) Pure fine clay without pebbles; (3) Infertile due to leaching",
+          "(1) Older alluvium in deserts; (2) Rich in bauxite; (3) Suitable only for thorny bushes",
+          "(1) Newer alluvium on mountain peaks; (2) Rich in iron oxide; (3) Used for making bricks"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Specimen 2026 & 2025 Q5(i) + Sem-1 2021 MCQ:</strong> Directly tests the 3-point contrast between Bhangar (Older, upland river terrace, kankars, less fertile) and Khadar (Newer, lowland floodplain, fine silt/clay, replenished annually by floods)."
+        ],
+        explanation: "Bhangar is older alluvium found on higher terraces containing coarse calcareous 'kankar' nodules. Khadar is newer alluvium found in lower floodplains, composed of fine silt and clay, and renewed annually by floods — making it far more fertile."
+      },
+      {
+        id: 32,
+        topic: "DATA",
+        topicLabel: "Tables & Visual Diagrams",
+        probability: "HIGH",
+        probText: "90% Exam Probability (High)",
+        freqCount: 6,
+        years: ["Board 2026", "Board 2025", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2017"],
+        question: "<strong>[Table Sub-Question 3: Soil Mineral Richness & Deficiency Matrix]</strong><br>Study the chemical composition table of the four Indian soils below and identify which row contains an <strong>INCORRECT</strong> mineral entry:",
+        tableHtml: `
+          <div class="soil-table-wrap">
+            <table class="soil-table">
+              <thead>
+                <tr><th>Row</th><th>Soil Type</th><th>Minerals Rich In</th><th>Minerals Deficient In</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>Row 1</th><td>Alluvial Soil</td><td>Potash and Lime</td><td>Nitrogen, Phosphorus, and Humus (except Ganga delta)</td></tr>
+                <tr><th>Row 2</th><td>Black (Regur) Soil</td><td>Lime, Iron, Magnesium, Calcium, Alumina, Potash (LIMCAP)</td><td>Nitrogen, Phosphorus, and Organic Matter (Humus)</td></tr>
+                <tr><th>Row 3</th><td>Red Soil</td><td>Iron Oxide (Ferric Oxide) and Potash</td><td>Lime, Nitrogen, Phosphorus, and Humus</td></tr>
+                <tr><th>Row 4</th><td>Laterite Soil</td><td>Soluble Silica, Calcium Carbonate (Lime), and Nitrogen</td><td>Iron Oxide and Aluminium Oxide (Bauxite)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        `,
+        options: [
+          "Row 1 is incorrect",
+          "Row 2 is incorrect",
+          "Row 3 is incorrect",
+          "Row 4 is incorrect (Laterite is RICH in Iron & Aluminium oxides and DEFICIENT in Silica, Lime, and Nitrogen due to leaching)"
+        ],
+        correct: 3,
+        variations: [
+          "<strong>Board 2026 Q3(ii) & Sem-1 2021 Negative MCQ:</strong> 'Identify the INCORRECT statement regarding Laterite soil / Indian soils.' → In Row 4, the columns are swapped: Laterite soil undergoes desilication/leaching, so Silica and Lime are washed away (deficient), leaving Iron and Aluminium oxides behind (rich)."
+        ],
+        explanation: "Rows 1, 2, and 3 are 100% accurate. Row 4 is reversed: in Laterite soil, heavy rainfall leaches away soluble Silica and Lime (making it deficient in Silica, Lime, Nitrogen, and Humus), while insoluble Iron Oxide and Aluminium Oxide remain concentrated in the topsoil."
+      },
+      {
+        id: 33,
+        topic: "DATA",
+        topicLabel: "Tables & Visual Diagrams",
+        probability: "HIGH",
+        probText: "88% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Board 2026", "Board 2023", "Sem-1 2021", "Board 2019", "Board 2017"],
+        question: "<strong>[Visual Diagram Sub-Question 1: Soil Profile Horizons]</strong><br>Observe the vertical cross-section diagram of a mature <strong>In-situ Soil Profile</strong> below and identify <strong>Horizon O/A</strong>, <strong>Horizon B</strong>, <strong>Horizon C</strong>, and <strong>Horizon D</strong>:",
+        diagramHtml: `
+          <div class="diagram-box">
+            <div class="diagram-panel" style="max-width:620px; width:100%;">
+              <div class="diagram-caption">Vertical Cross-Section of a Mature Residual Soil Profile</div>
+              <svg viewBox="0 0 500 220" width="100%" height="190">
+                <rect width="500" height="220" rx="8" fill="#090d16"/>
+                <!-- Plants on Top -->
+                <path d="M 110 35 Q 100 15 90 20 M 110 35 Q 120 12 130 18 M 110 35 L 110 10" stroke="#10b981" stroke-width="3" fill="none"/>
+                <path d="M 190 35 Q 180 15 170 20 M 190 35 Q 200 12 210 18 M 190 35 L 190 10" stroke="#10b981" stroke-width="3" fill="none"/>
+                <!-- Roots into A & B -->
+                <path d="M 110 35 Q 105 55 95 68 M 110 35 Q 118 60 122 85" stroke="#a3e635" stroke-width="1.5" fill="none"/>
+                <path d="M 190 35 Q 185 55 178 72 M 190 35 Q 198 62 204 82" stroke="#a3e635" stroke-width="1.5" fill="none"/>
+                <!-- Horizon O/A -->
+                <rect x="40" y="35" width="220" height="40" fill="#3f2e21" stroke="#fbbf24" stroke-width="1.5"/>
+                <text x="275" y="58" fill="#34d399" font-size="12" font-weight="bold">LAYER 1 (O & A-Horizon): Dark &amp; Root-Rich</text>
+                <!-- Horizon B -->
+                <rect x="40" y="75" width="220" height="42" fill="#78350f" stroke="#fbbf24" stroke-width="1.5"/>
+                <text x="275" y="100" fill="#38bdf8" font-size="12" font-weight="bold">LAYER 2 (B-Horizon): Leached Minerals</text>
+                <!-- Horizon C -->
+                <rect x="40" y="117" width="220" height="42" fill="#475569" stroke="#fbbf24" stroke-width="1.5"/>
+                <circle cx="80" cy="135" r="8" fill="#94a3b8"/><circle cx="140" cy="140" r="10" fill="#94a3b8"/><circle cx="210" cy="136" r="9" fill="#94a3b8"/>
+                <text x="275" y="142" fill="#fbbf24" font-size="12" font-weight="bold">LAYER 3 (C-Horizon): Rock Fragments</text>
+                <!-- Horizon D -->
+                <rect x="40" y="159" width="220" height="42" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+                <line x1="40" y1="178" x2="260" y2="178" stroke="#64748b" stroke-width="2"/>
+                <text x="275" y="184" fill="#f87171" font-size="12" font-weight="bold">LAYER 4 (D-Horizon): Solid Base</text>
+              </svg>
+            </div>
+          </div>
+        `,
+        options: [
+          "Layer 1 (O/A) = Topsoil rich in Humus & biological activity; Layer 2 (B) = Subsoil (Zone of accumulation of leached minerals/clay); Layer 3 (C) = Partially weathered parent rock (Regolith); Layer 4 (D) = Unweathered solid Bedrock",
+          "Layer 1 = Solid Bedrock; Layer 2 = Weathered rock; Layer 3 = Subsoil; Layer 4 = Topsoil with Humus",
+          "Layer 1 = Khadar; Layer 2 = Bhangar; Layer 3 = Regur; Layer 4 = Laterite",
+          "All four layers contain equal amounts of Humus and plant roots"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Soil Profile Diagram Concept (Sem-1 2021, Board 2023, 2026):</strong> (1) Which horizon is crucial for plant growth and contains maximum Humus? → <strong>O & A-Horizon (Topsoil)</strong>. (2) Which soil type lacks a well-developed soil profile? → <strong>Transported (Alluvial) soil</strong>."
+        ],
+        explanation: "A mature residual soil profile consists of 4 main layers from top to bottom: (1) O/A-Horizon (Topsoil — rich in humus, roots, and microorganisms); (2) B-Horizon (Subsoil — zone of illuviation where leached minerals and clay accumulate, with very little humus); (3) C-Horizon (Substratum of weathered parent rock fragments); and (4) D/R-Horizon (Unweathered solid parent bedrock)."
+      },
+      {
+        id: 34,
+        topic: "DATA",
+        topicLabel: "Tables & Visual Diagrams",
+        probability: "VERY_HIGH",
+        probText: "93% Exam Probability (Very High)",
+        freqCount: 6,
+        years: ["Board 2025", "Board 2024", "Sem-1 2021", "Board 2020", "Board 2018", "Board 2017"],
+        question: "<strong>[Visual Diagram Sub-Question 2: Stages of Water Erosion]</strong><br>Observe the three progressive stages of running-water soil erosion (<strong>Stage 1, Stage 2, and Stage 3</strong>) illustrated below and choose the correct identification:",
+        diagramHtml: `
+          <div class="diagram-box">
+            <div class="diagram-panel" style="max-width:680px; width:100%;">
+              <div class="diagram-caption">Progressive Stages of Soil Erosion by Running Water</div>
+              <svg viewBox="0 0 540 175" width="100%" height="160">
+                <rect width="540" height="175" rx="8" fill="#090d16"/>
+                <!-- Stage 1 -->
+                <rect x="15" y="20" width="155" height="135" rx="6" fill="#1e293b" stroke="#38bdf8"/>
+                <text x="92" y="40" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">STAGE 1</text>
+                <polygon points="25,65 160,115 160,140 25,140" fill="#78350f"/>
+                <line x1="30" y1="60" x2="155" y2="108" stroke="#38bdf8" stroke-width="3" stroke-dasharray="6,3"/>
+                <text x="92" y="132" fill="#e2e8f0" font-size="9.5" text-anchor="middle">Thin uniform film washed off</text>
+                <!-- Stage 2 -->
+                <rect x="192" y="20" width="155" height="135" rx="6" fill="#1e293b" stroke="#fbbf24"/>
+                <text x="270" y="40" fill="#fbbf24" font-size="11" font-weight="bold" text-anchor="middle">STAGE 2</text>
+                <rect x="202" y="75" width="135" height="65" fill="#78350f"/>
+                <path d="M 225 75 Q 230 105 220 140 M 265 75 Q 272 105 268 140 M 305 75 Q 312 105 302 140" stroke="#38bdf8" stroke-width="2.5" fill="none"/>
+                <text x="270" y="65" fill="#fde68a" font-size="9.5" text-anchor="middle">Shallow finger-like grooves</text>
+                <!-- Stage 3 -->
+                <rect x="370" y="20" width="155" height="135" rx="6" fill="#1e293b" stroke="#f43f5e"/>
+                <text x="447" y="40" fill="#f43f5e" font-size="11" font-weight="bold" text-anchor="middle">STAGE 3</text>
+                <polygon points="380,75 415,75 430,135 465,135 480,75 515,75 515,140 380,140" fill="#78350f"/>
+                <polygon points="415,75 430,135 465,135 480,75" fill="#090d16" stroke="#f43f5e" stroke-width="1.5"/>
+                <text x="447" y="65" fill="#fda4af" font-size="9.5" text-anchor="middle">Deep V-shaped Ravine Channel</text>
+              </svg>
+            </div>
+          </div>
+        `,
+        options: [
+          "Stage 1 = Sheet Erosion; Stage 2 = Rill Erosion; Stage 3 = Gully Erosion (e.g., Chambal Ravines)",
+          "Stage 1 = Gully Erosion; Stage 2 = Sheet Erosion; Stage 3 = Wind Erosion",
+          "Stage 1 = Leaching; Stage 2 = Terrace Farming; Stage 3 = Contour Ploughing",
+          "Stage 1 = Rill Erosion; Stage 2 = Splash Erosion; Stage 3 = Sheet Erosion"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Competency & Sem-1 2021 Visual Sequence MCQ:</strong> Tests the exact sequence of water erosion: (1) <strong>Sheet Erosion</strong> (even removal of thin surface layer) → (2) <strong>Rill Erosion</strong> (intermediate stage with numerous finger-shaped grooves) → (3) <strong>Gully Erosion</strong> (deep channels and badland ravines)."
+        ],
+        explanation: "Water erosion progresses in three distinct stages: Stage 1 is Sheet Erosion (removal of an even film of topsoil on gentle slopes); Stage 2 is Rill Erosion (when runoff forms small finger-like channels or rills); Stage 3 is Gully Erosion (when rills deepen into wide, steep-sided ravines such as the Chambal Valley)."
+      },
+      {
+        id: 35,
+        topic: "DATA",
+        topicLabel: "Tables & Visual Diagrams",
+        probability: "VERY_HIGH",
+        probText: "95% Exam Probability (Very High)",
+        freqCount: 7,
+        years: ["Specimen 2026", "Board 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2017"],
+        question: "<strong>[Visual Diagram Sub-Question 3: Soil Conservation Techniques]</strong><br>Observe <strong>Technique A</strong> (practised on steep mountain slopes) and <strong>Technique B</strong> (practised on arid desert margins) below and select the correct pair:",
+        diagramHtml: `
+          <div class="diagram-box">
+            <div class="diagram-panel">
+              <div class="diagram-caption">Technique A (Hill Slopes)</div>
+              <svg viewBox="0 0 250 165" width="100%" height="145">
+                <rect width="250" height="165" rx="8" fill="#090d16"/>
+                <!-- Step Terraces -->
+                <polygon points="20,145 20,115 75,115 75,85 135,85 135,55 195,55 195,30 235,30 235,145" fill="#78350f" stroke="#10b981" stroke-width="2.5"/>
+                <!-- Crops on steps -->
+                <line x1="40" y1="115" x2="40" y2="103" stroke="#34d399" stroke-width="3"/>
+                <line x1="55" y1="115" x2="55" y2="103" stroke="#34d399" stroke-width="3"/>
+                <line x1="100" y1="85" x2="100" y2="73" stroke="#34d399" stroke-width="3"/>
+                <line x1="115" y1="85" x2="115" y2="73" stroke="#34d399" stroke-width="3"/>
+                <line x1="160" y1="55" x2="160" y2="43" stroke="#34d399" stroke-width="3"/>
+                <line x1="175" y1="55" x2="175" y2="43" stroke="#34d399" stroke-width="3"/>
+                <text x="125" y="158" fill="#34d399" font-size="10" font-weight="bold" text-anchor="middle">Broad Flat Steps Cut on Hill Slope</text>
+              </svg>
+            </div>
+            <div class="diagram-panel">
+              <div class="diagram-caption">Technique B (Arid / Coastal Margins)</div>
+              <svg viewBox="0 0 250 165" width="100%" height="145">
+                <rect width="250" height="165" rx="8" fill="#090d16"/>
+                <!-- Wind Arrows -->
+                <line x1="15" y1="55" x2="85" y2="55" stroke="#38bdf8" stroke-width="2.5"/>
+                <line x1="15" y1="85" x2="85" y2="85" stroke="#38bdf8" stroke-width="2.5"/>
+                <text x="50" y="42" fill="#38bdf8" font-size="9.5" font-weight="bold" text-anchor="middle">High Wind</text>
+                <!-- Dense Row of Trees Barrier -->
+                <rect x="102" y="95" width="8" height="35" fill="#78350f"/>
+                <circle cx="106" cy="70" r="26" fill="#059669"/>
+                <rect x="124" y="95" width="8" height="35" fill="#78350f"/>
+                <circle cx="128" cy="65" r="28" fill="#10b981"/>
+                <!-- Protected Crop Field -->
+                <rect x="155" y="115" width="80" height="15" fill="#ca8a04"/>
+                <text x="195" y="95" fill="#fde68a" font-size="9.5" font-weight="bold" text-anchor="middle">Protected</text>
+                <text x="195" y="107" fill="#fde68a" font-size="9.5" font-weight="bold" text-anchor="middle">Farmland</text>
+                <line x1="15" y1="130" x2="235" y2="130" stroke="#94a3b8" stroke-width="2"/>
+                <text x="125" y="158" fill="#fbbf24" font-size="10" font-weight="bold" text-anchor="middle">Rows of Trees Blocking Wind</text>
+              </svg>
+            </div>
+          </div>
+        `,
+        options: [
+          "Technique A = Terrace Farming (checks water runoff on hills); Technique B = Shelter Belts / Windbreaks (checks wind velocity and sand dune encroachment)",
+          "Technique A = Shelter Belts; Technique B = Terrace Farming",
+          "Technique A = Jhum Cultivation; Technique B = Gully Erosion",
+          "Technique A = Strip Cropping; Technique B = Dam Construction"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2023, 2024 & Specimen 2026 Picture/Application Questions:</strong> CISCE frequently shows a photograph or sketch of stepped hill farms (Terrace Farming in Himalayas/Nilgiris) or tree rows bordering desert fields (Shelter Belts) and asks you to identify the conservation method and state how it prevents soil loss."
+        ],
+        explanation: "Technique A shows Terrace Farming, where hill slopes are cut into broad, flat horizontal steps with bunded edges to slow down rainwater runoff. Technique B shows Shelter Belts (Windbreaks), where dense rows of trees are planted perpendicular to the prevailing wind direction to break wind speed and prevent wind erosion."
+      }
+    ];
+
+    // ============================================================================
+    // APP STATE & TIMER LOGIC
+    // ============================================================================
+    let userAnswers = {};
+    let openVariationIds = new Set();
+    let allVariationsExpanded = false;
+    let quizMode = 'instant';
+    let examSubmitted = false;
+    let currentFilter = 'ALL';
+
+    let selectedPresetMinutes = 15;
+    let remainingSeconds = 15 * 60;
+    let totalInitialSeconds = 15 * 60;
+    let timerInterval = null;
+    let isTimerRunning = false;
+
+    function initApp() {
+      renderQuestions();
+      updateLiveStats();
+      updateClockUI();
+    }
+
+    function setQuizMode(mode) {
+      quizMode = mode;
+      document.getElementById('modeInstantBtn').classList.toggle('active', mode === 'instant');
+      document.getElementById('modeExamBtn').classList.toggle('active', mode === 'exam');
+      renderQuestions();
+    }
+
+    function setTimerPreset(minutes) {
+      if (isTimerRunning) {
+        pauseTimer();
+      }
+      selectedPresetMinutes = minutes;
+      totalInitialSeconds = minutes * 60;
+      remainingSeconds = totalInitialSeconds;
+
+      const btns = document.querySelectorAll('#presetGroup .preset-btn');
+      btns.forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.includes(minutes + 'm'));
+      });
+      updateClockUI();
+    }
+
+    function toggleTimer() {
+      if (isTimerRunning) {
+        pauseTimer();
+      } else {
+        startTimer();
+      }
+    }
+
+    function startTimer() {
+      if (remainingSeconds <= 0) {
+        remainingSeconds = totalInitialSeconds;
+      }
+      isTimerRunning = true;
+      const btn = document.getElementById('startPauseBtn');
+      btn.innerHTML = '⏸ Pause';
+      btn.className = 'btn btn-pause';
+
+      timerInterval = setInterval(() => {
+        remainingSeconds--;
+        updateClockUI();
+        if (remainingSeconds <= 0) {
+          clearInterval(timerInterval);
+          isTimerRunning = false;
+          btn.innerHTML = '▶ Start Timer';
+          btn.className = 'btn btn-start';
+          generateReport();
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      clearInterval(timerInterval);
+      isTimerRunning = false;
+      const btn = document.getElementById('startPauseBtn');
+      btn.innerHTML = '▶ Resume';
+      btn.className = 'btn btn-start';
+    }
+
+    function updateClockUI() {
+      const mins = Math.floor(remainingSeconds / 60);
+      const secs = remainingSeconds % 60;
+      const display = document.getElementById('clockDisplay');
+      display.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+
+      display.classList.remove('warning', 'danger');
+      if (remainingSeconds <= 60) {
+        display.classList.add('danger');
+      } else if (remainingSeconds <= 180) {
+        display.classList.add('warning');
+      }
+    }
+
+    function resetQuiz() {
+      pauseTimer();
+      remainingSeconds = totalInitialSeconds;
+      userAnswers = {};
+      examSubmitted = false;
+      document.getElementById('startPauseBtn').innerHTML = '▶ Start Timer';
+      updateClockUI();
+      updateLiveStats();
+      renderQuestions();
+    }
+
+    // ============================================================================
+    // RENDERING, FILTERING & HIGH-VISIBILITY VARIATIONS BUTTON
+    // ============================================================================
+    function filterQuestions(filterKey, btnEl) {
+      currentFilter = filterKey;
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      renderQuestions();
+    }
+
+    let searchDebounceTimer = null;
+    function debouncedSearch() {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(() => {
+        renderQuestions();
+      }, 120);
+    }
+
+    function toggleAllVariations() {
+      allVariationsExpanded = !allVariationsExpanded;
+      const btn = document.getElementById('expandAllBtn');
+      if (allVariationsExpanded) {
+        QUESTIONS_DATA.forEach(q => openVariationIds.add(q.id));
+        btn.innerHTML = '📁 Collapse All Variations';
+      } else {
+        openVariationIds.clear();
+        btn.innerHTML = '📂 Expand All Variations';
+      }
+      renderQuestions();
+    }
+
+    function toggleVariations(qId) {
+      if (openVariationIds.has(qId)) {
+        openVariationIds.delete(qId);
+      } else {
+        openVariationIds.add(qId);
+      }
+      renderQuestions();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      const query = (document.getElementById('searchBox').value || '').toLowerCase().trim();
+
+      const filtered = QUESTIONS_DATA.filter(q => {
+        const matchesFilter =
+          currentFilter === 'ALL' ||
+          (currentFilter === 'VERY_HIGH' && q.probability === 'VERY_HIGH') ||
+          q.topic === currentFilter;
+
+        if (!matchesFilter) return false;
+        if (!query) return true;
+
+        const hay = [
+          q.question,
+          q.topicLabel,
+          ...q.options,
+          ...q.years,
+          ...q.variations,
+          q.explanation
+        ].join(' ').toLowerCase();
+
+        return hay.includes(query);
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="q-card" style="text-align:center; padding:40px;">
+            <p style="color:var(--text-secondary);">No questions match your current filter/search. Try clearing the search box.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(q => {
+        const userAns = userAnswers[q.id];
+        const hasAnswered = userAns !== undefined;
+        const shouldReveal = (quizMode === 'instant' && hasAnswered) || examSubmitted;
+        const isVarOpen = openVariationIds.has(q.id);
+
+        let cardStateClass = '';
+        if (shouldReveal && hasAnswered) {
+          cardStateClass = userAns === q.correct ? 'answered-correct' : 'answered-wrong';
+        }
+
+        const probClass =
+          q.probability === 'VERY_HIGH' ? 'prob-very-high' :
+          q.probability === 'HIGH' ? 'prob-high' : 'prob-medium';
+
+        const yearsHtml = q.years.map(yr => {
+          const isSpec = yr.toLowerCase().includes('specimen') || yr.toLowerCase().includes('sample');
+          return `<span class="year-chip ${isSpec ? 'specimen' : ''}">${yr}</span>`;
+        }).join('');
+
+        const letters = ['A', 'B', 'C', 'D'];
+        const optionsHtml = q.options.map((optText, idx) => {
+          let btnClass = 'option-btn';
+          if (hasAnswered && !shouldReveal && userAns === idx) {
+            btnClass += ' selected-exam';
+          }
+          if (shouldReveal) {
+            if (idx === q.correct) {
+              btnClass += ' correct-reveal';
+            } else if (userAns === idx && userAns !== q.correct) {
+              btnClass += ' wrong-reveal';
+            }
+          }
+
+          return `
+            <button class="${btnClass}" onclick="selectAnswer(${q.id}, ${idx})">
+              <span class="opt-letter">${letters[idx]}</span>
+              <span>${optText}</span>
+            </button>
+          `;
+        }).join('');
+
+        const variationsList = q.variations.map(v => `<li>${v}</li>`).join('');
+
+        return `
+          <article class="q-card ${cardStateClass}" id="qcard-${q.id}">
+            <div class="q-header">
+              <div class="q-meta-left">
+                <span class="q-number">Q${q.id}</span>
+                <span class="q-topic-tag">${q.topicLabel}</span>
+              </div>
+              <span class="prob-badge ${probClass}">⚡ ${q.probText}</span>
+            </div>
+
+            <div class="years-strip">
+              <span class="freq-count">📊 Asked ${q.freqCount} Times in 10 Years:</span>
+              ${yearsHtml}
+            </div>
+
+            <div class="q-stem">${q.question}</div>
+            ${q.tableHtml ? q.tableHtml : ''}
+            ${q.diagramHtml ? q.diagramHtml : ''}
+
+            <div class="options-grid">
+              ${optionsHtml}
+            </div>
+
+            <!-- PROMINENT GLOWING "SEE BOARD VARIATIONS" BUTTON -->
+            <div class="variations-box">
+              <button class="var-toggle-btn ${isVarOpen ? 'active-open' : ''}" onclick="toggleVariations(${q.id})">
+                <div class="var-btn-left">
+                  <span class="var-pulse-dot"></span>
+                  <span>🔥 SEE ALL BOARD & SPECIMEN VARIATIONS</span>
+                  <span class="var-count-pill">${q.variations.length} Exam Twists</span>
+                </div>
+                <span class="var-chevron">${isVarOpen ? '▲ Hide Variations' : '▼ Click to Open'}</span>
+              </button>
+              <div class="variations-content ${isVarOpen ? 'open' : ''}" id="var-${q.id}">
+                <div class="var-header-title">📌 How CISCE Has Framed This Question Across Different Years (2016–2026):</div>
+                <ul>${variationsList}</ul>
+              </div>
+            </div>
+
+            <div class="explanation-box ${shouldReveal ? 'show' : ''}" id="exp-${q.id}">
+              <strong>✓ Official CISCE Marking Scheme Explanation:</strong> ${q.explanation}
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function selectAnswer(questionId, optionIndex) {
+      if (quizMode === 'instant' && userAnswers[questionId] !== undefined) {
+        return;
+      }
+      if (!isTimerRunning && Object.keys(userAnswers).length === 0) {
+        startTimer();
+      }
+      userAnswers[questionId] = optionIndex;
+      updateLiveStats();
+      renderQuestions();
+    }
+
+    function updateLiveStats() {
+      const total = QUESTIONS_DATA.length;
+      const attemptedIds = Object.keys(userAnswers);
+      const attempted = attemptedIds.length;
+      let correctCount = 0;
+
+      attemptedIds.forEach(id => {
+        const q = QUESTIONS_DATA.find(item => item.id === Number(id));
+        if (q && userAnswers[id] === q.correct) {
+          correctCount++;
+        }
+      });
+
+      const accuracy = attempted > 0 ? Math.round((correctCount / attempted) * 100) : 0;
+      document.getElementById('statAttempted').textContent = `${attempted} / ${total}`;
+      document.getElementById('statAccuracy').textContent = `${accuracy}%`;
+
+      const pct = Math.round((attempted / total) * 100);
+      document.getElementById('progressBar').style.width = `${pct}%`;
+    }
+
+    // ============================================================================
+    // AUTOMATIC REPORT & SCREENSHOT BRAG GENERATOR
+    // ============================================================================
+    function generateReport() {
+      pauseTimer();
+      examSubmitted = true;
+      renderQuestions();
+
+      const total = QUESTIONS_DATA.length;
+      let correct = 0;
+      let highProbTotal = 0;
+      let highProbCorrect = 0;
+
+      const topicStats = {
+        ALLUVIAL_BLACK: { label: "Alluvial & Black Soil", correct: 0, total: 0 },
+        RED_LATERITE: { label: "Red & Laterite Soil", correct: 0, total: 0 },
+        EROSION: { label: "Erosion & Conservation", correct: 0, total: 0 },
+        DATA: { label: "Tables & Visual Diagrams", correct: 0, total: 0 }
+      };
+
+      QUESTIONS_DATA.forEach(q => {
+        topicStats[q.topic].total++;
+        const isCorrect = userAnswers[q.id] === q.correct;
+        if (isCorrect) {
+          correct++;
+          topicStats[q.topic].correct++;
+        }
+        if (q.probability === 'VERY_HIGH') {
+          highProbTotal++;
+          if (isCorrect) highProbCorrect++;
+        }
+      });
+
+      const accuracy = Math.round((correct / total) * 100);
+      const highProbPct = highProbTotal > 0 ? Math.round((highProbCorrect / highProbTotal) * 100) : 0;
+
+      const elapsedSeconds = Math.max(0, totalInitialSeconds - remainingSeconds);
+      const eMins = Math.floor(elapsedSeconds / 60);
+      const eSecs = elapsedSeconds % 60;
+      const timeStr = `${String(eMins).padStart(2, '0')}m ${String(eSecs).padStart(2, '0')}s`;
+
+      let badge = "🌱 Soil Explorer";
+      if (accuracy >= 90) badge = "🏆 CISCE Pedology Grandmaster";
+      else if (accuracy >= 75) badge = "⚡ Soil Conservationist (Distinction)";
+      else if (accuracy >= 60) badge = "🎯 Board Exam Contender";
+
+      const studentName = document.getElementById('studentNameInput').value.trim() || "Future CISCE Topper";
+      document.getElementById('reportStudentName').textContent = studentName;
+      document.getElementById('reportBadgeTitle').textContent = badge;
+      document.getElementById('reportScore').textContent = `${correct} / ${total}`;
+      document.getElementById('reportAccuracy').textContent = `${accuracy}%`;
+      document.getElementById('reportTimeTaken').textContent = timeStr;
+      document.getElementById('reportHighProbScore').textContent = `${highProbPct}%`;
+
+      const now = new Date();
+      document.getElementById('reportTimestamp').textContent =
+        `Verified • ${now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}`;
+
+      const topicBarsContainer = document.getElementById('reportTopicBars');
+      topicBarsContainer.innerHTML = Object.values(topicStats).map(st => {
+        const pct = st.total > 0 ? Math.round((st.correct / st.total) * 100) : 0;
+        return `
+          <div class="topic-bar-item">
+            <div class="topic-bar-top">
+              <span>${st.label}</span>
+              <span>${st.correct}/${st.total} (${pct}%)</span>
+            </div>
+            <div class="topic-bar-track">
+              <div class="topic-bar-fill" style="width:${pct}%"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('reportOverlay').classList.add('active');
+    }
+
+    function closeReport() {
+      document.getElementById('reportOverlay').classList.remove('active');
+    }
+
+    function downloadScorecardImage() {
+      const card = document.getElementById('brag-card');
+      if (typeof html2canvas !== 'undefined') {
+        html2canvas(card, {
+          backgroundColor: '#090d16',
+          scale: 2
+        }).then(canvas => {
+          const link = document.createElement('a');
+          link.download = `CISCE_Soil_Resources_Scorecard_${Date.now()}.png`;
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+        });
+      } else {
+        alert("Tip: Press Win+Shift+S (Windows) or Cmd+Shift+4 (Mac) to snap your Scorecard directly!");
+      }
+    }
+
+    function copyShareText() {
+      const name = document.getElementById('reportStudentName').textContent;
+      const score = document.getElementById('reportScore').textContent;
+      const acc = document.getElementById('reportAccuracy').textContent;
+      const time = document.getElementById('reportTimeTaken').textContent;
+      const rank = document.getElementById('reportBadgeTitle').textContent;
+
+      const text = `🌱 CISCE Class 10 Soil Resources (10-Year PYQ Challenge 2016–2026)\n👤 Student: ${name}\n🎯 Score: ${score} (${acc} Accuracy)\n⏱️ Time Taken: ${time}\n🏅 Rank: ${rank}\nSee, I achieved this match! Can you beat my score?`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Brag message copied to clipboard! Paste it on WhatsApp/Discord to challenge your friends.");
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>

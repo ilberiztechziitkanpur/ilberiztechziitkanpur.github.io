@@ -29,6 +29,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # 34 Playable MCQs, 125+ Hits, Tables & Diagrams, Instant & Exam Modes
 │   ├── soil/                        # Chapter 2: Soil Resources Theory Master DPP Vault
 │   │   └── index.html               # 46 Most Expected Theory Qs, 180+ Variations, 60s Matrix, Blur Mode
+│   ├── soil-mcq/                    # Chapter 2: Soil Resources 10-Year MCQ Master Suite (2016–2026)
+│   │   └── index.html               # 35 Playable MCQs, 135+ Hits, Tables & Diagrams, Instant & Exam Modes
 │   ├── vegetation/                  # Chapter 3: Natural Vegetation Theory Master DPP Vault
 │   │   └── index.html               # 46 Most Expected Theory Qs, 185+ Variations, Dual-Tab Drawer, Blur Mode
 │   ├── water/                       # Chapter 4: Water Resources Theory Master DPP Vault
@@ -175,7 +177,21 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Live Exam Countdown Timer**: 15, 30, 45, 60 mins presets.
 - **Persistent Progress**: `localStorage` tracking (`icse2027_soil_mastered`, `icse2027_soil_review`).
 
-### D. Chapter 3: Natural Vegetation Theory Master DPP Vault (`geography/vegetation/index.html`)
+### E. Chapter 2: Soil Resources 10-Year PYQ & Specimen MCQ Master Suite (`geography/soil-mcq/index.html`)
+- **35 Playable Master Questions** representing 135+ total PYQ hits from 2016–2026.
+- **Full Coverage**: 2021–22 Semester-1 100% MCQ paper, 2023–2026 Board & Specimen questions, 2016–2020 core concepts, and 6 Dedicated Table & Visual Diagram MCQs (Soil Profile Horizons, 4-Soil Matrix, Khadar vs. Bhangar, Water Erosion Stages, and Conservation Diagrams).
+- **Global & Individual Deduplicated Variations**: Features an instant `📂 Expand All Variations` toggle as well as individual card toggles displaying all twisted ways CISCE has framed each soil question across past papers.
+- **Official CISCE Marking Scheme Explanations**: In-depth pedological rationales (e.g. self-ploughing black regur soil, leaching and desilication in laterite formation, ferric oxide pigmentation in red soil).
+- **Dual Quiz Modes**:
+  1. ⚡ Instant Check Mode: Immediate reveal of correct/incorrect status with explanation upon option selection.
+  2. 📝 Strict Exam Mode: Options highlighted as selected without revealing answers until submission.
+- **Live Exam Countdown Timer**: 15, 30, and 45 mins presets with auto-start on first click, warning pulse, and auto-submit.
+- **Live Probability DNA & Topic Filters**: All Questions (35), Very High Probability (90%+), Tables & Diagrams (6), Alluvial & Black Soil, Red & Laterite Soil, Erosion & Conservation.
+- **Automated Report & 1-Click Brag Card Generator**: Powered by `html2canvas` generating a high-resolution PNG scorecard screenshot with student name, score, accuracy %, time taken, achievement tiers (Grandmaster, Soil Tactician, Contender), and sub-topic breakdown bars.
+- **Direct Cross-Linking**: Seamless companion buttons connecting to Ilberiz Techz Dashboard (`../../index.html` with `target="_top"`) and Soil Resources Theory Vault (`../soil/index.html`).
+- **Hardware-Accelerated CSS Containment**: `.q-card` configured with `content-visibility: auto; contain-intrinsic-size: 320px;` and 120ms debounced search for zero lag.
+
+### F. Chapter 3: Natural Vegetation Theory Master DPP Vault (`geography/vegetation/index.html`)
 - **46 Master High-Yield Theory Questions** targeting 10/10 marks in Question 6 (Natural Vegetation).
 - **185+ Twisted Board Variations** grouped under their core Council Marking Scheme answers.
 - **3 Interactive Study Modes**:
@@ -190,7 +206,7 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Live Exam Countdown Timer**: 15, 30, 45, 60 mins presets with warning/danger pulse indicators.
 - **Persistent Progress**: `localStorage` tracking (`icse2027_veg_mastered`, `icse2027_veg_review`).
 
-### E. Chapter 4: Water Resources Theory Master DPP Vault (`geography/water/index.html`)
+### G. Chapter 4: Water Resources Theory Master DPP Vault (`geography/water/index.html`)
 - **48 Master High-Yield Theory Questions** targeting 10/10 marks in Question 7 (Water Resources).
 - **190+ Twisted Board Variations** grouped under their core Council Marking Scheme answers.
 - **3 Interactive Study Modes**:
@@ -205,7 +221,7 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Live Exam Countdown Timer**: 15, 30, 45, 60 mins presets with warning/danger pulse indicators.
 - **Persistent Progress**: `localStorage` tracking (`icse2027_water_mastered`, `icse2027_water_review`).
 
-### F. Chapter 5: Transport Network Theory Master DPP Vault (`geography/transport/index.html`)
+### H. Chapter 5: Transport Network Theory Master DPP Vault (`geography/transport/index.html`)
 - **48 Master High-Yield Theory Questions** targeting 10/10 marks in Question 11 (Transport Network).
 - **190+ Twisted Board Variations** grouped under their core Council Marking Scheme answers.
 - **3 Interactive Study Modes**:
@@ -220,7 +236,7 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Live Exam Countdown Timer**: 15, 30, 45, 60 mins presets with warning/danger pulse indicators.
 - **Persistent Progress**: `localStorage` tracking (`icse2027_transport_mastered`, `icse2027_transport_review`).
 
-### G. Chapter 9: Waste Management Theory Master DPP Vault (`geography/waste/index.html`)
+### I. Chapter 9: Waste Management Theory Master DPP Vault (`geography/waste/index.html`)
 - **50 Master High-Yield Theory Questions** targeting 10/10 marks in Question 12 (Waste Management).
 - **200+ Twisted Board Variations** grouped under their core Council Marking Scheme answers.
 - **3 Interactive Study Modes**:
@@ -235,14 +251,14 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Live Exam Countdown Timer**: 15, 30, 45, 60 mins presets with warning/danger pulse indicators.
 - **Persistent Progress**: `localStorage` tracking (`icse2027_waste_mastered`, `icse2027_waste_review`).
 
-### H. Master 100 MCQ DPP & DNA Diagnostic Engine (`geography/mcq/index.html`)
+### J. Master 100 MCQ DPP & DNA Diagnostic Engine (`geography/mcq/index.html`)
 - 100 high-yield questions covering all 9 CISCE units.
 - 8-Year Board Frequency Matrix (2018–2026).
 - Practice & Timed DPP Exam modes with instant explanation drawers.
 - 100-Question Palette Modal navigator for instant jumping.
 - Hardware-accelerated CSS containment for 60fps lag-free scrolling.
 
-### I. Topography Question 1 Master Blueprint & Exam Engine (`geography/toposheet/index.html`)
+### K. Topography Question 1 Master Blueprint & Exam Engine (`geography/toposheet/index.html`)
 - 50 exact questions across 5 sets for Survey of India Map Sheets G43S10 & G43S7.
 - Live 15-Minute Target Timer (Board exam allocation) with countdown & drill modes.
 - Automated evaluation with CISCE marking scheme answers.
@@ -253,7 +269,7 @@ ILBERIZ TECHZ IIT KANPUR/
   4. Survey Conventional Symbols & Color Codes Cheat Sheet
 - CSS containment (`content-visibility: auto`) for zero lag.
 
-### J. History Notes (12 PDFs in `history/notes/` across 6 Active Chapters)
+### L. History Notes (12 PDFs in `history/notes/` across 6 Active Chapters)
 - **Chapter 1: The First War of Independence (1857) (3 Notes)**:
   - `The_First_War_Of_Independence_01_Class_Notes.pdf` (5.8 MB) — Political, socio-religious, economic & military causes of 1857 Revolt, Enfield rifle cartridge incident.
   - `The_First_War_Of_Independence_02_Class_Notes.pdf` (4.0 MB) — Major storm centres, suppression, Queen Victoria's Proclamation of 1858, Government of India Act 1858 & consequences.
@@ -630,6 +646,24 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Dual Data Synchronization**: Updated both `data.js` and `data.json` under `chap-geo-climate` with `geo-climate-mcq-master`, marking the chapter as featured.
     - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Climate 10-Yr MCQs"** (`chap-geo-climate`) with a blue quiz icon and glowing `NEW` badge.
     - **Cache Invalidation**: Bumped version queries in `index.html` to `data.js?v=3.2` and `script.js?v=3.2`.
+    - **Automated Verification**: Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming quick launch navigation, card display, iframe engine rendering, option click evaluation, variations expansion, scorecard modal, and port release.
+
+25. **Addition of Chapter 2: Soil Resources 10-Year PYQ & Specimen MCQ Master Suite (2016–2026)**:
+    - **Source Material Processing**: Ingested and integrated master file `gemini-code-1792473382594.html` from `Downloads` into `geography/soil-mcq/index.html` in strict adherence to Rule 1 (Subject Folder Isolation) and Rule 2 (Standard File Structure for Engines), immediately removing raw files from `Downloads` (Rule 5).
+    - **Comprehensive Coverage**: 35 Playable Master Question Archetypes deduplicating 135+ past board and specimen questions (including 2021–22 Semester-1 100% MCQ paper, 2023–2026 Board & Specimen papers, 2016–2020 core concepts, visual diagram questions for Soil Horizons & Water Erosion stages, and matrix-based comparative questions).
+    - **Interactive Features**:
+      - Dual quiz modes: `Instant Check Mode` (immediate evaluation with official CISCE marking scheme explanations) and `Strict Exam Mode` (deferred reveal upon submit).
+      - Live countdown timer with 15m, 30m, and 45m presets, warning/danger pulses, and auto-submit.
+      - Global `📂 Expand All Variations` toggle and individual card history accordions displaying all twisted CISCE variations.
+      - Topic & Probability filtering: Very High Probability (90%+), Visual & Tables (8), Soil Types & Characteristics, Soil Formation & Profile, Erosion & Conservation.
+      - Automated scorecard and 1-click shareable brag screenshot generator powered by `html2canvas` with student name, score, accuracy %, time taken, achievement tiers, and sub-topic mastery breakdown bars.
+    - **Design System & Performance Optimization**:
+      - Integrated Google Fonts (`Inter`, `Outfit`, `JetBrains Mono`, `Space Grotesk`) and `Material Symbols Outlined` (Rule 3).
+      - Added `.home-nav-btn` linking back to Ilberiz Techz Dashboard (`../../index.html` with `target="_top"`).
+      - Added companion cross-link buttons connecting the Soil Theory Vault (`../soil/index.html`) and the 10-Year MCQ Suite (`../soil-mcq/index.html`) bidirectionally.
+      - Added CSS containment (`content-visibility: auto; contain-intrinsic-size: 320px;`) and 120ms debounced search for 60fps scrolling.
+    - **Dual Data Synchronization**: Updated both `data.js` and `data.json` under `chap-geo-soil` with `geo-soil-mcq-master`, marking the chapter as featured.
+    - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Soil 10-Yr MCQs"** (`chap-geo-soil`) with an amber quiz icon and glowing `NEW` badge.
     - **Automated Verification**: Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming quick launch navigation, card display, iframe engine rendering, option click evaluation, variations expansion, scorecard modal, and port release.
 
 
