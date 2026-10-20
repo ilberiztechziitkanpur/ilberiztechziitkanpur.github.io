@@ -264,26 +264,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Natural Vegetation 10-Year MCQ Suite (Geography Ch 3)
-    const vegNav = document.createElement('div');
-    const isVegActive = state.currentView !== 'search' && state.path[1] === 'sub-10-geo' && state.path[2] === 'chap-geo-vegetation';
-    vegNav.className = `nav-item nav-item-featured ${isVegActive ? 'active' : ''}`;
-    vegNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #10b981;">quiz</span>
-        <span style="font-weight: 600;">Vegetation 10-Yr MCQs</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669); color:#fff;">NEW</span>
+    // Latest Update Quick Launch: Water Resources 10-Year MCQ Suite (Geography Ch 4)
+    const waterNav = document.createElement('div');
+    const isWaterActive = state.currentView !== 'search' && state.path[1] === 'sub-10-geo' && state.path[2] === 'chap-geo-water';
+    waterNav.className = `nav-item nav-item-featured ${isWaterActive ? 'active' : ''}`;
+    waterNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #06b6d4;">quiz</span>
+        <span style="font-weight: 600;">Water 10-Yr MCQs</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #06b6d4, #0284c7); color:#fff;">NEW</span>
     `;
-    vegNav.onclick = () => {
+    waterNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const vegChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-vegetation');
-        if (vegChap) {
-            navigateTo('items', [batch.id, geoSub.id, vegChap.id]);
+        const waterChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-water');
+        if (waterChap) {
+            navigateTo('items', [batch.id, geoSub.id, waterChap.id]);
         }
     };
-    navMenu.appendChild(vegNav);
+    navMenu.appendChild(waterNav);
 }
 
 function resetSearch() {

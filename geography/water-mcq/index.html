@@ -1,0 +1,2610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CISCE Class 10 Water Resources — 10-Year PYQ & Specimen Master Suite (2016–2026)</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- html2canvas for 1-Click Brag Screenshot Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <style>
+    :root {
+      --bg-main: #060d18;
+      --bg-card: #0d192b;
+      --bg-card-hover: #13233b;
+      --bg-glass: rgba(13, 25, 43, 0.88);
+      --border-subtle: rgba(255, 255, 255, 0.09);
+      --border-highlight: rgba(6, 182, 212, 0.48);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --accent-aqua: #06b6d4;
+      --accent-sky: #38bdf8;
+      --accent-blue: #3b82f6;
+      --accent-indigo: #6366f1;
+      --accent-emerald: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+      --shadow-glow: 0 10px 35px -5px rgba(6, 182, 212, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-main);
+      background-image: 
+        radial-gradient(circle at 12% 10%, rgba(6, 182, 212, 0.14), transparent 32%),
+        radial-gradient(circle at 88% 15%, rgba(59, 130, 246, 0.12), transparent 35%),
+        radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.08), transparent 40%);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    /* Sticky Top Command Bar */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(6, 13, 24, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 12px 24px;
+      transition: all 0.3s ease;
+    }
+
+    /* Ilberiz Techz Dashboard & Companion Nav Buttons */
+    .home-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+    .home-nav-btn:hover {
+      background: rgba(6, 182, 212, 0.15);
+      border-color: rgba(6, 182, 212, 0.45);
+      color: #22d3ee;
+      transform: translateY(-1px);
+    }
+    .home-nav-btn.theory-btn {
+      border-color: rgba(56, 189, 248, 0.4);
+      color: var(--accent-sky);
+    }
+    .home-nav-btn.theory-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--accent-sky);
+      color: #7dd3fc;
+    }
+
+    .top-bar-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-cluster {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent-aqua), var(--accent-blue));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 4px 15px rgba(6, 182, 212, 0.35);
+    }
+
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-sub {
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+    }
+
+    /* Timer & Action Controls */
+    .timer-cluster {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 12px;
+      border-radius: 14px;
+    }
+
+    .preset-group {
+      display: flex;
+      gap: 6px;
+    }
+
+    .preset-btn {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-secondary);
+      border: 1px solid transparent;
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .preset-btn:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .preset-btn.active {
+      background: rgba(6, 182, 212, 0.18);
+      color: #22d3ee;
+      border-color: rgba(6, 182, 212, 0.45);
+    }
+
+    .clock-display {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--accent-emerald);
+      min-width: 82px;
+      text-align: center;
+      letter-spacing: 0.04em;
+      padding: 2px 8px;
+      border-radius: 8px;
+      background: rgba(16, 185, 129, 0.12);
+    }
+
+    .clock-display.warning {
+      color: var(--accent-amber);
+      background: rgba(245, 158, 11, 0.14);
+      animation: pulseWarn 1.2s infinite;
+    }
+
+    .clock-display.danger {
+      color: var(--accent-rose);
+      background: rgba(244, 63, 94, 0.16);
+      animation: pulseWarn 0.7s infinite;
+    }
+
+    @keyframes pulseWarn {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .btn {
+      border: none;
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-start {
+      background: linear-gradient(135deg, #06b6d4, #2563eb);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.35);
+    }
+
+    .btn-start:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+    }
+
+    .btn-pause {
+      background: rgba(245, 158, 11, 0.18);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
+    .btn-reset {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .btn-reset:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-finish {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+    }
+
+    .btn-finish:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.1);
+    }
+
+    /* Progress Bar under Top Bar */
+    .progress-track {
+      width: 100%;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      margin-top: 10px;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-aqua), var(--accent-blue), var(--accent-emerald));
+      transition: width 0.3s ease;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1140px;
+      margin: 28px auto 0;
+      padding: 0 20px;
+    }
+
+    /* Hero Banner */
+    .hero-card {
+      background: linear-gradient(145deg, rgba(16, 34, 58, 0.78), rgba(10, 20, 36, 0.94));
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-glow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(6, 182, 212, 0.16);
+      color: #22d3ee;
+      border: 1px solid rgba(6, 182, 212, 0.38);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .hero-desc {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      margin-bottom: 18px;
+    }
+
+    .user-setup-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .name-input {
+      background: rgba(6, 13, 24, 0.8);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      min-width: 240px;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .name-input:focus {
+      border-color: var(--accent-aqua);
+    }
+
+    .mode-switch {
+      display: inline-flex;
+      background: rgba(6, 13, 24, 0.8);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 4px;
+    }
+
+    .mode-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      border-radius: 7px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .mode-btn.active {
+      background: var(--accent-aqua);
+      color: #042f2e;
+      font-weight: 700;
+    }
+
+    .stats-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .stat-box {
+      background: rgba(10, 20, 36, 0.8);
+      border: 1px solid var(--border-subtle);
+      padding: 14px;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #22d3ee;
+    }
+
+    .stat-lbl {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+
+    /* Filter & Search Bar */
+    .filter-bar {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-pill {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 6px 13px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-pill:hover, .filter-pill.active {
+      background: rgba(6, 182, 212, 0.16);
+      color: #22d3ee;
+      border-color: rgba(6, 182, 212, 0.45);
+    }
+
+    .expand-all-btn {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(234, 88, 12, 0.25));
+      border: 1px solid rgba(245, 158, 11, 0.5);
+      color: #fcd34d;
+      padding: 7px 14px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .expand-all-btn:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(234, 88, 12, 0.35));
+    }
+
+    .search-box {
+      background: rgba(6, 13, 24, 0.7);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-primary);
+      padding: 8px 14px;
+      border-radius: 99px;
+      font-size: 0.84rem;
+      min-width: 220px;
+      outline: none;
+    }
+
+    .search-box:focus {
+      border-color: var(--accent-aqua);
+    }
+
+    /* Question Cards */
+    .questions-list {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .q-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: border-color 0.25s ease, transform 0.2s ease;
+      position: relative;
+    }
+
+    .q-card:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .q-card.answered-correct {
+      border-color: rgba(16, 185, 129, 0.5);
+    }
+
+    .q-card.answered-wrong {
+      border-color: rgba(244, 63, 94, 0.5);
+    }
+
+    .q-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .q-meta-left {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .q-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      background: linear-gradient(135deg, var(--accent-aqua), var(--accent-blue));
+      color: #fff;
+      padding: 4px 11px;
+      border-radius: 8px;
+    }
+
+    .q-topic-tag {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .prob-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 4px 11px;
+      border-radius: 99px;
+    }
+
+    .prob-very-high {
+      background: rgba(244, 63, 94, 0.16);
+      color: #fb7185;
+      border: 1px solid rgba(244, 63, 94, 0.35);
+    }
+
+    .prob-high {
+      background: rgba(245, 158, 11, 0.16);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+
+    .prob-medium {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+    }
+
+    /* Year Appearances Row */
+    .years-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 16px;
+      padding: 8px 12px;
+      background: rgba(6, 13, 24, 0.65);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .freq-count {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #22d3ee;
+      margin-right: 4px;
+    }
+
+    .year-chip {
+      font-size: 0.71rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(59, 130, 246, 0.16);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.32);
+    }
+
+    .year-chip.specimen {
+      background: rgba(168, 85, 247, 0.16);
+      color: #d8b4fe;
+      border-color: rgba(168, 85, 247, 0.32);
+    }
+
+    .q-stem {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      line-height: 1.55;
+    }
+
+    /* Data Table inside MCQ */
+    .water-table-wrap {
+      overflow-x: auto;
+      margin: 12px 0 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .water-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.8rem;
+      text-align: left;
+      background: rgba(6, 13, 24, 0.82);
+    }
+
+    .water-table th, .water-table td {
+      padding: 9px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .water-table th {
+      background: rgba(6, 182, 212, 0.16);
+      color: #22d3ee;
+      font-weight: 700;
+    }
+
+    /* Visual Diagram Container inside MCQ */
+    .diagram-box {
+      margin: 14px 0 18px;
+      padding: 16px;
+      background: rgba(6, 13, 24, 0.85);
+      border: 1px solid rgba(6, 182, 212, 0.35);
+      border-radius: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .diagram-panel {
+      flex: 1 1 280px;
+      max-width: 480px;
+      background: rgba(13, 25, 43, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #22d3ee;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    /* Options Grid */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 680px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .option-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 13px 16px;
+      text-align: left;
+      color: var(--text-primary);
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      transition: all 0.2s ease;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      background: rgba(6, 182, 212, 0.09);
+      border-color: rgba(6, 182, 212, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .opt-letter {
+      width: 26px;
+      height: 26px;
+      min-width: 26px;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.07);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    .option-btn.selected-exam {
+      background: rgba(59, 130, 246, 0.2);
+      border-color: var(--accent-blue);
+    }
+    .option-btn.selected-exam .opt-letter {
+      background: var(--accent-blue);
+      color: #fff;
+    }
+
+    .option-btn.correct-reveal {
+      background: rgba(16, 185, 129, 0.18) !important;
+      border-color: var(--accent-emerald) !important;
+      color: #ecfdf5;
+    }
+    .option-btn.correct-reveal .opt-letter {
+      background: var(--accent-emerald);
+      color: #fff;
+    }
+
+    .option-btn.wrong-reveal {
+      background: rgba(244, 63, 94, 0.16) !important;
+      border-color: var(--accent-rose) !important;
+      color: #ffe4e6;
+    }
+    .option-btn.wrong-reveal .opt-letter {
+      background: var(--accent-rose);
+      color: #fff;
+    }
+
+    /* ============================================================================
+       EYE-CATCHING GLOWING "SEE BOARD VARIATIONS" BUTTON & PANEL
+       ============================================================================ */
+    .variations-box {
+      margin-top: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 14px;
+    }
+
+    .var-toggle-btn {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.16) 0%, rgba(59, 130, 246, 0.22) 50%, rgba(99, 102, 241, 0.18) 100%);
+      border: 1.5px solid rgba(6, 182, 212, 0.55);
+      border-radius: 12px;
+      padding: 11px 16px;
+      color: #f8fafc;
+      font-size: 0.86rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: 0 4px 18px rgba(6, 182, 212, 0.15);
+      transition: all 0.25s ease;
+    }
+
+    .var-toggle-btn:hover {
+      background: linear-gradient(135deg, rgba(6, 182, 212, 0.26) 0%, rgba(59, 130, 246, 0.3) 50%, rgba(99, 102, 241, 0.26) 100%);
+      border-color: #22d3ee;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(6, 182, 212, 0.28);
+    }
+
+    .var-btn-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+      flex-wrap: wrap;
+    }
+
+    .var-pulse-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #f59e0b;
+      box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+      animation: pulseDot 1.6s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulseDot {
+      0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(245, 158, 11, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+    }
+
+    .var-count-pill {
+      background: linear-gradient(135deg, #f59e0b, #ea580c);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .var-chevron {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: #22d3ee;
+      font-weight: 800;
+      transition: transform 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .var-toggle-btn.active-open {
+      border-color: var(--accent-amber);
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(6, 182, 212, 0.22));
+    }
+
+    .variations-content {
+      display: none;
+      margin-top: 12px;
+      background: linear-gradient(145deg, rgba(10, 20, 36, 0.96), rgba(19, 38, 66, 0.82));
+      border: 1px solid rgba(6, 182, 212, 0.38);
+      border-left: 4px solid var(--accent-amber);
+      padding: 16px 18px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      box-shadow: inset 0 2px 12px rgba(0, 0, 0, 0.45);
+    }
+
+    .variations-content.open {
+      display: block;
+      animation: fadeSlideDown 0.25s ease;
+    }
+
+    @keyframes fadeSlideDown {
+      from { opacity: 0; transform: translateY(-6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .var-header-title {
+      color: #fbbf24;
+      font-weight: 700;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .variations-content ul {
+      padding-left: 20px;
+      margin-top: 6px;
+    }
+
+    .variations-content li {
+      margin-bottom: 8px;
+      line-height: 1.55;
+    }
+
+    /* Explanation Box */
+    .explanation-box {
+      display: none;
+      margin-top: 14px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.38);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 0.88rem;
+      color: #d1fae5;
+    }
+
+    .explanation-box.show {
+      display: block;
+    }
+
+    /* Report & Brag Card Modal */
+    .report-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(4, 9, 18, 0.9);
+      backdrop-filter: blur(12px);
+      overflow-y: auto;
+      padding: 30px 16px;
+    }
+
+    .report-overlay.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .report-modal {
+      max-width: 780px;
+      width: 100%;
+    }
+
+    .report-actions-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    /* The Screenshot Brag Card */
+    #brag-card {
+      background: linear-gradient(145deg, #091526 0%, #0c4a6e 55%, #060d18 100%);
+      border: 2px solid rgba(6, 182, 212, 0.55);
+      border-radius: 24px;
+      padding: 32px;
+      color: #f8fafc;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brag-watermark {
+      position: absolute;
+      top: -30px;
+      right: -30px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.28), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .brag-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+
+    .brag-tag {
+      display: inline-block;
+      background: rgba(6, 182, 212, 0.22);
+      color: #67e8f9;
+      border: 1px solid rgba(6, 182, 212, 0.45);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    .brag-student {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .brag-quote {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    .brag-rank-pill {
+      background: linear-gradient(135deg, #06b6d4, #2563eb);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 14px;
+      text-align: right;
+      box-shadow: 0 8px 20px rgba(6, 182, 212, 0.35);
+    }
+
+    .brag-rank-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+    }
+
+    .brag-rank-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .brag-score-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 640px) {
+      .brag-score-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .brag-metric {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 16px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .brag-metric-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #22d3ee;
+    }
+
+    .brag-metric-lbl {
+      font-size: 0.76rem;
+      color: #cbd5e1;
+      margin-top: 4px;
+    }
+
+    .topic-breakdown-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #a5f3fc;
+      margin-bottom: 12px;
+    }
+
+    .topic-bars {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .topic-bars {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .topic-bar-item {
+      background: rgba(6, 13, 24, 0.6);
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .topic-bar-top {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .topic-bar-track {
+      height: 7px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .topic-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-aqua), var(--accent-emerald));
+      border-radius: 99px;
+    }
+
+    .brag-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.78rem;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY TOP COMMAND BAR -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <div class="brand-cluster">
+        <a href="../../index.html" class="home-nav-btn" target="_top" title="Back to Ilberiz Techz Dashboard">
+          <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>
+          <span>Ilberiz Techz</span>
+        </a>
+        <a href="../water/index.html" class="home-nav-btn theory-btn" title="Open Water Resources Theory DPP Vault (48 Questions)">
+          <span class="material-symbols-outlined" style="font-size:18px;">menu_book</span>
+          <span>Theory Vault</span>
+        </a>
+        <div class="brand-icon">💧</div>
+        <div>
+          <div class="brand-title">CISCE Class 10 • WATER RESOURCES Master Bank</div>
+          <div class="brand-sub">100% Complete 10-Year PYQs, Specimen, Table & Diagram MCQs (2016–2026)</div>
+        </div>
+      </div>
+
+      <div class="timer-cluster">
+        <div class="preset-group" id="presetGroup">
+          <button class="preset-btn active" onclick="setTimerPreset(15)">15m</button>
+          <button class="preset-btn" onclick="setTimerPreset(30)">30m</button>
+          <button class="preset-btn" onclick="setTimerPreset(45)">45m</button>
+        </div>
+        <div class="clock-display" id="clockDisplay">15:00</div>
+        <button class="btn btn-start" id="startPauseBtn" onclick="toggleTimer()">▶ Start Timer</button>
+        <button class="btn btn-reset" onclick="resetQuiz()">↺ Reset</button>
+        <button class="btn btn-finish" onclick="generateReport()">🏆 Finish & Report</button>
+      </div>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progressBar"></div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO SECTION -->
+    <section class="hero-card">
+      <div class="hero-grid">
+        <div>
+          <span class="hero-badge">🔥 Complete 10-Year Archive + Table & Diagram Sub-Questions (2016–2026)</span>
+          <h1 class="hero-title">Chapter: Water Resources of India — Complete Board & Specimen MCQs</h1>
+          <p class="hero-desc">
+            Includes every single Board & Specimen MCQ from the last 10 years (2016–2026), all <strong>Conventional Irrigation Methods</strong> (Wells, Tube-wells, Inundation & Perennial Canals, Tanks), <strong>Modern Micro-Irrigation</strong> (Drip, Sprinkler, Furrow, Bamboo Drip), <strong>Rainwater Harvesting Systems</strong>, and <strong>6 Dedicated Table & Visual Diagram Sub-Questions</strong>. Click the glowing <strong>"SEE ALL BOARD & SPECIMEN VARIATIONS"</strong> button on any card to view every exam twist!
+          </p>
+          <div class="user-setup-row">
+            <input type="text" id="studentNameInput" class="name-input" placeholder="Enter your name for Scorecard..." value="Future CISCE Topper" />
+            <div class="mode-switch">
+              <button class="mode-btn active" id="modeInstantBtn" onclick="setQuizMode('instant')">⚡ Instant Check Mode</button>
+              <button class="mode-btn" id="modeExamBtn" onclick="setQuizMode('exam')">📝 Strict Exam Mode</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-mini-grid">
+          <div class="stat-box">
+            <div class="stat-num" id="statAttempted">0 / 35</div>
+            <div class="stat-lbl">Questions Answered</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num" id="statAccuracy">0%</div>
+            <div class="stat-lbl">Live Accuracy</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">35</div>
+            <div class="stat-lbl">Playable MCQs (140+ PYQ Hits)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">2016–26</div>
+            <div class="stat-lbl">100% Board + Specimen + Diagrams</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTER & SEARCH BAR -->
+    <section class="filter-bar">
+      <div class="filter-pills">
+        <button class="filter-pill active" onclick="filterQuestions('ALL', this)">All Questions (35)</button>
+        <button class="filter-pill" onclick="filterQuestions('VERY_HIGH', this)">🔥 Very High Probability (90%+)</button>
+        <button class="filter-pill" onclick="filterQuestions('DATA', this)">📊 Tables & Diagrams (6)</button>
+        <button class="filter-pill" onclick="filterQuestions('WELLS_CANALS_TANKS', this)">🚜 Wells, Canals & Tanks</button>
+        <button class="filter-pill" onclick="filterQuestions('MODERN_IRRIGATION', this)">💦 Drip, Sprinkler & Modern</button>
+        <button class="filter-pill" onclick="filterQuestions('CONSERVATION_RWH', this)">🌧️ Conservation & Rainwater Harvesting</button>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+        <button class="expand-all-btn" id="expandAllBtn" onclick="toggleAllVariations()">📂 Expand All Variations</button>
+        <input type="text" id="searchBox" class="search-box" placeholder="Search year (2026, 2025) or keyword..." oninput="searchQuestions()" />
+      </div>
+    </section>
+
+    <!-- QUESTIONS CONTAINER -->
+    <section class="questions-list" id="questionsContainer"></section>
+  </main>
+
+  <!-- AUTOMATIC REPORT & SCREENSHOT BRAG MODAL -->
+  <div class="report-overlay" id="reportOverlay">
+    <div class="report-modal">
+      <div class="report-actions-top">
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <button class="btn btn-start" onclick="downloadScorecardImage()">📸 Download Scorecard Screenshot (PNG)</button>
+          <button class="btn btn-finish" onclick="copyShareText()">📋 Copy Brag Message</button>
+        </div>
+        <button class="btn btn-reset" onclick="closeReport()">✕ Close & Review Answers</button>
+      </div>
+
+      <!-- SHAREABLE BRAG CARD -->
+      <div id="brag-card">
+        <div class="brag-watermark"></div>
+        <div class="brag-header">
+          <div>
+            <span class="brag-tag">✓ Official CISCE Class 10 Water Resources PYQ Challenge (2016–2026)</span>
+            <div class="brag-student" id="reportStudentName">Future CISCE Topper</div>
+            <div class="brag-quote">"See, I achieved this match on the 10-Year CISCE Water Resources Board Archive!"</div>
+          </div>
+          <div class="brag-rank-pill">
+            <div class="brag-rank-title">Achievement Tier</div>
+            <div class="brag-rank-val" id="reportBadgeTitle">🏆 Hydrology Grandmaster</div>
+          </div>
+        </div>
+
+        <div class="brag-score-grid">
+          <div class="brag-metric">
+            <div class="brag-metric-val" id="reportScore">0 / 35</div>
+            <div class="brag-metric-lbl">Final Score</div>
+          </div>
+          <div class="brag-metric">
+            <div class="brag-metric-val" id="reportAccuracy">0%</div>
+            <div class="brag-metric-lbl">Accuracy Rate</div>
+          </div>
+          <div class="brag-metric">
+            <div class="brag-metric-val" id="reportTimeTaken">00:00</div>
+            <div class="brag-metric-lbl">Time Taken</div>
+          </div>
+          <div class="brag-metric">
+            <div class="brag-metric-val" id="reportHighProbScore">0%</div>
+            <div class="brag-metric-lbl">High-Prob PYQ Mastery</div>
+          </div>
+        </div>
+
+        <div class="topic-breakdown-title">Sub-Topic Mastery Breakdown</div>
+        <div class="topic-bars" id="reportTopicBars"></div>
+
+        <div class="brag-footer">
+          <span>💧 Chapter: Water Resources of India (10-Year Board + Specimen + Table/Diagram MCQs)</span>
+          <span id="reportTimestamp">Completed Today</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ============================================================================
+    // COMPLETE 10-YEAR DEDUPLICATED QUESTION BANK — WATER RESOURCES (35 MCQs)
+    // ============================================================================
+    const QUESTIONS_DATA = [
+      {
+        id: 1,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "VERY_HIGH",
+        probText: "99% Exam Probability (Very High)",
+        freqCount: 10,
+        years: ["Board 2026", "Specimen 2026", "Specimen 2025", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "Assertion (A): Irrigation is practised on a wide scale across large parts of India.<br>Reason (R): India has a wide variety of soil types.",
+        options: [
+          "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "Both (A) and (R) are true, but (R) is NOT the correct explanation of (A)",
+          "(A) is true, but (R) is false",
+          "(A) is false, but (R) is true"
+        ],
+        correct: 1,
+        variations: [
+          "<strong>Board 2026 Q3(iv) (Direct Board Assertion-Reason MCQ):</strong> 'Assertion (A): Irrigation is practised in large parts of India. Reason (R): India has a variety of soil types.' → Both statements are true facts, but the primary reason irrigation is indispensable in India is the <strong>uncertain, erratic, seasonal, and uneven distribution of monsoon rainfall</strong> (not merely soil variety).",
+          "<strong>Specimen 2025 & Specimen 2026 Q7(i) (2 Marks):</strong> 'The need for irrigation in India is to a large extent influenced by the rainfall pattern of the country. Explain / State two reasons why there is a need for irrigation in India.' → (1) Monsoon rainfall is seasonal (restricted to 4 months: June–Sept), (2) Rainfall is erratic, unreliable, and unevenly distributed, (3) High-yielding varieties (HYV) and cash crops like Sugarcane/Rice require regular water supply, and (4) Winter Rabi crops require artificial irrigation."
+        ],
+        explanation: "While both (A) and (R) are true statements, the primary geographical reason why irrigation is indispensable in India is that Indian agriculture depends on the South-West Monsoon, which is seasonal (75% rain in June–Sept), erratic, sporadic, and unevenly distributed."
+      },
+      {
+        id: 2,
+        topic: "MODERN_IRRIGATION",
+        topicLabel: "Drip, Sprinkler & Modern",
+        probability: "VERY_HIGH",
+        probText: "98% Exam Probability (Very High)",
+        freqCount: 9,
+        years: ["Board 2025", "Board 2024", "Specimen 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017"],
+        question: "Which of the following means of irrigation prevents wastage of water through seepage and evaporation?",
+        options: [
+          "Unlined Canal",
+          "Surface Well",
+          "Sprinkler Irrigation (and Drip Irrigation)",
+          "Inundation Canal"
+        ],
+        correct: 2,
+        variations: [
+          "<strong>Board 2025 Q3(iv) (Direct Board MCQ):</strong> 'Which of the following prevents wastage of water? (a) Canal (b) Well (c) Sprinkler (d) Tube well.' → <strong>(c) Sprinkler</strong>.",
+          "<strong>Board 2024 Q7(iii)(a) & Specimen 2024 Q3(iv):</strong> 'Give a reason: Sprinkler irrigation is gaining popularity in recent times / Which method is also called Overhead Irrigation?' → Because water is sprayed through pressurized overhead nozzles like artificial rain; there is no loss of water by seepage or evaporation, it does not cause waterlogging, and it is best suited for uneven/arid lands."
+        ],
+        explanation: "Modern micro-irrigation methods like Sprinkler Irrigation and Drip Irrigation supply water through sealed pipes directly to the crops. This eliminates water wastage from seepage into earthen channels and minimizes evaporation loss."
+      },
+      {
+        id: 3,
+        topic: "CONSERVATION_RWH",
+        topicLabel: "Conservation & Rainwater Harvesting",
+        probability: "VERY_HIGH",
+        probText: "96% Exam Probability (Very High)",
+        freqCount: 6,
+        years: ["Specimen 2026", "Specimen 2025", "Board 2024", "Sem-1 2021", "Board 2020", "Board 2018"],
+        question: "Which of the following structures is specifically designed as a rainwater harvesting mechanism to allow rainwater to seep directly into the ground and recharge underground aquifers?",
+        options: [
+          "Inundation Canal",
+          "Furrow Irrigation",
+          "Percolation Pit (Recharge Pit / Trench)",
+          "Tube-well Irrigation"
+        ],
+        correct: 2,
+        variations: [
+          "<strong>Specimen 2025 & Specimen 2026 Q3(iv) (Direct Specimen MCQ):</strong> Options included (a) Canal (b) Furrow (c) Percolation pit (d) Tube-well irrigation → <strong>(c) Percolation pit</strong>.",
+          "<strong>Exam Trap Note:</strong> Students often confuse <em>Tube-wells</em> or <em>Borewells</em> with recharge mechanisms — remember that a Tube-well <em>extracts</em> groundwater, whereas a <strong>Percolation Pit / Recharge Pit / Dugwell Recharge</strong> replenishes the underground aquifer!"
+        ],
+        explanation: "Percolation pits (and recharge trenches/soakaways) are excavated pits filled with pebbles, boulders, and coarse sand that filter surface rainwater runoff and allow it to percolate downwards to recharge underground water aquifers."
+      },
+      {
+        id: 4,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "VERY_HIGH",
+        probText: "95% Exam Probability (Very High)",
+        freqCount: 8,
+        years: ["Board 2024", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016", "Specimen 2023"],
+        question: "Which conventional means of irrigation can be developed with minimum capital expenditure by an individual poor Indian farmer and serves as an independent source of water?",
+        options: [
+          "Deep Tube-well",
+          "Perennial Canal",
+          "Surface Well (Ordinary Dug Well)",
+          "Drip Irrigation System"
+        ],
+        correct: 2,
+        variations: [
+          "<strong>Board 2024 Q3(iii) (Direct Board MCQ):</strong> 'Which means of irrigation can be developed with minimum expenditure? (a) Tube well (b) Canal (c) Well (d) Drip irrigation.' → <strong>(c) Well (Surface Dug Well)</strong>.",
+          "<strong>Board 2020, 2018 & Total Geography Q:</strong> 'Give two advantages that Well irrigation has over Canal irrigation for an Indian farmer.' → (1) Wells are the simplest and cheapest source of irrigation (no water tax/canal cess required), and (2) A well is an independent private source that a farmer can use whenever required, whereas canals are controlled by government agencies."
+        ],
+        explanation: "An ordinary surface well (dug well, especially unlined or simple brick-lined) requires the lowest initial capital outlay among all irrigation methods, making it affordable for small and marginal Indian farmers without needing expensive machinery or government canal networks."
+      },
+      {
+        id: 5,
+        topic: "CONSERVATION_RWH",
+        topicLabel: "Conservation & Rainwater Harvesting",
+        probability: "HIGH",
+        probText: "89% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Board 2023", "Specimen 2023", "Sem-1 2021", "Board 2019", "Board 2017"],
+        question: "Which of the following is an example of a 'Groundwater Source' (Sub-surface water) rather than a 'Surface Water Source'?",
+        options: [
+          "Pond",
+          "Lake",
+          "Water in Aquifers / Springs / Wells",
+          "Perennial River"
+        ],
+        correct: 2,
+        variations: [
+          "<strong>Board 2023 Q3(iv) (Direct Board MCQ):</strong> 'Which of the following is a ground water source? (a) Pond (b) Lake (c) Spring / Well / Aquifer (d) River.'",
+          "<strong>Specimen 2023 Part II Question:</strong> 'Differentiate between Surface Water and Ground Water.' → Surface water flows or stands on land (rivers, lakes, ponds, streams, canals) and can be used directly; Groundwater seeps through soil and rock crevices into subterranean aquifers and must be pumped or drawn up via wells/tubewells/springs."
+        ],
+        explanation: "Rivers, lakes, ponds, streams, and tanks are Surface Water sources. Rainwater that seeps (percolates) through porous soil and rock fissures to collect above an impermeable rock layer forms Groundwater (stored in Aquifers and accessed via Wells, Tube-wells, and natural Springs)."
+      },
+      {
+        id: 6,
+        topic: "MODERN_IRRIGATION",
+        topicLabel: "Drip, Sprinkler & Modern",
+        probability: "VERY_HIGH",
+        probText: "96% Exam Probability (Very High)",
+        freqCount: 8,
+        years: ["Board 2024", "Specimen 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017"],
+        question: "With reference to 'Drip Irrigation' (Trickle Irrigation), why is it considered the most efficient water-conserving method for arid regions, yet why is it NOT practised on a large scale by ordinary farmers in India?",
+        options: [
+          "Advantage: Perforated plastic pipes laid along crop rows deliver water drop-by-drop directly to plant roots, reducing evaporation and seepage loss to nearly zero; Limitation: High initial installation cost of pipes/emitters and susceptibility to clogging/silting of nozzles by hard or muddy water",
+          "Advantage: It floods the entire field rapidly; Limitation: It causes severe soil erosion",
+          "Advantage: It requires zero maintenance and zero capital; Limitation: It only works in heavy snowfall areas",
+          "Advantage: It increases weed growth across the field; Limitation: It wastes 80% of water by evaporation"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2024 Q7(ii)(a) & (b) (Direct Board Question):</strong> '(a) What is the advantage of using Drip irrigation? (b) Why is Drip irrigation not practiced on a large scale in India?'",
+          "<strong>Fertilizer & Weed Advantage (Sem-1 2021):</strong> 'Why does Drip irrigation reduce weed growth and fertilizer wastage?' → Because water and liquid fertilizers (fertigation) are applied strictly to the root zone of the crop, leaving the inter-row spaces dry so weeds cannot germinate."
+        ],
+        explanation: "Drip irrigation is the most advanced micro-irrigation method, conserving up to 70% of water by delivering water drop-by-drop directly to the roots (no evaporation, no runoff, no seepage). However, high capital installation cost, technical skill requirements, and clogging of tiny emitter pores limit its adoption by poor farmers."
+      },
+      {
+        id: 7,
+        topic: "MODERN_IRRIGATION",
+        topicLabel: "Drip, Sprinkler & Modern",
+        probability: "VERY_HIGH",
+        probText: "94% Exam Probability (Very High)",
+        freqCount: 7,
+        years: ["Board 2025", "Board 2024", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2016"],
+        question: "Which modern method of irrigation is also known as 'Overhead Irrigation', and what are its specific advantages and limitations?",
+        options: [
+          "Sprinkler Irrigation — Advantages: Best suited for uneven/undulating terrain and sandy/arid soils without needing land levelling, no loss by seepage, and saves land as no bunds/channels are dug; Limitations: High installation/operating cost, high wind distorts spray pattern, and brackish water can scorch plant leaves",
+          "Furrow Irrigation — Advantages: Uses overhead helicopters; Limitations: Causes deep gullies",
+          "Inundation Canal — Advantages: Sprays water from underground; Limitations: Only works in winter",
+          "Tank Irrigation — Advantages: Zero evaporation; Limitations: Occupies no space"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Sem-1 2021 Direct MCQ:</strong> 'Overhead irrigation is the other name given to: (a) Drip irrigation (b) Canal irrigation (c) Sprinkler irrigation (d) Tank irrigation.' → <strong>(c) Sprinkler irrigation</strong>.",
+          "<strong>Board 2024 Q7(iii)(a):</strong> 'Give a reason: Sprinkler irrigation is gaining popularity in recent times.'"
+        ],
+        explanation: "In Sprinkler (Overhead) Irrigation, water is pumped through a main pipe to a vertical riser with a rotating nozzle that sprays water over crops like artificial rain. It is ideal for undulating topography (tea/coffee estates, sandy slopes of Haryana/Rajasthan) where levelling land for canals is impossible."
+      },
+      {
+        id: 8,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "VERY_HIGH",
+        probText: "98% Exam Probability (Very High)",
+        freqCount: 10,
+        years: ["Specimen 2026", "Specimen 2025", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016", "Specimen 2024"],
+        question: "Which of the following accurately distinguishes between 'Inundation Canals' and 'Perennial Canals'?",
+        options: [
+          "Inundation Canals are taken out directly from rivers without constructing any barrage, weir, or dam at their head and supply water only during rainy season floods; Perennial Canals are taken out from perennial rivers by constructing a weir/barrage/dam to regulate flow and supply water throughout the year",
+          "Inundation Canals supply water 365 days a year; Perennial Canals supply water only during winter droughts",
+          "Inundation Canals have concrete dams at their head; Perennial Canals have no headworks",
+          "Inundation Canals are found only in Tamil Nadu; Perennial Canals are found only in Ladakh"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Specimen 2026 & Specimen 2025 Q7(ii) (Direct Question):</strong> 'Distinguish between Inundation Canals and Perennial Canals.'",
+          "<strong>Give Reason Variation (Board 2020, 2018, Sem-1 2021):</strong> 'Why are Inundation canals being converted into Perennial canals in India?' → Because Inundation canals are 'floodwater canals' that remain dry during winter and summer when crops need water most, and only irrigate low-lying floodplains."
+        ],
+        explanation: "Inundation canals are drawn directly from rivers without any regulating barrage or dam, so water enters them only when the river floods during the monsoon. Perennial canals have a weir, barrage, or dam at the head to store water and regulate discharge all year round for both Kharif and Rabi crops."
+      },
+      {
+        id: 9,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "VERY_HIGH",
+        probText: "97% Exam Probability (Very High)",
+        freqCount: 9,
+        years: ["Board 2025", "Board 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "Why does Northern India (especially Punjab, Haryana, and Uttar Pradesh) have extensive Canal Irrigation compared to Peninsular (Southern) India?",
+        options: [
+          "Presence of perennial snow-fed Himalayan rivers, flat and level relief with a gentle slope, and soft, deep alluvial soil that makes digging canals easy and economical",
+          "Northern India has hard, rocky, undulating basaltic terrain that prevents digging wells",
+          "Northern India receives zero rainfall during the summer monsoon",
+          "Rivers in Northern India are short, seasonal, and flow through deep rocky gorges"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2025 Q7(iii)(b):</strong> 'Give one reason: Canal irrigation is important in Punjab.'",
+          "<strong>Board 2024 Q7(iii)(c):</strong> 'Give a reason: North India has more area under canal irrigation.'"
+        ],
+        explanation: "Canal irrigation thrives in the Northern Plains (Punjab, Haryana, UP) due to four ideal geographical factors: (1) Perennial Himalayan rivers fed by both monsoon rain and melting snow, (2) Flat, level land with a gentle slope, (3) Soft alluvial soil that is easy to excavate, and (4) High agrarian demand for wheat, rice, and sugarcane."
+      },
+      {
+        id: 10,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "HIGH",
+        probText: "90% Exam Probability (High)",
+        freqCount: 6,
+        years: ["Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "What are the two major environmental drawbacks of unlined Canal Irrigation in states like Punjab, Haryana, and Uttar Pradesh, and how Does 'Reh' (or 'Kallar') make fertile soil barren?",
+        options: [
+          "(1) Waterlogging due to continuous seepage through unlined canal banks raising the water table to the root zone; (2) Problem of 'Usar' / 'Reh' / 'Kallar' (alkaline efflorescence), where underground sodium/magnesium/calcium salts dissolve in the rising water table and are drawn to the surface by capillary action, leaving a white infertile salt crust upon evaporation",
+          "(1) Lowering of the water table by 500 metres; (2) Formation of Laterite bricks",
+          "(1) Acid rain formation; (2) Growth of mangrove pneumatophores in wheat fields",
+          "Unlined canals have zero seepage and zero environmental drawbacks"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2020, 2018 & Sem-1 2021 MCQ:</strong> 'Why does excessive canal irrigation lead to soil infertility (Alkalinity / Salinity / Reh / Kallar) in Punjab and UP, and how can it be prevented?' → By lining the canals with brick and cement mortar to stop seepage, avoiding over-irrigation, and installing proper field drainage."
+        ],
+        explanation: "When unlined earthen canals seep water continuously, the underground water table rises up to the plant roots, causing Waterlogging (choking root respiration). As this water evaporates under hot sun, dissolved alkaline salts from the subsoil are pulled up by capillary action, forming a toxic white crust ('Reh' or 'Kallar') that ruins soil fertility."
+      },
+      {
+        id: 11,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "VERY_HIGH",
+        probText: "99% Exam Probability (Every Year!)",
+        freqCount: 11,
+        years: ["Board 2025", "Board 2024", "Board 2023", "Specimen 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016", "Specimen 2024"],
+        question: "Why is 'Tank Irrigation' predominantly practised in Peninsular India (Deccan Plateau — Andhra Pradesh, Telangana, Tamil Nadu, and Karnataka) and NOT common in Northern India?",
+        options: [
+          "(1) The Deccan Plateau consists of hard, impervious (non-porous) crystalline rocks that neither allow water to percolate underground nor permit easy digging of canals/wells; (2) The terrain is undulating with natural depressions where rainwater can be impounded easily by building a simple earthen/stone bund; (3) Peninsular rivers are seasonal (rain-fed) and dry up in summer",
+          "Peninsular India has soft, porous alluvial soil that absorbs all tank water into aquifers",
+          "Peninsular rivers are snow-fed by the Himalayas all year round",
+          "Northern India has hard basaltic rocks and natural depressions everywhere"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2025 Q7(iii)(a) (Direct Board Question):</strong> 'Give one reason: Tank irrigation is NOT common in Northern India.' → Because Northern India has flat terrain (lacking natural depressions) and soft, permeable alluvial soil through which stored tank water would quickly seep underground; plus North India already has perennial rivers and high groundwater for canals and wells.",
+          "<strong>Board 2023, 2020, 2019, 2017:</strong> 'Give three geographical reasons why Tank irrigation is more prevalent in South India (Deccan Plateau) than in North India.'"
+        ],
+        explanation: "Tank irrigation is ideal for the Deccan Plateau (Andhra Pradesh, Telangana, Tamil Nadu, Karnataka) because: (1) Underlying rocks are hard and non-porous (impermeable), preventing seepage loss; (2) Undulating relief provides natural depressions; and (3) Seasonal streams swell in monsoon and dry up later, making storage in tanks essential."
+      },
+      {
+        id: 12,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "VERY_HIGH",
+        probText: "95% Exam Probability (Very High)",
+        freqCount: 8,
+        years: ["Board 2024", "Specimen 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "What are the major disadvantages of 'Tank Irrigation' in India, and why is water loss due to evaporation highest in tanks?",
+        options: [
+          "(1) Tanks are shallow and spread water over a very large exposed surface area, causing massive water loss through evaporation; (2) Most tanks are non-perennial and dry up in the hot summer when irrigation is needed most; (3) Heavy silting of the tank bed requires frequent, costly desilting; (4) Tanks occupy large tracts of fertile land",
+          "Tanks are 500 metres deep and never experience evaporation",
+          "Tanks only work when connected to Himalayan glaciers",
+          "Tanks require continuous high-voltage electricity to store rainwater"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2024 Q7(i) (Direct Board Question):</strong> 'Mention one advantage and one disadvantage of using tank irrigation.'",
+          "<strong>Give Reason Question (Board 2019, Total Geography):</strong> 'Give a geographical reason: Loss of water due to evaporation is highest in tanks.' → Because tanks are generally shallow and expose a large surface area of standing water to intense tropical solar radiation."
+        ],
+        explanation: "While tanks are cheap to construct in natural rocky depressions and store monsoon runoff, they suffer from four serious drawbacks: high evaporation loss (due to large surface area and shallow depth), drying up in summer when monsoons fail, heavy siltation, and submerging large areas of potentially cultivable land."
+      },
+      {
+        id: 13,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "VERY_HIGH",
+        probText: "98% Exam Probability (Very High)",
+        freqCount: 10,
+        years: ["Specimen 2026", "Board 2025", "Specimen 2025", "Board 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017"],
+        question: "With reference to 'Tube-well Irrigation' in states like Punjab, Haryana, and Uttar Pradesh: (1) What are the ideal geographical conditions that favour tube-wells, and (2) Why do ALL farmers NOT use tube-well irrigation even when geographical conditions are favourable?",
+        options: [
+          "(1) Ideal Conditions: Plentiful groundwater at accessible depth, soft alluvial soil easy to bore, regular supply of cheap electricity/diesel, and fertile productive farmland to recover costs; (2) Why not all farmers: High initial capital cost of boring/pump-set and recurring expenditure on electricity/diesel makes it unaffordable for poor farmers with small fragmented landholdings",
+          "(1) Ideal Conditions: Hard granite rocks and zero groundwater; (2) Why not all farmers: Tube-wells do not work during winter",
+          "(1) Ideal Conditions: Steep mountain slopes; (2) Why not all farmers: Tube-wells require seawater",
+          "Every single farmer in India uses a personal tube-well free of cost"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Specimen 2026 & Specimen 2025 Q7(iii):</strong> '(a) Name a state in India where tube wells are commonly used (Punjab / Haryana / UP / Bihar / West Bengal). (b) Give two geographical conditions that favour tube well irrigation in this state.'",
+          "<strong>Board 2025 Q7(iii)(c) (Direct Board Question):</strong> 'Give one reason: All farmers do not use tube well irrigation even if the geographical condition is favourable.'",
+          "<strong>Board 2024 Q7(iii)(b):</strong> 'Give a reason: Tube well irrigation is used in Punjab.'"
+        ],
+        explanation: "Tube-well irrigation requires four conditions: high water table (15–50m), soft alluvial soil for easy boring, cheap and reliable electricity/diesel to run pumps, and fertile soil yielding high returns. However, small farmers cannot afford the high capital cost of drilling and purchasing electric/diesel pumps or paying monthly power bills."
+      },
+      {
+        id: 14,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "HIGH",
+        probText: "90% Exam Probability (High)",
+        freqCount: 6,
+        years: ["Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "Why is a 'Tube-well' considered far more reliable and advantageous than an ordinary 'Surface Well' (Dug Well), especially during periods of drought?",
+        options: [
+          "(1) A Tube-well bores deep (15m to >100m) to tap permanent deep aquifers, so it does not dry up during summer droughts when shallow surface wells go dry; (2) It can irrigate a much larger area (~400 hectares vs. 1–2 hectares for an ordinary well); (3) It lifts water mechanically without manual/animal labour and protects water from surface contamination",
+          "An ordinary surface well irrigates 1,000 hectares whereas a tube-well irrigates only 1 hectare",
+          "A tube-well requires no electricity or diesel to operate",
+          "A tube-well can only be dug in hard volcanic rocks of Maharashtra"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2020, 2018 & Sem-1 2021 Direct Question:</strong> 'State three advantages of Tube-wells over Surface Wells.'",
+          "<strong>Lined vs. Unlined Surface Wells (Total Geography):</strong> <em>Unlined (Kuchcha) wells</em> are dug cheaply near riverbanks without brickwork but collapse easily; <em>Lined (Pucca) wells</em> are permanently lined with bricks and cement mortar."
+        ],
+        explanation: "Ordinary surface wells are shallow (<15m), dry up in hot summers, irrigate only 1 to 2 hectares, and require animal/manual labour to lift water. Tube-wells tap deep perennial water tables, irrigate up to 400 hectares rapidly using electric/diesel motors, occupy minimal surface space, and bring up clean water."
+      },
+      {
+        id: 15,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "HIGH",
+        probText: "85% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Sem-1 2021", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "Which of the following correctly describes the three traditional water-lifting devices used on ordinary Surface Wells in India: (1) Persian Wheel (Rahat), (2) Inclined Plane (Mhote), and (3) Lever Method (Dhenkli / Picottah)?",
+        options: [
+          "(1) Persian Wheel (Rahat) = A partly submerged vertical wheel with a continuous chain of buckets turned by bullocks/buffaloes gearing (up to 10m depth); (2) Inclined Plane (Mhote) = Pair of bullocks walking down an inclined ramp pulling a leather bucket over a pulley; (3) Lever Method (Dhenkli) = Counterpoise wooden beam lever with a bucket on one end and weight on the other for very shallow wells (3.5–4.5m)",
+          "All three are high-pressure electric turbine pumps used in deep sea drilling",
+          "(1) Persian Wheel = Rooftop filter; (2) Mhote = Canal lock; (3) Dhenkli = Drip emitter",
+          "None of these methods are used for well irrigation"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Sem-1 2021 & Board 2018 Short/MCQ Concept:</strong> 'What is the Persian Wheel (Rahat), and where is it commonly used?' → Used in Punjab, Haryana, Western Rajasthan, and UP to lift water from surface wells using bullock/camel power."
+        ],
+        explanation: "Before electric pumps, Indian farmers used three traditional mechanical devices to draw water from dug wells: the Persian Wheel (Rahat — endless chain of buckets turned by cattle), the Inclined Plane (Mhote — bullocks pulling a leather bag down a slope), and the Dhenkli/Picottah (see-saw lever system for shallow wells in Bihar/West Bengal/Tamil Nadu)."
+      },
+      {
+        id: 16,
+        topic: "CONSERVATION_RWH",
+        topicLabel: "Conservation & Rainwater Harvesting",
+        probability: "VERY_HIGH",
+        probText: "98% Exam Probability (Very High)",
+        freqCount: 9,
+        years: ["Board 2026", "Board 2025", "Board 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017"],
+        question: "Groundwater levels are depleting rapidly in many parts of India (falling by 70–80% in several blocks), and many metropolitan cities have banned the construction of new commercial tube-wells. Which of the following are the primary causes of this acute groundwater crisis?",
+        options: [
+          "(1) Over-exploitation of groundwater via millions of tube-wells for water-intensive Green Revolution crops (utilizing ~90% of freshwater); (2) Rapid population growth, urbanization, and industrialization; (3) Concrete roads and pavements in cities preventing rainwater percolation; (4) Deforestation and erratic monsoon rainfall",
+          "Excessive construction of percolation pits and rooftop rainwater harvesting tanks",
+          "Planting too many trees under Van Mahotsav",
+          "Replacement of flood irrigation with drip irrigation"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2026 Q7(i) (Direct Board Question):</strong> 'Groundwater levels are depleting rapidly in many parts of India. Explain any two causes for this decline.'",
+          "<strong>Board 2025 Q7(ii) (Direct Board Question):</strong> 'Suggest any two measures to overcome scarcity of water in the metropolitan cities of India.' → Mandatory rooftop rainwater harvesting, recycling/treating domestic and industrial wastewater (greywater reuse), recharging dried borewells via percolation pits, and fixing leaking municipal pipelines.",
+          "<strong>Give Reason Variation:</strong> 'Many cities have banned construction of new tube-wells.' → To arrest the alarming drop in the urban underground water table and prevent land subsidence."
+        ],
+        explanation: "India faces a severe groundwater crisis because agriculture consumes nearly 90% of extracted freshwater (via unregulated tube-well pumping), while population growth, industrial pollution, deforestation, and concrete urban surfaces block natural aquifer recharge during the monsoon."
+      },
+      {
+        id: 17,
+        topic: "CONSERVATION_RWH",
+        topicLabel: "Conservation & Rainwater Harvesting",
+        probability: "VERY_HIGH",
+        probText: "99% Exam Probability (Every Year!)",
+        freqCount: 11,
+        years: ["Board 2026", "Specimen 2026", "Board 2025", "Specimen 2025", "Board 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017"],
+        question: "What is meant by 'Rainwater Harvesting', and what are its primary objectives?",
+        options: [
+          "Definition: The activity of collecting, capturing, and storing rainwater locally (in tanks/ponds) or recharging it into underground aquifers; Objectives: (1) Meet the ever-increasing demand for water in dry seasons, (2) Reduce surface runoff that chokes drains and causes urban road flooding, (3) Raise the underground water table and reduce soil erosion, and (4) Improve groundwater quality by dilution",
+          "Definition: Desalinating ocean water in factories; Objectives: Increase surface runoff and flood roads",
+          "Definition: Pumping out deep groundwater using diesel engines; Objectives: Lower the water table",
+          "Definition: Building unlined inundation canals; Objectives: Increase evaporation loss"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2026 Q7 (Case Study on Semi-Arid Tikari):</strong> '\"In semi-arid regions like Tikari, rainwater is collected from rooftops and stored in underground tanks for the dry season.\" (a) What type of water conservation method is being practised? (b) Why is this method suitable for semi-arid regions?'",
+          "<strong>Board 2025 Q7(iv) (3 Marks):</strong> 'State any three objectives of rainwater harvesting.'",
+          "<strong>Specimen 2025 & Specimen 2026 Q7(iv)(a):</strong> 'What is meant by Rainwater Harvesting?'"
+        ],
+        explanation: "Rainwater Harvesting is the technique of collecting and storing rainwater locally for direct future use or recharging it into subterranean aquifers. Its key objectives are to supplement domestic/agricultural water supply during dry spells, prevent urban flooding and soil erosion by checking surface runoff, and replenish depleted groundwater tables."
+      },
+      {
+        id: 18,
+        topic: "CONSERVATION_RWH",
+        topicLabel: "Conservation & Rainwater Harvesting",
+        probability: "VERY_HIGH",
+        probText: "94% Exam Probability (Very High)",
+        freqCount: 7,
+        years: ["Specimen 2026", "Specimen 2025", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017"],
+        question: "Across India, traditional water harvesting mechanisms are known by distinct regional names. Which of the following correctly matches the Regional Name with its Geographical Region?",
+        options: [
+          "Johads, Tankas (Kunds) & Khadin = Western Rajasthan (Thar Desert); Kuls / Kuhls = Western Himalayas (Himachal Pradesh / Jammu); Zings = Ladakh; Surangam = Western Ghats (Kerala/Karnataka); Bhandaras & Kere = Deccan Plateau; Korambu = Eastern Ghats; Dongs = Assam (Brahmaputra Valley)",
+          "Johads = Meghalaya; Kuls = Tamil Nadu; Surangam = Ladakh; Zings = Kerala",
+          "Tankas = Himachal Pradesh; Bhandaras = Assam; Dongs = Rajasthan",
+          "All these names refer exclusively to modern concrete dams in Punjab"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Specimen 2025 & Specimen 2026 Q7(iv)(b):</strong> 'Mention any two traditional / modern water harvesting practices followed in India.' → Official CISCE Marking Scheme lists: <em>Rooftop rainwater harvesting, Percolation pit, Borewell/Dugwell recharge, Johads, Tankas, Khadin, Kuls/Kuhls, Zing, Surangam, Bhandaras, Kere, Korambu, Dongs</em>.",
+          "<strong>Sem-1 2021 Direct Match MCQs:</strong> (1) 'What are the traditional rainwater storage tanks in Western Rajasthan called?' → <strong>Tankas (or Kunds) and Johads</strong>. (2) 'What are the diversion channels in the Western Himalayas called?' → <strong>Kuls (or Kuhls)</strong>."
+        ],
+        explanation: "CISCE textbooks highlight India's ancient regional water-harvesting wisdom: Kuls/Kuhls (mountain glacier diversion channels in Western Himalayas/HP), Zings (glacier melt tanks in Ladakh), Johads, Kunds/Tankas & Khadin (Rajasthan), Bhandaras & Kere (Deccan Plateau), Surangam (horizontal tunnel wells in Western Ghats), Korambu (Eastern Ghats), and Dongs (Assam ponds)."
+      },
+      {
+        id: 19,
+        topic: "CONSERVATION_RWH",
+        topicLabel: "Conservation & Rainwater Harvesting",
+        probability: "HIGH",
+        probText: "90% Exam Probability (High)",
+        freqCount: 6,
+        years: ["Specimen 2026", "Board 2024", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018"],
+        question: "What are the four sequential functional components of a 'Rooftop Rainwater Harvesting System', and what is the role of Each?",
+        options: [
+          "(1) Catchment (Roof/Terrace surface that receives rainfall); (2) Conduits / Conveyance Pipes (PVC or GI drainpipes carrying rainwater from rooftop down to ground); (3) First-Flush Valve & Filter Unit (Chamber filled with sand, gravel, pebbles, and charcoal to trap leaves, dust, and debris); (4) Storage Tank or Recharge Pit / Borewell / Percolation Trench",
+          "(1) Diesel Pump; (2) Sprinkler Nozzle; (3) Inundation Canal; (4) River Barrage",
+          "(1) Persian Wheel; (2) Leather Mhote; (3) Unlined Well; (4) Furrow Channel",
+          "Rooftop rainwater harvesting does not require any pipes or filtration"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Sem-1 2021 & Board 2020 Direct Question:</strong> '(a) What is the surface that receives rainfall directly in a rainwater harvesting system called?' → <strong>Catchment</strong>. '(b) What are the pipes that carry water from the catchment to the harvesting system called?' → <strong>Conduits</strong>."
+        ],
+        explanation: "Every rooftop rainwater harvesting installation consists of 4 essential parts: (1) Catchment (the roof terrace where rain falls), (2) Conduits (PVC/GI gutter pipes that channel the water down), (3) Filter unit (sand, gravel, and boulder bed to remove dirt and pollutants), and (4) Storage tank (for direct use) or Recharge pit/well (to replenish groundwater)."
+      },
+      {
+        id: 20,
+        topic: "MODERN_IRRIGATION",
+        topicLabel: "Drip, Sprinkler & Modern",
+        probability: "HIGH",
+        probText: "86% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2016"],
+        question: "How does 'Furrow Irrigation' differ from traditional 'Flood Irrigation', and why is Furrow Irrigation considered a more scientific surface method?",
+        options: [
+          "In Flood Irrigation, water is released to cover the entire field unevenly without channels, causing massive wastage and waterlogging; in Furrow Irrigation, crops are planted on ridges and water is directed through narrow, parallel channels (furrows) of equal dimensions between crop rows, ensuring uniform water application and lower wastage",
+          "Furrow Irrigation sprays water from overhead helicopters; Flood Irrigation uses underground perforated pipes",
+          "Flood Irrigation uses zero water; Furrow Irrigation submerges the entire village",
+          "Both methods are identical and use rotating nozzles"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Total Geography / Sem-1 2021 Odd-One-Out MCQ:</strong> 'Identify the method that is NOT a conventional (traditional) means of irrigation: (a) Wells (b) Tanks (c) Inundation canals (d) Furrow irrigation.' → <strong>(d) Furrow irrigation</strong> (classified under modern/scientific controlled irrigation alongside Drip, Sprinkler, and Spray irrigation)."
+        ],
+        explanation: "In Furrow Irrigation, parallel narrow trenches (furrows) are dug between rows of crops (like potatoes, sugarcane, cotton, maize, and vegetables). Unlike uncontrolled Flood Irrigation (where water spreads over the whole field), Furrow Irrigation wets only one-fifth to one-half of the land surface, reducing evaporation and preventing root submergence."
+      },
+      {
+        id: 21,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "HIGH",
+        probText: "87% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Board 2026", "Sem-1 2021", "Board 2020", "Board 2018", "Board 2016"],
+        question: "Why does Tamil Nadu require extensive irrigation during the main summer monsoon season (June–September), and why is nearly one-third of its net irrigated area under Canal Irrigation alongside Tanks and Wells?",
+        options: [
+          "During June–September, Tamil Nadu lies in the rain-shadow (leeward) zone of the Western Ghats and receives scant summer rain, so summer crops require irrigation; its flat coastal deltas (especially the Kaveri, Palar, and Vaigai deltas) have extensive Canal networks, while its rocky interior districts rely on Tanks",
+          "Tamil Nadu receives 1,000 cm of rain in July and has no rivers",
+          "Tamil Nadu is covered entirely by Himalayan glaciers",
+          "Canals in Tamil Nadu only carry seawater from the Bay of Bengal"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Give Reason Question (Board 2020, Total Geography):</strong> 'Give a geographical reason: In Tamil Nadu, nearly one-third of the net irrigated area is under canal irrigation.' → Because the fertile eastern coastal plains and the Kaveri Delta (Thanjavur — 'Granary of South India') are flat and crisscrossed by deltaic perennial canals (such as the Mettur Dam and Grand Anicut/Kallanai canals)."
+        ],
+        explanation: "Tamil Nadu receives most of its rainfall in winter (Oct–Dec) from the North-East/Retreating Monsoon. During the summer SW Monsoon (June–Sept), it remains dry in the rain-shadow of the Western Ghats. Its rocky interior plateaus use Tank Irrigation, while the flat fertile Kaveri delta uses extensive Canal Irrigation."
+      },
+      {
+        id: 22,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "HIGH",
+        probText: "88% Exam Probability (High)",
+        freqCount: 6,
+        years: ["Board 2024", "Board 2023", "Sem-1 2021", "Board 2019", "Board 2018", "Board 2016"],
+        question: "Why are 'Rabi Crops' (such as Wheat, Barley, Mustard, and Gram) grown primarily in areas with assured irrigation facilities, and why do crops like Rice and Sugarcane need heavy irrigation even in monsoon areas?",
+        options: [
+          "Rabi crops are sown in October–November and harvested in March–April (the dry winter season when India receives practically no rain except light Western Disturbances in the North-West); Rice requires stagnant standing water in fields, and Sugarcane has a long 10 to 12-month growing period requiring regular watering during dry pre- and post-monsoon months",
+          "Rabi crops are grown in July during heavy floods",
+          "Wheat and Mustard only grow submerged under 2 metres of seawater",
+          "Sugarcane is a 30-day desert crop that needs no water"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2019 & Total Geography Give-Reason Q:</strong> '(a) Rabi crops are grown in areas with irrigation facilities. (b) High-Yielding Varieties (HYV) of seeds require regular irrigation.' → HYV seeds (Green Revolution) require heavy doses of chemical fertilizers and timely, assured moisture at critical growth stages."
+        ],
+        explanation: "India has three cropping seasons: Kharif (monsoon), Rabi (winter: Oct–March), and Zaid (summer: April–May). Because winter is dry over most of India, Rabi crops cannot survive without artificial irrigation (canals, wells, tube-wells). Furthermore, water-intensive crops like Paddy (Rice) and long-duration Sugarcane need supplementary irrigation whenever monsoon breaks occur."
+      },
+      {
+        id: 23,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "HIGH",
+        probText: "84% Exam Probability (High)",
+        freqCount: 4,
+        years: ["Board 2026", "Sem-1 2021", "Board 2019", "Board 2017"],
+        question: "How does the 'Nature of the Soil' influence the frequency and requirement of irrigation across different regions of India?",
+        options: [
+          "Clayey soils like Black (Regur) Soil have very high moisture-retentive capacity in their subsoil and require less frequent irrigation, whereas sandy, porous, and loamy soils (like Alluvial, Red, Laterite, and Arid soils) lose water rapidly through percolation and require frequent irrigation",
+          "Black soil requires daily flood irrigation whereas desert sand retains water for 6 months",
+          "All soils in India have the exact same water-holding capacity",
+          "Laterite soil is completely impervious and never needs irrigation"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2026 Q3(iv) Concept & Board 2019 Q7:</strong> 'Explain how the nature of soil is a factor responsible for the need for irrigation in India.'"
+        ],
+        explanation: "Water-holding capacity depends directly on soil texture. Fine-textured clayey soils (like Black Cotton Soil of the Deccan) retain moisture for long spells, enabling dry farming. In contrast, coarse-textured sandy and porous soils (Red, Laterite, Desert, and light Sandy Loam) allow water to drain rapidly and need frequent watering."
+      },
+      {
+        id: 24,
+        topic: "CONSERVATION_RWH",
+        topicLabel: "Conservation & Rainwater Harvesting",
+        probability: "HIGH",
+        probText: "86% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Board 2025", "Specimen 2024", "Sem-1 2021", "Board 2019", "Board 2017"],
+        question: "What is meant by 'Watershed Management', and what is the 'Haryali' project launched by the Central Government?",
+        options: [
+          "Watershed Management refers to the efficient conservation and management of both surface and groundwater resources within a natural drainage basin (by preventing runoff, building check-dams, percolation tanks, and recharge wells); 'Haryali' is a Watershed Development Project sponsored by the Central Government to enable Gram Panchayats and rural communities to conserve water for drinking, irrigation, fisheries, and afforestation",
+          "Watershed Management means draining all lakes into the sea; Haryali is a thermal power project",
+          "Watershed Management is a method of open-cast coal mining in Jharkhand",
+          "Haryali is a scheme to replace food crops with plastic greenhouses"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Sem-1 2021 & Board 2019 Direct Question:</strong> '(a) What is Watershed Management? (b) How is it beneficial for farmers in rural India?' → It recharges groundwater, prevents soil erosion, increases crop yields in rain-fed areas, and provides water for drinking, livestock, and fisheries."
+        ],
+        explanation: "A watershed is a geo-hydrological unit (drainage basin) draining into a common point. Watershed Management integrates soil and water conservation (check-dams, contour bunding, percolation tanks, afforestation) so that every drop of rain falling in the basin is conserved and recharged locally."
+      },
+      {
+        id: 25,
+        topic: "CONSERVATION_RWH",
+        topicLabel: "Conservation & Rainwater Harvesting",
+        probability: "VERY_HIGH",
+        probText: "92% Exam Probability (Very High)",
+        freqCount: 6,
+        years: ["Board 2026", "Board 2025", "Specimen 2023", "Board 2020", "Board 2018", "Board 2016"],
+        question: "Which of the following sets of practices represents effective ways by which an individual citizen or household can reuse and conserve water every day?",
+        options: [
+          "(1) Installing rooftop rainwater harvesting and recharge pits; (2) Reusing 'greywater' from washing vegetables/fruits and RO water-purifier / AC outlets for watering garden plants, mopping floors, and flushing toilets; (3) Using a bucket instead of a running hosepipe for washing cars and fixing leaking taps promptly",
+          "(1) Using only plastic bottled drinking water; (2) Leaving taps running while brushing; (3) Washing courtyards with high-pressure potable water hoses",
+          "(1) Drilling private commercial borewells in every house; (2) Paving over all garden soil with concrete",
+          "Dumping untreated detergent water directly into freshwater lakes"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2026 Q7(ii)(a) & Specimen 2023 Q7(iv):</strong> 'Mention three ways by which an individual can reuse and conserve water at home.'",
+          "<strong>Total Geography Trap MCQ:</strong> 'Which of the following does NOT conserve water? (a) Rainwater harvesting (b) Using bottled drinking water (c) Water recycling (d) Drip irrigation.' → <strong>(b) Using bottled drinking water</strong>."
+        ],
+        explanation: "At the household level, water conservation involves both reducing wastage (turning off taps, using dual-flush cisterns, using buckets instead of hoses) and reusing greywater (water from washing vegetables, RO reject water, and AC condensate used for gardening, car washing, and floor cleaning)."
+      },
+      {
+        id: 26,
+        topic: "MODERN_IRRIGATION",
+        topicLabel: "Drip, Sprinkler & Modern",
+        probability: "HIGH",
+        probText: "85% Exam Probability (High)",
+        freqCount: 4,
+        years: ["Competency 2026", "Specimen 2025", "Sem-1 2021", "Board 2019"],
+        question: "In which Indian state is the 200-year-old ingenious system of 'Bamboo Drip Irrigation' widely practised to irrigate betel leaf, black pepper, and arecanut crops, and how does it operate?",
+        options: [
+          "Meghalaya (Khasi and Jaintia Hills) — water from perennial hill streams is tapped and transported over hundreds of metres by gravity through a network of hollowed bamboo channels, reducing a flow of 18–20 litres/minute down to 20–80 drops/minute right at the plant roots",
+          "Western Rajasthan — water is pumped uphill using steel pipes",
+          "Punjab — canal water is sprayed over wheat fields using bamboo fans",
+          "Kerala backwaters — saline tidal water is channelled into paddy fields"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Competency Bank 2025–2026 & Sem-1 2021 MCQ:</strong> 'Name the northeastern state famous for Bamboo Drip Irrigation.' → <strong>Meghalaya</strong>. 'What is the main advantage of Bamboo Drip Irrigation?' → Requires no fuel/electricity (works on gravity along hill slopes), built from locally abundant bamboo at low cost, and prevents soil erosion and water wastage on steep rocky slopes."
+        ],
+        explanation: "In the hilly terrain of Meghalaya, farmers cannot dig canals or wells in the steep rocky slopes. Instead, they use split bamboo pipes of varying diameters laid across hill slopes to divert hill-stream water by gravity directly to the roots of black pepper and betel vines."
+      },
+      {
+        id: 27,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "HIGH",
+        probText: "85% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Board 2023", "Sem-1 2021", "Board 2020", "Board 2018", "Board 2016"],
+        question: "Why is Well Irrigation confined mainly to the Alluvial Plains of India (Uttar Pradesh, Bihar, Punjab, Haryana, West Bengal, and coastal deltas), and what is a key chemical advantage of Well water over Canal water?",
+        options: [
+          "Alluvial plains have soft soil that is easy to dig and a high, porous groundwater table (within 15m) continuously recharged by perennial rivers; chemically, well water contains natural dissolved minerals (like nitrates, potash, and sulphates) that add fertility to the soil",
+          "Alluvial plains have hard granite rocks; well water is completely devoid of any minerals",
+          "Alluvial plains have no rivers; well water is boiling hot",
+          "Well irrigation is practiced only on Himalayan mountain peaks above 4,000m"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Give Reason Question (Board 2020, 2018):</strong> 'Give a geographical reason: Well irrigation is confined mainly to the alluvial plains.' → Because the soft, unconsolidated alluvial soil is easy to dig and porous enough to allow rainwater and river water to percolate and maintain a high water table."
+        ],
+        explanation: "Uttar Pradesh has the largest area under well irrigation in India, followed by Rajasthan, Punjab, Madhya Pradesh, Gujarat, and Bihar. Soft soil and a high water table make digging wells easy, and groundwater naturally contains beneficial soil salts (nitrates and chlorides) that enrich crop growth."
+      },
+      {
+        id: 28,
+        topic: "MODERN_IRRIGATION",
+        topicLabel: "Drip, Sprinkler & Modern",
+        probability: "MEDIUM",
+        probText: "80% Exam Probability (Medium)",
+        freqCount: 3,
+        years: ["Sem-1 2021", "Board 2019", "Board 2017"],
+        question: "What is 'Spray Irrigation', and what are its main drawbacks compared to Drip Irrigation?",
+        options: [
+          "In Spray Irrigation, a long hose pipe connected to a water source terminates in spray-guns that throw water over the field; its drawbacks are high capital cost of machinery, significant evaporation loss in hot/windy weather, and increased risk of wet-foliage plant diseases (fungal blight/mildew) due to over-watering of leaves",
+          "Spray Irrigation buries clay pots underground; it has zero evaporation loss",
+          "Spray Irrigation is another name for Inundation Canals",
+          "Spray Irrigation only works underwater in rice paddies"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Total Geography / Sem-1 2021 Distinction:</strong> While Sprinkler and Spray irrigation both spray water through the air, <em>Drip irrigation</em> applies water strictly at soil level to the roots — meaning Drip has zero wind-drift evaporation and never wets plant leaves (preventing leaf-scorch and fungal diseases)."
+        ],
+        explanation: "In Spray Irrigation, high-pressure spray guns distribute water across large fields. However, strong winds blow the fine mist away, up to 15–25% of water can be lost to evaporation before reaching the roots, and wet leaves encourage fungal pathogens."
+      },
+      {
+        id: 29,
+        topic: "WELLS_CANALS_TANKS",
+        topicLabel: "Wells, Canals & Tanks",
+        probability: "HIGH",
+        probText: "88% Exam Probability (High)",
+        freqCount: 5,
+        years: ["Competency 2026", "Board 2024", "Sem-1 2021", "Board 2019", "Board 2017"],
+        question: "Assertion (A): Despite the construction of huge Multipurpose River Valley Projects and canal networks, groundwater irrigation (Wells and Tube-wells) still accounts for over 60% of India's net irrigated area.<br>Reason (R): Canal networks are still unavailable in many remote areas, whereas groundwater can be tapped independently by farmers at will whenever monsoon rains fail or delay.",
+        options: [
+          "Both (A) and (R) are true and (R) is the correct explanation of (A)",
+          "Both (A) and (R) are true, but (R) is NOT the correct explanation of (A)",
+          "(A) is true, but (R) is false",
+          "(A) is false, but (R) is true"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board & Textbook Analytical Question:</strong> 'Despite big river valley projects, irrigation through groundwater has still been growing in popularity. Give two reasons.' → (1) Wells and tube-wells are under the farmer's direct independent control (can be used on demand), and (2) Large canal projects have not reached all remote agricultural pockets."
+        ],
+        explanation: "Wells and Tube-wells together form the #1 source of irrigation in India (~62% of net irrigated area), followed by Canals (~24–26%) and Tanks (~3%). Farmers prefer groundwater because it is an on-demand, self-reliant source right inside their farm."
+      },
+      {
+        id: 30,
+        topic: "DATA",
+        topicLabel: "Tables & Visual Diagrams",
+        probability: "VERY_HIGH",
+        probText: "100% Exam Probability (Every Year!)",
+        freqCount: 12,
+        years: ["Board 2026", "Specimen 2026", "Board 2025", "Specimen 2025", "Board 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017", "Board 2016"],
+        question: "<strong>[Table Sub-Question 1: Master Comparison Matrix of Conventional Irrigation Methods]</strong><br>Study the comparative matrix below for Conventional Irrigation Systems <strong>I, II, III, and IV</strong> and choose the option that correctly identifies all four:",
+        tableHtml: `
+          <div class="water-table-wrap">
+            <table class="water-table">
+              <thead>
+                <tr><th>System Code</th><th>Leading States / Region</th><th>Ideal Geographical Conditions</th><th>Key Merit &amp; Key Demerit</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>System I</th><td>Uttar Pradesh, Rajasthan, Punjab, MP, Bihar</td><td>Soft alluvial soil easy to dig; high water table (&lt;15m)</td><td><strong>Merit:</strong> Cheapest &amp; simplest for poor farmers.<br><strong>Demerit:</strong> Irrigates only 1–2 hectares &amp; dries up in summer drought.</td></tr>
+                <tr><th>System II</th><td>Punjab, Haryana, Uttar Pradesh, Bihar, West Bengal</td><td>Plentiful deep groundwater, soft soil, cheap regular electricity/diesel</td><td><strong>Merit:</strong> Irrigates ~400 hectares; perennial even in drought.<br><strong>Demerit:</strong> High capital &amp; power cost; depletes water table if overused.</td></tr>
+                <tr><th>System III</th><td>Punjab, Haryana, UP, Rajasthan (Indira Gandhi Canal), Coastal Deltas</td><td>Perennial snow-fed rivers, flat gentle slope, soft soil</td><td><strong>Merit:</strong> Turns arid land fertile (Green Revolution).<br><strong>Demerit:</strong> Unlined seepage causes Waterlogging &amp; Alkaline 'Reh/Kallar' crust.</td></tr>
+                <tr><th>System IV</th><td>Deccan Plateau (Andhra Pradesh, Telangana, Tamil Nadu, Karnataka)</td><td>Hard impermeable crystalline rock base; undulating depressions; seasonal rivers</td><td><strong>Merit:</strong> Stores monsoon runoff naturally in rocky terrain.<br><strong>Demerit:</strong> Highest evaporation loss (shallow &amp; wide); silting &amp; dries in summer.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        `,
+        options: [
+          "I = Surface Well (Dug Well); II = Tube-well; III = Perennial Canal; IV = Tank Irrigation",
+          "I = Tank Irrigation; II = Perennial Canal; III = Surface Well; IV = Tube-well",
+          "I = Drip Irrigation; II = Sprinkler; III = Furrow; IV = Bamboo Drip",
+          "I = Tube-well; II = Surface Well; III = Tank Irrigation; IV = Inundation Canal"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Appeared in EVERY Board & Specimen Paper (2016–2026 Q7):</strong> Every single year, CISCE Question 7 tests at least 3 rows of this exact 4-System Conventional Irrigation Matrix (identifying the method, naming 2 leading states, stating 2 ideal geographical conditions, and giving 1 advantage + 1 disadvantage)."
+        ],
+        explanation: "This 4-row table summarizes all conventional irrigation questions in CISCE Geography: System I = Surface Dug Well (cheapest, 1–2 ha, dries in summer); System II = Tube-well (deep bore, electric motor, ~400 ha); System III = Perennial Canal (barrage/dam regulated, waterlogging/Reh issue if unlined); System IV = Tank Irrigation (Deccan rocky depressions, high evaporation)."
+      },
+      {
+        id: 31,
+        topic: "DATA",
+        topicLabel: "Tables & Visual Diagrams",
+        probability: "VERY_HIGH",
+        probText: "96% Exam Probability (Very High)",
+        freqCount: 9,
+        years: ["Board 2025", "Board 2024", "Specimen 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017"],
+        question: "<strong>[Table Sub-Question 2: Modern Irrigation Methods Comparison Matrix]</strong><br>Examine the comparison table of Modern Irrigation Techniques below and select the option that correctly fills in the missing entries <strong>(P), (Q), (R), and (S)</strong>:",
+        tableHtml: `
+          <div class="water-table-wrap">
+            <table class="water-table">
+              <thead>
+                <tr><th>Modern Method</th><th>Water Delivery Mechanism</th><th>Evaporation &amp; Seepage Loss</th><th>Primary Limitation / Constraint</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>1. Drip (Trickle) Irrigation</th><td><strong>(P) ________________________</strong></td><td>Almost Zero (Highest water-use efficiency: 90%+)</td><td><strong>(Q) ________________________</strong></td></tr>
+                <tr><th>2. Sprinkler (Overhead) Irrigation</th><td>Pressurized pipe network with rotating overhead nozzle spraying artificial rain</td><td><strong>(R) ________________________</strong></td><td>High wind distorts spray; brackish water scorches leaves; high cost</td></tr>
+                <tr><th>3. Furrow Irrigation</th><td><strong>(S) ________________________</strong></td><td>Moderate (Lower than uncontrolled Flood irrigation, higher than Drip)</td><td>Requires level grading and still loses some water to seepage/evaporation</td></tr>
+              </tbody>
+            </table>
+          </div>
+        `,
+        options: [
+          "(P) Perforated plastic pipes/tubes deliver water drop-by-drop directly to plant roots; (Q) High initial installation cost & clogging of emitters/nozzles by silt; (R) Very low (no seepage loss); (S) Water directed into narrow parallel channels (furrows) dug between ridges of crop rows",
+          "(P) Overhead rain gun; (Q) Causes severe gully erosion; (R) 90% water wasted; (S) Hollow bamboo pipes on mountains",
+          "(P) Floods the entire village; (Q) Zero cost; (R) High seepage; (S) Underground tunnel in Kerala",
+          "(P) Persian wheel buckets; (Q) Requires bullocks; (R) Causes waterlogging; (S) Rooftop PVC pipe"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2025 Q3(iv) & Board 2024 Q7(ii)–(iii):</strong> Directly tests the mechanism, water-conservation efficiency, and practical limitations of Drip, Sprinkler, and Furrow irrigation."
+        ],
+        explanation: "Drip irrigation delivers water drop-by-drop directly to the root zone via perforated pipes (saving maximum water, though expensive and prone to nozzle clogging). Sprinkler sprays water overhead like rain (no seepage loss, great for undulating terrain). Furrow channels water along narrow parallel trenches between crop ridges."
+      },
+      {
+        id: 32,
+        topic: "DATA",
+        topicLabel: "Tables & Visual Diagrams",
+        probability: "VERY_HIGH",
+        probText: "94% Exam Probability (Very High)",
+        freqCount: 7,
+        years: ["Specimen 2026", "Specimen 2025", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017"],
+        question: "<strong>[Table Sub-Question 3: Traditional Water Harvesting Systems of India]</strong><br>Study the table of Regional Water Harvesting Systems below and identify which row contains an <strong>INCORRECT</strong> geographical match:",
+        tableHtml: `
+          <div class="water-table-wrap">
+            <table class="water-table">
+              <thead>
+                <tr><th>Row</th><th>Traditional Harvesting System</th><th>Region / State in India</th><th>How It Works</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>Row 1</th><td>Johads, Tankas (Kunds) &amp; Khadin</td><td>Western Rajasthan (Thar Desert)</td><td>Underground covered tanks (Tankas) and earthen check-bunds (Johads/Khadin) storing rainwater</td></tr>
+                <tr><th>Row 2</th><td>Kuls / Kuhls &amp; Zings</td><td>Western Himalayas (HP/Jammu) &amp; Ladakh</td><td>Channels diverting melting glacier/stream water into village tanks</td></tr>
+                <tr><th>Row 3</th><td>Bhandaras &amp; Kere</td><td>Deccan Plateau (Maharashtra &amp; Karnataka)</td><td>Check-dams and series of interconnected step-tanks built across seasonal streams</td></tr>
+                <tr><th>Row 4</th><td>Surangam &amp; Korambu</td><td>Punjab &amp; Haryana Alluvial Plains</td><td>Deep electric tube-wells pumping water into perennial Himalayan canals</td></tr>
+              </tbody>
+            </table>
+          </div>
+        `,
+        options: [
+          "Row 1 is incorrect",
+          "Row 2 is incorrect",
+          "Row 3 is incorrect",
+          "Row 4 is incorrect (Surangam is a horizontal tunnel system in the Western Ghats of Kerala/Karnataka, and Korambu is a temporary brushwood/mud dam in Kerala/Eastern Ghats!)"
+        ],
+        correct: 3,
+        variations: [
+          "<strong>Specimen 2025 & Specimen 2026 Q7(iv)(b) & Sem-1 2021 MCQ:</strong> Tests regional names of traditional rainwater harvesting systems across India."
+        ],
+        explanation: "Rows 1, 2, and 3 are completely accurate. Row 4 is false because 'Surangam' is a traditional horizontal tunnel dug into laterite hill slopes in Kasaragod (Kerala) and Dakshina Kannada (Karnataka) in the Western Ghats, and 'Korambu' is a temporary dam of brushwood, mud, and grass built across channels in Kerala and the Eastern Ghats."
+      },
+      {
+        id: 33,
+        topic: "DATA",
+        topicLabel: "Tables & Visual Diagrams",
+        probability: "VERY_HIGH",
+        probText: "98% Exam Probability (Very High)",
+        freqCount: 9,
+        years: ["Specimen 2026", "Board 2025", "Specimen 2025", "Board 2024", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017"],
+        question: "<strong>[Visual Diagram Sub-Question 1: Rooftop Rainwater Harvesting System — Specimen 2026 Q7(iv)]</strong><br>Observe the schematic diagram of a domestic water conservation setup below showing <strong>Parts 1, 2, 3, and 4</strong>. Identify the method and all four labelled parts:",
+        diagramHtml: `
+          <div class="diagram-box">
+            <div class="diagram-panel" style="max-width:650px; width:100%;">
+              <div class="diagram-caption">Schematic Diagram of Domestic Water Conservation &amp; Aquifer Recharge</div>
+              <svg viewBox="0 0 540 220" width="100%" height="190">
+                <rect width="540" height="220" rx="8" fill="#060d18"/>
+                <!-- Raindrops -->
+                <line x1="80" y1="15" x2="72" y2="32" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,3"/>
+                <line x1="120" y1="12" x2="112" y2="30" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,3"/>
+                <line x1="160" y1="15" x2="152" y2="32" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,3"/>
+                <!-- House & Rooftop (Part 1) -->
+                <polygon points="45,45 195,45 210,62 30,62" fill="#0284c7" stroke="#38bdf8" stroke-width="2"/>
+                <text x="120" y="57" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">PART 1 (Sloping Roof Terrace)</text>
+                <rect x="45" y="62" width="150" height="88" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+                <rect x="75" y="85" width="32" height="32" fill="#0f172a" stroke="#38bdf8"/>
+                <rect x="130" y="95" width="28" height="55" fill="#0f172a" stroke="#64748b"/>
+                <!-- Ground Line -->
+                <line x1="15" y1="150" x2="525" y2="150" stroke="#10b981" stroke-width="2.5"/>
+                <!-- PVC Conduit Pipe (Part 2) -->
+                <polyline points="205,60 225,60 225,135 285,135" fill="none" stroke="#22d3ee" stroke-width="5"/>
+                <text x="268" y="88" fill="#22d3ee" font-size="10.5" font-weight="bold">PART 2 (PVC Pipe)</text>
+                <!-- Filter Unit (Part 3) -->
+                <rect x="285" y="110" width="65" height="40" rx="4" fill="#334155" stroke="#fbbf24" stroke-width="2"/>
+                <text x="317" y="127" fill="#fde68a" font-size="9" font-weight="bold" text-anchor="middle">PART 3</text>
+                <text x="317" y="140" fill="#cbd5e1" font-size="8" text-anchor="middle">Sand + Gravel</text>
+                <!-- Pipe to Underground Recharge Pit (Part 4) -->
+                <polyline points="350,135 415,135 415,165" fill="none" stroke="#22d3ee" stroke-width="4"/>
+                <rect x="375" y="152" width="85" height="58" rx="4" fill="#0c4a6e" stroke="#38bdf8" stroke-width="2"/>
+                <circle cx="395" cy="170" r="6" fill="#94a3b8"/><circle cx="415" cy="172" r="7" fill="#94a3b8"/><circle cx="438" cy="168" r="6" fill="#94a3b8"/>
+                <text x="417" y="192" fill="#67e8f9" font-size="9.5" font-weight="bold" text-anchor="middle">PART 4 (Recharge</text>
+                <text x="417" y="204" fill="#67e8f9" font-size="9.5" font-weight="bold" text-anchor="middle">Pit &amp; Aquifer)</text>
+              </svg>
+            </div>
+          </div>
+        `,
+        options: [
+          "Method = Rooftop Rainwater Harvesting; Part 1 = Catchment (Rooftop); Part 2 = Conduits (PVC Conveyance Pipe); Part 3 = Filtration Chamber (Sand, Gravel & Charcoal Filter); Part 4 = Underground Percolation / Recharge Pit (or Storage Tank) recharging the Aquifer",
+          "Method = Canal Irrigation; Part 1 = Dam; Part 2 = Barrage; Part 3 = Persian Wheel; Part 4 = Inundation Channel",
+          "Method = Drip Irrigation; Part 1 = Overhead Nozzle; Part 2 = Furrow; Part 3 = Tube-well; Part 4 = Septic Tank",
+          "Method = Watershed Deforestation; Part 1 = Cloud; Part 2 = Gutter; Part 3 = Pump; Part 4 = Ocean"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Specimen 2026 Q7(iv) & Board 2024 Q7(iv) (Direct Picture Question):</strong> Displayed a diagram of a house collecting rooftop rainwater into an underground pit and asked: '(a) Name the water conservation method shown in the picture. (b) Mention two objectives/benefits of this method. (c) Name any two similar traditional water harvesting practices followed in India.'"
+        ],
+        explanation: "The diagram illustrates Rooftop Rainwater Harvesting: Part 1 is the Catchment (house roof where rain falls); Part 2 is the Conduit (PVC drainpipe); Part 3 is the Filter Unit (sand, gravel, charcoal, and pebbles to remove debris/contaminants); and Part 4 is the Percolation/Recharge Pit (or underground tank/well) that recharges the groundwater table."
+      },
+      {
+        id: 34,
+        topic: "DATA",
+        topicLabel: "Tables & Visual Diagrams",
+        probability: "VERY_HIGH",
+        probText: "95% Exam Probability (Very High)",
+        freqCount: 7,
+        years: ["Board 2025", "Board 2024", "Specimen 2024", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2017"],
+        question: "<strong>[Visual Diagram Sub-Question 2: Modern Micro-Irrigation Systems]</strong><br>Observe <strong>Diagram A</strong> and <strong>Diagram B</strong> below and choose the option that correctly identifies both modern irrigation setups and their key features:",
+        diagramHtml: `
+          <div class="diagram-box">
+            <div class="diagram-panel">
+              <div class="diagram-caption">Diagram A: Root-Zone Delivery</div>
+              <svg viewBox="0 0 250 165" width="100%" height="145">
+                <rect width="250" height="165" rx="8" fill="#060d18"/>
+                <!-- Soil Line -->
+                <line x1="15" y1="115" x2="235" y2="115" stroke="#78350f" stroke-width="4"/>
+                <!-- Plants -->
+                <path d="M 60 115 L 60 75 M 60 95 Q 45 80 40 85 M 60 90 Q 75 75 80 82" stroke="#10b981" stroke-width="3" fill="none"/>
+                <path d="M 125 115 L 125 75 M 125 95 Q 110 80 105 85 M 125 90 Q 140 75 145 82" stroke="#10b981" stroke-width="3" fill="none"/>
+                <path d="M 190 115 L 190 75 M 190 95 Q 175 80 170 85 M 190 90 Q 205 75 210 82" stroke="#10b981" stroke-width="3" fill="none"/>
+                <!-- Perforated Pipe Along Root Line -->
+                <line x1="15" y1="112" x2="230" y2="112" stroke="#38bdf8" stroke-width="4"/>
+                <!-- Water Drops at Roots -->
+                <circle cx="60" cy="124" r="4" fill="#22d3ee"/>
+                <circle cx="60" cy="134" r="3" fill="#22d3ee"/>
+                <circle cx="125" cy="124" r="4" fill="#22d3ee"/>
+                <circle cx="125" cy="134" r="3" fill="#22d3ee"/>
+                <circle cx="190" cy="124" r="4" fill="#22d3ee"/>
+                <circle cx="190" cy="134" r="3" fill="#22d3ee"/>
+                <text x="125" y="155" fill="#22d3ee" font-size="10" font-weight="bold" text-anchor="middle">Perforated Pipe + Drop-by-Drop Emitters</text>
+              </svg>
+            </div>
+            <div class="diagram-panel">
+              <div class="diagram-caption">Diagram B: Pressurized Nozzle Spray</div>
+              <svg viewBox="0 0 250 165" width="100%" height="145">
+                <rect width="250" height="165" rx="8" fill="#060d18"/>
+                <!-- Soil Line -->
+                <line x1="15" y1="125" x2="235" y2="125" stroke="#78350f" stroke-width="4"/>
+                <!-- Vertical Riser Pipe & Nozzle -->
+                <line x1="125" y1="135" x2="125" y2="55" stroke="#94a3b8" stroke-width="4"/>
+                <circle cx="125" cy="52" r="5" fill="#fbbf24"/>
+                <!-- Spray Arcs -->
+                <path d="M 125 52 Q 80 25 35 105 M 125 52 Q 95 40 65 110 M 125 52 Q 170 25 215 105 M 125 52 Q 155 40 185 110" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,3" fill="none"/>
+                <!-- Crops -->
+                <line x1="45" y1="125" x2="45" y2="108" stroke="#10b981" stroke-width="3"/>
+                <line x1="75" y1="125" x2="75" y2="108" stroke="#10b981" stroke-width="3"/>
+                <line x1="175" y1="125" x2="175" y2="108" stroke="#10b981" stroke-width="3"/>
+                <line x1="205" y1="125" x2="205" y2="108" stroke="#10b981" stroke-width="3"/>
+                <text x="125" y="155" fill="#fbbf24" font-size="10" font-weight="bold" text-anchor="middle">Overhead Rotating Nozzle Spraying Rain</text>
+              </svg>
+            </div>
+          </div>
+        `,
+        options: [
+          "Diagram A = Drip Irrigation (delivers water drop-by-drop directly to roots with almost zero evaporation); Diagram B = Sprinkler / Overhead Irrigation (sprays water like artificial rain via rotating nozzles, ideal for undulating/sandy terrain)",
+          "Diagram A = Sprinkler Irrigation; Diagram B = Drip Irrigation",
+          "Diagram A = Inundation Canal; Diagram B = Tank Irrigation",
+          "Diagram A = Persian Wheel; Diagram B = Furrow Irrigation"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2024, Specimen 2024 & Total Geography Picture Questions:</strong> CISCE frequently prints a photograph or diagram of Drip or Sprinkler irrigation and asks you to: (1) Identify the irrigation method, (2) State two advantages (prevents seepage and evaporation), and (3) State one limitation (high initial cost)."
+        ],
+        explanation: "Diagram A depicts Drip (Trickle) Irrigation, where perforated plastic pipes apply water drop-by-drop directly to the root zone, eliminating both seepage and evaporation. Diagram B depicts Sprinkler (Overhead) Irrigation, where a pressurized vertical pipe and rotating nozzle spray water across crops like rain."
+      },
+      {
+        id: 35,
+        topic: "DATA",
+        topicLabel: "Tables & Visual Diagrams",
+        probability: "VERY_HIGH",
+        probText: "96% Exam Probability (Very High)",
+        freqCount: 8,
+        years: ["Board 2025", "Board 2024", "Board 2023", "Sem-1 2021", "Board 2020", "Board 2019", "Board 2018", "Board 2017"],
+        question: "<strong>[Visual Diagram Sub-Question 3: Hydrogeological Contrast — North India vs. Peninsular Deccan]</strong><br>Observe <strong>Geological Profile X</strong> and <strong>Geological Profile Y</strong> below and identify why Profile X favours Wells/Tube-wells/Canals while Profile Y favours Tank Irrigation:",
+        diagramHtml: `
+          <div class="diagram-box">
+            <div class="diagram-panel">
+              <div class="diagram-caption">Geological Profile X (Northern Plains)</div>
+              <svg viewBox="0 0 250 170" width="100%" height="150">
+                <rect width="250" height="170" rx="8" fill="#060d18"/>
+                <!-- Flat Soft Alluvium -->
+                <rect x="15" y="45" width="220" height="55" fill="#78350f"/>
+                <text x="125" y="72" fill="#fde68a" font-size="10" font-weight="bold" text-anchor="middle">Soft, Porous Alluvial Soil (Flat)</text>
+                <!-- High Water Table Aquifer -->
+                <rect x="15" y="100" width="220" height="45" fill="#0284c7" opacity="0.65"/>
+                <text x="125" y="126" fill="#e0f2fe" font-size="10" font-weight="bold" text-anchor="middle">High Groundwater Table (Aquifer)</text>
+                <!-- Tube-well Pipe -->
+                <rect x="65" y="25" width="10" height="95" fill="#22d3ee" stroke="#fff" stroke-width="1"/>
+                <text x="70" y="20" fill="#22d3ee" font-size="9.5" font-weight="bold" text-anchor="middle">Easy to Bore/Dig</text>
+                <text x="125" y="160" fill="#34d399" font-size="9.5" font-weight="bold" text-anchor="middle">Water Percolates Easily Underground</text>
+              </svg>
+            </div>
+            <div class="diagram-panel">
+              <div class="diagram-caption">Geological Profile Y (Deccan Plateau)</div>
+              <svg viewBox="0 0 250 170" width="100%" height="150">
+                <rect width="250" height="170" rx="8" fill="#060d18"/>
+                <!-- Undulating Hard Rock Depression with Water -->
+                <polygon points="15,45 65,45 95,95 165,95 195,45 235,45 235,145 15,145" fill="#334155" stroke="#94a3b8" stroke-width="2"/>
+                <!-- Impounded Tank Water -->
+                <polygon points="71,55 95,95 165,95 189,55" fill="#06b6d4" opacity="0.8"/>
+                <text x="130" y="78" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">Natural Tank</text>
+                <text x="125" y="122" fill="#cbd5e1" font-size="9.5" font-weight="bold" text-anchor="middle">Hard Impervious Crystalline Rock</text>
+                <text x="125" y="160" fill="#fb7185" font-size="9.5" font-weight="bold" text-anchor="middle">Zero Seepage; Hard to Dig Canals/Wells</text>
+              </svg>
+            </div>
+          </div>
+        `,
+        options: [
+          "Profile X = Indo-Gangetic Plains (Punjab, UP, Bihar — soft permeable alluvial soil and flat relief ideal for Wells, Tube-wells & Canals, but unsuitable for Tanks due to seepage); Profile Y = Peninsular Deccan Plateau (Andhra Pradesh, Tamil Nadu, Karnataka — hard impermeable rock and undulating depressions ideal for Tank Irrigation)",
+          "Profile X = Deccan Plateau (ideal for Tanks); Profile Y = Northern Plains (ideal for Tube-wells)",
+          "Profile X = Thar Desert; Profile Y = Sundarbans Delta",
+          "Both Profile X and Profile Y have identical rock permeability"
+        ],
+        correct: 0,
+        variations: [
+          "<strong>Board 2025 Q7(iii)(a)–(b) & Board 2024 Q7(iii)(b)–(c):</strong> Directly tests the hydrogeological contrast between Profile X (Northern Alluvial Plains — why Canals and Tube-wells dominate and why Tanks fail) and Profile Y (Peninsular Deccan Plateau — why Tanks dominate and why Canals/Wells are difficult to dig)."
+        ],
+        explanation: "Profile X represents the Northern Plains (Punjab, Haryana, UP, Bihar), where soft permeable alluvium and flat terrain make digging canals and boring tube-wells easy, while tank water would seep away. Profile Y represents the Deccan Plateau (AP, Telangana, TN, Karnataka), where hard impervious crystalline rocks prevent underground percolation and natural depressions hold rainwater as Tanks."
+      }
+    ];
+
+    // ============================================================================
+    // APP STATE & TIMER LOGIC
+    // ============================================================================
+    let userAnswers = {};
+    let openVariationIds = new Set();
+    let allVariationsExpanded = false;
+    let quizMode = 'instant';
+    let examSubmitted = false;
+    let currentFilter = 'ALL';
+
+    let selectedPresetMinutes = 15;
+    let remainingSeconds = 15 * 60;
+    let totalInitialSeconds = 15 * 60;
+    let timerInterval = null;
+    let isTimerRunning = false;
+
+    function initApp() {
+      renderQuestions();
+      updateLiveStats();
+      updateClockUI();
+    }
+
+    function setQuizMode(mode) {
+      quizMode = mode;
+      document.getElementById('modeInstantBtn').classList.toggle('active', mode === 'instant');
+      document.getElementById('modeExamBtn').classList.toggle('active', mode === 'exam');
+      renderQuestions();
+    }
+
+    function setTimerPreset(minutes) {
+      if (isTimerRunning) {
+        pauseTimer();
+      }
+      selectedPresetMinutes = minutes;
+      totalInitialSeconds = minutes * 60;
+      remainingSeconds = totalInitialSeconds;
+
+      const btns = document.querySelectorAll('#presetGroup .preset-btn');
+      btns.forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.includes(minutes + 'm'));
+      });
+      updateClockUI();
+    }
+
+    function toggleTimer() {
+      if (isTimerRunning) {
+        pauseTimer();
+      } else {
+        startTimer();
+      }
+    }
+
+    function startTimer() {
+      if (remainingSeconds <= 0) {
+        remainingSeconds = totalInitialSeconds;
+      }
+      isTimerRunning = true;
+      const btn = document.getElementById('startPauseBtn');
+      btn.innerHTML = '⏸ Pause';
+      btn.className = 'btn btn-pause';
+
+      timerInterval = setInterval(() => {
+        remainingSeconds--;
+        updateClockUI();
+        if (remainingSeconds <= 0) {
+          clearInterval(timerInterval);
+          isTimerRunning = false;
+          btn.innerHTML = '▶ Start Timer';
+          btn.className = 'btn btn-start';
+          generateReport();
+        }
+      }, 1000);
+    }
+
+    function pauseTimer() {
+      clearInterval(timerInterval);
+      isTimerRunning = false;
+      const btn = document.getElementById('startPauseBtn');
+      btn.innerHTML = '▶ Resume';
+      btn.className = 'btn btn-start';
+    }
+
+    function updateClockUI() {
+      const mins = Math.floor(remainingSeconds / 60);
+      const secs = remainingSeconds % 60;
+      const display = document.getElementById('clockDisplay');
+      display.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+
+      display.classList.remove('warning', 'danger');
+      if (remainingSeconds <= 60) {
+        display.classList.add('danger');
+      } else if (remainingSeconds <= 180) {
+        display.classList.add('warning');
+      }
+    }
+
+    function resetQuiz() {
+      pauseTimer();
+      remainingSeconds = totalInitialSeconds;
+      userAnswers = {};
+      examSubmitted = false;
+      document.getElementById('startPauseBtn').innerHTML = '▶ Start Timer';
+      updateClockUI();
+      updateLiveStats();
+      renderQuestions();
+    }
+
+    // ============================================================================
+    // RENDERING, FILTERING & HIGH-VISIBILITY VARIATIONS BUTTON
+    // ============================================================================
+    function filterQuestions(filterKey, btnEl) {
+      currentFilter = filterKey;
+      document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      renderQuestions();
+    }
+
+    function searchQuestions() {
+      renderQuestions();
+    }
+
+    function toggleAllVariations() {
+      allVariationsExpanded = !allVariationsExpanded;
+      const btn = document.getElementById('expandAllBtn');
+      if (allVariationsExpanded) {
+        QUESTIONS_DATA.forEach(q => openVariationIds.add(q.id));
+        btn.innerHTML = '📁 Collapse All Variations';
+      } else {
+        openVariationIds.clear();
+        btn.innerHTML = '📂 Expand All Variations';
+      }
+      renderQuestions();
+    }
+
+    function toggleVariations(qId) {
+      if (openVariationIds.has(qId)) {
+        openVariationIds.delete(qId);
+      } else {
+        openVariationIds.add(qId);
+      }
+      renderQuestions();
+    }
+
+    function renderQuestions() {
+      const container = document.getElementById('questionsContainer');
+      const query = (document.getElementById('searchBox').value || '').toLowerCase().trim();
+
+      const filtered = QUESTIONS_DATA.filter(q => {
+        const matchesFilter =
+          currentFilter === 'ALL' ||
+          (currentFilter === 'VERY_HIGH' && q.probability === 'VERY_HIGH') ||
+          q.topic === currentFilter;
+
+        if (!matchesFilter) return false;
+        if (!query) return true;
+
+        const hay = [
+          q.question,
+          q.topicLabel,
+          ...q.options,
+          ...q.years,
+          ...q.variations,
+          q.explanation
+        ].join(' ').toLowerCase();
+
+        return hay.includes(query);
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="q-card" style="text-align:center; padding:40px;">
+            <p style="color:var(--text-secondary);">No questions match your current filter/search. Try clearing the search box.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map(q => {
+        const userAns = userAnswers[q.id];
+        const hasAnswered = userAns !== undefined;
+        const shouldReveal = (quizMode === 'instant' && hasAnswered) || examSubmitted;
+        const isVarOpen = openVariationIds.has(q.id);
+
+        let cardStateClass = '';
+        if (shouldReveal && hasAnswered) {
+          cardStateClass = userAns === q.correct ? 'answered-correct' : 'answered-wrong';
+        }
+
+        const probClass =
+          q.probability === 'VERY_HIGH' ? 'prob-very-high' :
+          q.probability === 'HIGH' ? 'prob-high' : 'prob-medium';
+
+        const yearsHtml = q.years.map(yr => {
+          const isSpec = yr.toLowerCase().includes('specimen') || yr.toLowerCase().includes('competency');
+          return `<span class="year-chip ${isSpec ? 'specimen' : ''}">${yr}</span>`;
+        }).join('');
+
+        const letters = ['A', 'B', 'C', 'D'];
+        const optionsHtml = q.options.map((optText, idx) => {
+          let btnClass = 'option-btn';
+          if (hasAnswered && !shouldReveal && userAns === idx) {
+            btnClass += ' selected-exam';
+          }
+          if (shouldReveal) {
+            if (idx === q.correct) {
+              btnClass += ' correct-reveal';
+            } else if (userAns === idx && userAns !== q.correct) {
+              btnClass += ' wrong-reveal';
+            }
+          }
+
+          return `
+            <button class="${btnClass}" onclick="selectAnswer(${q.id}, ${idx})">
+              <span class="opt-letter">${letters[idx]}</span>
+              <span>${optText}</span>
+            </button>
+          `;
+        }).join('');
+
+        const variationsList = q.variations.map(v => `<li>${v}</li>`).join('');
+
+        return `
+          <article class="q-card ${cardStateClass}" id="qcard-${q.id}">
+            <div class="q-header">
+              <div class="q-meta-left">
+                <span class="q-number">Q${q.id}</span>
+                <span class="q-topic-tag">${q.topicLabel}</span>
+              </div>
+              <span class="prob-badge ${probClass}">⚡ ${q.probText}</span>
+            </div>
+
+            <div class="years-strip">
+              <span class="freq-count">📊 Asked ${q.freqCount} Times in 10 Years:</span>
+              ${yearsHtml}
+            </div>
+
+            <div class="q-stem">${q.question}</div>
+            ${q.tableHtml ? q.tableHtml : ''}
+            ${q.diagramHtml ? q.diagramHtml : ''}
+
+            <div class="options-grid">
+              ${optionsHtml}
+            </div>
+
+            <!-- PROMINENT GLOWING "SEE BOARD VARIATIONS" BUTTON -->
+            <div class="variations-box">
+              <button class="var-toggle-btn ${isVarOpen ? 'active-open' : ''}" onclick="toggleVariations(${q.id})">
+                <div class="var-btn-left">
+                  <span class="var-pulse-dot"></span>
+                  <span>🔥 SEE ALL BOARD & SPECIMEN VARIATIONS</span>
+                  <span class="var-count-pill">${q.variations.length} Exam Twists</span>
+                </div>
+                <span class="var-chevron">${isVarOpen ? '▲ Hide Variations' : '▼ Click to Open'}</span>
+              </button>
+              <div class="variations-content ${isVarOpen ? 'open' : ''}" id="var-${q.id}">
+                <div class="var-header-title">📌 How CISCE Has Framed This Question Across Different Years (2016–2026):</div>
+                <ul>${variationsList}</ul>
+              </div>
+            </div>
+
+            <div class="explanation-box ${shouldReveal ? 'show' : ''}" id="exp-${q.id}">
+              <strong>✓ Official CISCE Marking Scheme Explanation:</strong> ${q.explanation}
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function selectAnswer(questionId, optionIndex) {
+      if (quizMode === 'instant' && userAnswers[questionId] !== undefined) {
+        return;
+      }
+      if (!isTimerRunning && Object.keys(userAnswers).length === 0) {
+        startTimer();
+      }
+      userAnswers[questionId] = optionIndex;
+      updateLiveStats();
+      renderQuestions();
+    }
+
+    function updateLiveStats() {
+      const total = QUESTIONS_DATA.length;
+      const attemptedIds = Object.keys(userAnswers);
+      const attempted = attemptedIds.length;
+      let correctCount = 0;
+
+      attemptedIds.forEach(id => {
+        const q = QUESTIONS_DATA.find(item => item.id === Number(id));
+        if (q && userAnswers[id] === q.correct) {
+          correctCount++;
+        }
+      });
+
+      const accuracy = attempted > 0 ? Math.round((correctCount / attempted) * 100) : 0;
+      document.getElementById('statAttempted').textContent = `${attempted} / ${total}`;
+      document.getElementById('statAccuracy').textContent = `${accuracy}%`;
+
+      const pct = Math.round((attempted / total) * 100);
+      document.getElementById('progressBar').style.width = `${pct}%`;
+    }
+
+    // ============================================================================
+    // AUTOMATIC REPORT & SCREENSHOT BRAG GENERATOR
+    // ============================================================================
+    function generateReport() {
+      pauseTimer();
+      examSubmitted = true;
+      renderQuestions();
+
+      const total = QUESTIONS_DATA.length;
+      let correct = 0;
+      let highProbTotal = 0;
+      let highProbCorrect = 0;
+
+      const topicStats = {
+        WELLS_CANALS_TANKS: { label: "Wells, Canals & Tanks", correct: 0, total: 0 },
+        MODERN_IRRIGATION: { label: "Drip, Sprinkler & Modern", correct: 0, total: 0 },
+        CONSERVATION_RWH: { label: "Conservation & Rainwater Harvesting", correct: 0, total: 0 },
+        DATA: { label: "Tables & Visual Diagrams", correct: 0, total: 0 }
+      };
+
+      QUESTIONS_DATA.forEach(q => {
+        topicStats[q.topic].total++;
+        const isCorrect = userAnswers[q.id] === q.correct;
+        if (isCorrect) {
+          correct++;
+          topicStats[q.topic].correct++;
+        }
+        if (q.probability === 'VERY_HIGH') {
+          highProbTotal++;
+          if (isCorrect) highProbCorrect++;
+        }
+      });
+
+      const accuracy = Math.round((correct / total) * 100);
+      const highProbPct = highProbTotal > 0 ? Math.round((highProbCorrect / highProbTotal) * 100) : 0;
+
+      const elapsedSeconds = Math.max(0, totalInitialSeconds - remainingSeconds);
+      const eMins = Math.floor(elapsedSeconds / 60);
+      const eSecs = elapsedSeconds % 60;
+      const timeStr = `${String(eMins).padStart(2, '0')}m ${String(eSecs).padStart(2, '0')}s`;
+
+      let badge = "💧 Water Explorer";
+      if (accuracy >= 90) badge = "🏆 CISCE Hydrology Grandmaster";
+      else if (accuracy >= 75) badge = "⚡ Water Conservationist (Distinction)";
+      else if (accuracy >= 60) badge = "🎯 Board Exam Contender";
+
+      const studentName = document.getElementById('studentNameInput').value.trim() || "Future CISCE Topper";
+      document.getElementById('reportStudentName').textContent = studentName;
+      document.getElementById('reportBadgeTitle').textContent = badge;
+      document.getElementById('reportScore').textContent = `${correct} / ${total}`;
+      document.getElementById('reportAccuracy').textContent = `${accuracy}%`;
+      document.getElementById('reportTimeTaken').textContent = timeStr;
+      document.getElementById('reportHighProbScore').textContent = `${highProbPct}%`;
+
+      const now = new Date();
+      document.getElementById('reportTimestamp').textContent =
+        `Verified • ${now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}`;
+
+      const topicBarsContainer = document.getElementById('reportTopicBars');
+      topicBarsContainer.innerHTML = Object.values(topicStats).map(st => {
+        const pct = st.total > 0 ? Math.round((st.correct / st.total) * 100) : 0;
+        return `
+          <div class="topic-bar-item">
+            <div class="topic-bar-top">
+              <span>${st.label}</span>
+              <span>${st.correct}/${st.total} (${pct}%)</span>
+            </div>
+            <div class="topic-bar-track">
+              <div class="topic-bar-fill" style="width:${pct}%"></div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('reportOverlay').classList.add('active');
+    }
+
+    function closeReport() {
+      document.getElementById('reportOverlay').classList.remove('active');
+    }
+
+    function downloadScorecardImage() {
+      const card = document.getElementById('brag-card');
+      if (typeof html2canvas !== 'undefined') {
+        html2canvas(card, {
+          backgroundColor: '#060d18',
+          scale: 2
+        }).then(canvas => {
+          const link = document.createElement('a');
+          link.download = `CISCE_Water_Resources_Scorecard_${Date.now()}.png`;
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+        });
+      } else {
+        alert("Tip: Press Win+Shift+S (Windows) or Cmd+Shift+4 (Mac) to snap your Scorecard directly!");
+      }
+    }
+
+    function copyShareText() {
+      const name = document.getElementById('reportStudentName').textContent;
+      const score = document.getElementById('reportScore').textContent;
+      const acc = document.getElementById('reportAccuracy').textContent;
+      const time = document.getElementById('reportTimeTaken').textContent;
+      const rank = document.getElementById('reportBadgeTitle').textContent;
+
+      const text = `💧 CISCE Class 10 Water Resources (10-Year PYQ Challenge 2016–2026)\n👤 Student: ${name}\n🎯 Score: ${score} (${acc} Accuracy)\n⏱️ Time Taken: ${time}\n🏅 Rank: ${rank}\nSee, I achieved this match! Can you beat my score?`;
+
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Brag message copied to clipboard! Paste it on WhatsApp/Discord to challenge your friends.");
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>

@@ -564,8 +564,17 @@
                         {
                             "id": "chap-geo-water",
                             "name": "Ch 4: Water Resources",
-                            "description": "48 Most Expected Questions, 190+ Twisted Variations, Master MCQ DPP & 2 Full Class Notes",
+                            "description": "10-Year MCQ Suite (140+ Hits), 48 Theory Questions (190+ Variations) & 2 Full Class Notes",
+                            "featured": true,
                             "items": [
+                                {
+                                    "id": "geo-water-mcq-master",
+                                    "title": "Water Resources 10-Year PYQ & Specimen MCQ Master Suite (2016–2026)",
+                                    "subtitle": "35 Playable MCQs, 140+ PYQ Hits, Tables & Diagrams, Instant Check & Strict Exam Modes, Timers & Scorecard Generator",
+                                    "type": "interactive",
+                                    "file": "geography/water-mcq/index.html",
+                                    "badge": "10-Year MCQs • 35 Master Qs • 140+ Hits"
+                                },
                                 {
                                     "id": "geo-water-theory-master",
                                     "title": "Water Resources Theory DPP — 48 Most Expected Questions Vault",

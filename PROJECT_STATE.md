@@ -37,6 +37,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # 35 Playable MCQs, 140+ Hits, Tables & Diagrams, Instant & Exam Modes
 │   ├── water/                       # Chapter 4: Water Resources Theory Master DPP Vault
 │   │   └── index.html               # 48 Most Expected Theory Qs, 190+ Variations, Dual-Tab Drawer, Blur Mode
+│   ├── water-mcq/                   # Chapter 4: Water Resources 10-Year MCQ Master Suite (2016–2026)
+│   │   └── index.html               # 35 Playable MCQs, 140+ Hits, Tables & Diagrams, Instant & Exam Modes
 │   ├── transport/                   # Chapter 5: Transport Network Theory Master DPP Vault
 │   │   └── index.html               # 48 Most Expected Theory Qs, 190+ Variations, Dual-Tab Drawer, Blur Mode
 │   ├── waste/                       # Chapter 9: Waste Management Theory Master DPP Vault
@@ -237,7 +239,21 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Live Exam Countdown Timer**: 15, 30, 45, 60 mins presets with warning/danger pulse indicators.
 - **Persistent Progress**: `localStorage` tracking (`icse2027_water_mastered`, `icse2027_water_review`).
 
-### H. Chapter 5: Transport Network Theory Master DPP Vault (`geography/transport/index.html`)
+### I. Chapter 4: Water Resources 10-Year PYQ & Specimen MCQ Master Suite (`geography/water-mcq/index.html`)
+- **35 Playable Master Questions** representing 140+ total PYQ hits from 2016–2026.
+- **Full Coverage**: 2021–22 Semester-1 100% MCQ paper, 2023–2026 Board & Specimen questions, 2016–2020 core concepts, and Dedicated Table & Visual Diagram MCQs (Irrigation types comparison tables, Rainwater harvesting rooftop catchment flows, canal network diagrams, Persian wheel & Dhekli traditional lifting mechanisms).
+- **Global & Individual Deduplicated Variations**: Features an instant `📂 Expand All Variations` toggle as well as individual card toggles displaying all twisted ways CISCE has framed each water resources question across past papers.
+- **Official CISCE Marking Scheme Explanations**: Detailed hydrological and agricultural rationales (e.g. non-porous crystalline rocky terrain of South India favoring tank irrigation, perennial canal advantages over inundation canals, tube well prerequisites of high water table and soft alluvium in Gangetic plains, drip/sprinkler water efficiency).
+- **Dual Quiz Modes**:
+  1. ⚡ Instant Check Mode: Immediate reveal of correct/incorrect status with explanation upon option selection.
+  2. 📝 Strict Exam Mode: Options highlighted as selected without revealing answers until submission.
+- **Live Exam Countdown Timer**: 15, 30, and 45 mins presets with auto-start on first click, warning pulse, and auto-submit.
+- **Live Probability DNA & Topic Filters**: All Questions (35), Very High Probability (90%+), Tables & Diagrams, Wells & Tube Wells, Canals, Tanks, Modern & Rainwater Harvesting.
+- **Automated Report & 1-Click Brag Card Generator**: Powered by `html2canvas` generating a high-resolution PNG scorecard screenshot with student name, score, accuracy %, time taken, achievement tiers (Hydrology Grandmaster, Water Conservationist, Contender), and sub-topic breakdown bars.
+- **Direct Cross-Linking**: Seamless companion buttons connecting to Ilberiz Techz Dashboard (`../../index.html` with `target="_top"`) and Water Resources Theory Vault (`../water/index.html`).
+- **Hardware-Accelerated CSS Containment**: `.q-card` configured with `content-visibility: auto; contain-intrinsic-size: 320px;` and 120ms debounced search for zero lag.
+
+### J. Chapter 5: Transport Network Theory Master DPP Vault (`geography/transport/index.html`)
 - **48 Master High-Yield Theory Questions** targeting 10/10 marks in Question 11 (Transport Network).
 - **190+ Twisted Board Variations** grouped under their core Council Marking Scheme answers.
 - **3 Interactive Study Modes**:
@@ -252,7 +268,7 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Live Exam Countdown Timer**: 15, 30, 45, 60 mins presets with warning/danger pulse indicators.
 - **Persistent Progress**: `localStorage` tracking (`icse2027_transport_mastered`, `icse2027_transport_review`).
 
-### I. Chapter 9: Waste Management Theory Master DPP Vault (`geography/waste/index.html`)
+### K. Chapter 9: Waste Management Theory Master DPP Vault (`geography/waste/index.html`)
 - **50 Master High-Yield Theory Questions** targeting 10/10 marks in Question 12 (Waste Management).
 - **200+ Twisted Board Variations** grouped under their core Council Marking Scheme answers.
 - **3 Interactive Study Modes**:
@@ -699,6 +715,26 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Dual Data Synchronization**: Updated both `data.js` and `data.json` under `chap-geo-vegetation` with `geo-veg-mcq-master`, marking the chapter as featured.
     - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Vegetation 10-Yr MCQs"** (`chap-geo-vegetation`) with an emerald quiz icon and glowing `NEW` badge.
     - **Automated Verification**: Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming quick launch navigation, card display, iframe engine rendering, option click evaluation, variations expansion, scorecard modal, and port release.
+
+27. **Addition of Chapter 4: Water Resources 10-Year PYQ & Specimen MCQ Master Suite (2016–2026)**:
+    - **Source Material Processing**: Ingested and integrated master file `gemini-code-1792476922906.html` into `geography/water-mcq/index.html` in strict adherence to Rule 1 (Subject Folder Isolation) and Rule 2 (Standard File Structure for Engines), immediately removing raw files from workspace root (Rule 5).
+    - **Comprehensive Coverage**: 35 Playable Master Question Archetypes deduplicating 140+ past board and specimen questions (including 2021–22 Semester-1 100% MCQ paper, 2023–2026 Board & Specimen papers, 2016–2020 core concepts, Dedicated Table & Visual Diagram MCQs covering irrigation types comparative metrics, rooftop rainwater harvesting flow diagrams, canal network patterns, and traditional lifting mechanisms like Persian wheel and Dhekli).
+    - **Interactive Features**:
+      - Dual quiz modes: `Instant Check Mode` (immediate evaluation with official CISCE marking scheme hydrological explanations) and `Strict Exam Mode` (deferred reveal upon submit).
+      - Live countdown timer with 15m, 30m, and 45m presets, warning/danger pulses, and auto-submit.
+      - Global `📂 Expand All Variations` toggle and individual card history accordions displaying all twisted CISCE variations.
+      - Topic & Probability filtering: Very High Probability (90%+), Tables & Diagrams, Wells & Tube Wells, Canals, Tanks, Modern & Rainwater Harvesting.
+      - Automated scorecard and 1-click shareable brag screenshot generator powered by `html2canvas` with student name, score, accuracy %, time taken, achievement tiers (Hydrology Grandmaster, Water Conservationist, Contender), and sub-topic mastery breakdown bars.
+    - **Design System & Performance Optimization**:
+      - Integrated Google Fonts (`Inter`, `Outfit`, `JetBrains Mono`, `Space Grotesk`) and `Material Symbols Outlined` (Rule 3).
+      - Added `.home-nav-btn` linking back to Ilberiz Techz Dashboard (`../../index.html` with `target="_top"`).
+      - Added companion cross-link buttons connecting the Water Resources Theory Vault (`../water/index.html`) and the 10-Year MCQ Suite (`../water-mcq/index.html`) bidirectionally.
+      - Added CSS containment (`content-visibility: auto; contain-intrinsic-size: 320px;`) and 120ms debounced search for 60fps scrolling.
+    - **Dual Data Synchronization**: Updated both `data.js` and `data.json` under `chap-geo-water` with `geo-water-mcq-master`, marking the chapter as featured.
+    - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Water 10-Yr MCQs"** (`chap-geo-water`) with a cyan quiz icon and glowing `NEW` badge.
+    - **Cache Invalidation**: Bumped version queries in `index.html` to `data.js?v=3.5` and `script.js?v=3.5`.
+    - **Automated Verification**: Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming quick launch navigation, card display, iframe engine rendering, option click evaluation, variations expansion, scorecard modal, and port release.
+
 
 
 
