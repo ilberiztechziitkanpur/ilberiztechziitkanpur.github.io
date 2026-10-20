@@ -508,8 +508,17 @@
                         {
                             "id": "chap-geo-vegetation",
                             "name": "Ch 3: Natural Vegetation",
-                            "description": "46 Most Expected Questions, 185+ Twisted Variations, Master MCQ DPP & 3 Full Class Notes",
+                            "description": "10-Year MCQ Suite (140+ Hits), 46 Theory Questions (185+ Variations) & 3 Full Class Notes",
+                            "featured": true,
                             "items": [
+                                {
+                                    "id": "geo-veg-mcq-master",
+                                    "title": "Natural Vegetation 10-Year PYQ & Specimen MCQ Master Suite (2016–2026)",
+                                    "subtitle": "35 Playable MCQs, 140+ PYQ Hits, Tables & Diagrams, Instant Check & Strict Exam Modes, Timers & Scorecard Generator",
+                                    "type": "interactive",
+                                    "file": "geography/vegetation-mcq/index.html",
+                                    "badge": "10-Year MCQs • 35 Master Qs • 140+ Hits"
+                                },
                                 {
                                     "id": "geo-veg-theory-master",
                                     "title": "Natural Vegetation Theory DPP — 46 Most Expected Questions Vault",

@@ -33,6 +33,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # 35 Playable MCQs, 135+ Hits, Tables & Diagrams, Instant & Exam Modes
 │   ├── vegetation/                  # Chapter 3: Natural Vegetation Theory Master DPP Vault
 │   │   └── index.html               # 46 Most Expected Theory Qs, 185+ Variations, Dual-Tab Drawer, Blur Mode
+│   ├── vegetation-mcq/              # Chapter 3: Natural Vegetation 10-Year MCQ Master Suite (2016–2026)
+│   │   └── index.html               # 35 Playable MCQs, 140+ Hits, Tables & Diagrams, Instant & Exam Modes
 │   ├── water/                       # Chapter 4: Water Resources Theory Master DPP Vault
 │   │   └── index.html               # 48 Most Expected Theory Qs, 190+ Variations, Dual-Tab Drawer, Blur Mode
 │   ├── transport/                   # Chapter 5: Transport Network Theory Master DPP Vault
@@ -206,7 +208,21 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Live Exam Countdown Timer**: 15, 30, 45, 60 mins presets with warning/danger pulse indicators.
 - **Persistent Progress**: `localStorage` tracking (`icse2027_veg_mastered`, `icse2027_veg_review`).
 
-### G. Chapter 4: Water Resources Theory Master DPP Vault (`geography/water/index.html`)
+### G. Chapter 3: Natural Vegetation 10-Year PYQ & Specimen MCQ Master Suite (`geography/vegetation-mcq/index.html`)
+- **35 Playable Master Questions** representing 140+ total PYQ hits from 2016–2026.
+- **Full Coverage**: 2021–22 Semester-1 100% MCQ paper, 2023–2026 Board & Specimen questions, 2016–2020 core concepts, and 6 Dedicated Table & Visual Diagram MCQs (Mangrove Stilt/Pneumatophore Roots, Himalayan Altitudinal Zonation, and Evergreen vs. Deciduous Canopy Structure).
+- **Global & Individual Deduplicated Variations**: Features an instant `📂 Expand All Variations` toggle as well as individual card toggles displaying all twisted ways CISCE has framed each vegetation question across past papers.
+- **Official CISCE Marking Scheme Explanations**: In-depth botanical and ecological rationales (e.g. stilt roots & pneumatophores for saline tidal mud, xerophytic adaptations in thorn forests, needle-shaped leaves in coniferous zones, commercial unexploited tropical evergreen forests).
+- **Dual Quiz Modes**:
+  1. ⚡ Instant Check Mode: Immediate reveal of correct/incorrect status with explanation upon option selection.
+  2. 📝 Strict Exam Mode: Options highlighted as selected without revealing answers until submission.
+- **Live Exam Countdown Timer**: 15, 30, and 45 mins presets with auto-start on first click, warning pulse, and auto-submit.
+- **Live Probability DNA & Topic Filters**: All Questions (35), Very High Probability (90%+), Tables & Diagrams (6), Evergreen & Deciduous, Mangrove, Desert & Mountain, Tree Uses & Conservation.
+- **Automated Report & 1-Click Brag Card Generator**: Powered by `html2canvas` generating a high-resolution PNG scorecard screenshot with student name, score, accuracy %, time taken, achievement tiers (Forestry Grandmaster, Ecosystem Guardian, Contender), and sub-topic breakdown bars.
+- **Direct Cross-Linking**: Seamless companion buttons connecting to Ilberiz Techz Dashboard (`../../index.html` with `target="_top"`) and Natural Vegetation Theory Vault (`../vegetation/index.html`).
+- **Hardware-Accelerated CSS Containment**: `.q-card` configured with `content-visibility: auto; contain-intrinsic-size: 320px;` and 120ms debounced search for zero lag.
+
+### H. Chapter 4: Water Resources Theory Master DPP Vault (`geography/water/index.html`)
 - **48 Master High-Yield Theory Questions** targeting 10/10 marks in Question 7 (Water Resources).
 - **190+ Twisted Board Variations** grouped under their core Council Marking Scheme answers.
 - **3 Interactive Study Modes**:
@@ -664,6 +680,24 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Added CSS containment (`content-visibility: auto; contain-intrinsic-size: 320px;`) and 120ms debounced search for 60fps scrolling.
     - **Dual Data Synchronization**: Updated both `data.js` and `data.json` under `chap-geo-soil` with `geo-soil-mcq-master`, marking the chapter as featured.
     - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Soil 10-Yr MCQs"** (`chap-geo-soil`) with an amber quiz icon and glowing `NEW` badge.
+    - **Automated Verification**: Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming quick launch navigation, card display, iframe engine rendering, option click evaluation, variations expansion, scorecard modal, and port release.
+
+26. **Addition of Chapter 3: Natural Vegetation 10-Year PYQ & Specimen MCQ Master Suite (2016–2026)**:
+    - **Source Material Processing**: Ingested and integrated master file `gemini-code-1792475016028.html` from `Downloads` into `geography/vegetation-mcq/index.html` in strict adherence to Rule 1 (Subject Folder Isolation) and Rule 2 (Standard File Structure for Engines), immediately removing raw files from `Downloads` (Rule 5).
+    - **Comprehensive Coverage**: 35 Playable Master Question Archetypes deduplicating 140+ past board and specimen questions (including 2021–22 Semester-1 100% MCQ paper, 2023–2026 Board & Specimen papers, 2016–2020 core concepts, visual diagram questions for Mangrove Stilt/Pneumatophore Roots, Himalayan Altitudinal Zonation, and Evergreen vs. Deciduous Canopy Structure).
+    - **Interactive Features**:
+      - Dual quiz modes: `Instant Check Mode` (immediate evaluation with official CISCE marking scheme explanations) and `Strict Exam Mode` (deferred reveal upon submit).
+      - Live countdown timer with 15m, 30m, and 45m presets, warning/danger pulses, and auto-submit.
+      - Global `📂 Expand All Variations` toggle and individual card history accordions displaying all twisted CISCE variations.
+      - Topic & Probability filtering: Very High Probability (90%+), Tables & Diagrams (6), Evergreen & Deciduous, Mangrove, Desert & Mountain, Tree Uses & Conservation.
+      - Automated scorecard and 1-click shareable brag screenshot generator powered by `html2canvas` with student name, score, accuracy %, time taken, achievement tiers, and sub-topic mastery breakdown bars.
+    - **Design System & Performance Optimization**:
+      - Integrated Google Fonts (`Inter`, `Outfit`, `JetBrains Mono`, `Space Grotesk`) and `Material Symbols Outlined` (Rule 3).
+      - Added `.home-nav-btn` linking back to Ilberiz Techz Dashboard (`../../index.html` with `target="_top"`).
+      - Added companion cross-link buttons connecting the Natural Vegetation Theory Vault (`../vegetation/index.html`) and the 10-Year MCQ Suite (`../vegetation-mcq/index.html`) bidirectionally.
+      - Added CSS containment (`content-visibility: auto; contain-intrinsic-size: 320px;`) and 120ms debounced search for 60fps scrolling.
+    - **Dual Data Synchronization**: Updated both `data.js` and `data.json` under `chap-geo-vegetation` with `geo-veg-mcq-master`, marking the chapter as featured.
+    - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Vegetation 10-Yr MCQs"** (`chap-geo-vegetation`) with an emerald quiz icon and glowing `NEW` badge.
     - **Automated Verification**: Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming quick launch navigation, card display, iframe engine rendering, option click evaluation, variations expansion, scorecard modal, and port release.
 
 

@@ -264,26 +264,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Soil Resources 10-Year MCQ Suite (Geography Ch 2)
-    const soilNav = document.createElement('div');
-    const isSoilActive = state.currentView !== 'search' && state.path[1] === 'sub-10-geo' && state.path[2] === 'chap-geo-soil';
-    soilNav.className = `nav-item nav-item-featured ${isSoilActive ? 'active' : ''}`;
-    soilNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #f59e0b;">quiz</span>
-        <span style="font-weight: 600;">Soil 10-Yr MCQs</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706); color:#fff;">NEW</span>
+    // Latest Update Quick Launch: Natural Vegetation 10-Year MCQ Suite (Geography Ch 3)
+    const vegNav = document.createElement('div');
+    const isVegActive = state.currentView !== 'search' && state.path[1] === 'sub-10-geo' && state.path[2] === 'chap-geo-vegetation';
+    vegNav.className = `nav-item nav-item-featured ${isVegActive ? 'active' : ''}`;
+    vegNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #10b981;">quiz</span>
+        <span style="font-weight: 600;">Vegetation 10-Yr MCQs</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669); color:#fff;">NEW</span>
     `;
-    soilNav.onclick = () => {
+    vegNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const soilChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-soil');
-        if (soilChap) {
-            navigateTo('items', [batch.id, geoSub.id, soilChap.id]);
+        const vegChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-vegetation');
+        if (vegChap) {
+            navigateTo('items', [batch.id, geoSub.id, vegChap.id]);
         }
     };
-    navMenu.appendChild(soilNav);
+    navMenu.appendChild(vegNav);
 }
 
 function resetSearch() {
