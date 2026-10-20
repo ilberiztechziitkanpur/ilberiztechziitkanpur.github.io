@@ -25,6 +25,8 @@ ILBERIZ TECHZ IIT KANPUR/
 ├── geography/                       # ALL Geography subject content lives strictly here
 │   ├── climate/                     # Chapter 1: Climate Theory Master DPP Vault
 │   │   └── index.html               # 42 Most Expected Theory Qs, 175+ Variations, Timer & Data Tables
+│   ├── climate-mcq/                 # Chapter 1: Climate 10-Year MCQ Master Suite (2016–2026)
+│   │   └── index.html               # 30 Unique Archetypes, 115+ Hits, Instant & Exam Modes, Scorecard Generator
 │   ├── soil/                        # Chapter 2: Soil Resources Theory Master DPP Vault
 │   │   └── index.html               # 46 Most Expected Theory Qs, 180+ Variations, 60s Matrix, Blur Mode
 │   ├── vegetation/                  # Chapter 3: Natural Vegetation Theory Master DPP Vault
@@ -146,7 +148,21 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Offline HTML Download**: Allows students to download the entire engine as a single offline HTML file.
 - **Persistent Progress**: `localStorage` tracking (`icse2027_climate_mastered`, `icse2027_climate_review`).
 
-### C. Chapter 2: Soil Resources Theory Master DPP Vault (`geography/soil/index.html`)
+### C. Chapter 1: Climate 10-Year PYQ & Specimen MCQ Master Suite (`geography/climate-mcq/index.html`)
+- **30 High-Yield Master Question Archetypes** representing 115+ total PYQ hits from 2016–2026.
+- **Full Coverage**: 2021–22 Semester-1 100% MCQ board paper, 2023–2026 Board & Specimen papers, and 2016–2020 core concepts tested as MCQs.
+- **Deduplicated Variations Accordion**: Every question features a 1-click expandable history accordion displaying all twisted ways CISCE has framed that question across past papers.
+- **Official CISCE Marking Scheme Explanations**: Detailed meteorological rationales (e.g. Garo/Khasi/Jaintia orographic funneling, Himalayan climatic barrier, Western Disturbances jet stream origins).
+- **Dual Quiz Modes**:
+  1. ⚡ Instant Check Mode: Immediate reveal of correct/incorrect status with explanation upon option selection.
+  2. 📝 Strict Exam Mode: Options highlighted as selected without revealing answers until submission.
+- **Live Exam Countdown Timer**: 15, 30, and 45 mins presets with auto-start on first click, warning pulse, and auto-submit.
+- **Live Probability DNA & Topic Filters**: All Questions (30), Very High Probability (90%+), Monsoon Winds & Branches, Local Winds & Cyclones, Relief & Latitude, Climatic Data Tables.
+- **Automated Report & 1-Click Brag Card Generator**: Powered by `html2canvas` generating a high-resolution PNG scorecard screenshot with student name, score, accuracy %, time taken, achievement tiers (Grandmaster, Tactician, Contender), and sub-topic breakdown bars.
+- **Direct Cross-Linking**: Seamless companion buttons connecting to Ilberiz Techz Dashboard (`../../index.html` with `target="_top"`) and Climate Theory Vault (`../climate/index.html`).
+- **Hardware-Accelerated CSS Containment**: `.q-card` configured with `content-visibility: auto; contain-intrinsic-size: 320px;` and 120ms debounced search for zero lag.
+
+### D. Chapter 2: Soil Resources Theory Master DPP Vault (`geography/soil/index.html`)
 - **46 Master High-Yield Theory Questions** targeting 10/10 marks in Question 5 (Soil Resources).
 - **180+ Twisted Board Variations** grouped under their core Council Marking Scheme answers.
 - **3 Interactive Study Modes**:
@@ -596,6 +612,26 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - **Universal `F11` Browser-Level Shortcut**: Documented and updated the viewer footer and tooltips to feature `<kbd>F11</kbd> / <kbd>F</kbd> Fullscreen`. Unlike regular character keys, `F11` is intercepted globally by the Windows Chromium browser process *before* dispatching to child plugins, guaranteeing that `F11` toggles fullscreen instantly even when clicked deep inside the PDF presentation.
       - **`F` Key Support on Page Focus**: Maintained global `F` key handler on `window` (`keydown` capture), which triggers whenever the user hovers over the header, footer, side navigation areas, or interacts with the page outside the PDF plugin.
       - **Cache Invalidation**: Bumped version query in `index.html` to `script.js?v=3.1`.
+
+24. **Addition of Chapter 1: Climate 10-Year PYQ & Specimen MCQ Master Suite (2016–2026)**:
+    - **Source Material Processing**: Ingested and processed `gemini-code-1792469674122.html` from `Downloads` into `geography/climate-mcq/index.html` in strict adherence to Rule 1 (Subject Folder Isolation) and Rule 2 (Standard File Structure for Engines), immediately removing raw files from `Downloads` and workspace root (Rule 5).
+    - **Comprehensive Coverage**: 30 High-Yield Question Archetypes deduplicating 115+ past board and specimen questions (including 2021–22 Semester-1 100% MCQ paper, 2023–2026 Board & Specimen papers, and 2016–2020 core concepts).
+    - **Interactive Features**:
+      - Dual quiz modes: `Instant Check Mode` (immediate evaluation with official CISCE marking scheme explanations) and `Strict Exam Mode` (deferred reveal upon submit).
+      - Live countdown timer with 15m, 30m, and 45m presets, warning/danger pulses, and auto-submit.
+      - Expandable historical variations accordion on every question showing the precise phrasing across different board years.
+      - Topic & Probability filtering: Very High Probability (90%+), Monsoon Winds, Local Winds, Relief & Latitude, and Climatic Data Tables.
+      - Automated scorecard and 1-click shareable brag screenshot generator powered by `html2canvas` with student name, score, accuracy %, time taken, achievement tiers, and sub-topic mastery breakdown bars.
+    - **Design System & Performance Optimization**:
+      - Integrated Google Fonts (`Inter`, `Outfit`, `JetBrains Mono`, `Space Grotesk`) and `Material Symbols Outlined` (Rule 3).
+      - Added `.home-nav-btn` linking back to Ilberiz Techz Dashboard (`../../index.html` with `target="_top"`).
+      - Added companion cross-link buttons connecting the Climate Theory Vault (`../climate/index.html`) and the 10-Year MCQ Suite (`../climate-mcq/index.html`) bidirectionally.
+      - Added CSS containment (`content-visibility: auto; contain-intrinsic-size: 320px;`) and 120ms debounced search for 60fps scrolling.
+    - **Dual Data Synchronization**: Updated both `data.js` and `data.json` under `chap-geo-climate` with `geo-climate-mcq-master`, marking the chapter as featured.
+    - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Climate 10-Yr MCQs"** (`chap-geo-climate`) with a blue quiz icon and glowing `NEW` badge.
+    - **Cache Invalidation**: Bumped version queries in `index.html` to `data.js?v=3.2` and `script.js?v=3.2`.
+    - **Automated Verification**: Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming quick launch navigation, card display, iframe engine rendering, option click evaluation, variations expansion, scorecard modal, and port release.
+
 
 
 

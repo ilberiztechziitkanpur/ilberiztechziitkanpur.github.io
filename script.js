@@ -264,26 +264,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Julius Caesar Class Notes (English Literature Ch 1)
-    const jcNav = document.createElement('div');
-    const isJcActive = state.currentView !== 'search' && state.path[1] === 'sub-10-eng' && state.path[2] === 'chap-eng-1';
-    jcNav.className = `nav-item nav-item-featured ${isJcActive ? 'active' : ''}`;
-    jcNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #a855f7;">theater_comedy</span>
-        <span style="font-weight: 600;">Julius Caesar Notes</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #a855f7, #7c3aed); color:#fff;">NEW</span>
+    // Latest Update Quick Launch: Climate 10-Year MCQ Suite (Geography Ch 1)
+    const climateNav = document.createElement('div');
+    const isClimateActive = state.currentView !== 'search' && state.path[1] === 'sub-10-geo' && state.path[2] === 'chap-geo-climate';
+    climateNav.className = `nav-item nav-item-featured ${isClimateActive ? 'active' : ''}`;
+    climateNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #38bdf8;">quiz</span>
+        <span style="font-weight: 600;">Climate 10-Yr MCQs</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0284c7, #2563eb); color:#fff;">NEW</span>
     `;
-    jcNav.onclick = () => {
+    climateNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const engSub = batch?.subjects?.find(s => s.id === 'sub-10-eng');
-        const jcChap = engSub?.chapters?.find(c => c.id === 'chap-eng-1');
-        if (jcChap) {
-            navigateTo('items', [batch.id, engSub.id, jcChap.id]);
+        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
+        const climateChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-climate');
+        if (climateChap) {
+            navigateTo('items', [batch.id, geoSub.id, climateChap.id]);
         }
     };
-    navMenu.appendChild(jcNav);
+    navMenu.appendChild(climateNav);
 }
 
 function resetSearch() {
