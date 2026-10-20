@@ -977,8 +977,9 @@ body.theater-fullscreen-active .viewer-footer,
     gap: 10px;
     background: rgba(18, 19, 28, 0.95);
     backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     flex-shrink: 0;
-    z-index: 10;
+    z-index: 1000 !important;
 }
 
 .viewer-left-group {
@@ -1004,6 +1005,8 @@ body.theater-fullscreen-active .viewer-footer,
     transition: all var(--transition-fast);
     white-space: nowrap;
     user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
 
 .viewer-btn:hover {
@@ -1051,11 +1054,20 @@ body.theater-fullscreen-active .viewer-footer,
     max-width: 260px;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.12);
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .chapter-select-btn:hover {
     background: rgba(255, 255, 255, 0.12);
     border-color: rgba(99, 102, 241, 0.4);
+}
+
+.chapter-select-btn.open {
+    background: rgba(99, 102, 241, 0.2);
+    border-color: rgba(99, 102, 241, 0.6);
+    color: #fff;
 }
 
 .chapter-select-text {
@@ -1069,7 +1081,12 @@ body.theater-fullscreen-active .viewer-footer,
 .chapter-select-btn .arrow {
     font-size: 18px;
     color: var(--text-secondary);
-    transition: transform 0.2s ease;
+    transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chapter-select-btn.open .arrow {
+    transform: rotate(180deg);
+    color: var(--accent-color);
 }
 
 .chapter-dropdown-menu {
@@ -1078,12 +1095,13 @@ body.theater-fullscreen-active .viewer-footer,
     left: 0;
     width: 340px;
     max-height: 400px;
-    background: rgba(16, 17, 26, 0.97);
+    background: rgba(16, 17, 26, 0.98);
     backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 14px;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.8), 0 0 25px rgba(99, 102, 241, 0.2);
-    z-index: 500;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85), 0 0 25px rgba(99, 102, 241, 0.25);
+    z-index: 1500;
     display: none;
     flex-direction: column;
     overflow: hidden;
@@ -1126,6 +1144,9 @@ body.theater-fullscreen-active .viewer-footer,
     justify-content: center;
     cursor: pointer;
     transition: all var(--transition-fast);
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .chap-quick-btn:hover:not(:disabled) {
@@ -1149,6 +1170,9 @@ body.theater-fullscreen-active .viewer-footer,
     flex-direction: column;
     gap: 2px;
     max-height: 330px;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
 }
 
 .chapter-dropdown-item {
@@ -1162,6 +1186,9 @@ body.theater-fullscreen-active .viewer-footer,
     color: var(--text-secondary);
     transition: all var(--transition-fast);
     gap: 8px;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 .chapter-dropdown-item:hover {
@@ -1644,6 +1671,16 @@ body.theater-fullscreen-active .viewer-footer,
     }
     .viewer-header {
         padding: 14px 16px;
+    }
+    .chapter-select-btn {
+        max-width: 160px;
+    }
+    .chapter-select-text {
+        max-width: 95px;
+    }
+    .chapter-dropdown-menu {
+        width: min(320px, calc(100vw - 24px));
+        left: 0;
     }
     .viewer-actions {
         width: 100%;

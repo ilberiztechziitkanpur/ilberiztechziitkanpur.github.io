@@ -794,7 +794,12 @@ function bindInstantClick(btn, action) {
             return;
         }
         const now = Date.now();
-        if (now - lastTrigger < 220) return;
+        // 450ms debounce prevents synthetic mouse/click events emitted 300ms after touchstart from double-firing
+        if (now - lastTrigger < 450) {
+            if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+            if (e && typeof e.preventDefault === 'function') e.preventDefault();
+            return;
+        }
         lastTrigger = now;
         window.focus();
         if (e && typeof e.stopPropagation === 'function') {
@@ -804,10 +809,12 @@ function bindInstantClick(btn, action) {
     };
 
     // Primary events: pointerdown fires immediately on the very first touch/mouse press before browser click suppression
-    btn.addEventListener('pointerdown', trigger);
-    btn.addEventListener('mousedown', trigger);
+    btn.addEventListener('pointerdown', (e) => {
+        if (e.button !== undefined && e.button !== 0) return; // Only primary button
+        trigger(e);
+    });
+    // Universal click fallback (keyboard Enter/Space, accessibility tools)
     btn.addEventListener('click', trigger);
-    btn.addEventListener('touchend', trigger);
 
     // Proactively reclaim window focus the instant mouse cursor enters the button
     btn.addEventListener('pointerenter', () => window.focus(), { passive: true });
@@ -1164,8 +1171,39 @@ function createPdfViewer(initialItem) {
         }
     }
 
+    // Chapter Selector Dropdown Helpers
+    function closeChapterDropdown() {
+        if (chapterDropdownMenu && chapterDropdownMenu.classList.contains('open')) {
+            chapterDropdownMenu.classList.remove('open');
+        }
+        if (chapterSelectBtn && chapterSelectBtn.classList.contains('open')) {
+            chapterSelectBtn.classList.remove('open');
+        }
+    }
+
+    function openChapterDropdown() {
+        if (!chapterDropdownMenu) return;
+        chapterDropdownMenu.classList.add('open');
+        if (chapterSelectBtn) chapterSelectBtn.classList.add('open');
+        // Scroll currently active chapter into view within dropdown list
+        const activeItem = chapterDropdownMenu.querySelector('.chapter-dropdown-item.active');
+        if (activeItem) {
+            try {
+                activeItem.scrollIntoView({ block: 'nearest' });
+            } catch (err) {}
+        }
+    }
+
     // In-Place Chapter Switching: preserves existing container in DOM, keeping pure F11 native fullscreen 100% active
     function switchChapterInViewer(targetChapId) {
+        if (!targetChapId) return;
+
+        // If clicking currently active chapter, cleanly close menu and return
+        if (targetChapId === currentChapter?.id) {
+            closeChapterDropdown();
+            return;
+        }
+
         const targetChap = allChapters.find(c => c.id === targetChapId);
         if (!targetChap) return;
 
@@ -1232,29 +1270,49 @@ function createPdfViewer(initialItem) {
         renderBreadcrumbs();
         renderNav();
 
-        // 7. Close dropdown menu
-        if (chapterDropdownMenu) chapterDropdownMenu.classList.remove('open');
+        // 7. Close dropdown menu cleanly
+        closeChapterDropdown();
     }
 
     // Initialize with first note and render center note tabs
     showNote(initialItem);
     renderNoteTabsUI();
 
-    // Event: Chapter Selector Dropdown Toggle
+    // Event: Chapter Selector Dropdown Toggle (Rock-Solid Touch & Click Handling)
     const chapterSelectBtn = header.querySelector('#chapter-select-btn');
     const chapterDropdownMenu = header.querySelector('#chapter-dropdown-menu');
     const chapterSelectWrapper = header.querySelector('#chapter-select-wrapper');
 
     if (chapterSelectBtn && chapterDropdownMenu) {
-        bindInstantClick(chapterSelectBtn, (e) => {
-            chapterDropdownMenu.classList.toggle('open');
-        });
+        let lastToggleTime = 0;
+
+        const toggleDropdown = (e) => {
+            if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
+            const now = Date.now();
+            if (now - lastToggleTime < 350) return;
+            lastToggleTime = now;
+            window.focus();
+
+            const isOpen = chapterDropdownMenu.classList.contains('open');
+            if (isOpen) {
+                closeChapterDropdown();
+            } else {
+                openChapterDropdown();
+            }
+        };
+
+        chapterSelectBtn.addEventListener('click', toggleDropdown);
+        chapterSelectBtn.addEventListener('pointerenter', () => window.focus(), { passive: true });
+        chapterSelectBtn.addEventListener('mouseenter', () => window.focus(), { passive: true });
     }
 
     // Event: Chapter Item Click (In-Place Chapter Switch, preserving Fullscreen)
+    // Uses standard click with stopPropagation so touch-drag scrolling is NEVER blocked or misfired
     const chapItems = header.querySelectorAll('.chapter-dropdown-item');
     chapItems.forEach(itemEl => {
-        bindInstantClick(itemEl, () => {
+        itemEl.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.focus();
             switchChapterInViewer(itemEl.dataset.chapId);
         });
     });
@@ -1262,8 +1320,10 @@ function createPdfViewer(initialItem) {
     // Event: Quick Prev/Next Chapter Buttons
     const quickPrevChap = header.querySelector('#quick-prev-chap');
     if (quickPrevChap) {
-        bindInstantClick(quickPrevChap, () => {
-            const curChapIdx = allChapters.findIndex(c => c.id === currentChapter.id);
+        quickPrevChap.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.focus();
+            const curChapIdx = allChapters.findIndex(c => c.id === currentChapter?.id);
             if (curChapIdx > 0) {
                 switchChapterInViewer(allChapters[curChapIdx - 1].id);
             }
@@ -1272,8 +1332,10 @@ function createPdfViewer(initialItem) {
 
     const quickNextChap = header.querySelector('#quick-next-chap');
     if (quickNextChap) {
-        bindInstantClick(quickNextChap, () => {
-            const curChapIdx = allChapters.findIndex(c => c.id === currentChapter.id);
+        quickNextChap.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.focus();
+            const curChapIdx = allChapters.findIndex(c => c.id === currentChapter?.id);
             if (curChapIdx >= 0 && curChapIdx < allChapters.length - 1) {
                 switchChapterInViewer(allChapters[curChapIdx + 1].id);
             }
@@ -1366,10 +1428,19 @@ function createPdfViewer(initialItem) {
             e.preventDefault();
             e.stopPropagation();
             toggleTheaterFullscreen();
-        } else if (isEscKey && isTheaterFullscreen) {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleTheaterFullscreen(false);
+        } else if (isEscKey) {
+            // Close chapter dropdown first if open
+            if (chapterDropdownMenu && chapterDropdownMenu.classList.contains('open')) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeChapterDropdown();
+                return;
+            }
+            if (isTheaterFullscreen) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleTheaterFullscreen(false);
+            }
         } else if (isNextNote) {
             if (e.repeat) return;
             const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
@@ -1387,8 +1458,12 @@ function createPdfViewer(initialItem) {
 
     function handleDocClick(e) {
         if (chapterSelectWrapper && !chapterSelectWrapper.contains(e.target)) {
-            if (chapterDropdownMenu) chapterDropdownMenu.classList.remove('open');
+            closeChapterDropdown();
         }
+    }
+
+    function handleWindowBlur() {
+        closeChapterDropdown();
     }
 
     function handleFullscreenChange() {
@@ -1401,6 +1476,7 @@ function createPdfViewer(initialItem) {
     }
 
     window.addEventListener('keydown', handleViewerKeydown, true);
+    window.addEventListener('blur', handleWindowBlur);
     document.addEventListener('pointerdown', handleDocClick);
     document.addEventListener('click', handleDocClick);
     document.addEventListener('fullscreenchange', handleFullscreenChange);
@@ -1418,6 +1494,7 @@ function createPdfViewer(initialItem) {
             appContainer.classList.remove('viewer-active');
         }
         window.removeEventListener('keydown', handleViewerKeydown, true);
+        window.removeEventListener('blur', handleWindowBlur);
         document.removeEventListener('pointerdown', handleDocClick);
         document.removeEventListener('click', handleDocClick);
         document.removeEventListener('fullscreenchange', handleFullscreenChange);

@@ -735,6 +735,27 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Cache Invalidation**: Bumped version queries in `index.html` to `data.js?v=3.5` and `script.js?v=3.5`.
     - **Automated Verification**: Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming quick launch navigation, card display, iframe engine rendering, option click evaluation, variations expansion, scorecard modal, and port release.
 
+28. **Resolution of Chapter Switcher Dropdown Interaction & Multi-Touch Anomaly**:
+    - **User Feedback & Root Cause Analysis**:
+      - The user reported: *"when I click to switch chapters, in normal mode or full screen mode, touching it one time causes it to open and then close automatically when I try to touch it another time. It is not behaving correctly."*
+      - *Root Cause 1 (Multi-Event Double Trigger in `bindInstantClick`)*: In Entry 22, `bindInstantClick` bound four separate events (`pointerdown`, `mousedown`, `click`, and `touchend`) with a narrow 220ms timestamp debounce. On touchscreen hardware (mobile, iPad, and 2-in-1 touch laptops), a single physical finger tap generates a `pointerdown` at t=0ms, a `touchend` when the finger is lifted (~150–250ms), and a synthetic `click` ~300ms after touch start. Because normal touch contact or browser click delay exceeds 220ms, the toggle action (`classList.toggle('open')`) was executed twice during a single tap — opening on finger contact and immediately closing on finger lift/synthetic click. Touching the button a second time repeated the same cycle.
+      - *Root Cause 2 (Touch-Scrolling Blocked in Dropdown List)*: Attaching `pointerdown` listeners to `.chapter-dropdown-item` meant that whenever a student placed a finger on the dropdown list to scroll through the 12 chapters, `pointerdown` fired immediately at touchstart, selecting the tapped item and abruptly closing the menu before drag-scrolling could start.
+      - *Root Cause 3 (Stacking Context & Z-Index)*: The viewer header had `z-index: 10`, while floating edge chevrons had `z-index: 99`. In Fullscreen and normal mode, the header and dropdown needed guaranteed top-level stacking priority (`z-index: 1000` on `.viewer-header` and `z-index: 1500` on `.chapter-dropdown-menu`).
+    - **Architectural Solution**:
+      - **Dedicated Dropdown Controller**: Replaced generic multi-event binding on `#chapter-select-btn` with a robust single-fire controller utilizing `click` (instantaneous with `touch-action: manipulation;`) with a 350ms debounce window and explicit helper functions (`openChapterDropdown` and `closeChapterDropdown`).
+      - **Natural Touch Scrolling with Single-Tap Selection**: Removed `pointerdown` from `.chapter-dropdown-item`, attaching clean `click` handlers with `e.stopPropagation()`. Touch users can now scroll smoothly through the full chapter list without accidental activation; tapping a chapter cleanly switches notes and closes the menu.
+      - **Same-Chapter No-Op Guard**: In `switchChapterInViewer`, added a check: if the student taps the chapter currently active (`targetChapId === currentChapter?.id`), the dropdown cleanly closes without resetting iframes or reloading the active PDF.
+      - **Clean Outside-Click & Escape Dismissal**:
+        - `handleDocClick`: Dismisses the dropdown when tapping anywhere outside `#chapter-select-wrapper`.
+        - `handleWindowBlur`: Automatically closes the dropdown if the student clicks into the PDF presentation iframe.
+        - `handleViewerKeydown`: Pressing `Escape` while the dropdown is open closes the dropdown first before exiting fullscreen.
+      - **Visual Feedback & Mobile Layout Polish**:
+        - Added `.chapter-select-btn.open` styling with 180° smooth arrow rotation (`transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1)`).
+        - Added mobile responsive sizing in `@media (max-width: 768px)` so `.chapter-dropdown-menu` conforms to `width: min(320px, calc(100vw - 24px))` with zero screen clipping.
+      - **Enhanced Core `bindInstantClick`**: Removed `touchend` and `mousedown` listeners from `bindInstantClick`, preserving only primary `pointerdown` and `click` with an increased 450ms debounce to eliminate synthetic ghost clicks across all remaining viewer buttons.
+      - **Cache Invalidation**: Bumped version queries in `index.html` to `style.css?v=3.6`, `data.js?v=3.6`, and `script.js?v=3.6`.
+      - **Automated Verification**: Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming single-tap open, stay-open persistence, chapter switching to Soil Resources, clean reopen on second tap, outside dismissal, Fullscreen mode persistence, Natural Vegetation chapter switch in fullscreen, and Escape dismissal, followed by port release.
+
 
 
 
