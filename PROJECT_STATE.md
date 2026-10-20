@@ -66,8 +66,9 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Second_Phase_Of_The_Indian_National_Movement_01_Class_Notes.pdf (2.6 MB) — Assertive Nationalism, Curzon & Partition of Bengal
 │       ├── Second_Phase_Of_The_Indian_National_Movement_02_Class_Notes.pdf (2.9 MB) — Lal-Bal-Pal, assertive methods & Surat Split
 │       ├── The_Muslim_League_01_Class_Notes.pdf (3.1 MB) — Factors promoting separatism & Shimla Deputation
-│       ├── The_Muslim_League_02_Class_Notes.pdf (8.4 MB) — Foundation (1906), objectives & Lucknow Pact 1916
-│       └── Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf (3.8 MB) — Early life, Champaran, Ahmedabad, Kheda, Rowlatt Act & Jallianwala Bagh
+│       ├── Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf (3.8 MB) — Early life, Champaran, Ahmedabad, Kheda, Rowlatt Act & Jallianwala Bagh
+│       ├── Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf (4.2 MB) — Khilafat, Non-Cooperation programme, boycott, Chauri Chaura & suspension
+│       └── Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf (5.0 MB) — Simon Commission, Lahore Session, Dandi March, Civil Disobedience & Round Table Conferences
 ├── english/                         # ALL English subject content lives strictly here
 │   └── notes/                       # ICSE Class 10 English Literature PDF notes
 │       ├── Julius_Caesar_01_Class_Notes.pdf (4.4 MB) — Act 3 Scene 1 (Part 1): Warm-up, recap, line-by-line & MCQs
@@ -301,7 +302,7 @@ ILBERIZ TECHZ IIT KANPUR/
   4. Survey Conventional Symbols & Color Codes Cheat Sheet
 - CSS containment (`content-visibility: auto`) for zero lag.
 
-### L. History Notes (12 PDFs in `history/notes/` across 6 Active Chapters)
+### L. History Notes (14 PDFs in `history/notes/` across 6 Active Chapters)
 - **Chapter 1: The First War of Independence (1857) (3 Notes)**:
   - `The_First_War_Of_Independence_01_Class_Notes.pdf` (5.8 MB) — Political, socio-religious, economic & military causes of 1857 Revolt, Enfield rifle cartridge incident.
   - `The_First_War_Of_Independence_02_Class_Notes.pdf` (4.0 MB) — Major storm centres, suppression, Queen Victoria's Proclamation of 1858, Government of India Act 1858 & consequences.
@@ -318,8 +319,10 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Chapter 5: The Muslim League & Lucknow Pact (2 Notes)**:
   - `The_Muslim_League_01_Class_Notes.pdf` (3.1 MB) — Factors leading to formation of Muslim League: British policy of Divide & Rule, educational/economic backwardness of Muslims, Sir Syed Ahmad Khan & Aligarh Movement, Hindi-Urdu controversy, and the Shimla Deputation (1906, Lord Minto & Aga Khan).
   - `The_Muslim_League_02_Class_Notes.pdf` (8.4 MB) — Foundation of the All India Muslim League (30 December 1906 at Dhaka, Nawab Salimullah, Waqar-ul-Mulk, Aga Khan), original aims and objectives, impact on the National Movement, and the Lucknow Pact (1916: circumstances, joint scheme of political reforms, Hindu-Muslim unity, significance & weaknesses).
-- **Chapter 6: Mahatma Gandhi and the National Movement (1 Note)**:
+- **Chapter 6: Mahatma Gandhi and the National Movement (3 Notes)**:
   - `Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf` (3.8 MB) — Mahatma Gandhi's early life, legal career in South Africa (1893–1914), Pietermaritzburg/train racial discrimination, Natal Indian Congress, Satyagraha principles (truth and non-violence), return to India (9 Jan 1915), Champaran Satyagraha (1917, abolition of Tinkathia system), Ahmedabad Mill Strike (1918, 35% wage hike, first hunger strike), Kheda Satyagraha (1918, remission of land revenue), Rowlatt Act (1919, 'No Vakeel, No Appeal, No Daleel', in-camera trials, suspension of Habeas Corpus), Rowlatt Satyagraha (6 April 1919), arrest of Dr. Saifuddin Kitchlew & Dr. Satyapal, Jallianwala Bagh Massacre (13 April 1919, General Dyer, martial law, Tagore's Knighthood renunciation, Hunter Committee), and introduction to Khilafat Movement (Ali Brothers).
+  - `Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf` (4.2 MB) — Khilafat Movement (causes, Ali Brothers, Hindu-Muslim unity), Non-Cooperation Movement (programme, boycott of titles, schools, courts, foreign cloth, picketing of liquor shops, Swadeshi & Khadi), nationwide impact (peasants in Kheda, Assam plantation workers, Moplah rebellion, Prince of Wales 1921 boycott), Chauri Chaura incident (4 Feb 1922), suspension of NCM (12 Feb 1922 Bardoli resolution), Gandhiji's arrest (sedition charge, 6-year sentence), criticisms by Motilal Nehru, Lala Lajpat Rai & Subhash Chandra Bose, and historical significance.
+  - `Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf` (5.0 MB) — Simon Commission (1927, all-white commission, 'Simon Go Back' protests, Lala Lajpat Rai martyrdom), Lahore Session of INC (1929, Jawaharlal Nehru president, Purna Swaraj resolution, tricolor on Ravi banks, 26 Jan 1930 Independence Day), Civil Disobedience Movement (causes, Salt Tax monopoly, Dandi March 12 Mar – 6 Apr 1930), nationwide spread (Khan Abdul Ghaffar Khan / Khudai Khidmatgar / Red Shirts in NWFP, Rani Gaidinliu in Nagaland), First Round Table Conference boycott, Gandhi-Irwin Pact (March 1931), Second Round Table Conference (London 1931, deadlock on communal electorates, resumption of CDM), and comprehensive comparison between NCM & CDM.
 
 ### K. English Literature Notes (6 PDFs in `english/notes/` for Julius Caesar)
 - **Chapter 1: Drama — Julius Caesar (William Shakespeare) (6 Notes)**:
@@ -399,7 +402,7 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
      - Ch 3: First Phase of the Indian National Movement (1885–1907) [2 Class Notes PDFs Live]
      - Ch 4: Second Phase of the Indian National Movement (Assertive Nationalism) [2 Class Notes PDFs Live]
      - Ch 5: The Muslim League & Lucknow Pact [2 Class Notes PDFs Live]
-     - Ch 6: Mahatma Gandhi and the National Movement [1 Class Notes PDF Live]
+     - Ch 6: Mahatma Gandhi and the National Movement [3 Class Notes PDFs Live]
      - Ch 7: The Quit India Movement
      - Ch 8: Forward Bloc and the INA
      - Ch 9: Independence & Partition of India
@@ -774,6 +777,24 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Bumped version queries in `index.html` to `data.js?v=3.7` and `script.js?v=3.7`.
     - **Automated Verification**:
       - Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming quick launch navigation, card display, iframe engine rendering, note tabs, back button, real-time search filtering, and clean port release.
+
+30. **Addition & Full Integration of Mahatma Gandhi and the National Movement Notes 02 & 03**:
+    - **Source Material Processing & Verification**:
+      - Processed `Mahatma Gandhi 02  Class Notes.pdf` (4.2 MB, 37 widescreen presentation slides, Kunal Sir / Victory 2027 batch) into `history/notes/Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf`.
+      - Processed `Mahatma Gandhi And The National Movement 03 Class Notes.pdf` (5.0 MB, 47 widescreen presentation slides, Kunal Sir / Victory 2027 batch) into `history/notes/Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf`.
+      - Cleaned up raw downloads immediately (Rule 5).
+    - **Curriculum & Lecture Content Coverage**:
+      - **Note 02**: Khilafat Movement (causes, Ali Brothers, Hindu-Muslim unity), Non-Cooperation Movement (programme, boycott of titles, schools, courts, foreign cloth, picketing of liquor shops, Swadeshi & Khadi), nationwide impact (peasants in Kheda, Assam plantation workers, Moplah rebellion, Prince of Wales 1921 boycott), Chauri Chaura incident (4 Feb 1922), suspension of NCM (12 Feb 1922 Bardoli resolution), Gandhiji's arrest (sedition charge, 6-year sentence), criticisms by Motilal Nehru, Lala Lajpat Rai & Subhash Chandra Bose, and historical significance.
+      - **Note 03**: Simon Commission (1927, all-white commission, 'Simon Go Back' protests, Lala Lajpat Rai martyrdom), Lahore Session of INC (1929, Jawaharlal Nehru president, Purna Swaraj resolution, tricolor on Ravi banks, 26 Jan 1930 Independence Day), Civil Disobedience Movement (causes, Salt Tax monopoly, Dandi March 12 Mar – 6 Apr 1930), nationwide spread (Khan Abdul Ghaffar Khan / Khudai Khidmatgar / Red Shirts in NWFP, Rani Gaidinliu in Nagaland), First Round Table Conference boycott, Gandhi-Irwin Pact (March 1931), Second Round Table Conference (London 1931, deadlock on communal electorates, resumption of CDM), and comprehensive comparison between NCM & CDM.
+    - **Dual Data Synchronization**:
+      - Updated `data.js` and `data.json` under `sub-10-his` -> `chap-his-6` to wire all 3 notes (`his-gandhi-notes-01`, `his-gandhi-notes-02`, `his-gandhi-notes-03`) with rich pedagogical subtitles and verified file sizes.
+    - **Search Engine Expansion**:
+      - Expanded search suggestions and search index in `script.js` to include "Dandi March", "Simon Commission", "Civil Disobedience", and "Chauri Chaura".
+    - **Asset Cache Invalidation**:
+      - Bumped version queries in `index.html` to `data.js?v=3.8` and `script.js?v=3.8`.
+    - **Automated Verification**:
+      - Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming quick launch navigation, all 3 cards display, opening Note 02, in-place header note pill switching between Note 01, Note 02, and Note 03, back navigation, and real-time search queries for "Dandi March" and "Chauri Chaura", followed by clean port release.
+
 
 
 

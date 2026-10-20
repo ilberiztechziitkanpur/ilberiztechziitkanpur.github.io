@@ -600,7 +600,7 @@ function renderSearchResults(query) {
         emptyState.innerHTML = `
             <span class="material-symbols-outlined icon">search_off</span>
             <h3>No matching notes found</h3>
-            <p>Try searching for topics like "Julius Caesar", "Act 3 Scene 1", "Act 3 Scene 2", "Antony Speech", "Mahatma Gandhi", "Rowlatt Act", "Jallianwala Bagh", "Non-Cooperation", "Muslim League", "1857", "Nationalism", "First Phase", "Second Phase", "Climate", "Soil", "Vegetation", "Water", "Energy", "GST" or "Trigonometry".</p>
+            <p>Try searching for topics like "Julius Caesar", "Act 3 Scene 1", "Act 3 Scene 2", "Antony Speech", "Mahatma Gandhi", "Dandi March", "Simon Commission", "Civil Disobedience", "Chauri Chaura", "Rowlatt Act", "Jallianwala Bagh", "Non-Cooperation", "Muslim League", "1857", "Nationalism", "First Phase", "Second Phase", "Climate", "Soil", "Vegetation", "Water", "Energy", "GST" or "Trigonometry".</p>
         `;
         wrapper.appendChild(emptyState);
     } else {

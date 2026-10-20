@@ -885,7 +885,7 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-his-6",
                             "name": "Ch 6: Mahatma Gandhi and the National Movement",
-                            "description": "Early life, Champaran, Ahmedabad, Kheda, Rowlatt Act, Jallianwala Bagh Tragedy, Khilafat & Non-Cooperation Movement",
+                            "description": "Early life, Champaran, Ahmedabad, Kheda, Rowlatt Act, Jallianwala Bagh Tragedy, Khilafat & Non-Cooperation Movement, Chauri Chaura, Simon Commission, Dandi March & Civil Disobedience Movement",
                             "items": [
                                 {
                                     "id": "his-gandhi-notes-01",
@@ -894,6 +894,22 @@ window.COURSE_DATA = {
                                     "type": "pdf",
                                     "file": "history/notes/Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf",
                                     "size": "3.8 MB"
+                                },
+                                {
+                                    "id": "his-gandhi-notes-02",
+                                    "title": "Mahatma Gandhi And The National Movement 02 Class Notes",
+                                    "subtitle": "Khilafat Movement, Non-Cooperation programme & boycott, nationwide impact, Chauri Chaura incident & suspension",
+                                    "type": "pdf",
+                                    "file": "history/notes/Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf",
+                                    "size": "4.2 MB"
+                                },
+                                {
+                                    "id": "his-gandhi-notes-03",
+                                    "title": "Mahatma Gandhi And The National Movement 03 Class Notes",
+                                    "subtitle": "Simon Commission, Lahore Session (1929), Dandi March, Civil Disobedience Movement, Gandhi-Irwin Pact & Round Table Conferences",
+                                    "type": "pdf",
+                                    "file": "history/notes/Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf",
+                                    "size": "5.0 MB"
                                 }
                             ]
                         },
