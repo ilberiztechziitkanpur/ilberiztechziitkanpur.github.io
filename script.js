@@ -109,10 +109,170 @@ function buildSearchIndex() {
     });
 }
 
-// Initialize App
-async function init() {
-    setupMobileMenu();
-    setupSearch();
+// Security Passcode (Frontend Auth)
+const SITE_SECURITY_PASSCODE = '1122334';
+const AUTH_STORAGE_KEY = 'ilberiz_auth';
+
+function isUserAuthenticated() {
+    try {
+        const auth = sessionStorage.getItem(AUTH_STORAGE_KEY) || localStorage.getItem(AUTH_STORAGE_KEY);
+        return auth === SITE_SECURITY_PASSCODE;
+    } catch (e) {
+        return false;
+    }
+}
+
+function setAuthentication(rememberDevice) {
+    try {
+        sessionStorage.setItem(AUTH_STORAGE_KEY, SITE_SECURITY_PASSCODE);
+        if (rememberDevice) {
+            localStorage.setItem(AUTH_STORAGE_KEY, SITE_SECURITY_PASSCODE);
+        } else {
+            localStorage.removeItem(AUTH_STORAGE_KEY);
+        }
+    } catch (e) {}
+}
+
+function clearAuthentication() {
+    try {
+        sessionStorage.removeItem(AUTH_STORAGE_KEY);
+        localStorage.removeItem(AUTH_STORAGE_KEY);
+    } catch (e) {}
+}
+
+function setupAuthGate() {
+    const authForm = document.getElementById('auth-form');
+    const authInput = document.getElementById('auth-password-input');
+    const authError = document.getElementById('auth-error-msg');
+    const authGroup = document.getElementById('auth-input-group');
+    const authSubmitBtn = document.getElementById('auth-submit-btn');
+    const toggleVisibilityBtn = document.getElementById('auth-toggle-visibility');
+    const rememberCheckbox = document.getElementById('auth-remember-checkbox');
+    const eyeIcon = document.getElementById('auth-eye-icon');
+    const sidebarLockBtn = document.getElementById('sidebar-lock-btn');
+    const topbarLockBtn = document.getElementById('topbar-lock-btn');
+
+    if (toggleVisibilityBtn && authInput && eyeIcon) {
+        toggleVisibilityBtn.addEventListener('click', () => {
+            const isPassword = authInput.type === 'password';
+            authInput.type = isPassword ? 'text' : 'password';
+            eyeIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+        });
+    }
+
+    if (authInput) {
+        authInput.addEventListener('input', () => {
+            if (authGroup && authGroup.classList.contains('has-error')) {
+                authGroup.classList.remove('has-error');
+            }
+            if (authError) {
+                authError.style.display = 'none';
+            }
+        });
+    }
+
+    function handleAuthSubmit(e) {
+        if (e) e.preventDefault();
+        if (!authInput) return;
+        const entered = authInput.value.trim();
+
+        if (entered === SITE_SECURITY_PASSCODE) {
+            // Password Correct -> Unlock website
+            if (authError) authError.style.display = 'none';
+            if (authGroup) authGroup.classList.remove('has-error', 'shake');
+
+            const remember = rememberCheckbox ? rememberCheckbox.checked : true;
+            setAuthentication(remember);
+
+            if (authSubmitBtn) {
+                authSubmitBtn.classList.add('success');
+                authSubmitBtn.innerHTML = '<span class="material-symbols-outlined btn-icon">check_circle</span><span>Access Granted!</span>';
+            }
+
+            const authGate = document.getElementById('auth-gate');
+            if (authGate) {
+                authGate.classList.add('unlocking');
+            }
+
+            setTimeout(() => {
+                document.documentElement.classList.add('is-authenticated');
+                if (authGate) {
+                    authGate.classList.remove('unlocking');
+                }
+                // Check if a destination redirect was requested
+                const urlParams = new URLSearchParams(window.location.search);
+                const redirectParam = urlParams.get('redirect');
+                if (redirectParam) {
+                    try {
+                        const decoded = decodeURIComponent(redirectParam);
+                        if (decoded.startsWith('/') || decoded.startsWith('./') || decoded.startsWith('../') || decoded.startsWith('geography/') || decoded.startsWith('file://') || decoded.startsWith(window.location.origin)) {
+                            window.location.replace(decoded);
+                            return;
+                        }
+                    } catch (err) {}
+                }
+                startApp();
+            }, 350);
+        } else {
+            // Password Incorrect -> Deny access
+            if (authError) {
+                authError.innerHTML = '<span class="material-symbols-outlined">gpp_bad</span> Incorrect password. Access denied.';
+                authError.style.display = 'flex';
+            }
+            if (authGroup) {
+                authGroup.classList.add('has-error', 'shake');
+                setTimeout(() => authGroup.classList.remove('shake'), 480);
+            }
+            if (navigator.vibrate) {
+                try { navigator.vibrate(200); } catch (e) {}
+            }
+            authInput.select();
+            authInput.focus();
+        }
+    }
+
+    if (authForm) {
+        authForm.addEventListener('submit', handleAuthSubmit);
+    }
+
+    function lockWebsite() {
+        clearAuthentication();
+        document.documentElement.classList.remove('is-authenticated');
+        appStarted = false;
+        if (contentArea) contentArea.innerHTML = '';
+        if (navMenu) navMenu.innerHTML = '';
+        if (authInput) {
+            authInput.value = '';
+            authInput.type = 'password';
+            if (eyeIcon) eyeIcon.textContent = 'visibility';
+            setTimeout(() => authInput.focus(), 150);
+        }
+        if (authSubmitBtn) {
+            authSubmitBtn.classList.remove('success');
+            authSubmitBtn.innerHTML = '<span class="material-symbols-outlined btn-icon">lock_open</span><span class="btn-text">Unlock Platform</span>';
+        }
+        if (authError) {
+            authError.style.display = 'none';
+        }
+        if (authGroup) {
+            authGroup.classList.remove('has-error', 'shake');
+        }
+    }
+
+    if (sidebarLockBtn) {
+        sidebarLockBtn.addEventListener('click', lockWebsite);
+    }
+    if (topbarLockBtn) {
+        topbarLockBtn.addEventListener('click', lockWebsite);
+    }
+}
+
+let appStarted = false;
+
+// Launch Main App
+async function startApp() {
+    if (appStarted) return;
+    appStarted = true;
 
     // 1. Direct local load (works when double-clicking index.html offline via file://)
     if (window.COURSE_DATA) {
@@ -142,6 +302,24 @@ async function init() {
             </div>
         `;
         console.error('Data fetch error:', error);
+    }
+}
+
+// Initialize App
+async function init() {
+    setupMobileMenu();
+    setupSearch();
+    setupAuthGate();
+
+    if (isUserAuthenticated()) {
+        document.documentElement.classList.add('is-authenticated');
+        startApp();
+    } else {
+        document.documentElement.classList.remove('is-authenticated');
+        const authInput = document.getElementById('auth-password-input');
+        if (authInput) {
+            setTimeout(() => authInput.focus(), 150);
+        }
     }
 }
 

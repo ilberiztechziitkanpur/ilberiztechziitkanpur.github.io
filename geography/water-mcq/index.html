@@ -1,6 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Frontend Security Check (Must authenticate at root index.html first) -->
+  <script>
+    (function() {
+      try {
+        var auth = sessionStorage.getItem('ilberiz_auth') === '1122334' || localStorage.getItem('ilberiz_auth') === '1122334';
+        if (!auth && window.self === window.top) {
+          var target = window.location.href.indexOf('file://') === 0 ? window.location.href : (window.location.pathname + window.location.search);
+          window.location.replace('../../index.html?redirect=' + encodeURIComponent(target));
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CISCE Class 10 Water Resources — 10-Year PYQ & Specimen Master Suite (2016–2026)</title>
@@ -1122,6 +1134,18 @@
 
   <!-- STICKY TOP COMMAND BAR -->
   <header class="top-bar">
+  <!-- Frontend Security Check (Must authenticate at root index.html first) -->
+  <script>
+    (function() {
+      try {
+        var auth = sessionStorage.getItem('ilberiz_auth') === '1122334' || localStorage.getItem('ilberiz_auth') === '1122334';
+        if (!auth && window.self === window.top) {
+          var target = window.location.href.indexOf('file://') === 0 ? window.location.href : (window.location.pathname + window.location.search);
+          window.location.replace('../../index.html?redirect=' + encodeURIComponent(target));
+        }
+      } catch (e) {}
+    })();
+  </script>
     <div class="top-bar-inner">
       <div class="brand-cluster">
         <a href="../../index.html" class="home-nav-btn" target="_top" title="Back to Ilberiz Techz Dashboard">

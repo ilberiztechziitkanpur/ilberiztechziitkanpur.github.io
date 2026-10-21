@@ -1,6 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
+  <!-- Frontend Security Check (Must authenticate at root index.html first) -->
+  <script>
+    (function() {
+      try {
+        var auth = sessionStorage.getItem('ilberiz_auth') === '1122334' || localStorage.getItem('ilberiz_auth') === '1122334';
+        if (!auth && window.self === window.top) {
+          var target = window.location.href.indexOf('file://') === 0 ? window.location.href : (window.location.pathname + window.location.search);
+          window.location.replace('../../index.html?redirect=' + encodeURIComponent(target));
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
   <title>ICSE 2027 Geography DPP — Chapter 5: Transport (Extreme UI v3.5)</title>
@@ -880,6 +892,18 @@
 
   <!-- TOP COMMAND BAR -->
   <header class="command-bar">
+  <!-- Frontend Security Check (Must authenticate at root index.html first) -->
+  <script>
+    (function() {
+      try {
+        var auth = sessionStorage.getItem('ilberiz_auth') === '1122334' || localStorage.getItem('ilberiz_auth') === '1122334';
+        if (!auth && window.self === window.top) {
+          var target = window.location.href.indexOf('file://') === 0 ? window.location.href : (window.location.pathname + window.location.search);
+          window.location.replace('../../index.html?redirect=' + encodeURIComponent(target));
+        }
+      } catch (e) {}
+    })();
+  </script>
     <div class="progress-strip">
       <div class="progress-fill" id="masteryProgressBar"></div>
     </div>

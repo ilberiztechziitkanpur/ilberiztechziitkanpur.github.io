@@ -112,6 +112,12 @@ ILBERIZ TECHZ IIT KANPUR/
     - **Anti-Degradation Mandate**: Resist the temptation to casually introduce divergent tooling, unvetted frameworks, or random new architectural paradigms from session to session. Arbitrary drift degrades ("poisons") the stability and predictability of the system.
     - **Authorized Evolution & Efficiency Pivots**: If a user requirement genuinely conflicts with an existing pattern, or if an objective technical bottleneck can be solved more efficiently and cleanly with a modern technique, agents are explicitly empowered to adopt the superior method.
     - **Compulsory State Synchronisation**: Any pivot, refinement, or new pattern must immediately be codified back into `PROJECT_STATE.md` with clear architectural reasoning so subsequent agents inherit the upgraded approach rather than reverting to deprecated patterns.
+13. **Frontend Passcode Security System Protocol (Master Passcode: `1122334`)**:
+    - **Zero-Backend Architecture**: Passcode authentication is enforced purely in the frontend for static hosting (GitHub Pages and offline `file://`).
+    - **Storage Keys & Session State**: Passcode verification writes `ilberiz_auth = '1122334'` to `sessionStorage` (and `localStorage` when 'Remember on this browser' is checked).
+    - **Zero-Flicker Pre-Paint Check**: `index.html` includes a synchronous pre-paint `<script>` in `<head>` adding `.is-authenticated` to `document.documentElement` if already verified, eliminating any UI flashing.
+    - **In-App Lock Controls**: Students can re-lock the platform at any time via the top bar 'Lock' button or sidebar footer 'Lock Website' button.
+    - **Subpage Direct Access Protection**: All standalone chapter and MCQ index engines (`geography/*/index.html`) contain a top-level security guard redirecting unauthenticated visitors to `../../index.html?redirect=<target>` while preserving safe internal redirections upon successful passcode entry.
 
 ---
 

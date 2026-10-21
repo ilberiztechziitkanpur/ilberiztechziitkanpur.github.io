@@ -1,6 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Frontend Security Check (Must authenticate at root index.html first) -->
+  <script>
+    (function() {
+      try {
+        var auth = sessionStorage.getItem('ilberiz_auth') === '1122334' || localStorage.getItem('ilberiz_auth') === '1122334';
+        if (!auth && window.self === window.top) {
+          var target = window.location.href.indexOf('file://') === 0 ? window.location.href : (window.location.pathname + window.location.search);
+          window.location.replace('../../index.html?redirect=' + encodeURIComponent(target));
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ICSE 2027 Geography Topography (Question 1) — DNA & Exam Master Engine</title>
@@ -673,6 +685,18 @@
 
   <!-- STICKY TOP BAR WITH TIMESTAMP & EXAM TIMER -->
   <header class="top-bar">
+  <!-- Frontend Security Check (Must authenticate at root index.html first) -->
+  <script>
+    (function() {
+      try {
+        var auth = sessionStorage.getItem('ilberiz_auth') === '1122334' || localStorage.getItem('ilberiz_auth') === '1122334';
+        if (!auth && window.self === window.top) {
+          var target = window.location.href.indexOf('file://') === 0 ? window.location.href : (window.location.pathname + window.location.search);
+          window.location.replace('../../index.html?redirect=' + encodeURIComponent(target));
+        }
+      } catch (e) {}
+    })();
+  </script>
     <div class="brand-block">
       <a href="../../index.html" target="_top" class="home-nav-btn" title="Back to Ilberiz Techz Home">
         <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>
