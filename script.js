@@ -109,14 +109,17 @@ function buildSearchIndex() {
     });
 }
 
-// Security Passcode (Frontend Auth)
+// ==========================================================================
+// Frontend Access Control Gate (Single Source of Truth)
+// ==========================================================================
 const SITE_SECURITY_PASSCODE = '11223344';
 const AUTH_STORAGE_KEY = 'ilberiz_auth';
+const AUTH_TOKEN = 'granted';
 
 function isUserAuthenticated() {
     try {
         const auth = sessionStorage.getItem(AUTH_STORAGE_KEY) || localStorage.getItem(AUTH_STORAGE_KEY);
-        return auth === SITE_SECURITY_PASSCODE;
+        return auth === AUTH_TOKEN || auth === SITE_SECURITY_PASSCODE;
     } catch (e) {
         return false;
     }
@@ -124,9 +127,9 @@ function isUserAuthenticated() {
 
 function setAuthentication(rememberDevice) {
     try {
-        sessionStorage.setItem(AUTH_STORAGE_KEY, SITE_SECURITY_PASSCODE);
+        sessionStorage.setItem(AUTH_STORAGE_KEY, AUTH_TOKEN);
         if (rememberDevice) {
-            localStorage.setItem(AUTH_STORAGE_KEY, SITE_SECURITY_PASSCODE);
+            localStorage.setItem(AUTH_STORAGE_KEY, AUTH_TOKEN);
         } else {
             localStorage.removeItem(AUTH_STORAGE_KEY);
         }
