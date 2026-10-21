@@ -705,8 +705,8 @@ window.COURSE_DATA = {
                         },
                         {
                             "id": "chap-geo-transport",
-                            "name": "Ch 9: Transport in India",
-                            "description": "48 Most Expected Questions, 190+ Twisted Variations, Master MCQ DPP & Dual-Tab Matrix Drawer",
+                            "name": "Ch 9: Transport",
+                            "description": "Full Class Notes, 48 Theory Questions (190+ Variations), Master MCQ DPP & Dual-Tab Matrix Drawer",
                             "featured": true,
                             "items": [
                                 {
@@ -719,11 +719,19 @@ window.COURSE_DATA = {
                                 },
                                 {
                                     "id": "geo-transport-dpp",
-                                    "title": "Transport in India — Master MCQ DPP Drill",
+                                    "title": "Transport — Master MCQ DPP Drill",
                                     "subtitle": "Unit 8: 10 High-Yield Questions (Golden Quadrilateral, National Waterways, Ports)",
                                     "type": "interactive",
                                     "file": "geography/mcq/index.html?unit=Transport",
                                     "badge": "Unit 8 DPP • 10 MCQs"
+                                },
+                                {
+                                    "id": "geo-transport-01",
+                                    "title": "Transport 01 Class Notes",
+                                    "subtitle": "Roadways, Railways, Airways, Waterways (NW 1–5, 12 Major Ports) & Merits/Demerits",
+                                    "type": "pdf",
+                                    "file": "geography/notes/Transport_01_Class_Notes.pdf",
+                                    "size": "5.3 MB"
                                 }
                             ]
                         },

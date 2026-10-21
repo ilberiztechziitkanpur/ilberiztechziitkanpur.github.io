@@ -445,26 +445,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Mahatma Gandhi and the National Movement (History Ch 6)
-    const gandhiNav = document.createElement('div');
-    const isGandhiActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-6';
-    gandhiNav.className = `nav-item nav-item-featured ${isGandhiActive ? 'active' : ''}`;
-    gandhiNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #f59e0b;">menu_book</span>
-        <span style="font-weight: 600;">Mahatma Gandhi Notes</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706); color:#fff;">NEW</span>
+    // Latest Update Quick Launch: Transport Notes (Geography Ch 9)
+    const transportNav = document.createElement('div');
+    const isTransportActive = state.currentView !== 'search' && state.path[1] === 'sub-10-geo' && state.path[2] === 'chap-geo-transport';
+    transportNav.className = `nav-item nav-item-featured ${isTransportActive ? 'active' : ''}`;
+    transportNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #0ea5e9;">commute</span>
+        <span style="font-weight: 600;">Transport Notes</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); color:#fff;">NEW</span>
     `;
-    gandhiNav.onclick = () => {
+    transportNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
-        const gandhiChap = hisSub?.chapters?.find(c => c.id === 'chap-his-6');
-        if (gandhiChap) {
-            navigateTo('items', [batch.id, hisSub.id, gandhiChap.id]);
+        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
+        const transportChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-transport');
+        if (transportChap) {
+            navigateTo('items', [batch.id, geoSub.id, transportChap.id]);
         }
     };
-    navMenu.appendChild(gandhiNav);
+    navMenu.appendChild(transportNav);
 }
 
 function resetSearch() {

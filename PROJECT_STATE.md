@@ -43,13 +43,14 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # 48 Most Expected Theory Qs, 190+ Variations, Dual-Tab Drawer, Blur Mode
 │   ├── waste/                       # Chapter 9: Waste Management Theory Master DPP Vault
 │   │   └── index.html               # 50 Most Expected Theory Qs, 200+ Variations, Methods & 3Rs Drawer, Blur Mode
-│   ├── notes/                       # All 17 ICSE Class 10 Geography PDF notes
+│   ├── notes/                       # All 18 ICSE Class 10 Geography PDF notes
 │   │   ├── Climate_01_Class_Notes.pdf ... Climate_05_Class_Notes.pdf (5 files)
 │   │   ├── Soil_Resources_01_Class_Notes.pdf ... Soil_Resources_03_Class_Notes.pdf (3 files)
 │   │   ├── Natural_Vegetation_01_Class_Notes.pdf ... Natural_Vegetation_03_Class_Notes.pdf (3 files)
 │   │   ├── Water_Resources_01_Class_Notes.pdf ... Water_Resources_02_Class_Notes.pdf (2 files)
 │   │   ├── Mineral_Resources_01_Class_Notes.pdf ... Mineral_Resources_02_Class_Notes.pdf (2 files)
-│   │   └── Conventional_Sources_Of_Energy_01_Class_Notes.pdf ... 02 (2 files)
+│   │   ├── Conventional_Sources_Of_Energy_01_Class_Notes.pdf ... 02 (2 files)
+│   │   └── Transport_01_Class_Notes.pdf (1 file)
 │   ├── mcq/                         # 100 Most Expected High-Yield MCQ DPP & DNA Engine
 │   │   └── index.html               # Main interactive MCQ web app (hardware accelerated)
 │   └── toposheet/                   # Topography (Question 1) Master Blueprint & DNA Engine
@@ -123,7 +124,7 @@ ILBERIZ TECHZ IIT KANPUR/
 
 ## 4. Current Content Inventory
 
-### A. Geography Notes (17 PDFs in `geography/notes/`)
+### A. Geography Notes (18 PDFs in `geography/notes/`)
 - **Climate (5 Notes)**:
   - `Climate_01_Class_Notes.pdf` (5.8 MB) — Factors affecting climate, latitude, altitude, continentality
   - `Climate_02_Class_Notes.pdf` (4.9 MB) — Pressure systems, winds, jet streams, western disturbances
@@ -147,6 +148,8 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Conventional Sources of Energy (2 Notes)**:
   - `Conventional_Sources_Of_Energy_01_Class_Notes.pdf` (6.8 MB) — Coal fields & classification
   - `Conventional_Sources_Of_Energy_02_Class_Notes.pdf` (5.5 MB) — Petroleum & Natural Gas
+- **Transport (1 Note)**:
+  - `Transport_01_Class_Notes.pdf` (5.3 MB) — Roadways (density, NHAI, Golden Quadrilateral, North-South & East-West Corridors, Expressways, BRO & Atal Tunnel Rohtang), Railways (1853 Mumbai-Thane, Broad/Metre/Narrow gauges, Konkan Railway), Airways (AAI, PHHL), Waterways (Inland NW 1–5, 12 Major Sea Ports), and comparative Merits & Demerits.
 
 ### B. Chapter 1: Climate Theory Master DPP Vault (`geography/climate/index.html`)
 - **42 Master High-Yield Theory Questions** targeting 10/10 marks in Question 4 (Climate).
@@ -399,7 +402,7 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
    - Topography Q1 Master Blueprint (50 Qs)
    - Master 100 MCQ Diagnostic Engine
    - 6 Theory DPP Master Vaults (Climate, Soil, Vegetation, Water, Transport, Waste)
-   - 17 Complete Class Notes PDFs (Climate, Soil, Vegetation, Water, Minerals, Energy)
+   - 18 Complete Class Notes PDFs (Climate, Soil, Vegetation, Water, Minerals, Energy, Transport)
    - Agriculture & Manufacturing Industries MCQ DPPs
 6. **History & Civics (`sub-10-his`) — 20 Chapters**:
    - *History*:
@@ -800,6 +803,15 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Bumped version queries in `index.html` to `data.js?v=3.8` and `script.js?v=3.8`.
     - **Automated Verification**:
       - Conducted automated end-to-end browser subagent verification on port 8080 (Rule 11) confirming quick launch navigation, all 3 cards display, opening Note 02, in-place header note pill switching between Note 01, Note 02, and Note 03, back navigation, and real-time search queries for "Dandi March" and "Chauri Chaura", followed by clean port release.
+
+31. **Addition of Geography Notes: Transport (Chapter 9) & Authentic ICSE Nomenclature Correction**:
+    - **Authentic ICSE Syllabus Nomenclature**: Corrected the chapter title from `"Ch 9: Transport in India"` to authentic ICSE board syllabus terminology `"Ch 9: Transport"` across `data.js`, `data.json`, and `PROJECT_STATE.md`.
+    - **Sanitization of Raw File**: Processed random download file (`631f8f3f-da0f-4e36-9d83-75468a631c21.pdf`) to authentic project convention `Transport_01_Class_Notes.pdf` (5.3 MB) and placed directly into `geography/notes/` in adherence to Rule 1 (Subject Folder Isolation).
+    - **Visual Slide & Content Verification**: Inspected the 43-page Victory 2026 slide deck (Kunal Sir / Physics Wallah): covers Indian transport infrastructure, Roadways (Density, NHAI, Golden Quadrilateral, NS-EW Corridors, Expressways, State/District/Rural/BRO Atal Tunnel), Railways (1853 Mumbai-Thane, Broad/Metre/Narrow Gauges, Konkan Railway), Airways (AAI, PHHL), Waterways (Inland NW 1–5, 12 Major Sea Ports: Mumbai, JNPT, Marmagao, Kolkata riverine, Haldia, Paradip, Visakhapatnam, Chennai, Tuticorin, Kandla tidal, New Mangalore, Kochi), and comparative Merits/Demerits.
+    - **Dual Data Synchronization**: Synchronized `data.js` and `data.json` under `sub-10-geo` -> `chap-geo-transport` with `geo-transport-01` PDF item (`5.3 MB`).
+    - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Transport Notes"** (`chap-geo-transport`) with `commute` icon and glowing `NEW` badge in strict adherence to Rule 10.
+    - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=4.1`.
+    - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested the entire user flow on temporary port 8080 (passcode unlock, sidebar quick-launch, chapter title display, note card visibility, PDF reader opening with all controls, and back navigation), followed by immediate clean server teardown and port release verification.
 
 
 
