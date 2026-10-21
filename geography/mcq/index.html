@@ -5,7 +5,7 @@
   <script>
     (function() {
       try {
-        var auth = sessionStorage.getItem('ilberiz_auth') === '1122334' || localStorage.getItem('ilberiz_auth') === '1122334';
+        var auth = sessionStorage.getItem('ilberiz_auth') === '11223344' || localStorage.getItem('ilberiz_auth') === '11223344';
         if (!auth && window.self === window.top) {
           var target = window.location.href.indexOf('file://') === 0 ? window.location.href : (window.location.pathname + window.location.search);
           window.location.replace('../../index.html?redirect=' + encodeURIComponent(target));
@@ -725,7 +725,7 @@
   <script>
     (function() {
       try {
-        var auth = sessionStorage.getItem('ilberiz_auth') === '1122334' || localStorage.getItem('ilberiz_auth') === '1122334';
+        var auth = sessionStorage.getItem('ilberiz_auth') === '11223344' || localStorage.getItem('ilberiz_auth') === '11223344';
         if (!auth && window.self === window.top) {
           var target = window.location.href.indexOf('file://') === 0 ? window.location.href : (window.location.pathname + window.location.search);
           window.location.replace('../../index.html?redirect=' + encodeURIComponent(target));

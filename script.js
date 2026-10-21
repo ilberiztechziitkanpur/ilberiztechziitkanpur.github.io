@@ -110,7 +110,7 @@ function buildSearchIndex() {
 }
 
 // Security Passcode (Frontend Auth)
-const SITE_SECURITY_PASSCODE = '1122334';
+const SITE_SECURITY_PASSCODE = '11223344';
 const AUTH_STORAGE_KEY = 'ilberiz_auth';
 
 function isUserAuthenticated() {
