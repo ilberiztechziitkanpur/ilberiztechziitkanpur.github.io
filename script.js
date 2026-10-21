@@ -445,26 +445,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Transport Notes (Geography Ch 9)
-    const transportNav = document.createElement('div');
-    const isTransportActive = state.currentView !== 'search' && state.path[1] === 'sub-10-geo' && state.path[2] === 'chap-geo-transport';
-    transportNav.className = `nav-item nav-item-featured ${isTransportActive ? 'active' : ''}`;
-    transportNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #0ea5e9;">commute</span>
-        <span style="font-weight: 600;">Transport Notes</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); color:#fff;">NEW</span>
+    // Latest Update Quick Launch: Waste Management Notes (Geography Ch 10)
+    const wasteNav = document.createElement('div');
+    const isWasteActive = state.currentView !== 'search' && state.path[1] === 'sub-10-geo' && state.path[2] === 'chap-geo-waste';
+    wasteNav.className = `nav-item nav-item-featured ${isWasteActive ? 'active' : ''}`;
+    wasteNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #10b981;">recycling</span>
+        <span style="font-weight: 600;">Waste Management Notes</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669); color:#fff;">NEW</span>
     `;
-    transportNav.onclick = () => {
+    wasteNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const transportChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-transport');
-        if (transportChap) {
-            navigateTo('items', [batch.id, geoSub.id, transportChap.id]);
+        const wasteChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-waste');
+        if (wasteChap) {
+            navigateTo('items', [batch.id, geoSub.id, wasteChap.id]);
         }
     };
-    navMenu.appendChild(transportNav);
+    navMenu.appendChild(wasteNav);
 }
 
 function resetSearch() {

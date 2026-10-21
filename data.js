@@ -738,7 +738,7 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-geo-waste",
                             "name": "Ch 10: Waste Management",
-                            "description": "50 Most Expected Questions, 200+ Twisted Variations, Master MCQ DPP & Complete Modes Vault",
+                            "description": "Full Class Notes, 50 Theory Questions (200+ Variations), Master MCQ DPP & Complete Modes Vault",
                             "featured": true,
                             "items": [
                                 {
@@ -756,6 +756,14 @@ window.COURSE_DATA = {
                                     "type": "interactive",
                                     "file": "geography/mcq/index.html?unit=Waste+Management",
                                     "badge": "Unit 9 DPP • 8 MCQs"
+                                },
+                                {
+                                    "id": "geo-waste-01",
+                                    "title": "Waste Management 01 Class Notes",
+                                    "subtitle": "Impact of Waste Accumulation, Types of Waste, Eutrophication, Biomagnification & Health Hazards",
+                                    "type": "pdf",
+                                    "file": "geography/notes/Waste_Management_01_Class_Notes.pdf",
+                                    "size": "4.7 MB"
                                 }
                             ]
                         }
