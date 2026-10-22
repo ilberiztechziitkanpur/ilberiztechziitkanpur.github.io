@@ -1088,6 +1088,14 @@ window.COURSE_DATA = {
                                     "type": "pdf",
                                     "file": "english/notes/Treasure_Chest_Poetry_01_Class_Notes.pdf",
                                     "size": "2.3 MB"
+                                },
+                                {
+                                    "id": "eng-tc-poetry-02",
+                                    "title": "Haunted Houses (Part 2) — Treasure Chest Poetry 02 Class Notes",
+                                    "subtitle": "Stanzas 6–10 line-by-line, inner conflict (enjoyment vs aspiration), Bridge of Light, poetic devices & ICSE PYQ-2025 extracts",
+                                    "type": "pdf",
+                                    "file": "english/notes/Treasure_Chest_Poetry_02_Class_Notes.pdf",
+                                    "size": "4.5 MB"
                                 }
                             ]
                         },
