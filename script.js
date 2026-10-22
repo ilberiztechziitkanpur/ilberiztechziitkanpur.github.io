@@ -1,7 +1,7 @@
 // State Management
 const state = {
     data: null,
-    currentView: 'batches', // batches, subjects, chapters, items, viewer, search
+    currentView: 'batches', // batches, subjects, chapters, subchapters, items, viewer, search
     previousView: 'batches',
     path: [], // [batchId, subjectId, chapterId]
     currentItem: null,
@@ -70,24 +70,67 @@ function buildSearchIndex() {
     state.data.batches.forEach(batch => {
         batch.subjects.forEach(subject => {
             subject.chapters.forEach(chapter => {
-                const items = chapter.items || [];
-                items.forEach(item => {
-                    const searchBlob = [
-                        item.title,
-                        item.subtitle || '',
-                        chapter.name,
-                        subject.name,
-                        batch.name
-                    ].join(' ').toLowerCase();
-                    searchIndex.push({
-                        type: 'item',
-                        batch,
-                        subject,
-                        chapter,
-                        item,
-                        searchBlob
+                if (chapter.subchapters && chapter.subchapters.length > 0) {
+                    chapter.subchapters.forEach(subchap => {
+                        const items = subchap.items || [];
+                        items.forEach(item => {
+                            const searchBlob = [
+                                item.title,
+                                item.subtitle || '',
+                                subchap.name,
+                                subchap.author || '',
+                                chapter.name,
+                                subject.name,
+                                batch.name
+                            ].join(' ').toLowerCase();
+                            searchIndex.push({
+                                type: 'item',
+                                batch,
+                                subject,
+                                chapter,
+                                subchapter: subchap,
+                                item,
+                                searchBlob
+                            });
+                        });
+                        const subchapBlob = [
+                            subchap.name,
+                            subchap.author || '',
+                            subchap.description || '',
+                            chapter.name,
+                            subject.name,
+                            batch.name
+                        ].join(' ').toLowerCase();
+                        searchIndex.push({
+                            type: 'subchapter',
+                            batch,
+                            subject,
+                            chapter,
+                            subchapter: subchap,
+                            itemCount: items.length,
+                            searchBlob: subchapBlob
+                        });
                     });
-                });
+                } else {
+                    const items = chapter.items || [];
+                    items.forEach(item => {
+                        const searchBlob = [
+                            item.title,
+                            item.subtitle || '',
+                            chapter.name,
+                            subject.name,
+                            batch.name
+                        ].join(' ').toLowerCase();
+                        searchIndex.push({
+                            type: 'item',
+                            batch,
+                            subject,
+                            chapter,
+                            item,
+                            searchBlob
+                        });
+                    });
+                }
 
                 // Also index chapter so topics and chapters without uploaded PDFs can be discovered
                 const chapBlob = [
@@ -96,12 +139,15 @@ function buildSearchIndex() {
                     subject.name,
                     batch.name
                 ].join(' ').toLowerCase();
+                const totalItemCount = chapter.subchapters
+                    ? chapter.subchapters.reduce((sum, sc) => sum + (sc.items ? sc.items.length : 0), 0)
+                    : (chapter.items || []).length;
                 searchIndex.push({
                     type: 'chapter',
                     batch,
                     subject,
                     chapter,
-                    itemCount: items.length,
+                    itemCount: totalItemCount,
                     searchBlob: chapBlob
                 });
             });
@@ -461,7 +507,7 @@ function renderNav() {
         const engSub = batch?.subjects?.find(s => s.id === 'sub-10-eng');
         const poetryChap = engSub?.chapters?.find(c => c.id === 'chap-eng-2');
         if (poetryChap) {
-            navigateTo('items', [batch.id, engSub.id, poetryChap.id]);
+            navigateTo('subchapters', [batch.id, engSub.id, poetryChap.id]);
         }
     };
     navMenu.appendChild(hauntedNav);
@@ -527,8 +573,27 @@ function renderBreadcrumbs() {
         const subject = batch?.subjects?.find(s => s.id === state.path[1]);
         const chapter = subject?.chapters?.find(c => c.id === state.path[2]);
         if (chapter) {
-            const isCurrent = state.currentView === 'items';
-            addCrumb(chapter.name, isCurrent ? null : () => navigateTo('items', state.path.slice(0, 3)), isCurrent);
+            const hasSubchap = chapter.subchapters && chapter.subchapters.length > 0;
+            const isCurrent = (state.currentView === 'subchapters' || (state.currentView === 'items' && !hasSubchap)) && state.path.length === 3;
+            addCrumb(chapter.name, isCurrent ? null : () => {
+                if (hasSubchap) {
+                    navigateTo('subchapters', [batch.id, subject.id, chapter.id]);
+                } else {
+                    navigateTo('items', [batch.id, subject.id, chapter.id]);
+                }
+            }, isCurrent);
+        }
+    }
+
+    if (state.path.length > 3) {
+        addCrumbSeparator();
+        const batch = state.data.batches.find(b => b.id === state.path[0]);
+        const subject = batch?.subjects?.find(s => s.id === state.path[1]);
+        const chapter = subject?.chapters?.find(c => c.id === state.path[2]);
+        const subchap = chapter?.subchapters?.find(sc => sc.id === state.path[3]);
+        if (subchap) {
+            const isCurrent = state.currentView === 'items' && state.path.length === 4;
+            addCrumb(subchap.name, isCurrent ? null : () => navigateTo('items', state.path.slice(0, 4)), isCurrent);
         }
     }
 
@@ -653,21 +718,70 @@ function renderView() {
         const grid = document.createElement('div');
         grid.className = 'cards-grid';
         sub.chapters.forEach((chap, idx) => {
-            const count = chap.items ? chap.items.length : 0;
-            const badgeText = chap.featured ? 'Interactive DPP' : (count > 0 ? `${count} Notes Ready` : 'In Progress');
+            const hasSub = chap.subchapters && chap.subchapters.length > 0;
+            let count = 0;
+            let badgeText = '';
+            let actionText = 'View Notes';
+
+            if (hasSub) {
+                const totalNotes = chap.subchapters.reduce((sum, sc) => sum + (sc.items ? sc.items.length : 0), 0);
+                const isPoemCollection = chap.id === 'chap-eng-2';
+                const unitType = isPoemCollection ? 'Poems' : 'Stories';
+                badgeText = totalNotes > 0 ? `${chap.subchapters.length} ${unitType} • ${totalNotes} Notes` : `${chap.subchapters.length} ${unitType}`;
+                actionText = `Explore ${unitType}`;
+            } else {
+                count = chap.items ? chap.items.length : 0;
+                badgeText = chap.featured ? 'Interactive DPP' : (count > 0 ? `${count} Notes Ready` : 'In Progress');
+                actionText = chap.featured ? 'Open Engine' : 'View Notes';
+            }
             const iconName = chap.featured ? 'bolt' : 'auto_stories';
             
             const cardEl = createCard({
                 title: chap.name,
                 subtitle: chap.description || `${count} available study resources`,
                 icon: iconName,
-                onClick: () => navigateTo('items', [batch.id, sub.id, chap.id]),
+                onClick: () => {
+                    if (hasSub) {
+                        navigateTo('subchapters', [batch.id, sub.id, chap.id]);
+                    } else {
+                        navigateTo('items', [batch.id, sub.id, chap.id]);
+                    }
+                },
                 badge: badgeText,
                 isInteractive: !!chap.featured,
-                actionText: chap.featured ? 'Open Engine' : 'View Notes',
+                actionText: actionText,
                 index: idx
             });
             if (chap.featured) cardEl.classList.add('card-featured');
+            grid.appendChild(cardEl);
+        });
+        wrapper.appendChild(grid);
+    }
+    else if (state.currentView === 'subchapters') {
+        const batch = state.data.batches.find(b => b.id === state.path[0]);
+        const sub = batch?.subjects?.find(s => s.id === state.path[1]);
+        const chap = sub?.chapters?.find(c => c.id === state.path[2]);
+        if (!chap) return;
+
+        const isPoemCollection = chap.id === 'chap-eng-2';
+        const unitType = isPoemCollection ? 'Poems' : 'Short Stories';
+        const header = createSectionHeader(chap.name, `${sub.name} • All 5 Prescribed ${unitType} for ICSE Class 10`);
+        wrapper.appendChild(header);
+
+        const grid = document.createElement('div');
+        grid.className = 'cards-grid';
+        (chap.subchapters || []).forEach((subchap, idx) => {
+            const count = subchap.items ? subchap.items.length : 0;
+            const badgeText = count > 0 ? `${count} Note${count === 1 ? '' : 's'} Ready` : 'In Progress';
+            const cardEl = createCard({
+                title: subchap.name,
+                subtitle: subchap.author ? `${subchap.author} • ${subchap.description}` : subchap.description,
+                icon: 'menu_book',
+                onClick: () => navigateTo('items', [batch.id, sub.id, chap.id, subchap.id]),
+                badge: badgeText,
+                actionText: count > 0 ? 'View Notes' : 'Open Chapter',
+                index: idx
+            });
             grid.appendChild(cardEl);
         });
         wrapper.appendChild(grid);
@@ -678,31 +792,38 @@ function renderView() {
         const chap = sub?.chapters?.find(c => c.id === state.path[2]);
         if (!chap) return;
 
-        const header = createSectionHeader(chap.name, `${sub.name} • Chapter Class Notes & Study Material`);
+        const subchap = (state.path.length >= 4 && chap.subchapters)
+            ? chap.subchapters.find(sc => sc.id === state.path[3])
+            : null;
+
+        const currentTarget = subchap || chap;
+        const parentTitle = subchap ? chap.name : sub.name;
+        const header = createSectionHeader(currentTarget.name, `${parentTitle} • Class Notes & Study Material`);
         wrapper.appendChild(header);
 
-        const items = chap.items || [];
+        const items = currentTarget.items || [];
         if (items.length === 0) {
             const emptyBox = document.createElement('div');
             emptyBox.className = 'empty-chapter-box';
             emptyBox.innerHTML = `
                 <span class="material-symbols-outlined icon">cloud_sync</span>
-                <h3>Notes Being Uploaded for ${chap.name}</h3>
-                <p>The notes and lecture modules for this chapter are currently in progress. You can check the <strong>Geography</strong> section to view complete series notes!</p>
+                <h3>Notes Being Uploaded for ${currentTarget.name}</h3>
+                <p>The notes and lecture modules for this ${subchap ? 'chapter' : 'section'} are currently in progress. You can explore available notes across the curriculum!</p>
                 <div style="margin-top: 20px;">
-                    <button class="viewer-btn primary" id="jump-geo-btn">
-                        <span class="material-symbols-outlined">public</span> Go to Geography Notes
+                    <button class="viewer-btn primary" id="jump-back-btn">
+                        <span class="material-symbols-outlined">arrow_back</span> ${subchap ? 'Back to ' + chap.name : 'Back to Chapters'}
                     </button>
                 </div>
             `;
             wrapper.appendChild(emptyBox);
 
-            const jumpBtn = emptyBox.querySelector('#jump-geo-btn');
+            const jumpBtn = emptyBox.querySelector('#jump-back-btn');
             if (jumpBtn) {
                 jumpBtn.onclick = () => {
-                    const geoSub = batch.subjects.find(s => s.id === 'sub-10-geo');
-                    if (geoSub) {
-                        navigateTo('chapters', [batch.id, geoSub.id]);
+                    if (subchap) {
+                        navigateTo('subchapters', [batch.id, sub.id, chap.id]);
+                    } else {
+                        navigateTo('chapters', [batch.id, sub.id]);
                     }
                 };
             }
@@ -758,15 +879,16 @@ function renderSearchResults(query) {
         if (!entry.searchBlob.includes(normalizedQuery)) return;
         if (entry.type === 'item') {
             itemResults.push(entry);
-            seenChapterIds.add(entry.chapter.id);
-        } else if (entry.type === 'chapter') {
-            if (!seenChapterIds.has(entry.chapter.id)) {
+            seenChapterIds.add(entry.subchapter ? entry.subchapter.id : entry.chapter.id);
+        } else if (entry.type === 'chapter' || entry.type === 'subchapter') {
+            const id = entry.subchapter ? entry.subchapter.id : entry.chapter.id;
+            if (!seenChapterIds.has(id)) {
                 chapterResults.push(entry);
             }
         }
     });
 
-    const standaloneChapters = chapterResults.filter(ch => !seenChapterIds.has(ch.chapter.id));
+    const standaloneChapters = chapterResults.filter(ch => !seenChapterIds.has(ch.subchapter ? ch.subchapter.id : ch.chapter.id));
     const totalResults = itemResults.length + standaloneChapters.length;
 
     const header = createSectionHeader(
@@ -793,13 +915,19 @@ function renderSearchResults(query) {
         itemResults.forEach((res) => {
             const isInter = res.item.type === 'interactive' || res.item.type === 'app';
             const isPdf = res.item.type === 'pdf';
+            const itemPath = res.subchapter
+                ? [res.batch.id, res.subject.id, res.chapter.id, res.subchapter.id]
+                : [res.batch.id, res.subject.id, res.chapter.id];
+            const targetSubtitle = res.subchapter
+                ? `${res.batch.name} • ${res.subject.name} • ${res.subchapter.name}`
+                : `${res.batch.name} • ${res.subject.name} • ${res.chapter.name}`;
             const card = createCard({
                 title: res.item.title,
-                subtitle: `${res.batch.name} • ${res.subject.name} • ${res.chapter.name}`,
+                subtitle: targetSubtitle,
                 icon: isInter ? 'quiz' : (isPdf ? 'picture_as_pdf' : 'play_circle'),
                 onClick: () => {
                     resetSearch();
-                    navigateTo('viewer', [res.batch.id, res.subject.id, res.chapter.id], res.item);
+                    navigateTo('viewer', itemPath, res.item);
                 },
                 badge: isInter ? 'Interactive Engine' : res.subject.name,
                 isPdf: isPdf,
@@ -813,19 +941,30 @@ function renderSearchResults(query) {
 
         // 2. Standalone Chapter Matches (for subject/chapter searches)
         standaloneChapters.forEach((res) => {
+            const isSub = !!res.subchapter;
+            const targetTitle = isSub ? res.subchapter.name : res.chapter.name;
+            const targetSubtitle = isSub
+                ? `${res.batch.name} • ${res.subject.name} • ${res.chapter.name} • ${res.subchapter.author || res.subchapter.description || ''}`
+                : `${res.batch.name} • ${res.subject.name} • ${res.chapter.description || 'Chapter Overview'}`;
             const count = res.itemCount;
             const card = createCard({
-                title: res.chapter.name,
-                subtitle: `${res.batch.name} • ${res.subject.name} • ${res.chapter.description || 'Chapter Overview'}`,
+                title: targetTitle,
+                subtitle: targetSubtitle,
                 icon: 'auto_stories',
                 onClick: () => {
                     resetSearch();
-                    navigateTo('items', [res.batch.id, res.subject.id, res.chapter.id]);
+                    if (isSub) {
+                        navigateTo('items', [res.batch.id, res.subject.id, res.chapter.id, res.subchapter.id]);
+                    } else if (res.chapter.subchapters && res.chapter.subchapters.length > 0) {
+                        navigateTo('subchapters', [res.batch.id, res.subject.id, res.chapter.id]);
+                    } else {
+                        navigateTo('items', [res.batch.id, res.subject.id, res.chapter.id]);
+                    }
                 },
-                badge: count > 0 ? `${count} Notes Ready` : 'Class 10 Syllabus',
+                badge: count > 0 ? `${count} Note${count === 1 ? '' : 's'} Ready` : 'Class 10 Syllabus',
                 isPdf: false,
                 isInteractive: false,
-                actionText: 'Open Chapter',
+                actionText: count > 0 ? 'View Notes' : 'Open Chapter',
                 index: cardIndex++
             });
             grid.appendChild(card);
@@ -1017,8 +1156,13 @@ function createPdfViewer(initialItem) {
     const batch = state.data.batches.find(b => b.id === state.path[0]);
     const subject = batch?.subjects?.find(s => s.id === state.path[1]);
     let currentChapter = subject?.chapters?.find(c => c.id === state.path[2]);
-    const allChapters = subject?.chapters || [];
-    let chapterNotes = (currentChapter?.items || []).filter(it => it.type === 'pdf');
+    let currentSubchapter = (state.path.length >= 4 && currentChapter?.subchapters)
+        ? currentChapter.subchapters.find(sc => sc.id === state.path[3])
+        : null;
+
+    let activeContainer = currentSubchapter || currentChapter;
+    const allChapters = currentSubchapter ? currentChapter.subchapters : (subject?.chapters || []);
+    let chapterNotes = (activeContainer?.items || []).filter(it => it.type === 'pdf');
 
     // Live DOM iframe cache: preserves exact reading slide & zoom when switching notes
     const iframeCache = new Map();
@@ -1030,7 +1174,7 @@ function createPdfViewer(initialItem) {
     header.className = 'viewer-header';
 
     // Build Chapter Dropdown items
-    const currentChapIdx = allChapters.findIndex(c => c.id === currentChapter?.id);
+    const currentChapIdx = allChapters.findIndex(c => c.id === activeContainer?.id);
     const prevChapter = currentChapIdx > 0 ? allChapters[currentChapIdx - 1] : null;
     const nextChapter = currentChapIdx >= 0 && currentChapIdx < allChapters.length - 1 ? allChapters[currentChapIdx + 1] : null;
 
@@ -1046,8 +1190,8 @@ function createPdfViewer(initialItem) {
         } else {
             badgeHtml = `<span class="chap-drop-badge empty">In Progress</span>`;
         }
-        const isActive = chap.id === currentChapter?.id;
-        const chapLabel = chap.name.includes(':') ? chap.name.split(':')[0] : 'Ch';
+        const isActive = chap.id === activeContainer?.id;
+        const chapLabel = chap.name.includes(':') ? chap.name.split(':')[0] : (currentSubchapter ? 'Poem' : 'Ch');
         const chapTitle = chap.name.includes(':') ? chap.name.split(':').slice(1).join(':').trim() : chap.name;
 
         chapterDropdownHtml += `
@@ -1068,14 +1212,14 @@ function createPdfViewer(initialItem) {
                 <span class="btn-label">Back</span>
             </button>
             <div class="chapter-select-wrapper" id="chapter-select-wrapper">
-                <button class="viewer-btn chapter-select-btn" id="chapter-select-btn" title="Switch Chapter in ${subject?.name || 'Subject'}">
+                <button class="viewer-btn chapter-select-btn" id="chapter-select-btn" title="Switch ${currentSubchapter ? 'Chapter' : 'Chapter'} in ${currentSubchapter ? currentChapter?.name || 'Collection' : subject?.name || 'Subject'}">
                     <span class="material-symbols-outlined icon">menu_book</span>
-                    <span class="chapter-select-text">${currentChapter?.name || 'Chapter'}</span>
+                    <span class="chapter-select-text">${activeContainer?.name || 'Chapter'}</span>
                     <span class="material-symbols-outlined arrow">expand_more</span>
                 </button>
                 <div class="chapter-dropdown-menu" id="chapter-dropdown-menu">
                     <div class="chapter-dropdown-header">
-                        <span>Chapters in ${subject?.name || 'Subject'}</span>
+                        <span>${currentSubchapter ? currentChapter?.name || 'Collection' : 'Chapters in ' + (subject?.name || 'Subject')}</span>
                         <div class="chapter-nav-quick">
                             <button class="chap-quick-btn" id="quick-prev-chap" ${!prevChapter ? 'disabled' : ''} title="Previous Chapter">
                                 <span class="material-symbols-outlined">arrow_back_ios</span>
@@ -1380,7 +1524,7 @@ function createPdfViewer(initialItem) {
         if (!targetChapId) return;
 
         // If clicking currently active chapter, cleanly close menu and return
-        if (targetChapId === currentChapter?.id) {
+        if (targetChapId === activeContainer?.id) {
             closeChapterDropdown();
             return;
         }
@@ -1399,14 +1543,24 @@ function createPdfViewer(initialItem) {
                 appContainer.classList.remove('viewer-active');
                 appContainer.classList.remove('theater-fullscreen-active');
             }
-            navigateTo('items', [batch.id, subject.id, targetChap.id]);
+            if (currentSubchapter) {
+                navigateTo('items', [batch.id, subject.id, currentChapter.id, targetChap.id]);
+            } else {
+                navigateTo('items', [batch.id, subject.id, targetChap.id]);
+            }
             return;
         }
 
         // 1. Update Chapter References & State without unmounting container
-        currentChapter = targetChap;
+        if (currentSubchapter) {
+            currentSubchapter = targetChap;
+            state.path = [batch.id, subject.id, currentChapter.id, targetChap.id];
+        } else {
+            currentChapter = targetChap;
+            state.path = [batch.id, subject.id, targetChap.id];
+        }
+        activeContainer = targetChap;
         chapterNotes = pdfs;
-        state.path = [batch.id, subject.id, targetChap.id];
         currentNoteItem = pdfs[0];
         state.currentItem = pdfs[0];
 
@@ -1504,7 +1658,7 @@ function createPdfViewer(initialItem) {
         quickPrevChap.addEventListener('click', (e) => {
             e.stopPropagation();
             window.focus();
-            const curChapIdx = allChapters.findIndex(c => c.id === currentChapter?.id);
+            const curChapIdx = allChapters.findIndex(c => c.id === activeContainer?.id);
             if (curChapIdx > 0) {
                 switchChapterInViewer(allChapters[curChapIdx - 1].id);
             }
@@ -1516,7 +1670,7 @@ function createPdfViewer(initialItem) {
         quickNextChap.addEventListener('click', (e) => {
             e.stopPropagation();
             window.focus();
-            const curChapIdx = allChapters.findIndex(c => c.id === currentChapter?.id);
+            const curChapIdx = allChapters.findIndex(c => c.id === activeContainer?.id);
             if (curChapIdx >= 0 && curChapIdx < allChapters.length - 1) {
                 switchChapterInViewer(allChapters[curChapIdx + 1].id);
             }
@@ -1590,7 +1744,8 @@ function createPdfViewer(initialItem) {
                 appContainer.classList.remove('theater-fullscreen-active');
                 appContainer.classList.remove('sidebar-collapsed');
             }
-            navigateTo('items', state.path.slice(0, 3));
+            const backPath = state.path.length >= 4 ? state.path.slice(0, 4) : state.path.slice(0, 3);
+            navigateTo('items', backPath);
         });
     }
 

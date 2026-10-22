@@ -1079,47 +1079,132 @@
                         {
                             "id": "chap-eng-2",
                             "name": "Ch 2: Treasure Chest — ICSE Poems",
-                            "description": "Haunted Houses, The Glove and the Lions, When Great Trees Fall, A Considerable Speck, The Power of Music",
-                            "items": [
+                            "description": "All 5 Prescribed Poems: Haunted Houses, The Glove and the Lions, When Great Trees Fall, A Considerable Speck, The Power of Music",
+                            "items": [],
+                            "subchapters": [
                                 {
-                                    "id": "eng-tc-poetry-01",
-                                    "title": "Haunted Houses (Part 1) — Treasure Chest Poetry 01 Class Notes",
-                                    "subtitle": "Stanzas 1–5 line-by-line explanation, about H.W. Longfellow, poetic devices (Assonance, Simile, Enjambment, Alliteration), legal mortmain concept & MCQs",
-                                    "type": "pdf",
-                                    "file": "english/notes/Treasure_Chest_Poetry_01_Class_Notes.pdf",
-                                    "size": "2.3 MB"
+                                    "id": "poem-haunted-houses",
+                                    "name": "Poem 1: Haunted Houses",
+                                    "author": "Henry Wadsworth Longfellow",
+                                    "description": "10 Stanzas breakdown, phantom dwellers, Bridge of Light, mortmain concept & PYQ-2025 extracts",
+                                    "items": [
+                                        {
+                                            "id": "eng-tc-poetry-01",
+                                            "title": "Haunted Houses (Part 1) — Treasure Chest Poetry 01 Class Notes",
+                                            "subtitle": "Stanzas 1–5 line-by-line explanation, about H.W. Longfellow, poetic devices (Assonance, Simile, Enjambment, Alliteration), legal mortmain concept & MCQs",
+                                            "type": "pdf",
+                                            "file": "english/notes/Treasure_Chest_Poetry_01_Class_Notes.pdf",
+                                            "size": "2.3 MB"
+                                        },
+                                        {
+                                            "id": "eng-tc-poetry-02",
+                                            "title": "Haunted Houses (Part 2) — Treasure Chest Poetry 02 Class Notes",
+                                            "subtitle": "Stanzas 6–10 line-by-line, inner conflict (enjoyment vs aspiration), Bridge of Light, poetic devices & ICSE PYQ-2025 extracts",
+                                            "type": "pdf",
+                                            "file": "english/notes/Treasure_Chest_Poetry_02_Class_Notes.pdf",
+                                            "size": "4.5 MB"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "id": "eng-tc-poetry-02",
-                                    "title": "Haunted Houses (Part 2) — Treasure Chest Poetry 02 Class Notes",
-                                    "subtitle": "Stanzas 6–10 line-by-line, inner conflict (enjoyment vs aspiration), Bridge of Light, poetic devices & ICSE PYQ-2025 extracts",
-                                    "type": "pdf",
-                                    "file": "english/notes/Treasure_Chest_Poetry_02_Class_Notes.pdf",
-                                    "size": "4.5 MB"
+                                    "id": "poem-glove-lions",
+                                    "name": "Poem 2: The Glove and the Lions",
+                                    "author": "Leigh Hunt",
+                                    "description": "Royal court of King Francis, Count de Lorge, lion arena fight, glove recovery & defiance of vanity",
+                                    "items": [
+                                        {
+                                            "id": "eng-tc-poetry-03",
+                                            "title": "The Glove and the Lions — Treasure Chest Poetry 03 Class Notes",
+                                            "subtitle": "King Francis, Count de Lorge, royal court setting, line-by-line breakdown, glove in lion pit, defiance of vanity & MCQs",
+                                            "type": "pdf",
+                                            "file": "english/notes/Treasure_Chest_Poetry_03_Class_Notes.pdf",
+                                            "size": "3.9 MB"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "id": "eng-tc-poetry-03",
-                                    "title": "The Glove and the Lions — Treasure Chest Poetry 03 Class Notes",
-                                    "subtitle": "King Francis, Count de Lorge, royal court setting, line-by-line breakdown, glove in lion pit, defiance of vanity & MCQs",
-                                    "type": "pdf",
-                                    "file": "english/notes/Treasure_Chest_Poetry_03_Class_Notes.pdf",
-                                    "size": "3.9 MB"
+                                    "id": "poem-great-trees-fall",
+                                    "name": "Poem 3: When Great Trees Fall",
+                                    "author": "Maya Angelou",
+                                    "description": "Eulogy for James Baldwin, nature-human parallelism, grief & solace, Specimen 2027 & PYQs",
+                                    "items": [
+                                        {
+                                            "id": "eng-tc-poetry-04",
+                                            "title": "When Great Trees Fall — Treasure Chest Poetry 04 Class Notes",
+                                            "subtitle": "Maya Angelou's eulogy for James Baldwin, nature-human parallelism, grief & solace, poetic devices, Specimen 2027 & PYQs",
+                                            "type": "pdf",
+                                            "file": "english/notes/Treasure_Chest_Poetry_04_Class_Notes.pdf",
+                                            "size": "4.0 MB"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "id": "eng-tc-poetry-04",
-                                    "title": "When Great Trees Fall — Treasure Chest Poetry 04 Class Notes",
-                                    "subtitle": "Maya Angelou's eulogy for James Baldwin, nature-human parallelism, grief & solace, poetic devices, Specimen 2027 & PYQs",
-                                    "type": "pdf",
-                                    "file": "english/notes/Treasure_Chest_Poetry_04_Class_Notes.pdf",
-                                    "size": "4.0 MB"
+                                    "id": "poem-considerable-speck",
+                                    "name": "Poem 4: A Considerable Speck",
+                                    "author": "Robert Frost",
+                                    "description": "Microscopic mite on manuscript, display of living intelligence, satire on mindless human writing & MCQs",
+                                    "items": [
+                                        {
+                                            "id": "eng-tc-poetry-05",
+                                            "title": "A Considerable Speck — Treasure Chest Poetry 05 Class Notes",
+                                            "subtitle": "Robert Frost, microscopic living intelligence, manuscript sheet, satire on collectivism & mindless writing, poetic devices & MCQs",
+                                            "type": "pdf",
+                                            "file": "english/notes/Treasure_Chest_Poetry_05_Class_Notes.pdf",
+                                            "size": "1.8 MB"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "poem-power-of-music",
+                                    "name": "Poem 5: The Power of Music",
+                                    "author": "Sukumar Ray",
+                                    "description": "Bhisma Lochan Sharma's relentless singing, satirical nonsense verse, animal reactions & billy goat resolution",
+                                    "items": []
                                 }
                             ]
                         },
                         {
                             "id": "chap-eng-3",
                             "name": "Ch 3: Treasure Chest — ICSE Short Stories",
-                            "description": "With the Photographer, The Elevator, The Girl Who Can, The Last Lesson: analysis, characters and extracts",
-                            "items": []
+                            "description": "All 5 Prescribed Stories: With the Photographer, The Elevator, The Girl Who Can, The Pedestrian, The Last Lesson",
+                            "items": [],
+                            "subchapters": [
+                                {
+                                    "id": "story-photographer",
+                                    "name": "Story 1: With the Photographer",
+                                    "author": "Stephen Leacock",
+                                    "description": "Humorous satire on studio photographer's distortions, human vanity and natural identity",
+                                    "items": []
+                                },
+                                {
+                                    "id": "story-elevator",
+                                    "name": "Story 2: The Elevator",
+                                    "author": "William Sleator",
+                                    "description": "Psychological thriller, Martin's claustrophobia, ominous encounters with the large woman",
+                                    "items": []
+                                },
+                                {
+                                    "id": "story-girl-who-can",
+                                    "name": "Story 3: The Girl Who Can",
+                                    "author": "Ama Ata Aidoo",
+                                    "description": "Adjoa, traditional gender expectations vs athletic victory, changing social perspectives in Ghana",
+                                    "items": []
+                                },
+                                {
+                                    "id": "story-pedestrian",
+                                    "name": "Story 4: The Pedestrian",
+                                    "author": "Ray Bradbury",
+                                    "description": "Leonard Mead's evening walk in a desolate 2053 metropolis, critique of screen addiction and conformity",
+                                    "items": []
+                                },
+                                {
+                                    "id": "story-last-lesson",
+                                    "name": "Story 5: The Last Lesson",
+                                    "author": "Alphonse Daudet",
+                                    "description": "Franz and M. Hamel's final French lesson in Alsace under Prussian occupation, importance of mother tongue",
+                                    "items": []
+                                }
+                            ]
                         },
                         {
                             "id": "chap-eng-4",

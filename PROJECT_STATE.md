@@ -82,7 +82,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Treasure_Chest_Poetry_01_Class_Notes.pdf (2.3 MB) — Haunted Houses (Part 1): Stanzas 1–5, H.W. Longfellow & MCQs
 │       ├── Treasure_Chest_Poetry_02_Class_Notes.pdf (4.5 MB) — Haunted Houses (Part 2): Stanzas 6–10, Bridge of Light & PYQ-2025
 │       ├── Treasure_Chest_Poetry_03_Class_Notes.pdf (3.9 MB) — The Glove and the Lions: Leigh Hunt, King Francis & Count de Lorge
-│       └── Treasure_Chest_Poetry_04_Class_Notes.pdf (4.0 MB) — When Great Trees Fall: Maya Angelou, grief & solace, Specimen 2027
+│       ├── Treasure_Chest_Poetry_04_Class_Notes.pdf (4.0 MB) — When Great Trees Fall: Maya Angelou, grief & solace, Specimen 2027
+│       └── Treasure_Chest_Poetry_05_Class_Notes.pdf (1.8 MB) — A Considerable Speck: Robert Frost, manuscript mite, living intelligence & mind in nature
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -340,7 +341,7 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf` (4.2 MB) — Khilafat Movement (causes, Ali Brothers, Hindu-Muslim unity), Non-Cooperation Movement (programme, boycott of titles, schools, courts, foreign cloth, picketing of liquor shops, Swadeshi & Khadi), nationwide impact (peasants in Kheda, Assam plantation workers, Moplah rebellion, Prince of Wales 1921 boycott), Chauri Chaura incident (4 Feb 1922), suspension of NCM (12 Feb 1922 Bardoli resolution), Gandhiji's arrest (sedition charge, 6-year sentence), criticisms by Motilal Nehru, Lala Lajpat Rai & Subhash Chandra Bose, and historical significance.
   - `Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf` (5.0 MB) — Simon Commission (1927, all-white commission, 'Simon Go Back' protests, Lala Lajpat Rai martyrdom), Lahore Session of INC (1929, Jawaharlal Nehru president, Purna Swaraj resolution, tricolor on Ravi banks, 26 Jan 1930 Independence Day), Civil Disobedience Movement (causes, Salt Tax monopoly, Dandi March 12 Mar – 6 Apr 1930), nationwide spread (Khan Abdul Ghaffar Khan / Khudai Khidmatgar / Red Shirts in NWFP, Rani Gaidinliu in Nagaland), First Round Table Conference boycott, Gandhi-Irwin Pact (March 1931), Second Round Table Conference (London 1931, deadlock on communal electorates, resumption of CDM), and comprehensive comparison between NCM & CDM.
 
-### K. English Literature Notes (10 PDFs in `english/notes/` across Julius Caesar & Treasure Chest Poetry)
+### K. English Literature Notes (11 PDFs in `english/notes/` across Julius Caesar & Treasure Chest Subchapters)
 - **Chapter 1: Drama — Julius Caesar (William Shakespeare) (6 Notes)**:
   - `Julius_Caesar_01_Class_Notes.pdf` (4.4 MB) — Act 3 Scene 1 (Part 1): Warm-up activity, Act 1 & 2 recap, line-by-line explanation of Act 3 Scene 1, character motives & MCQs.
   - `Julius_Caesar_02_Class_Notes.pdf` (3.7 MB) — Act 3 Scene 1 (Part 2): Line-by-line explanation of Act 3 Scene 1 (conspirators' speeches, Caesar's assassination), mind maps & MCQs.
@@ -348,11 +349,24 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Julius_Caesar_04_Class_Notes.pdf` (9.1 MB) — Act 3 Scene 2 (Part 2): Antony's famous funeral speech ('Friends, Romans, countrymen'), reading of Caesar's will, mob manipulation, extract questions & MCQs.
   - `Julius_Caesar_05_Class_Notes.pdf` (4.0 MB) — Act 3 Scene 3: The killing of Cinna the Poet, mob fury unleashed, complete Act 3 mind maps, ICSE PYQs & Specimen Paper Questions.
   - `Julius_Caesar_06_Class_Notes.pdf` (2.9 MB) — Act 4 Scene 1: The Triumvirate meeting (Antony, Octavius & Lepidus, proscription list), character analysis, summary, PYQs/SPQs & grammar transformations.
-- **Chapter 2: Treasure Chest — ICSE Poems (4 Notes)**:
-  - `Treasure_Chest_Poetry_01_Class_Notes.pdf` (2.3 MB) — Haunted Houses (Part 1): Warm-up vocabulary, about Henry Wadsworth Longfellow, stanzas 1 to 5 line-by-line explanation, poetic devices (Assonance, Enjambment, Alliteration, Simile, Visual Imagery), legal mortmain concept (spiritual permanence vs material transience), and stanza-by-stanza MCQs.
-  - `Treasure_Chest_Poetry_02_Class_Notes.pdf` (4.5 MB) — Haunted Houses (Part 2): Stanzas 6 to 10 line-by-line breakdown, inner conflict between enjoyment and aspiration, Bridge of Light metaphor connecting spiritual & material worlds, perturbations & perpetual jar, comprehensive poetic devices, and complete ICSE PYQ-2025 extract-based questions.
-  - `Treasure_Chest_Poetry_03_Class_Notes.pdf` (3.9 MB) — The Glove and the Lions: Leigh Hunt, royal court of King Francis, Count de Lorge, dangerous games of love, lion fight in the arena, throwing the glove, brave recovery, defiance of vanity and false love, poetic devices, themes, and MCQs.
-  - `Treasure_Chest_Poetry_04_Class_Notes.pdf` (4.0 MB) — When Great Trees Fall: Maya Angelou, eulogy for James Baldwin, nature-human parallelism (forest equilibrium vs loss of great souls), emotional impact, stanza-by-stanza keywords, poetic devices, themes of grief & solace, comforting resolution, and ICSE Specimen 2027 / PYQ / Competency questions.
+- **Chapter 2: Treasure Chest — ICSE Poems (5 Subchapters — Prescribed Syllabus for ICSE Class 10)**:
+  - **Poem 1: Haunted Houses (Henry Wadsworth Longfellow)** [2 Notes Live]:
+    - `Treasure_Chest_Poetry_01_Class_Notes.pdf` (2.3 MB) — Part 1: Warm-up vocabulary, Longfellow author profile, stanzas 1 to 5 line-by-line explanation, poetic devices (Assonance, Enjambment, Alliteration, Simile, Visual Imagery), legal *mortmain* concept (spiritual permanence vs material transience), and stanza-by-stanza MCQs.
+    - `Treasure_Chest_Poetry_02_Class_Notes.pdf` (4.5 MB) — Part 2: Stanzas 6 to 10 line-by-line breakdown, inner conflict between earthly enjoyment and aspiration, Bridge of Light metaphor connecting spiritual & material worlds, perturbations & perpetual jar, comprehensive poetic devices, and complete ICSE PYQ-2025 extract questions.
+  - **Poem 2: The Glove and the Lions (Leigh Hunt)** [1 Note Live]:
+    - `Treasure_Chest_Poetry_03_Class_Notes.pdf` (3.9 MB) — Part 1: Royal court of King Francis, Count de Lorge, dangerous games of love, lion fight in the arena, throwing the glove, brave recovery, defiance of vanity and false love, poetic devices, themes, and MCQs.
+  - **Poem 3: When Great Trees Fall (Maya Angelou)** [1 Note Live]:
+    - `Treasure_Chest_Poetry_04_Class_Notes.pdf` (4.0 MB) — Part 1: Maya Angelou's eulogy for James Baldwin, nature-human parallelism (destabilization of forest equilibrium vs death of great souls), emotional impact, stanza-by-stanza keywords, poetic devices, themes of grief & solace, comforting resolution ("They existed."), and ICSE Specimen 2027 / PYQs / Competency questions.
+  - **Poem 4: A Considerable Speck (Robert Frost)** [1 Note Live]:
+    - `Treasure_Chest_Poetry_05_Class_Notes.pdf` (1.8 MB, 19 slides, Nupur Ma'am / Victory 2026 Batch) — Part 1: Observation of a microscopic mite on a white sheet of manuscript paper, recognition of living intelligence, individuality, fear and survival instinct in nature, speaker's decision to spare the creature, satire on collectivistic human conformity and uninspired/mindless writing, poetic devices (Oxymoron: "Considerable speck", Personification, Alliteration, Rhyme scheme AABB), and extract MCQs with explanations.
+  - **Poem 5: The Power of Music (Sukumar Ray)** [Architecture Ready for Notes].
+- **Chapter 3: Treasure Chest — ICSE Short Stories (5 Subchapters — Prescribed Syllabus for ICSE Class 10)**:
+  - **Story 1: With the Photographer (Stephen Leacock)** [Architecture Ready for Notes]
+  - **Story 2: The Elevator (William Sleator)** [Architecture Ready for Notes]
+  - **Story 3: The Girl Who Can (Ama Ata Aidoo)** [Architecture Ready for Notes]
+  - **Story 4: The Pedestrian (Ray Bradbury)** [Architecture Ready for Notes]
+  - **Story 5: The Last Lesson (Alphonse Daudet)** [Architecture Ready for Notes]
+- **Chapter 4: English Language — Composition & Applied Grammar** [Grammar & Composition Syllabus mapped].
 
 ### L. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
 All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
@@ -439,10 +453,20 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
      - Civics Ch 3: The Prime Minister & Council of Ministers
      - Civics Ch 4: The Supreme Court
      - Civics Ch 5: The High Courts & Subordinate Courts
-7. **English (`sub-10-eng`) — 4 Chapters**:
-   - Ch 1: Drama — Julius Caesar (Acts III, IV, V) [6 Class Notes PDFs Live]
-   - Ch 2: Treasure Chest — ICSE Poems [4 Class Notes PDFs Live]
-   - Ch 3: Treasure Chest — ICSE Short Stories
+7. **English (`sub-10-eng`) — 4 Main Chapters with Subchapters Architecture**:
+   - Ch 1: Drama — Julius Caesar (William Shakespeare: Acts III, IV, V) [6 Class Notes PDFs Live]
+   - Ch 2: Treasure Chest — ICSE Poems [5 Subchapters Prescribed for ICSE 10]:
+     - Poem 1: Haunted Houses (Henry Wadsworth Longfellow) [2 Notes Live]
+     - Poem 2: The Glove and the Lions (Leigh Hunt) [1 Note Live]
+     - Poem 3: When Great Trees Fall (Maya Angelou) [1 Note Live]
+     - Poem 4: A Considerable Speck (Robert Frost) [1 Note Live]
+     - Poem 5: The Power of Music (Sukumar Ray) [Ready for Notes]
+   - Ch 3: Treasure Chest — ICSE Short Stories [5 Subchapters Prescribed for ICSE 10]:
+     - Story 1: With the Photographer (Stephen Leacock) [Ready for Notes]
+     - Story 2: The Elevator (William Sleator) [Ready for Notes]
+     - Story 3: The Girl Who Can (Ama Ata Aidoo) [Ready for Notes]
+     - Story 4: The Pedestrian (Ray Bradbury) [Ready for Notes]
+     - Story 5: The Last Lesson (Alphonse Daudet) [Ready for Notes]
    - Ch 4: English Language — Composition & Applied Grammar
 8. **Hindi (`sub-10-hin`) — 4 Chapters**:
    - Ch 1: Sahitya Sagar — Gadya Sankalan (Short Stories)
@@ -859,10 +883,31 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=4.5`.
     - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested the complete user flow on temporary port 8080 (passcode unlock, sidebar quick-launch, note cards 01 through 04 display, opening Note 03 and Note 04, in-place header note switcher tabs between all 4 notes, and back navigation), followed by immediate clean server teardown and port release verification.
 
-
-
-
-
-
-
+36. **Re-Architecture of English Literature: 5 Poems & 5 Short Stories Subchapters Hierarchy and Addition of Notes for *A Considerable Speck***:
+    - **Authentic CISCE Syllabus Subchapter Architecture**: Rather than flatly dumping notes under monolithic chapters, re-architected `Treasure Chest — ICSE Poems` (`chap-eng-2`) and `Treasure Chest — ICSE Short Stories` (`chap-eng-3`) into their exact 5 prescribed ICSE Class 10 literature chapters each:
+      - **Prescribed Poems (5)**:
+        1. *Poem 1: Haunted Houses* (Henry Wadsworth Longfellow) — Notes 01 & 02
+        2. *Poem 2: The Glove and the Lions* (Leigh Hunt) — Note 03
+        3. *Poem 3: When Great Trees Fall* (Maya Angelou) — Note 04
+        4. *Poem 4: A Considerable Speck* (Robert Frost) — Note 05
+        5. *Poem 5: The Power of Music* (Sukumar Ray) — Ready for Notes
+      - **Prescribed Short Stories (5)**:
+        1. *Story 1: With the Photographer* (Stephen Leacock) — Ready for Notes
+        2. *Story 2: The Elevator* (William Sleator) — Ready for Notes
+        3. *Story 3: The Girl Who Can* (Ama Ata Aidoo) — Ready for Notes
+        4. *Story 4: The Pedestrian* (Ray Bradbury) — Ready for Notes
+        5. *Story 5: The Last Lesson* (Alphonse Daudet) — Ready for Notes
+    - **Sanitization of Raw File**: Processed `6eb4b5f6-2d28-4f5f-bef4-634983603ef0.pdf` (1.8 MB, 19 slides, Victory 2026 Batch by Nupur Ma'am / PW) into `english/notes/Treasure_Chest_Poetry_05_Class_Notes.pdf` in strict adherence to Rule 1 (Subject Folder Isolation). Cleaned up raw file from Downloads immediately (Rule 5).
+    - **Visual Slide & Content Verification**: Inspected the 19-page slide deck: covers Robert Frost's biographical context and poetic philosophy, line-by-line reading of *A Considerable Speck*, the microscopic speck/mite on the poet's manuscript sheet, vivid realization of animal intelligence, instinct, hesitation, and terror of the wet ink, Frost's tender decision to spare its life ("I have a mind myself and recognize / Mind when I meet with it in any guise"), satirical critique of collectivistic human groupthink and uninspired "mindless" modern writing, comprehensive poetic devices (Oxymoron, Personification, Alliteration, Rhyme scheme AABB), and extract MCQs with answer rationales.
+    - **Dual Data Synchronization**: Wired the new subchapters architecture across both `data.js` and `data.json` under `sub-10-eng`. Each subchapter contains its metadata (`id`, `name`, `author`, `description`, and `items`). Distributed existing notes to their authentic parent poems: Notes 01 & 02 under *Haunted Houses*, Note 03 under *The Glove and the Lions*, Note 04 under *When Great Trees Fall*, and Note 05 (`eng-tc-poetry-05`, 1.8 MB) under *A Considerable Speck*.
+    - **UI Controller Enhancements (`script.js`)**:
+      - Added `'subchapters'` view state to `state.currentView`.
+      - Extended `renderView()` to support rendering the 5 chapter cards for poems or short stories with author badges, descriptions, and dynamic note counters.
+      - Updated `items` view to seamlessly resolve either standard chapters or nested subchapters (`currentTarget = subchap || chap`), with an intuitive empty-state screen including a "Back to Subchapters" button.
+      - Updated `renderBreadcrumbs()` to support 4-level navigation (`Batches -> Class 10 -> English -> ICSE Poems -> Poem 4 -> Reader`).
+      - Updated `buildSearchIndex()` and `renderSearchResults()` to index and link directly to subchapters and nested note items.
+      - Enhanced PDF reader (`createPdfViewer()`): correctly resolves `currentSubchapter`, sets header chapter dropdown button label and sister poem switcher to subchapters, and routes back navigation cleanly to the specific poem's notes grid.
+    - **Sidebar Navigation Protocol (Rule 10)**: Maintained quick-launch navigation in `script.js` to highlight **"Treasure Chest Poetry"** (`chap-eng-2`) with an `auto_stories` icon and glowing `NEW` badge in strict adherence to Rule 10, opening the 5 prescribed poems.
+    - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=4.6`.
+    - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested the complete user flow on temporary port 8080 (passcode unlock, quick-launch navigation to the 5 poems grid, clicking Poem 1 showing Notes 01 & 02, clicking Poem 4 showing Note 05, opening Note 05 in the PDF reader with correct title and chapter switcher, back navigation to Poem 4, breadcrumb navigation, and navigating to Short Stories showing the 5 prescribed story cards), followed by immediate clean server teardown and port release verification.
 
