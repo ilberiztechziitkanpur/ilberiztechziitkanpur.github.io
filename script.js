@@ -445,26 +445,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Waste Management Notes (Geography Ch 10)
-    const wasteNav = document.createElement('div');
-    const isWasteActive = state.currentView !== 'search' && state.path[1] === 'sub-10-geo' && state.path[2] === 'chap-geo-waste';
-    wasteNav.className = `nav-item nav-item-featured ${isWasteActive ? 'active' : ''}`;
-    wasteNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #10b981;">recycling</span>
-        <span style="font-weight: 600;">Waste Management Notes</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669); color:#fff;">NEW</span>
+    // Latest Update Quick Launch: Treasure Chest Poetry — Haunted Houses (English Ch 2)
+    const hauntedNav = document.createElement('div');
+    const isHauntedActive = state.currentView !== 'search' && state.path[1] === 'sub-10-eng' && state.path[2] === 'chap-eng-2';
+    hauntedNav.className = `nav-item nav-item-featured ${isHauntedActive ? 'active' : ''}`;
+    hauntedNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #c084fc;">auto_stories</span>
+        <span style="font-weight: 600;">Haunted Houses Notes</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #a855f7, #7c3aed); color:#fff;">NEW</span>
     `;
-    wasteNav.onclick = () => {
+    hauntedNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const geoSub = batch?.subjects?.find(s => s.id === 'sub-10-geo');
-        const wasteChap = geoSub?.chapters?.find(c => c.id === 'chap-geo-waste');
-        if (wasteChap) {
-            navigateTo('items', [batch.id, geoSub.id, wasteChap.id]);
+        const engSub = batch?.subjects?.find(s => s.id === 'sub-10-eng');
+        const poetryChap = engSub?.chapters?.find(c => c.id === 'chap-eng-2');
+        if (poetryChap) {
+            navigateTo('items', [batch.id, engSub.id, poetryChap.id]);
         }
     };
-    navMenu.appendChild(wasteNav);
+    navMenu.appendChild(hauntedNav);
 }
 
 function resetSearch() {

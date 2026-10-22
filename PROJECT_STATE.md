@@ -78,7 +78,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Julius_Caesar_03_Class_Notes.pdf (5.6 MB) — Act 3 Scene 2 (Part 1): Scene 1 conclusion & Brutus' funeral speech
 │       ├── Julius_Caesar_04_Class_Notes.pdf (9.1 MB) — Act 3 Scene 2 (Part 2): Antony's speech, Caesar's will & mob riot
 │       ├── Julius_Caesar_05_Class_Notes.pdf (4.0 MB) — Act 3 Scene 3: Killing of Cinna the Poet, mind maps & PYQs
-│       └── Julius_Caesar_06_Class_Notes.pdf (2.9 MB) — Act 4 Scene 1: Triumvirate meeting, character analysis & grammar
+│       ├── Julius_Caesar_06_Class_Notes.pdf (2.9 MB) — Act 4 Scene 1: Triumvirate meeting, character analysis & grammar
+│       └── Treasure_Chest_Poetry_01_Class_Notes.pdf (2.3 MB) — Haunted Houses (Part 1): Stanzas 1–5, H.W. Longfellow & MCQs
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -336,7 +337,7 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf` (4.2 MB) — Khilafat Movement (causes, Ali Brothers, Hindu-Muslim unity), Non-Cooperation Movement (programme, boycott of titles, schools, courts, foreign cloth, picketing of liquor shops, Swadeshi & Khadi), nationwide impact (peasants in Kheda, Assam plantation workers, Moplah rebellion, Prince of Wales 1921 boycott), Chauri Chaura incident (4 Feb 1922), suspension of NCM (12 Feb 1922 Bardoli resolution), Gandhiji's arrest (sedition charge, 6-year sentence), criticisms by Motilal Nehru, Lala Lajpat Rai & Subhash Chandra Bose, and historical significance.
   - `Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf` (5.0 MB) — Simon Commission (1927, all-white commission, 'Simon Go Back' protests, Lala Lajpat Rai martyrdom), Lahore Session of INC (1929, Jawaharlal Nehru president, Purna Swaraj resolution, tricolor on Ravi banks, 26 Jan 1930 Independence Day), Civil Disobedience Movement (causes, Salt Tax monopoly, Dandi March 12 Mar – 6 Apr 1930), nationwide spread (Khan Abdul Ghaffar Khan / Khudai Khidmatgar / Red Shirts in NWFP, Rani Gaidinliu in Nagaland), First Round Table Conference boycott, Gandhi-Irwin Pact (March 1931), Second Round Table Conference (London 1931, deadlock on communal electorates, resumption of CDM), and comprehensive comparison between NCM & CDM.
 
-### K. English Literature Notes (6 PDFs in `english/notes/` for Julius Caesar)
+### K. English Literature Notes (7 PDFs in `english/notes/` across Julius Caesar & Treasure Chest Poetry)
 - **Chapter 1: Drama — Julius Caesar (William Shakespeare) (6 Notes)**:
   - `Julius_Caesar_01_Class_Notes.pdf` (4.4 MB) — Act 3 Scene 1 (Part 1): Warm-up activity, Act 1 & 2 recap, line-by-line explanation of Act 3 Scene 1, character motives & MCQs.
   - `Julius_Caesar_02_Class_Notes.pdf` (3.7 MB) — Act 3 Scene 1 (Part 2): Line-by-line explanation of Act 3 Scene 1 (conspirators' speeches, Caesar's assassination), mind maps & MCQs.
@@ -344,6 +345,8 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Julius_Caesar_04_Class_Notes.pdf` (9.1 MB) — Act 3 Scene 2 (Part 2): Antony's famous funeral speech ('Friends, Romans, countrymen'), reading of Caesar's will, mob manipulation, extract questions & MCQs.
   - `Julius_Caesar_05_Class_Notes.pdf` (4.0 MB) — Act 3 Scene 3: The killing of Cinna the Poet, mob fury unleashed, complete Act 3 mind maps, ICSE PYQs & Specimen Paper Questions.
   - `Julius_Caesar_06_Class_Notes.pdf` (2.9 MB) — Act 4 Scene 1: The Triumvirate meeting (Antony, Octavius & Lepidus, proscription list), character analysis, summary, PYQs/SPQs & grammar transformations.
+- **Chapter 2: Treasure Chest — ICSE Poems (1 Note)**:
+  - `Treasure_Chest_Poetry_01_Class_Notes.pdf` (2.3 MB) — Haunted Houses (Part 1): Warm-up vocabulary, about Henry Wadsworth Longfellow, stanzas 1 to 5 line-by-line explanation, poetic devices (Assonance, Enjambment, Alliteration, Simile, Visual Imagery), legal mortmain concept (spiritual permanence vs material transience), and stanza-by-stanza MCQs.
 
 ### L. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
 All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
@@ -432,7 +435,7 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
      - Civics Ch 5: The High Courts & Subordinate Courts
 7. **English (`sub-10-eng`) — 4 Chapters**:
    - Ch 1: Drama — Julius Caesar (Acts III, IV, V) [6 Class Notes PDFs Live]
-   - Ch 2: Treasure Chest — ICSE Poems
+   - Ch 2: Treasure Chest — ICSE Poems [1 Class Notes PDF Live]
    - Ch 3: Treasure Chest — ICSE Short Stories
    - Ch 4: English Language — Composition & Applied Grammar
 8. **Hindi (`sub-10-hin`) — 4 Chapters**:
@@ -822,6 +825,14 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Dual Data Synchronization**: Synchronized `data.js` and `data.json` under `sub-10-geo` -> `chap-geo-waste` with `geo-waste-01` PDF item (`4.7 MB`).
     - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Waste Management Notes"** (`chap-geo-waste`) with an emerald recycling icon (`recycling`) and glowing `NEW` badge in strict adherence to Rule 10.
     - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=4.2`.
+    - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested the complete user flow on temporary port 8080 (passcode unlock, sidebar quick-launch, chapter title display, note card visibility, PDF reader opening with all controls, and back navigation), followed by immediate clean server teardown and port release verification.
+
+33. **Addition of English Literature Notes: Treasure Chest Poetry — Haunted Houses (Chapter 2)**:
+    - **Sanitization of Raw File**: Processed `Treasure Chest  POETRY 01  Class Notes.pdf` (2.3 MB) into `english/notes/Treasure_Chest_Poetry_01_Class_Notes.pdf` in adherence to Rule 1 (Subject Folder Isolation). Cleaned up raw file from Downloads (Rule 5).
+    - **Visual Slide & Content Verification**: Inspected the 21-page Victory 2027 slide deck (Nupur Ma'am / Physics Wallah): covers warm-up vocabulary, author profile of Henry Wadsworth Longfellow, stanzas 1 to 5 line-by-line breakdown of *Haunted Houses*, poetic devices (Assonance, Enjambment, Alliteration, Simile: "As silent as the pictures on the wall", Visual Imagery), legal concept of *mortmain* (holding in perpetuity, spiritual legacies outlasting material acquisitions), and stanza-by-stanza MCQs with explanations.
+    - **Dual Data Synchronization**: Wired `eng-tc-poetry-01` (`2.3 MB`) under `sub-10-eng` -> `chap-eng-2` across both `data.js` and `data.json`.
+    - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Haunted Houses Notes"** (`chap-eng-2`) with an `auto_stories` icon and glowing `NEW` badge in strict adherence to Rule 10.
+    - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=4.3`.
     - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested the complete user flow on temporary port 8080 (passcode unlock, sidebar quick-launch, chapter title display, note card visibility, PDF reader opening with all controls, and back navigation), followed by immediate clean server teardown and port release verification.
 
 

@@ -1080,7 +1080,16 @@ window.COURSE_DATA = {
                             "id": "chap-eng-2",
                             "name": "Ch 2: Treasure Chest — ICSE Poems",
                             "description": "Haunted Houses, The Glove and the Lions, When Great Trees Fall, A Considerable Speck, The Power of Music",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "eng-tc-poetry-01",
+                                    "title": "Haunted Houses (Part 1) — Treasure Chest Poetry 01 Class Notes",
+                                    "subtitle": "Stanzas 1–5 line-by-line explanation, about H.W. Longfellow, poetic devices (Assonance, Simile, Enjambment, Alliteration), legal mortmain concept & MCQs",
+                                    "type": "pdf",
+                                    "file": "english/notes/Treasure_Chest_Poetry_01_Class_Notes.pdf",
+                                    "size": "2.3 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-eng-3",
