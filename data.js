@@ -1212,7 +1212,16 @@ window.COURSE_DATA = {
                                     "name": "Story 4: The Pedestrian",
                                     "author": "Ray Bradbury",
                                     "description": "Leonard Mead's evening walk in a desolate 2053 metropolis, critique of screen addiction and conformity",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "eng-tc-prose-07",
+                                            "title": "The Pedestrian (Part 1) — Treasure Chest Prose 07 Class Notes",
+                                            "subtitle": "Ray Bradbury, Leonard Mead's 2053 solitary night walks, dystopian screen addiction, line-by-line explanation, word meanings, themes & MCQs",
+                                            "type": "pdf",
+                                            "file": "english/notes/Treasure_Chest_Prose_07_Class_Notes.pdf",
+                                            "size": "5.0 MB"
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "story-last-lesson",

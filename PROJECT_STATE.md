@@ -85,7 +85,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Treasure_Chest_Poetry_03_Class_Notes.pdf (3.9 MB) — The Glove and the Lions: Leigh Hunt, King Francis & Count de Lorge
 │       ├── Treasure_Chest_Poetry_04_Class_Notes.pdf (4.0 MB) — When Great Trees Fall: Maya Angelou, grief & solace, Specimen 2027
 │       ├── Treasure_Chest_Poetry_05_Class_Notes.pdf (1.8 MB) — A Considerable Speck: Robert Frost, manuscript mite, living intelligence & mind in nature
-│       └── Treasure_Chest_Poetry_06_Class_Notes.pdf (3.6 MB) — The Power of Music: Sukumar Ray, Bhisma Lochan Sharma, satirical nonsense verse, animal chaos & goat finale
+│       ├── Treasure_Chest_Poetry_06_Class_Notes.pdf (3.6 MB) — The Power of Music: Sukumar Ray, Bhisma Lochan Sharma, satirical nonsense verse, animal chaos & goat finale
+│       └── Treasure_Chest_Prose_07_Class_Notes.pdf (5.0 MB) — The Pedestrian (Part 1): Ray Bradbury, Leonard Mead, 2053 setting & MCQs
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -349,7 +350,7 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf` (4.2 MB) — Khilafat Movement (causes, Ali Brothers, Hindu-Muslim unity), Non-Cooperation Movement (programme, boycott of titles, schools, courts, foreign cloth, picketing of liquor shops, Swadeshi & Khadi), nationwide impact (peasants in Kheda, Assam plantation workers, Moplah rebellion, Prince of Wales 1921 boycott), Chauri Chaura incident (4 Feb 1922), suspension of NCM (12 Feb 1922 Bardoli resolution), Gandhiji's arrest (sedition charge, 6-year sentence), criticisms by Motilal Nehru, Lala Lajpat Rai & Subhash Chandra Bose, and historical significance.
   - `Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf` (5.0 MB) — Simon Commission (1927, all-white commission, 'Simon Go Back' protests, Lala Lajpat Rai martyrdom), Lahore Session of INC (1929, Jawaharlal Nehru president, Purna Swaraj resolution, tricolor on Ravi banks, 26 Jan 1930 Independence Day), Civil Disobedience Movement (causes, Salt Tax monopoly, Dandi March 12 Mar – 6 Apr 1930), nationwide spread (Khan Abdul Ghaffar Khan / Khudai Khidmatgar / Red Shirts in NWFP, Rani Gaidinliu in Nagaland), First Round Table Conference boycott, Gandhi-Irwin Pact (March 1931), Second Round Table Conference (London 1931, deadlock on communal electorates, resumption of CDM), and comprehensive comparison between NCM & CDM.
 
-### K. English Literature Notes (13 PDFs in `english/notes/` across Julius Caesar & Treasure Chest Subchapters)
+### K. English Literature Notes (14 PDFs in `english/notes/` across Julius Caesar, Treasure Chest Poetry & Short Stories)
 - **Chapter 1: Drama — Julius Caesar (William Shakespeare) (7 Notes)**:
   - `Julius_Caesar_01_Class_Notes.pdf` (4.4 MB) — Act 3 Scene 1 (Part 1): Warm-up activity, Act 1 & 2 recap, line-by-line explanation of Act 3 Scene 1, character motives & MCQs.
   - `Julius_Caesar_02_Class_Notes.pdf` (3.7 MB) — Act 3 Scene 1 (Part 2): Line-by-line explanation of Act 3 Scene 1 (conspirators' speeches, Caesar's assassination), mind maps & MCQs.
@@ -374,7 +375,8 @@ ILBERIZ TECHZ IIT KANPUR/
   - **Story 1: With the Photographer (Stephen Leacock)** [Architecture Ready for Notes]
   - **Story 2: The Elevator (William Sleator)** [Architecture Ready for Notes]
   - **Story 3: The Girl Who Can (Ama Ata Aidoo)** [Architecture Ready for Notes]
-  - **Story 4: The Pedestrian (Ray Bradbury)** [Architecture Ready for Notes]
+  - **Story 4: The Pedestrian (Ray Bradbury)** [1 Note Live]:
+    - `Treasure_Chest_Prose_07_Class_Notes.pdf` (5.0 MB, 38 slides, Victory 2026 Batch by Nupur Ma'am / PW) — Part 1: Ray Bradbury's classic dystopian short story, setting of November 2053, Leonard Mead's nocturnal walks through dark, silent streets of an alienated metropolis (3 million population), comparison of houses to tombstones and graveyards with flickering television screens ("tomb-like buildings", "gray phantoms"), critique of screen addiction, technological conformity, social isolation, and loss of humanity, line-by-line explanation, word meanings, themes, and ICSE Class 10 board MCQs and extract questions.
   - **Story 5: The Last Lesson (Alphonse Daudet)** [Architecture Ready for Notes]
 - **Chapter 4: English Language — Composition & Applied Grammar** [Grammar & Composition Syllabus mapped].
 
@@ -949,7 +951,13 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Dual Data Synchronization (Rule 7)**: Wired `eng-jc-notes-07` under `sub-10-eng` -> `chap-eng-1` across both `data.js` and `data.json`.
     - **Sidebar Navigation Protocol (Rule 10)**: Maintained quick-launch navigation in `script.js` highlighting **"Julius Caesar Drama"** (`chap-eng-1`) with `theater_comedy` icon and glowing `NEW` badge.
     - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=4.9`.
-    - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested complete user flow on temporary port 8080 (passcode unlock, sidebar quick-launch, verifying all 7 Julius Caesar note cards, opening Note 07 in the PDF reader with all controls and in-place note switcher tabs, and back navigation), followed by immediate clean server teardown and port release verification.
+40. **Addition of English Literature Notes: Treasure Chest Prose — The Pedestrian (Story 4 / Note 07)**:
+    - **Visual Slide & Content Verification (Rule 14)**: Inspected the 38-page Victory 2026 slide deck (Nupur Ma'am / Physics Wallah) for `Treasure Chest - PROSE 07 Class Notes.pdf` (5.0 MB): Slide 1 explicitly identifies "VICTORY 2026 | English | The Pedestrian (Part-1) | Lecture - 07 | By - Nupur Ma'am | Physics Wallah", and Slide 2 details the agenda: (1) Overview, (2) Line by line Explanation, (3) Word-Meanings, (4) Summary, Theme, Ques-Answers, MCQs. Slides 5–37 thoroughly cover Ray Bradbury's classic dystopian vision set in November 2053, Leonard Mead's nocturnal walks through the silent city of three million residents, the stark contrast between Mead's active human curiosity and the passive, screen-enslaved population inside tomb-like houses with flickering "viewing screens", the metaphor of graveyards and gray phantoms, buckling sidewalks overtaken by weeds, themes of technology dehumanization, extreme conformity, and social isolation, line-by-line breakdown, key vocabulary/word meanings, and ICSE Class 10 board MCQs and extract questions.
+    - **Standardized Renaming & Placement (Rule 1 & Rule 14)**: Sanitized and placed file as `english/notes/Treasure_Chest_Prose_07_Class_Notes.pdf` (5.0 MB) in `english/notes/`. Cleaned up raw download from Downloads folder immediately (Rule 5).
+    - **Dual Data Synchronization (Rule 7)**: Wired `eng-tc-prose-07` under `sub-10-eng` -> `chap-eng-3` -> `story-pedestrian` across both `data.js` and `data.json`.
+    - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"The Pedestrian (Prose)"** (`chap-eng-3` / `story-pedestrian`) with an `auto_stories` cyan icon and glowing `NEW` badge, providing immediate 1-click access to the latest Prose lecture note while keeping previous chapters accessible in their respective dashboards.
+    - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=5.0`.
+    - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested complete user flow on temporary port 8080 (passcode unlock, sidebar quick-launch, verifying Story 4: The Pedestrian card and Note 07 display, opening Note 07 in the PDF reader with all controls, and back navigation), followed by immediate clean server teardown and port release verification.
 
 
 
