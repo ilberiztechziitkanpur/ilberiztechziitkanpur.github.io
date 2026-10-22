@@ -445,13 +445,13 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Treasure Chest Poetry — Haunted Houses (English Ch 2)
+    // Latest Update Quick Launch: Treasure Chest Poetry (English Ch 2)
     const hauntedNav = document.createElement('div');
     const isHauntedActive = state.currentView !== 'search' && state.path[1] === 'sub-10-eng' && state.path[2] === 'chap-eng-2';
     hauntedNav.className = `nav-item nav-item-featured ${isHauntedActive ? 'active' : ''}`;
     hauntedNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #c084fc;">auto_stories</span>
-        <span style="font-weight: 600;">Haunted Houses Notes</span>
+        <span style="font-weight: 600;">Treasure Chest Poetry</span>
         <span class="nav-badge-hot" style="background: linear-gradient(135deg, #a855f7, #7c3aed); color:#fff;">NEW</span>
     `;
     hauntedNav.onclick = () => {
