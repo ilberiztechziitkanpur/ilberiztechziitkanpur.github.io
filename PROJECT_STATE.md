@@ -79,6 +79,7 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Julius_Caesar_04_Class_Notes.pdf (9.1 MB) — Act 3 Scene 2 (Part 2): Antony's speech, Caesar's will & mob riot
 │       ├── Julius_Caesar_05_Class_Notes.pdf (4.0 MB) — Act 3 Scene 3: Killing of Cinna the Poet, mind maps & PYQs
 │       ├── Julius_Caesar_06_Class_Notes.pdf (2.9 MB) — Act 4 Scene 1: Triumvirate meeting, character analysis & grammar
+│       ├── Julius_Caesar_07_Class_Notes.pdf (3.9 MB) — Act 4 Scene 2 & 3 (Part 1): Sardis camp, Quarrel Scene & itching palm
 │       ├── Treasure_Chest_Poetry_01_Class_Notes.pdf (2.3 MB) — Haunted Houses (Part 1): Stanzas 1–5, H.W. Longfellow & MCQs
 │       ├── Treasure_Chest_Poetry_02_Class_Notes.pdf (4.5 MB) — Haunted Houses (Part 2): Stanzas 6–10, Bridge of Light & PYQ-2025
 │       ├── Treasure_Chest_Poetry_03_Class_Notes.pdf (3.9 MB) — The Glove and the Lions: Leigh Hunt, King Francis & Count de Lorge
@@ -348,14 +349,15 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf` (4.2 MB) — Khilafat Movement (causes, Ali Brothers, Hindu-Muslim unity), Non-Cooperation Movement (programme, boycott of titles, schools, courts, foreign cloth, picketing of liquor shops, Swadeshi & Khadi), nationwide impact (peasants in Kheda, Assam plantation workers, Moplah rebellion, Prince of Wales 1921 boycott), Chauri Chaura incident (4 Feb 1922), suspension of NCM (12 Feb 1922 Bardoli resolution), Gandhiji's arrest (sedition charge, 6-year sentence), criticisms by Motilal Nehru, Lala Lajpat Rai & Subhash Chandra Bose, and historical significance.
   - `Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf` (5.0 MB) — Simon Commission (1927, all-white commission, 'Simon Go Back' protests, Lala Lajpat Rai martyrdom), Lahore Session of INC (1929, Jawaharlal Nehru president, Purna Swaraj resolution, tricolor on Ravi banks, 26 Jan 1930 Independence Day), Civil Disobedience Movement (causes, Salt Tax monopoly, Dandi March 12 Mar – 6 Apr 1930), nationwide spread (Khan Abdul Ghaffar Khan / Khudai Khidmatgar / Red Shirts in NWFP, Rani Gaidinliu in Nagaland), First Round Table Conference boycott, Gandhi-Irwin Pact (March 1931), Second Round Table Conference (London 1931, deadlock on communal electorates, resumption of CDM), and comprehensive comparison between NCM & CDM.
 
-### K. English Literature Notes (12 PDFs in `english/notes/` across Julius Caesar & Treasure Chest Subchapters)
-- **Chapter 1: Drama — Julius Caesar (William Shakespeare) (6 Notes)**:
+### K. English Literature Notes (13 PDFs in `english/notes/` across Julius Caesar & Treasure Chest Subchapters)
+- **Chapter 1: Drama — Julius Caesar (William Shakespeare) (7 Notes)**:
   - `Julius_Caesar_01_Class_Notes.pdf` (4.4 MB) — Act 3 Scene 1 (Part 1): Warm-up activity, Act 1 & 2 recap, line-by-line explanation of Act 3 Scene 1, character motives & MCQs.
   - `Julius_Caesar_02_Class_Notes.pdf` (3.7 MB) — Act 3 Scene 1 (Part 2): Line-by-line explanation of Act 3 Scene 1 (conspirators' speeches, Caesar's assassination), mind maps & MCQs.
-  - `Julius_Caesar_03_Class_Notes.pdf` (5.6 MB) — Act 3 Scene 2 (Part 1): Act 3 Scene 1 remaining portion, Act 3 Scene 2 funeral speeches (Brutus' oration to the Roman mob), extract-based questions & MCQs.
+  - `Julius_Caesar_03_Class_Notes.pdf` (5.6 MB) — Act 3 Scene 2 (Part 1): Scene 1 conclusion & Brutus' funeral speech (Brutus' oration to the Roman mob), extract-based questions & MCQs.
   - `Julius_Caesar_04_Class_Notes.pdf` (9.1 MB) — Act 3 Scene 2 (Part 2): Antony's famous funeral speech ('Friends, Romans, countrymen'), reading of Caesar's will, mob manipulation, extract questions & MCQs.
   - `Julius_Caesar_05_Class_Notes.pdf` (4.0 MB) — Act 3 Scene 3: The killing of Cinna the Poet, mob fury unleashed, complete Act 3 mind maps, ICSE PYQs & Specimen Paper Questions.
   - `Julius_Caesar_06_Class_Notes.pdf` (2.9 MB) — Act 4 Scene 1: The Triumvirate meeting (Antony, Octavius & Lepidus, proscription list), character analysis, summary, PYQs/SPQs & grammar transformations.
+  - `Julius_Caesar_07_Class_Notes.pdf` (3.9 MB, 36 slides, Victory 2027 by Nupur Ma'am / PW) — Act 4 Scene 1 recap, Act 4 Scene 2 (Camp near Sardis, Lucilius reporting on Cassius' strained courtesy, hollow friendship horse metaphor) & Act 4 Scene 3 (Part 1: The Tent Scene / Quarrel Scene, Lucius Pella bribe dispute, Brutus condemning Cassius' "itching palm", remembering the Ides of March, escalation of choleric/waspish anger, "Away, slight man!", Specimen Paper 2027 & PYQ-2026 MCQs, and grammar prepositions & phrasal verbs).
 - **Chapter 2: Treasure Chest — ICSE Poems (5 Subchapters — Prescribed Syllabus for ICSE Class 10)**:
   - **Poem 1: Haunted Houses (Henry Wadsworth Longfellow)** [2 Notes Live]:
     - `Treasure_Chest_Poetry_01_Class_Notes.pdf` (2.3 MB) — Part 1: Warm-up vocabulary, Longfellow author profile, stanzas 1 to 5 line-by-line explanation, poetic devices (Assonance, Enjambment, Alliteration, Simile, Visual Imagery), legal *mortmain* concept (spiritual permanence vs material transience), and stanza-by-stanza MCQs.
@@ -940,6 +942,15 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Sanitization & Clutter Removal (Rule 5)**: Verified byte-for-byte identity of `Novel- Julius Caesar 06  Class Notes.pdf` (SHA-256 `8AEA00DD67F7621D60DA4C303FC81996C9F5F4B9D7C3E0419C387A64FCE54D92`) with `english/notes/Julius_Caesar_06_Class_Notes.pdf` and cleaned up the loose download file from Downloads.
     - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=4.8`.
     - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested the complete user flow on temporary port 8080 (passcode unlock, sidebar quick-launch displaying "Julius Caesar Drama" with `NEW` badge, navigation directly to Julius Caesar notes, all 6 note cards rendering properly, opening Note 06 in the PDF reader, and seamless back navigation), followed by immediate clean server teardown and port release verification.
+
+39. **Addition of English Literature Notes: Julius Caesar 07 Class Notes (Act 4 Scene 2 & 3 Part 1)**:
+    - **Visual Slide & Content Verification (Rule 14)**: Inspected the 36-page Victory 2027 slide deck (Nupur Ma'am / Physics Wallah) for `Novel- Julius Caesar 07  Class Notes.pdf` (4.1 MB): Slide 1 explicitly identifies "Novel- Julius Caesar : Act 4 Scene 2 and 3 | ENGLISH Lec-07" and Slide 2 details the agenda: (1) Quick Revision Act 4 Scene 1, (2) Julius Caesar Act 4 Scene 2 and 3 (Specimen Paper 2027, PYQs, Competency Based), Prepositions and Phrasal Verbs. Slides 10–35 cover line-by-line breakdown of the Camp near Sardis, Lucilius reporting on Cassius' cool courtesy, Brutus' horse metaphor for hollow friendship, entering Brutus' tent for the famous Quarrel Scene, Lucius Pella bribe dispute, Brutus condemning Cassius' "itching palm", invoking the Ides of March for justice, the explosion of temper ("Away, slight man!", choleric humor, waspish anger), and board MCQs.
+    - **Standardized Renaming & Placement (Rule 1 & Rule 14)**: Sanitized and placed file as `english/notes/Julius_Caesar_07_Class_Notes.pdf` (3.9 MB) in `english/notes/`. Cleaned up raw download from Downloads folder immediately (Rule 5).
+    - **Dual Data Synchronization (Rule 7)**: Wired `eng-jc-notes-07` under `sub-10-eng` -> `chap-eng-1` across both `data.js` and `data.json`.
+    - **Sidebar Navigation Protocol (Rule 10)**: Maintained quick-launch navigation in `script.js` highlighting **"Julius Caesar Drama"** (`chap-eng-1`) with `theater_comedy` icon and glowing `NEW` badge.
+    - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=4.9`.
+    - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested complete user flow on temporary port 8080 (passcode unlock, sidebar quick-launch, verifying all 7 Julius Caesar note cards, opening Note 07 in the PDF reader with all controls and in-place note switcher tabs, and back navigation), followed by immediate clean server teardown and port release verification.
+
 
 
 

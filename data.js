@@ -1073,6 +1073,14 @@ window.COURSE_DATA = {
                                     "type": "pdf",
                                     "file": "english/notes/Julius_Caesar_06_Class_Notes.pdf",
                                     "size": "2.9 MB"
+                                },
+                                {
+                                    "id": "eng-jc-notes-07",
+                                    "title": "Julius Caesar 07 Class Notes — Act 4 Scene 2 & 3 (Part 1)",
+                                    "subtitle": "Act 4 Scene 1 recap, Act 4 Scene 2 & 3 (Sardis camp, the Quarrel Scene, itching palm, Lucius Pella, hollow friendship & PYQs)",
+                                    "type": "pdf",
+                                    "file": "english/notes/Julius_Caesar_07_Class_Notes.pdf",
+                                    "size": "3.9 MB"
                                 }
                             ]
                         },
