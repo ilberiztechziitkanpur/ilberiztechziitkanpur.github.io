@@ -1159,7 +1159,16 @@ window.COURSE_DATA = {
                                     "name": "Poem 5: The Power of Music",
                                     "author": "Sukumar Ray",
                                     "description": "Bhisma Lochan Sharma's relentless singing, satirical nonsense verse, animal reactions & billy goat resolution",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "eng-tc-poetry-06",
+                                            "title": "The Power of Music — Treasure Chest Poetry 06 Class Notes",
+                                            "subtitle": "Sukumar Ray, Bhisma Lochan Sharma, humorous satire, stanza-by-stanza analysis, poetic devices (Metaphor, Imagery), themes & extract Q&A",
+                                            "type": "pdf",
+                                            "file": "english/notes/Treasure_Chest_Poetry_06_Class_Notes.pdf",
+                                            "size": "3.6 MB"
+                                        }
+                                    ]
                                 }
                             ]
                         },

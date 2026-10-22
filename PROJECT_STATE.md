@@ -83,7 +83,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Treasure_Chest_Poetry_02_Class_Notes.pdf (4.5 MB) — Haunted Houses (Part 2): Stanzas 6–10, Bridge of Light & PYQ-2025
 │       ├── Treasure_Chest_Poetry_03_Class_Notes.pdf (3.9 MB) — The Glove and the Lions: Leigh Hunt, King Francis & Count de Lorge
 │       ├── Treasure_Chest_Poetry_04_Class_Notes.pdf (4.0 MB) — When Great Trees Fall: Maya Angelou, grief & solace, Specimen 2027
-│       └── Treasure_Chest_Poetry_05_Class_Notes.pdf (1.8 MB) — A Considerable Speck: Robert Frost, manuscript mite, living intelligence & mind in nature
+│       ├── Treasure_Chest_Poetry_05_Class_Notes.pdf (1.8 MB) — A Considerable Speck: Robert Frost, manuscript mite, living intelligence & mind in nature
+│       └── Treasure_Chest_Poetry_06_Class_Notes.pdf (3.6 MB) — The Power of Music: Sukumar Ray, Bhisma Lochan Sharma, satirical nonsense verse, animal chaos & goat finale
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -341,7 +342,7 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf` (4.2 MB) — Khilafat Movement (causes, Ali Brothers, Hindu-Muslim unity), Non-Cooperation Movement (programme, boycott of titles, schools, courts, foreign cloth, picketing of liquor shops, Swadeshi & Khadi), nationwide impact (peasants in Kheda, Assam plantation workers, Moplah rebellion, Prince of Wales 1921 boycott), Chauri Chaura incident (4 Feb 1922), suspension of NCM (12 Feb 1922 Bardoli resolution), Gandhiji's arrest (sedition charge, 6-year sentence), criticisms by Motilal Nehru, Lala Lajpat Rai & Subhash Chandra Bose, and historical significance.
   - `Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf` (5.0 MB) — Simon Commission (1927, all-white commission, 'Simon Go Back' protests, Lala Lajpat Rai martyrdom), Lahore Session of INC (1929, Jawaharlal Nehru president, Purna Swaraj resolution, tricolor on Ravi banks, 26 Jan 1930 Independence Day), Civil Disobedience Movement (causes, Salt Tax monopoly, Dandi March 12 Mar – 6 Apr 1930), nationwide spread (Khan Abdul Ghaffar Khan / Khudai Khidmatgar / Red Shirts in NWFP, Rani Gaidinliu in Nagaland), First Round Table Conference boycott, Gandhi-Irwin Pact (March 1931), Second Round Table Conference (London 1931, deadlock on communal electorates, resumption of CDM), and comprehensive comparison between NCM & CDM.
 
-### K. English Literature Notes (11 PDFs in `english/notes/` across Julius Caesar & Treasure Chest Subchapters)
+### K. English Literature Notes (12 PDFs in `english/notes/` across Julius Caesar & Treasure Chest Subchapters)
 - **Chapter 1: Drama — Julius Caesar (William Shakespeare) (6 Notes)**:
   - `Julius_Caesar_01_Class_Notes.pdf` (4.4 MB) — Act 3 Scene 1 (Part 1): Warm-up activity, Act 1 & 2 recap, line-by-line explanation of Act 3 Scene 1, character motives & MCQs.
   - `Julius_Caesar_02_Class_Notes.pdf` (3.7 MB) — Act 3 Scene 1 (Part 2): Line-by-line explanation of Act 3 Scene 1 (conspirators' speeches, Caesar's assassination), mind maps & MCQs.
@@ -359,7 +360,8 @@ ILBERIZ TECHZ IIT KANPUR/
     - `Treasure_Chest_Poetry_04_Class_Notes.pdf` (4.0 MB) — Part 1: Maya Angelou's eulogy for James Baldwin, nature-human parallelism (destabilization of forest equilibrium vs death of great souls), emotional impact, stanza-by-stanza keywords, poetic devices, themes of grief & solace, comforting resolution ("They existed."), and ICSE Specimen 2027 / PYQs / Competency questions.
   - **Poem 4: A Considerable Speck (Robert Frost)** [1 Note Live]:
     - `Treasure_Chest_Poetry_05_Class_Notes.pdf` (1.8 MB, 19 slides, Nupur Ma'am / Victory 2026 Batch) — Part 1: Observation of a microscopic mite on a white sheet of manuscript paper, recognition of living intelligence, individuality, fear and survival instinct in nature, speaker's decision to spare the creature, satire on collectivistic human conformity and uninspired/mindless writing, poetic devices (Oxymoron: "Considerable speck", Personification, Alliteration, Rhyme scheme AABB), and extract MCQs with explanations.
-  - **Poem 5: The Power of Music (Sukumar Ray)** [Architecture Ready for Notes].
+  - **Poem 5: The Power of Music (Sukumar Ray)** [1 Note Live]:
+    - `Treasure_Chest_Poetry_06_Class_Notes.pdf` (3.6 MB, 34 slides, Nupur Ma'am / Victory 2026 Batch) — Part 1: Sukumar Ray's humorous nonsense verse, Bhisma Lochan Sharma's relentless singing, comical chaos caused to trees, sky, people and animals (overturned bullock carts, panicking horses, diving fish), comical climax with the billy goat, poetic devices (Metaphor: "golden gift of silence", Imagery, Hyperbole, Onomatopoeia), core themes (power & disruption of music, humour & satire), and competency-based extract questions & answers.
 - **Chapter 3: Treasure Chest — ICSE Short Stories (5 Subchapters — Prescribed Syllabus for ICSE Class 10)**:
   - **Story 1: With the Photographer (Stephen Leacock)** [Architecture Ready for Notes]
   - **Story 2: The Elevator (William Sleator)** [Architecture Ready for Notes]
@@ -460,7 +462,7 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
      - Poem 2: The Glove and the Lions (Leigh Hunt) [1 Note Live]
      - Poem 3: When Great Trees Fall (Maya Angelou) [1 Note Live]
      - Poem 4: A Considerable Speck (Robert Frost) [1 Note Live]
-     - Poem 5: The Power of Music (Sukumar Ray) [Ready for Notes]
+     - Poem 5: The Power of Music (Sukumar Ray) [1 Note Live]
    - Ch 3: Treasure Chest — ICSE Short Stories [5 Subchapters Prescribed for ICSE 10]:
      - Story 1: With the Photographer (Stephen Leacock) [Ready for Notes]
      - Story 2: The Elevator (William Sleator) [Ready for Notes]
@@ -890,7 +892,7 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
         2. *Poem 2: The Glove and the Lions* (Leigh Hunt) — Note 03
         3. *Poem 3: When Great Trees Fall* (Maya Angelou) — Note 04
         4. *Poem 4: A Considerable Speck* (Robert Frost) — Note 05
-        5. *Poem 5: The Power of Music* (Sukumar Ray) — Ready for Notes
+        5. *Poem 5: The Power of Music* (Sukumar Ray) — Note 06
       - **Prescribed Short Stories (5)**:
         1. *Story 1: With the Photographer* (Stephen Leacock) — Ready for Notes
         2. *Story 2: The Elevator* (William Sleator) — Ready for Notes
@@ -910,4 +912,19 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Sidebar Navigation Protocol (Rule 10)**: Maintained quick-launch navigation in `script.js` to highlight **"Treasure Chest Poetry"** (`chap-eng-2`) with an `auto_stories` icon and glowing `NEW` badge in strict adherence to Rule 10, opening the 5 prescribed poems.
     - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=4.6`.
     - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested the complete user flow on temporary port 8080 (passcode unlock, quick-launch navigation to the 5 poems grid, clicking Poem 1 showing Notes 01 & 02, clicking Poem 4 showing Note 05, opening Note 05 in the PDF reader with correct title and chapter switcher, back navigation to Poem 4, breadcrumb navigation, and navigating to Short Stories showing the 5 prescribed story cards), followed by immediate clean server teardown and port release verification.
+
+37. **Addition of English Literature Notes: Treasure Chest Poetry — The Power of Music (Poem 5 / Note 06)**:
+    - **Sanitization of Raw File**: Processed `Treasure Chest - POETRY 06 Class Notes.pdf` (3.8 MB, 34 slides, Victory 2026 Batch by Nupur Ma'am / PW) into `english/notes/Treasure_Chest_Poetry_06_Class_Notes.pdf` (3.6 MB) in strict adherence to Rule 1 (Subject Folder Isolation). Cleaned up raw file from Downloads immediately (Rule 5).
+    - **Visual Slide & Content Verification**: Inspected the 34-page slide deck: covers Sukumar Ray's humorous nonsense poetry, the relentless, loud and cacophonous singing of Bhisma Lochan Sharma, widespread terror and chaos across the environment (overturned bullock carts, frantic horses with feet in the air, panic-stricken trees and birds, fishes diving below the lake in search of silence), comical climax where a sage billy goat butts Bhisma and grants the world the golden gift of silence, poetic devices (Metaphor: "golden gift of silence", Imagery, Hyperbole, Onomatopoeia), themes (the disruptive power of music, humour & satire), and competency-based extract questions & answers.
+    - **Full ICSE Class 10 Poetry Syllabus Milestone**: With this addition, all 5 prescribed poems in the ICSE Class 10 syllabus now have live, high-quality lecture notes:
+      - *Poem 1: Haunted Houses* (Notes 01 & 02)
+      - *Poem 2: The Glove and the Lions* (Note 03)
+      - *Poem 3: When Great Trees Fall* (Note 04)
+      - *Poem 4: A Considerable Speck* (Note 05)
+      - *Poem 5: The Power of Music* (Note 06)
+    - **Dual Data Synchronization**: Wired `eng-tc-poetry-06` (`3.6 MB`) under `poem-power-of-music` inside `chap-eng-2` across both `data.js` and `data.json`.
+    - **Sidebar Navigation Protocol (Rule 10)**: Maintained quick-launch navigation in `script.js` to highlight **"Treasure Chest Poetry"** (`chap-eng-2`) with an `auto_stories` icon and glowing `NEW` badge in strict adherence to Rule 10, opening the 5 prescribed poems.
+    - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=4.7`.
+    - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested the complete user flow on temporary port 8080 (passcode unlock, sidebar quick-launch, clicking Poem 5: The Power of Music, verifying Note 06 card display, opening Note 06 in the PDF reader with all controls and in-place chapter switcher listing all 5 poems, and back navigation), followed by immediate clean server teardown and port release verification.
+
 
