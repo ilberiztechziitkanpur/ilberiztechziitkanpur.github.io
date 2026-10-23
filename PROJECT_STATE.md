@@ -1,4 +1,4 @@
-﻿# PROJECT STATE & AGENT SYSTEM GUIDE
+# PROJECT STATE & AGENT SYSTEM GUIDE
 
 > 🚨 **MANDATORY AUTONOMOUS RULES FOR ALL AI AGENTS**:
 > 1. **Written for Agents, by Agents**: The user does not manage or read this document — **it exists exclusively for you (and future agents)** to preserve 100% technical continuity, remember every critical nuance, and avoid any regressions across chats.
@@ -58,6 +58,10 @@ ILBERIZ TECHZ IIT KANPUR/
 │   └── toposheet/                   # Topography (Question 1) Master Blueprint & DNA Engine
 │       └── index.html               # Main interactive Topo Exam & Blueprint web app
 ├── history/                         # ALL History subject content lives strictly here
+│   ├── gandhi/                      # Chapter 6: Mahatma Gandhi & National Movement DNA PYQ Vault
+│   │   └── index.html               # 15 Canonical Clusters, 86+ PYQ Twists (2015–2026), Dual Instant/DPP Modes
+│   ├── independence/                # Chapter 9: Independence & Partition of India DNA PYQ Vault
+│   │   └── index.html               # 12 Canonical Clusters, 68+ PYQ Twists (2015–2026), Dual Instant/DPP Modes
 │   └── notes/                       # ICSE Class 10 History PDF notes
 │       ├── The_First_War_Of_Independence_01_Class_Notes.pdf (5.8 MB) — Causes & factors
 │       ├── The_First_War_Of_Independence_02_Class_Notes.pdf (4.0 MB) — Events & consequences
@@ -369,6 +373,39 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Quit_India_Movement_01_Class_Notes.pdf` (2.6 MB) — August Offer (1940), Failure of Cripps Mission ('post-dated cheque'), Japanese Threat & Wardha Resolution (July 1942).
 - **Chapter 9: Indian Independence and Partition of India (1 Note)**:
   - `Independence_And_Partition_Of_India_01_Class_Notes.pdf` (3.7 MB, 33 slides, Kunal Sir / Physics Wallah) — Events leading to Cabinet Mission (post-WWII British policy shift, Clement Attlee, Royal Indian Naval revolt / RIN Mutiny at Mumbai in Feb 1946), Cabinet Mission arrival (March 1946: Lord Pethick-Lawrence, Sir Stafford Cripps, A.V. Alexander), rejection of the demand for Pakistan with detailed rationale, and complete Clauses of the Cabinet Mission Plan (Federal Union of India, Provincial Autonomy, Grouping of Provinces into Sections A, B & C, Constituent Assembly of 389 members, representation of minorities, 14-member Interim Government at Centre, and freedom to remain within or secede from the Commonwealth).
+
+### M. Chapter 6: Mahatma Gandhi & The National Movement Master DNA PYQ Vault (`history/gandhi/index.html`)
+- **15 Canonical High-Yield Clusters** targeting 12–14 marks in History Section B (100% official CISCE marking scheme).
+- **86+ Deduplicated Board & Specimen Variations (2015–2026)** grouped under their core Council answers.
+- **Dual Interactive Study Modes**:
+  1. ⚡ Instant Check Mode: Immediate reveal of official CISCE marking scheme points and keywords for accelerated revision.
+  2. 🎯 DPP Mode: Collapsed answers with individual reveal toggles, self-evaluation (Mastered vs Revision), and real-time mastery counter.
+- **Full Historical Coverage**:
+  - Rowlatt Act 1919 (repressive provisions, 'Black Act', arrest without warrant, in-camera trials, suspension of Habeas Corpus).
+  - Jallianwala Bagh Massacre (General Dyer, 13 April 1919, Hunter Committee, Rabindranath Tagore renunciation of Knighthood).
+  - Khilafat Movement (Ali Brothers Maulana Azad, Turkey/Caliph Sultan dismemberment, Treaty of Sevres, Hindu-Muslim unity).
+  - Non-Cooperation Movement (causes, boycott programme, national education, Panchayats, Swadeshi, Chauri Chaura incident 4 Feb 1922, Bardoli suspension 12 Feb 1922, significance).
+  - Simon Commission (1927, all-white composition, Lala Lajpat Rai martyrdom).
+  - Lahore Session of INC (Dec 1929, Jawaharlal Nehru president, Poorna Swaraj resolution, 26 Jan 1930 celebration).
+  - Civil Disobedience Movement & Dandi March (causes, Salt Tax monopoly, 78 ashramites, 385 km, 6 April 1930 violation).
+  - Gandhi-Irwin Pact (March 1931), Second Round Table Conference (London 1931, deadlock over separate electorates), and comprehensive NCM vs CDM comparison.
+- **Exam Countdown Timer**: 15, 30, 45, 60 mins presets with active warning pulse.
+- **Navigation**: Integrated `.home-nav-btn` linking back to `../../index.html` with `target="_top"`.
+
+### N. Chapter 9: Independence and Partition of India Master DNA PYQ Vault (`history/independence/index.html`)
+- **12 Canonical High-Yield Clusters** targeting 10–12 marks in History Section B (100% 2026–2027 syllabus-audited).
+- **68+ Deduplicated Board & Specimen Variations (2015–2026)** grouped under their core Council answers.
+- **Dual Interactive Study Modes**:
+  1. ⚡ Instant Check Mode: Instant reveal of official CISCE points and keywords for rapid reading.
+  2. 🎯 DPP Mode: Collapsed answers with individual reveal toggles, self-evaluation, and live mastery counter.
+- **Full Historical Coverage**:
+  - Cabinet Mission Plan 1946 (Lord Pethick-Lawrence, Sir Stafford Cripps, A.V. Alexander, primary objectives, reasons for rejection of Pakistan demand).
+  - Clauses of Cabinet Mission Plan (Federal Union, Provincial Autonomy, 3 Groupings A/B/C, Constituent Assembly of 389 members, Interim Government).
+  - Congress and Muslim League reactions, Direct Action Day (16 August 1946) & Communal Riots.
+  - Mountbatten Plan (3 June 1947 Plan: Partition of India and Bengal/Punjab, Princely States, Boundary Commission, reasons why Congress accepted partition).
+  - Indian Independence Act 1947 (provisions: creation of two independent Dominions India & Pakistan, Governor-General role, Constituent Assemblies as sovereign legislatures, lapse of British suzerainty over Princely States, division of armed forces and assets).
+- **Exam Countdown Timer**: 15, 30, 45, 60 mins presets with active warning pulse.
+- **Navigation**: Integrated `.home-nav-btn` linking back to `../../index.html` with `target="_top"`.
 
 ### K. English Literature Notes (14 PDFs in `english/notes/` across Julius Caesar, Treasure Chest Poetry & Short Stories)
 - **Chapter 1: Drama — Julius Caesar (William Shakespeare) (7 Notes)**:
@@ -1034,6 +1071,22 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Independence & Partition"** (`chap-his-9`) with an amber `account_balance` icon, bold styling, and glowing `NEW` badge, providing immediate 1-click access to the new chapter notes while keeping all previously published chapters accessible in their respective subject dashboards.
     - **Overview Fast Track & Search Integration**: Updated the Overview High-Yield Fast Track spotlight chip to link directly to Chapter 9 (`#spot-his-independence`), and bumped the notes count badge to `45+ Full Class Notes`. Search engine automatically indexes all Cabinet Mission, RIN Mutiny, and Partition terms.
     - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=6.1`.
-    - **Schema & Filesystem Verification (Rule 11)**: Verified 100% JSON schema validity via native parser and confirmed file existence and byte integrity via PowerShell.
+45. **Addition of Interactive History DNA PYQ Vaults: Mahatma Gandhi (Ch 6) & Independence and Partition (Ch 9)**:
+    - **Interactive Engine Ingestion & Normalization (Rule 1 & Rule 2)**:
+      - Processed raw download files `History.html` and `ICSE_Class10_Independence_Partition_PYQ_Vault.html` into dedicated, isolated history subject subdirectories:
+        - `history/gandhi/index.html` (138 KB): Mahatma Gandhi & The National Movement (NCM & CDM) — 15 Canonical Clusters, 86+ deduplicated past board twists (2015–2026), official CISCE marking scheme answers.
+        - `history/independence/index.html` (122 KB): Independence and Partition of India (1946–1947) — 12 Canonical Clusters, 68+ deduplicated board twists, Cabinet Mission to Indian Independence Act 1947.
+      - Embedded standard `.home-nav-btn` navigation linking back to `../../index.html` with `target="_top"` and imported full Google Fonts bundle (`Inter`, `JetBrains Mono`, `Outfit`, `Space Grotesk`, `Material Symbols Outlined`) in both engines (Rule 3).
+      - Cleaned up raw download files from Downloads folder immediately (Rule 5 & Rule 14).
+    - **Curriculum Architecture & Dual Data Synchronization (Rule 7)**:
+      - Chapter 6 (`chap-his-6`): Set `"featured": true`, updated description, and wired `his-gandhi-theory-master` as the primary interactive engine at item index 0 across both `data.json` and `data.js`.
+      - Chapter 9 (`chap-his-9`): Set `"featured": true`, updated description, and wired `his-independence-theory-master` as the primary interactive engine at item index 0 across both `data.json` and `data.js`.
+    - **Dashboard UI & Navigation Integration (Rule 10)**:
+      - Updated left navigation sidebar (`.nav-menu`) latest update quick-launch to **"Gandhi & National Movement"** with indigo `history_edu` icon and glowing `NEW` badge.
+      - Updated Batch Overview High-Yield Fast Track spotlight chips to feature both **"History • Gandhi & NCM Vault"** (`NEW`) and **"History • Independence & Partition"** (`NEW`), providing 1-click jump access from anywhere on the platform.
+      - Upgraded `createInteractiveViewer(item)` in `script.js` to dynamically display the active subject name (`ICSE 2027 History`) rather than hardcoded Geography.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=6.2`.
+      - Validated 100% JSON schema integrity of `data.json` via native PowerShell parser and verified all file paths via `Test-Path`.
 
 

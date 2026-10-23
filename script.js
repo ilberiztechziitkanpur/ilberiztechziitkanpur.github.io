@@ -502,26 +502,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Indian Independence and Partition of India (History Ch 9)
-    const independenceNav = document.createElement('div');
-    const isIndependenceActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-9';
-    independenceNav.className = `nav-item nav-item-featured ${isIndependenceActive ? 'active' : ''}`;
-    independenceNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #f59e0b;">account_balance</span>
-        <span style="font-weight: 600;">Independence & Partition</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706); color:#fff; box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);">NEW</span>
+    // Latest Update Quick Launch: Mahatma Gandhi and the National Movement (History Ch 6)
+    const gandhiNav = document.createElement('div');
+    const isGandhiActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-6';
+    gandhiNav.className = `nav-item nav-item-featured ${isGandhiActive ? 'active' : ''}`;
+    gandhiNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #818cf8;">history_edu</span>
+        <span style="font-weight: 600;">Gandhi & National Movement</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); color:#fff; box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);">NEW</span>
     `;
-    independenceNav.onclick = () => {
+    gandhiNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
-        const independenceChap = hisSub?.chapters?.find(c => c.id === 'chap-his-9');
-        if (independenceChap) {
-            navigateTo('items', [batch.id, hisSub.id, independenceChap.id]);
+        const gandhiChap = hisSub?.chapters?.find(c => c.id === 'chap-his-6');
+        if (gandhiChap) {
+            navigateTo('items', [batch.id, hisSub.id, gandhiChap.id]);
         }
     };
-    navMenu.appendChild(independenceNav);
+    navMenu.appendChild(gandhiNav);
 }
 
 function resetSearch() {
@@ -721,18 +721,19 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
+                <button class="spotlight-chip featured-chip" id="spot-his-gandhi" type="button">
+                    <span class="material-symbols-outlined" style="color: #818cf8;">history_edu</span>
+                    <span class="spotlight-chip-text">History • Gandhi & NCM Vault</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">NEW</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-his-independence" type="button">
+                    <span class="material-symbols-outlined" style="color: #10b981;">account_balance</span>
+                    <span class="spotlight-chip-text">History • Independence & Partition</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669);">NEW</span>
+                </button>
                 <button class="spotlight-chip" id="spot-geo-climate" type="button">
                     <span class="material-symbols-outlined">sunny</span>
                     <span class="spotlight-chip-text">Geography • Climate Notes & DPP</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-independence" type="button">
-                    <span class="material-symbols-outlined">account_balance</span>
-                    <span class="spotlight-chip-text">History • Independence & Partition</span>
-                    <span class="chip-badge-hot">NEW</span>
-                </button>
-                <button class="spotlight-chip" id="spot-geo-topo" type="button">
-                    <span class="material-symbols-outlined">map</span>
-                    <span class="spotlight-chip-text">Topography Master Blueprint</span>
                 </button>
                 <button class="spotlight-chip" id="spot-eng-caesar" type="button">
                     <span class="material-symbols-outlined">theater_comedy</span>
@@ -743,17 +744,17 @@ function renderView() {
         wrapper.appendChild(spotlightSection);
 
         // Bind Spotlight Clicks
-        const spotClimate = spotlightSection.querySelector('#spot-geo-climate');
-        if (spotClimate && batch) {
-            spotClimate.onclick = () => navigateTo('items', [batch.id, 'sub-10-geo', 'chap-geo-1']);
+        const spotGandhi = spotlightSection.querySelector('#spot-his-gandhi');
+        if (spotGandhi && batch) {
+            spotGandhi.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-6']);
         }
         const spotIndependence = spotlightSection.querySelector('#spot-his-independence');
         if (spotIndependence && batch) {
             spotIndependence.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-9']);
         }
-        const spotTopo = spotlightSection.querySelector('#spot-geo-topo');
-        if (spotTopo && batch) {
-            spotTopo.onclick = () => navigateTo('items', [batch.id, 'sub-10-geo', 'chap-geo-topo']);
+        const spotClimate = spotlightSection.querySelector('#spot-geo-climate');
+        if (spotClimate && batch) {
+            spotClimate.onclick = () => navigateTo('items', [batch.id, 'sub-10-geo', 'chap-geo-1']);
         }
         const spotCaesar = spotlightSection.querySelector('#spot-eng-caesar');
         if (spotCaesar && batch) {
@@ -1141,6 +1142,8 @@ function createInteractiveViewer(item) {
     const container = document.createElement('div');
     container.className = 'interactive-viewer-container';
 
+    const currentSubName = state.currentSubject?.name || 'ICSE 2027';
+
     // Header
     const header = document.createElement('div');
     header.className = 'viewer-header';
@@ -1148,7 +1151,7 @@ function createInteractiveViewer(item) {
         <div class="viewer-title-wrap">
             <span class="lecture-badge" style="color: #38bdf8; display:flex; align-items:center; gap:5px;">
                 <span class="material-symbols-outlined" style="font-size:16px;">bolt</span>
-                Interactive Engine • ICSE 2027 Geography
+                Interactive Engine • ICSE 2027 ${currentSubName}
             </span>
             <h2>${item.title}</h2>
         </div>
@@ -1183,7 +1186,7 @@ function createInteractiveViewer(item) {
     footer.innerHTML = `
         <div style="display: flex; align-items: center; gap: 8px;">
             <span class="material-symbols-outlined" style="color: #38bdf8;">quiz</span>
-            <span>${item.subtitle || 'ICSE 2027 Geography Interactive Engine'}</span>
+            <span>${item.subtitle || `ICSE 2027 ${currentSubName} Interactive Engine`}</span>
         </div>
         <div>
             <span>${item.badge || 'High-Yield Engine • Automated Feedback & Diagnostics'}</span>

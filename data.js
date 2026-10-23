@@ -901,8 +901,17 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-his-6",
                             "name": "Ch 6: Mahatma Gandhi and the National Movement",
-                            "description": "Early life, Champaran, Ahmedabad, Kheda, Rowlatt Act, Jallianwala Bagh Tragedy, Khilafat & Non-Cooperation Movement, Chauri Chaura, Simon Commission, Dandi March & Civil Disobedience Movement",
+                            "description": "15 Theory Clusters (86+ PYQ Twists), Official Marking Scheme, Dual Instant/DPP Modes & 3 Full Class Notes",
+                            "featured": true,
                             "items": [
+                                {
+                                    "id": "his-gandhi-theory-master",
+                                    "title": "Mahatma Gandhi & National Movement — 15 Clusters & 86+ PYQ Twists Vault",
+                                    "subtitle": "15 Master Question Clusters, 86+ Twisted Variations (2015–2026), Official CISCE Marking Scheme, Instant Check & DPP Modes, Live Exam Countdown Timer",
+                                    "type": "interactive",
+                                    "file": "history/gandhi/index.html",
+                                    "badge": "PYQ Vault • 15 Clusters • 86+ Twists"
+                                },
                                 {
                                     "id": "his-gandhi-notes-01",
                                     "title": "Mahatma Gandhi And The National Movement 01 Class Notes",
@@ -953,8 +962,17 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-his-9",
                             "name": "Ch 9: Indian Independence and Partition of India",
-                            "description": "Cabinet Mission Plan, Direct Action Day, Mountbatten Plan, Indian Independence Act 1947 provisions",
+                            "description": "12 Theory Clusters (68+ PYQ Twists), Cabinet Mission to 1947 Act, Dual Instant/DPP Modes & Full Class Notes",
+                            "featured": true,
                             "items": [
+                                {
+                                    "id": "his-independence-theory-master",
+                                    "title": "Independence & Partition of India — 12 Clusters & 68+ PYQ Twists Vault",
+                                    "subtitle": "12 Master Question Clusters, 68+ Twisted Variations (2015–2026), Cabinet Mission to 1947 Act, Instant Check & DPP Modes, Live Exam Countdown Timer",
+                                    "type": "interactive",
+                                    "file": "history/independence/index.html",
+                                    "badge": "PYQ Vault • 12 Clusters • 68+ Twists"
+                                },
                                 {
                                     "id": "his-independence-notes-01",
                                     "title": "Independence & Partition of India 01 Class Notes",
