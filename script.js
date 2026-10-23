@@ -502,26 +502,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: World Wars & Dictatorships (History Ch 10, 11 & 12)
-    const warNav = document.createElement('div');
-    const isWarActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && (state.path[2] === 'chap-his-10' || state.path[2] === 'chap-his-11' || state.path[2] === 'chap-his-12');
-    warNav.className = `nav-item nav-item-featured ${isWarActive ? 'active' : ''}`;
-    warNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #a855f7;">public</span>
-        <span style="font-weight: 600;">World Wars & Dictators</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #a855f7, #6366f1); color:#fff; box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);">NEW</span>
+    // Latest Update Quick Launch: Growth of Nationalism & INC Vault (History Ch 2)
+    const natNav = document.createElement('div');
+    const isNatActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-2';
+    natNav.className = `nav-item nav-item-featured ${isNatActive ? 'active' : ''}`;
+    natNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #f59e0b;">account_balance</span>
+        <span style="font-weight: 600;">Nationalism & INC Vault</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #ef4444); color:#fff; box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);">NEW</span>
     `;
-    warNav.onclick = () => {
+    natNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
-        const warChap = hisSub?.chapters?.find(c => c.id === 'chap-his-10');
-        if (warChap) {
-            navigateTo('items', [batch.id, hisSub.id, warChap.id]);
+        const natChap = hisSub?.chapters?.find(c => c.id === 'chap-his-2');
+        if (natChap) {
+            navigateTo('items', [batch.id, hisSub.id, natChap.id]);
         }
     };
-    navMenu.appendChild(warNav);
+    navMenu.appendChild(natNav);
 }
 
 function resetSearch() {
@@ -721,30 +721,35 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
+                <button class="spotlight-chip featured-chip" id="spot-his-nat" type="button">
+                    <span class="material-symbols-outlined" style="color: #f59e0b;">account_balance</span>
+                    <span class="spotlight-chip-text">History • Nationalism & INC Vault</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">NEW</span>
+                </button>
                 <button class="spotlight-chip featured-chip" id="spot-his-ww1" type="button">
                     <span class="material-symbols-outlined" style="color: #a855f7;">public</span>
                     <span class="spotlight-chip-text">History • First World War</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #a855f7, #6366f1);">NEW</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #a855f7, #6366f1);">HOT</span>
                 </button>
                 <button class="spotlight-chip featured-chip" id="spot-his-ww2" type="button">
                     <span class="material-symbols-outlined" style="color: #ef4444;">military_tech</span>
                     <span class="spotlight-chip-text">History • Second World War Notes</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #ef4444, #f97316);">NEW</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #ef4444, #f97316);">HOT</span>
                 </button>
                 <button class="spotlight-chip featured-chip" id="spot-his-dict" type="button">
                     <span class="material-symbols-outlined" style="color: #f59e0b;">gavel</span>
                     <span class="spotlight-chip-text">History • Rise of Dictatorships</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706);">NEW</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706);">HOT</span>
                 </button>
                 <button class="spotlight-chip featured-chip" id="spot-his-quit" type="button">
                     <span class="material-symbols-outlined" style="color: #f43f5e;">flag</span>
                     <span class="spotlight-chip-text">History • Quit India Movement</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f43f5e, #f97316);">NEW</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f43f5e, #f97316);">HOT</span>
                 </button>
                 <button class="spotlight-chip featured-chip" id="spot-his-indep" type="button">
                     <span class="material-symbols-outlined" style="color: #10b981;">handshake</span>
                     <span class="spotlight-chip-text">History • Independence & Partition</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669);">NEW</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669);">HOT</span>
                 </button>
                 <button class="spotlight-chip featured-chip" id="spot-his-1857" type="button">
                     <span class="material-symbols-outlined" style="color: #38bdf8;">swords</span>
@@ -756,6 +761,10 @@ function renderView() {
         wrapper.appendChild(spotlightSection);
 
         // Bind Spotlight Clicks
+        const spotNat = spotlightSection.querySelector('#spot-his-nat');
+        if (spotNat && batch) {
+            spotNat.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-2']);
+        }
         const spotWW1 = spotlightSection.querySelector('#spot-his-ww1');
         if (spotWW1 && batch) {
             spotWW1.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-10']);

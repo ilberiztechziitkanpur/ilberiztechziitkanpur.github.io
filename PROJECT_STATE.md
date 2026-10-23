@@ -60,6 +60,8 @@ ILBERIZ TECHZ IIT KANPUR/
 ├── history/                         # ALL History subject content lives strictly here
 │   ├── 1857/                        # Chapter 1: The First War of Independence (1857) DNA PYQ Vault
 │   │   └── index.html               # 10 Canonical Clusters, 62+ PYQ Twists (2015–2026), Causes & 1858 Results
+│   ├── nationalism/                 # Chapter 2: Growth of Nationalism & Foundation of INC DNA PYQ Vault
+│   │   └── index.html               # 11 Canonical Clusters, 72+ PYQ Twists (2015–2026), Official Council Pointers & Dual Instant/DPP Modes
 │   ├── gandhi/                      # Chapter 6: Mahatma Gandhi & National Movement DNA PYQ Vault
 │   │   └── index.html               # 15 Canonical Clusters, 86+ PYQ Twists (2015–2026), Dual Instant/DPP Modes
 │   ├── quit-india/                  # Chapter 7: The Quit India Movement DNA PYQ Vault
@@ -480,6 +482,27 @@ ILBERIZ TECHZ IIT KANPUR/
 - **Combined Master Suite**: All 18 Canonical Clusters & 116+ Variations in one ultra-fast hardware-accelerated dashboard.
 - **1-Click Chapter Switcher**: Switch between "🌟 Both Complete Chapters (18 Clusters)", "🇮🇳 The First War of Independence (10 Clusters)", and "🌍 The First World War (8 Clusters)".
 - **URL Parameter Support**: Deep-linking directly via `?scope=W1857` or `?scope=WW1`.
+
+### S. Chapter 2: Growth of Nationalism & Foundation of the INC Master DNA PYQ Vault (`history/nationalism/index.html`)
+- **11 Canonical High-Yield Clusters** (`NAT-01` to `NAT-11`) targeting 10–12 marks in History Section B (100% official CISCE marking scheme).
+- **72+ Deduplicated Board & Specimen Variations (2015–2026)** grouped under their core Council answers.
+- **Dual Interactive Study Modes**:
+  1. ⚡ Instant Check Mode: Immediate reveal of official CISCE marking scheme points and keywords for accelerated revision.
+  2. 🎯 DPP Mode: Collapsed answers with individual reveal toggles, self-evaluation (Mastered vs Revision), and real-time mastery counter.
+- **Full Historical Coverage**:
+  - `NAT-01`: Economic Exploitation & Agrarian Distress (peasant impoverishment, ruin of handicrafts, drain of wealth, commercial exploitation).
+  - `NAT-02`: Repressive Policies of Lord Lytton (Grand Delhi Durbar 1877 during famine, Vernacular Press Act 1878, Indian Arms Act 1878, ICS age reduction from 21 to 19).
+  - `NAT-03`: The Ilbert Bill Controversy 1883 (Lord Ripon, C.P. Ilbert, racial disqualification removal, European agitation, lessons for Indian unity).
+  - `NAT-04`: Socio-Religious Reform Movements (Raja Rammohan Roy & Brahmo Samaj, Sati abolition 1829, Jyotiba Phule & Satyashodhak Samaj for women/dalits).
+  - `NAT-05`: Swami Dayanand Saraswati & Swami Vivekananda (Arya Samaj, "Back to the Vedas", Ramakrishna Mission, Vedantic brotherhood & self-reliance).
+  - `NAT-06`: Role of the Press & Vernacular Literature (Amrita Bazar Patrika, Bengalee, Hindu, Tribune, Kesari, Bankim Chandra Chattopadhyay & *Anandamath*).
+  - `NAT-07`: Precursor Political Associations (East India Association 1866 London by Dadabhai Naoroji, Indian Association 1876 by Surendranath Banerjea, Indian National Conference 1883).
+  - `NAT-08`: Foundation of the Indian National Congress (Allan Octavian Hume, Bombay session Dec 1885, Gokuldas Tejpal Sanskrit College, 72 delegates, W.C. Bonnerjee first president).
+  - `NAT-09`: Original Aims & Objectives of the Congress (promote national unity, foster friendly relations among political workers, formulate public demands, organize public opinion).
+  - `NAT-10`: Second Session of the Congress (Calcutta Dec 1886, Dadabhai Naoroji president, 436 delegates, consolidation of pan-Indian character).
+  - `NAT-11`: British Attitude towards the Early Congress (initial benevolent neutrality/hospitality by Lord Dufferin, rapid shift to hostility, "microscopic minority" mockery, ban on government officials).
+- **Exam Countdown Timer**: 15, 30, 45, 60 mins presets with active warning pulse.
+- **Navigation**: Integrated `.home-nav-btn` linking back to `../../index.html` with `target="_top"` and imported full Google Fonts bundle (`Outfit`, `Material Symbols Outlined`).
 
 ### K. English Literature Notes (14 PDFs in `english/notes/` across Julius Caesar, Treasure Chest Poetry & Short Stories)
 - **Chapter 1: Drama — Julius Caesar (William Shakespeare) (7 Notes)**:
@@ -1217,6 +1240,23 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Updated Batch Overview High-Yield Fast Track spotlight chips to feature **First World War**, **Second World War Notes**, **Rise of Dictatorships**, **Quit India Movement**, **Independence & Partition**, and **1857 Revolt Vault**.
     - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Bumped version queries in `index.html` to `v=6.5` for `style.css`, `data.js`, and `script.js`.
+
+49. **Addition of Interactive History DNA PYQ Vault: Growth of Nationalism & Foundation of the INC (Chapter 2)**:
+    - **Interactive Engine Ingestion & Normalization (Rule 1 & Rule 2)**:
+      - Ingested `ICSE_Class10_Growth_of_Nationalism_and_INC_Vault.html` from Downloads into isolated subject directory `history/nationalism/index.html` (116 KB).
+      - Verified full historical coverage across 11 Canonical Master Clusters (`NAT-01` to `NAT-11`) and 72+ deduplicated board & specimen twists (2015–2026) with official CISCE marking scheme answers.
+      - Embedded standard `.home-nav-btn` navigation linking back to `../../index.html` with `target="_top"` and imported full Google Fonts bundle (`Outfit`, `Material Symbols Outlined`) (Rule 3).
+      - Cleaned up raw download file `ICSE_Class10_Growth_of_Nationalism_and_INC_Vault.html` from Downloads folder immediately (Rule 5 & Rule 14).
+    - **Curriculum Architecture & Dual Data Synchronization (Rule 7)**:
+      - Chapter 2 (`chap-his-2`): Set `"featured": true`, updated description to `"11 Theory Clusters (72+ PYQ Twists), Official Council Pointers, Dual Instant/DPP Modes & 2 Full Class Notes"`, and wired `his-nationalism-theory-master` as the primary interactive engine at item index 0 across both `data.json` and `data.js`.
+      - Verified 100% schema match and verified file existence at `history/nationalism/index.html`.
+    - **Dashboard UI & Navigation Integration (Rule 10)**:
+      - Updated left navigation sidebar (`.nav-menu`) latest update quick-launch in `script.js` to **"Nationalism & INC Vault"** with amber `account_balance` icon and glowing `NEW` badge (`#f59e0b` to `#ef4444`).
+      - Updated Batch Overview High-Yield Fast Track spotlight chips to feature **"History • Nationalism & INC Vault"** (`NEW`) at index 0, with 1-click jump navigation directly to Chapter 2.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=6.6` for `style.css`, `data.js`, and `script.js`.
+      - Verified zero encoding corruptions across all files.
+
 
 
 

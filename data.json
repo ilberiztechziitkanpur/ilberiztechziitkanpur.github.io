@@ -818,8 +818,17 @@
                         {
                             "id": "chap-his-2",
                             "name": "Ch 2: Growth of Nationalism",
-                            "description": "Factors promoting nationalism, economic exploitation, repressive colonial policies of Lord Lytton, socio-religious reformers & foundation of INC (1885)",
+                            "description": "11 Theory Clusters (72+ PYQ Twists), Official Council Pointers, Dual Instant/DPP Modes & 2 Full Class Notes",
+                            "featured": true,
                             "items": [
+                                {
+                                    "id": "his-nationalism-theory-master",
+                                    "title": "Growth of Nationalism & Foundation of INC — 11 Clusters & 72+ PYQ Twists Vault",
+                                    "subtitle": "11 Master Question Clusters, 72+ Twisted Variations (2015–2026), Economic Exploitation, Lord Lytton, Ilbert Bill, Raja Rammohan Roy, Jyotiba Phule, Press, Precursors & INC Foundation (1885)",
+                                    "type": "interactive",
+                                    "file": "history/nationalism/index.html",
+                                    "badge": "PYQ Vault • 11 Clusters • 72+ Twists"
+                                },
                                 {
                                     "id": "his-nationalism-notes-01",
                                     "title": "Growth Of Nationalism 01 Class Notes",
