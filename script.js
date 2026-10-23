@@ -502,26 +502,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Quit India Movement (History Ch 7)
-    const quitIndiaNav = document.createElement('div');
-    const isQuitIndiaActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-7';
-    quitIndiaNav.className = `nav-item nav-item-featured ${isQuitIndiaActive ? 'active' : ''}`;
-    quitIndiaNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #f43f5e;">flag</span>
-        <span style="font-weight: 600;">Quit India Movement</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f43f5e, #f97316); color:#fff; box-shadow: 0 0 10px rgba(244, 63, 94, 0.4);">NEW</span>
+    // Latest Update Quick Launch: 1857 & First World War Master Vault (History Ch 1 & Ch 10)
+    const warNav = document.createElement('div');
+    const isWarActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && (state.path[2] === 'chap-his-1' || state.path[2] === 'chap-his-10');
+    warNav.className = `nav-item nav-item-featured ${isWarActive ? 'active' : ''}`;
+    warNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #38bdf8;">swords</span>
+        <span style="font-weight: 600;">1857 Revolt & WW1 Vault</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #6366f1); color:#fff; box-shadow: 0 0 10px rgba(14, 165, 233, 0.4);">NEW</span>
     `;
-    quitIndiaNav.onclick = () => {
+    warNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
-        const quitChap = hisSub?.chapters?.find(c => c.id === 'chap-his-7');
-        if (quitChap) {
-            navigateTo('items', [batch.id, hisSub.id, quitChap.id]);
+        const warChap = hisSub?.chapters?.find(c => c.id === 'chap-his-1');
+        if (warChap) {
+            navigateTo('items', [batch.id, hisSub.id, warChap.id]);
         }
     };
-    navMenu.appendChild(quitIndiaNav);
+    navMenu.appendChild(warNav);
 }
 
 function resetSearch() {
@@ -721,6 +721,16 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
+                <button class="spotlight-chip featured-chip" id="spot-his-1857" type="button">
+                    <span class="material-symbols-outlined" style="color: #38bdf8;">swords</span>
+                    <span class="spotlight-chip-text">History • 1857 Revolt Vault</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #6366f1);">NEW</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-his-ww1" type="button">
+                    <span class="material-symbols-outlined" style="color: #a855f7;">public</span>
+                    <span class="spotlight-chip-text">History • First World War Vault</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #a855f7, #6366f1);">NEW</span>
+                </button>
                 <button class="spotlight-chip featured-chip" id="spot-his-quit" type="button">
                     <span class="material-symbols-outlined" style="color: #f43f5e;">flag</span>
                     <span class="spotlight-chip-text">History • Quit India Vault</span>
@@ -731,20 +741,19 @@ function renderView() {
                     <span class="spotlight-chip-text">History • Gandhi & NCM Vault</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">NEW</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-independence" type="button">
-                    <span class="material-symbols-outlined" style="color: #10b981;">account_balance</span>
-                    <span class="spotlight-chip-text">History • Independence & Partition</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669);">NEW</span>
-                </button>
-                <button class="spotlight-chip" id="spot-geo-climate" type="button">
-                    <span class="material-symbols-outlined">sunny</span>
-                    <span class="spotlight-chip-text">Geography • Climate Notes & DPP</span>
-                </button>
             </div>
         `;
         wrapper.appendChild(spotlightSection);
 
         // Bind Spotlight Clicks
+        const spot1857 = spotlightSection.querySelector('#spot-his-1857');
+        if (spot1857 && batch) {
+            spot1857.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-1']);
+        }
+        const spotWW1 = spotlightSection.querySelector('#spot-his-ww1');
+        if (spotWW1 && batch) {
+            spotWW1.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-10']);
+        }
         const spotQuit = spotlightSection.querySelector('#spot-his-quit');
         if (spotQuit && batch) {
             spotQuit.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-7']);
@@ -752,14 +761,6 @@ function renderView() {
         const spotGandhi = spotlightSection.querySelector('#spot-his-gandhi');
         if (spotGandhi && batch) {
             spotGandhi.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-6']);
-        }
-        const spotIndependence = spotlightSection.querySelector('#spot-his-independence');
-        if (spotIndependence && batch) {
-            spotIndependence.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-9']);
-        }
-        const spotClimate = spotlightSection.querySelector('#spot-geo-climate');
-        if (spotClimate && batch) {
-            spotClimate.onclick = () => navigateTo('items', [batch.id, 'sub-10-geo', 'chap-geo-1']);
         }
 
         const header = createSectionHeader('Curriculum Classes', 'Choose your curriculum level to explore subjects, study notes & lectures');

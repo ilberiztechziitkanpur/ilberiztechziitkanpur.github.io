@@ -778,8 +778,17 @@
                         {
                             "id": "chap-his-1",
                             "name": "Ch 1: The First War of Independence (1857)",
-                            "description": "Political, socio-religious, economic, military causes, immediate cartridge cause & consequences (Queen's Proclamation 1858)",
+                            "description": "10 Theory Clusters (62+ PYQ Twists), Official Council Pointers, Dual Instant/DPP Modes & 3 Full Class Notes",
+                            "featured": true,
                             "items": [
+                                {
+                                    "id": "his-1857-theory-master",
+                                    "title": "The First War of Independence (1857) — 10 Clusters & 62+ PYQ Twists Vault",
+                                    "subtitle": "10 Master Question Clusters, 62+ Twisted Variations (2015–2026), Political, Economic & Military Causes, 1858 Act & Queen's Proclamation, Instant Check & DPP Modes",
+                                    "type": "interactive",
+                                    "file": "history/1857/index.html",
+                                    "badge": "PYQ Vault • 10 Clusters • 62+ Twists"
+                                },
                                 {
                                     "id": "his-1857-notes-01",
                                     "title": "The First War Of Independence 01 Class Notes",
@@ -995,8 +1004,18 @@
                         {
                             "id": "chap-his-10",
                             "name": "Ch 10: The First World War (1914–1918)",
-                            "description": "Causes: Nationalism, Imperialism, Hostile Alliances, Sarajevo Crisis; Results: Treaty of Versailles & League of Nations",
-                            "items": []
+                            "description": "8 Theory Clusters (54+ PYQ Twists), Official Council Pointers, Dual Instant/DPP Modes & Full PYQ Vault",
+                            "featured": true,
+                            "items": [
+                                {
+                                    "id": "his-ww1-theory-master",
+                                    "title": "The First World War (1914–1918) — 8 Clusters & 54+ PYQ Twists Vault",
+                                    "subtitle": "8 Master Question Clusters, 54+ Twisted Variations (2015–2026), Sarajevo Crisis, Alliances, Armament Race, Treaty of Versailles Clauses & League of Nations",
+                                    "type": "interactive",
+                                    "file": "history/first-world-war/index.html",
+                                    "badge": "PYQ Vault • 8 Clusters • 54+ Twists"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-his-11",

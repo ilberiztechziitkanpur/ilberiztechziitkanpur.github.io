@@ -58,12 +58,18 @@ ILBERIZ TECHZ IIT KANPUR/
 │   └── toposheet/                   # Topography (Question 1) Master Blueprint & DNA Engine
 │       └── index.html               # Main interactive Topo Exam & Blueprint web app
 ├── history/                         # ALL History subject content lives strictly here
+│   ├── 1857/                        # Chapter 1: The First War of Independence (1857) DNA PYQ Vault
+│   │   └── index.html               # 10 Canonical Clusters, 62+ PYQ Twists (2015–2026), Causes & 1858 Results
 │   ├── gandhi/                      # Chapter 6: Mahatma Gandhi & National Movement DNA PYQ Vault
 │   │   └── index.html               # 15 Canonical Clusters, 86+ PYQ Twists (2015–2026), Dual Instant/DPP Modes
 │   ├── quit-india/                  # Chapter 7: The Quit India Movement DNA PYQ Vault
 │   │   └── index.html               # 7 Canonical Clusters, 48+ PYQ Twists, 100% Current Syllabus, Dual Instant/DPP Modes
 │   ├── independence/                # Chapter 9: Independence & Partition of India DNA PYQ Vault
 │   │   └── index.html               # 12 Canonical Clusters, 68+ PYQ Twists (2015–2026), Dual Instant/DPP Modes
+│   ├── first-world-war/             # Chapter 10: The First World War (1914–1918) DNA PYQ Vault
+│   │   └── index.html               # 8 Canonical Clusters, 54+ PYQ Twists, Sarajevo, Versailles & League of Nations
+│   ├── 1857-ww1/                    # Dual-Chapter Master Vault (1857 Revolt + First World War)
+│   │   └── index.html               # 18 Canonical Clusters, 116+ Board Variations, 1-Click Chapter Switcher
 │   └── notes/                       # ICSE Class 10 History PDF notes
 │       ├── The_First_War_Of_Independence_01_Class_Notes.pdf (5.8 MB) — Causes & factors
 │       ├── The_First_War_Of_Independence_02_Class_Notes.pdf (4.0 MB) — Events & consequences
@@ -422,6 +428,39 @@ ILBERIZ TECHZ IIT KANPUR/
   - Significance & Impact of the Quit India Movement (mass spontaneous uprising, parallel governments, demonstrated British inability to rule without consent).
 - **Exam Countdown Timer**: 15, 30, 45 mins presets with active warning pulse.
 - **Navigation**: Integrated `.home-nav-btn` linking back to `../../index.html` with `target="_top"`.
+
+### P. Chapter 1: The First War of Independence (1857) Master DNA PYQ Vault (`history/1857/index.html`)
+- **10 Canonical High-Yield Clusters** targeting 10–12 marks in History Section B (100% current CISCE syllabus).
+- **62+ Deduplicated Board & Specimen Variations (2015–2026)** with official CISCE Council answer key pointers.
+- **Dual Interactive Study Modes**: ⚡ Instant Check Mode & 🎯 DPP Timed Practice Mode with self-evaluation.
+- **Full Historical Coverage**:
+  - Political Causes (Doctrine of Lapse, Dalhousie, Nana Saheb pension annexation, disrespect to Mughal Emperor Bahadur Shah Zafar, annexation of Awadh on pretext of maladministration).
+  - Socio-Religious Causes (Interference with religious customs, Sati abolition 1829, Widow Remarriage Act 1856, Religious Disabilities Act 1850, taxation on temples and mosques).
+  - Economic Causes (Ruin of traditional handicrafts, drain of wealth, heavy land revenue, Inam Commission confiscation of 20,000 estates).
+  - Military Causes (General Service Enlistment Act 1856, inferior treatment & salary, denial of foreign service allowance/batta).
+  - Immediate Cause (Enfield rifle greased cartridge incident with cow and pig fat, Mangal Pandey at Barrackpore).
+  - Consequences & Queen Victoria's Proclamation 1858 (End of East India Company rule, Secretary of State for India, Viceroy title, general amnesty, non-interference in religious beliefs, army reorganization with increased European ratio).
+- **Exam Countdown Timer**: 15, 30, 45 mins presets with active warning pulse.
+- **Navigation**: Integrated `.home-nav-btn` linking back to `../../index.html` with `target="_top"`.
+
+### Q. Chapter 10: The First World War (1914–1918) Master DNA PYQ Vault (`history/first-world-war/index.html`)
+- **8 Canonical High-Yield Clusters** targeting 10–12 marks in Contemporary World History Section B.
+- **54+ Deduplicated Board & Specimen Variations (2015–2026)** with official CISCE Council answer key pointers.
+- **Dual Interactive Study Modes**: ⚡ Instant Check Mode & 🎯 DPP Timed Practice Mode with self-evaluation.
+- **Full Historical Coverage**:
+  - Causes of First World War: Nationalism & Imperialism (Aggressive nationalism, France-Germany Alsace-Lorraine rivalry).
+  - Division of Europe into Hostile Alliances (Triple Alliance 1882: Germany, Austria-Hungary, Italy vs Triple Entente 1907: Britain, France, Russia).
+  - Armament Race & Militarism.
+  - Immediate Cause (Sarajevo Crisis: Assassination of Archduke Franz Ferdinand and wife Sophie at Sarajevo on 28 June 1914 by Gavrilo Princip / Black Hand / Union or Death).
+  - Treaty of Versailles (28 June 1919 Hall of Mirrors: Signatories, War Guilt Clause 231, reparations of 6,600 million pounds, territorial losses of Alsace-Lorraine, Eupen-Malmedy, Polish corridor, demilitarization of Rhineland, restriction of German army to 100,000).
+  - League of Nations (Aims and objectives: promote international co-operation, achieve international peace and security, prevent future conflicts).
+- **Exam Countdown Timer**: 15, 30, 45 mins presets with active warning pulse.
+- **Navigation**: Integrated `.home-nav-btn` linking back to `../../index.html` with `target="_top"`.
+
+### R. Dual-Chapter Master Vault: 1857 Revolt & First World War (`history/1857-ww1/index.html`)
+- **Combined Master Suite**: All 18 Canonical Clusters & 116+ Variations in one ultra-fast hardware-accelerated dashboard.
+- **1-Click Chapter Switcher**: Switch between "🌟 Both Complete Chapters (18 Clusters)", "🇮🇳 The First War of Independence (10 Clusters)", and "🌍 The First World War (8 Clusters)".
+- **URL Parameter Support**: Deep-linking directly via `?scope=W1857` or `?scope=WW1`.
 
 ### K. English Literature Notes (14 PDFs in `english/notes/` across Julius Caesar, Treasure Chest Poetry & Short Stories)
 - **Chapter 1: Drama — Julius Caesar (William Shakespeare) (7 Notes)**:
@@ -1118,6 +1157,24 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Updated Batch Overview High-Yield Fast Track spotlight chips to feature **"History • Quit India Vault"** (`NEW`), **"History • Gandhi & NCM Vault"** (`NEW`), and **"History • Independence & Partition"** (`NEW`).
     - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Bumped cache-busting queries in `index.html` to `v=6.3`.
+      - Validated 100% JSON schema integrity of `data.json` via native PowerShell parser and verified all file paths via `Test-Path`.
+
+47. **Addition of Interactive History DNA PYQ Vaults: 1857 Revolt (Ch 1), First World War (Ch 10), and Dual Master Suite**:
+    - **Interactive Engine Ingestion & Normalization (Rule 1 & Rule 2)**:
+      - Ingested `ICSE_Class10_1857_and_First_World_War_Vault.html` from Downloads into isolated subject directories:
+        - `history/1857/index.html` (156 KB): Chapter 1 — The First War of Independence (1857) with default scope `W1857` (10 Clusters, 62+ variations).
+        - `history/first-world-war/index.html` (156 KB): Chapter 10 — The First World War (1914–1918) with default scope `WW1` (8 Clusters, 54+ variations).
+        - `history/1857-ww1/index.html` (156 KB): Dual Master Suite with 1-click chapter switcher across all 18 clusters and URL parameter deep linking (`?scope=W1857`, `?scope=WW1`).
+      - Embedded standard `.home-nav-btn` navigation linking back to `../../index.html` with `target="_top"` and imported full Google Fonts bundle (`Inter`, `JetBrains Mono`, `Outfit`, `Space Grotesk`, `Material Symbols Outlined`) across all files (Rule 3).
+      - Cleaned up raw download file `ICSE_Class10_1857_and_First_World_War_Vault.html` from Downloads folder immediately (Rule 5 & Rule 14).
+    - **Curriculum Architecture & Dual Data Synchronization (Rule 7)**:
+      - Chapter 1 (`chap-his-1`): Set `"featured": true`, updated description, and wired `his-1857-theory-master` as the primary interactive engine at item index 0 across both `data.json` and `data.js`.
+      - Chapter 10 (`chap-his-10`): Set `"featured": true`, updated description, and wired `his-ww1-theory-master` as the primary interactive engine at item index 0 across both `data.json` and `data.js`.
+    - **Dashboard UI & Navigation Integration (Rule 10)**:
+      - Updated left navigation sidebar (`.nav-menu`) latest update quick-launch to **"1857 Revolt & WW1 Vault"** with cyan `swords` icon and glowing `NEW` badge.
+      - Updated Batch Overview High-Yield Fast Track spotlight chips to feature **"History • 1857 Revolt Vault"** (`NEW`) and **"History • First World War Vault"** (`NEW`) alongside Quit India and Gandhi.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=6.4`.
       - Validated 100% JSON schema integrity of `data.json` via native PowerShell parser and verified all file paths via `Test-Path`.
 
 
