@@ -2,10 +2,11 @@
 
 > 🚨 **MANDATORY AUTONOMOUS RULES FOR ALL AI AGENTS**:
 > 1. **Written for Agents, by Agents**: The user does not manage or read this document — **it exists exclusively for you (and future agents)** to preserve 100% technical continuity, remember every critical nuance, and avoid any regressions across chats.
-> 2. **Read at the Start of EVERY Chat**: Always review this guide before inspecting, proposing, or modifying any code in this repository.
-> 3. **Consistency Over Fragmentation (Do NOT Poison the Architecture)**: Strictly adhere to the established project patterns, directory structures, and conventions documented here. Do NOT invent arbitrary or unnecessary new approaches on each session, as doing so slowly fragments and degrades ("poisons") the codebase over time.
-> 4. **Pragmatic Flexibility & Adaptive Evolution**: While these rules define the standard baseline for regular operations, if the user explicitly requests an implementation that cannot be done using the current approach, or if a demonstrably more efficient, robust, or technically superior method is available, you are **explicitly authorized to adapt and improve the approach**.
-> 5. **AUTOMATICALLY UPDATE THIS FILE**: Whenever you add, adapt, optimize, or reorganize any files, chapters, engines, or paradigms, you **MUST automatically update this file (`PROJECT_STATE.md`)** before concluding your turn without needing the user to ask or remind you. Document the change, rationale, and new state thoroughly so that no knowledge or operational wisdom is ever forgotten.
+> 2. **Automatic Reading on EVERY Chat (No User Prompt Needed)**: Always review this guide as the absolute first step of any session in this workspace. The user works here frequently and expects zero friction — they should **NEVER need to remind you to read `PROJECT_STATE.md`**.
+> 3. **The "Speak Very Little" Principle**: The user wants to keep their prompts minimal (often providing only a chapter name, lecture number, or dropping a file). Do not burden the user with repeated questions if the topic matches the pre-mapped syllabus in `data.json`.
+> 4. **Consistency Over Fragmentation (Do NOT Poison the Architecture)**: Strictly adhere to the established project patterns, directory structures, and conventions documented here. Do NOT invent arbitrary or unnecessary new approaches on each session, as doing so slowly fragments and degrades ("poisons") the codebase over time.
+> 5. **Pragmatic Flexibility & Speed Over Ceremony**: If an approach is slow or cumbersome, optimize it. Never run heavy ceremonies (e.g., 20-minute browser subagents or slide image decoding) when lightweight validation finishes in seconds.
+> 6. **AUTOMATICALLY UPDATE THIS FILE**: Whenever you add, adapt, optimize, or reorganize any files, chapters, engines, or paradigms, you **MUST automatically update this file (`PROJECT_STATE.md`)** before concluding your turn without needing the user to ask or remind you. Document the change, rationale, and new state thoroughly so that no knowledge or operational wisdom is ever forgotten.
 
 ---
 
@@ -113,11 +114,10 @@ ILBERIZ TECHZ IIT KANPUR/
 8. **Git Push Protocol**: Always commit changes and use `BypassSandbox: true` for `git push origin main` because sandbox restricts network access.
 9. **Sidebar Navigation Stability**: Keep `.nav-menu` with `overflow-x: hidden !important;`, `overscroll-behavior: contain;`, and `padding-bottom: 24px;`. Prevent any hover `translateX` on `.nav-item` / `.nav-item-featured` that triggers horizontal scrollbars or boundary oscillation loops. Both `.logo-area` and `.sidebar-footer` must have `flex-shrink: 0;`.
 10. **Sidebar & Landing View Cleanliness Protocol (MANDATORY)**: The left navigation sidebar (`.nav-menu`) must NEVER accumulate past chapter buttons or older DPP engines into a massive scrolling list. Only **Overview**, curriculum batch links, and the **single latest update** (e.g. newly published chapter notes or active focus module) with a `NEW` badge are displayed in the sidebar quick-launch area. All previously published chapters, notes, and engines remain permanently accessible through their respective Subject and Chapter dashboard pages with all their original tags and badges. This ensures the dashboard on laptops and mobile devices remains uncluttered, elegant, and immediately signals to returning students what has just been updated.
-11. **Browser Testing Protocol & Standard Port 8080 Temporary Server Convention**:
-    - The repository is 100% static (HTML/CSS/JS) and runs offline via `file://` or online on GitHub Pages without requiring any background runtime server.
-    - During automated UI testing via `browser_subagent`, Chromium's native security sandboxing blocks `file://` iframes from reading local PDFs and blocks cross-origin requests to `data.json`.
-    - **Standard Test Port**: Agents MUST always standardize on **port 8080** for temporary browser testing (`python -m http.server 8080` with `BypassSandbox: true` and `IsDaemon: true`).
-    - **Mandatory Server Teardown**: Immediately upon completion of `browser_subagent` verification, the agent MUST explicitly terminate the server task (`manage_task kill <TaskId>`) and verify port 8080 is released (`Get-NetTCPConnection -LocalPort 8080`). Never leave test servers lingering or convey to the user that a local server is needed for normal site usage.
+11. **Testing & Validation Protocol (Ultra-Fast Schema Validation vs Conditional Browser Subagent)**:
+    - **For Routine Note Additions (Default Mode - Target Under 45 Seconds)**: DO NOT launch a 15–20 minute `browser_subagent` and DO NOT spin up a background local server for basic file additions. Instead, perform instant zero-overhead validation: verify file existence via `Test-Path`, validate JSON syntax in `data.json` via standard JSON parser (`python -m json.tool`), verify `data.js` sync, update `script.js` quick launch, and push to GitHub Pages.
+    - **When to Use Browser Subagent**: Browser subagents on port 8080 are strictly reserved for major architectural changes, core UI layout overhauls, new interactive examination engines, or when explicitly requested by the user.
+    - **Mandatory Server Teardown (When Port 8080 is used)**: If a temporary server was launched, immediately kill it upon completion (`manage_task kill <TaskId>`) and verify port 8080 is released (`Get-NetTCPConnection -LocalPort 8080`). Never leave test servers lingering or convey to the user that a local server is needed for normal site usage.
 12. **Architecture Continuity vs. Adaptive Evolution Protocol (Anti-Degradation Mandate)**:
     - **Established Standards as Baseline**: All directory structures, subject isolations, dual data synchronization (`data.js` + `data.json`), sidebar cleanliness protocols, and port 8080 testing conventions documented in this guide constitute the golden baseline for regular tasks.
     - **Anti-Degradation Mandate**: Resist the temptation to casually introduce divergent tooling, unvetted frameworks, or random new architectural paradigms from session to session. Arbitrary drift degrades ("poisons") the stability and predictability of the system.
@@ -129,12 +129,26 @@ ILBERIZ TECHZ IIT KANPUR/
     - **Session Token Verification**: Successful authentication writes `ilberiz_auth = 'granted'` to `sessionStorage` (and `localStorage` when 'Remember on this browser' is checked).
     - **Zero-Flicker Pre-Paint Guard**: `index.html` includes a synchronous pre-paint check in `<head>` adding `.is-authenticated` to `document.documentElement` if already verified, eliminating any UI flashing.
     - **In-App Lock Controls**: Students can re-lock the platform at any time via the top bar 'Lock' button or sidebar footer 'Lock Website' button.
-14. **PDF Ingestion, Identification & Slide Inspection Protocol (Mandatory First 4–5 Slides Verification)**:
-    - **Never Trust Filenames Blindly**: When new lecture or class notes PDFs are provided, downloaded, or detected, filenames may be arbitrary, garbled, or non-descriptive (e.g., `ABCD.pdf`, `EFG.pdf`, raw UUIDs like `8c61c314-83ac-4db3-9fce-1efa710b7205.pdf`, or loosely typed strings).
-    - **Inspect the First 4–5 Slides First**: Every authentic educational lecture slide deck (e.g. Physics Wallah / Victory Batch) clearly specifies the Subject, Chapter name, Act/Scene/Poem/Story, Lecture/Note Number (`Lec-XX`), and the "Topics to be covered" agenda right on Slide 1 and Slide 2. Agents must inspect the initial 4–5 slides (e.g., rendering pages via PyMuPDF / `pymupdf` or extracting text) to identify the authentic chapter, subject, and curriculum topic.
-    - **Never Read the Entire PDF Unnecessarily**: It is completely unnecessary and computationally wasteful to extract or parse all 30–50+ pages of a multi-megabyte PDF just to identify it. Examining the first 4–5 slides provides 100% of the required identification and metadata (Subject, Chapter, Act & Scene, Teacher, Lecture number, and Topic Agenda).
-    - **Standardized Renaming & Placement**: Immediately standardize the filename to the project convention (e.g., `Julius_Caesar_06_Class_Notes.pdf`, `Treasure_Chest_Poetry_06_Class_Notes.pdf`, `Waste_Management_01_Class_Notes.pdf`), isolate it into the correct subject directory (`geography/notes/`, `history/notes/`, `english/notes/`), synchronize both `data.js` and `data.json`, and clean up any loose download files from Downloads.
-    - **Update Sidebar Focus (Rule 10)**: Whenever a new chapter or note series is actively updated or focused on, update the single quick-launch button in `script.js` to highlight that specific chapter/subject with its correct name (e.g., **"Julius Caesar Drama"** for English Ch 1), appropriate thematic icon (`theater_comedy`), and the glowing `NEW` badge so returning students immediately see the latest update upon opening the platform.
+14. **High-Speed Note Ingestion, Zero-Package Policy & Interactive Clarification Protocol (Replaces Slide Decoding)**:
+    - **Zero-Package Installation Policy (Saves 7+ Minutes)**: NEVER attempt to install heavy imaging, OCR, or PDF packages (`pip install pillow`, `pypdf`, `pymupdf`) on every task. Use only the existing robust system Python (`C:\Users\ASUS\AppData\Local\Programs\Python\Python313\python.exe`) and lightweight built-ins (`json`, `shutil`, `os`, `pathlib`).
+    - **NO Heavy Slide/Image Extraction (Saves 6+ Minutes)**: DO NOT convert lecture presentation slides into `.jp2` or `.png` images, dump slide graphics, or attempt OCR. This wastes 6–10 minutes and is completely unnecessary.
+    - **The "Speak Very Little" Rule & Automatic Context Matching**:
+      1. The user will typically provide only the file name or a minimal command (e.g. *"Quit India Movement 01 Class Notes"*, *"Julius Caesar 07"*, or just drop a file).
+      2. **First Check Pre-Mapped Syllabus**: Match the title against the authentic ICSE Class 10 chapter syllabi already catalogued in `data.json`. If the Subject, Chapter, and Note number are evident, proceed immediately without asking trivial questions.
+      3. **Ask via Interactive Questions if Ambiguous**: If the chapter, part number, or title is ambiguous or missing, DO NOT guess or decode slides. Use the `ask_question` tool immediately to present clear options:
+         - *"Which chapter does this belong to?"*
+         - *"Is this Part 1, Part 2, or a combined revision note?"*
+         - *"What title/subtitle should be displayed?"*
+    - **Standardized Renaming & Directory Placement**:
+      - Standardize file to authentic project convention (e.g., `Quit_India_Movement_01_Class_Notes.pdf`, `Julius_Caesar_07_Class_Notes.pdf`).
+      - Isolate directly into the correct subject directory (`history/notes/`, `geography/notes/`, `english/notes/`).
+      - Clean up the raw download file from `C:\Users\ASUS\Downloads\` immediately (Rule 5).
+    - **Synchronize & Deploy**:
+      - Update `data.json` (source of truth) and synchronize `data.js`.
+      - Update the single sidebar quick-launch in `script.js` with the `NEW` badge (Rule 10).
+      - Bump cache-busting query parameter in `index.html` (e.g. `v=5.2`).
+      - Update `PROJECT_STATE.md` with a concise milestone entry.
+      - Commit and push to `origin/main` (`BypassSandbox: true`).
 
 ---
 
@@ -967,8 +981,9 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Quit India Notes"** (`chap-his-7`) with an amber flag icon (`flag`), bold styling, and glowing `NEW` badge, providing immediate 1-click access to the new chapter notes while keeping all previously published chapters accessible in their respective subject dashboards.
     - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=5.1`.
     - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested complete user flow on temporary port 8080 (passcode unlock, sidebar quick-launch, verifying Chapter 7 and Note 01 card display, opening Note 01 in the PDF reader with all controls, and back navigation), followed by immediate clean server teardown and port release verification.
-
-
-
-
-
+42. **High-Speed Architectural Reform: Zero-Package Policy, Elimination of Slide Decoding, & Interactive Clarification Protocol**:
+    - **Overhauled Rule 11 & Rule 14**: Slashed routine note ingestion time from ~35 minutes down to under 45 seconds.
+    - **Eliminated Mandatory Browser Subagent for Routine Notes**: Banned 15–20 minute automated browser runs for simple file additions; adopted 50ms JSON schema and filesystem existence checks.
+    - **Zero-Package Installation Policy**: Prohibited repeated pip installations (`pillow`, `pypdf`, `pymupdf`) on every note addition, saving 7+ minutes.
+    - **Interactive Clarification Protocol (`ask_question`)**: Replaced heavy slide image extraction with intelligent syllabus matching from `data.json`, with the `ask_question` tool as the fallback for any ambiguous chapter or part numbers, saving 6+ minutes.
+    - **Automatic Reading Enforcement**: Codified that every agent MUST automatically inspect `PROJECT_STATE.md` at the start of any conversation without requiring user reminders.
