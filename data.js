@@ -933,7 +933,16 @@ window.COURSE_DATA = {
                             "id": "chap-his-7",
                             "name": "Ch 7: The Quit India Movement",
                             "description": "Failure of Cripps Mission, Quit India Resolution (Do or Die), Japanese threat and nationwide impact",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "his-quit-india-notes-01",
+                                    "title": "Quit India Movement 01 Class Notes",
+                                    "subtitle": "August Offer (1940), Failure of Cripps Mission ('post-dated cheque'), Japanese Threat & Wardha Resolution (July 1942)",
+                                    "type": "pdf",
+                                    "file": "history/notes/Quit_India_Movement_01_Class_Notes.pdf",
+                                    "size": "2.6 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-his-8",

@@ -491,26 +491,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: The Pedestrian Prose (English Ch 3)
-    const proseNav = document.createElement('div');
-    const isProseActive = state.currentView !== 'search' && state.path[1] === 'sub-10-eng' && state.path[2] === 'chap-eng-3';
-    proseNav.className = `nav-item nav-item-featured ${isProseActive ? 'active' : ''}`;
-    proseNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #38bdf8;">auto_stories</span>
-        <span style="font-weight: 600;">The Pedestrian (Prose)</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #0284c7); color:#fff; box-shadow: 0 0 10px rgba(14, 165, 233, 0.4);">NEW</span>
+    // Latest Update Quick Launch: Quit India Movement (History Ch 7)
+    const quitIndiaNav = document.createElement('div');
+    const isQuitIndiaActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-7';
+    quitIndiaNav.className = `nav-item nav-item-featured ${isQuitIndiaActive ? 'active' : ''}`;
+    quitIndiaNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #f59e0b;">flag</span>
+        <span style="font-weight: 600;">Quit India Notes</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706); color:#fff; box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);">NEW</span>
     `;
-    proseNav.onclick = () => {
+    quitIndiaNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const engSub = batch?.subjects?.find(s => s.id === 'sub-10-eng');
-        const proseChap = engSub?.chapters?.find(c => c.id === 'chap-eng-3');
-        if (proseChap) {
-            navigateTo('items', [batch.id, engSub.id, proseChap.id, 'story-pedestrian']);
+        const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
+        const quitIndiaChap = hisSub?.chapters?.find(c => c.id === 'chap-his-7');
+        if (quitIndiaChap) {
+            navigateTo('items', [batch.id, hisSub.id, quitIndiaChap.id]);
         }
     };
-    navMenu.appendChild(proseNav);
+    navMenu.appendChild(quitIndiaNav);
 }
 
 function resetSearch() {

@@ -70,7 +70,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── The_Muslim_League_01_Class_Notes.pdf (3.1 MB) — Factors promoting separatism & Shimla Deputation
 │       ├── Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf (3.8 MB) — Early life, Champaran, Ahmedabad, Kheda, Rowlatt Act & Jallianwala Bagh
 │       ├── Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf (4.2 MB) — Khilafat, Non-Cooperation programme, boycott, Chauri Chaura & suspension
-│       └── Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf (5.0 MB) — Simon Commission, Lahore Session, Dandi March, Civil Disobedience & Round Table Conferences
+│       ├── Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf (5.0 MB) — Simon Commission, Lahore Session, Dandi March, Civil Disobedience & Round Table Conferences
+│       └── Quit_India_Movement_01_Class_Notes.pdf (2.6 MB) — August Offer (1940), Failure of Cripps Mission ('post-dated cheque'), Japanese Threat & Wardha Resolution (July 1942)
 ├── english/                         # ALL English subject content lives strictly here
 │   └── notes/                       # ICSE Class 10 English Literature PDF notes
 │       ├── Julius_Caesar_01_Class_Notes.pdf (4.4 MB) — Act 3 Scene 1 (Part 1): Warm-up, recap, line-by-line & MCQs
@@ -450,7 +451,7 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
      - Ch 4: Second Phase of the Indian National Movement (Assertive Nationalism) [2 Class Notes PDFs Live]
      - Ch 5: The Muslim League & Lucknow Pact [2 Class Notes PDFs Live]
      - Ch 6: Mahatma Gandhi and the National Movement [3 Class Notes PDFs Live]
-     - Ch 7: The Quit India Movement
+     - Ch 7: The Quit India Movement [1 Class Notes PDF Live]
      - Ch 8: Forward Bloc and the INA
      - Ch 9: Independence & Partition of India
      - Ch 10: The First World War (1914–1918)
@@ -958,6 +959,15 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"The Pedestrian (Prose)"** (`chap-eng-3` / `story-pedestrian`) with an `auto_stories` cyan icon and glowing `NEW` badge, providing immediate 1-click access to the latest Prose lecture note while keeping previous chapters accessible in their respective dashboards.
     - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=5.0`.
     - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested complete user flow on temporary port 8080 (passcode unlock, sidebar quick-launch, verifying Story 4: The Pedestrian card and Note 07 display, opening Note 07 in the PDF reader with all controls, and back navigation), followed by immediate clean server teardown and port release verification.
+
+41. **Addition of History Notes: The Quit India Movement (Chapter 7 / Note 01)**:
+    - **Visual Slide & Content Verification (Rule 14)**: Inspected the 31-page Victory 2026 slide deck (Kunal Sir / Physics Wallah) for `Quit India Movement 01 Class Notes.pdf` (2.6 MB): Slide 1 explicitly identifies "VICTORY 2026 | HISTORY | QUIT INDIA MOVEMENT | Lecture - 01 | By - Kunal Sir | Physics Wallah", Slide 2 details the curriculum agenda: (1) Events Leading to Quit India, (2) Causes of Quit India, (3) Failure of Cripps Mission, (4) Japanese Threat. Slides 5–30 thoroughly cover Outbreak of World War II & international compulsions, August Offer (1940, Lord Linlithgow) and reasons for rejection by Congress and Muslim League, Failure of the Cripps Mission (1942, Sir Stafford Cripps, Dominion status, Constituent Assembly, threat of partition through provincial non-accession, Gandhi's characterization as a "post-dated cheque on a failing bank", rejection by Congress, Muslim League & Hindu Mahasabha), Japanese threat on Indian borders prompting Gandhi to call for immediate British withdrawal ("to leave India in God's hands"), Congress Working Committee meeting at Wardha (July 1942) adopting the historic Quit India Resolution demanding that British rule in India must end immediately, and board-level MCQs.
+    - **Standardized Renaming & Placement (Rule 1 & Rule 14)**: Sanitized and placed file as `history/notes/Quit_India_Movement_01_Class_Notes.pdf` (2.6 MB, 2,763,370 bytes) in `history/notes/`. Cleaned up raw download from Downloads folder immediately (Rule 5).
+    - **Dual Data Synchronization (Rule 7)**: Wired `his-quit-india-notes-01` (`2.6 MB`) under `sub-10-his` -> `chap-his-7` across both `data.js` and `data.json`.
+    - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Quit India Notes"** (`chap-his-7`) with an amber flag icon (`flag`), bold styling, and glowing `NEW` badge, providing immediate 1-click access to the new chapter notes while keeping all previously published chapters accessible in their respective subject dashboards.
+    - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=5.1`.
+    - **Standard Port 8080 Browser Subagent Verification (Rule 11)**: Tested complete user flow on temporary port 8080 (passcode unlock, sidebar quick-launch, verifying Chapter 7 and Note 01 card display, opening Note 01 in the PDF reader with all controls, and back navigation), followed by immediate clean server teardown and port release verification.
+
 
 
 
