@@ -502,26 +502,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Quit India Movement (History Ch 7)
-    const quitIndiaNav = document.createElement('div');
-    const isQuitIndiaActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-7';
-    quitIndiaNav.className = `nav-item nav-item-featured ${isQuitIndiaActive ? 'active' : ''}`;
-    quitIndiaNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #f59e0b;">flag</span>
-        <span style="font-weight: 600;">Quit India Notes</span>
+    // Latest Update Quick Launch: Indian Independence and Partition of India (History Ch 9)
+    const independenceNav = document.createElement('div');
+    const isIndependenceActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-9';
+    independenceNav.className = `nav-item nav-item-featured ${isIndependenceActive ? 'active' : ''}`;
+    independenceNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #f59e0b;">account_balance</span>
+        <span style="font-weight: 600;">Independence & Partition</span>
         <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706); color:#fff; box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);">NEW</span>
     `;
-    quitIndiaNav.onclick = () => {
+    independenceNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
-        const quitIndiaChap = hisSub?.chapters?.find(c => c.id === 'chap-his-7');
-        if (quitIndiaChap) {
-            navigateTo('items', [batch.id, hisSub.id, quitIndiaChap.id]);
+        const independenceChap = hisSub?.chapters?.find(c => c.id === 'chap-his-9');
+        if (independenceChap) {
+            navigateTo('items', [batch.id, hisSub.id, independenceChap.id]);
         }
     };
-    navMenu.appendChild(quitIndiaNav);
+    navMenu.appendChild(independenceNav);
 }
 
 function resetSearch() {
@@ -694,7 +694,7 @@ function renderView() {
                     <span class="stat-label">Prescribed Subjects</span>
                 </div>
                 <div class="hero-stat-card">
-                    <span class="stat-number">19+</span>
+                    <span class="stat-number">45+</span>
                     <span class="stat-label">Full Class Notes</span>
                 </div>
                 <div class="hero-stat-card">
@@ -725,9 +725,9 @@ function renderView() {
                     <span class="material-symbols-outlined">sunny</span>
                     <span class="spotlight-chip-text">Geography • Climate Notes & DPP</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-quit" type="button">
-                    <span class="material-symbols-outlined">flag</span>
-                    <span class="spotlight-chip-text">History • Quit India Movement</span>
+                <button class="spotlight-chip featured-chip" id="spot-his-independence" type="button">
+                    <span class="material-symbols-outlined">account_balance</span>
+                    <span class="spotlight-chip-text">History • Independence & Partition</span>
                     <span class="chip-badge-hot">NEW</span>
                 </button>
                 <button class="spotlight-chip" id="spot-geo-topo" type="button">
@@ -747,9 +747,9 @@ function renderView() {
         if (spotClimate && batch) {
             spotClimate.onclick = () => navigateTo('items', [batch.id, 'sub-10-geo', 'chap-geo-1']);
         }
-        const spotQuit = spotlightSection.querySelector('#spot-his-quit');
-        if (spotQuit && batch) {
-            spotQuit.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-7']);
+        const spotIndependence = spotlightSection.querySelector('#spot-his-independence');
+        if (spotIndependence && batch) {
+            spotIndependence.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-9']);
         }
         const spotTopo = spotlightSection.querySelector('#spot-geo-topo');
         if (spotTopo && batch) {

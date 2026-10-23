@@ -952,9 +952,18 @@
                         },
                         {
                             "id": "chap-his-9",
-                            "name": "Ch 9: Independence & Partition of India",
+                            "name": "Ch 9: Indian Independence and Partition of India",
                             "description": "Cabinet Mission Plan, Direct Action Day, Mountbatten Plan, Indian Independence Act 1947 provisions",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "his-independence-notes-01",
+                                    "title": "Independence & Partition of India 01 Class Notes",
+                                    "subtitle": "Events Leading to Cabinet Mission, RIN Mutiny, Rejection of Pakistan & Clauses of Cabinet Mission Plan",
+                                    "type": "pdf",
+                                    "file": "history/notes/Independence_And_Partition_Of_India_01_Class_Notes.pdf",
+                                    "size": "3.7 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-his-10",

@@ -1,4 +1,4 @@
-# PROJECT STATE & AGENT SYSTEM GUIDE
+﻿# PROJECT STATE & AGENT SYSTEM GUIDE
 
 > 🚨 **MANDATORY AUTONOMOUS RULES FOR ALL AI AGENTS**:
 > 1. **Written for Agents, by Agents**: The user does not manage or read this document — **it exists exclusively for you (and future agents)** to preserve 100% technical continuity, remember every critical nuance, and avoid any regressions across chats.
@@ -72,7 +72,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf (3.8 MB) — Early life, Champaran, Ahmedabad, Kheda, Rowlatt Act & Jallianwala Bagh
 │       ├── Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf (4.2 MB) — Khilafat, Non-Cooperation programme, boycott, Chauri Chaura & suspension
 │       ├── Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf (5.0 MB) — Simon Commission, Lahore Session, Dandi March, Civil Disobedience & Round Table Conferences
-│       └── Quit_India_Movement_01_Class_Notes.pdf (2.6 MB) — August Offer (1940), Failure of Cripps Mission ('post-dated cheque'), Japanese Threat & Wardha Resolution (July 1942)
+│       ├── Quit_India_Movement_01_Class_Notes.pdf (2.6 MB) — August Offer (1940), Failure of Cripps Mission ('post-dated cheque'), Japanese Threat & Wardha Resolution (July 1942)
+│       └── Independence_And_Partition_Of_India_01_Class_Notes.pdf (3.7 MB) — Events leading to Cabinet Mission, RIN Mutiny, Rejection of Pakistan & Clauses of Cabinet Mission Plan (1946)
 ├── english/                         # ALL English subject content lives strictly here
 │   └── notes/                       # ICSE Class 10 English Literature PDF notes
 │       ├── Julius_Caesar_01_Class_Notes.pdf (4.4 MB) — Act 3 Scene 1 (Part 1): Warm-up, recap, line-by-line & MCQs
@@ -364,6 +365,10 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf` (3.8 MB) — Mahatma Gandhi's early life, legal career in South Africa (1893–1914), Pietermaritzburg/train racial discrimination, Natal Indian Congress, Satyagraha principles (truth and non-violence), return to India (9 Jan 1915), Champaran Satyagraha (1917, abolition of Tinkathia system), Ahmedabad Mill Strike (1918, 35% wage hike, first hunger strike), Kheda Satyagraha (1918, remission of land revenue), Rowlatt Act (1919, 'No Vakeel, No Appeal, No Daleel', in-camera trials, suspension of Habeas Corpus), Rowlatt Satyagraha (6 April 1919), arrest of Dr. Saifuddin Kitchlew & Dr. Satyapal, Jallianwala Bagh Massacre (13 April 1919, General Dyer, martial law, Tagore's Knighthood renunciation, Hunter Committee), and introduction to Khilafat Movement (Ali Brothers).
   - `Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf` (4.2 MB) — Khilafat Movement (causes, Ali Brothers, Hindu-Muslim unity), Non-Cooperation Movement (programme, boycott of titles, schools, courts, foreign cloth, picketing of liquor shops, Swadeshi & Khadi), nationwide impact (peasants in Kheda, Assam plantation workers, Moplah rebellion, Prince of Wales 1921 boycott), Chauri Chaura incident (4 Feb 1922), suspension of NCM (12 Feb 1922 Bardoli resolution), Gandhiji's arrest (sedition charge, 6-year sentence), criticisms by Motilal Nehru, Lala Lajpat Rai & Subhash Chandra Bose, and historical significance.
   - `Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf` (5.0 MB) — Simon Commission (1927, all-white commission, 'Simon Go Back' protests, Lala Lajpat Rai martyrdom), Lahore Session of INC (1929, Jawaharlal Nehru president, Purna Swaraj resolution, tricolor on Ravi banks, 26 Jan 1930 Independence Day), Civil Disobedience Movement (causes, Salt Tax monopoly, Dandi March 12 Mar – 6 Apr 1930), nationwide spread (Khan Abdul Ghaffar Khan / Khudai Khidmatgar / Red Shirts in NWFP, Rani Gaidinliu in Nagaland), First Round Table Conference boycott, Gandhi-Irwin Pact (March 1931), Second Round Table Conference (London 1931, deadlock on communal electorates, resumption of CDM), and comprehensive comparison between NCM & CDM.
+- **Chapter 7: The Quit India Movement (1 Note)**:
+  - `Quit_India_Movement_01_Class_Notes.pdf` (2.6 MB) — August Offer (1940), Failure of Cripps Mission ('post-dated cheque'), Japanese Threat & Wardha Resolution (July 1942).
+- **Chapter 9: Indian Independence and Partition of India (1 Note)**:
+  - `Independence_And_Partition_Of_India_01_Class_Notes.pdf` (3.7 MB, 33 slides, Kunal Sir / Physics Wallah) — Events leading to Cabinet Mission (post-WWII British policy shift, Clement Attlee, Royal Indian Naval revolt / RIN Mutiny at Mumbai in Feb 1946), Cabinet Mission arrival (March 1946: Lord Pethick-Lawrence, Sir Stafford Cripps, A.V. Alexander), rejection of the demand for Pakistan with detailed rationale, and complete Clauses of the Cabinet Mission Plan (Federal Union of India, Provincial Autonomy, Grouping of Provinces into Sections A, B & C, Constituent Assembly of 389 members, representation of minorities, 14-member Interim Government at Centre, and freedom to remain within or secede from the Commonwealth).
 
 ### K. English Literature Notes (14 PDFs in `english/notes/` across Julius Caesar, Treasure Chest Poetry & Short Stories)
 - **Chapter 1: Drama — Julius Caesar (William Shakespeare) (7 Notes)**:
@@ -467,7 +472,7 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
      - Ch 6: Mahatma Gandhi and the National Movement [3 Class Notes PDFs Live]
      - Ch 7: The Quit India Movement [1 Class Notes PDF Live]
      - Ch 8: Forward Bloc and the INA
-     - Ch 9: Independence & Partition of India
+     - Ch 9: Indian Independence and Partition of India [1 Class Notes PDF Live]
      - Ch 10: The First World War (1914–1918)
      - Ch 11: Rise of Dictatorships (Fascism & Nazism)
      - Ch 12: The Second World War (1939–1945)
@@ -1016,4 +1021,19 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Integrated Google Fonts pair (`Outfit` display + `Plus Jakarta Sans` body & micro-copy).
       - Replaced raw CSS blobs with lightweight, GPU-accelerated atmospheric radial glows and a subtle dot-grid overlay.
     - **Verification**: Verified via multiple browser subagent runs across all user journeys (authentication gate, executive overview, subjects grid, chapters view, notes list, search results, and PDF reader).
+
+44. **Addition of History Notes: Indian Independence and Partition of India (Chapter 9 / Note 01)**:
+    - **Visual Slide & Content Verification (Rule 14)**: Inspected the 33-page Victory 2026 slide deck (Kunal Sir / Physics Wallah) for `Independence & Partition of India 01 Class Notes.pdf` (3.7 MB, 3,919,334 bytes): Slide 1 explicitly identifies "VICTORY 2026 | HISTORY | Independence & Partition of India | Lecture 01 | By - Kunal Sir | Physics Wallah", Slide 2 details the curriculum agenda: (1) Cabinet Mission Plan, Events that Led to the Cabinet Mission, and Slide 3 displays the official ICSE Syllabus alignment: "(c) Independence and Partition of India - Cabinet Mission Plan (clauses only); Mountbatten Plan (clauses and its acceptance); and the Indian Independence Act of 1947 (clauses only)." Slides 5–32 thoroughly cover:
+      - Context & events leading to the Cabinet Mission: End of World War II, international pressure, British economic strain, Labour Party government under Prime Minister Clement Attlee, change in British attitude towards Indian self-determination.
+      - The Royal Indian Naval revolt (RIN Mutiny, February 1946 in Mumbai) by Indian Naval ratings fighting a seven-hour battle, spreading nationwide sympathy strikes and demonstrating that the British armed forces could no longer be relied upon to suppress the Indian freedom struggle.
+      - Arrival of the Cabinet Mission in March 1946 comprising three British Cabinet Ministers: Lord Pethick-Lawrence (Secretary of State for India), Sir Stafford Cripps (President of the Board of Trade), and A.V. Alexander (First Lord of the Admiralty).
+      - Rejection of the Muslim League's demand for a separate sovereign Pakistan with full official rationales: failure to solve the minority issue due to sizeable non-Muslim populations in the proposed Pakistan areas and sizeable Muslim minorities remaining in British India, deep administrative, economic, postal, and communication disruption, and splitting the armed forces.
+      - Core Clauses of the Cabinet Mission Plan: (1) Federal Union of India including British Provinces and Princely States dealing with Foreign Affairs, Defence, and Communications; (2) Full Provincial Autonomy and residuary powers for provinces; (3) Three-tier grouping of British Provinces (Section A: Hindu-majority provinces, Section B: Muslim-majority North-West provinces, Section C: Bengal & Assam); (4) Constituent Assembly comprising 389 members (292 elected from provinces, 93 from princely states, 4 chief commissioners); (5) Separate representation of minorities (Muslims and Sikhs); (6) 14-member Interim Government at Centre representing major communities; and (7) Freedom for independent India to remain within or secede from the Commonwealth.
+    - **Standardized Renaming & Placement (Rule 1 & Rule 14)**: Sanitized and placed file as `history/notes/Independence_And_Partition_Of_India_01_Class_Notes.pdf` (3.7 MB, 3,919,334 bytes) with a companion hardlink `history/notes/Indian_Independence_And_Partition_Of_India_01_Class_Notes.pdf` in `history/notes/`. Cleaned up raw download from Downloads folder immediately (Rule 5).
+    - **Dual Data Synchronization (Rule 7)**: Wired `his-independence-notes-01` (`3.7 MB`) under `sub-10-his` -> `chap-his-9` (`Ch 9: Indian Independence and Partition of India`) across both `data.js` and `data.json`.
+    - **Sidebar Navigation Protocol (Rule 10)**: Updated quick-launch navigation in `script.js` to highlight **"Independence & Partition"** (`chap-his-9`) with an amber `account_balance` icon, bold styling, and glowing `NEW` badge, providing immediate 1-click access to the new chapter notes while keeping all previously published chapters accessible in their respective subject dashboards.
+    - **Overview Fast Track & Search Integration**: Updated the Overview High-Yield Fast Track spotlight chip to link directly to Chapter 9 (`#spot-his-independence`), and bumped the notes count badge to `45+ Full Class Notes`. Search engine automatically indexes all Cabinet Mission, RIN Mutiny, and Partition terms.
+    - **Cache Invalidation**: Bumped cache-busting version queries in `index.html` to `v=6.1`.
+    - **Schema & Filesystem Verification (Rule 11)**: Verified 100% JSON schema validity via native parser and confirmed file existence and byte integrity via PowerShell.
+
 
