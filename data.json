@@ -950,7 +950,7 @@
                         {
                             "id": "chap-his-7",
                             "name": "Ch 7: The Quit India Movement",
-                            "description": "7 Theory Clusters (48+ PYQ Twists), Official Council Pointers, Dual Instant/DPP Modes & Full Class Notes",
+                            "description": "7 Theory Clusters (48+ PYQ Twists), Official Council Pointers, Dual Instant/DPP Modes & 2 Full Class Notes",
                             "featured": true,
                             "items": [
                                 {
@@ -968,6 +968,14 @@
                                     "type": "pdf",
                                     "file": "history/notes/Quit_India_Movement_01_Class_Notes.pdf",
                                     "size": "2.6 MB"
+                                },
+                                {
+                                    "id": "his-quit-india-notes-02",
+                                    "title": "Quit India Movement 02 Class Notes",
+                                    "subtitle": "Bombay Session (8 August 1942), 'Do or Die' Call, Repressive British Measures, Mass Arrests & Historical Significance of the Movement",
+                                    "type": "pdf",
+                                    "file": "history/notes/Quit_India_Movement_02_Class_Notes.pdf",
+                                    "size": "1.5 MB"
                                 }
                             ]
                         },
@@ -980,7 +988,7 @@
                         {
                             "id": "chap-his-9",
                             "name": "Ch 9: Indian Independence and Partition of India",
-                            "description": "12 Theory Clusters (68+ PYQ Twists), Cabinet Mission to 1947 Act, Dual Instant/DPP Modes & Full Class Notes",
+                            "description": "12 Theory Clusters (68+ PYQ Twists), Cabinet Mission to 1947 Act, Dual Instant/DPP Modes & 2 Full Class Notes",
                             "featured": true,
                             "items": [
                                 {
@@ -998,13 +1006,21 @@
                                     "type": "pdf",
                                     "file": "history/notes/Independence_And_Partition_Of_India_01_Class_Notes.pdf",
                                     "size": "3.7 MB"
+                                },
+                                {
+                                    "id": "his-independence-notes-02",
+                                    "title": "Independence & Partition of India 02 Class Notes",
+                                    "subtitle": "Lord Mountbatten Plan (3 June 1947), Reasons Congress Accepted Partition & Indian Independence Act 1947 Provisions",
+                                    "type": "pdf",
+                                    "file": "history/notes/Independence_And_Partition_Of_India_02_Class_Notes.pdf",
+                                    "size": "4.8 MB"
                                 }
                             ]
                         },
                         {
                             "id": "chap-his-10",
                             "name": "Ch 10: The First World War (1914–1918)",
-                            "description": "8 Theory Clusters (54+ PYQ Twists), Official Council Pointers, Dual Instant/DPP Modes & Full PYQ Vault",
+                            "description": "8 Theory Clusters (54+ PYQ Twists), Official Council Pointers, Dual Instant/DPP Modes & 2 Full Class Notes",
                             "featured": true,
                             "items": [
                                 {
@@ -1014,20 +1030,72 @@
                                     "type": "interactive",
                                     "file": "history/first-world-war/index.html",
                                     "badge": "PYQ Vault • 8 Clusters • 54+ Twists"
+                                },
+                                {
+                                    "id": "his-ww1-notes-01",
+                                    "title": "The First World War 01 Class Notes",
+                                    "subtitle": "Causes of First World War: Nationalism, Imperialism, Race for Armaments, Division of Europe into Hostile Blocs & Sarajevo Crisis",
+                                    "type": "pdf",
+                                    "file": "history/notes/The_First_World_War_01_Class_Notes.pdf",
+                                    "size": "3.1 MB"
+                                },
+                                {
+                                    "id": "his-ww1-notes-02",
+                                    "title": "The First World War 02 Class Notes",
+                                    "subtitle": "Results of World War I, Treaty of Versailles Clauses, Territorial Rearrangements & Formation of League of Nations",
+                                    "type": "pdf",
+                                    "file": "history/notes/The_First_World_War_02_Class_Notes.pdf",
+                                    "size": "2.6 MB"
                                 }
                             ]
                         },
                         {
                             "id": "chap-his-11",
                             "name": "Ch 11: Rise of Dictatorships (Fascism & Nazism)",
-                            "description": "Causes for rise of Fascism in Italy (Mussolini) and Nazism in Germany (Hitler), similarities between Fascism and Nazism",
-                            "items": []
+                            "description": "Rise of Fascism in Italy (Mussolini), Nazism in Germany (Hitler), Causes, Ideologies & 2 Full Class Notes",
+                            "featured": true,
+                            "items": [
+                                {
+                                    "id": "his-dictatorships-notes-01",
+                                    "title": "Rise of Dictatorships 01 Class Notes",
+                                    "subtitle": "Fascism in Italy: Causes for Rise, Economic Instability, Fear of Communism, Aims and Principles of Fascism & Benito Mussolini",
+                                    "type": "pdf",
+                                    "file": "history/notes/Rise_of_Dictatorship_01_Class_Notes.pdf",
+                                    "size": "3.4 MB"
+                                },
+                                {
+                                    "id": "his-dictatorships-notes-02",
+                                    "title": "Rise of Dictatorships 02 Class Notes",
+                                    "subtitle": "Nazism in Germany: Rise of Adolf Hitler, Weimar Republic Crises, Nazi Propaganda & Comparison between Fascism and Nazism",
+                                    "type": "pdf",
+                                    "file": "history/notes/Rise_of_Dictatorship_02_Class_Notes.pdf",
+                                    "size": "4.7 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-his-12",
                             "name": "Ch 12: The Second World War (1939–1945)",
-                            "description": "Causes: Treaty of Versailles, rise of dictators, failure of League of Nations, invasion of Poland; Consequences: UN formation, Cold War",
-                            "items": []
+                            "description": "Causes (Versailles, Appeasement, Invasion of Poland), Pearl Harbour, Hiroshima, Consequences & 2 Full Class Notes",
+                            "featured": true,
+                            "items": [
+                                {
+                                    "id": "his-ww2-notes-01",
+                                    "title": "The Second World War 01 Class Notes",
+                                    "subtitle": "Causes: Dissatisfaction with Treaty of Versailles, Rise of Fascism & Nazism, Policy of Appeasement, Failure of League of Nations & Invasion of Poland",
+                                    "type": "pdf",
+                                    "file": "history/notes/The_Second_World_War_01_Class_Notes.pdf",
+                                    "size": "5.9 MB"
+                                },
+                                {
+                                    "id": "his-ww2-notes-02",
+                                    "title": "The Second World War 02 Class Notes",
+                                    "subtitle": "Consequences of World War II: Defeat of Axis Powers, Attack on Pearl Harbour, Bombing of Hiroshima & Nagasaki, Formation of UN & Cold War",
+                                    "type": "pdf",
+                                    "file": "history/notes/The_Second_World_War_02_Class_Notes.pdf",
+                                    "size": "3.8 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-his-13",

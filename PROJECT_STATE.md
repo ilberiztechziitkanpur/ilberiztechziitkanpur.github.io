@@ -70,7 +70,7 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # 8 Canonical Clusters, 54+ PYQ Twists, Sarajevo, Versailles & League of Nations
 │   ├── 1857-ww1/                    # Dual-Chapter Master Vault (1857 Revolt + First World War)
 │   │   └── index.html               # 18 Canonical Clusters, 116+ Board Variations, 1-Click Chapter Switcher
-│   └── notes/                       # ICSE Class 10 History PDF notes
+│   └── notes/                       # ICSE Class 10 History PDF notes (22 files across Chapters 1 to 12)
 │       ├── The_First_War_Of_Independence_01_Class_Notes.pdf (5.8 MB) — Causes & factors
 │       ├── The_First_War_Of_Independence_02_Class_Notes.pdf (4.0 MB) — Events & consequences
 │       ├── The_First_War_Of_Independence_03_Class_Notes.pdf (4.2 MB) — Consequences & revision
@@ -85,7 +85,15 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf (4.2 MB) — Khilafat, Non-Cooperation programme, boycott, Chauri Chaura & suspension
 │       ├── Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf (5.0 MB) — Simon Commission, Lahore Session, Dandi March, Civil Disobedience & Round Table Conferences
 │       ├── Quit_India_Movement_01_Class_Notes.pdf (2.6 MB) — August Offer (1940), Failure of Cripps Mission ('post-dated cheque'), Japanese Threat & Wardha Resolution (July 1942)
-│       └── Independence_And_Partition_Of_India_01_Class_Notes.pdf (3.7 MB) — Events leading to Cabinet Mission, RIN Mutiny, Rejection of Pakistan & Clauses of Cabinet Mission Plan (1946)
+│       ├── Quit_India_Movement_02_Class_Notes.pdf (1.5 MB) — Bombay Session (8 Aug 1942), 'Do or Die', British Repression & Significance
+│       ├── Independence_And_Partition_Of_India_01_Class_Notes.pdf (3.7 MB) — Events leading to Cabinet Mission, RIN Mutiny, Rejection of Pakistan & Clauses of Cabinet Mission Plan (1946)
+│       ├── Independence_And_Partition_Of_India_02_Class_Notes.pdf (4.8 MB) — Mountbatten Plan (3 June 1947), Congress Partition acceptance & Indian Independence Act 1947
+│       ├── The_First_World_War_01_Class_Notes.pdf (3.1 MB) — Causes: Nationalism, Imperialism, Armament Race, Hostile Alliances & Sarajevo Crisis
+│       ├── The_First_World_War_02_Class_Notes.pdf (2.6 MB) — Results: Treaty of Versailles, Territorial Rearrangements & League of Nations
+│       ├── Rise_of_Dictatorship_01_Class_Notes.pdf (3.4 MB) — Fascism in Italy: Mussolini, post-war discontentment, economic crisis & principles
+│       ├── Rise_of_Dictatorship_02_Class_Notes.pdf (4.7 MB) — Nazism in Germany: Hitler, Weimar Republic failure, propaganda & Fascism/Nazism comparison
+│       ├── The_Second_World_War_01_Class_Notes.pdf (5.9 MB) — Causes: Versailles dissatisfaction, Appeasement, League failure & Invasion of Poland
+│       └── The_Second_World_War_02_Class_Notes.pdf (3.8 MB) — Consequences: Axis defeat, Pearl Harbour, Hiroshima/Nagasaki, UN & Cold War
 ├── english/                         # ALL English subject content lives strictly here
 │   └── notes/                       # ICSE Class 10 English Literature PDF notes
 │       ├── Julius_Caesar_01_Class_Notes.pdf (4.4 MB) — Act 3 Scene 1 (Part 1): Warm-up, recap, line-by-line & MCQs
@@ -377,10 +385,21 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Mahatma_Gandhi_And_The_National_Movement_01_Class_Notes.pdf` (3.8 MB) — Mahatma Gandhi's early life, legal career in South Africa (1893–1914), Pietermaritzburg/train racial discrimination, Natal Indian Congress, Satyagraha principles (truth and non-violence), return to India (9 Jan 1915), Champaran Satyagraha (1917, abolition of Tinkathia system), Ahmedabad Mill Strike (1918, 35% wage hike, first hunger strike), Kheda Satyagraha (1918, remission of land revenue), Rowlatt Act (1919, 'No Vakeel, No Appeal, No Daleel', in-camera trials, suspension of Habeas Corpus), Rowlatt Satyagraha (6 April 1919), arrest of Dr. Saifuddin Kitchlew & Dr. Satyapal, Jallianwala Bagh Massacre (13 April 1919, General Dyer, martial law, Tagore's Knighthood renunciation, Hunter Committee), and introduction to Khilafat Movement (Ali Brothers).
   - `Mahatma_Gandhi_And_The_National_Movement_02_Class_Notes.pdf` (4.2 MB) — Khilafat Movement (causes, Ali Brothers, Hindu-Muslim unity), Non-Cooperation Movement (programme, boycott of titles, schools, courts, foreign cloth, picketing of liquor shops, Swadeshi & Khadi), nationwide impact (peasants in Kheda, Assam plantation workers, Moplah rebellion, Prince of Wales 1921 boycott), Chauri Chaura incident (4 Feb 1922), suspension of NCM (12 Feb 1922 Bardoli resolution), Gandhiji's arrest (sedition charge, 6-year sentence), criticisms by Motilal Nehru, Lala Lajpat Rai & Subhash Chandra Bose, and historical significance.
   - `Mahatma_Gandhi_And_The_National_Movement_03_Class_Notes.pdf` (5.0 MB) — Simon Commission (1927, all-white commission, 'Simon Go Back' protests, Lala Lajpat Rai martyrdom), Lahore Session of INC (1929, Jawaharlal Nehru president, Purna Swaraj resolution, tricolor on Ravi banks, 26 Jan 1930 Independence Day), Civil Disobedience Movement (causes, Salt Tax monopoly, Dandi March 12 Mar – 6 Apr 1930), nationwide spread (Khan Abdul Ghaffar Khan / Khudai Khidmatgar / Red Shirts in NWFP, Rani Gaidinliu in Nagaland), First Round Table Conference boycott, Gandhi-Irwin Pact (March 1931), Second Round Table Conference (London 1931, deadlock on communal electorates, resumption of CDM), and comprehensive comparison between NCM & CDM.
-- **Chapter 7: The Quit India Movement (1 Note)**:
+- **Chapter 7: The Quit India Movement (2 Notes)**:
   - `Quit_India_Movement_01_Class_Notes.pdf` (2.6 MB) — August Offer (1940), Failure of Cripps Mission ('post-dated cheque'), Japanese Threat & Wardha Resolution (July 1942).
-- **Chapter 9: Indian Independence and Partition of India (1 Note)**:
+  - `Quit_India_Movement_02_Class_Notes.pdf` (1.5 MB, 15 slides, Kunal Sir / Physics Wallah) — All-India Congress Committee Bombay Session (8 August 1942), Mahatma Gandhi's historic "Do or Die" call, British Government's repressive measures (mass arrests, lathi charges, police firing, banning of Congress organisations), underground movement (Congress Socialist Party, Aruna Asaf Ali, Jayaprakash Narayan), and nationwide significance (demonstrated depth of nationalism, made independence the only possible agenda).
+- **Chapter 9: Indian Independence and Partition of India (2 Notes)**:
   - `Independence_And_Partition_Of_India_01_Class_Notes.pdf` (3.7 MB, 33 slides, Kunal Sir / Physics Wallah) — Events leading to Cabinet Mission (post-WWII British policy shift, Clement Attlee, Royal Indian Naval revolt / RIN Mutiny at Mumbai in Feb 1946), Cabinet Mission arrival (March 1946: Lord Pethick-Lawrence, Sir Stafford Cripps, A.V. Alexander), rejection of the demand for Pakistan with detailed rationale, and complete Clauses of the Cabinet Mission Plan (Federal Union of India, Provincial Autonomy, Grouping of Provinces into Sections A, B & C, Constituent Assembly of 389 members, representation of minorities, 14-member Interim Government at Centre, and freedom to remain within or secede from the Commonwealth).
+  - `Independence_And_Partition_Of_India_02_Class_Notes.pdf` (4.8 MB, 44 slides, Kunal Sir / Physics Wallah) — Lord Mountbatten's appointment as Viceroy (March 1947), Mountbatten Plan of 3 June 1947 (Partition of India and Bengal/Punjab, Sindh legislative assembly decision, North-West Frontier Province & Sylhet referendums, Princely States options, Boundary Commission under Cyril Radcliffe, transfer of power date advancement to 15 August 1947), reasons why the Congress accepted partition (communal riots, obstructionist Muslim League in interim government, need for strong centralised union, fear of civil war), and complete provisions of the Indian Independence Act 1947.
+- **Chapter 10: The First World War (1914–1918) (2 Notes)**:
+  - `The_First_World_War_01_Class_Notes.pdf` (3.1 MB, 40 slides, Kunal Sir / Victory 2027) — Causes of the First World War: Nationalism and Imperialism (aggressive nationalism, France-Germany rivalry over Alsace-Lorraine), Race for Armaments (Anglo-German naval rivalry, militarisation), Division of Europe into Hostile Alliances (Triple Alliance 1882: Germany, Austria-Hungary, Italy vs Triple Entente 1907: Britain, France, Russia), and the Immediate Cause (Sarajevo Crisis: Assassination of Archduke Franz Ferdinand and Sophie on 28 June 1914 by Gavrilo Princip / Black Hand / Union or Death).
+  - `The_First_World_War_02_Class_Notes.pdf` (2.6 MB, 35 slides, Kunal Sir / Victory 2027) — Results of World War I: Treaty of Versailles (Hall of Mirrors 28 June 1919: signatories, War Guilt Clause 231, reparations of £6,600 million, territorial rearrangements: loss of Alsace-Lorraine to France, Eupen-Malmedy to Belgium, Polish Corridor, demilitarisation of Rhineland, restriction of German military to 100,000 soldiers, prohibition of air force and submarines), territorial rearrangements across Europe, and the formation, aims and objectives of the League of Nations.
+- **Chapter 11: Rise of Dictatorships (Fascism & Nazism) (2 Notes)**:
+  - `Rise_of_Dictatorship_01_Class_Notes.pdf` (3.4 MB, 32 slides, Kunal Sir / Victory 2027) — Fascism in Italy: Definition, factors leading to the rise of Fascism (discontentment with Treaty of Versailles / 'mutilated victory', post-war economic crisis, severe unemployment, political instability and weak democratic governments under King Victor Emmanuel III, fear of communism / socialism, failure of the League of Nations, and the dynamic personality of Benito Mussolini), aims and principles of Fascism, Blackshirts (*Fascios*), and march on Rome (October 1922).
+  - `Rise_of_Dictatorship_02_Class_Notes.pdf` (4.7 MB, 43 slides, Kunal Sir / Victory 2027) — Nazism in Germany: Factors leading to the rise of Nazism (humiliating terms of the Treaty of Versailles, economic crisis and Great Depression of 1929, hyperinflation, failure of the Weimar Republic, anti-communist fear among industrialists, anti-Semitic propaganda, charisma and oratory of Adolf Hitler), Nazi party aims and ideology (*Mein Kampf*, Swastika, Brownshirts/SA, SS), totalitarian rule, and comprehensive comparison of similarities and differences between Fascism and Nazism.
+- **Chapter 12: The Second World War (1939–1945) (2 Notes)**:
+  - `The_Second_World_War_01_Class_Notes.pdf` (5.9 MB, 30 slides, Kunal Sir / Victory 2027) — Causes of the Second World War: Dissatisfaction with the Treaty of Versailles, Rise of Fascism in Italy & Nazism in Germany, Policy of Appeasement (Munich Pact 1938), Japanese invasion of China / Manchuria, Failure of the League of Nations, and the Immediate Cause (Hitler's invasion of Poland on 1 September 1939 on the pretext of the Danzig Corridor).
+  - `The_Second_World_War_02_Class_Notes.pdf` (3.8 MB, 32 slides, Kunal Sir / Victory 2027) — Key milestones & Consequences of World War II: Japanese attack on Pearl Harbour (7 December 1941) bringing USA into the war, atomic bombings of Hiroshima (Little Boy, 6 August 1945) and Nagasaki (Fat Man, 9 August 1945), Defeat of Axis Powers, end of European colonialism, division of the world into two power blocs (USA vs USSR / Cold War), and the formation of the United Nations (UN).
 
 ### M. Chapter 6: Mahatma Gandhi & The National Movement Master DNA PYQ Vault (`history/gandhi/index.html`)
 - **15 Canonical High-Yield Clusters** targeting 12–14 marks in History Section B (100% official CISCE marking scheme).
@@ -1176,5 +1195,28 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Bumped cache-busting queries in `index.html` to `v=6.4`.
       - Validated 100% JSON schema integrity of `data.json` via native PowerShell parser and verified all file paths via `Test-Path`.
+
+48. **Addition & Full Integration of 8 ICSE Class 10 History PDF Notes (Chapters 7, 9, 10, 11 & 12)**:
+    - **Source Material Processing & Verification (Rule 1 & Rule 2)**:
+      - Ingested 8 lecture slide notes from Downloads into `history/notes/`:
+        - `The_First_World_War_01_Class_Notes.pdf` (3.1 MB, 40 slides, Kunal Sir / Victory 2027) -> `chap-his-10`
+        - `The_First_World_War_02_Class_Notes.pdf` (2.6 MB, 35 slides, Kunal Sir / Victory 2027) -> `chap-his-10`
+        - `The_Second_World_War_01_Class_Notes.pdf` (5.9 MB, 30 slides, Kunal Sir / Victory 2027) -> `chap-his-12`
+        - `The_Second_World_War_02_Class_Notes.pdf` (3.8 MB, 32 slides, Kunal Sir / Victory 2027, renamed from `1579e664-9bb4-4d21-97fd-d16a06d2c122.pdf`) -> `chap-his-12`
+        - `Rise_of_Dictatorship_01_Class_Notes.pdf` (3.4 MB, 32 slides, Kunal Sir / Victory 2027) -> `chap-his-11`
+        - `Rise_of_Dictatorship_02_Class_Notes.pdf` (4.7 MB, 43 slides, Kunal Sir / Victory 2027) -> `chap-his-11`
+        - `Independence_And_Partition_Of_India_02_Class_Notes.pdf` (4.8 MB, 44 slides, Kunal Sir / Victory 2027) -> `chap-his-9`
+        - `Quit_India_Movement_02_Class_Notes.pdf` (1.5 MB, 15 slides, Kunal Sir / Victory 2027) -> `chap-his-7`
+      - Cleaned up raw downloads immediately from Downloads directory (Rule 5 & Rule 14).
+    - **Curriculum Architecture & Dual Data Synchronization (Rule 7)**:
+      - Synchronized `data.json` and `data.js` identically with refined titles, subtitles, file paths, and accurate sizes.
+      - Enabled `featured: true` and comprehensive descriptions for Chapter 11 (Rise of Dictatorships) and Chapter 12 (The Second World War).
+      - Verified 100% schema match and validated all referenced file paths.
+    - **Sidebar Navigation & Fast Track Spotlight (Rule 10)**:
+      - Updated sidebar quick-launch in `script.js` to **"World Wars & Dictators"** with a purple globe icon (`public`) and glowing `NEW` badge.
+      - Updated Batch Overview High-Yield Fast Track spotlight chips to feature **First World War**, **Second World War Notes**, **Rise of Dictatorships**, **Quit India Movement**, **Independence & Partition**, and **1857 Revolt Vault**.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped version queries in `index.html` to `v=6.5` for `style.css`, `data.js`, and `script.js`.
+
 
 

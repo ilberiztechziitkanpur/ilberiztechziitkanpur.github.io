@@ -502,21 +502,21 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: 1857 & First World War Master Vault (History Ch 1 & Ch 10)
+    // Latest Update Quick Launch: World Wars & Dictatorships (History Ch 10, 11 & 12)
     const warNav = document.createElement('div');
-    const isWarActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && (state.path[2] === 'chap-his-1' || state.path[2] === 'chap-his-10');
+    const isWarActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && (state.path[2] === 'chap-his-10' || state.path[2] === 'chap-his-11' || state.path[2] === 'chap-his-12');
     warNav.className = `nav-item nav-item-featured ${isWarActive ? 'active' : ''}`;
     warNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #38bdf8;">swords</span>
-        <span style="font-weight: 600;">1857 Revolt & WW1 Vault</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #6366f1); color:#fff; box-shadow: 0 0 10px rgba(14, 165, 233, 0.4);">NEW</span>
+        <span class="material-symbols-outlined icon" style="color: #a855f7;">public</span>
+        <span style="font-weight: 600;">World Wars & Dictators</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #a855f7, #6366f1); color:#fff; box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);">NEW</span>
     `;
     warNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
-        const warChap = hisSub?.chapters?.find(c => c.id === 'chap-his-1');
+        const warChap = hisSub?.chapters?.find(c => c.id === 'chap-his-10');
         if (warChap) {
             navigateTo('items', [batch.id, hisSub.id, warChap.id]);
         }
@@ -721,46 +721,64 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
-                <button class="spotlight-chip featured-chip" id="spot-his-1857" type="button">
-                    <span class="material-symbols-outlined" style="color: #38bdf8;">swords</span>
-                    <span class="spotlight-chip-text">History • 1857 Revolt Vault</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #6366f1);">NEW</span>
-                </button>
                 <button class="spotlight-chip featured-chip" id="spot-his-ww1" type="button">
                     <span class="material-symbols-outlined" style="color: #a855f7;">public</span>
-                    <span class="spotlight-chip-text">History • First World War Vault</span>
+                    <span class="spotlight-chip-text">History • First World War</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #a855f7, #6366f1);">NEW</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-his-ww2" type="button">
+                    <span class="material-symbols-outlined" style="color: #ef4444;">military_tech</span>
+                    <span class="spotlight-chip-text">History • Second World War Notes</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #ef4444, #f97316);">NEW</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-his-dict" type="button">
+                    <span class="material-symbols-outlined" style="color: #f59e0b;">gavel</span>
+                    <span class="spotlight-chip-text">History • Rise of Dictatorships</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706);">NEW</span>
                 </button>
                 <button class="spotlight-chip featured-chip" id="spot-his-quit" type="button">
                     <span class="material-symbols-outlined" style="color: #f43f5e;">flag</span>
-                    <span class="spotlight-chip-text">History • Quit India Vault</span>
+                    <span class="spotlight-chip-text">History • Quit India Movement</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f43f5e, #f97316);">NEW</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-gandhi" type="button">
-                    <span class="material-symbols-outlined" style="color: #818cf8;">history_edu</span>
-                    <span class="spotlight-chip-text">History • Gandhi & NCM Vault</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">NEW</span>
+                <button class="spotlight-chip featured-chip" id="spot-his-indep" type="button">
+                    <span class="material-symbols-outlined" style="color: #10b981;">handshake</span>
+                    <span class="spotlight-chip-text">History • Independence & Partition</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669);">NEW</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-his-1857" type="button">
+                    <span class="material-symbols-outlined" style="color: #38bdf8;">swords</span>
+                    <span class="spotlight-chip-text">History • 1857 Revolt Vault</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #6366f1);">HOT</span>
                 </button>
             </div>
         `;
         wrapper.appendChild(spotlightSection);
 
         // Bind Spotlight Clicks
-        const spot1857 = spotlightSection.querySelector('#spot-his-1857');
-        if (spot1857 && batch) {
-            spot1857.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-1']);
-        }
         const spotWW1 = spotlightSection.querySelector('#spot-his-ww1');
         if (spotWW1 && batch) {
             spotWW1.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-10']);
+        }
+        const spotWW2 = spotlightSection.querySelector('#spot-his-ww2');
+        if (spotWW2 && batch) {
+            spotWW2.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-12']);
+        }
+        const spotDict = spotlightSection.querySelector('#spot-his-dict');
+        if (spotDict && batch) {
+            spotDict.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-11']);
         }
         const spotQuit = spotlightSection.querySelector('#spot-his-quit');
         if (spotQuit && batch) {
             spotQuit.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-7']);
         }
-        const spotGandhi = spotlightSection.querySelector('#spot-his-gandhi');
-        if (spotGandhi && batch) {
-            spotGandhi.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-6']);
+        const spotIndep = spotlightSection.querySelector('#spot-his-indep');
+        if (spotIndep && batch) {
+            spotIndep.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-9']);
+        }
+        const spot1857 = spotlightSection.querySelector('#spot-his-1857');
+        if (spot1857 && batch) {
+            spot1857.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-1']);
         }
 
         const header = createSectionHeader('Curriculum Classes', 'Choose your curriculum level to explore subjects, study notes & lectures');
