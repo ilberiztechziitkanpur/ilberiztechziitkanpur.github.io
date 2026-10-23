@@ -987,3 +987,33 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Zero-Package Installation Policy**: Prohibited repeated pip installations (`pillow`, `pypdf`, `pymupdf`) on every note addition, saving 7+ minutes.
     - **Interactive Clarification Protocol (`ask_question`)**: Replaced heavy slide image extraction with intelligent syllabus matching from `data.json`, with the `ask_question` tool as the fallback for any ambiguous chapter or part numbers, saving 6+ minutes.
     - **Automatic Reading Enforcement**: Codified that every agent MUST automatically inspect `PROJECT_STATE.md` at the start of any conversation without requiring user reminders.
+
+43. **Complete Platform UI Revamp: Modern Academic Command Center & Design System v6.0**:
+    - **Frontend Design Skill Implementation (`.agents/skills/frontend-design/SKILL.md`)**: Replaced generic template chrome with a bespoke, authoritative visual identity tailored specifically to the subject matter: Ilberiz Techz IIT Kanpur — Class 10th ICSE Examination Engine.
+    - **100% Logic & Engine Preservation**:
+      - Zero modifications to any engines in `geography/*` (Theory DPP vaults, 10-Year MCQ suites, Toposheet blueprint, or hardware acceleration logic).
+      - Zero modifications to curriculum data structures (`data.js` and `data.json`).
+      - All navigation routes, breadcrumbs, search indexing, and deep-linking preserved intact.
+      - Passcode security gate logic (`11223344`, `sessionStorage`, `localStorage`) preserved intact.
+    - **Executive Command Overview Hub**:
+      - Transformed the previously empty Overview view into a comprehensive study command center.
+      - Integrated an Executive Hero Banner with live curriculum metrics (9 Prescribed Subjects, 19+ Class Notes Ready, 12+ Interactive DPP & MCQ Engines, 100% Board Aligned).
+      - Added a High-Yield Fast Track rail with 1-click jump chips to top requested topics: Geography Climate, History Quit India Movement, Topography Master Blueprint, and English Julius Caesar notes.
+      - Added curriculum preview badges on the Class 10th card.
+    - **Subject Domain Visual Identities**:
+      - Implemented distinct color themes and glow accents per subject: Geography (Sapphire/Azure), History (Amber/Ochre), English (Amethyst/Lilac), Mathematics (Royal Cobalt), Physics (Electric Cyan), Chemistry (Emerald), Biology (Lime/Mint).
+    - **Interactive DPP Vaults vs Note Cards Differentiation**:
+      - Enhanced Interactive DPP cards with a pulsing live beacon dot (`.live-pulse-dot`), cyan borders, and "Launch Engine" action.
+      - Styled PDF note cards with clean file size pills (e.g. `PDF • 5.8 MB`) and vibrant "Read Notes" action buttons.
+    - **Search Engine & Navigation Enhancements**:
+      - Added global `/` and `Ctrl+K` keyboard shortcuts to instantly focus the search bar from anywhere.
+      - Added a `<kbd>/</kbd>` shortcut indicator badge inside the search input.
+    - **Passcode Authentication Portal**:
+      - Rebuilt the security gate as an elite academic vault screen with a pulsating shield halo, IIT Kanpur ICSE certification badge, and smooth unlock animation.
+    - **Studio-Grade PDF Reader Experience**:
+      - Clean edge-to-edge layout, responsive chapter dropdown with active status badges, in-chapter note switcher pills, floating edge navigation chevrons, and keyboard shortcuts bar.
+    - **Typography & Atmosphere**:
+      - Integrated Google Fonts pair (`Outfit` display + `Plus Jakarta Sans` body & micro-copy).
+      - Replaced raw CSS blobs with lightweight, GPU-accelerated atmospheric radial glows and a subtle dot-grid overlay.
+    - **Verification**: Verified via multiple browser subagent runs across all user journeys (authentication gate, executive overview, subjects grid, chapters view, notes list, search results, and PDF reader).
+

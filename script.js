@@ -430,6 +430,17 @@ function setupSearch() {
             searchInput.blur();
         }
     });
+
+    // Global keyboard shortcut: Press / or Ctrl+K anywhere to focus search
+    window.addEventListener('keydown', (e) => {
+        const activeTag = document.activeElement ? document.activeElement.tagName : '';
+        const isEditing = activeTag === 'INPUT' || activeTag === 'TEXTAREA' || (document.activeElement && document.activeElement.isContentEditable);
+        if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K'))) && !isEditing) {
+            e.preventDefault();
+            searchInput.focus();
+            searchInput.select();
+        }
+    });
 }
 
 function handleSearch(query) {
@@ -664,20 +675,107 @@ function renderView() {
     wrapper.className = 'fade-in';
 
     if (state.currentView === 'batches') {
-        const header = createSectionHeader('Select Your Class', 'Choose your curriculum level to explore subjects, study notes & lectures');
+        const batch = state.data.batches[0]; // Class 10th
+
+        // Executive Hero Header & Dashboard Spotlight
+        const heroSection = document.createElement('div');
+        heroSection.className = 'dashboard-hero-banner';
+        heroSection.innerHTML = `
+            <div class="hero-crest-badge">
+                <span class="material-symbols-outlined">workspace_premium</span>
+                <span>CISCE Board Curriculum 2025–2027</span>
+            </div>
+            <h1 class="hero-title">Ilberiz Techz <span class="text-gradient">IIT Kanpur</span></h1>
+            <p class="hero-description">The authoritative Class 10th ICSE study vault & examination platform. Access high-yield theory notes, board specimen blueprints, and interactive DPP test engines.</p>
+            
+            <div class="hero-stats-row">
+                <div class="hero-stat-card">
+                    <span class="stat-number">9</span>
+                    <span class="stat-label">Prescribed Subjects</span>
+                </div>
+                <div class="hero-stat-card">
+                    <span class="stat-number">19+</span>
+                    <span class="stat-label">Full Class Notes</span>
+                </div>
+                <div class="hero-stat-card">
+                    <span class="stat-number">12+</span>
+                    <span class="stat-label">Interactive Engines</span>
+                </div>
+                <div class="hero-stat-card">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Board Aligned</span>
+                </div>
+            </div>
+        `;
+        wrapper.appendChild(heroSection);
+
+        // Fast-Track Study Spotlight
+        const spotlightSection = document.createElement('div');
+        spotlightSection.className = 'spotlight-section';
+        spotlightSection.innerHTML = `
+            <div class="spotlight-header">
+                <div class="spotlight-header-left">
+                    <span class="material-symbols-outlined icon">bolt</span>
+                    <h3>High-Yield Fast Track</h3>
+                </div>
+                <span class="spotlight-sub">Jump straight to top requested resources</span>
+            </div>
+            <div class="spotlight-chips-grid">
+                <button class="spotlight-chip" id="spot-geo-climate" type="button">
+                    <span class="material-symbols-outlined">sunny</span>
+                    <span class="spotlight-chip-text">Geography • Climate Notes & DPP</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-his-quit" type="button">
+                    <span class="material-symbols-outlined">flag</span>
+                    <span class="spotlight-chip-text">History • Quit India Movement</span>
+                    <span class="chip-badge-hot">NEW</span>
+                </button>
+                <button class="spotlight-chip" id="spot-geo-topo" type="button">
+                    <span class="material-symbols-outlined">map</span>
+                    <span class="spotlight-chip-text">Topography Master Blueprint</span>
+                </button>
+                <button class="spotlight-chip" id="spot-eng-caesar" type="button">
+                    <span class="material-symbols-outlined">theater_comedy</span>
+                    <span class="spotlight-chip-text">English • Julius Caesar Notes</span>
+                </button>
+            </div>
+        `;
+        wrapper.appendChild(spotlightSection);
+
+        // Bind Spotlight Clicks
+        const spotClimate = spotlightSection.querySelector('#spot-geo-climate');
+        if (spotClimate && batch) {
+            spotClimate.onclick = () => navigateTo('items', [batch.id, 'sub-10-geo', 'chap-geo-1']);
+        }
+        const spotQuit = spotlightSection.querySelector('#spot-his-quit');
+        if (spotQuit && batch) {
+            spotQuit.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-7']);
+        }
+        const spotTopo = spotlightSection.querySelector('#spot-geo-topo');
+        if (spotTopo && batch) {
+            spotTopo.onclick = () => navigateTo('items', [batch.id, 'sub-10-geo', 'chap-geo-topo']);
+        }
+        const spotCaesar = spotlightSection.querySelector('#spot-eng-caesar');
+        if (spotCaesar && batch) {
+            spotCaesar.onclick = () => navigateTo('items', [batch.id, 'sub-10-eng', 'chap-eng-1']);
+        }
+
+        const header = createSectionHeader('Curriculum Classes', 'Choose your curriculum level to explore subjects, study notes & lectures');
         wrapper.appendChild(header);
 
         const grid = document.createElement('div');
         grid.className = 'cards-grid';
-        state.data.batches.forEach((batch, idx) => {
+        state.data.batches.forEach((b, idx) => {
+            const subjectNames = b.subjects ? b.subjects.map(s => s.name).slice(0, 7).join(' • ') + '...' : '';
             grid.appendChild(createCard({
-                title: batch.name,
-                subtitle: batch.description,
-                icon: batch.icon || 'school',
-                onClick: () => navigateTo('subjects', [batch.id]),
-                badge: `${batch.subjects.length} Subjects`,
-                actionText: 'Explore Subjects',
-                index: idx
+                title: b.name + ' ICSE Board Preparation',
+                subtitle: b.description || 'Comprehensive study notes, solutions, and lectures',
+                icon: b.icon || 'school',
+                onClick: () => navigateTo('subjects', [b.id]),
+                badge: `${b.subjects.length} Prescribed Subjects`,
+                actionText: 'Explore All 9 Subjects',
+                index: idx,
+                extraMeta: `<span class="curriculum-preview-pills">${subjectNames}</span>`
             }));
         });
         wrapper.appendChild(grid);
@@ -686,7 +784,7 @@ function renderView() {
         const batch = state.data.batches.find(b => b.id === state.path[0]);
         if (!batch) return;
 
-        const header = createSectionHeader(batch.name, `${batch.description} • All 9 Prescribed Subjects`);
+        const header = createSectionHeader(batch.name + ' Prescribed Subjects', `${batch.description} • CISCE Class 10 Syllabus`);
         wrapper.appendChild(header);
 
         const grid = document.createElement('div');
@@ -702,7 +800,8 @@ function renderView() {
                 onClick: () => navigateTo('chapters', [batch.id, sub.id]),
                 badge: badgeText,
                 actionText: 'Open Chapters',
-                index: idx
+                index: idx,
+                subjectId: sub.id
             }));
         });
         wrapper.appendChild(grid);
@@ -750,7 +849,8 @@ function renderView() {
                 badge: badgeText,
                 isInteractive: !!chap.featured,
                 actionText: actionText,
-                index: idx
+                index: idx,
+                subjectId: sub.id
             });
             if (chap.featured) cardEl.classList.add('card-featured');
             grid.appendChild(cardEl);
@@ -989,12 +1089,15 @@ function createSectionHeader(title, subtitle) {
     return header;
 }
 
-function createCard({ title, subtitle, icon, onClick, badge = null, isPdf = false, isInteractive = false, actionText = 'Explore', index = 0 }) {
+function createCard({ title, subtitle, icon, onClick, badge = null, isPdf = false, isInteractive = false, actionText = 'Explore', index = 0, subjectId = null, extraMeta = null }) {
     const card = document.createElement('div');
     card.className = 'card';
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
     card.style.setProperty('--i', Math.min(index, 10));
+    if (subjectId) {
+        card.setAttribute('data-subject', subjectId);
+    }
     card.onclick = onClick;
     card.onkeydown = (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -1018,11 +1121,12 @@ function createCard({ title, subtitle, icon, onClick, badge = null, isPdf = fals
             <div class="${iconClass}">
                 <span class="material-symbols-outlined">${icon}</span>
             </div>
-            ${badge ? `<span class="${badgeClass}">${badge}</span>` : ''}
+            ${badge ? `<span class="${badgeClass}">${isInteractive ? '<span class="live-pulse-dot"></span>' : ''}${badge}</span>` : ''}
         </div>
         <div class="card-content">
             <h3>${title}</h3>
             <p>${subtitle}</p>
+            ${extraMeta ? `<div class="card-extra-meta">${extraMeta}</div>` : ''}
         </div>
         <div class="card-footer-action">
             <span>${actionText}</span>
