@@ -941,8 +941,17 @@
                         {
                             "id": "chap-his-7",
                             "name": "Ch 7: The Quit India Movement",
-                            "description": "Failure of Cripps Mission, Quit India Resolution (Do or Die), Japanese threat and nationwide impact",
+                            "description": "7 Theory Clusters (48+ PYQ Twists), Official Council Pointers, Dual Instant/DPP Modes & Full Class Notes",
+                            "featured": true,
                             "items": [
+                                {
+                                    "id": "his-quit-india-theory-master",
+                                    "title": "Quit India Movement — 7 Clusters & 48+ PYQ Twists Vault",
+                                    "subtitle": "7 Master Question Clusters, 48+ Twisted Variations, Cripps Mission, Japanese Threat, Wardha Resolution & Significance, Instant Check & DPP Modes",
+                                    "type": "interactive",
+                                    "file": "history/quit-india/index.html",
+                                    "badge": "PYQ Vault • 7 Clusters • 48+ Twists"
+                                },
                                 {
                                     "id": "his-quit-india-notes-01",
                                     "title": "Quit India Movement 01 Class Notes",

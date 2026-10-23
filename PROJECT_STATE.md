@@ -60,6 +60,8 @@ ILBERIZ TECHZ IIT KANPUR/
 ├── history/                         # ALL History subject content lives strictly here
 │   ├── gandhi/                      # Chapter 6: Mahatma Gandhi & National Movement DNA PYQ Vault
 │   │   └── index.html               # 15 Canonical Clusters, 86+ PYQ Twists (2015–2026), Dual Instant/DPP Modes
+│   ├── quit-india/                  # Chapter 7: The Quit India Movement DNA PYQ Vault
+│   │   └── index.html               # 7 Canonical Clusters, 48+ PYQ Twists, 100% Current Syllabus, Dual Instant/DPP Modes
 │   ├── independence/                # Chapter 9: Independence & Partition of India DNA PYQ Vault
 │   │   └── index.html               # 12 Canonical Clusters, 68+ PYQ Twists (2015–2026), Dual Instant/DPP Modes
 │   └── notes/                       # ICSE Class 10 History PDF notes
@@ -405,6 +407,20 @@ ILBERIZ TECHZ IIT KANPUR/
   - Mountbatten Plan (3 June 1947 Plan: Partition of India and Bengal/Punjab, Princely States, Boundary Commission, reasons why Congress accepted partition).
   - Indian Independence Act 1947 (provisions: creation of two independent Dominions India & Pakistan, Governor-General role, Constituent Assemblies as sovereign legislatures, lapse of British suzerainty over Princely States, division of armed forces and assets).
 - **Exam Countdown Timer**: 15, 30, 45, 60 mins presets with active warning pulse.
+- **Navigation**: Integrated `.home-nav-btn` linking back to `../../index.html` with `target="_top"`.
+
+### O. Chapter 7: The Quit India Movement Master DNA PYQ Vault (`history/quit-india/index.html`)
+- **7 Canonical High-Yield Clusters** targeting 10–12 marks in History Section B (100% current ICSE syllabus, out-of-syllabus elements removed).
+- **48+ Deduplicated Board & Specimen Variations** with official CISCE Council answer key pointers.
+- **Dual Interactive Study Modes**:
+  1. ⚡ Instant Check Mode: Immediate reveal of official CISCE marking scheme points and keywords for rapid reading.
+  2. 🎯 DPP Mode: Collapsed answers with individual reveal toggles, self-evaluation (Mastered vs Revision), and live mastery counter.
+- **Full Historical Coverage**:
+  - Failure of the Cripps Mission (1942: rejection by Congress & Muslim League, threat of partition, 'post-dated cheque').
+  - Japanese Threat (advancement towards Assam/Bengal borders, Gandhiji's call for prompt British withdrawal).
+  - Quit India Resolution (Wardha Working Committee July 1942, Gowalia Tank Mumbai 8 August 1942, Gandhi's "Do or Die" call).
+  - Significance & Impact of the Quit India Movement (mass spontaneous uprising, parallel governments, demonstrated British inability to rule without consent).
+- **Exam Countdown Timer**: 15, 30, 45 mins presets with active warning pulse.
 - **Navigation**: Integrated `.home-nav-btn` linking back to `../../index.html` with `target="_top"`.
 
 ### K. English Literature Notes (14 PDFs in `english/notes/` across Julius Caesar, Treasure Chest Poetry & Short Stories)
@@ -1087,6 +1103,21 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Upgraded `createInteractiveViewer(item)` in `script.js` to dynamically display the active subject name (`ICSE 2027 History`) rather than hardcoded Geography.
     - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Bumped cache-busting queries in `index.html` to `v=6.2`.
+      - Validated 100% JSON schema integrity of `data.json` via native PowerShell parser and verified all file paths via `Test-Path`.
+
+46. **Addition of Interactive History DNA PYQ Vault: The Quit India Movement (Chapter 7)**:
+    - **Interactive Engine Ingestion & Normalization (Rule 1 & Rule 2)**:
+      - Ingested `ai_studio_code.html` from Downloads into isolated subject directory `history/quit-india/index.html` (92 KB).
+      - Filtered strictly to current ICSE syllabus: 7 Canonical Clusters, 48+ valid board/specimen twists, official CISCE Council answer key pointers & keywords.
+      - Embedded standard `.home-nav-btn` navigation linking back to `../../index.html` with `target="_top"` and imported full Google Fonts bundle (`Inter`, `JetBrains Mono`, `Outfit`, `Space Grotesk`, `Material Symbols Outlined`) (Rule 3).
+      - Cleaned up raw download file `ai_studio_code.html` from Downloads folder immediately (Rule 5 & Rule 14).
+    - **Curriculum Architecture & Dual Data Synchronization (Rule 7)**:
+      - Chapter 7 (`chap-his-7`): Set `"featured": true`, updated description, and wired `his-quit-india-theory-master` as the primary interactive engine at item index 0 across both `data.json` and `data.js`.
+    - **Dashboard UI & Navigation Integration (Rule 10)**:
+      - Updated left navigation sidebar (`.nav-menu`) latest update quick-launch to **"Quit India Movement"** with crimson flag icon and glowing `NEW` badge.
+      - Updated Batch Overview High-Yield Fast Track spotlight chips to feature **"History • Quit India Vault"** (`NEW`), **"History • Gandhi & NCM Vault"** (`NEW`), and **"History • Independence & Partition"** (`NEW`).
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=6.3`.
       - Validated 100% JSON schema integrity of `data.json` via native PowerShell parser and verified all file paths via `Test-Path`.
 
 

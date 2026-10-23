@@ -502,26 +502,26 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Mahatma Gandhi and the National Movement (History Ch 6)
-    const gandhiNav = document.createElement('div');
-    const isGandhiActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-6';
-    gandhiNav.className = `nav-item nav-item-featured ${isGandhiActive ? 'active' : ''}`;
-    gandhiNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #818cf8;">history_edu</span>
-        <span style="font-weight: 600;">Gandhi & National Movement</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #6366f1, #8b5cf6); color:#fff; box-shadow: 0 0 10px rgba(99, 102, 241, 0.4);">NEW</span>
+    // Latest Update Quick Launch: Quit India Movement (History Ch 7)
+    const quitIndiaNav = document.createElement('div');
+    const isQuitIndiaActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-7';
+    quitIndiaNav.className = `nav-item nav-item-featured ${isQuitIndiaActive ? 'active' : ''}`;
+    quitIndiaNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #f43f5e;">flag</span>
+        <span style="font-weight: 600;">Quit India Movement</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f43f5e, #f97316); color:#fff; box-shadow: 0 0 10px rgba(244, 63, 94, 0.4);">NEW</span>
     `;
-    gandhiNav.onclick = () => {
+    quitIndiaNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
-        const gandhiChap = hisSub?.chapters?.find(c => c.id === 'chap-his-6');
-        if (gandhiChap) {
-            navigateTo('items', [batch.id, hisSub.id, gandhiChap.id]);
+        const quitChap = hisSub?.chapters?.find(c => c.id === 'chap-his-7');
+        if (quitChap) {
+            navigateTo('items', [batch.id, hisSub.id, quitChap.id]);
         }
     };
-    navMenu.appendChild(gandhiNav);
+    navMenu.appendChild(quitIndiaNav);
 }
 
 function resetSearch() {
@@ -721,6 +721,11 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
+                <button class="spotlight-chip featured-chip" id="spot-his-quit" type="button">
+                    <span class="material-symbols-outlined" style="color: #f43f5e;">flag</span>
+                    <span class="spotlight-chip-text">History • Quit India Vault</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f43f5e, #f97316);">NEW</span>
+                </button>
                 <button class="spotlight-chip featured-chip" id="spot-his-gandhi" type="button">
                     <span class="material-symbols-outlined" style="color: #818cf8;">history_edu</span>
                     <span class="spotlight-chip-text">History • Gandhi & NCM Vault</span>
@@ -735,15 +740,15 @@ function renderView() {
                     <span class="material-symbols-outlined">sunny</span>
                     <span class="spotlight-chip-text">Geography • Climate Notes & DPP</span>
                 </button>
-                <button class="spotlight-chip" id="spot-eng-caesar" type="button">
-                    <span class="material-symbols-outlined">theater_comedy</span>
-                    <span class="spotlight-chip-text">English • Julius Caesar Notes</span>
-                </button>
             </div>
         `;
         wrapper.appendChild(spotlightSection);
 
         // Bind Spotlight Clicks
+        const spotQuit = spotlightSection.querySelector('#spot-his-quit');
+        if (spotQuit && batch) {
+            spotQuit.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-7']);
+        }
         const spotGandhi = spotlightSection.querySelector('#spot-his-gandhi');
         if (spotGandhi && batch) {
             spotGandhi.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-6']);
@@ -755,10 +760,6 @@ function renderView() {
         const spotClimate = spotlightSection.querySelector('#spot-geo-climate');
         if (spotClimate && batch) {
             spotClimate.onclick = () => navigateTo('items', [batch.id, 'sub-10-geo', 'chap-geo-1']);
-        }
-        const spotCaesar = spotlightSection.querySelector('#spot-eng-caesar');
-        if (spotCaesar && batch) {
-            spotCaesar.onclick = () => navigateTo('items', [batch.id, 'sub-10-eng', 'chap-eng-1']);
         }
 
         const header = createSectionHeader('Curriculum Classes', 'Choose your curriculum level to explore subjects, study notes & lectures');
