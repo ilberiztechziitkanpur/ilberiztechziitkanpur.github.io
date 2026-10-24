@@ -160,6 +160,15 @@
                                             "badge": "PDF • 3.5 MB • Class Notes"
                                         },
                                         {
+                                            "id": "phy-force-notes-02",
+                                            "title": "Force, Work, Power And Energy 02 Class Notes",
+                                            "subtitle": "Couple, Principle of Moments, Metre Rule Balance, Centre of Gravity (Regular & Irregular Bodies) & Stability (Shailendra Sir / 29 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Force_Work_Power_And_Energy_02_Class_Notes.pdf",
+                                            "size": "2.4 MB",
+                                            "badge": "PDF • 2.4 MB • Class Notes"
+                                        },
+                                        {
                                             "id": "phy-force-num-engine",
                                             "title": "Unit 1: Force & Machines Numericals Master Engine",
                                             "subtitle": "20 Verbatim 10-Year Numericals (Principle of Moments, Uniform Meter Rule & Machines)",

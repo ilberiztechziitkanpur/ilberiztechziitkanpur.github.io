@@ -114,7 +114,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │       └── Treasure_Chest_Prose_07_Class_Notes.pdf (5.0 MB) — The Pedestrian (Part 1): Ray Bradbury, Leonard Mead, 2053 setting & MCQs
 ├── physics/                         # ALL Physics subject content lives strictly here
 │   ├── notes/                       # ICSE Class 10 Physics PDF notes
-│   │   └── Force_Work_Power_And_Energy_01_Class_Notes.pdf (3.6 MB) — Ch 1: Force, Moments, Couple, Equilibrium & CG (40 slides)
+│   │   ├── Force_Work_Power_And_Energy_01_Class_Notes.pdf (3.6 MB) — Ch 1: Force, Moments, Couple, Equilibrium & CG (40 slides)
+│   │   └── Force_Work_Power_And_Energy_02_Class_Notes.pdf (2.4 MB) — Ch 1: Couple, Moments, Metre Rule, CG & Stability (29 slides)
 │   ├── unit1-numerical/             # Unit 1: Numericals Mastery Engine v2.0
 │   │   └── index.html               # 20 Verbatim Board Numericals, Step-by-Step, Formula Boxes, Live Timer
 │   ├── unit1-theory/                # Unit 1: Theory, Concepts & Derivations Vault
@@ -552,8 +553,9 @@ ILBERIZ TECHZ IIT KANPUR/
   - `UNIT-1 Force, Work, Power and Energy, Machines.Numerical` (`physics/unit1-numerical/index.html`): 20 Verbatim 10-Year Numericals, Step-by-Step Solutions, Formula Step Boxes, Given/To-Find breakdown, and Live Exam Timer.
   - `UNIT-1 Force, Work, Power and Energy, Machines. Theory` (`physics/unit1-theory/index.html`): 62 Marks High-Yield Theory, Official CISCE Marking Scheme, Give Reasons, Derivations, Diagram Questions & Active Recall Blur Mode.
   - `UNIT-1 Force, Work, Power and Energy, Machines. MCQ` (`physics/unit1-mcq/index.html`): 24 High-Yield Forensic MCQs across Force, Work/Energy/Power & Machines with DPP Test Mode, Instant Reveal, Live Scoreboard & Detailed Rationale.
-- **Chapter 1: Force Lecture Notes (PDF in `physics/notes/`)**:
+- **Chapter 1: Force Lecture Notes (2 PDFs in `physics/notes/`)**:
   - `Force_Work_Power_And_Energy_01_Class_Notes.pdf` (3.6 MB, 3,626,130 bytes, 40 widescreen slides, Kunal Sir / Victory 2027 by Physics Wallah) — Translational vs Rotational motion, Moment of Force (Torque $\tau = F \times d_{\perp}$), SI and CGS units ($1\text{ N}\cdot\text{m} = 10^7\text{ dyne}\cdot\text{cm}$), Gravitational units ($1\text{ kgf}\cdot\text{m} = 9.8\text{ N}\cdot\text{m}$), Clockwise (negative) vs Anticlockwise (positive) moments, Couple and moment of couple ($\tau = F \times d$), Equilibrium (Static and Dynamic equilibrium with real-world conditions: $\Sigma F = 0$ and $\Sigma \tau = 0$), Principle of Moments (Sum of anticlockwise moments = Sum of clockwise moments), Centre of Gravity (definition, dependence on mass distribution, CG positions of symmetrical bodies: rod, ring, disc, sphere, cylinder, cone, triangular lamina), Stability of bodies, and Centripetal vs Centrifugal forces.
+  - `Force_Work_Power_And_Energy_02_Class_Notes.pdf` (2.4 MB, 2,536,763 bytes, 29 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Couple definition & couple moment, Principle of Moments, Uniform metre rule knife-edge balance problems, Gravitational units ($1\text{ kgf} = 9.8\text{ N}$, $1\text{ gf} = 980\text{ dynes}$), See-saw balance calculations, Centre of gravity definition & position for solid cone ($h/4$), hollow cone ($h/3$), cylinder, sphere, and Two methods of increasing stability of a body (lowering CG and broad base).
 
 ### U. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
 All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
@@ -1356,6 +1358,26 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Codified **Rule 15** in Section 3 to ensure future releases always align the Overview Fast Track rail with the active subject focus and purge older batch clutter.
     - **Cache Invalidation**:
       - Bumped cache-busting queries in `index.html` to `v=6.9` for `style.css`, `data.js`, and `script.js`.
+
+53. **Addition of Physics Chapter 1: Force Class Notes 02 (Lecture 02 / 29 Slides)**:
+    - **Visual Slide & Content Verification (Rule 14)**:
+      - Inspected the 29-page Victory 2027 slide deck (Shailendra Sir / Physics Wallah) for `Force, Work, Power And Energy 02  Class Notes.pdf` (2.4 MB, 2,536,763 bytes).
+      - Slide 1: VICTORY 2027 | FORCE, WORK, POWER & ENERGY | LECTURE-2 | PHYSICS | Shailendra sir.
+      - Slide 2: Topics covered: (1) Couple, (2) Principle of Moments, (3) Center of Gravity, (4) Questions.
+      - Slides 5–28: Revision of translational vs rotational motion, Moment of force ($\tau = r \times F$), Couple definition ($F_{\text{net}} = 0$, $\tau_{\text{net}} \ne 0$, moment of couple), Iron door least force problem, Uniform metre rule knife-edge balance problems, Gravitational units ($1\text{ kgf} = 9.8\text{ N}$, $1\text{ gf} = 980\text{ dynes}$), See-saw balance calculations, Centre of gravity definition and factors affecting position, CG of symmetrical bodies (rod, square plate, triangular lamina centroid, solid cone at $h/4$, hollow cone at $h/3$, hemisphere), and Two methods of increasing stability of a body (lowering CG and broad base).
+    - **Standardized Renaming & Placement (Rule 1 & Rule 14)**:
+      - Sanitized and placed file as `physics/notes/Force_Work_Power_And_Energy_02_Class_Notes.pdf` (2.4 MB).
+      - Cleaned up raw download from Downloads folder immediately (Rule 5 & Rule 14).
+    - **Dual Data Synchronization (Rule 7)**:
+      - Wired `phy-force-notes-02` under `sub-10-phy` -> `unit-phy-1` -> `chap-phy-1` across both `data.js` and `data.json`.
+      - Automatically activates in-chapter note pill tabs (`Note 01` & `Note 02`) in the studio PDF viewer with instant single-press switching.
+    - **Fast-Track & Sidebar Integration (Rule 10 & Rule 15)**:
+      - Maintained `Physics Unit 1 Vault` as the sole sidebar quick-launch item with `NEW` badge.
+      - Maintained the 5 Physics Unit 1 and 3 flagship non-history chips in the Overview High-Yield Fast Track rail.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=7.0` for `style.css`, `data.js`, and `script.js`.
+      - Validated 100% schema integrity of `data.json` and `data.js`.
+
 
 
 
