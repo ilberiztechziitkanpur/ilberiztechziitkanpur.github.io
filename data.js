@@ -167,30 +167,6 @@ window.COURSE_DATA = {
                                             "file": "physics/notes/Force_Work_Power_And_Energy_02_Class_Notes.pdf",
                                             "size": "2.4 MB",
                                             "badge": "PDF • 2.4 MB • Class Notes"
-                                        },
-                                        {
-                                            "id": "phy-force-num-engine",
-                                            "title": "Unit 1: Force & Machines Numericals Master Engine",
-                                            "subtitle": "20 Verbatim 10-Year Numericals (Principle of Moments, Uniform Meter Rule & Machines)",
-                                            "type": "interactive",
-                                            "file": "physics/unit1-numerical/index.html",
-                                            "badge": "Numericals • 20 Qs"
-                                        },
-                                        {
-                                            "id": "phy-force-theory-vault",
-                                            "title": "Unit 1: Force & Equilibrium Theory & Derivations Vault",
-                                            "subtitle": "62 Marks High-Yield Theory, Conditions of Equilibrium, Center of Gravity, Give-Reasons & Derivations",
-                                            "type": "interactive",
-                                            "file": "physics/unit1-theory/index.html",
-                                            "badge": "Theory Vault • 62M"
-                                        },
-                                        {
-                                            "id": "phy-force-mcq-drill",
-                                            "title": "Unit 1: Force & Mechanics Master MCQ Diagnostic Drill",
-                                            "subtitle": "24 High-Yield MCQs on Turning Effect, Equilibrium, Work, Power & Machines",
-                                            "type": "interactive",
-                                            "file": "physics/unit1-mcq/index.html",
-                                            "badge": "MCQ Drill • 24 Qs"
                                         }
                                     ]
                                 },
@@ -306,7 +282,7 @@ window.COURSE_DATA = {
                             "id": "unit-phy-6",
                             "name": "Unit 6: Modern Physics",
                             "description": "Nuclear Physics — Atomic nucleus, radioactive emissions (alpha, beta, gamma), nuclear transformations, background radiation, safety precautions and nuclear energy",
-                            "icon": "radioactive",
+                            "icon": "science",
                             "items": [],
                             "subchapters": [
                                 {
@@ -931,6 +907,14 @@ window.COURSE_DATA = {
                                     "badge": "PYQ Vault • 10 Clusters • 62+ Twists"
                                 },
                                 {
+                                    "id": "his-1857-ww1-dual-master",
+                                    "title": "Dual Master Vault: 1857 Revolt & First World War (18 Clusters & 116+ Variations)",
+                                    "subtitle": "1-Click Switcher between 1857 Revolt (10 Clusters) and First World War (8 Clusters) with Dual Instant & DPP Modes",
+                                    "type": "interactive",
+                                    "file": "history/1857-ww1/index.html",
+                                    "badge": "Dual Master Vault • 18 Clusters • 116+ Twists"
+                                },
+                                {
                                     "id": "his-1857-notes-01",
                                     "title": "The First War Of Independence 01 Class Notes",
                                     "subtitle": "Causes of 1857 Revolt: Political, Socio-Religious, Economic & Military factors, Enfield rifle cartridge incident",
@@ -1180,6 +1164,14 @@ window.COURSE_DATA = {
                                     "type": "interactive",
                                     "file": "history/first-world-war/index.html",
                                     "badge": "PYQ Vault • 8 Clusters • 54+ Twists"
+                                },
+                                {
+                                    "id": "his-ww1-1857-dual-master",
+                                    "title": "Dual Master Vault: First World War & 1857 Revolt (18 Clusters & 116+ Variations)",
+                                    "subtitle": "1-Click Switcher between First World War (8 Clusters) and 1857 Revolt (10 Clusters) with Dual Instant & DPP Modes",
+                                    "type": "interactive",
+                                    "file": "history/1857-ww1/index.html?scope=WW1",
+                                    "badge": "Dual Master Vault • 18 Clusters • 116+ Twists"
                                 },
                                 {
                                     "id": "his-ww1-notes-01",

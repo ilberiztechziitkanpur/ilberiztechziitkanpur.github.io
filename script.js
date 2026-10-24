@@ -779,7 +779,7 @@ function renderView() {
             const unit1 = phySub?.chapters?.find(c => c.id === 'unit-phy-1');
             const item = unit1?.items?.find(i => i.id === 'phy-u1-numerical');
             spotPhyNum.onclick = () => {
-                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1', item.id], item);
+                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1'], item);
                 else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
             };
         }
@@ -789,7 +789,7 @@ function renderView() {
             const unit1 = phySub?.chapters?.find(c => c.id === 'unit-phy-1');
             const item = unit1?.items?.find(i => i.id === 'phy-u1-theory');
             spotPhyTheory.onclick = () => {
-                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1', item.id], item);
+                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1'], item);
                 else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
             };
         }
@@ -799,7 +799,7 @@ function renderView() {
             const unit1 = phySub?.chapters?.find(c => c.id === 'unit-phy-1');
             const item = unit1?.items?.find(i => i.id === 'phy-u1-mcq');
             spotPhyMcq.onclick = () => {
-                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1', item.id], item);
+                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1'], item);
                 else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
             };
         }
@@ -868,9 +868,21 @@ function renderView() {
 
             let badgeText = '';
             if (isPhysics) {
-                badgeText = totalItems > 0 
-                    ? `${sub.chapters.length} Units • ${totalChapters} Ch • ${totalItems} Notes` 
-                    : `${sub.chapters.length} Units • ${totalChapters} Chapters`;
+                const totalNotes = sub.chapters.reduce((sum, chap) => {
+                    return sum + (chap.subchapters ? chap.subchapters.reduce((s2, sc) => s2 + (sc.items ? sc.items.filter(i => i.type === 'pdf').length : 0), 0) : 0);
+                }, 0);
+                const totalModules = sub.chapters.reduce((sum, chap) => {
+                    const cMods = chap.items ? chap.items.length : 0;
+                    const scMods = chap.subchapters ? chap.subchapters.reduce((s2, sc) => s2 + (sc.items ? sc.items.filter(i => i.type !== 'pdf').length : 0), 0) : 0;
+                    return sum + cMods + scMods;
+                }, 0);
+                if (totalNotes > 0 && totalModules > 0) {
+                    badgeText = `${sub.chapters.length} Units • ${totalChapters} Ch • ${totalNotes} Note${totalNotes === 1 ? '' : 's'} • ${totalModules} Module${totalModules === 1 ? '' : 's'}`;
+                } else if (totalNotes > 0) {
+                    badgeText = `${sub.chapters.length} Units • ${totalChapters} Ch • ${totalNotes} Note${totalNotes === 1 ? '' : 's'}`;
+                } else {
+                    badgeText = `${sub.chapters.length} Units • ${totalChapters} Chapters`;
+                }
             } else {
                 badgeText = totalItems > 0 ? `${sub.chapters.length} Ch • ${totalItems} Notes` : `${sub.chapters.length} Chapters`;
             }
@@ -909,11 +921,20 @@ function renderView() {
             let actionText = 'View Notes';
 
             if (hasSub) {
-                const totalNotes = chap.subchapters.reduce((sum, sc) => sum + (sc.items ? sc.items.length : 0), 0) + (chap.items ? chap.items.length : 0);
+                const totalNotes = chap.subchapters.reduce((sum, sc) => sum + (sc.items ? sc.items.filter(i => i.type === 'pdf').length : 0), 0);
+                const totalModules = (chap.items ? chap.items.length : 0) + chap.subchapters.reduce((sum, sc) => sum + (sc.items ? sc.items.filter(i => i.type !== 'pdf').length : 0), 0);
                 const isPoemCollection = chap.id === 'chap-eng-2';
                 const isUnit = isPhysics || chap.id.startsWith('unit-');
                 const unitType = isUnit ? 'Chapters' : (isPoemCollection ? 'Poems' : 'Stories');
-                badgeText = totalNotes > 0 ? `${chap.subchapters.length} ${unitType} • ${totalNotes} Notes` : `${chap.subchapters.length} ${unitType}`;
+                if (totalNotes > 0 && totalModules > 0) {
+                    badgeText = `${chap.subchapters.length} ${unitType} • ${totalNotes} Note${totalNotes === 1 ? '' : 's'} • ${totalModules} Module${totalModules === 1 ? '' : 's'}`;
+                } else if (totalNotes > 0) {
+                    badgeText = `${chap.subchapters.length} ${unitType} • ${totalNotes} Note${totalNotes === 1 ? '' : 's'}`;
+                } else if (totalModules > 0) {
+                    badgeText = `${chap.subchapters.length} ${unitType} • ${totalModules} Module${totalModules === 1 ? '' : 's'}`;
+                } else {
+                    badgeText = `${chap.subchapters.length} ${unitType}`;
+                }
                 actionText = isUnit ? 'Explore Unit' : `Explore ${unitType}`;
             } else {
                 count = chap.items ? chap.items.length : 0;

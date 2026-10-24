@@ -1378,6 +1378,30 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Bumped cache-busting queries in `index.html` to `v=7.0` for `style.css`, `data.js`, and `script.js`.
       - Validated 100% schema integrity of `data.json` and `data.js`.
 
+54. **Comprehensive Repository Audit, Visual Glitch Resolutions, Navigation Fixes & Platform Polish**:
+    - **Exhaustive Codebase & Directory Audit**:
+      - Conducted a forensic audit of all workspace directories (`physics/`, `history/`, `geography/`, `english/`, `data.js`, `data.json`, `script.js`, `style.css`, `index.html`), strictly excluding `Video_Downloader/` per Rule 6.
+      - Validated all 82 content files and 22 interactive engines on disk.
+      - Removed duplicate binary file `history/notes/Indian_Independence_And_Partition_Of_India_01_Class_Notes.pdf` (binary twin of `Independence_And_Partition_Of_India_01_Class_Notes.pdf`).
+      - Verified all 92 references across `data.js` and `data.json` resolve 100% to valid local files.
+    - **Visual Glitch Resolution: Unit 6 Modern Physics Ligature Overflow**:
+      - Root Cause: `data.js` and `data.json` specified `"icon": "radioactive"`. Google Material Symbols lacks a `radioactive` font glyph, causing the browser to render the raw word `radioactive`, which spilled in giant cyan letters (`ACTIVE`) across the card.
+      - Fix: Updated icon to `"icon": "science"` (clean atom/flask symbol) in `data.js` and `data.json`, and added `overflow: hidden;` to `.card-icon` in `style.css`.
+    - **Architectural Cleanup: Purged Duplicate Engines from Ch 1: Force**:
+      - Root Cause: The 3 Unit 1 interactive engines (`phy-force-num-engine`, `phy-force-theory-vault`, `phy-force-mcq-drill`) were duplicated inside `chap-phy-1` (Ch 1: Force) while already residing at the unit level (`unit-phy-1`), displaying 5 cards in Ch 1 and inflating badges to `3 Chapters • 8 Notes`.
+      - Fix: Removed duplicate entries from `chap-phy-1` so it strictly houses its 2 authentic class note PDFs (`phy-force-notes-01` and `phy-force-notes-02`).
+      - Upgraded `script.js` badge logic: Unit 1 now displays `3 Chapters • 2 Notes • 3 Modules`, and Physics subject card displays `6 Units • 12 Ch • 2 Notes • 3 Modules`.
+    - **Navigation Repair: Fast Track Spotlight Back-Button Navigation Trap**:
+      - Root Cause: Spotlight click handlers passed 4-element paths `[batch.id, 'sub-10-phy', 'unit-phy-1', item.id]`. When the user clicked Back in the interactive viewer, `state.path.length >= 4` routed to `navigateTo('items', ...)` looking for a subchapter matching `item.id`, crashing into an empty error state.
+      - Fix: Updated spotlight chip handlers to pass 3-element paths `[batch.id, 'sub-10-phy', 'unit-phy-1']`, ensuring Back returns cleanly to the Unit 1 view.
+    - **Dual Data Parity & Schema Parity (Rule 7)**:
+      - Verified 100% canonical JSON object deep equality between `data.js` and `data.json` via automated verification script.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=7.1` for `style.css`, `data.js`, and `script.js`.
+    - **Live Browser Subagent Verification**:
+      - Verified complete user flow via `browser_subagent` across Home Overview, Fast Track chips, Physics Units view with clean `science` icon, Unit 1 Master Study Modules, Ch 1 Force note cards, and interactive engine launch and back-navigation.
+
+
 
 
 

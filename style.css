@@ -993,6 +993,7 @@ button {
     align-items: center;
     justify-content: center;
     color: var(--accent-light);
+    overflow: hidden;
     transition: transform var(--duration-fast) ease, background var(--duration-fast) ease;
 }
 
@@ -1132,6 +1133,10 @@ button {
 }
 .card[data-subject="sub-10-phy"]::before {
     background: linear-gradient(90deg, #06b6d4, #0891b2);
+}
+.card[data-subject="sub-10-phy"]:hover {
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.65), 0 0 20px -5px rgba(6, 182, 212, 0.25);
 }
 
 /* Chemistry: Emerald */
