@@ -19,6 +19,314 @@ const sidebarOverlay = document.getElementById('sidebar-overlay');
 const searchInput = document.getElementById('search-input');
 const clearSearchBtn = document.getElementById('clear-search-btn');
 
+// ==========================================================================
+// Zero-Network Web Audio Synthesizer (Instant Tactical Haptics)
+// ==========================================================================
+const audioFX = {
+    ctx: null,
+    muted: localStorage.getItem('ilberiz_audio') === 'off',
+    
+    getCtx() {
+        if (!this.ctx && (window.AudioContext || window.webkitAudioContext)) {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            this.ctx = new AudioCtx();
+        }
+        if (this.ctx && this.ctx.state === 'suspended') {
+            this.ctx.resume();
+        }
+        return this.ctx;
+    },
+
+    playTick() {
+        if (this.muted) return;
+        try {
+            const ctx = this.getCtx();
+            if (!ctx) return;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(620, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(840, ctx.currentTime + 0.03);
+            gain.gain.setValueAtTime(0.035, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.03);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start();
+            osc.stop(ctx.currentTime + 0.035);
+        } catch (e) {}
+    },
+
+    playSuccess() {
+        if (this.muted) return;
+        try {
+            const ctx = this.getCtx();
+            if (!ctx) return;
+            const now = ctx.currentTime;
+            [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(freq, now + i * 0.07);
+                gain.gain.setValueAtTime(0.05, now + i * 0.07);
+                gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.07 + 0.22);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(now + i * 0.07);
+                osc.stop(now + i * 0.07 + 0.25);
+            });
+        } catch (e) {}
+    },
+
+    playError() {
+        if (this.muted) return;
+        try {
+            const ctx = this.getCtx();
+            if (!ctx) return;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(140, ctx.currentTime);
+            osc.frequency.linearRampToValueAtTime(95, ctx.currentTime + 0.18);
+            gain.gain.setValueAtTime(0.06, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.18);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start();
+            osc.stop(ctx.currentTime + 0.2);
+        } catch (e) {}
+    },
+
+    toggle() {
+        this.muted = !this.muted;
+        localStorage.setItem('ilberiz_audio', this.muted ? 'off' : 'on');
+        const btn = document.getElementById('topbar-audio-btn');
+        const icon = document.getElementById('audio-icon');
+        if (btn) btn.classList.toggle('audio-muted', this.muted);
+        if (icon) icon.textContent = this.muted ? 'volume_off' : 'volume_up';
+        if (!this.muted) this.playTick();
+    }
+};
+
+function setupAudioButton() {
+    const btn = document.getElementById('topbar-audio-btn');
+    const icon = document.getElementById('audio-icon');
+    if (!btn) return;
+    if (audioFX.muted) {
+        btn.classList.add('audio-muted');
+        if (icon) icon.textContent = 'volume_off';
+    }
+    btn.addEventListener('click', () => audioFX.toggle());
+}
+
+// ==========================================================================
+// High-Performance Interactive Cyber Nebula Canvas
+// ==========================================================================
+function initCyberCanvas() {
+    const canvas = document.getElementById('cyber-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d', { alpha: true });
+    if (!ctx) return;
+
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    let mouse = { x: -1000, y: -1000, active: false };
+    const maxDistance = 140;
+    const nodeCount = Math.min(65, Math.floor((width * height) / 22000));
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.vx = (Math.random() - 0.5) * 0.5;
+            this.vy = (Math.random() - 0.5) * 0.5;
+            this.radius = Math.random() * 1.8 + 1;
+            this.baseAlpha = Math.random() * 0.45 + 0.25;
+            const hues = [195, 218, 260];
+            this.hue = hues[Math.floor(Math.random() * hues.length)];
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0 || this.x > width) this.vx *= -1;
+            if (this.y < 0 || this.y > height) this.vy *= -1;
+
+            if (mouse.active) {
+                const dx = this.x - mouse.x;
+                const dy = this.y - mouse.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 130 && dist > 0) {
+                    const force = (130 - dist) / 130;
+                    this.x += (dx / dist) * force * 2.2;
+                    this.y += (dy / dist) * force * 2.2;
+                }
+            }
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `hsla(${this.hue}, 85%, 65%, ${this.baseAlpha})`;
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = `hsla(${this.hue}, 90%, 60%, 0.8)`;
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+    }
+
+    let particles = Array.from({ length: nodeCount }, () => new Particle());
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        particles = Array.from({ length: Math.min(65, Math.floor((width * height) / 22000)) }, () => new Particle());
+    }
+
+    let animId;
+    let isRunning = true;
+
+    function renderLoop() {
+        if (!isRunning) return;
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            p.update();
+            p.draw();
+
+            for (let j = i + 1; j < particles.length; j++) {
+                const p2 = particles[j];
+                const dx = p.x - p2.x;
+                const dy = p.y - p2.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < maxDistance) {
+                    const alpha = (1 - dist / maxDistance) * 0.16;
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.strokeStyle = `rgba(96, 165, 250, ${alpha})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.stroke();
+                }
+            }
+        }
+        animId = requestAnimationFrame(renderLoop);
+    }
+
+    window.addEventListener('resize', resize, { passive: true });
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        mouse.active = true;
+    }, { passive: true });
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            isRunning = false;
+            cancelAnimationFrame(animId);
+        } else {
+            isRunning = true;
+            renderLoop();
+        }
+    });
+
+    renderLoop();
+}
+
+// ==========================================================================
+// Interactive Ambient Cursor Follower Spotlight
+// ==========================================================================
+function initCursorSpotlight() {
+    const spotlight = document.getElementById('cursor-glow');
+    if (!spotlight) return;
+
+    let targetX = -1000, targetY = -1000;
+    let currentX = -1000, currentY = -1000;
+    let isTicking = false;
+
+    window.addEventListener('mousemove', (e) => {
+        targetX = e.clientX;
+        targetY = e.clientY;
+        if (!isTicking) {
+            isTicking = true;
+            requestAnimationFrame(updateSpotlight);
+        }
+    }, { passive: true });
+
+    function updateSpotlight() {
+        currentX += (targetX - currentX) * 0.15;
+        currentY += (targetY - currentY) * 0.15;
+        spotlight.style.left = `${currentX}px`;
+        spotlight.style.top = `${currentY}px`;
+
+        if (Math.abs(targetX - currentX) > 0.5 || Math.abs(targetY - currentY) > 0.5) {
+            requestAnimationFrame(updateSpotlight);
+        } else {
+            isTicking = false;
+        }
+    }
+}
+
+// ==========================================================================
+// High-Craft 3D Tilt Physics and Specular Reflection (ui-craft-motion)
+// ==========================================================================
+function initCardTiltPhysics() {
+    document.addEventListener('mousemove', (e) => {
+        const card = e.target.closest('.card');
+        if (!card) return;
+
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.setProperty('--mouse-x', `${(x / rect.width) * 100}%`);
+        card.style.setProperty('--mouse-y', `${(y / rect.height) * 100}%`);
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -6.5;
+        const rotateY = ((x - centerX) / centerX) * 6.5;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-5px) scale3d(1.015, 1.015, 1.015)`;
+    }, { passive: true });
+
+    document.addEventListener('mouseout', (e) => {
+        const card = e.target.closest('.card');
+        if (card && (!e.relatedTarget || !card.contains(e.relatedTarget))) {
+            card.style.transform = '';
+        }
+    });
+}
+
+// ==========================================================================
+// Ease-Out Count Up Animation for Hero Stats
+// ==========================================================================
+function animateStatCounters() {
+    const statCards = document.querySelectorAll('.hero-stat-card .stat-number[data-target]');
+    statCards.forEach((el) => {
+        const target = parseFloat(el.getAttribute('data-target'));
+        const suffix = el.getAttribute('data-suffix') || '';
+        const duration = 1200;
+        const startTime = performance.now();
+
+        function updateCount(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+            const currentVal = Math.round(target * easeOut);
+            el.textContent = currentVal + suffix;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCount);
+            }
+        }
+        requestAnimationFrame(updateCount);
+    });
+}
+
 // Native F11 Fullscreen Helpers
 function getNativeFullscreenElement() {
     return document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null;
@@ -253,11 +561,15 @@ function setupAuthGate() {
     const sidebarLockBtn = document.getElementById('sidebar-lock-btn');
     const topbarLockBtn = document.getElementById('topbar-lock-btn');
 
+    const authVisualizer = document.getElementById('auth-visualizer');
+    let visualizerTimer = null;
+
     if (toggleVisibilityBtn && authInput && eyeIcon) {
         toggleVisibilityBtn.addEventListener('click', () => {
             const isPassword = authInput.type === 'password';
             authInput.type = isPassword ? 'text' : 'password';
             eyeIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
+            audioFX.playTick();
         });
     }
 
@@ -269,6 +581,14 @@ function setupAuthGate() {
             if (authError) {
                 authError.style.display = 'none';
             }
+            if (authVisualizer) {
+                authVisualizer.classList.add('typing');
+                clearTimeout(visualizerTimer);
+                visualizerTimer = setTimeout(() => {
+                    authVisualizer.classList.remove('typing');
+                }, 300);
+            }
+            audioFX.playTick();
         });
     }
 
@@ -279,6 +599,7 @@ function setupAuthGate() {
 
         if (entered === SITE_SECURITY_PASSCODE) {
             // Password Correct -> Unlock website
+            audioFX.playSuccess();
             if (authError) authError.style.display = 'none';
             if (authGroup) authGroup.classList.remove('has-error', 'shake');
 
@@ -316,6 +637,7 @@ function setupAuthGate() {
             }, 350);
         } else {
             // Password Incorrect -> Deny access
+            audioFX.playError();
             if (authError) {
                 authError.innerHTML = '<span class="material-symbols-outlined">gpp_bad</span> Incorrect password. Access denied.';
                 authError.style.display = 'flex';
@@ -408,6 +730,10 @@ async function init() {
     setupMobileMenu();
     setupSearch();
     setupAuthGate();
+    setupAudioButton();
+    initCyberCanvas();
+    initCursorSpotlight();
+    initCardTiltPhysics();
 
     if (isUserAuthenticated()) {
         document.documentElement.classList.add('is-authenticated');
@@ -714,33 +1040,44 @@ function renderView() {
         const heroSection = document.createElement('div');
         heroSection.className = 'dashboard-hero-banner';
         heroSection.innerHTML = `
-            <div class="hero-crest-badge">
-                <span class="material-symbols-outlined">workspace_premium</span>
-                <span>CISCE Board Curriculum 2025–2027</span>
+            <div class="hero-telemetry-strip">
+                <div class="telemetry-chip chip-online">
+                    <span class="pulse-radar-dot"></span>
+                    <span>QUANTUM CORE ONLINE</span>
+                </div>
+                <div class="telemetry-chip chip-latency">
+                    <span class="material-symbols-outlined" style="font-size: 14px;">speed</span>
+                    <span>PING 14ms</span>
+                </div>
+                <div class="telemetry-chip chip-curriculum">
+                    <span class="material-symbols-outlined" style="font-size: 14px;">verified</span>
+                    <span>CISCE 2025–2027 MATRIX</span>
+                </div>
             </div>
             <h1 class="hero-title">Ilberiz Techz <span class="text-gradient">IIT Kanpur</span></h1>
             <p class="hero-description">The authoritative Class 10th ICSE study vault & examination platform. Access high-yield theory notes, board specimen blueprints, and interactive DPP test engines.</p>
             
             <div class="hero-stats-row">
                 <div class="hero-stat-card">
-                    <span class="stat-number">9</span>
+                    <span class="stat-number" data-target="9" data-suffix="">0</span>
                     <span class="stat-label">Prescribed Subjects</span>
                 </div>
                 <div class="hero-stat-card">
-                    <span class="stat-number">45+</span>
+                    <span class="stat-number" data-target="45" data-suffix="+">0</span>
                     <span class="stat-label">Full Class Notes</span>
                 </div>
                 <div class="hero-stat-card">
-                    <span class="stat-number">12+</span>
+                    <span class="stat-number" data-target="12" data-suffix="+">0</span>
                     <span class="stat-label">Interactive Engines</span>
                 </div>
                 <div class="hero-stat-card">
-                    <span class="stat-number">100%</span>
+                    <span class="stat-number" data-target="100" data-suffix="%">0</span>
                     <span class="stat-label">Board Aligned</span>
                 </div>
             </div>
         `;
         wrapper.appendChild(heroSection);
+        setTimeout(animateStatCounters, 50);
 
         // Fast-Track Study Spotlight
         const spotlightSection = document.createElement('div');
@@ -788,23 +1125,26 @@ function renderView() {
         const unit1 = phySub?.chapters?.find(c => c.id === 'unit-phy-1');
 
         const chipActions = {
-            '#spot-phy-u1': () => navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']),
+            '#spot-phy-u1': () => { audioFX.playTick(); navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']); },
             '#spot-phy-num': () => {
+                audioFX.playTick();
                 const item = unit1?.items?.find(i => i.id === 'phy-u1-numerical');
                 if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1'], item);
                 else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
             },
             '#spot-phy-theory': () => {
+                audioFX.playTick();
                 const item = unit1?.items?.find(i => i.id === 'phy-u1-theory');
                 if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1'], item);
                 else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
             },
             '#spot-phy-mcq': () => {
+                audioFX.playTick();
                 const item = unit1?.items?.find(i => i.id === 'phy-u1-mcq');
                 if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1'], item);
                 else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
             },
-            '#spot-phy-force': () => navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-1', 'chap-phy-1'])
+            '#spot-phy-force': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-1', 'chap-phy-1']); }
         };
 
         Object.entries(chipActions).forEach(([selector, action]) => {
@@ -839,36 +1179,71 @@ function renderView() {
         const header = createSectionHeader(batch.name + ' Prescribed Subjects', `${batch.description} • CISCE Class 10 Syllabus`);
         wrapper.appendChild(header);
 
+        // Interactive Bento Category Filters
+        const bentoFilterBar = document.createElement('div');
+        bentoFilterBar.className = 'bento-filter-bar';
+        bentoFilterBar.innerHTML = `
+            <button class="bento-tab-btn active" data-category="all"><span class="material-symbols-outlined" style="font-size: 15px;">grid_view</span> All Subjects (9)</button>
+            <button class="bento-tab-btn" data-category="stem"><span class="material-symbols-outlined" style="font-size: 15px;">science</span> Sciences & STEM</button>
+            <button class="bento-tab-btn" data-category="social"><span class="material-symbols-outlined" style="font-size: 15px;">public</span> Social Sciences</button>
+            <button class="bento-tab-btn" data-category="lang"><span class="material-symbols-outlined" style="font-size: 15px;">translate</span> Languages</button>
+        `;
+        wrapper.appendChild(bentoFilterBar);
+
         const grid = document.createElement('div');
         grid.className = 'cards-grid';
-        batch.subjects.forEach((sub, idx) => {
-            const isPhysics = sub.id === 'sub-10-phy';
-            const stats = getSubjectStats(sub);
 
-            let badgeText = '';
-            if (isPhysics) {
-                if (stats.totalNotes > 0 && stats.totalModules > 0) {
-                    badgeText = `${sub.chapters.length} Units • ${stats.totalChapters} Ch • ${stats.totalNotes} Note${stats.totalNotes === 1 ? '' : 's'} • ${stats.totalModules} Module${stats.totalModules === 1 ? '' : 's'}`;
-                } else if (stats.totalNotes > 0) {
-                    badgeText = `${sub.chapters.length} Units • ${stats.totalChapters} Ch • ${stats.totalNotes} Note${stats.totalNotes === 1 ? '' : 's'}`;
+        function renderSubjectCards(filterCategory = 'all') {
+            grid.innerHTML = '';
+            let cardIndex = 0;
+            batch.subjects.forEach((sub) => {
+                const isPhysics = sub.id === 'sub-10-phy';
+                const isStem = ['sub-10-phy', 'sub-10-chem', 'sub-10-bio', 'sub-10-math', 'sub-10-comp'].includes(sub.id);
+                const isSocial = ['sub-10-his', 'sub-10-geo', 'sub-10-econ', 'sub-10-comm'].includes(sub.id);
+                const isLang = ['sub-10-eng', 'sub-10-hindi'].includes(sub.id);
+
+                if (filterCategory === 'stem' && !isStem) return;
+                if (filterCategory === 'social' && !isSocial) return;
+                if (filterCategory === 'lang' && !isLang) return;
+
+                const stats = getSubjectStats(sub);
+                let badgeText = '';
+                if (isPhysics) {
+                    if (stats.totalNotes > 0 && stats.totalModules > 0) {
+                        badgeText = `${sub.chapters.length} Units • ${stats.totalChapters} Ch • ${stats.totalNotes} Note${stats.totalNotes === 1 ? '' : 's'} • ${stats.totalModules} Module${stats.totalModules === 1 ? '' : 's'}`;
+                    } else if (stats.totalNotes > 0) {
+                        badgeText = `${sub.chapters.length} Units • ${stats.totalChapters} Ch • ${stats.totalNotes} Note${stats.totalNotes === 1 ? '' : 's'}`;
+                    } else {
+                        badgeText = `${sub.chapters.length} Units • ${stats.totalChapters} Chapters`;
+                    }
                 } else {
-                    badgeText = `${sub.chapters.length} Units • ${stats.totalChapters} Chapters`;
+                    badgeText = stats.totalItems > 0 ? `${sub.chapters.length} Ch • ${stats.totalItems} Notes` : `${sub.chapters.length} Chapters`;
                 }
-            } else {
-                badgeText = stats.totalItems > 0 ? `${sub.chapters.length} Ch • ${stats.totalItems} Notes` : `${sub.chapters.length} Chapters`;
-            }
-            
-            grid.appendChild(createCard({
-                title: sub.name,
-                subtitle: sub.description,
-                icon: sub.icon || 'menu_book',
-                onClick: () => navigateTo('chapters', [batch.id, sub.id]),
-                badge: badgeText,
-                actionText: isPhysics ? 'Explore Units' : 'Open Chapters',
-                index: idx,
-                subjectId: sub.id
-            }));
+                
+                grid.appendChild(createCard({
+                    title: sub.name,
+                    subtitle: sub.description,
+                    icon: sub.icon || 'menu_book',
+                    onClick: () => navigateTo('chapters', [batch.id, sub.id]),
+                    badge: badgeText,
+                    actionText: isPhysics ? 'Explore Units' : 'Open Chapters',
+                    index: cardIndex++,
+                    subjectId: sub.id
+                }));
+            });
+        }
+
+        renderSubjectCards('all');
+
+        bentoFilterBar.querySelectorAll('.bento-tab-btn').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                audioFX.playTick();
+                bentoFilterBar.querySelectorAll('.bento-tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderSubjectCards(btn.getAttribute('data-category'));
+            });
         });
+
         wrapper.appendChild(grid);
     }
     else if (state.currentView === 'chapters') {
@@ -1224,11 +1599,15 @@ function createCard({ title, subtitle, icon, onClick, badge = null, isPdf = fals
     if (subjectId) {
         card.setAttribute('data-subject', subjectId);
     }
-    card.onclick = onClick;
+    card.onclick = (e) => {
+        audioFX.playTick();
+        if (onClick) onClick(e);
+    };
     card.onkeydown = (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            if (onClick) onClick();
+            audioFX.playTick();
+            if (onClick) onClick(e);
         }
     };
     

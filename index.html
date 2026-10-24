@@ -26,16 +26,25 @@
 </head>
 <body>
     <div class="background-mesh">
+        <canvas id="cyber-canvas" class="cyber-canvas"></canvas>
         <div class="mesh-radial mesh-radial-1"></div>
         <div class="mesh-radial mesh-radial-2"></div>
         <div class="mesh-radial mesh-radial-3"></div>
         <div class="mesh-grid-overlay"></div>
+        <div class="mesh-scanlines"></div>
     </div>
+
+    <!-- Interactive Ambient Cursor Spotlight -->
+    <div class="cursor-glow-spotlight" id="cursor-glow" aria-hidden="true"></div>
 
     <!-- Frontend Password Authentication Gate -->
     <div class="auth-gate-wrapper" id="auth-gate" aria-modal="true" role="dialog" aria-labelledby="auth-gate-title">
         <div class="auth-card">
+            <div class="auth-card-border-glow"></div>
+            
             <div class="auth-shield-wrap">
+                <div class="auth-orbital-ring-outer"></div>
+                <div class="auth-orbital-ring-inner"></div>
                 <div class="auth-shield-halo"></div>
                 <div class="auth-shield-icon">
                     <span class="material-symbols-outlined">lock</span>
@@ -43,7 +52,7 @@
             </div>
 
             <div class="auth-badge">
-                <span class="material-symbols-outlined">verified</span>
+                <span class="pulse-radar-dot"></span>
                 <span>IIT Kanpur • Class 10 ICSE Vault</span>
             </div>
 
@@ -67,6 +76,11 @@
                     </button>
                 </div>
 
+                <!-- Live Audio/Frequency Visualizer Bars -->
+                <div class="auth-visualizer-bars" id="auth-visualizer" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+
                 <div class="auth-options">
                     <label class="auth-remember-label">
                         <input type="checkbox" id="auth-remember-checkbox" checked />
@@ -80,6 +94,7 @@
                 <button type="submit" class="auth-submit-btn" id="auth-submit-btn">
                     <span class="material-symbols-outlined btn-icon">lock_open</span>
                     <span class="btn-text">Unlock Platform</span>
+                    <div class="btn-shimmer"></div>
                 </button>
             </form>
 
@@ -97,6 +112,7 @@
             <div class="logo-area">
                 <div class="logo-icon">
                     <span class="material-symbols-outlined">school</span>
+                    <div class="logo-shine"></div>
                 </div>
                 <div class="logo-meta">
                     <h2>Ilberiz Techz</h2>
@@ -111,6 +127,7 @@
             <div class="sidebar-footer">
                 <a href="https://t.me/ilberiztechziitkanpur" target="_blank" rel="noopener noreferrer" class="telegram-link">
                     <span class="material-symbols-outlined">send</span> Join Telegram Community
+                    <div class="telegram-shine"></div>
                 </a>
                 <button type="button" class="sidebar-lock-btn" id="sidebar-lock-btn" title="Lock the website">
                     <span class="material-symbols-outlined">lock</span> Lock Website
@@ -130,11 +147,15 @@
                     <div class="search-bar">
                         <span class="material-symbols-outlined search-icon">search</span>
                         <input type="text" id="search-input" placeholder="Search notes, chapters, topics..." autocomplete="off">
-                        <span class="search-kbd-hint" title="Press / to search"><kbd>/</kbd></span>
+                        <span class="search-kbd-hint" title="Press / or Ctrl+K to search"><kbd>/</kbd></span>
                         <button class="clear-search-btn hidden" id="clear-search-btn" aria-label="Clear search">
                             <span class="material-symbols-outlined">close</span>
                         </button>
                     </div>
+                    <!-- Audio FX Haptic Synthesizer Toggle -->
+                    <button type="button" class="topbar-audio-btn" id="topbar-audio-btn" title="Toggle Futuristic Audio Effects" aria-label="Toggle Audio Effects">
+                        <span class="material-symbols-outlined" id="audio-icon">volume_up</span>
+                    </button>
                     <button type="button" class="topbar-lock-btn" id="topbar-lock-btn" title="Lock Website" aria-label="Lock Website">
                         <span class="material-symbols-outlined">lock</span>
                         <span class="topbar-lock-text">Lock</span>
@@ -148,7 +169,7 @@
         </main>
     </div>
 
-    <script src="data.js?v=7.4"></script>
-    <script src="script.js?v=7.4"></script>
+    <script src="data.js?v=8.0"></script>
+    <script src="script.js?v=8.0"></script>
 </body>
 </html>
