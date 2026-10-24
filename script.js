@@ -749,21 +749,6 @@ function renderView() {
                     <span class="spotlight-chip-text">Physics • Ch 1: Force Notes</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #3b82f6);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-geo-topo" type="button">
-                    <span class="material-symbols-outlined" style="color: #818cf8;">map</span>
-                    <span class="spotlight-chip-text">Geography • Toposheet Q1 Blueprint</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">HOT</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-geo-climate" type="button">
-                    <span class="material-symbols-outlined" style="color: #38bdf8;">cloud</span>
-                    <span class="spotlight-chip-text">Geography • Climate 10-Yr MCQs</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #3b82f6);">HOT</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-eng-jc" type="button">
-                    <span class="material-symbols-outlined" style="color: #c084fc;">theater_comedy</span>
-                    <span class="spotlight-chip-text">English • Julius Caesar Notes</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #a855f7, #d946ef);">HOT</span>
-                </button>
             </div>
         `;
         wrapper.appendChild(spotlightSection);
@@ -806,18 +791,6 @@ function renderView() {
         const spotPhyForce = spotlightSection.querySelector('#spot-phy-force');
         if (spotPhyForce && batch) {
             spotPhyForce.onclick = () => navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-1', 'chap-phy-1']);
-        }
-        const spotGeoTopo = spotlightSection.querySelector('#spot-geo-topo');
-        if (spotGeoTopo && batch) {
-            spotGeoTopo.onclick = () => navigateTo('items', [batch.id, 'sub-10-geo', 'chap-geo-toposheet']);
-        }
-        const spotGeoClimate = spotlightSection.querySelector('#spot-geo-climate');
-        if (spotGeoClimate && batch) {
-            spotGeoClimate.onclick = () => navigateTo('items', [batch.id, 'sub-10-geo', 'chap-geo-climate']);
-        }
-        const spotEngJc = spotlightSection.querySelector('#spot-eng-jc');
-        if (spotEngJc && batch) {
-            spotEngJc.onclick = () => navigateTo('items', [batch.id, 'sub-10-eng', 'chap-eng-1']);
         }
 
         const header = createSectionHeader('Curriculum Classes', 'Choose your curriculum level to explore subjects, study notes & lectures');

@@ -182,10 +182,10 @@ ILBERIZ TECHZ IIT KANPUR/
       - Bump cache-busting query parameter in `index.html` (e.g. `v=5.2`).
       - Update `PROJECT_STATE.md` with a concise milestone entry.
       - Commit and push to `origin/main` (`BypassSandbox: true`).
-15. **Overview High-Yield Fast Track Subject Alignment Protocol (Zero Stale Subject Clutter - MANDATORY)**:
-    - **Active Focus Priority**: The High-Yield Fast Track rail in the Executive Overview Hub (`.spotlight-chips-grid` in `renderBatches()`) must strictly reflect the active subject focus.
-    - **Zero Stale Subject Clutter**: When a new subject module or unit is published (such as Physics Unit 1), the spotlight rail MUST be prioritized for that newly published subject (e.g. Physics Master Vault, Pure Numericals, Theory Vault, Diagnostic MCQs, Force Notes) and high-yield non-competing flagship resources (e.g. Geography Toposheet, Climate 10-Yr MCQs, English Julius Caesar).
-    - **Strict Ban on Previous Batch Clutter**: It must **NEVER** remain filled with chips from previous subject batches (e.g. **NO History chips** when Physics is the active focus). When a new subject is released, immediately purge all older subject spotlight chips so students landing on the portal see what is current, fresh, and relevant.
+15. **Exclusive Latest-Release Spotlight Protocol (100% Exclusive to the Newest Published Release - MANDATORY)**:
+    - **Single Focus Exclusive Presentation**: Whenever a new subject, unit, or chapter release is published (e.g. Physics Unit 1), the High-Yield Fast Track rail on the Overview dashboard (`.spotlight-chips-grid` in `renderBatches()`) must **EXCLUSIVELY** feature items belonging to that newly published release.
+    - **Total Purge of Older Content**: You must **REMOVE ALL OF THE REST** from Overview and High-Yield Fast Track. Do NOT retain Geography, English, History, or any other previous subject chips. When a new release is published, that release is now the single important focus. All other subjects and chapters are already permanently available in their respective subject pages and known to users.
+    - **No Multi-Subject Hybrid Fast Track**: Never mix older subjects into the Fast Track rail under the guise of "flagship" or "cross-curriculum" resources. When Physics is published, show ONLY Physics. When another subject is released in the future, show ONLY that new release.
 
 ---
 
@@ -1400,6 +1400,23 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Bumped cache-busting queries in `index.html` to `v=7.1` for `style.css`, `data.js`, and `script.js`.
     - **Live Browser Subagent Verification**:
       - Verified complete user flow via `browser_subagent` across Home Overview, Fast Track chips, Physics Units view with clean `science` icon, Unit 1 Master Study Modules, Ch 1 Force note cards, and interactive engine launch and back-navigation.
+
+55. **Strict Enforcement of Rule 15: Exclusive Latest-Release Spotlight Protocol & Zero Cross-Subject Clutter**:
+    - **User Requirement & Mandate**:
+      - The user clarified unequivocally that whenever a new release is published, the Overview and High-Yield Fast Track rail must **strictly feature ONLY that new release**. All other older resources and subjects (including Geography Climate, Toposheet, English Julius Caesar, etc.) must be completely removed from the Fast Track rail, because returning students already know the existing content and the spotlight exists solely to champion the active new release.
+    - **Implementation**:
+      - Rewrote **Rule 15 (Exclusive Latest-Release Spotlight Protocol)** in Section 3 to enshrine this mandate permanently: 100% exclusive spotlight to the newest published release, zero hybrid or multi-subject retention.
+      - In `script.js` (`renderBatches()`), completely purged all non-Physics spotlight chips (`spot-geo-topo`, `spot-geo-climate`, `spot-eng-jc`) and their event listeners.
+      - The High-Yield Fast Track rail now contains **strictly the 5 Physics Unit 1 modules**:
+        1. *Physics • Unit 1 Master Vault* (`NEW` badge, jumps to Unit 1 subchapters)
+        2. *Physics • Pure Numericals v2.0* (`HOT` badge, launches numerical solver)
+        3. *Physics • Theory & Derivations* (`HOT` badge, launches theory vault)
+        4. *Physics • Diagnostic MCQ Exam* (`HOT` badge, launches MCQ drill)
+        5. *Physics • Ch 1: Force Notes* (`HOT` badge, opens Force lecture notes)
+      - All Geography, English, and History modules remain permanently and cleanly accessible in their respective Subject and Chapter pages.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=7.2` for `style.css`, `data.js`, and `script.js`.
+
 
 
 
