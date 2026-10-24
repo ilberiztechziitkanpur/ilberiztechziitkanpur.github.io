@@ -1116,6 +1116,11 @@ function renderView() {
                     <span class="spotlight-chip-text">Physics • Ch 1: Force Notes</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #3b82f6);">HOT</span>
                 </button>
+                <button class="spotlight-chip featured-chip" id="spot-phy-work" type="button">
+                    <span class="material-symbols-outlined" style="color: #38bdf8;">bolt</span>
+                    <span class="spotlight-chip-text">Physics • Ch 2: Work Notes</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">NEW</span>
+                </button>
             </div>
         `;
         wrapper.appendChild(spotlightSection);
@@ -1126,6 +1131,8 @@ function renderView() {
 
         const chipActions = {
             '#spot-phy-u1': () => { audioFX.playTick(); navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']); },
+            '#spot-phy-work': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-1', 'chap-phy-2']); },
+            '#spot-phy-force': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-1', 'chap-phy-1']); },
             '#spot-phy-num': () => {
                 audioFX.playTick();
                 const item = unit1?.items?.find(i => i.id === 'phy-u1-numerical');
@@ -1143,8 +1150,7 @@ function renderView() {
                 const item = unit1?.items?.find(i => i.id === 'phy-u1-mcq');
                 if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1'], item);
                 else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
-            },
-            '#spot-phy-force': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-1', 'chap-phy-1']); }
+            }
         };
 
         Object.entries(chipActions).forEach(([selector, action]) => {

@@ -115,7 +115,9 @@ ILBERIZ TECHZ IIT KANPUR/
 ├── physics/                         # ALL Physics subject content lives strictly here
 │   ├── notes/                       # ICSE Class 10 Physics PDF notes
 │   │   ├── Force_Work_Power_And_Energy_01_Class_Notes.pdf (3.6 MB) — Ch 1: Force, Moments, Couple, Equilibrium & CG (40 slides)
-│   │   └── Force_Work_Power_And_Energy_02_Class_Notes.pdf (2.4 MB) — Ch 1: Couple, Moments, Metre Rule, CG & Stability (29 slides)
+│   │   ├── Force_Work_Power_And_Energy_02_Class_Notes.pdf (2.4 MB) — Ch 1: Couple, Moments, Metre Rule, CG & Stability (29 slides)
+│   │   ├── Force_Work_Power_And_Energy_03_Class_Notes.pdf (2.4 MB) — Ch 1: Circular Motion, Centripetal/Centrifugal & Work Intro (24 slides)
+│   │   └── Force_Work_Power_And_Energy_04_Class_Notes.pdf (2.2 MB) — Ch 2: Work Done, Special Cases, F-d Graph & Units (25 slides)
 │   ├── unit1-numerical/             # Unit 1: Numericals Mastery Engine v2.0
 │   │   └── index.html               # 20 Verbatim Board Numericals, Step-by-Step, Formula Boxes, Live Timer
 │   ├── unit1-theory/                # Unit 1: Theory, Concepts & Derivations Vault
@@ -553,9 +555,12 @@ ILBERIZ TECHZ IIT KANPUR/
   - `UNIT-1 Force, Work, Power and Energy, Machines.Numerical` (`physics/unit1-numerical/index.html`): 20 Verbatim 10-Year Numericals, Step-by-Step Solutions, Formula Step Boxes, Given/To-Find breakdown, and Live Exam Timer.
   - `UNIT-1 Force, Work, Power and Energy, Machines. Theory` (`physics/unit1-theory/index.html`): 62 Marks High-Yield Theory, Official CISCE Marking Scheme, Give Reasons, Derivations, Diagram Questions & Active Recall Blur Mode.
   - `UNIT-1 Force, Work, Power and Energy, Machines. MCQ` (`physics/unit1-mcq/index.html`): 24 High-Yield Forensic MCQs across Force, Work/Energy/Power & Machines with DPP Test Mode, Instant Reveal, Live Scoreboard & Detailed Rationale.
-- **Chapter 1: Force Lecture Notes (2 PDFs in `physics/notes/`)**:
+- **Chapter 1: Force Lecture Notes (3 PDFs in `physics/notes/`)**:
   - `Force_Work_Power_And_Energy_01_Class_Notes.pdf` (3.6 MB, 3,626,130 bytes, 40 widescreen slides, Kunal Sir / Victory 2027 by Physics Wallah) — Translational vs Rotational motion, Moment of Force (Torque $\tau = F \times d_{\perp}$), SI and CGS units ($1\text{ N}\cdot\text{m} = 10^7\text{ dyne}\cdot\text{cm}$), Gravitational units ($1\text{ kgf}\cdot\text{m} = 9.8\text{ N}\cdot\text{m}$), Clockwise (negative) vs Anticlockwise (positive) moments, Couple and moment of couple ($\tau = F \times d$), Equilibrium (Static and Dynamic equilibrium with real-world conditions: $\Sigma F = 0$ and $\Sigma \tau = 0$), Principle of Moments (Sum of anticlockwise moments = Sum of clockwise moments), Centre of Gravity (definition, dependence on mass distribution, CG positions of symmetrical bodies: rod, ring, disc, sphere, cylinder, cone, triangular lamina), Stability of bodies, and Centripetal vs Centrifugal forces.
   - `Force_Work_Power_And_Energy_02_Class_Notes.pdf` (2.4 MB, 2,536,763 bytes, 29 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Couple definition & couple moment, Principle of Moments, Uniform metre rule knife-edge balance problems, Gravitational units ($1\text{ kgf} = 9.8\text{ N}$, $1\text{ gf} = 980\text{ dynes}$), See-saw balance calculations, Centre of gravity definition & position for solid cone ($h/4$), hollow cone ($h/3$), cylinder, sphere, and Two methods of increasing stability of a body (lowering CG and broad base).
+  - `Force_Work_Power_And_Energy_03_Class_Notes.pdf` (2.4 MB, 2,425,909 bytes, 24 widescreen slides, Victory 2027 by Physics Wallah) — Uniform Circular Motion, Centripetal & Centrifugal Force, Work-Energy Concepts, Derivations & Solved Board Practice Problems.
+- **Chapter 2: Work, Energy and Power Lecture Notes (1 PDF in `physics/notes/`)**:
+  - `Force_Work_Power_And_Energy_04_Class_Notes.pdf` (2.2 MB, 2,337,467 bytes, 25 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Work Done definition & mathematical formulation ($W = F s \cos \theta$), Special Cases (Acute angle $\theta < 90^\circ \implies W > 0$, Right angle $\theta = 90^\circ \implies W = 0$, Obtuse angle $\theta > 90^\circ \implies W < 0$), Work done by applied force vs. work done against gravity ($W_F = F d \cos 0^\circ$ vs $W_{\text{gravity}} = F d \cos 180^\circ$), Area under Force-Displacement graph interpretation ($A = \text{Work done}$), SI and CGS units of work ($1\text{ J} = 10^7\text{ erg}$), Gravitational units of work ($1\text{ kgf}\cdot\text{m} = 9.8\text{ J}$, $1\text{ gf}\cdot\text{cm} = 980\text{ erg}$), and ICSE Board Numerical problems.
 
 ### U. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
 All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
@@ -1498,8 +1503,22 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Zero-Network Web Audio Synthesizer (`audioFX`)**:
       - Procedural tactical sound synthesis via native Web Audio API oscillators (subtle click ticks, success chime, and error thud) requiring 0 external audio files.
       - Added topbar audio toggle button (`#topbar-audio-btn`) with persistent memory (`localStorage`).
-    - **Cache Invalidation & Schema Validation**:
-      - Bumped asset cache versions in `index.html` to `v=8.0`.
+59. **Addition of Physics Chapter 2: Work, Energy and Power Class Notes 01 (Lecture 04 / 25 Slides)**:
+    - **Slide & Content Ingestion (Rule 1 & Rule 14)**:
+      - Ingested `Force, Work, Power And Energy 04 Class Notes.pdf` (2.2 MB, 2,337,467 bytes, 25 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) into `physics/notes/Force_Work_Power_And_Energy_04_Class_Notes.pdf`.
+      - Topics: Work Done mathematical definition ($W = F s \cos \theta$), Special Cases (Acute angle $\theta < 90^\circ \implies W > 0$, Right angle $\theta = 90^\circ \implies W = 0$, Obtuse angle $\theta > 90^\circ \implies W < 0$), Work done against gravity vs. applied force ($W_{\text{gravity}} = -mgh$ vs $W_F = Fd$), Force-Displacement graph interpretation (Area under curve = Work done), SI/CGS units ($1\text{ J} = 10^7\text{ erg}$) and gravitational units.
+      - Removed raw download from `C:\Users\ASUS\Downloads\` immediately (Rule 5 & Rule 14).
+    - **Curriculum Placement & Interactive Clarification**:
+      - Prompted via interactive modal (`ask_question` tool) confirming placement under **Ch 2: Work, Energy and Power** (`chap-phy-2`) as its first core study note (`phy-work-notes-01`), aligning perfectly with the official ICSE Class 10 syllabus.
+    - **Dual Data Synchronization (Rule 7)**:
+      - Synchronized `phy-work-notes-01` under `sub-10-phy` -> `unit-phy-1` -> `chap-phy-2` across both `data.js` and `data.json`.
+      - Unit 1 card badge now dynamically displays `3 Chapters • 4 Notes • 3 Modules`.
+      - Physics card on Class 10 dashboard displays `6 Units • 12 Ch • 4 Notes • 3 Modules`.
+    - **Spotlight & Overview Integration (Rule 10 & Rule 15)**:
+      - Added high-visibility spotlight chip `Physics • Ch 2: Work Notes` with `NEW` badge in High-Yield Fast Track (`.spotlight-chips-grid`), providing 1-click launch directly into Chapter 2.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=8.1` for `style.css`, `data.js`, and `script.js`.
+      - Verified 100% deep equality between `data.js` and `data.json` via automated canonical JSON parity script.
 
 
 

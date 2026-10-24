@@ -184,7 +184,17 @@ window.COURSE_DATA = {
                                     "name": "Ch 2: Work, Energy and Power",
                                     "description": "Work done (W = Fs cos θ), power (P = W/t), kinetic & potential energy, work-energy theorem, conservation of mechanical energy in freely falling body",
                                     "icon": "bolt",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "phy-work-notes-01",
+                                            "title": "Force, Work, Power And Energy 04 Class Notes",
+                                            "subtitle": "Work Done (W = Fs cos θ), Special Cases (Positive, Zero & Negative Work), F-d Graph Area, Work Against Gravity & Units (Shailendra Sir / 25 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Force_Work_Power_And_Energy_04_Class_Notes.pdf",
+                                            "size": "2.2 MB",
+                                            "badge": "PDF • 2.2 MB • Class Notes"
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "chap-phy-3",
