@@ -505,27 +505,6 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Growth of Nationalism & INC Vault (History Ch 2)
-    const natNav = document.createElement('div');
-    const isNatActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && state.path[2] === 'chap-his-2';
-    natNav.className = `nav-item nav-item-featured ${isNatActive ? 'active' : ''}`;
-    natNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #f59e0b;">account_balance</span>
-        <span style="font-weight: 600;">Nationalism & INC Vault</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #ef4444); color:#fff; box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);">NEW</span>
-    `;
-    natNav.onclick = () => {
-        closeSidebarOnMobile();
-        resetSearch();
-        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const hisSub = batch?.subjects?.find(s => s.id === 'sub-10-his');
-        const natChap = hisSub?.chapters?.find(c => c.id === 'chap-his-2');
-        if (natChap) {
-            navigateTo('items', [batch.id, hisSub.id, natChap.id]);
-        }
-    };
-    navMenu.appendChild(natNav);
-
     // Latest Update Quick Launch: Physics Unit 1 Master Vault (Force & Machines)
     const phyNav = document.createElement('div');
     const isPhyActive = state.currentView !== 'search' && state.path[1] === 'sub-10-phy' && state.path[2] === 'unit-phy-1';
@@ -753,7 +732,7 @@ function renderView() {
                 <button class="spotlight-chip featured-chip" id="spot-his-nat" type="button">
                     <span class="material-symbols-outlined" style="color: #f59e0b;">account_balance</span>
                     <span class="spotlight-chip-text">History • Nationalism & INC Vault</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">NEW</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706);">HOT</span>
                 </button>
                 <button class="spotlight-chip featured-chip" id="spot-his-ww1" type="button">
                     <span class="material-symbols-outlined" style="color: #a855f7;">public</span>

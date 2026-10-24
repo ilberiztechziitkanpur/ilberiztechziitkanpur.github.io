@@ -1324,6 +1324,17 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Verified user journey via `browser_subagent` across passcode login, 6 units view, Master Modules rendering, Ch 1 Force class notes PDF display, and MCQ engine execution.
       - Committed and pushed to `origin/main` (`d43a8d4`).
 
+51. **Sidebar Quick-Launch Cleanliness Enforcement (Rule 10) & Spotlight Badge Alignment**:
+    - **Root Cause Analysis**:
+      - In Milestone 50, when the Physics Unit 1 Master Vault was integrated, `phyNav` was appended to the sidebar navigation in `renderNav()`, but the previous quick-launch item `natNav` (Growth of Nationalism & INC Vault) was inadvertently left mounted in the DOM. Consequently, both "Nationalism & INC Vault" and "Physics Unit 1 Vault" were appearing simultaneously in the sidebar with glowing `NEW` badges, directly violating the single latest update constraint of Rule 10.
+      - In the Executive Overview hub (`renderBatches()`), `spot-his-nat` had retained its `NEW` chip badge instead of transitioning to `HOT`, conflicting with the latest published Physics resource.
+    - **Architectural Fix**:
+      - Completely removed `natNav` from `renderNav()` in `script.js`, restoring the sidebar quick-launch area to feature strictly the single latest focus item: **Physics Unit 1 Vault** (`unit-phy-1`) with its cyan `fitness_center` icon and glowing `NEW` badge.
+      - Updated `spot-his-nat` in the Overview spotlight grid to display the `HOT` badge (`#f59e0b` to `#d97706` amber gradient), reserving the `NEW` tag exclusively for Physics Unit 1 Master Vault.
+      - Marked `unit-phy-1` with `"featured": true` across both `data.js` and `data.json`.
+      - Bumped cache-busting queries in `index.html` to `v=6.8` for instant client cache invalidation on GitHub Pages.
+
+
 
 
 

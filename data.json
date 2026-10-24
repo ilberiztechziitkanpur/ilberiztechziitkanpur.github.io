@@ -116,6 +116,7 @@
                             "name": "Unit 1: Force, Work, Power and Energy",
                             "description": "Classical Mechanics — Turning effect of force, moment of couple, work, power, energy conservation & machines",
                             "icon": "fitness_center",
+                            "featured": true,
                             "items": [
                                 {
                                     "id": "phy-u1-numerical",
