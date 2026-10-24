@@ -130,7 +130,7 @@ ILBERIZ TECHZ IIT KANPUR/
 3. **Always Include Navigation & Fonts**: Every chapter engine `index.html` MUST include:
    - Google Fonts (`Inter`, `Outfit`, `JetBrains Mono`) and `Material Symbols Outlined`.
    - The `.home-nav-btn` linking back to `../../index.html` with `target="_top"` so students can easily return to the dashboard.
-4. **No Empty Subject Folders**: Do NOT create empty directories for Mathematics, Physics, Chemistry, Biology, etc., until the user provides actual files for them. Active content folders currently exist for Geography (`geography/`), History (`history/notes/`), and English (`english/notes/`). Full authentic ICSE Class 10 chapter syllabi for all 9 subjects are mapped in `data.js` and `data.json`.
+4. **No Empty Subject Folders**: Do NOT create empty directories for Mathematics, Chemistry, Biology, etc., until the user provides actual files for them. Active content folders currently exist for Geography (`geography/`), History (`history/notes/`), English (`english/notes/`), and Physics (`physics/notes/`, `physics/unit1-numerical/`, `physics/unit1-theory/`, `physics/unit1-mcq/`). Full authentic ICSE Class 10 chapter syllabi for all 9 subjects are mapped in `data.js` and `data.json`.
 5. **No Root Clutter**: Never leave raw download files (like `gemini-code-*.html` or `temp_*.html`) in the root directory. Process them into their proper folder (`geography/...`, `history/...`) and remove the loose download file immediately.
 6. **Leave Video Downloader Untouched**: The `Video_Downloader/` directory is for a completely different utility. Never modify, delete, or commit changes inside `Video_Downloader/`.
 7. **Always Synchronize `data.js` and `data.json`**: When adding a new item or chapter, update both files in parallel. `data.js` attaches to `window.COURSE_DATA` for offline `file://` usage, while `data.json` is for standard HTTP fetching.
@@ -552,18 +552,30 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
    - Ch 13: Trigonometrical Identities, Heights & Distances
    - Ch 14: Statistics (Mean, Median, Mode, Ogive & Quartiles)
    - Ch 15: Probability
-2. **Physics (`sub-10-phy`) — 11 Chapters**:
-   - Ch 1: Force, Work, Power and Energy
-   - Ch 2: Simple Machines (Levers & Pulleys)
-   - Ch 3: Refraction of Light at Plane Surfaces (TIR & Critical Angle)
-   - Ch 4: Refraction through a Lens
-   - Ch 5: Spectrum & Electromagnetic Waves
-   - Ch 6: Sound (Echoes & Resonance)
-   - Ch 7: Current Electricity (Ohm's Law & Internal Resistance)
-   - Ch 8: Electrical Power & Household Circuits (Ring System & 3-pin plug)
-   - Ch 9: Electro-Magnetism
-   - Ch 10: Calorimetry
-   - Ch 11: Radioactivity & Nuclear Energy
+2. **Physics (`sub-10-phy`) — 6 Prescribed Units & 12 Chapters (CISCE / Concise Selina Structure)**:
+   - **Unit 1: Force, Work, Power and Energy**:
+     - **Interactive Master Engines (3 Engines)**:
+       - `UNIT-1 Force, Work, Power and Energy, Machines.Numerical` (`physics/unit1-numerical/index.html`): 20 Verbatim 10-Year Numericals, Step-by-Step Solutions, Formula Step Boxes, Given/To-Find breakdown & Live Timer.
+       - `UNIT-1 Force, Work, Power and Energy, Machines. Theory` (`physics/unit1-theory/index.html`): 62 Marks High-Yield Theory, Official CISCE Marking Scheme, Give Reasons, Derivations, Diagram Questions & Recall Mode.
+       - `UNIT-1 Force, Work, Power and Energy, Machines. MCQ` (`physics/unit1-mcq/index.html`): 24 High-Yield Forensic MCQs across all 3 Chapters with DPP Test Mode, Instant Reveal, Live Scoreboard & Detailed Rationale.
+     - **Ch 1: Force**:
+       - `Force, Work, Power And Energy  01  Class Notes.pdf` (3.5 MB, `physics/notes/Force_Work_Power_And_Energy_01_Class_Notes.pdf`): Comprehensive lecture notes on Force, Moment of Force, Couple, Equilibrium, and Centre of Gravity.
+     - **Ch 2: Work, Energy and Power**: (Work done, kinetic & potential energy conservation)
+     - **Ch 3: Machines**: (MA, VR, efficiency, Class I-III levers & pulley systems)
+   - **Unit 2: Light**:
+     - Ch 4: Refraction of Light at Plane Surfaces (Snell's law, TIR & critical angle)
+     - Ch 5: Refraction through a Lens (Convex/concave lenses, ray diagrams, power)
+     - Ch 6: Spectrum (Prism dispersion, electromagnetic spectrum & scattering)
+   - **Unit 3: Sound**:
+     - Ch 7: Sound (Echoes, sonar, natural/damped/forced vibrations & resonance)
+   - **Unit 4: Electricity and Magnetism**:
+     - Ch 8: Current Electricity (Ohm's law, internal resistance, series/parallel combinations)
+     - Ch 9: Household Circuits (Ring system, 3-pin plug, earthing, fuses & power calculations)
+     - Ch 10: Electro-Magnetism (Magnetic effect of current, DC motor, induction & transformers)
+   - **Unit 5: Heat**:
+     - Ch 11: Calorimetry (Specific heat capacity, principle of mixtures, latent heat of fusion)
+   - **Unit 6: Modern Physics**:
+     - Ch 12: Radioactivity (Alpha/beta/gamma decay, nuclear reactions, fission & fusion)
 3. **Chemistry (`sub-10-chem`) — 12 Chapters**:
    - Ch 1: Periodic Properties and Variations
    - Ch 2: Chemical Bonding (Electrovalent, Covalent & Coordinate)

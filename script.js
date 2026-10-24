@@ -70,6 +70,28 @@ function buildSearchIndex() {
     state.data.batches.forEach(batch => {
         batch.subjects.forEach(subject => {
             subject.chapters.forEach(chapter => {
+                // 1. Index chapter-level / unit-level items (e.g. Unit 1 MCQ, Theory, Numerical)
+                if (chapter.items && chapter.items.length > 0) {
+                    chapter.items.forEach(item => {
+                        const searchBlob = [
+                            item.title,
+                            item.subtitle || '',
+                            chapter.name,
+                            subject.name,
+                            batch.name
+                        ].join(' ').toLowerCase();
+                        searchIndex.push({
+                            type: 'item',
+                            batch,
+                            subject,
+                            chapter,
+                            item,
+                            searchBlob
+                        });
+                    });
+                }
+
+                // 2. Index subchapters if present (e.g. Physics chapters inside units)
                 if (chapter.subchapters && chapter.subchapters.length > 0) {
                     chapter.subchapters.forEach(subchap => {
                         const items = subchap.items || [];
@@ -111,37 +133,18 @@ function buildSearchIndex() {
                             searchBlob: subchapBlob
                         });
                     });
-                } else {
-                    const items = chapter.items || [];
-                    items.forEach(item => {
-                        const searchBlob = [
-                            item.title,
-                            item.subtitle || '',
-                            chapter.name,
-                            subject.name,
-                            batch.name
-                        ].join(' ').toLowerCase();
-                        searchIndex.push({
-                            type: 'item',
-                            batch,
-                            subject,
-                            chapter,
-                            item,
-                            searchBlob
-                        });
-                    });
                 }
 
-                // Also index chapter so topics and chapters without uploaded PDFs can be discovered
+                // 3. Index chapter / unit so topics and chapters without uploaded PDFs can be discovered
                 const chapBlob = [
                     chapter.name,
                     chapter.description || '',
                     subject.name,
                     batch.name
                 ].join(' ').toLowerCase();
-                const totalItemCount = chapter.subchapters
+                const totalItemCount = (chapter.subchapters
                     ? chapter.subchapters.reduce((sum, sc) => sum + (sc.items ? sc.items.length : 0), 0)
-                    : (chapter.items || []).length;
+                    : 0) + (chapter.items ? chapter.items.length : 0);
                 searchIndex.push({
                     type: 'chapter',
                     batch,
@@ -522,6 +525,27 @@ function renderNav() {
         }
     };
     navMenu.appendChild(natNav);
+
+    // Latest Update Quick Launch: Physics Unit 1 Master Vault (Force & Machines)
+    const phyNav = document.createElement('div');
+    const isPhyActive = state.currentView !== 'search' && state.path[1] === 'sub-10-phy' && state.path[2] === 'unit-phy-1';
+    phyNav.className = `nav-item nav-item-featured ${isPhyActive ? 'active' : ''}`;
+    phyNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #06b6d4;">fitness_center</span>
+        <span style="font-weight: 600;">Physics Unit 1 Vault</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #06b6d4, #3b82f6); color:#fff; box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);">NEW</span>
+    `;
+    phyNav.onclick = () => {
+        closeSidebarOnMobile();
+        resetSearch();
+        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
+        const phySub = batch?.subjects?.find(s => s.id === 'sub-10-phy');
+        const unit1 = phySub?.chapters?.find(c => c.id === 'unit-phy-1');
+        if (unit1) {
+            navigateTo('subchapters', [batch.id, phySub.id, unit1.id]);
+        }
+    };
+    navMenu.appendChild(phyNav);
 }
 
 function resetSearch() {
@@ -721,6 +745,11 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
+                <button class="spotlight-chip featured-chip" id="spot-phy-u1" type="button">
+                    <span class="material-symbols-outlined" style="color: #06b6d4;">fitness_center</span>
+                    <span class="spotlight-chip-text">Physics • Unit 1 Master Vault</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">NEW</span>
+                </button>
                 <button class="spotlight-chip featured-chip" id="spot-his-nat" type="button">
                     <span class="material-symbols-outlined" style="color: #f59e0b;">account_balance</span>
                     <span class="spotlight-chip-text">History • Nationalism & INC Vault</span>
@@ -761,6 +790,10 @@ function renderView() {
         wrapper.appendChild(spotlightSection);
 
         // Bind Spotlight Clicks
+        const spotPhyU1 = spotlightSection.querySelector('#spot-phy-u1');
+        if (spotPhyU1 && batch) {
+            spotPhyU1.onclick = () => navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
+        }
         const spotNat = spotlightSection.querySelector('#spot-his-nat');
         if (spotNat && batch) {
             spotNat.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-2']);
@@ -820,8 +853,30 @@ function renderView() {
         const grid = document.createElement('div');
         grid.className = 'cards-grid';
         batch.subjects.forEach((sub, idx) => {
-            const totalItems = sub.chapters.reduce((sum, chap) => sum + (chap.items ? chap.items.length : 0), 0);
-            const badgeText = totalItems > 0 ? `${sub.chapters.length} Ch • ${totalItems} Notes` : `${sub.chapters.length} Chapters`;
+            const isPhysics = sub.id === 'sub-10-phy';
+            const hasUnits = sub.chapters.some(c => c.subchapters && c.subchapters.length > 0);
+            let totalChapters = sub.chapters.length;
+            let totalItems = 0;
+
+            if (hasUnits) {
+                totalChapters = sub.chapters.reduce((sum, chap) => sum + (chap.subchapters ? chap.subchapters.length : 1), 0);
+                totalItems = sub.chapters.reduce((sum, chap) => {
+                    const chItems = chap.items ? chap.items.length : 0;
+                    const subItems = chap.subchapters ? chap.subchapters.reduce((s2, sc) => s2 + (sc.items ? sc.items.length : 0), 0) : 0;
+                    return sum + chItems + subItems;
+                }, 0);
+            } else {
+                totalItems = sub.chapters.reduce((sum, chap) => sum + (chap.items ? chap.items.length : 0), 0);
+            }
+
+            let badgeText = '';
+            if (isPhysics) {
+                badgeText = totalItems > 0 
+                    ? `${sub.chapters.length} Units • ${totalChapters} Ch • ${totalItems} Notes` 
+                    : `${sub.chapters.length} Units • ${totalChapters} Chapters`;
+            } else {
+                badgeText = totalItems > 0 ? `${sub.chapters.length} Ch • ${totalItems} Notes` : `${sub.chapters.length} Chapters`;
+            }
             
             grid.appendChild(createCard({
                 title: sub.name,
@@ -829,7 +884,7 @@ function renderView() {
                 icon: sub.icon || 'menu_book',
                 onClick: () => navigateTo('chapters', [batch.id, sub.id]),
                 badge: badgeText,
-                actionText: 'Open Chapters',
+                actionText: isPhysics ? 'Explore Units' : 'Open Chapters',
                 index: idx,
                 subjectId: sub.id
             }));
@@ -841,7 +896,11 @@ function renderView() {
         const sub = batch?.subjects?.find(s => s.id === state.path[1]);
         if (!sub) return;
 
-        const header = createSectionHeader(sub.name, `${batch.name} • Select a chapter to read notes and solutions`);
+        const isPhysics = sub.id === 'sub-10-phy';
+        const subHeading = isPhysics
+            ? `${batch.name} • Select a unit to explore chapters and study resources`
+            : `${batch.name} • Select a chapter to read notes and solutions`;
+        const header = createSectionHeader(sub.name, subHeading);
         wrapper.appendChild(header);
 
         const grid = document.createElement('div');
@@ -853,17 +912,18 @@ function renderView() {
             let actionText = 'View Notes';
 
             if (hasSub) {
-                const totalNotes = chap.subchapters.reduce((sum, sc) => sum + (sc.items ? sc.items.length : 0), 0);
+                const totalNotes = chap.subchapters.reduce((sum, sc) => sum + (sc.items ? sc.items.length : 0), 0) + (chap.items ? chap.items.length : 0);
                 const isPoemCollection = chap.id === 'chap-eng-2';
-                const unitType = isPoemCollection ? 'Poems' : 'Stories';
+                const isUnit = isPhysics || chap.id.startsWith('unit-');
+                const unitType = isUnit ? 'Chapters' : (isPoemCollection ? 'Poems' : 'Stories');
                 badgeText = totalNotes > 0 ? `${chap.subchapters.length} ${unitType} • ${totalNotes} Notes` : `${chap.subchapters.length} ${unitType}`;
-                actionText = `Explore ${unitType}`;
+                actionText = isUnit ? 'Explore Unit' : `Explore ${unitType}`;
             } else {
                 count = chap.items ? chap.items.length : 0;
                 badgeText = chap.featured ? 'Interactive DPP' : (count > 0 ? `${count} Notes Ready` : 'In Progress');
                 actionText = chap.featured ? 'Open Engine' : 'View Notes';
             }
-            const iconName = chap.featured ? 'bolt' : 'auto_stories';
+            const iconName = chap.icon || (chap.featured ? 'bolt' : (isPhysics ? 'category' : 'auto_stories'));
             
             const cardEl = createCard({
                 title: chap.name,
@@ -893,10 +953,64 @@ function renderView() {
         const chap = sub?.chapters?.find(c => c.id === state.path[2]);
         if (!chap) return;
 
+        const isPhysics = sub.id === 'sub-10-phy' || chap.id.startsWith('unit-');
         const isPoemCollection = chap.id === 'chap-eng-2';
-        const unitType = isPoemCollection ? 'Poems' : 'Short Stories';
-        const header = createSectionHeader(chap.name, `${sub.name} • All 5 Prescribed ${unitType} for ICSE Class 10`);
+        const unitType = isPhysics ? 'Chapters' : (isPoemCollection ? 'Poems' : 'Short Stories');
+        const subHeading = isPhysics
+            ? `${sub.name} • All Prescribed Chapters in this Unit`
+            : `${sub.name} • All 5 Prescribed ${unitType} for ICSE Class 10`;
+        const header = createSectionHeader(chap.name, subHeading);
         wrapper.appendChild(header);
+
+        // Unit-Level Master Study Modules (such as MCQ, Theory, Numerical when provided)
+        if (chap.items && chap.items.length > 0) {
+            const unitModulesHeader = document.createElement('div');
+            unitModulesHeader.innerHTML = `
+                <div class="spotlight-header" style="margin-bottom: 14px; margin-top: 6px;">
+                    <div class="spotlight-header-left">
+                        <span class="material-symbols-outlined icon" style="color: #06b6d4;">bolt</span>
+                        <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff;">${chap.name} — Master Study Modules</h3>
+                    </div>
+                    <span class="spotlight-sub" style="color: #94a3b8; font-size: 0.85rem;">Interactive practice, theory vaults & numericals</span>
+                </div>
+            `;
+            wrapper.appendChild(unitModulesHeader);
+
+            const unitGrid = document.createElement('div');
+            unitGrid.className = 'cards-grid';
+            unitGrid.style.marginBottom = '28px';
+            chap.items.forEach((item, idx) => {
+                const isInter = item.type === 'interactive' || item.type === 'app';
+                const isPdf = item.type === 'pdf';
+                const cardEl = createCard({
+                    title: item.title,
+                    subtitle: item.subtitle || `${chap.name} Master Resource`,
+                    icon: isInter ? 'quiz' : (isPdf ? 'picture_as_pdf' : 'menu_book'),
+                    onClick: () => navigateTo('viewer', [batch.id, sub.id, chap.id], item),
+                    badge: item.badge || (isInter ? 'Interactive Engine' : 'Master Resource'),
+                    isPdf: isPdf,
+                    isInteractive: isInter,
+                    actionText: isInter ? 'Launch Engine' : (isPdf ? 'Read Notes' : 'Open Resource'),
+                    index: idx,
+                    subjectId: sub.id
+                });
+                if (isInter) cardEl.classList.add('card-featured');
+                unitGrid.appendChild(cardEl);
+            });
+            wrapper.appendChild(unitGrid);
+
+            const chaptersHeader = document.createElement('div');
+            chaptersHeader.innerHTML = `
+                <div class="spotlight-header" style="margin-bottom: 14px;">
+                    <div class="spotlight-header-left">
+                        <span class="material-symbols-outlined icon" style="color: #38bdf8;">menu_book</span>
+                        <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff;">Prescribed Chapters</h3>
+                    </div>
+                    <span class="spotlight-sub" style="color: #94a3b8; font-size: 0.85rem;">Chapter-wise notes, diagrams & questions</span>
+                </div>
+            `;
+            wrapper.appendChild(chaptersHeader);
+        }
 
         const grid = document.createElement('div');
         grid.className = 'cards-grid';
@@ -906,11 +1020,12 @@ function renderView() {
             const cardEl = createCard({
                 title: subchap.name,
                 subtitle: subchap.author ? `${subchap.author} • ${subchap.description}` : subchap.description,
-                icon: 'menu_book',
+                icon: subchap.icon || (isPhysics ? 'auto_stories' : 'menu_book'),
                 onClick: () => navigateTo('items', [batch.id, sub.id, chap.id, subchap.id]),
                 badge: badgeText,
                 actionText: count > 0 ? 'View Notes' : 'Open Chapter',
-                index: idx
+                index: idx,
+                subjectId: sub.id
             });
             grid.appendChild(cardEl);
         });
@@ -1227,7 +1342,16 @@ function createInteractiveViewer(item) {
     container.appendChild(footer);
 
     header.querySelector('#interactive-back-btn').onclick = () => {
-        navigateTo('items', state.path.slice(0, 3));
+        const batch = state.data.batches.find(b => b.id === state.path[0]);
+        const sub = batch?.subjects?.find(s => s.id === state.path[1]);
+        const chap = sub?.chapters?.find(c => c.id === state.path[2]);
+        if (state.path.length >= 4) {
+            navigateTo('items', state.path.slice(0, 4));
+        } else if (chap && chap.subchapters && chap.subchapters.length > 0) {
+            navigateTo('subchapters', state.path.slice(0, 3));
+        } else {
+            navigateTo('items', state.path.slice(0, 3));
+        }
     };
 
     header.querySelector('#interactive-reload-btn').onclick = () => {

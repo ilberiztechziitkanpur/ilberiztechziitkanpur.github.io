@@ -112,70 +112,201 @@
                     "icon": "science",
                     "chapters": [
                         {
-                            "id": "chap-phy-1",
-                            "name": "Ch 1: Force, Work, Power and Energy",
-                            "description": "Turning effect, moment of couple, equilibrium, work, power, kinetic & potential energy conservation",
-                            "items": []
+                            "id": "unit-phy-1",
+                            "name": "Unit 1: Force, Work, Power and Energy",
+                            "description": "Classical Mechanics — Turning effect of force, moment of couple, work, power, energy conservation & machines",
+                            "icon": "fitness_center",
+                            "items": [
+                                {
+                                    "id": "phy-u1-numerical",
+                                    "title": "UNIT-1 Force, Work, Power and Energy, Machines — Pure Numericals Master v2.0",
+                                    "subtitle": "20 Verbatim 10-Year Board Numericals with Step-by-Step Solutions, Formula Step Boxes, Given/To-Find Breakdown & Live Timer",
+                                    "type": "interactive",
+                                    "file": "physics/unit1-numerical/index.html",
+                                    "badge": "Numericals • 20 PYQ Qs • Solved"
+                                },
+                                {
+                                    "id": "phy-u1-theory",
+                                    "title": "UNIT-1 Force, Work, Power and Energy, Machines — Theory & Derivations Vault",
+                                    "subtitle": "62 Marks High-Yield Theory, Official CISCE Marking Scheme, Give Reasons, Derivations, Diagram Questions & Recall Mode",
+                                    "type": "interactive",
+                                    "file": "physics/unit1-theory/index.html",
+                                    "badge": "Theory Vault • 62M • Derivations"
+                                },
+                                {
+                                    "id": "phy-u1-mcq",
+                                    "title": "UNIT-1 Force, Work, Power and Energy, Machines — Master MCQ Diagnostic Engine",
+                                    "subtitle": "24 High-Yield Forensic MCQs across all 3 Chapters with DPP Test Mode, Instant Reveal, Live Scoreboard & Detailed Rationale",
+                                    "type": "interactive",
+                                    "file": "physics/unit1-mcq/index.html",
+                                    "badge": "MCQ Drill • 24 Qs • Interactive"
+                                }
+                            ],
+                            "subchapters": [
+                                {
+                                    "id": "chap-phy-1",
+                                    "name": "Ch 1: Force",
+                                    "description": "Turning effect, moment of force, couple, equilibrium, centre of gravity, uniform circular motion & centripetal force",
+                                    "icon": "rotate_right",
+                                    "items": [
+                                        {
+                                            "id": "phy-force-notes-01",
+                                            "title": "Force, Work, Power And Energy 01 Class Notes",
+                                            "subtitle": "Comprehensive lecture notes on Force: Moment of force, couple, equilibrium conditions, centre of gravity & circular motion with solved examples",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Force_Work_Power_And_Energy_01_Class_Notes.pdf",
+                                            "size": "3.5 MB",
+                                            "badge": "PDF • 3.5 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-force-num-engine",
+                                            "title": "Unit 1: Force & Machines Numericals Master Engine",
+                                            "subtitle": "20 Verbatim 10-Year Numericals (Principle of Moments, Uniform Meter Rule & Machines)",
+                                            "type": "interactive",
+                                            "file": "physics/unit1-numerical/index.html",
+                                            "badge": "Numericals • 20 Qs"
+                                        },
+                                        {
+                                            "id": "phy-force-theory-vault",
+                                            "title": "Unit 1: Force & Equilibrium Theory & Derivations Vault",
+                                            "subtitle": "62 Marks High-Yield Theory, Conditions of Equilibrium, Center of Gravity, Give-Reasons & Derivations",
+                                            "type": "interactive",
+                                            "file": "physics/unit1-theory/index.html",
+                                            "badge": "Theory Vault • 62M"
+                                        },
+                                        {
+                                            "id": "phy-force-mcq-drill",
+                                            "title": "Unit 1: Force & Mechanics Master MCQ Diagnostic Drill",
+                                            "subtitle": "24 High-Yield MCQs on Turning Effect, Equilibrium, Work, Power & Machines",
+                                            "type": "interactive",
+                                            "file": "physics/unit1-mcq/index.html",
+                                            "badge": "MCQ Drill • 24 Qs"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "chap-phy-2",
+                                    "name": "Ch 2: Work, Energy and Power",
+                                    "description": "Work done (W = Fs cos θ), power (P = W/t), kinetic & potential energy, work-energy theorem, conservation of mechanical energy in freely falling body",
+                                    "icon": "bolt",
+                                    "items": []
+                                },
+                                {
+                                    "id": "chap-phy-3",
+                                    "name": "Ch 3: Machines",
+                                    "description": "Mechanical advantage (MA), velocity ratio (VR), efficiency (η), principle of machines, Class I, II, III levers and single/combination pulley systems",
+                                    "icon": "precision_manufacturing",
+                                    "items": []
+                                }
+                            ]
                         },
                         {
-                            "id": "chap-phy-2",
-                            "name": "Ch 2: Simple Machines",
-                            "description": "Mechanical advantage, velocity ratio, efficiency, levers Class I, II, III and pulley systems",
-                            "items": []
+                            "id": "unit-phy-2",
+                            "name": "Unit 2: Light",
+                            "description": "Optics — Refraction of light at plane surfaces, total internal reflection, refraction through lenses, prism dispersion & electromagnetic spectrum",
+                            "icon": "flare",
+                            "items": [],
+                            "subchapters": [
+                                {
+                                    "id": "chap-phy-4",
+                                    "name": "Ch 4: Refraction of Light at Plane Surfaces",
+                                    "description": "Laws of refraction, refractive index, principle of reversibility, lateral displacement, real & apparent depth, critical angle and total internal reflection (TIR)",
+                                    "icon": "layers",
+                                    "items": []
+                                },
+                                {
+                                    "id": "chap-phy-5",
+                                    "name": "Ch 5: Refraction through a Lens",
+                                    "description": "Convex & concave lenses, optical centre, principal focus, ray diagrams for image formation, lens formula, magnification and power of lens (Dioptres)",
+                                    "icon": "search",
+                                    "items": []
+                                },
+                                {
+                                    "id": "chap-phy-6",
+                                    "name": "Ch 6: Spectrum",
+                                    "description": "Dispersion of white light through a triangular prism, pure and impure spectrum, electromagnetic spectrum (gamma to radio waves) and scattering of light",
+                                    "icon": "palette",
+                                    "items": []
+                                }
+                            ]
                         },
                         {
-                            "id": "chap-phy-3",
-                            "name": "Ch 3: Refraction of Light at Plane Surfaces",
-                            "description": "Laws of refraction, refractive index, real & apparent depth, critical angle and total internal reflection",
-                            "items": []
+                            "id": "unit-phy-3",
+                            "name": "Unit 3: Sound",
+                            "description": "Acoustics — Reflection of sound waves, echoes, sonar & radar, free, damped and forced vibrations, resonance and sound characteristics",
+                            "icon": "graphic_eq",
+                            "items": [],
+                            "subchapters": [
+                                {
+                                    "id": "chap-phy-7",
+                                    "name": "Ch 7: Sound",
+                                    "description": "Reflection of sound, echo conditions (d ≥ 17 m), sonar calculations, natural, damped and forced vibrations, resonance, loudness, pitch and timbre (quality)",
+                                    "icon": "music_note",
+                                    "items": []
+                                }
+                            ]
                         },
                         {
-                            "id": "chap-phy-4",
-                            "name": "Ch 4: Refraction through a Lens",
-                            "description": "Convex & concave lenses, principal focus, ray diagrams, lens formula, magnification and power",
-                            "items": []
+                            "id": "unit-phy-4",
+                            "name": "Unit 4: Electricity and Magnetism",
+                            "description": "Electromagnetism — Current electricity, Ohm's law, domestic household circuits, ring system, magnetic effect of current & electromagnetic induction",
+                            "icon": "electric_bolt",
+                            "items": [],
+                            "subchapters": [
+                                {
+                                    "id": "chap-phy-8",
+                                    "name": "Ch 8: Current Electricity",
+                                    "description": "Electric current, potential difference, Ohm's law, resistance, resistivity, electromotive force (EMF), terminal voltage, internal resistance and series & parallel resistor combinations",
+                                    "icon": "electrical_services",
+                                    "items": []
+                                },
+                                {
+                                    "id": "chap-phy-9",
+                                    "name": "Ch 9: Household Circuits",
+                                    "description": "Electrical power (P = VI = I²R = V²/R), electrical energy (kWh), ring system of wiring, switches, fuses, miniature circuit breakers (MCBs), earthing and 3-pin plug colour coding",
+                                    "icon": "home",
+                                    "items": []
+                                },
+                                {
+                                    "id": "chap-phy-10",
+                                    "name": "Ch 10: Electro-Magnetism",
+                                    "description": "Magnetic effect of electric current (Oersted effect), solenoid field, Fleming's left-hand rule, DC motor, electromagnetic induction, Faraday's laws, Lenz's law and transformers",
+                                    "icon": "sensors",
+                                    "items": []
+                                }
+                            ]
                         },
                         {
-                            "id": "chap-phy-5",
-                            "name": "Ch 5: Spectrum & Electromagnetic Waves",
-                            "description": "Prism dispersion, electromagnetic spectrum regions (UV, visible, IR, X-rays) and scattering",
-                            "items": []
+                            "id": "unit-phy-5",
+                            "name": "Unit 5: Heat",
+                            "description": "Calorimetry — Heat capacity, specific heat capacity, principle of method of mixtures, latent heat of fusion of ice and change of state",
+                            "icon": "thermostat",
+                            "items": [],
+                            "subchapters": [
+                                {
+                                    "id": "chap-phy-11",
+                                    "name": "Ch 11: Calorimetry",
+                                    "description": "Heat capacity (C), specific heat capacity (c), principle of method of mixtures (Heat lost = Heat gained), anomalous properties of water, latent heat, specific latent heat of fusion of ice (L = 336 J/g) and cooling curves",
+                                    "icon": "science",
+                                    "items": []
+                                }
+                            ]
                         },
                         {
-                            "id": "chap-phy-6",
-                            "name": "Ch 6: Sound",
-                            "description": "Reflection of sound, echoes (calculation of distance), natural, damped and resonant vibrations",
-                            "items": []
-                        },
-                        {
-                            "id": "chap-phy-7",
-                            "name": "Ch 7: Current Electricity",
-                            "description": "Ohm's law, resistance factors, resistivity, EMF, terminal voltage and series-parallel networks",
-                            "items": []
-                        },
-                        {
-                            "id": "chap-phy-8",
-                            "name": "Ch 8: Electrical Power & Household Circuits",
-                            "description": "Electrical energy and power, kWh calculations, ring system, 3-pin plug, earthing and fuse",
-                            "items": []
-                        },
-                        {
-                            "id": "chap-phy-9",
-                            "name": "Ch 9: Electro-Magnetism",
-                            "description": "Oersted effect, solenoid, Fleming's left-hand rule, electric motor, induction and transformers",
-                            "items": []
-                        },
-                        {
-                            "id": "chap-phy-10",
-                            "name": "Ch 10: Calorimetry",
-                            "description": "Specific heat capacity, heat capacity, principle of method of mixtures and latent heat of fusion",
-                            "items": []
-                        },
-                        {
-                            "id": "chap-phy-11",
-                            "name": "Ch 11: Radioactivity & Nuclear Energy",
-                            "description": "Atomic nucleus, alpha, beta, gamma decay, radiation properties, background radiation and safety",
-                            "items": []
+                            "id": "unit-phy-6",
+                            "name": "Unit 6: Modern Physics",
+                            "description": "Nuclear Physics — Atomic nucleus, radioactive emissions (alpha, beta, gamma), nuclear transformations, background radiation, safety precautions and nuclear energy",
+                            "icon": "radioactive",
+                            "items": [],
+                            "subchapters": [
+                                {
+                                    "id": "chap-phy-12",
+                                    "name": "Ch 12: Radioactivity",
+                                    "description": "Structure of atom and nucleus, radioactive emissions (α, β, γ particles/rays), nuclear reactions (alpha & beta decay), background radiation, safety precautions, nuclear fission, fusion and mass-energy equivalence (E=mc²)",
+                                    "icon": "bubble_chart",
+                                    "items": []
+                                }
+                            ]
                         }
                     ]
                 },
