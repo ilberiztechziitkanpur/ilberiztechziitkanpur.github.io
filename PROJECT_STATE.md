@@ -112,6 +112,15 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Treasure_Chest_Poetry_05_Class_Notes.pdf (1.8 MB) — A Considerable Speck: Robert Frost, manuscript mite, living intelligence & mind in nature
 │       ├── Treasure_Chest_Poetry_06_Class_Notes.pdf (3.6 MB) — The Power of Music: Sukumar Ray, Bhisma Lochan Sharma, satirical nonsense verse, animal chaos & goat finale
 │       └── Treasure_Chest_Prose_07_Class_Notes.pdf (5.0 MB) — The Pedestrian (Part 1): Ray Bradbury, Leonard Mead, 2053 setting & MCQs
+├── physics/                         # ALL Physics subject content lives strictly here
+│   ├── notes/                       # ICSE Class 10 Physics PDF notes
+│   │   └── Force_Work_Power_And_Energy_01_Class_Notes.pdf (3.6 MB) — Ch 1: Force, Moments, Couple, Equilibrium & CG (40 slides)
+│   ├── unit1-numerical/             # Unit 1: Numericals Mastery Engine v2.0
+│   │   └── index.html               # 20 Verbatim Board Numericals, Step-by-Step, Formula Boxes, Live Timer
+│   ├── unit1-theory/                # Unit 1: Theory, Concepts & Derivations Vault
+│   │   └── index.html               # 62 Marks High-Yield Theory, Marking Scheme, Derivations, Diagram Qs, Recall Mode
+│   └── unit1-mcq/                   # Unit 1: Diagnostic MCQ Exam Engine
+│       └── index.html               # 24 Forensic MCQs across Force, Work/Energy/Power & Machines, Dual Modes, Scoreboard
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -125,7 +134,7 @@ ILBERIZ TECHZ IIT KANPUR/
 
 ## 3. Strict Autonomous Engineering Rules
 
-1. **Subject Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or chapter-specific interactive theory vaults MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `soil/`, `vegetation/`, `water/`, `transport/`, `waste/`, `notes/`, `mcq/`, `toposheet/`, etc.). All History notes and content MUST reside strictly inside `history/` (e.g. `history/notes/`). All English notes and literature content MUST reside strictly inside `english/` (e.g. `english/notes/`). Never place loose subject files in the repository root.
+1. **Subject Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or chapter-specific interactive theory vaults MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `soil/`, `vegetation/`, `water/`, `transport/`, `waste/`, `notes/`, `mcq/`, `toposheet/`, etc.). All History notes and content MUST reside strictly inside `history/` (e.g. `history/notes/`). All English notes and literature content MUST reside strictly inside `english/` (e.g. `english/notes/`). All Physics notes, interactive numericals, theory vaults, and MCQ engines MUST reside strictly inside `physics/` (e.g. `physics/notes/`, `physics/unit1-numerical/`, `physics/unit1-theory/`, `physics/unit1-mcq/`). Never place loose subject files in the repository root.
 2. **Standard File Structure for Engines**: Each interactive chapter vault is named `index.html` inside its respective folder (e.g. `geography/<topic>/index.html`) so it can be served as a clean standalone web app or embedded smoothly inside the main dashboard iframe.
 3. **Always Include Navigation & Fonts**: Every chapter engine `index.html` MUST include:
    - Google Fonts (`Inter`, `Outfit`, `JetBrains Mono`) and `Material Symbols Outlined`.
@@ -366,7 +375,7 @@ ILBERIZ TECHZ IIT KANPUR/
   4. Survey Conventional Symbols & Color Codes Cheat Sheet
 - CSS containment (`content-visibility: auto`) for zero lag.
 
-### L. History Notes (14 PDFs in `history/notes/` across 6 Active Chapters)
+### L. History Notes (22 Class Notes PDFs in `history/notes/` across 11 Active Chapters)
 - **Chapter 1: The First War of Independence (1857) (3 Notes)**:
   - `The_First_War_Of_Independence_01_Class_Notes.pdf` (5.8 MB) — Political, socio-religious, economic & military causes of 1857 Revolt, Enfield rifle cartridge incident.
   - `The_First_War_Of_Independence_02_Class_Notes.pdf` (4.0 MB) — Major storm centres, suppression, Queen Victoria's Proclamation of 1858, Government of India Act 1858 & consequences.
@@ -534,7 +543,15 @@ ILBERIZ TECHZ IIT KANPUR/
   - **Story 5: The Last Lesson (Alphonse Daudet)** [Architecture Ready for Notes]
 - **Chapter 4: English Language — Composition & Applied Grammar** [Grammar & Composition Syllabus mapped].
 
-### L. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
+### T. Physics Notes & Interactive Master Engines (Unit 1: Force, Work, Power and Energy)
+- **Unit 1 Master Interactive Engines (3 HTML Web Applications in `physics/`)**:
+  - `UNIT-1 Force, Work, Power and Energy, Machines.Numerical` (`physics/unit1-numerical/index.html`): 20 Verbatim 10-Year Numericals, Step-by-Step Solutions, Formula Step Boxes, Given/To-Find breakdown, and Live Exam Timer.
+  - `UNIT-1 Force, Work, Power and Energy, Machines. Theory` (`physics/unit1-theory/index.html`): 62 Marks High-Yield Theory, Official CISCE Marking Scheme, Give Reasons, Derivations, Diagram Questions & Active Recall Blur Mode.
+  - `UNIT-1 Force, Work, Power and Energy, Machines. MCQ` (`physics/unit1-mcq/index.html`): 24 High-Yield Forensic MCQs across Force, Work/Energy/Power & Machines with DPP Test Mode, Instant Reveal, Live Scoreboard & Detailed Rationale.
+- **Chapter 1: Force Lecture Notes (PDF in `physics/notes/`)**:
+  - `Force_Work_Power_And_Energy_01_Class_Notes.pdf` (3.6 MB, 3,626,130 bytes, 40 widescreen slides, Kunal Sir / Victory 2027 by Physics Wallah) — Translational vs Rotational motion, Moment of Force (Torque $\tau = F \times d_{\perp}$), SI and CGS units ($1\text{ N}\cdot\text{m} = 10^7\text{ dyne}\cdot\text{cm}$), Gravitational units ($1\text{ kgf}\cdot\text{m} = 9.8\text{ N}\cdot\text{m}$), Clockwise (negative) vs Anticlockwise (positive) moments, Couple and moment of couple ($\tau = F \times d$), Equilibrium (Static and Dynamic equilibrium with real-world conditions: $\Sigma F = 0$ and $\Sigma \tau = 0$), Principle of Moments (Sum of anticlockwise moments = Sum of clockwise moments), Centre of Gravity (definition, dependence on mass distribution, CG positions of symmetrical bodies: rod, ring, disc, sphere, cylinder, cone, triangular lamina), Stability of bodies, and Centripetal vs Centrifugal forces.
+
+### U. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
 All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
 1. **Mathematics (`sub-10-math`) — 15 Chapters**:
    - Ch 1: Goods and Services Tax (GST)
@@ -1268,6 +1285,45 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Bumped cache-busting queries in `index.html` to `v=6.6` for `style.css`, `data.js`, and `script.js`.
       - Verified zero encoding corruptions across all files.
+
+50. **Addition of Physics Curriculum: 6 Official Units, 12 Chapters, 3 Unit 1 Interactive HTML Master Engines & Ch 1 Force Class Notes**:
+    - **6-Unit Architecture & Authentic Curriculum Alignment**:
+      - Organized the ICSE Class 10 Physics syllabus into the 6 official CISCE units (aligned with Selina Concise Physics):
+        - Unit 1: Force, Work, Power and Energy (Ch 1: Force, Ch 2: Work, Energy and Power, Ch 3: Machines)
+        - Unit 2: Light (Ch 4: Refraction at Plane Surfaces, Ch 5: Refraction through a Lens, Ch 6: Spectrum)
+        - Unit 3: Sound (Ch 7: Sound)
+        - Unit 4: Electricity and Magnetism (Ch 8: Current Electricity, Ch 9: Household Circuits, Ch 10: Electro-Magnetism)
+        - Unit 5: Heat (Ch 11: Calorimetry)
+        - Unit 6: Modern Physics (Ch 12: Radioactivity)
+    - **Interactive Engine Ingestion & Normalization (Rule 1 & Rule 2)**:
+      - Ingested 3 comprehensive Unit 1 interactive HTML engines from Downloads into dedicated, isolated subdirectories:
+        - `physics/unit1-numerical/index.html` (155 KB): Unit 1 Numericals Mastery Engine v2.0 (20 Verbatim Board Numericals, Step-by-Step Solutions, Formula Step Boxes, Given/To-Find breakdown, Live Exam Timer).
+        - `physics/unit1-theory/index.html` (189 KB): Unit 1 Theory, Concepts & Derivations Vault (62 Marks High-Yield Theory, Official CISCE Marking Scheme, Give Reasons, Derivations, Diagram Questions, Active Recall Blur Mode).
+        - `physics/unit1-mcq/index.html` (156 KB): Unit 1 Diagnostic MCQ Exam Engine (24 High-Yield Forensic MCQs across all 3 chapters, DPP Test Mode, Instant Reveal, Live Scoreboard & Detailed Explanations).
+      - Added sticky `.home-nav-btn` navigation (`target="_top"`) in command header of all 3 engines for seamless return to portal.
+      - Cleaned up raw download files (`UNIT-1 Force, Work, Power and Energy, Machines.*.html`) from Downloads folder immediately (Rule 5 & Rule 14).
+    - **Lecture Slide Notes Ingestion (Rule 1 & Rule 14)**:
+      - Ingested `Force, Work, Power And Energy  01  Class Notes.pdf` (3.6 MB, 3,626,130 bytes, 40 slides, Kunal Sir / Victory 2027 by Physics Wallah) into `physics/notes/Force_Work_Power_And_Energy_01_Class_Notes.pdf`.
+      - Slides cover: Force, Translational vs Rotational motion, Moment of Force (Torque = F x d), Clockwise vs Anticlockwise moments, Principle of Moments, Equilibrium (Static & Dynamic, conditions), Centre of Gravity (definition, factors, CG of regular shapes), and Centripetal vs Centrifugal forces.
+      - Attached to Chapter 1: Force (`chap-phy-1`) with companion shortcuts to the 3 Unit 1 interactive engines.
+      - Cleaned up raw download file `Force, Work, Power And Energy  01  Class Notes.pdf` from Downloads folder immediately (Rule 5 & Rule 14).
+    - **Application Controller Upgrades (`script.js`)**:
+      - Enhanced `renderSubjects()` to calculate notes, chapters, and units recursively across nested unit-based subjects (`6 Units • 12 Ch • 7 Notes`).
+      - Upgraded `subchapters` view to display a dedicated **Master Study Modules** section for unit-level interactive engines (`unit.items`) positioned cleanly above the prescribed chapters list.
+      - Updated `createInteractiveViewer()` back navigation to dynamically check path depth (`path.length`) and parent unit structure, ensuring smooth return to the Unit view without navigation errors.
+      - Updated `buildSearchIndex()` to index both unit-level engines and chapter notes in real-time search.
+    - **Navigation, Sidebar & Fast Track Integration (Rule 10)**:
+      - Updated left navigation sidebar (`.nav-menu`) latest update quick-launch to **"Physics Unit 1 Vault"** with electric cyan `bolt` icon and glowing `NEW` badge.
+      - Updated Batch Overview Fast Track spotlight chips to feature **"Physics • Unit 1 Master Vault"** (`NEW`) with 1-click jump access directly to Unit 1.
+    - **Dual Data Synchronization (Rule 7)**:
+      - Synchronized `data.js` and `data.json` with 100% schema parity across all 6 units, 12 chapters, 3 master engines, and Force notes.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=6.7` for `style.css`, `data.js`, and `script.js`.
+      - Validated 100% schema integrity of `data.json` via native PowerShell parser and verified all file paths via `Test-Path`.
+    - **Clean Teardown & Git Deployment (Rule 8)**:
+      - Verified user journey via `browser_subagent` across passcode login, 6 units view, Master Modules rendering, Ch 1 Force class notes PDF display, and MCQ engine execution.
+      - Committed and pushed to `origin/main` (`d43a8d4`).
+
 
 
 
