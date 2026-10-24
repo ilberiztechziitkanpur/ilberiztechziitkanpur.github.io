@@ -769,9 +769,6 @@ function setupAuthGate() {
     const sidebarLockBtn = document.getElementById('sidebar-lock-btn');
     const topbarLockBtn = document.getElementById('topbar-lock-btn');
 
-    const authVisualizer = document.getElementById('auth-visualizer');
-    let visualizerTimer = null;
-
     if (toggleVisibilityBtn && authInput && eyeIcon) {
         toggleVisibilityBtn.addEventListener('click', () => {
             const isPassword = authInput.type === 'password';
@@ -788,13 +785,6 @@ function setupAuthGate() {
             }
             if (authError) {
                 authError.style.display = 'none';
-            }
-            if (authVisualizer) {
-                authVisualizer.classList.add('typing');
-                clearTimeout(visualizerTimer);
-                visualizerTimer = setTimeout(() => {
-                    authVisualizer.classList.remove('typing');
-                }, 300);
             }
             audioFX.playTick();
         });
