@@ -1417,6 +1417,27 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Bumped cache-busting queries in `index.html` to `v=7.2` for `style.css`, `data.js`, and `script.js`.
 
+56. **Addition of Physics Chapter 1: Force Class Notes 03 (Lecture 03 / 24 Slides)**:
+    - **Slide & Content Ingestion (Rule 1 & Rule 14)**:
+      - Ingested `Force, Work, Power And Energy 03 Class Notes.pdf` (2.4 MB, 2,425,909 bytes, 24 slides, Victory 2027 by Physics Wallah) into `physics/notes/Force_Work_Power_And_Energy_03_Class_Notes.pdf`.
+      - Topics: Uniform circular motion, centripetal force vs centrifugal force, work-energy concepts, derivations, and practice questions.
+      - Removed raw download from `C:\Users\ASUS\Downloads\` immediately (Rule 5 & Rule 14).
+    - **Dual Data Synchronization (Rule 7)**:
+      - Wired `phy-force-notes-03` under `sub-10-phy` -> `unit-phy-1` -> `chap-phy-1` across both `data.js` and `data.json`.
+      - Automatically activates in-chapter note pill tabs (`Note 01`, `Note 02`, `Note 03`) in the studio PDF viewer with instant single-press switching.
+    - **Unit & Subject Badge Progression**:
+      - Unit 1 card badge now automatically shows `3 Chapters • 3 Notes • 3 Modules`.
+      - Physics card on Class 10 dashboard displays `6 Units • 12 Ch • 3 Notes • 3 Modules`.
+    - **Spotlight & Sidebar Alignment (Rule 10 & Rule 15)**:
+      - Maintained `Physics Unit 1 Vault` as the sole sidebar quick-launch item with `NEW` badge.
+      - High-Yield Fast Track rail strictly and exclusively features the 5 Physics Unit 1 modules.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=7.3` for `style.css`, `data.js`, and `script.js`.
+      - Verified 100% deep equality between `data.js` and `data.json` via automated canonical JSON parity script.
+    - **Browser Subagent Verification**:
+      - Verified full flow via `browser_subagent`: opened Ch 1: Force via spotlight, verified all 3 note cards rendered, opened Note 03 in reader with all 3 note pills active, confirmed PDF embedding, and verified Back button returns to Ch 1.
+
+
 
 
 
