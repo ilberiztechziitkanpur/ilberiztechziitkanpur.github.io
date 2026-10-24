@@ -181,6 +181,10 @@ ILBERIZ TECHZ IIT KANPUR/
       - Bump cache-busting query parameter in `index.html` (e.g. `v=5.2`).
       - Update `PROJECT_STATE.md` with a concise milestone entry.
       - Commit and push to `origin/main` (`BypassSandbox: true`).
+15. **Overview High-Yield Fast Track Subject Alignment Protocol (Zero Stale Subject Clutter - MANDATORY)**:
+    - **Active Focus Priority**: The High-Yield Fast Track rail in the Executive Overview Hub (`.spotlight-chips-grid` in `renderBatches()`) must strictly reflect the active subject focus.
+    - **Zero Stale Subject Clutter**: When a new subject module or unit is published (such as Physics Unit 1), the spotlight rail MUST be prioritized for that newly published subject (e.g. Physics Master Vault, Pure Numericals, Theory Vault, Diagnostic MCQs, Force Notes) and high-yield non-competing flagship resources (e.g. Geography Toposheet, Climate 10-Yr MCQs, English Julius Caesar).
+    - **Strict Ban on Previous Batch Clutter**: It must **NEVER** remain filled with chips from previous subject batches (e.g. **NO History chips** when Physics is the active focus). When a new subject is released, immediately purge all older subject spotlight chips so students landing on the portal see what is current, fresh, and relevant.
 
 ---
 
@@ -1333,6 +1337,26 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Updated `spot-his-nat` in the Overview spotlight grid to display the `HOT` badge (`#f59e0b` to `#d97706` amber gradient), reserving the `NEW` tag exclusively for Physics Unit 1 Master Vault.
       - Marked `unit-phy-1` with `"featured": true` across both `data.js` and `data.json`.
       - Bumped cache-busting queries in `index.html` to `v=6.8` for instant client cache invalidation on GitHub Pages.
+
+52. **Overview High-Yield Fast Track Subject Alignment & Elimination of Stale History Spotlight Chips (Rule 15)**:
+    - **User Requirement & Design Objective**:
+      - With the publication of Physics Unit 1 Master Vault, students landing on the portal must see content relevant to the active release. The previous High-Yield Fast Track rail in `renderBatches()` was dominated by 7 historical topics, obscuring the new Physics release.
+    - **Implementation**:
+      - Purged all 7 History spotlight chips (`spot-his-*`) from the Overview Fast Track grid in `script.js`.
+      - Rebuilt the High-Yield Fast Track rail with 5 dedicated Physics Unit 1 modules:
+        1. *Physics • Unit 1 Master Vault* (`NEW` badge, navigates to `unit-phy-1` subchapters)
+        2. *Physics • Pure Numericals v2.0* (`HOT` badge, launches `phy-u1-numerical` interactive solver)
+        3. *Physics • Theory & Derivations* (`HOT` badge, launches `phy-u1-theory` interactive vault)
+        4. *Physics • Diagnostic MCQ Exam* (`HOT` badge, launches `phy-u1-mcq` exam suite)
+        5. *Physics • Ch 1: Force Notes* (`HOT` badge, opens `chap-phy-1` class notes)
+      - Retained 3 non-competing cross-curriculum flagship modules:
+        6. *Geography • Toposheet Q1 Blueprint* (`HOT` badge)
+        7. *Geography • Climate 10-Yr MCQs* (`HOT` badge)
+        8. *English • Julius Caesar Notes* (`HOT` badge)
+      - Codified **Rule 15** in Section 3 to ensure future releases always align the Overview Fast Track rail with the active subject focus and purge older batch clutter.
+    - **Cache Invalidation**:
+      - Bumped cache-busting queries in `index.html` to `v=6.9` for `style.css`, `data.js`, and `script.js`.
+
 
 
 

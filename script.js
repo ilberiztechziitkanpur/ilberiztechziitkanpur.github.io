@@ -729,40 +729,40 @@ function renderView() {
                     <span class="spotlight-chip-text">Physics • Unit 1 Master Vault</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">NEW</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-nat" type="button">
-                    <span class="material-symbols-outlined" style="color: #f59e0b;">account_balance</span>
-                    <span class="spotlight-chip-text">History • Nationalism & INC Vault</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-phy-num" type="button">
+                    <span class="material-symbols-outlined" style="color: #38bdf8;">calculate</span>
+                    <span class="spotlight-chip-text">Physics • Pure Numericals v2.0</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #06b6d4);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-ww1" type="button">
-                    <span class="material-symbols-outlined" style="color: #a855f7;">public</span>
-                    <span class="spotlight-chip-text">History • First World War</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #a855f7, #6366f1);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-phy-theory" type="button">
+                    <span class="material-symbols-outlined" style="color: #67e8f9;">menu_book</span>
+                    <span class="spotlight-chip-text">Physics • Theory & Derivations</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0891b2, #0ea5e9);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-ww2" type="button">
-                    <span class="material-symbols-outlined" style="color: #ef4444;">military_tech</span>
-                    <span class="spotlight-chip-text">History • Second World War Notes</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #ef4444, #f97316);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-phy-mcq" type="button">
+                    <span class="material-symbols-outlined" style="color: #a5f3fc;">quiz</span>
+                    <span class="spotlight-chip-text">Physics • Diagnostic MCQ Exam</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #06b6d4, #14b8a6);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-dict" type="button">
-                    <span class="material-symbols-outlined" style="color: #f59e0b;">gavel</span>
-                    <span class="spotlight-chip-text">History • Rise of Dictatorships</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #d97706);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-phy-force" type="button">
+                    <span class="material-symbols-outlined" style="color: #22d3ee;">description</span>
+                    <span class="spotlight-chip-text">Physics • Ch 1: Force Notes</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #3b82f6);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-quit" type="button">
-                    <span class="material-symbols-outlined" style="color: #f43f5e;">flag</span>
-                    <span class="spotlight-chip-text">History • Quit India Movement</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f43f5e, #f97316);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-geo-topo" type="button">
+                    <span class="material-symbols-outlined" style="color: #818cf8;">map</span>
+                    <span class="spotlight-chip-text">Geography • Toposheet Q1 Blueprint</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-indep" type="button">
-                    <span class="material-symbols-outlined" style="color: #10b981;">handshake</span>
-                    <span class="spotlight-chip-text">History • Independence & Partition</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #10b981, #059669);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-geo-climate" type="button">
+                    <span class="material-symbols-outlined" style="color: #38bdf8;">cloud</span>
+                    <span class="spotlight-chip-text">Geography • Climate 10-Yr MCQs</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #3b82f6);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-1857" type="button">
-                    <span class="material-symbols-outlined" style="color: #38bdf8;">swords</span>
-                    <span class="spotlight-chip-text">History • 1857 Revolt Vault</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #6366f1);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-eng-jc" type="button">
+                    <span class="material-symbols-outlined" style="color: #c084fc;">theater_comedy</span>
+                    <span class="spotlight-chip-text">English • Julius Caesar Notes</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #a855f7, #d946ef);">HOT</span>
                 </button>
             </div>
         `;
@@ -773,33 +773,51 @@ function renderView() {
         if (spotPhyU1 && batch) {
             spotPhyU1.onclick = () => navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
         }
-        const spotNat = spotlightSection.querySelector('#spot-his-nat');
-        if (spotNat && batch) {
-            spotNat.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-2']);
+        const spotPhyNum = spotlightSection.querySelector('#spot-phy-num');
+        if (spotPhyNum && batch) {
+            const phySub = batch.subjects?.find(s => s.id === 'sub-10-phy');
+            const unit1 = phySub?.chapters?.find(c => c.id === 'unit-phy-1');
+            const item = unit1?.items?.find(i => i.id === 'phy-u1-numerical');
+            spotPhyNum.onclick = () => {
+                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1', item.id], item);
+                else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
+            };
         }
-        const spotWW1 = spotlightSection.querySelector('#spot-his-ww1');
-        if (spotWW1 && batch) {
-            spotWW1.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-10']);
+        const spotPhyTheory = spotlightSection.querySelector('#spot-phy-theory');
+        if (spotPhyTheory && batch) {
+            const phySub = batch.subjects?.find(s => s.id === 'sub-10-phy');
+            const unit1 = phySub?.chapters?.find(c => c.id === 'unit-phy-1');
+            const item = unit1?.items?.find(i => i.id === 'phy-u1-theory');
+            spotPhyTheory.onclick = () => {
+                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1', item.id], item);
+                else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
+            };
         }
-        const spotWW2 = spotlightSection.querySelector('#spot-his-ww2');
-        if (spotWW2 && batch) {
-            spotWW2.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-12']);
+        const spotPhyMcq = spotlightSection.querySelector('#spot-phy-mcq');
+        if (spotPhyMcq && batch) {
+            const phySub = batch.subjects?.find(s => s.id === 'sub-10-phy');
+            const unit1 = phySub?.chapters?.find(c => c.id === 'unit-phy-1');
+            const item = unit1?.items?.find(i => i.id === 'phy-u1-mcq');
+            spotPhyMcq.onclick = () => {
+                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1', item.id], item);
+                else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
+            };
         }
-        const spotDict = spotlightSection.querySelector('#spot-his-dict');
-        if (spotDict && batch) {
-            spotDict.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-11']);
+        const spotPhyForce = spotlightSection.querySelector('#spot-phy-force');
+        if (spotPhyForce && batch) {
+            spotPhyForce.onclick = () => navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-1', 'chap-phy-1']);
         }
-        const spotQuit = spotlightSection.querySelector('#spot-his-quit');
-        if (spotQuit && batch) {
-            spotQuit.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-7']);
+        const spotGeoTopo = spotlightSection.querySelector('#spot-geo-topo');
+        if (spotGeoTopo && batch) {
+            spotGeoTopo.onclick = () => navigateTo('items', [batch.id, 'sub-10-geo', 'chap-geo-toposheet']);
         }
-        const spotIndep = spotlightSection.querySelector('#spot-his-indep');
-        if (spotIndep && batch) {
-            spotIndep.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-9']);
+        const spotGeoClimate = spotlightSection.querySelector('#spot-geo-climate');
+        if (spotGeoClimate && batch) {
+            spotGeoClimate.onclick = () => navigateTo('items', [batch.id, 'sub-10-geo', 'chap-geo-climate']);
         }
-        const spot1857 = spotlightSection.querySelector('#spot-his-1857');
-        if (spot1857 && batch) {
-            spot1857.onclick = () => navigateTo('items', [batch.id, 'sub-10-his', 'chap-his-1']);
+        const spotEngJc = spotlightSection.querySelector('#spot-eng-jc');
+        if (spotEngJc && batch) {
+            spotEngJc.onclick = () => navigateTo('items', [batch.id, 'sub-10-eng', 'chap-eng-1']);
         }
 
         const header = createSectionHeader('Curriculum Classes', 'Choose your curriculum level to explore subjects, study notes & lectures');
