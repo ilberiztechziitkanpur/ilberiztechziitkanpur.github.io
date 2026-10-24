@@ -1437,6 +1437,34 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Browser Subagent Verification**:
       - Verified full flow via `browser_subagent`: opened Ch 1: Force via spotlight, verified all 3 note cards rendered, opened Note 03 in reader with all 3 note pills active, confirmed PDF embedding, and verified Back button returns to Ch 1.
 
+57. **Comprehensive Codebase Review: Efficiency, Robustness & Architectural Modernization**:
+    - **Centralized Path Resolution & Context Helper (`resolvePath`)**:
+      - Eliminated over 10 repeated manual lookup blocks (`batches.find -> subjects.find -> chapters.find -> subchapters.find`) across breadcrumbs, section renderers, and media viewers.
+      - Implemented a unified, null-safe `resolvePath(pathArgs = state.path)` helper returning `{ batch, subject, chapter, subchapter }`, eliminating ~50 lines of duplicate, fragile traversal code.
+    - **Resolution of Viewer Global Event Listener Leak in `renderView()`**:
+      - Identified that `activeViewerCleanup()` was previously only invoked when opening another PDF, meaning navigating away via the sidebar, breadcrumbs, search, or logo left `window` and `document` event listeners (`handleViewerKeydown`, `handleDocClick`, `handleWindowBlur`, `handleFullscreenChange`) active in memory.
+      - Integrated automatic cleanup into `renderView()` whenever transitioning out of `viewer` mode, guaranteeing zero residual keyboard traps or memory leaks.
+    - **Visual Glitch Resolution in `createInteractiveViewer`**:
+      - Resolved an issue where `state.currentSubject` was undefined, causing the viewer header badge to render duplicate text: `"Interactive Engine • ICSE 2027 ICSE 2027"`.
+      - Extracted the active subject dynamically using `resolvePath()`, cleanly displaying the actual subject name (e.g., `"Interactive Engine • Physics"` or `"Interactive Engine • Geography"`).
+    - **Unified Viewer Back Navigation (`navigateBackFromViewer`)**:
+      - Replaced diverging back navigation logic across `createPdfViewer`, `createInteractiveViewer`, and `createVideoPlayer` with a single unified `navigateBackFromViewer()` helper.
+      - Intelligently detects 4-level subchapter paths vs. 3-level unit/chapter modules to guarantee return to the correct parent grid without losing context or encountering empty states.
+    - **Multi-Word Search Query Tokenization**:
+      - Upgraded search matching from a single rigid substring check (`searchBlob.includes(query)`) to tokenized multi-word matching (`queryWords.every(word => searchBlob.includes(word))`).
+      - Students can now search flexible combinations in any order (e.g., "physics force", "force notes", "act 3 speech", "water conservation") with instant results.
+    - **Subject Card Statistics Traversal Optimization (`getSubjectStats`)**:
+      - Replaced 4 repetitive nested `.reduce()` passes over chapter and subchapter arrays with a single-pass `getSubjectStats(sub)` helper, computing units, chapters, notes, and modules simultaneously.
+    - **Consolidated `startApp()` & Spotlight Event Binding**:
+      - Streamlined `startApp()` to remove duplicate rendering and indexing statements across the offline and HTTP fetch pathways.
+      - Refactored Overview High-Yield Fast Track click handlers into a declarative action map, reducing redundant search operations on batch subjects.
+    - **Standardized Navigation Compliance (Rule 3)**:
+      - Added the `.home-nav-btn` class to the dashboard return anchors in all 3 Physics Unit 1 engines (`unit1-numerical`, `unit1-theory`, `unit1-mcq`), ensuring 100% compliance across all 22 interactive engines on disk.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting version queries in `index.html` to `v=7.4` for `style.css`, `data.js`, and `script.js`.
+      - Verified 100% schema integrity, 0 missing files across all 93 items, and exact delimiter balance in `script.js`.
+
+
 
 
 
