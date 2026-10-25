@@ -1317,7 +1317,7 @@ function renderView() {
                 </button>
                 <button class="spotlight-chip featured-chip" id="spot-phy-work" type="button">
                     <span class="material-symbols-outlined" style="color: #38bdf8;">bolt</span>
-                    <span class="spotlight-chip-text">Physics • Ch 2: Work Notes</span>
+                    <span class="spotlight-chip-text">Physics • Ch 2: Work, Power & Energy Notes</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">NEW</span>
                 </button>
             </div>

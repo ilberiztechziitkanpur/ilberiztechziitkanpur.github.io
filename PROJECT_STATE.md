@@ -117,7 +117,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   ├── Force_Work_Power_And_Energy_01_Class_Notes.pdf (3.6 MB) — Ch 1: Force, Moments, Couple, Equilibrium & CG (40 slides)
 │   │   ├── Force_Work_Power_And_Energy_02_Class_Notes.pdf (2.4 MB) — Ch 1: Couple, Moments, Metre Rule, CG & Stability (29 slides)
 │   │   ├── Force_Work_Power_And_Energy_03_Class_Notes.pdf (2.4 MB) — Ch 1: Circular Motion, Centripetal/Centrifugal & Work Intro (24 slides)
-│   │   └── Force_Work_Power_And_Energy_04_Class_Notes.pdf (2.2 MB) — Ch 2: Work Done, Special Cases, F-d Graph & Units (25 slides)
+│   │   ├── Force_Work_Power_And_Energy_04_Class_Notes.pdf (2.2 MB) — Ch 2: Work Done, Special Cases, F-d Graph & Units (25 slides)
+│   │   └── Force_Work_Power_And_Energy_05_Class_Notes.pdf (2.8 MB) — Ch 2: Energy Units, Energy vs Power, Mechanical Energy (PE & KE), Momentum Relation (31 slides)
 │   ├── unit1-numerical/             # Unit 1: Numericals Mastery Engine v2.0
 │   │   └── index.html               # 20 Verbatim Board Numericals, Step-by-Step, Formula Boxes, Live Timer
 │   ├── unit1-theory/                # Unit 1: Theory, Concepts & Derivations Vault
@@ -559,8 +560,9 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Force_Work_Power_And_Energy_01_Class_Notes.pdf` (3.6 MB, 3,626,130 bytes, 40 widescreen slides, Kunal Sir / Victory 2027 by Physics Wallah) — Translational vs Rotational motion, Moment of Force (Torque $\tau = F \times d_{\perp}$), SI and CGS units ($1\text{ N}\cdot\text{m} = 10^7\text{ dyne}\cdot\text{cm}$), Gravitational units ($1\text{ kgf}\cdot\text{m} = 9.8\text{ N}\cdot\text{m}$), Clockwise (negative) vs Anticlockwise (positive) moments, Couple and moment of couple ($\tau = F \times d$), Equilibrium (Static and Dynamic equilibrium with real-world conditions: $\Sigma F = 0$ and $\Sigma \tau = 0$), Principle of Moments (Sum of anticlockwise moments = Sum of clockwise moments), Centre of Gravity (definition, dependence on mass distribution, CG positions of symmetrical bodies: rod, ring, disc, sphere, cylinder, cone, triangular lamina), Stability of bodies, and Centripetal vs Centrifugal forces.
   - `Force_Work_Power_And_Energy_02_Class_Notes.pdf` (2.4 MB, 2,536,763 bytes, 29 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Couple definition & couple moment, Principle of Moments, Uniform metre rule knife-edge balance problems, Gravitational units ($1\text{ kgf} = 9.8\text{ N}$, $1\text{ gf} = 980\text{ dynes}$), See-saw balance calculations, Centre of gravity definition & position for solid cone ($h/4$), hollow cone ($h/3$), cylinder, sphere, and Two methods of increasing stability of a body (lowering CG and broad base).
   - `Force_Work_Power_And_Energy_03_Class_Notes.pdf` (2.4 MB, 2,425,909 bytes, 24 widescreen slides, Victory 2027 by Physics Wallah) — Uniform Circular Motion, Centripetal & Centrifugal Force, Work-Energy Concepts, Derivations & Solved Board Practice Problems.
-- **Chapter 2: Work, Energy and Power Lecture Notes (1 PDF in `physics/notes/`)**:
+- **Chapter 2: Work, Power, and Energy Lecture Notes (2 PDFs in `physics/notes/`)**:
   - `Force_Work_Power_And_Energy_04_Class_Notes.pdf` (2.2 MB, 2,337,467 bytes, 25 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Work Done definition & mathematical formulation ($W = F s \cos \theta$), Special Cases (Acute angle $\theta < 90^\circ \implies W > 0$, Right angle $\theta = 90^\circ \implies W = 0$, Obtuse angle $\theta > 90^\circ \implies W < 0$), Work done by applied force vs. work done against gravity ($W_F = F d \cos 0^\circ$ vs $W_{\text{gravity}} = F d \cos 180^\circ$), Area under Force-Displacement graph interpretation ($A = \text{Work done}$), SI and CGS units of work ($1\text{ J} = 10^7\text{ erg}$), Gravitational units of work ($1\text{ kgf}\cdot\text{m} = 9.8\text{ J}$, $1\text{ gf}\cdot\text{cm} = 980\text{ erg}$), and ICSE Board Numerical problems.
+  - `Force_Work_Power_And_Energy_05_Class_Notes.pdf` (2.8 MB, 2,927,805 bytes, 31 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Energy definition & work-energy equivalence ($W \implies \Delta E$), Commercial units ($1\text{ Wh} = 3600\text{ J}$, $1\text{ kWh} = 3.6 \times 10^6\text{ J} = 1\text{ unit}$), Heat units (Calorie: $1\text{ cal} = 4.18\text{ J}$, $1\text{ kcal} = 4180\text{ J}$ for $1\text{ g}$ water $14.5^\circ\text{C} \to 15.5^\circ\text{C}$), Atomic units (Electron volt: $1\text{ eV} = 1.6 \times 10^{-19}\text{ J}$), 3-point comparison table between Energy and Power, Mechanical energy (Kinetic Energy due to motion, Potential Energy due to position/configuration), Gravitational Potential Energy ($U = mgh$) with derivation from Earth's center/surface ($\Delta U = G M_e m (\frac{1}{R_e} - \frac{1}{R_e + h}) = mgh$), Elastic Potential Energy (springs & bow configuration), Kinetic Energy ($K = \frac{1}{2}mv^2$) derivation from equations of motion ($v^2 = u^2 + 2as$), Relationship between Kinetic Energy and Momentum ($K = \frac{p^2}{2m}$, $p = \sqrt{2mK}$), and solved ICSE questions on energy, power rating, and work.
 
 ### U. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
 All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
@@ -1557,3 +1559,21 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Catalogued in artifact `ui_design_directions.md` with interactive feedback request.
     - **Cache Query Bumping & Remote Sync (Rule 8 & 11)**:
       - Version query bumped to `v=9.1` across `index.html`.
+
+62. **Addition of Physics Chapter 2: Work, Power, and Energy Class Notes 02 (Lecture 05 / 31 Slides) & Naming Standardization v9.2**:
+    - **Slide & Content Ingestion (Rule 1 & Rule 14)**:
+      - Ingested `Force, Work, Power And Energy 05  Class Notes.pdf` (2.8 MB, 2,927,805 bytes, 31 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) into `physics/notes/Force_Work_Power_And_Energy_05_Class_Notes.pdf`.
+      - Topics: Energy definition & work-energy equivalence ($W \implies \Delta E$), Commercial units ($1\text{ Wh} = 3600\text{ J}$, $1\text{ kWh} = 3.6 \times 10^6\text{ J} = 1\text{ unit}$), Heat units (Calorie: $1\text{ cal} = 4.18\text{ J}$, $1\text{ kcal} = 4180\text{ J}$ for $1\text{ g}$ water $14.5^\circ\text{C} \to 15.5^\circ\text{C}$), Atomic units (Electron volt: $1\text{ eV} = 1.6 \times 10^{-19}\text{ J}$), 3-point comparison table between Energy and Power, Mechanical energy (Kinetic Energy due to motion, Potential Energy due to position/configuration), Gravitational Potential Energy ($U = mgh$) with derivation from Earth's center/surface ($\Delta U = G M_e m (\frac{1}{R_e} - \frac{1}{R_e + h}) = mgh$), Elastic Potential Energy (springs & bow configuration), Kinetic Energy ($K = \frac{1}{2}mv^2$) derivation from equations of motion ($v^2 = u^2 + 2as$), Relationship between Kinetic Energy and Momentum ($K = \frac{p^2}{2m}$, $p = \sqrt{2mK}$), and solved ICSE questions on energy, power rating, and work.
+      - Cleaned up raw download file from `C:\Users\ASUS\Downloads\` immediately (Rule 5 & Rule 14).
+    - **Curriculum Placement & Naming Standardization**:
+      - Explicit user instruction: The note belongs to chapter 'Work, Power, and Energy'. Standardized Chapter 2 name from 'Ch 2: Work, Energy and Power' to 'Ch 2: Work, Power, and Energy' across `data.json` and `data.js`.
+      - Standardized note titles inside Chapter 2 to 'Work, Power, and Energy 01 Class Notes' (Lecture 04) and 'Work, Power, and Energy 02 Class Notes' (Lecture 05) with clear lecture subtitles, matching the exact naming format used across all other subjects (Geography, History, English).
+    - **Dual Data Synchronization (Rule 7)**:
+      - Synchronized `phy-work-notes-01` and `phy-work-notes-02` under `sub-10-phy` -> `unit-phy-1` -> `chap-phy-2` across both `data.js` and `data.json`.
+      - Unit 1 card badge now dynamically displays `3 Chapters • 5 Notes • 3 Modules`.
+      - Physics card on Class 10 dashboard displays `6 Units • 12 Ch • 5 Notes • 3 Modules`.
+    - **Fast Track Spotlight Chip**:
+      - Updated High-Yield Fast Track chip text to `Physics • Ch 2: Work, Power & Energy Notes`.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=9.2` for `style.css`, `data.js`, and `script.js`.
+      - Verified 100% deep equality between `data.js` and `data.json` via automated canonical JSON parity script (`PARITY_100_MATCH`).
