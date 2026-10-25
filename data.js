@@ -220,6 +220,15 @@ window.COURSE_DATA = {
                                             "file": "physics/notes/Force_Work_Power_And_Energy_07_Class_Notes.pdf",
                                             "size": "3.5 MB",
                                             "badge": "PDF • 3.5 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-work-notes-05",
+                                            "title": "Work, Power, and Energy 05 Class Notes",
+                                            "subtitle": "Conservation of Mechanical Energy Derivation (K+U=mgh in Free Fall), Graphical Representation, Simple Pendulum Energy Dynamics & ICSE Board Numericals (Lecture 08 / Shailendra Sir / 21 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Force_Work_Power_And_Energy_08_Class_Notes.pdf",
+                                            "size": "1.9 MB",
+                                            "badge": "PDF • 1.9 MB • Class Notes"
                                         }
                                     ]
                                 },
