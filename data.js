@@ -349,7 +349,32 @@ window.COURSE_DATA = {
                             "name": "Unit 4: Electricity and Magnetism",
                             "description": "Electromagnetism — Current electricity, Ohm's law, domestic household circuits, ring system, magnetic effect of current & electromagnetic induction",
                             "icon": "electric_bolt",
-                            "items": [],
+                            "items": [
+                                {
+                                    "id": "phy-u4-numerical",
+                                    "title": "UNIT-4 Current Electricity & Magnetism — Pure Numericals Master Engine",
+                                    "subtitle": "20 Verbatim Board Numericals (70 Marks) across Ch 8, 9 & 10 with Step-by-Step Marking Solutions, Collapsible Formula Vault, Live Timer & DPP Mode",
+                                    "type": "interactive",
+                                    "file": "physics/unit4-numerical/index.html",
+                                    "badge": "Numericals • 20 Qs • 70 Marks"
+                                },
+                                {
+                                    "id": "phy-u4-theory",
+                                    "title": "UNIT-4 Current Electricity & Magnetism — Theory, Derivations & Diagrams Vault",
+                                    "subtitle": "24 Forensic Master Cards (75 Marks) covering Official CISCE Marking Keywords, Give Reasons, Derivations, DC Motor/AC Generator Diagrams & DPP Recall Mode",
+                                    "type": "interactive",
+                                    "file": "physics/unit4-theory/index.html",
+                                    "badge": "Theory Vault • 75 Marks • Derivations"
+                                },
+                                {
+                                    "id": "phy-u4-mcq",
+                                    "title": "UNIT-4 Current Electricity & Magnetism — Master MCQ Diagnostic Engine",
+                                    "subtitle": "25 Forensic MCQs (85+ Variations) across Chapters 8, 9 & 10 with DPP Test Mode, Instant Reveal, Live Scoreboard & Detailed Board Rationales",
+                                    "type": "interactive",
+                                    "file": "physics/unit4-mcq/index.html",
+                                    "badge": "MCQ Drill • 25 Qs • Interactive"
+                                }
+                            ],
                             "subchapters": [
                                 {
                                     "id": "chap-phy-8",

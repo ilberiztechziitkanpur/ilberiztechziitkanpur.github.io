@@ -141,8 +141,14 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # 20 Verbatim Board Numericals, Step-by-Step, Formula Boxes, Live Timer
 │   ├── unit1-theory/                # Unit 1: Theory, Concepts & Derivations Vault
 │   │   └── index.html               # 62 Marks High-Yield Theory, Marking Scheme, Derivations, Diagram Qs, Recall Mode
-│   └── unit1-mcq/                   # Unit 1: Diagnostic MCQ Exam Engine
-│       └── index.html               # 24 Forensic MCQs across Force, Work/Energy/Power & Machines, Dual Modes, Scoreboard
+│   ├── unit1-mcq/                   # Unit 1: Diagnostic MCQ Exam Engine
+│   │   └── index.html               # 24 Forensic MCQs across Force, Work/Energy/Power & Machines, Dual Modes, Scoreboard
+│   ├── unit4-numerical/             # Unit 4: Numericals Master Engine
+│   │   └── index.html               # 20 Verbatim Board Numericals (70M), Formula Vault, Given/To-Find, Live Timer
+│   ├── unit4-theory/                # Unit 4: Theory, Derivations & Diagrams Vault
+│   │   └── index.html               # 24 Forensic Cards (75M), CISCE Marking Keywords, DC Motor/AC Generator Diagrams, Recall Mode
+│   └── unit4-mcq/                   # Unit 4: Diagnostic MCQ Exam Engine
+│       └── index.html               # 25 Forensic MCQs (85+ Variations), DPP Mode, Live Scoreboard & Detailed Board Rationales
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -593,6 +599,10 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Light_05_Class_Notes.pdf` (2.4 MB, 2,538,104 bytes, 30 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Cartesian sign convention for spherical lenses ($u < 0$, convex $f > 0$, concave $f < 0$, real image $v > 0$, virtual image $v < 0$), Lens Formula derivation and application ($\frac{1}{f} = \frac{1}{v} - \frac{1}{u}$), Linear Magnification ($m = \frac{h_i}{h_o} = \frac{v}{u}$, sign interpretation: $m > 0$ erect/virtual, $m < 0$ inverted/real), Power of a lens ($P = \frac{1}{f\text{ (in m)}} = \frac{100}{f\text{ (in cm)}}$, unit: Dioptre $\text{D}$), Thick vs thin lens power comparison, Magnifying glass or simple microscope mechanics and angular magnification ($M = 1 + \frac{D}{f}$ at least distance of distinct vision $D=25\text{ cm}$; $M = \frac{D}{f}$ at normal adjustment), Solved board numericals, and foundational introduction to Spectrum: Dispersion of white light through a triangular prism, Newton's prism experiment, VIBGYOR wavelength ranges ($4000\text{ \AA} - 8000\text{ \AA}$), Cause of dispersion (differential speeds in glass), and first surface dispersion vs both surface deviation.
 - **Chapter 6: Spectrum Lecture Notes (1 PDF in `physics/notes/`)**:
   - `Light_06_Class_Notes.pdf` (3.5 MB, 3,680,703 bytes, 36 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Complete Electromagnetic Spectrum in order of increasing wavelength / decreasing frequency: Gamma rays ($<0.1\text{ \AA}$), X-rays ($0.1\text{ \AA}-100\text{ \AA}$), Ultraviolet rays ($100\text{ \AA}-4000\text{ \AA}$), Visible light ($4000\text{ \AA}-8000\text{ \AA}$), Infrared radiations ($8000\text{ \AA}-10^7\text{ \AA}$), Microwaves ($10^7\text{ \AA}-10^{11}\text{ \AA}$), and Radio waves ($>10^{11}\text{ \AA}$), Mnemonic formula, Common electromagnetic properties (non-mechanical, speed $3\times 10^8\text{ m/s}$ in vacuum, transverse, unaffected by electric/magnetic fields), Individual discovery, sources, properties, detection methods and clinical/industrial uses of each radiation, Quartz prism vs rock-salt prism requirements (glass absorbs UV and IR), Comprehensive 7-property comparison table between UV, Visible, and IR radiations, Scattering of light definition, Rayleigh's law of scattering ($\text{Intensity} \propto 1/\lambda^4$), and authentic natural phenomena applications: (1) Red colour of the sun at sunrise and sunset, (2) White colour of the sky at noon, (3) Blue colour of the sky, (4) Black appearance of sky to an astronaut in space / moon, (5) White appearance of clouds (larger particles scatter all colours equally), and (6) Red light used for danger signals.
+- **Unit 4 Master Interactive Engines (3 HTML Web Applications in `physics/`)**:
+  - `UNIT-4 Current Electricity & Magnetism.Numerical` (`physics/unit4-numerical/index.html`): 20 Verbatim Board Numericals (70 Marks), Step-by-Step Marking Solutions, Given/To-Find breakdown, CGS-to-SI Unit Conversion Vault, and Live Exam Timer.
+  - `UNIT-4 Current Electricity & Magnetism. Theory` (`physics/unit4-theory/index.html`): 24 Forensic Master Cards (75 Marks), Official CISCE Marking Keywords, Give Reasons, Derivations, DC Motor/AC Generator Diagrams & DPP Recall Mode.
+  - `UNIT-4 Current Electricity & Magnetism. MCQ` (`physics/unit4-mcq/index.html`): 25 Forensic MCQs (85+ Variations) across Chapters 8, 9 & 10 with DPP Test Mode, Instant Reveal, Live Scoreboard & Detailed Board Rationales.
 - **Chapter 8: Current Electricity Lecture Notes (3 PDFs in `physics/notes/`)**:
   - `Electricity_And_Magnetism_01_Class_Notes.pdf` (3.0 MB, 2,989,347 bytes, 34 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Concept of Charge ($q=ne$, $n=6.25\times 10^{18}$ electrons/C), Current ($I=\Delta q/\Delta t$), Potential & Potential Difference ($V=W/q$), Resistance ($R=\rho l/A$) & factors affecting it, Conductance ($G=1/R$), Ohm's Law ($V=IR$), Ohmic vs Non-Ohmic conductors, Choice of wire materials (copper/aluminium transmission, manganin/constantan standard resistors, lead-tin fuse, tungsten filament, nichrome heating element), and solved board questions.
   - `Electricity_And_Magnetism_02_Class_Notes.pdf` (3.2 MB, 3,234,801 bytes, 34 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — $V-I$ graph for conductor at different temperatures, Resistance vs temperature in conductors and semiconductors, Electromotive Force ($\varepsilon=W_{\text{total}}/q$), Terminal Voltage ($V=W_{\text{ext}}/q$), Voltage Drop ($v=Ir$), Cell equation ($V=\varepsilon-Ir$), Factors affecting EMF and Internal Resistance of cell, Resistors in Series and Parallel derivations, and equivalent resistance circuit problems.
@@ -1719,4 +1729,26 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Bumped cache-busting queries in `index.html` to `v=9.7` for `style.css`, `data.js`, and `script.js`.
       - Verified 100% deep equality between `data.js` and `data.json` via automated canonical JSON parity script (`PARITY_100_MATCH`).
+
+68. **Addition of Physics Unit 4 Master Study Engines Suite (Numericals, Theory & MCQ Engines) v9.8**:
+    - **Engine Ingestion & Subject Folder Isolation (Rule 1, Rule 2 & Rule 3)**:
+      - Ingested all 3 interactive examination applications from `C:\Users\ASUS\Downloads\` into dedicated `physics/` subdirectories:
+        1. `physics/unit4-numerical/index.html` (176 KB, 2,564 lines) — `UNIT-4 Current Electricity & Magnetism — Pure Numericals Master Engine`: 20 verbatim board numerical cards (70 Marks) across Chapters 8, 9 & 10, step-by-step formula step boxes, Given/To-Find breakdown, CGS-to-SI unit conversion vault, DPP Solve Mode + Instant Step-by-Step Mode, live exam countdown timer, and solved progress scoreboard.
+        2. `physics/unit4-theory/index.html` (212 KB, 2,694 lines) — `UNIT-4 Current Electricity & Magnetism — Theory, Derivations & Diagrams Vault`: 24 forensic master cards (75 Marks) covering official CISCE marking scheme keywords, give reasons, derivations, DC motor/AC generator operation diagrams, DPP Recall Mode + Instant Answer Mode, and live mastery scoreboard.
+        3. `physics/unit4-mcq/index.html` (154 KB, 2,280 lines) — `UNIT-4 Current Electricity & Magnetism — Master MCQ Diagnostic Engine`: 25 master archetypes + 85+ past variations (2017–2027), DPP Test Mode + Instant Reveal Mode, countdown timer, live score pill (score: correct/attempted / 25), detailed rationales and accordion drawers.
+      - Integrated `.home-nav-btn` (`target="_top"`) and Google Fonts bundle (`Outfit`, `JetBrains Mono`, `Plus Jakarta Sans`, `Material Symbols Outlined`) in all three engines.
+      - Cleaned up raw downloads from `C:\Users\ASUS\Downloads\` immediately (Rule 5).
+    - **Unit-Level Master Study Module Architecture**:
+      - Placed all 3 engines at the Unit 4 root (`unit-phy-4.items`), ensuring that when a student clicks on Unit 4, the portal renders the dedicated `Unit 4: Electricity and Magnetism — Master Study Modules` banner and interactive launch cards at the top before the subchapters (Ch 8, Ch 9, Ch 10).
+    - **Spotlight & Navigation Update (Rule 10 & Rule 15)**:
+      - Updated the Overview dashboard High-Yield Fast Track rail (`.spotlight-chips-grid`) to exclusively feature the Unit 4 suite (Suite launcher, Pure Numericals 70M, Theory Vault 75M, Diagnostic MCQ 25 Qs, Ch 8 notes, Ch 10 notes).
+      - Updated the single featured sidebar quick-launch in `script.js` to `Physics Unit 4 Vault` with `NEW` badge.
+    - **Dual Data Synchronization (Rule 7)**:
+      - Synchronized `unit-phy-4.items` across both `data.js` and `data.json`.
+      - Unit 4 card now dynamically displays `3 Chapters • 9 Notes • 3 Modules`.
+      - Physics card on Class 10 dashboard displays `6 Units • 12 Ch • 23 Notes • 6 Modules`.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=9.8` for `style.css`, `data.js`, and `script.js`.
+      - Verified 100% deep equality between `data.js` and `data.json` via automated canonical JSON parity script (`PARITY_100_MATCH`).
+
 
