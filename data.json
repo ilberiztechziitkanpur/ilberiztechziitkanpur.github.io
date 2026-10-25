@@ -253,21 +253,78 @@
                                     "name": "Ch 4: Refraction of Light at Plane Surfaces",
                                     "description": "Laws of refraction, refractive index, principle of reversibility, lateral displacement, real & apparent depth, critical angle and total internal reflection (TIR)",
                                     "icon": "layers",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "phy-refract-notes-01",
+                                            "title": "Refraction of Light at Plane Surfaces 01 Class Notes",
+                                            "subtitle": "Refraction of Light, Speed in Media, Snell's Law (µ = c/v), Factors Affecting Refractive Index, Reversibility Principle, Rectangular Glass Block, Lateral Displacement & Multiple Images in Thick Mirror (Lecture 01 / Shailendra Sir / 40 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Light_01_Class_Notes.pdf",
+                                            "size": "3.4 MB",
+                                            "badge": "PDF • 3.4 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-refract-notes-02",
+                                            "title": "Refraction of Light at Plane Surfaces 02 Class Notes",
+                                            "subtitle": "Refraction Through Glass Prism, Angle of Deviation (A + δ = i + e), i-δ Graph, Real & Apparent Depth (Normal Shift), Critical Angle (sin ic = 1/µ) & Total Internal Reflection (TIR) Conditions (Lecture 02 / Shailendra Sir / 35 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Light_02_Class_Notes.pdf",
+                                            "size": "3.0 MB",
+                                            "badge": "PDF • 3.0 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-refract-notes-03",
+                                            "title": "Refraction of Light at Plane Surfaces 03 Class Notes",
+                                            "subtitle": "TIR in 45°-90°-45° Prisms (90° & 180° Deviation, Erecting Prism), 60° Equilateral Prism, 30°-90°-60° Prism, Total Reflecting Prism vs Plane Mirror, Mirage, Diamond Sparkle & Optical Fibres (Lecture 03 / Shailendra Sir / 25 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Light_03_Class_Notes.pdf",
+                                            "size": "2.6 MB",
+                                            "badge": "PDF • 2.6 MB • Class Notes"
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "chap-phy-5",
                                     "name": "Ch 5: Refraction through a Lens",
                                     "description": "Convex & concave lenses, optical centre, principal focus, ray diagrams for image formation, lens formula, magnification and power of lens (Dioptres)",
                                     "icon": "search",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "phy-lens-notes-01",
+                                            "title": "Refraction through a Lens 01 Class Notes",
+                                            "subtitle": "Convex & Concave Lenses, Prism Set Action, Technical Terms (Optical Centre, Curvature, Principal Foci, Focal Length), 3 Construction Rays, Convex Lens Image Formations (All 6 Cases) & Concave Lens Formations (Lecture 04 / Shailendra Sir / 50 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Light_04_Class_Notes.pdf",
+                                            "size": "4.8 MB",
+                                            "badge": "PDF • 4.8 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-lens-notes-02",
+                                            "title": "Refraction through a Lens 02 Class Notes",
+                                            "subtitle": "Cartesian Sign Conventions, Lens Formula (1/f = 1/v - 1/u), Linear Magnification (m = v/u), Power of a Lens (P = 1/f Dioptre), Simple Microscope Magnification & Intro to Dispersion/Spectrum (Lecture 05 / Shailendra Sir / 30 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Light_05_Class_Notes.pdf",
+                                            "size": "2.4 MB",
+                                            "badge": "PDF • 2.4 MB • Class Notes"
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "chap-phy-6",
                                     "name": "Ch 6: Spectrum",
                                     "description": "Dispersion of white light through a triangular prism, pure and impure spectrum, electromagnetic spectrum (gamma to radio waves) and scattering of light",
                                     "icon": "palette",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "phy-spectrum-notes-01",
+                                            "title": "Spectrum 01 Class Notes",
+                                            "subtitle": "Electromagnetic Spectrum (Gamma to Radio Waves), Wavelength & Frequency Ranges, Detection, Sources & Uses, Comparison of UV/Visible/IR Radiations, Rayleigh Scattering (1/λ⁴) & Phenomenon Applications (Lecture 06 / Shailendra Sir / 36 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Light_06_Class_Notes.pdf",
+                                            "size": "3.5 MB",
+                                            "badge": "PDF • 3.5 MB • Class Notes"
+                                        }
+                                    ]
                                 }
                             ]
                         },

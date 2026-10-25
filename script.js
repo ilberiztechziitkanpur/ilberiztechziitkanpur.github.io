@@ -1076,23 +1076,23 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Physics Unit 1 Master Vault (Force & Machines)
+    // Latest Update Quick Launch: Physics Unit 2: Light
     const phyNav = document.createElement('div');
-    const isPhyActive = state.currentView !== 'search' && state.path[1] === 'sub-10-phy' && state.path[2] === 'unit-phy-1';
+    const isPhyActive = state.currentView !== 'search' && state.path[1] === 'sub-10-phy' && state.path[2] === 'unit-phy-2';
     phyNav.className = `nav-item nav-item-featured ${isPhyActive ? 'active' : ''}`;
     phyNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #06b6d4;">fitness_center</span>
-        <span style="font-weight: 600;">Physics Unit 1 Vault</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #06b6d4, #3b82f6); color:#fff; box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);">NEW</span>
+        <span class="material-symbols-outlined icon" style="color: #fbbf24;">flare</span>
+        <span style="font-weight: 600;">Physics Unit 2: Light</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #ef4444); color:#fff; box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);">NEW</span>
     `;
     phyNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const phySub = batch?.subjects?.find(s => s.id === 'sub-10-phy');
-        const unit1 = phySub?.chapters?.find(c => c.id === 'unit-phy-1');
-        if (unit1) {
-            navigateTo('subchapters', [batch.id, phySub.id, unit1.id]);
+        const unit2 = phySub?.chapters?.find(c => c.id === 'unit-phy-2');
+        if (unit2) {
+            navigateTo('subchapters', [batch.id, phySub.id, unit2.id]);
         }
     };
     navMenu.appendChild(phyNav);
@@ -1290,35 +1290,35 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
-                <button class="spotlight-chip featured-chip" id="spot-phy-u1" type="button">
-                    <span class="material-symbols-outlined" style="color: #06b6d4;">fitness_center</span>
-                    <span class="spotlight-chip-text">Physics • Unit 1 Master Vault</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">NEW</span>
+                <button class="spotlight-chip featured-chip" id="spot-phy-u2" type="button">
+                    <span class="material-symbols-outlined" style="color: #fbbf24;">flare</span>
+                    <span class="spotlight-chip-text">Physics • Unit 2: Light Master Suite</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #f59e0b, #ef4444);">NEW</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-phy-num" type="button">
-                    <span class="material-symbols-outlined" style="color: #38bdf8;">calculate</span>
-                    <span class="spotlight-chip-text">Physics • Pure Numericals v2.0</span>
+                <button class="spotlight-chip featured-chip" id="spot-phy-ch4" type="button">
+                    <span class="material-symbols-outlined" style="color: #38bdf8;">layers</span>
+                    <span class="spotlight-chip-text">Ch 4: Refraction at Plane Surfaces (3 Notes)</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #06b6d4);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-phy-theory" type="button">
-                    <span class="material-symbols-outlined" style="color: #67e8f9;">menu_book</span>
-                    <span class="spotlight-chip-text">Physics • Theory & Derivations</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0891b2, #0ea5e9);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-phy-ch5" type="button">
+                    <span class="material-symbols-outlined" style="color: #34d399;">search</span>
+                    <span class="spotlight-chip-text">Ch 5: Refraction through a Lens (2 Notes)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #059669, #10b981);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-phy-mcq" type="button">
-                    <span class="material-symbols-outlined" style="color: #a5f3fc;">quiz</span>
-                    <span class="spotlight-chip-text">Physics • Diagnostic MCQ Exam</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #06b6d4, #14b8a6);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-phy-ch6" type="button">
+                    <span class="material-symbols-outlined" style="color: #f43f5e;">palette</span>
+                    <span class="spotlight-chip-text">Ch 6: Spectrum & Scattering (1 Note)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #e11d48, #f43f5e);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-phy-force" type="button">
-                    <span class="material-symbols-outlined" style="color: #22d3ee;">description</span>
-                    <span class="spotlight-chip-text">Physics • Ch 1: Force Notes</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0ea5e9, #3b82f6);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-phy-snell" type="button">
+                    <span class="material-symbols-outlined" style="color: #60a5fa;">menu_book</span>
+                    <span class="spotlight-chip-text">Refraction 01 • Snell's Law & Glass Block</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #2563eb, #38bdf8);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-phy-work" type="button">
-                    <span class="material-symbols-outlined" style="color: #38bdf8;">bolt</span>
-                    <span class="spotlight-chip-text">Physics • Ch 2: Work, Power & Energy Notes</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">NEW</span>
+                <button class="spotlight-chip featured-chip" id="spot-phy-lensform" type="button">
+                    <span class="material-symbols-outlined" style="color: #a78bfa;">visibility</span>
+                    <span class="spotlight-chip-text">Lens 01 • Ray Diagrams & 6 Image Cases</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">HOT</span>
                 </button>
             </div>
         `;
@@ -1326,29 +1326,27 @@ function renderView() {
 
         // Bind Spotlight Clicks (clean, fast, single-lookup)
         const phySub = batch?.subjects?.find(s => s.id === 'sub-10-phy');
-        const unit1 = phySub?.chapters?.find(c => c.id === 'unit-phy-1');
+        const unit2 = phySub?.chapters?.find(c => c.id === 'unit-phy-2');
+        const ch4 = unit2?.subchapters?.find(sc => sc.id === 'chap-phy-4');
+        const ch5 = unit2?.subchapters?.find(sc => sc.id === 'chap-phy-5');
+        const ch6 = unit2?.subchapters?.find(sc => sc.id === 'chap-phy-6');
 
         const chipActions = {
-            '#spot-phy-u1': () => { audioFX.playTick(); navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']); },
-            '#spot-phy-work': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-1', 'chap-phy-2']); },
-            '#spot-phy-force': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-1', 'chap-phy-1']); },
-            '#spot-phy-num': () => {
+            '#spot-phy-u2': () => { audioFX.playTick(); navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-2']); },
+            '#spot-phy-ch4': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-2', 'chap-phy-4']); },
+            '#spot-phy-ch5': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-2', 'chap-phy-5']); },
+            '#spot-phy-ch6': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-2', 'chap-phy-6']); },
+            '#spot-phy-snell': () => {
                 audioFX.playTick();
-                const item = unit1?.items?.find(i => i.id === 'phy-u1-numerical');
-                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1'], item);
-                else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
+                const item = ch4?.items?.find(i => i.id === 'phy-refract-notes-01');
+                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-2', 'chap-phy-4'], item);
+                else navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-2', 'chap-phy-4']);
             },
-            '#spot-phy-theory': () => {
+            '#spot-phy-lensform': () => {
                 audioFX.playTick();
-                const item = unit1?.items?.find(i => i.id === 'phy-u1-theory');
-                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1'], item);
-                else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
-            },
-            '#spot-phy-mcq': () => {
-                audioFX.playTick();
-                const item = unit1?.items?.find(i => i.id === 'phy-u1-mcq');
-                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-1'], item);
-                else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-1']);
+                const item = ch5?.items?.find(i => i.id === 'phy-lens-notes-01');
+                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-2', 'chap-phy-5'], item);
+                else navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-2', 'chap-phy-5']);
             }
         };
 
