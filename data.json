@@ -299,21 +299,105 @@
                                     "name": "Ch 8: Current Electricity",
                                     "description": "Electric current, potential difference, Ohm's law, resistance, resistivity, electromotive force (EMF), terminal voltage, internal resistance and series & parallel resistor combinations",
                                     "icon": "electrical_services",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "phy-currelec-notes-01",
+                                            "title": "Current Electricity 01 Class Notes",
+                                            "subtitle": "Concept of Charge (q = ne), Current (I = Δq/Δt), Potential & Potential Difference, Resistance Factors, Ohm's Law, Ohmic vs Non-Ohmic Resistors & Choice of Wire Materials (Lecture 01 / Shailendra Sir / 34 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Electricity_And_Magnetism_01_Class_Notes.pdf",
+                                            "size": "3.0 MB",
+                                            "badge": "PDF • 3.0 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-currelec-notes-02",
+                                            "title": "Current Electricity 02 Class Notes",
+                                            "subtitle": "V-I Graph at Different Temperatures, EMF of Cell, Terminal Voltage (V = ε - Ir), Voltage Drop, Factors Affecting Internal Resistance & Resistors in Series and Parallel (Lecture 02 / Shailendra Sir / 34 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Electricity_And_Magnetism_02_Class_Notes.pdf",
+                                            "size": "3.2 MB",
+                                            "badge": "PDF • 3.2 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-currelec-notes-03",
+                                            "title": "Current Electricity 03 Class Notes",
+                                            "subtitle": "Equivalent Resistance Network Calculations, Electrical Energy & Power (P = VI = I²R = V²/R), Commercial Unit (1 kWh = 3.6 MJ), Joule's Law of Heating & Board Numericals (Lecture 03 / Shailendra Sir / 29 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Electricity_And_Magnetism_03_Class_Notes.pdf",
+                                            "size": "2.9 MB",
+                                            "badge": "PDF • 2.9 MB • Class Notes"
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "chap-phy-9",
                                     "name": "Ch 9: Household Circuits",
                                     "description": "Electrical power (P = VI = I²R = V²/R), electrical energy (kWh), ring system of wiring, switches, fuses, miniature circuit breakers (MCBs), earthing and 3-pin plug colour coding",
                                     "icon": "home",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "phy-housecirc-notes-01",
+                                            "title": "Household Circuits 01 Class Notes",
+                                            "subtitle": "Power Transmission from Grid (11 kV to 132 kV to 220 V), Domestic Supply Cable (Live, Neutral, Earth), Ring System of House Wiring, Fuse Principle (H = I²Rt) & Reason for Fuse in Live Wire (Lecture 04 / Shailendra Sir / 41 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Electricity_And_Magnetism_04_Class_Notes.pdf",
+                                            "size": "5.7 MB",
+                                            "badge": "PDF • 5.7 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-housecirc-notes-02",
+                                            "title": "Household Circuits 02 Class Notes",
+                                            "subtitle": "Current Rating of Fuse & MCB, Single/Double Pole Switches, Dual Control Staircase Wiring, Local & Appliance Earthing, Three-Pin Plug, Cable Colour Coding & High Tension Wires (Lecture 05 / Shailendra Sir / 42 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Electricity_And_Magnetism_05_Class_Notes.pdf",
+                                            "size": "4.3 MB",
+                                            "badge": "PDF • 4.3 MB • Class Notes"
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "chap-phy-10",
                                     "name": "Ch 10: Electro-Magnetism",
                                     "description": "Magnetic effect of electric current (Oersted effect), solenoid field, Fleming's left-hand rule, DC motor, electromagnetic induction, Faraday's laws, Lenz's law and transformers",
                                     "icon": "sensors",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "phy-electromag-notes-01",
+                                            "title": "Electro-Magnetism 01 Class Notes",
+                                            "subtitle": "Oersted's Experiment, Right Hand Thumb Rule, Magnetic Field of Straight Wire, Loop & Solenoid, Clock-Face Rule, I/U-Shaped Electromagnets, Lorentz Force & Fleming's Left Hand Rule (Lecture 06 / Shailendra Sir / 28 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Electricity_And_Magnetism_06_Class_Notes.pdf",
+                                            "size": "3.0 MB",
+                                            "badge": "PDF • 3.0 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-electromag-notes-02",
+                                            "title": "Electro-Magnetism 02 Class Notes",
+                                            "subtitle": "Electric Bell Working & Construction, Deflecting Torque (τ = NIAB sin θ), Simple D.C. Motor Complete 360° Operation, Split Ring Commutator & Magnetic Flux Introduction (Lecture 07 / Shailendra Sir / 29 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Electricity_And_Magnetism_07_Class_Notes.pdf",
+                                            "size": "3.5 MB",
+                                            "badge": "PDF • 3.5 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-electromag-notes-03",
+                                            "title": "Electro-Magnetism 03 Class Notes",
+                                            "subtitle": "Electromagnetic Induction, Faraday's Laws, Fleming's Right Hand Rule, Lenz's Law (Conservation of Energy) & A.C. Generator Complete Construction & Working (Lecture 08 / Shailendra Sir / 29 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Electricity_And_Magnetism_08_Class_Notes.pdf",
+                                            "size": "3.7 MB",
+                                            "badge": "PDF • 3.7 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-electromag-notes-04",
+                                            "title": "Electro-Magnetism 04 Class Notes",
+                                            "subtitle": "Alternating Current Frequency, A.C. vs D.C., A.C. Generator vs D.C. Motor Comparison, Step-Up & Step-Down Transformers, Turns Ratio & Energy Loss Prevention (Lecture 09 / Shailendra Sir / 31 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Electricity_And_Magnetism_09_Class_Notes.pdf",
+                                            "size": "3.7 MB",
+                                            "badge": "PDF • 3.7 MB • Class Notes"
+                                        }
+                                    ]
                                 }
                             ]
                         },
