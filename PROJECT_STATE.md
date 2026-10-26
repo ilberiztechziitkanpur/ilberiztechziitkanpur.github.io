@@ -136,7 +136,11 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   ├── Electricity_And_Magnetism_06_Class_Notes.pdf (3.0 MB) — Ch 10: Oersted Experiment, Solenoid, Electromagnet, Fleming's Left Hand Rule (28 slides)
 │   │   ├── Electricity_And_Magnetism_07_Class_Notes.pdf (3.5 MB) — Ch 10: Electric Bell, Deflecting Torque, DC Motor Complete Working (29 slides)
 │   │   ├── Electricity_And_Magnetism_08_Class_Notes.pdf (3.7 MB) — Ch 10: Electromagnetic Induction, Faraday's Laws, Lenz's Law, AC Generator (29 slides)
-│   │   └── Electricity_And_Magnetism_09_Class_Notes.pdf (3.7 MB) — Ch 10: AC Frequency, AC vs DC, Step-Up/Step-Down Transformers, Turns Ratio (31 slides)
+│   │   ├── Electricity_And_Magnetism_09_Class_Notes.pdf (3.7 MB) — Ch 10: AC Frequency, AC vs DC, Step-Up/Step-Down Transformers, Turns Ratio (31 slides)
+│   │   ├── Sound_01_Class_Notes.pdf (2.8 MB) — Ch 7: Reflection of Sound, Echoes, Echo Conditions (d ≥ 17 m) & Speed of Sound (30 slides)
+│   │   ├── Sound_02_Class_Notes.pdf (2.9 MB) — Ch 7: SONAR, RADAR, Bats/Dolphins Echolocation & Board Numericals (31 slides)
+│   │   ├── Sound_03_Class_Notes.pdf (4.2 MB) — Ch 7: Free, Damped & Forced Vibrations, Resonance Phenomena (36 slides)
+│   │   └── Sound_04_Class_Notes.pdf (4.5 MB) — Ch 7: Loudness, Pitch, Timbre (Quality) & Musical Sound vs Noise (40 slides)
 │   ├── unit1-numerical/             # Unit 1: Numericals Mastery Engine v2.0
 │   │   └── index.html               # 20 Verbatim Board Numericals, Step-by-Step, Formula Boxes, Live Timer
 │   ├── unit1-theory/                # Unit 1: Theory, Concepts & Derivations Vault
@@ -615,6 +619,11 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Electricity_And_Magnetism_07_Class_Notes.pdf` (3.5 MB, 3,488,462 bytes, 29 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Electric Bell construction, working, and make-and-break cycle, Deflecting torque on a current-carrying loop ($\tau = NIAB\sin\theta$), Simple D.C. Motor principle, construction, step-by-step $360^\circ$ working cycle, split ring commutator function, and soft iron core radial field enhancement.
   - `Electricity_And_Magnetism_08_Class_Notes.pdf` (3.7 MB, 3,735,208 bytes, 29 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Electromagnetic Induction experimental demonstration, Faraday's Laws of Induction ($\varepsilon_{\text{ind}} = N \Delta\phi_B/\Delta t$), Fleming's Right Hand Rule for induced current direction, Lenz's Law based on conservation of energy, and A.C. Generator complete construction, $360^\circ$ rotation cycle, and alternating EMF wave equation ($\varepsilon = \varepsilon_0 \sin\omega t$).
   - `Electricity_And_Magnetism_09_Class_Notes.pdf` (3.7 MB, 3,668,412 bytes, 31 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Frequency of alternating current ($50\text{ Hz}$ in India, $60\text{ Hz}$ in USA), Difference and advantages of A.C. over D.C., A.C. Generator vs D.C. Motor detailed comparison table, Transformers working on mutual induction, Step-up vs Step-down transformers, Turns ratio ($\frac{E_s}{E_p} = \frac{N_s}{N_p} = \frac{I_p}{I_s}$), Laminated soft iron core to minimize eddy current losses, and comprehensive ICSE Board PYQs.
+- **Chapter 7: Sound Lecture Notes (4 PDFs in `physics/notes/`)**:
+  - `Sound_01_Class_Notes.pdf` (2.8 MB, 2,920,987 bytes, 30 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Reflection of Sound Waves, Formation of Echoes, Conditions for Hearing an Echo (minimum obstacle distance $d \ge 16.6\text{ m} \approx 17\text{ m}$ at $20^\circ\text{C}$, persistence of hearing $t \ge 0.1\text{ s}$), Determination of Speed of Sound ($2d = v \times t$), and authentic ICSE board examples.
+  - `Sound_02_Class_Notes.pdf` (2.9 MB, 3,017,352 bytes, 31 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Practical Applications of Echoes, Echo Depth Sounding & SONAR ($d = vt/2$), RADAR navigation comparison, Echolocation in Bats and Marine Animals (Dolphins), Medical Ultrasonography (Echocardiography), and solved board numericals.
+  - `Sound_03_Class_Notes.pdf` (4.2 MB, 4,417,036 bytes, 36 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Natural (Free) Vibrations (vibrations in vacuum, constant amplitude), Damped Vibrations (energy loss due to friction/medium resistance, decreasing amplitude), Forced Vibrations, Resonance Phenomena (special case of forced vibrations when $f_{\text{ext}} = f_{\text{nat}}$, maximum amplitude), Mechanical & Acoustic tuning fork resonance, and real-world resonance case studies.
+  - `Sound_04_Class_Notes.pdf` (4.5 MB, 4,701,649 bytes, 40 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Three Subjective Characteristics of Sound: (1) Loudness & Intensity (dependence on amplitude squared, surface area, distance, and density; Decibel unit $\text{dB}$), (2) Pitch / Shrillness (dependence on frequency, grave vs shrill distinction), (3) Quality / Timbre (dependence on waveform and subsidiary notes/harmonics/overtones), Difference between Musical Sound and Noise, and comprehensive board numericals.
 
 ### U. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
 All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
@@ -1749,6 +1758,27 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Physics card on Class 10 dashboard displays `6 Units • 12 Ch • 23 Notes • 6 Modules`.
     - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Bumped cache-busting queries in `index.html` to `v=9.8` for `style.css`, `data.js`, and `script.js`.
+      - Verified 100% deep equality between `data.js` and `data.json` via automated canonical JSON parity script (`PARITY_100_MATCH`).
+
+69. **Addition of Physics Unit 3: Sound Suite (4 Class Notes for Chapter 7) v9.9**:
+    - **Slide & Content Ingestion (Rule 1 & Rule 14)**:
+      - Ingested all 4 class notes PDFs from the Victory 2027 batch (Shailendra Sir / Physics Wallah) into `physics/notes/`:
+        1. `Sound_01_Class_Notes.pdf` (2.8 MB, 2,920,987 bytes, 30 slides) — Ch 7: Reflection of Sound Waves, Echo Conditions ($d \ge 16.6\text{ m} \approx 17\text{ m}, t \ge 0.1\text{ s}$), Speed of Sound & Solved Examples.
+        2. `Sound_02_Class_Notes.pdf` (2.9 MB, 3,017,352 bytes, 31 slides) — Ch 7: Applications of Echoes, SONAR & Echo Depth Sounding ($d = vt/2$), RADAR Navigation, Bats/Dolphins Echolocation & Board Numericals.
+        3. `Sound_03_Class_Notes.pdf` (4.2 MB, 4,417,036 bytes, 36 slides) — Ch 7: Natural (Free) Vibrations, Damped Vibrations, Forced Vibrations, Resonance Conditions & Tuning Fork Experiments.
+        4. `Sound_04_Class_Notes.pdf` (4.5 MB, 4,701,649 bytes, 40 slides) — Ch 7: Characteristics of Sound — Loudness & Intensity (dB), Pitch vs Frequency, Quality / Timbre (Waveform & Overtones), Music vs Noise & Board Numericals.
+      - Cleaned up all raw download files from `C:\Users\ASUS\Downloads\` immediately (Rule 5 & Rule 14).
+    - **Curriculum Placement**:
+      - Mapped to **Unit 3: Sound** -> **Ch 7: Sound** (`chap-phy-7`).
+    - **Spotlight & Navigation Update (Rule 10 & Rule 15)**:
+      - Updated the Overview dashboard High-Yield Fast Track rail (`.spotlight-chips-grid`) with a dedicated `Physics • Unit 3 Sound (4 Notes)` chip carrying the `NEW` badge for 1-click launch.
+      - Updated the single featured sidebar quick-launch in `script.js` to `Physics: Sound (4 Notes)` with `NEW` badge.
+    - **Dual Data Synchronization (Rule 7)**:
+      - Synchronized `chap-phy-7.items` across both `data.js` and `data.json`.
+      - Unit 3 card now dynamically displays `1 Chapters • 4 Notes`.
+      - Physics card on Class 10 dashboard displays `6 Units • 12 Ch • 27 Notes • 6 Modules`.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=9.9` for `style.css`, `data.js`, and `script.js`.
       - Verified 100% deep equality between `data.js` and `data.json` via automated canonical JSON parity script (`PARITY_100_MATCH`).
 
 

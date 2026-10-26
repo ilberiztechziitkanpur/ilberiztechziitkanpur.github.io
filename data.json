@@ -340,7 +340,44 @@
                                     "name": "Ch 7: Sound",
                                     "description": "Reflection of sound, echo conditions (d ≥ 17 m), sonar calculations, natural, damped and forced vibrations, resonance, loudness, pitch and timbre (quality)",
                                     "icon": "music_note",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "phy-sound-notes-01",
+                                            "title": "Sound 01 Class Notes",
+                                            "subtitle": "Reflection of Sound Waves, Echo Formation, Minimum Distance Conditions (d ≥ 16.6 m / 17 m, t ≥ 0.1 s), Determination of Speed of Sound (2d = v × t) & Solved Examples (Lecture 01 / Shailendra Sir / 30 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Sound_01_Class_Notes.pdf",
+                                            "size": "2.8 MB",
+                                            "badge": "PDF • 2.8 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-sound-notes-02",
+                                            "title": "Sound 02 Class Notes",
+                                            "subtitle": "Practical Applications of Echoes, Echo Depth Sounding & SONAR (d = vt/2), RADAR Navigation, Echolocation in Bats & Marine Dolphins, Medical Ultrasonography & Board Numericals (Lecture 02 / Shailendra Sir / 31 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Sound_02_Class_Notes.pdf",
+                                            "size": "2.9 MB",
+                                            "badge": "PDF • 2.9 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-sound-notes-03",
+                                            "title": "Sound 03 Class Notes",
+                                            "subtitle": "Natural (Free) Vibrations, Damped Vibrations (Energy Loss & Damping Factor), Forced Vibrations, Resonance Phenomena (Mechanical & Acoustic), Tuning Fork Experiments & Real-World Examples (Lecture 03 / Shailendra Sir / 36 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Sound_03_Class_Notes.pdf",
+                                            "size": "4.2 MB",
+                                            "badge": "PDF • 4.2 MB • Class Notes"
+                                        },
+                                        {
+                                            "id": "phy-sound-notes-04",
+                                            "title": "Sound 04 Class Notes",
+                                            "subtitle": "Characteristics of Sound — Loudness & Intensity (Factors Affecting Loudness, Decibel Unit dB), Pitch vs Frequency (Shrill vs Grave), Quality / Timbre (Waveform & Overtones), Music vs Noise & Board Numericals (Lecture 04 / Shailendra Sir / 40 Slides)",
+                                            "type": "pdf",
+                                            "file": "physics/notes/Sound_04_Class_Notes.pdf",
+                                            "size": "4.5 MB",
+                                            "badge": "PDF • 4.5 MB • Class Notes"
+                                        }
+                                    ]
                                 }
                             ]
                         },
