@@ -1076,13 +1076,13 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Physics Unit 3: Sound
+    // Latest Update Quick Launch: Physics Unit 6: Radioactivity 10-Yr Vault
     const phyNav = document.createElement('div');
-    const isPhyActive = state.currentView !== 'search' && state.path[1] === 'sub-10-phy' && state.path[2] === 'unit-phy-3';
+    const isPhyActive = state.currentView !== 'search' && state.path[1] === 'sub-10-phy' && state.path[2] === 'unit-phy-6';
     phyNav.className = `nav-item nav-item-featured ${isPhyActive ? 'active' : ''}`;
     phyNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #38bdf8;">graphic_eq</span>
-        <span style="font-weight: 600;">Physics: Sound (4 Notes)</span>
+        <span class="material-symbols-outlined icon" style="color: #38bdf8;">science</span>
+        <span style="font-weight: 600;">Physics: Radioactivity Vault</span>
         <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8); color:#fff; box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);">NEW</span>
     `;
     phyNav.onclick = () => {
@@ -1090,9 +1090,14 @@ function renderNav() {
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         const phySub = batch?.subjects?.find(s => s.id === 'sub-10-phy');
-        const unit3 = phySub?.chapters?.find(c => c.id === 'unit-phy-3');
-        if (unit3) {
-            navigateTo('items', [batch.id, phySub.id, unit3.id, 'chap-phy-7']);
+        const unit6 = phySub?.chapters?.find(c => c.id === 'unit-phy-6');
+        if (unit6) {
+            const vaultItem = unit6.items?.find(i => i.id === 'phy-u6-radioactivity-vault');
+            if (vaultItem) {
+                navigateTo('viewer', [batch.id, phySub.id, unit6.id], vaultItem);
+            } else {
+                navigateTo('subchapters', [batch.id, phySub.id, unit6.id]);
+            }
         }
     };
     navMenu.appendChild(phyNav);
@@ -1290,10 +1295,15 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
+                <button class="spotlight-chip featured-chip" id="spot-phy-u6" type="button">
+                    <span class="material-symbols-outlined" style="color: #38bdf8;">science</span>
+                    <span class="spotlight-chip-text">Radioactivity • 10-Yr Vault (18 Masters)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">NEW</span>
+                </button>
                 <button class="spotlight-chip featured-chip" id="spot-phy-u3" type="button">
                     <span class="material-symbols-outlined" style="color: #38bdf8;">graphic_eq</span>
                     <span class="spotlight-chip-text">Physics • Unit 3 Sound (4 Notes)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">NEW</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #059669, #10b981);">HOT</span>
                 </button>
                 <button class="spotlight-chip featured-chip" id="spot-phy-u4" type="button">
                     <span class="material-symbols-outlined" style="color: #38bdf8;">electric_bolt</span>
@@ -1328,10 +1338,17 @@ function renderView() {
         const phySub = batch?.subjects?.find(s => s.id === 'sub-10-phy');
         const unit3 = phySub?.chapters?.find(c => c.id === 'unit-phy-3');
         const unit4 = phySub?.chapters?.find(c => c.id === 'unit-phy-4');
+        const unit6 = phySub?.chapters?.find(c => c.id === 'unit-phy-6');
         const ch8 = unit4?.subchapters?.find(sc => sc.id === 'chap-phy-8');
         const ch10 = unit4?.subchapters?.find(sc => sc.id === 'chap-phy-10');
 
         const chipActions = {
+            '#spot-phy-u6': () => {
+                audioFX.playTick();
+                const item = unit6?.items?.find(i => i.id === 'phy-u6-radioactivity-vault');
+                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-6'], item);
+                else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-6']);
+            },
             '#spot-phy-u3': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-3', 'chap-phy-7']); },
             '#spot-phy-u4': () => { audioFX.playTick(); navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-4']); },
             '#spot-phy-u4-num': () => {

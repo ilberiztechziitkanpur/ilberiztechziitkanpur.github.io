@@ -1,0 +1,2060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICSE Class 10 Physics | Radioactivity 10-Yr Master DPP & PYQ Vault (2015�2026)</title>
+  <!-- Google Fonts: Inter, Outfit, Plus Jakarta Sans, JetBrains Mono & Material Symbols -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0f19;
+    --card: #131b2e;
+    --card-hover: #18233c;
+    --border: #263554;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.2);
+    --easy: #22c55e;
+    --mod: #eab308;
+    --hard: #f97316;
+    --boss: #ef4444;
+    --purple: #a855f7;
+    --correct: #10b981;
+    --wrong: #f43f5e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; border: 1px solid rgba(255,255,255,0.06); }
+  ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    padding-bottom: 85px;
+  }
+
+  /* Ilberiz Techz Return to Dashboard Button */
+  .home-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(15, 23, 42, 0.85);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    color: #cbd5e1;
+    padding: 6px 13px;
+    border-radius: 9px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
+  }
+  .home-nav-btn:hover {
+    background: rgba(56, 189, 248, 0.16);
+    border-color: rgba(56, 189, 248, 0.45);
+    color: #38bdf8;
+    transform: translateX(-2px);
+    box-shadow: 0 0 16px rgba(56, 189, 248, 0.2);
+  }
+  .home-nav-btn .material-symbols-outlined {
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+  .home-nav-btn:hover .material-symbols-outlined {
+    transform: translateX(-2px);
+  }
+
+  /* Native Textbook Stacked Nuclear Notation (e.g. 235 over 92 U) */
+  .nuc {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    font-size: 0.72em;
+    line-height: 1.05;
+    text-align: right;
+    margin-right: 2px;
+    margin-left: 2px;
+    font-weight: 700;
+  }
+  .nuc sup, .nuc sub {
+    position: static;
+    font-size: 1em;
+    line-height: 1.05;
+  }
+
+  .arrow-step {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0 6px;
+    line-height: 1;
+  }
+  .arrow-step small {
+    font-size: 0.72em;
+    color: #fbbf24;
+    margin-bottom: -2px;
+  }
+
+  /* Sticky Top Control Bar */
+  .top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(11, 15, 25, 0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand { font-family: 'Outfit', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 1.15rem;
+    color: var(--accent);
+  }
+
+  .brand span.badge-pill {
+    background: var(--accent-glow);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+
+  .controls-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* Mode Switcher */
+  .mode-switch {
+    display: inline-flex;
+    background: #070a12;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 3px;
+  }
+
+  .mode-btn {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    padding: 6px 13px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .mode-btn.active {
+    background: var(--accent);
+    color: #090d16;
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  /* Timer Box */
+  .timer-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #070a12;
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 10px;
+  }
+
+  .timer-select {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .timer-display {
+    font-family: 'Courier New', monospace;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #fbbf24;
+    min-width: 62px;
+    text-align: center;
+  }
+
+  .btn-sm {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .btn-sm:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-primary {
+    background: linear-gradient(135deg, #0284c7, #2563eb);
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    cursor: pointer;
+  }
+  .btn-primary:hover { opacity: 0.92; }
+
+  .score-pill {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid var(--correct);
+    color: #34d399;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+
+  /* Main Container */
+  .container {
+    max-width: 1020px;
+    margin: 24px auto;
+    padding: 0 16px;
+  }
+
+  /* Hero Insight Box */
+  .hero-card {
+    background: linear-gradient(145deg, #131b2e 0%, #0f172a 100%);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  }
+
+  .hero-title { font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #f8fafc;
+  }
+
+  .fusion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .fusion-item {
+    background: rgba(7, 10, 18, 0.65);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 0.83rem;
+  }
+
+  .fusion-item strong { color: var(--accent); display: block; margin-bottom: 2px; }
+
+  /* Filter Tabs */
+  .filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+
+  .filter-btn {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--accent-glow);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  /* Section Headers */
+  .section-banner {
+    margin: 32px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .section-banner h2 { font-family: 'Outfit', sans-serif;
+    font-size: 1.2rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .section-banner span {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  /* Question Card */
+  .q-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 22px;
+    margin-bottom: 20px;
+    transition: transform 0.15s, border-color 0.2s;
+    position: relative;
+  }
+
+  .q-card:hover { border-color: #3b5280; }
+
+  .q-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .q-num {
+    background: #070a12;
+    color: var(--accent);
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+
+  .badge {
+    font-size: 0.73rem;
+    font-weight: 700;
+    padding: 3px 9px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  .diff-easy { background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.4); }
+  .diff-mod  { background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4); }
+  .diff-hard { background: rgba(249, 115, 22, 0.15); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.4); }
+  .diff-boss { background: rgba(239, 68, 68, 0.18); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.5); }
+
+  .freq-badge {
+    background: rgba(168, 85, 247, 0.15);
+    color: #c084fc;
+    border: 1px solid rgba(168, 85, 247, 0.4);
+  }
+
+  .prob-badge {
+    background: rgba(56, 189, 248, 0.14);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.35);
+  }
+
+  .years-line {
+    font-size: 0.79rem;
+    color: #cbd5e1;
+    background: rgba(7, 10, 18, 0.55);
+    padding: 6px 11px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    border-left: 3px solid var(--purple);
+  }
+
+  .years-line strong { color: #e9d5ff; }
+
+  .q-text {
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: #f8fafc;
+    margin-bottom: 14px;
+  }
+
+  .subparts-list {
+    margin: 10px 0 14px 20px;
+    font-size: 0.95rem;
+    color: #e2e8f0;
+  }
+
+  .subparts-list li { margin-bottom: 8px; }
+
+  /* Diagram Container */
+  .diagram-box {
+    background: #090d16;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin: 14px 0;
+    text-align: center;
+    overflow-x: auto;
+  }
+
+  .diagram-caption {
+    font-size: 0.76rem;
+    color: var(--muted);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* MCQ Options */
+  .mcq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+
+  .mcq-opt {
+    background: #090d16;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 10px 14px;
+    border-radius: 9px;
+    text-align: left;
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mcq-opt:hover { border-color: var(--accent); background: #0f172a; }
+  .mcq-opt.selected { border-color: var(--accent); background: rgba(56, 189, 248, 0.15); font-weight: 700; }
+  .mcq-opt.correct { border-color: var(--correct); background: rgba(16, 185, 129, 0.2); color: #6ee7b7; font-weight: 700; }
+  .mcq-opt.wrong { border-color: var(--wrong); background: rgba(244, 63, 94, 0.2); color: #fda4af; }
+
+  /* Fill in the Blank Input */
+  .fib-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin: 12px 0;
+  }
+
+  .fib-input {
+    background: #090d16;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    min-width: 240px;
+  }
+
+  .fib-input:focus { outline: none; border-color: var(--accent); }
+
+  /* Self-assessment workspace for Section A/B */
+  .workspace-area {
+    width: 100%;
+    background: #090d16;
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.88rem;
+    margin: 8px 0 12px;
+    resize: vertical;
+    min-height: 62px;
+    font-family: inherit;
+  }
+
+  /* Action Bar inside Card */
+  .card-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
+  }
+
+  .btn-var {
+    background: rgba(168, 85, 247, 0.12);
+    color: #d8b4fe;
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    padding: 6px 13px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .btn-var:hover { background: rgba(168, 85, 247, 0.25); }
+
+  .btn-ans {
+    background: rgba(56, 189, 248, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    padding: 6px 13px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .btn-ans:hover { background: rgba(56, 189, 248, 0.25); }
+
+  .self-check-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    color: #34d399;
+    cursor: pointer;
+    margin-left: auto;
+    font-weight: 600;
+  }
+
+  /* Variations Drawer */
+  .variations-drawer {
+    display: none;
+    margin-top: 14px;
+    background: #080c14;
+    border: 1px solid rgba(168, 85, 247, 0.45);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+
+  .variations-drawer.open { display: block; }
+
+  .var-title {
+    font-size: 0.84rem;
+    font-weight: 800;
+    color: #c084fc;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .var-item {
+    padding: 8px 10px;
+    border-left: 2px solid #a855f7;
+    background: rgba(255,255,255,0.02);
+    margin-bottom: 8px;
+    font-size: 0.86rem;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .var-year {
+    font-weight: 800;
+    color: #f0abfc;
+    font-size: 0.78rem;
+    display: inline-block;
+    margin-right: 6px;
+  }
+
+  /* Answer Drawer */
+  .answer-drawer {
+    display: none;
+    margin-top: 14px;
+    background: rgba(16, 185, 129, 0.07);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 0.92rem;
+  }
+
+  .answer-drawer.open { display: block; }
+
+  .ans-header {
+    font-weight: 800;
+    color: #34d399;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+    text-transform: uppercase;
+  }
+
+  /* Locked Notice in DPP Mode */
+  .dpp-locked-msg {
+    display: none;
+    font-size: 0.8rem;
+    color: #fbbf24;
+    font-weight: 600;
+    align-items: center;
+    gap: 6px;
+  }
+
+  body.dpp-active .btn-ans { display: none; }
+  body.dpp-active .dpp-locked-msg { display: inline-flex; }
+
+  /* Submit Footer Bar in DPP Mode */
+  .dpp-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.96);
+    border-top: 1px solid var(--border);
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .chem-eq {
+    font-family: 'Segoe UI', 'Cambria Math', serif;
+    background: #070a12;
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    display: inline-block;
+    margin: 8px 0;
+    font-size: 1.05rem;
+    color: #7dd3fc;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body class="instant-active">
+
+<!-- Sticky Top Bar -->
+<div class="top-bar">
+  <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+    <a href="../../index.html" target="_top" class="home-nav-btn" title="Return to Dashboard">
+      <span class="material-symbols-outlined">arrow_back</span>
+      <span>Dashboard</span>
+    </a>
+    <div class="brand">
+      ☢️ ICSE Radioactivity 10-Yr Vault
+      <span class="badge-pill">2015–2026 + Specimen + CFPQ</span>
+    </div>
+  </div>
+
+  <div class="controls-group">
+    <!-- Mode Switcher -->
+    <div class="mode-switch">
+      <button class="mode-btn active" id="btnInstantMode" onclick="setMode('instant')">⚡ Instant Reveal Mode</button>
+      <button class="mode-btn" id="btnDppMode" onclick="setMode('dpp')">⏱️ DPP Test Mode</button>
+    </div>
+
+    <!-- Timer Controls -->
+    <div class="timer-box">
+      <select class="timer-select" id="timeSelect" onchange="resetTimer()">
+        <option value="15">15 Mins</option>
+        <option value="30" selected>30 Mins</option>
+        <option value="45">45 Mins</option>
+      </select>
+      <div class="timer-display" id="timerDisplay">30:00</div>
+      <button class="btn-sm" id="timerStartBtn" onclick="toggleTimer()">▶ Start</button>
+      <button class="btn-sm" onclick="resetTimer()">↺</button>
+    </div>
+
+    <div class="score-pill" id="scoreDisplay">XP / Score: 0 / 18</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Insight Hero Card -->
+  <div class="hero-card">
+    <div class="hero-title">🔍 The "Fused Question" Blueprint (2015–2026 Analysis)</div>
+    <p style="font-size:0.9rem; color:var(--muted);">
+      Radioactivity never appears as a standalone 10-mark question in Section B. Instead, CISCE fuses its <strong>7 to 9 marks</strong> across four fixed spots in the paper. Below are <strong>all 18 Master Archetypes</strong> (grouping <strong>72+ individual questions</strong> from Board Papers 2015–2026, Specimen Papers 2023–2027, Improvement Papers 2025–2026, and the CISCE Competency-Focused Bank), ordered from <strong>Easier to Harder</strong> and <strong>Shorter to Lengthier</strong>.
+    </p>
+    <div class="fusion-grid">
+      <div class="fusion-item">
+        <strong>Spot 1: Section A • Q1 (MCQs)</strong>
+        1 to 2 MCQs (1 mark each) on nucleon count, periodic table shift, or decay rate.
+      </div>
+      <div class="fusion-item">
+        <strong>Spot 2: Section A • Q2 (FIB / 1M)</strong>
+        1 Fill-in-the-blank or 1-liner fused with Levers/Pulleys in Q2(i).
+      </div>
+      <div class="fusion-item">
+        <strong>Spot 3: Section A • Q3 (Short 2–3M)</strong>
+        Fission equation completion, chemical change reason, or <em>N</em> vs <em>Z</em> graph.
+      </div>
+      <div class="fusion-item">
+        <strong>Spot 4: Section B • Q7 / Q8 / Q9</strong>
+        3 or 4-mark structured subpart fused with Sound, Electricity, or Calorimetry.
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter Bar -->
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterCards('all', this)">All Questions (18 Master + 56 Variations)</button>
+    <button class="filter-btn" onclick="filterCards('mcq', this)">1. MCQs (6)</button>
+    <button class="filter-btn" onclick="filterCards('fib', this)">2. Fill-in-the-Blanks (3)</button>
+    <button class="filter-btn" onclick="filterCards('saq', this)">3. Section A Short (4)</button>
+    <button class="filter-btn" onclick="filterCards('secb', this)">4. Section B Lengthy/Fused (5)</button>
+    <button class="filter-btn" onclick="filterCards('diagram', this)">📐 Diagrammatic Only (3)</button>
+  </div>
+
+  <!-- ==================== PART 1: MCQs ==================== -->
+  <div class="section-banner" data-sec="mcq">
+    <h2>Part 1: Multiple Choice Questions (Section A • Q1)</h2>
+    <span>Ordered: Easy ➔ Very Hard (1 Mark Each)</span>
+  </div>
+
+  <!-- Q1 -->
+  <div class="q-card" data-cat="mcq" id="qcard-1">
+    <div class="q-meta">
+      <span class="q-num">Q1 • Master MCQ</span>
+      <span class="badge diff-easy">Easy</span>
+      <span class="badge freq-badge">🔥 Repeated 5 Times</span>
+      <span class="badge prob-badge">🎯 88% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> CISCE Competency Bank (CFPQ Q4) • ICSE 2022 Sem-2 Q1(ix) • ICSE 2016 Q10(a) • Specimen 2022 • ICSE 2015 Q1(o)
+    </div>
+    <div class="q-text">
+      [Hardest Competency Version] Consider the following four particles: (i) Electron, (ii) Proton, (iii) Neutron, and (iv) Alpha (α) particle. Which option correctly arranges the charged particles in ascending order of the magnitude of their positive charge AND identifies the heaviest nuclear radiation?
+    </div>
+    <div class="mcq-grid" data-correct="2" data-qid="1">
+      <button class="mcq-opt" onclick="handleMcq(this, 0)"><span>(a) Electron &lt; Neutron &lt; Proton ; β-radiation is heaviest</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 1)"><span>(b) Proton &lt; Alpha particle &lt; Electron ; γ-radiation is heaviest</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 2)"><span>(c) Electron &lt; Proton &lt; Alpha particle ; α-radiation is heaviest</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 3)"><span>(d) Neutron &lt; Proton &lt; Alpha particle ; X-radiation is heaviest</span></button>
+    </div>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-1')">🔀 Show Variations (4 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-1')">👁️ Reveal Answer & Explanation</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+    </div>
+    <div class="variations-drawer" id="var-1">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[CISCE CFPQ Item Bank MCQ Q4]</span> Arrange the following particles in ascending order of their positive charge: Electron, Proton, Neutron, Alpha particle.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2022 Sem-2 Board Q1(ix)]</span> The heaviest nuclear radiation is: (a) X-radiation (b) α-radiation (c) γ-radiation (d) β-radiation.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2015 Board Q1(o)]</span> The charge on an alpha particle is: (a) +1.6 × 10<sup>−19</sup> C (b) +3.2 × 10<sup>−19</sup> C (c) −1.6 × 10<sup>−19</sup> C (d) Zero.</div>
+      <div class="var-item"><span class="var-year">[Specimen 2022 Sem-2]</span> Which nuclear radiation has the highest ionizing power and least penetrating power? (α-radiation).</div>
+    </div>
+    <div class="answer-drawer" id="ans-1">
+      <div class="ans-header">✅ Official Answer: (c) Electron &lt; Proton &lt; Alpha particle ; α-radiation is heaviest</div>
+      <strong>Explanation:</strong>
+      <ul class="subparts-list">
+        <li>Charge on Electron = −1.6 × 10<sup>−19</sup> C; Proton = +1.6 × 10<sup>−19</sup> C; Alpha particle (He<sup>2+</sup>) = +3.2 × 10<sup>−19</sup> C (Neutron has zero charge).</li>
+        <li>Mass of an α-particle is 4 a.m.u. (≈ 6.68 × 10<sup>−27</sup> kg, four times the mass of a proton), making α-radiation the heaviest nuclear radiation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="q-card" data-cat="mcq" id="qcard-2">
+    <div class="q-meta">
+      <span class="q-num">Q2 • Master MCQ</span>
+      <span class="badge diff-easy">Easy-Moderate</span>
+      <span class="badge freq-badge">🔥 Repeated 4 Times</span>
+      <span class="badge prob-badge">🎯 85% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2022 Sem-2 Q1(x) • ICSE 2024 Q2(i)(a) • ICSE 2018 Q10(c)(iv) • ICSE 2026 Improvement Q9(iii)
+    </div>
+    <div class="q-text">
+      To study the age of excavated materials of archaeological significance (carbon dating), we study the rate of decay of an isotope of ________, which decays by emitting ________ radiation.
+    </div>
+    <div class="mcq-grid" data-correct="1" data-qid="2">
+      <button class="mcq-opt" onclick="handleMcq(this, 0)"><span>(a) Uranium (<span class="nuc"><sup>235</sup><sub>92</sub></span>U) ; α-radiation</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 1)"><span>(b) Carbon (<span class="nuc"><sup>14</sup><sub>6</sub></span>C) ; β-radiation</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 2)"><span>(c) Cobalt (<span class="nuc"><sup>60</sup><sub>27</sub></span>Co) ; γ-radiation</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 3)"><span>(d) Carbon (<span class="nuc"><sup>12</sup><sub>6</sub></span>C) ; α-radiation</span></button>
+    </div>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-2')">🔀 Show Variations (4 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-2')">👁️ Reveal Answer & Explanation</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+    </div>
+    <div class="variations-drawer" id="var-2">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2022 Sem-2 Board Q1(x)]</span> To study the age of excavated material of archaeological significance we study the rate of decay of an isotope of: (a) Uranium (b) Cobalt (c) Carbon (d) Chlorine.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2018 Board Q10(c)(iv)]</span> Name the radiation which is used in carbon dating. (Answer: β-radiation).</div>
+      <div class="var-item"><span class="var-year">[ICSE 2024 Board Q2(i)(a)]</span> In the following atoms, which one is a radioisotope? Give one use of this isotope: <sup>16</sup>O, <sup>14</sup>C, <sup>14</sup>N, <sup>4</sup>He.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2026 Improvement Q9(iii)]</span> Scientists unearthed an ancient scroll and compared the <span class="nuc"><sup>14</sup><sub>6</sub></span>C : <span class="nuc"><sup>12</sup><sub>6</sub></span>C ratio with a fresh sample. Name the process.</div>
+    </div>
+    <div class="answer-drawer" id="ans-2">
+      <div class="ans-header">✅ Official Answer: (b) Carbon (¹⁴₆C) ; β-radiation</div>
+      <strong>Explanation:</strong> Radioisotope Carbon-14 (<span class="nuc"><sup>14</sup><sub>6</sub></span>C) has an unstable neutron-to-proton ratio (8 neutrons, 6 protons) and undergoes β-decay (<span class="nuc"><sup>14</sup><sub>6</sub></span>C → <span class="nuc"><sup>14</sup><sub>7</sub></span>N + <span class="nuc"><sup>0</sup><sub>−1</sub></span>e) with a half-life of ≈ 5730 years, used for carbon dating of fossils and archaeological remains.
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="q-card" data-cat="mcq" id="qcard-3">
+    <div class="q-meta">
+      <span class="q-num">Q3 • Master MCQ</span>
+      <span class="badge diff-mod">Moderate</span>
+      <span class="badge freq-badge">🔥 Repeated 5 Times</span>
+      <span class="badge prob-badge">🎯 92% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2024 Board Q1(xiii) • ICSE 2023 Board Q3(v) • ICSE 2016 Board Q4(c) • CFPQ Bank
+    </div>
+    <div class="q-text">
+      [ICSE 2024 Board Q1(xiii)] A radioactive element is placed in an evacuated chamber and subjected to a high temperature of 1500°C. Then the rate of radioactive decay will:
+    </div>
+    <div class="mcq-grid" data-correct="2" data-qid="3">
+      <button class="mcq-opt" onclick="handleMcq(this, 0)"><span>(a) Decrease due to lack of air</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 1)"><span>(b) Increase rapidly with temperature</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 2)"><span>(c) Remain unchanged</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 3)"><span>(d) Stop completely in vacuum</span></button>
+    </div>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-3')">🔀 Show Variations (3 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-3')">👁️ Reveal Answer & Explanation</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+    </div>
+    <div class="variations-drawer" id="var-3">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2024 Board Q1(xiii)]</span> A radioactive element is placed in an evacuated chamber. Then the rate of radioactive decay will: (a) Decrease (b) Increase (c) Remain unchanged (d) Depend on surrounding temperature.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2023 Board Q3(v)]</span> How is the radioactivity of a radioisotope affected if it undergoes a chemical change? Give a reason.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2016 Board Q4(c)]</span> A radioactive substance is oxidized. Will there be any change in the nature of its radioactivity? Give a reason.</div>
+    </div>
+    <div class="answer-drawer" id="ans-3">
+      <div class="ans-header">✅ Official Answer: (c) Remain unchanged</div>
+      <strong>Explanation:</strong> Radioactivity is a spontaneous <strong>nuclear phenomenon</strong> governed solely by nuclear instability. External physical factors (temperature, pressure, vacuum) or chemical changes (oxidation) only affect outer orbital electrons and do not alter the rate of nuclear decay.
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="q-card" data-cat="mcq" id="qcard-4">
+    <div class="q-meta">
+      <span class="q-num">Q4 • Master MCQ</span>
+      <span class="badge diff-mod">Moderate-Hard</span>
+      <span class="badge freq-badge">🔥 Repeated 6 Times</span>
+      <span class="badge prob-badge">🎯 96% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2024 Board Q1(iv) • Specimen 2024 Q1(iv) • Specimen 2025 Q1(xv) • Specimen 2026 Q1(xv) • Specimen 2027 Q1(x) • ICSE 2026 Q1(xiv)
+    </div>
+    <div class="q-text">
+      [Combined Hardest Version] A radioactive nucleus <em>X</em> consists of 95 protons and 146 neutrons. It first emits an α-particle to form nucleus <em>Y</em>, and then nucleus <em>Y</em> emits a β-particle to form nucleus <em>Z</em>. What are the number of protons, neutrons, and total nucleons in <em>Y</em> and <em>Z</em>?
+    </div>
+    <div class="mcq-grid" data-correct="0" data-qid="4">
+      <button class="mcq-opt" onclick="handleMcq(this, 0)"><span>(a) In <em>Y</em>: p = 93, n = 144 ; In <em>Z</em>: total nucleons remain 237 (p = 94, n = 143)</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 1)"><span>(b) In <em>Y</em>: p = 93, n = 142 ; In <em>Z</em>: total nucleons become 236</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 2)"><span>(c) In <em>Y</em>: p = 95, n = 144 ; In <em>Z</em>: total nucleons become 238</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 3)"><span>(d) In <em>Y</em>: p = 91, n = 144 ; In <em>Z</em>: total nucleons remain 241</span></button>
+    </div>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-4')">🔀 Show Variations (5 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-4')">👁️ Reveal Answer & Explanation</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+    </div>
+    <div class="variations-drawer" id="var-4">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2024 Board Q1(iv)]</span> A radioactive nucleus containing 128 nucleons emits a β-particle. After β-emission the number of nucleons present in the nucleus will be: (a) 128 (b) 129 (c) 124 (d) 127. (Ans: 128).</div>
+      <div class="var-item"><span class="var-year">[Specimen 2024, 2025 &amp; 2026 Q1(xv)]</span> A nucleus of an atom consists of 146 neutrons and 95 protons. It decays after emitting an alpha particle. How many protons and neutrons are left in the nucleus after an alpha emission? (Ans: protons = 93, neutrons = 144).</div>
+      <div class="var-item"><span class="var-year">[Specimen 2027 Q1(x)]</span> A radioactive nucleus has 90 protons and 140 neutrons. It undergoes two successive alpha decays. What are the mass number and atomic number of the resulting daughter nucleus? (Ans: Mass number = 222, Atomic number = 86).</div>
+      <div class="var-item"><span class="var-year">[ICSE 2026 Board Q1(xiv)]</span> A lithium nucleus has 3 protons and 4 neutrons. What is its mass number? (Ans: 7).</div>
+    </div>
+    <div class="answer-drawer" id="ans-4">
+      <div class="ans-header">✅ Official Answer: (a) In Y: p = 93, n = 144 ; In Z: total nucleons remain 237 (p = 94, n = 143)</div>
+      <strong>Step-by-Step Calculation:</strong>
+      <ul class="subparts-list">
+        <li><strong>Step 1 (α-decay):</strong> An α-particle (<span class="nuc"><sup>4</sup><sub>2</sub></span>He) removes 2 protons and 2 neutrons. So in <em>Y</em>: Protons = 95 − 2 = 93, Neutrons = 146 − 2 = 144. Total nucleons (<em>A</em>) = 93 + 144 = 237.</li>
+        <li><strong>Step 2 (β-decay):</strong> A neutron converts into a proton (<span class="nuc"><sup>1</sup><sub>0</sub></span>n → <span class="nuc"><sup>1</sup><sub>1</sub></span>p + <span class="nuc"><sup>0</sup><sub>−1</sub></span>e). Thus Protons = 93 + 1 = 94, Neutrons = 144 − 1 = 143, while total nucleons (<em>A</em> = <em>p</em> + <em>n</em>) remain unchanged at 237!</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="q-card" data-cat="mcq" id="qcard-5">
+    <div class="q-meta">
+      <span class="q-num">Q5 • Master MCQ</span>
+      <span class="badge diff-hard">Hard</span>
+      <span class="badge freq-badge">🔥 Repeated 5 Times</span>
+      <span class="badge prob-badge">🎯 94% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2025 Board Q1(xiii) • ICSE 2025 Improvement Q1(xiv) • Specimen 2024/2025 • CFPQ Bank
+    </div>
+    <div class="q-text">
+      [Combined 2025 Board + 2025 Improvement] A radioactive element <em>P</em> emits one α-particle to transform into element <em>Q</em>, and element <em>Q</em> then emits one β-particle to transform into element <em>R</em>. Which statement correctly describes the periodic table shift of <em>Q</em> (with respect to <em>P</em>) and the relationship between <em>Q</em> and <em>R</em>?
+    </div>
+    <div class="mcq-grid" data-correct="3" data-qid="5">
+      <button class="mcq-opt" onclick="handleMcq(this, 0)"><span>(a) <em>Q</em> is two groups to the right of <em>P</em> ; <em>Q</em> and <em>R</em> are isotopes</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 1)"><span>(b) <em>Q</em> is one group to the left of <em>P</em> ; <em>Q</em> and <em>R</em> are isotones</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 2)"><span>(c) <em>Q</em> is two groups to the left of <em>P</em> ; <em>Q</em> and <em>R</em> are isotopes</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 3)"><span>(d) <em>Q</em> is two groups to the left of <em>P</em> ; <em>Q</em> and <em>R</em> are isobars (<em>R</em> is 1 group right of <em>Q</em>)</span></button>
+    </div>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-5')">🔀 Show Variations (3 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-5')">👁️ Reveal Answer & Explanation</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+    </div>
+    <div class="variations-drawer" id="var-5">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2025 Board Q1(xiii)]</span> A radioactive element P emits one α-particle and transforms to a new element Q. What will be the position of the element Q in the periodic table? (a) One group to the left of P (b) One group to the right of P (c) Two groups to the right of P (d) Two groups to the left of P.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2025 Improvement Q1(xiv)]</span> During the emission of a β-particle, the parent and daughter nuclei have the same mass number but different atomic numbers, hence they form: (a) Isotopes (b) Isobars (c) Isotones (d) Isomers.</div>
+      <div class="var-item"><span class="var-year">[CFPQ Bank]</span> Position of daughter nucleus in the periodic table after emitting a beta particle (One place higher / one group to the right).</div>
+    </div>
+    <div class="answer-drawer" id="ans-5">
+      <div class="ans-header">✅ Official Answer: (d) Q is two groups to the left of P ; Q and R are isobars</div>
+      <strong>Explanation (Soddy-Fajans Group Displacement Law):</strong>
+      <ul class="subparts-list">
+        <li>α-emission decreases atomic number <em>Z</em> by 2 (<span class="nuc"><sup>A</sup><sub>Z</sub></span>P → <span class="nuc"><sup>A−4</sup><sub>Z−2</sub></span>Q + <span class="nuc"><sup>4</sup><sub>2</sub></span>He), shifting <em>Q</em> <strong>two groups to the left</strong> of <em>P</em>.</li>
+        <li>β-emission increases <em>Z</em> by 1 without changing mass number <em>A</em> (<span class="nuc"><sup>A−4</sup><sub>Z−2</sub></span>Q → <span class="nuc"><sup>A−4</sup><sub>Z−1</sub></span>R + <span class="nuc"><sup>0</sup><sub>−1</sub></span>e), shifting <em>R</em> one group to the right of <em>Q</em> and making <em>Q</em> and <em>R</em> <strong>isobars</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="q-card" data-cat="mcq" id="qcard-6">
+    <div class="q-meta">
+      <span class="q-num">Q6 • Master MCQ</span>
+      <span class="badge diff-boss">Very Hard • Competency</span>
+      <span class="badge freq-badge">🔥 Repeated 4 Times</span>
+      <span class="badge prob-badge">🎯 90% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> CISCE Competency-Focused Practice Questions (CFPQ Q16) • ICSE 2018 • Specimen 2025
+    </div>
+    <div class="q-text">
+      [CISCE CFPQ Item Bank Q16] Examine the following four nuclear equations:
+      <br>I. <span class="nuc"><sup>235</sup><sub>92</sub></span>U + <span class="nuc"><sup>1</sup><sub>0</sub></span>n → <span class="nuc"><sup>144</sup><sub>56</sub></span>Ba + <span class="nuc"><sup>89</sup><sub>36</sub></span>Kr + 3 <span class="nuc"><sup>1</sup><sub>0</sub></span>n
+      <br>II. <span class="nuc"><sup>24</sup><sub>11</sub></span>Na → <span class="nuc"><sup>24</sup><sub>12</sub></span>Mg + <span class="nuc"><sup>0</sup><sub>−1</sub></span>e
+      <br>III. <span class="nuc"><sup>238</sup><sub>92</sub></span>U → <span class="nuc"><sup>234</sup><sub>91</sub></span>Th + <span class="nuc"><sup>4</sup><sub>2</sub></span>He
+      <br>IV. <span class="nuc"><sup>14</sup><sub>7</sub></span>N + <span class="nuc"><sup>4</sup><sub>2</sub></span>He → <span class="nuc"><sup>17</sup><sub>8</sub></span>O + <span class="nuc"><sup>1</sup><sub>1</sub></span>H
+      <br>Which of the above nuclear equations are <strong>correctly balanced</strong>?
+    </div>
+    <div class="mcq-grid" data-correct="2" data-qid="6">
+      <button class="mcq-opt" onclick="handleMcq(this, 0)"><span>(a) I, II, and III only</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 1)"><span>(b) II and III only</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 2)"><span>(c) I, II, and IV only</span></button>
+      <button class="mcq-opt" onclick="handleMcq(this, 3)"><span>(d) All I, II, III, and IV</span></button>
+    </div>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-6')">🔀 Show Variations (3 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-6')">👁️ Reveal Answer & Explanation</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+    </div>
+    <div class="variations-drawer" id="var-6">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[CISCE CFPQ Item Bank MCQ Q16]</span> Which of the given nuclear equations are correctly balanced for nucleon number and atomic number?</div>
+      <div class="var-item"><span class="var-year">[ICSE 2018 Q10(b)(iii)]</span> Write a balanced nuclear reaction when Uranium-238 emits an alpha particle to form a Thorium (Th) nucleus.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2026 Board Q9(iii)(b)]</span> Write the balanced equation for the decay of <span class="nuc"><sup>24</sup><sub>11</sub></span>Na to <span class="nuc"><sup>24</sup><sub>12</sub></span>Mg.</div>
+    </div>
+    <div class="answer-drawer" id="ans-6">
+      <div class="ans-header">✅ Official Answer: (c) I, II, and IV only</div>
+      <strong>Explanation:</strong> In any nuclear reaction, both Mass Number (total <em>A</em>) and Atomic Number (total <em>Z</em>) must be conserved:
+      <ul class="subparts-list">
+        <li><strong>I is balanced:</strong> Mass number <em>A</em>: 235 + 1 = 144 + 89 + 3(1) = 236 ; Atomic number <em>Z</em>: 92 + 0 = 56 + 36 + 0 = 92.</li>
+        <li><strong>II is balanced:</strong> <em>A</em>: 24 = 24 + 0 ; <em>Z</em>: 11 = 12 + (−1).</li>
+        <li><strong>III is INCORRECT:</strong> Atomic number on the right-hand side is 91 + 2 = 93 ≠ 92 (Thorium has <em>Z</em> = 90, not 91).</li>
+        <li><strong>IV is balanced:</strong> <em>A</em>: 14 + 4 = 17 + 1 = 18 ; <em>Z</em>: 7 + 2 = 8 + 1 = 9.</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- ==================== PART 2: FILL IN THE BLANKS ==================== -->
+  <div class="section-banner" data-sec="fib">
+    <h2>Part 2: Fill-in-the-Blanks &amp; Reaction Completions (Section A • Q2 &amp; Q3)</h2>
+    <span>Ordered: Easy ➔ Hard (1 to 3 Marks Each)</span>
+  </div>
+
+  <!-- Q7 -->
+  <div class="q-card" data-cat="fib" id="qcard-7">
+    <div class="q-meta">
+      <span class="q-num">Q7 • Master FIB</span>
+      <span class="badge diff-easy">Easy</span>
+      <span class="badge freq-badge">🔥 Repeated 5 Times</span>
+      <span class="badge prob-badge">🎯 95% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2026 Board Q2(i)(f) • ICSE 2025 Board Q2(i)(f) • Specimen 2024 Q2(i)(b,c) • Specimen 2025 Q2(i)
+    </div>
+    <div class="q-text">
+      [Combined 2024–2026 Section A Q2(i)] Complete the following sentences by choosing the correct answer from the brackets:
+      <ol class="subparts-list" type="a">
+        <li>The nuclear radiation with the lowest ionizing power (and highest penetrating power) is <strong>________</strong> [α / β / γ].</li>
+        <li>Between charged radiations, <strong>________</strong> radiation deviates minimum in a magnetic field [Alpha / Beta].</li>
+        <li>Does the emission of γ-radiation result in a change in the mass number of the nucleus? <strong>________</strong> [Yes / No].</li>
+      </ol>
+    </div>
+    <div class="fib-row">
+      <input type="text" class="fib-input" id="fib-7" placeholder="Type answers e.g. gamma, Alpha, No" data-ans="gamma, alpha, no">
+      <button class="btn-sm" onclick="checkFib(7, 'gamma', 'alpha', 'no')">Check Blanks</button>
+    </div>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-7')">🔀 Show Variations (4 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-7')">👁️ Reveal Answer & Explanation</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+    </div>
+    <div class="variations-drawer" id="var-7">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2026 Board Q2(i)(f)]</span> ________ radiation deviates minimum in a magnetic field [Alpha / Beta].</div>
+      <div class="var-item"><span class="var-year">[ICSE 2025 Board Q2(i)(f)]</span> The nuclear radiation with lowest ionising power is ________ [α / β / γ].</div>
+      <div class="var-item"><span class="var-year">[ICSE Specimen 2024 Q2(i)(b,c)]</span> (b) Which radiation emitted during the decay of a nucleus has highest penetrating power? (c) Does the emission of the above-mentioned radiation result in a change in the mass number?</div>
+    </div>
+    <div class="answer-drawer" id="ans-7">
+      <div class="ans-header">✅ Official Answers: (a) γ (Gamma)  |  (b) Alpha  |  (c) No</div>
+      <strong>Explanation:</strong>
+      <ul class="subparts-list">
+        <li>(a) γ-rays are uncharged electromagnetic waves with the lowest ionizing power (10<sup>−4</sup> times α) and highest penetrating power.</li>
+        <li>(b) Between α and β, an α-particle has a much larger mass (≈ 7300 times an electron's mass), so it has much greater inertia and deviates <strong>minimum</strong> in a magnetic field (whereas γ is completely undeviated).</li>
+        <li>(c) <strong>No</strong>, because γ-radiation is pure energy (photons) with zero mass and zero charge.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="q-card" data-cat="fib" id="qcard-8">
+    <div class="q-meta">
+      <span class="q-num">Q8 • Master FIB</span>
+      <span class="badge diff-mod">Moderate</span>
+      <span class="badge freq-badge">🔥 Repeated 3 Times</span>
+      <span class="badge prob-badge">🎯 84% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2025 Improvement Q2(i)(f) • ICSE 2025 Improvement Q8(ii)(c) • CFPQ Bank
+    </div>
+    <div class="q-text">
+      [ICSE 2025 Improvement Paper Fused FIB] Complete the following nuclear energy statements:
+      <ol class="subparts-list" type="a">
+        <li>In a nuclear reactor, the nuclear fission reaction of <span class="nuc"><sup>235</sup><sub>92</sub></span>U is initiated by bombardment with a <strong>________</strong> [proton / slow neutron / electron].</li>
+        <li>In any exoergic nuclear reaction (fission or fusion), the total mass of the reactants is always <strong>________</strong> [greater than / less than / equal to] the total mass of the products.</li>
+      </ol>
+    </div>
+    <div class="fib-row">
+      <input type="text" class="fib-input" id="fib-8" placeholder="Type e.g. slow neutron, greater than">
+      <button class="btn-sm" onclick="checkFib(8, 'neutron', 'greater')">Check Blanks</button>
+    </div>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-8')">🔀 Show Variations (2 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-8')">👁️ Reveal Answer & Explanation</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+    </div>
+    <div class="variations-drawer" id="var-8">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2025 Improvement Q2(i)(f)]</span> In a nuclear reactor, the fission reaction is initiated by bombardment with a ________.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2025 Improvement Q8(ii)(c)]</span> Mass of reactants ________ mass of the products [greater than / less than / equal to].</div>
+    </div>
+    <div class="answer-drawer" id="ans-8">
+      <div class="ans-header">✅ Official Answers: (a) slow neutron (or thermal neutron)  |  (b) greater than</div>
+      <strong>Explanation:</strong>
+      <ul class="subparts-list">
+        <li>(a) Neutrons are uncharged, so they are not repelled by the positively charged Uranium nucleus. Slow (thermal) neutrons are readily absorbed by <span class="nuc"><sup>235</sup><sub>92</sub></span>U.</li>
+        <li>(b) The mass of reactants is slightly <strong>greater than</strong> the mass of products; this mass defect (Δ<em>m</em>) is converted into nuclear energy via <em>E</em> = Δ<em>m</em> <em>c</em><sup>2</sup>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="q-card" data-cat="fib" id="qcard-9">
+    <div class="q-meta">
+      <span class="q-num">Q9 • Master FIB / Equation</span>
+      <span class="badge diff-hard">Hard</span>
+      <span class="badge freq-badge">🔥 Repeated 4 Times</span>
+      <span class="badge prob-badge">🎯 95% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2024 Board Q3(v) [2M] • ICSE 2019 Board Q10(b)(ii) [2M] • ICSE 2025 Board Q8(ii) • Specimen 2023
+    </div>
+    <div class="q-text">
+      [ICSE 2024 Board Q3(v) &amp; ICSE 2019 Q10(b)(ii)] Copy and complete the following nuclear fission reaction by filling in the missing values of <strong>(1) Atomic number of Ba</strong>, <strong>(2) Mass number of Kr</strong>, <strong>(3) Mass number of neutron</strong>, and <strong>(4) Atomic number of neutron</strong>:
+      <br>
+      <div class="chem-eq">
+        <span class="nuc"><sup>235</sup><sub>92</sub></span>U + <span class="nuc"><sup>1</sup><sub>0</sub></span>n &nbsp;→&nbsp; <span class="nuc"><sup>144</sup><sub>[ 1 ]</sub></span>Ba + <span class="nuc"><sup>[ 2 ]</sup><sub>36</sub></span>Kr + 3 <span class="nuc"><sup>[ 3 ]</sup><sub>[ 4 ]</sub></span>n + Energy
+      </div>
+    </div>
+    <div class="fib-row">
+      <input type="text" class="fib-input" id="fib-9" placeholder="Enter [1], [2], [3], [4] e.g. 56, 89, 1, 0">
+      <button class="btn-sm" onclick="checkFib(9, '56', '89', '1', '0')">Check Equation</button>
+    </div>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-9')">🔀 Show Variations (3 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-9')">👁️ Reveal Answer & Explanation</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+    </div>
+    <div class="variations-drawer" id="var-9">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2024 Board Q3(v)]</span> Copy and complete the nuclear reaction by filling in the blanks: <span class="nuc"><sup>235</sup><sub>92</sub></span>U + <span class="nuc"><sup>1</sup><sub>0</sub></span>n → <span class="nuc"><sup>144</sup><sub>...</sub></span>Ba + <span class="nuc"><sup>...</sup><sub>36</sub></span>Kr + 3 <span class="nuc"><sup>1</sup><sub>0</sub></span>n.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2019 Board Q10(b)(ii)]</span> Rewrite and complete the following nuclear reaction by filling in the atomic number of Ba and mass number of Kr: <span class="nuc"><sup>235</sup><sub>92</sub></span>U + <span class="nuc"><sup>1</sup><sub>0</sub></span>n → <span class="nuc"><sup>144</sup><sub>...</sub></span>Ba + <span class="nuc"><sup>...</sup><sub>36</sub></span>Kr + 3 <span class="nuc"><sup>1</sup><sub>0</sub></span>n + Energy.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2025 Board Q8(ii)]</span> Diagrammatic fission reaction asking for intermediate mass number <em>X</em> (236) and product <em>Y</em> (<span class="nuc"><sup>1</sup><sub>0</sub></span>n).</div>
+    </div>
+    <div class="answer-drawer" id="ans-9">
+      <div class="ans-header">✅ Official Answers: [1] Z of Ba = 56  |  [2] A of Kr = 89  |  [3] = 1  |  [4] = 0</div>
+      <strong>Step-by-Step Conservation Method:</strong>
+      <ul class="subparts-list">
+        <li><strong>Conservation of Mass Number (<em>A</em>):</strong> 235 + 1 = 144 + <em>A</em><sub>Kr</sub> + 3(1) &nbsp;⇒&nbsp; 236 = 147 + <em>A</em><sub>Kr</sub> &nbsp;⇒&nbsp; <em>A</em><sub>Kr</sub> = <strong>89</strong>.</li>
+        <li><strong>Conservation of Atomic Number (<em>Z</em>):</strong> 92 + 0 = <em>Z</em><sub>Ba</sub> + 36 + 3(0) &nbsp;⇒&nbsp; <em>Z</em><sub>Ba</sub> = 92 − 36 = <strong>56</strong>.</li>
+        <li><strong>Complete Equation:</strong> <span class="nuc"><sup>235</sup><sub>92</sub></span>U + <span class="nuc"><sup>1</sup><sub>0</sub></span>n → <span class="nuc"><sup>144</sup><sub>56</sub></span>Ba + <span class="nuc"><sup>89</sup><sub>36</sub></span>Kr + 3 <span class="nuc"><sup>1</sup><sub>0</sub></span>n + Energy.</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- ==================== PART 3: SECTION A SHORT ANSWERS ==================== -->
+  <div class="section-banner" data-sec="saq">
+    <h2>Part 3: Section A Short Answer Questions (2 to 3 Marks)</h2>
+    <span>Ordered: Easier/Shorter ➔ Harder/Multi-part</span>
+  </div>
+
+  <!-- Q10 -->
+  <div class="q-card" data-cat="saq" id="qcard-10">
+    <div class="q-meta">
+      <span class="q-num">Q10 • Section A Short</span>
+      <span class="badge diff-easy">Easy • 2 Marks</span>
+      <span class="badge freq-badge">🔥 Repeated 5 Times</span>
+      <span class="badge prob-badge">🎯 91% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2023 Board Q2(i)(a) • ICSE 2019 Board Q3(e) • ICSE 2017 Board Q4(e) • ICSE 2016 Board Q10(c)(iii)
+    </div>
+    <div class="q-text">
+      [Hardest Combined Version — 2017, 2019 &amp; 2023]
+      <ol class="subparts-list" type="a">
+        <li>When does the nucleus of an atom tend to become radioactive? State the condition in terms of atomic number (<em>Z</em>) and neutron-to-proton (<em>n</em>/<em>p</em>) ratio.</li>
+        <li>Is it possible for a hydrogen (<span class="nuc"><sup>1</sup><sub>1</sub></span>H) nucleus to emit an alpha particle? Give a reason for your answer.</li>
+      </ol>
+    </div>
+    <textarea class="workspace-area" placeholder="Write your key points here before revealing the official CISCE marking scheme..."></textarea>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-10')">🔀 Show Variations (4 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-10')">👁️ Reveal Answer &amp; Marking Scheme</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+      <label class="self-check-label"><input type="checkbox" onchange="toggleSelfScore(this, 10)"> ✅ Mark Mastered (+1 XP)</label>
+    </div>
+    <div class="variations-drawer" id="var-10">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2023 Board Q2(i)(a)]</span> (a) When does the nucleus of an atom tend to become radioactive? <em>(Fused with (b) single movable pulley question!)</em></div>
+      <div class="var-item"><span class="var-year">[ICSE 2019 Board Q3(e) - 2M]</span> Is it possible for a hydrogen (<span class="nuc"><sup>1</sup><sub>1</sub></span>H) nucleus to emit an alpha particle? Give a reason for your answer.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2017 Board Q4(e) - 2M]</span> When does the nucleus of an atom tend to be radioactive?</div>
+      <div class="var-item"><span class="var-year">[ICSE 2016 Board Q10(c)(iii)]</span> Under which conditions does the nucleus of an atom tend to be radioactive?</div>
+    </div>
+    <div class="answer-drawer" id="ans-10">
+      <div class="ans-header">✅ Official CISCE Marking Scheme:</div>
+      <ul class="subparts-list">
+        <li><strong>(a) Condition for Radioactivity:</strong> The nucleus of an atom tends to become unstable and radioactive when its atomic number exceeds 82 (<em>Z</em> &gt; 82) and the number of neutrons in the nucleus becomes much greater than the number of protons (i.e., neutron-to-proton ratio <em>n</em>/<em>p</em> &gt; 1.5).</li>
+        <li><strong>(b) Hydrogen Nucleus &amp; α-decay:</strong> <strong>No.</strong> A hydrogen nucleus (<span class="nuc"><sup>1</sup><sub>1</sub></span>H) consists of only a single proton (1 proton, 0 neutrons), whereas an alpha particle (<span class="nuc"><sup>4</sup><sub>2</sub></span>He) consists of 2 protons and 2 neutrons. Hence, <span class="nuc"><sup>1</sup><sub>1</sub></span>H cannot emit an alpha particle.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q11 -->
+  <div class="q-card" data-cat="saq" id="qcard-11">
+    <div class="q-meta">
+      <span class="q-num">Q11 • Section A Short</span>
+      <span class="badge diff-easy">Easy-Moderate • 2 Marks</span>
+      <span class="badge freq-badge">🔥 Repeated 4 Times</span>
+      <span class="badge prob-badge">🎯 89% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2023 Board Q3(v) [2M] • ICSE 2016 Board Q4(c) [2M] • Specimen 2019 • Specimen 2023
+    </div>
+    <div class="q-text">
+      [ICSE 2023 Board Q3(v) &amp; ICSE 2016 Q4(c)]
+      <ol class="subparts-list" type="a">
+        <li>Define radioactivity.</li>
+        <li>A radioactive substance is oxidized (or undergoes a chemical change). What change would you expect to take place in the nature of its radioactivity? Give a scientific reason for your answer.</li>
+      </ol>
+    </div>
+    <textarea class="workspace-area" placeholder="Write your key points here..."></textarea>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-11')">🔀 Show Variations (3 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-11')">👁️ Reveal Answer &amp; Marking Scheme</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+      <label class="self-check-label"><input type="checkbox" onchange="toggleSelfScore(this, 11)"> ✅ Mark Mastered (+1 XP)</label>
+    </div>
+    <div class="variations-drawer" id="var-11">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2023 Board Q3(v) - 2M]</span> How is the radioactivity of a radioisotope affected if it undergoes a chemical change? Give a reason for your answer.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2016 Board Q4(c) - 2M]</span> A radioactive substance is oxidized. Will there be any change in the nature of its radioactivity? Give a reason for your answer.</div>
+      <div class="var-item"><span class="var-year">[Specimen Paper]</span> State whether heating a radioactive substance changes its decay rate. Justify.</div>
+    </div>
+    <div class="answer-drawer" id="ans-11">
+      <div class="ans-header">✅ Official CISCE Marking Scheme:</div>
+      <ul class="subparts-list">
+        <li><strong>(a) Definition:</strong> Radioactivity is a nuclear phenomenon of spontaneous disintegration of unstable atomic nuclei with the emission of α, β, or γ radiations.</li>
+        <li><strong>(b) Effect of Oxidation / Chemical Change:</strong> There will be <strong>no change</strong> in the nature or rate of its radioactivity. <strong>Reason:</strong> Radioactivity is purely a <em>nuclear phenomenon</em> depending on the instability of the nucleus, whereas oxidation/chemical changes only involve the rearrangement of outer orbital electrons.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q12 -->
+  <div class="q-card" data-cat="saq" id="qcard-12">
+    <div class="q-meta">
+      <span class="q-num">Q12 • Section A Short</span>
+      <span class="badge diff-mod">Moderate • 2–3 Marks</span>
+      <span class="badge freq-badge">🔥 Repeated 4 Times</span>
+      <span class="badge prob-badge">🎯 87% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2024 Board Q2(i)(a) • CFPQ Short Answer Bank • Specimen 2022 • ICSE 2018
+    </div>
+    <div class="q-text">
+      [Combined 2024 Board + Competency Bank]
+      <ol class="subparts-list" type="a">
+        <li>In the following atoms, which one is a radioisotope? Give one use of this isotope: <sup>16</sup>O, <sup>14</sup>C, <sup>14</sup>N, <sup>4</sup>He.</li>
+        <li>Why do we usually use radioisotopes emitting γ-radiations (such as Cobalt-60, <span class="nuc"><sup>60</sup><sub>27</sub></span>Co) as radioactive tracers in medical science and cancer therapy, rather than α-emitters?</li>
+        <li>State one industrial use of radioisotopes emitting β-radiations.</li>
+      </ol>
+    </div>
+    <textarea class="workspace-area" placeholder="Write your key points here..."></textarea>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-12')">🔀 Show Variations (3 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-12')">👁️ Reveal Answer &amp; Marking Scheme</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+      <label class="self-check-label"><input type="checkbox" onchange="toggleSelfScore(this, 12)"> ✅ Mark Mastered (+1 XP)</label>
+    </div>
+    <div class="variations-drawer" id="var-12">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2024 Board Q2(i)(a)]</span> In the following atoms, which one is a radioisotope? Give one use of this isotope: O<sup>16</sup>, C<sup>14</sup>, N<sup>14</sup>, He<sup>4</sup>. <em>(Fused with Class II nutcracker lever question!)</em></div>
+      <div class="var-item"><span class="var-year">[CFPQ Bank]</span> Why are γ-emitting radioisotopes preferred as medical tracers over α-emitters?</div>
+      <div class="var-item"><span class="var-year">[Specimen]</span> State one medical use of <span class="nuc"><sup>60</sup><sub>27</sub></span>Co and <span class="nuc"><sup>24</sup><sub>11</sub></span>Na.</div>
+    </div>
+    <div class="answer-drawer" id="ans-12">
+      <div class="ans-header">✅ Official CISCE Marking Scheme:</div>
+      <ul class="subparts-list">
+        <li><strong>(a) Radioisotope:</strong> <strong><sup>14</sup>C (Carbon-14)</strong> is a radioisotope. <strong>Use:</strong> Used in carbon dating to estimate the age of fossils, bones, and ancient archaeological specimens.</li>
+        <li><strong>(b) Why γ-emitters in Medicine:</strong> γ-radiations have <strong>maximum penetrating power</strong> (can easily pass through human tissues to be detected externally) and <strong>minimum ionizing power</strong> (causing far less unintended internal tissue damage than α-particles).</li>
+        <li><strong>(c) Industrial Use of β-emitters:</strong> Used to control and monitor the uniform thickness of paper, plastic, or aluminium sheets during manufacturing, and to eliminate static electric charge in factories.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q13 -->
+  <div class="q-card" data-cat="saq" id="qcard-13">
+    <div class="q-meta">
+      <span class="q-num">Q13 • Section A / B Short</span>
+      <span class="badge diff-hard">Hard • 3 Marks</span>
+      <span class="badge freq-badge">🔥 Repeated 6 Times</span>
+      <span class="badge prob-badge">🎯 97% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2026 Improvement Q3(vi) [2M] • Specimen 2024 Q7(ii) [3M] • Specimen 2025 Q8(ii) [3M] • ICSE 2016 Q10(c) [4M]
+    </div>
+    <div class="q-text">
+      [Hardest Combined Version — Specimen 2024/2025 &amp; 2026 Improvement]
+      A radioactive nucleus <em>X</em> (such as Uranium <span class="nuc"><sup>235</sup><sub>92</sub></span>U) emits one alpha (α) particle followed by two beta (β) particles to form a daughter nucleus <em>Y</em>.
+      <ol class="subparts-list" type="a">
+        <li>Write the general decay equation starting from <span class="nuc"><sup>A</sup><sub>Z</sub></span>X to <em>Y</em>.</li>
+        <li>If the parent nucleus is <span class="nuc"><sup>235</sup><sub>92</sub></span>U, calculate the atomic number and mass number of the daughter nucleus formed.</li>
+        <li>With respect to the element <em>X</em>, where would you position the element <em>Y</em> in the periodic table?</li>
+        <li>What is the general name given to the pair of elements <em>X</em> and <em>Y</em>?</li>
+        <li>If the atomic number of <em>Y</em> is 80, then what is the atomic number of <em>X</em>?</li>
+      </ol>
+    </div>
+    <textarea class="workspace-area" placeholder="Solve subparts (a) to (e) here..."></textarea>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-13')">🔀 Show Variations (4 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-13')">👁️ Reveal Answer &amp; Marking Scheme</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+      <label class="self-check-label"><input type="checkbox" onchange="toggleSelfScore(this, 13)"> ✅ Mark Mastered (+1 XP)</label>
+    </div>
+    <div class="variations-drawer" id="var-13">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2026 Improvement Q3(vi) - 2M]</span> A uranium nucleus (<span class="nuc"><sup>235</sup><sub>92</sub></span>U) undergoes an alpha emission followed by 2 beta emissions. Calculate the atomic number and mass number of the daughter nucleus formed.</div>
+      <div class="var-item"><span class="var-year">[ICSE Specimen 2024 Q7(ii) &amp; Specimen 2025 Q8(ii) - 3M]</span> A radioactive nucleus X emits an alpha particle followed by two beta particles to form nucleus Y. (a) With respect to element X, where would you position element Y in the periodic table? (b) What is the general name of the elements X and Y? (c) If the atomic number of Y is 80 then what is the atomic number of X?</div>
+      <div class="var-item"><span class="var-year">[ICSE 2016 Board Q10(c)(i,ii)]</span> (i) Represent the change in the nucleus of a radioactive element when a β-particle is emitted. (ii) What is the name given to elements with same mass number and different atomic number?</div>
+    </div>
+    <div class="answer-drawer" id="ans-13">
+      <div class="ans-header">✅ Official CISCE Marking Scheme:</div>
+      <ul class="subparts-list">
+        <li><strong>(a) General Decay Equation:</strong> <span class="nuc"><sup>A</sup><sub>Z</sub></span>X <span class="arrow-step"><small>−α</small><span>⟶</span></span> <span class="nuc"><sup>A−4</sup><sub>Z−2</sub></span>X<sub>1</sub> <span class="arrow-step"><small>−2β</small><span>⟶</span></span> <span class="nuc"><sup>A−4</sup><sub>Z</sub></span>Y</li>
+        <li><strong>(b) For <span class="nuc"><sup>235</sup><sub>92</sub></span>U:</strong> After 1 α-decay: <em>Z</em> = 92 − 2 = 90, <em>A</em> = 235 − 4 = 231. After 2 β-decays: <em>Z</em> = 90 + 2(1) = <strong>92</strong>, and <em>A</em> remains <strong>231</strong>.</li>
+        <li><strong>(c) Position in Periodic Table:</strong> Element <em>Y</em> will occupy the <strong>same position</strong> as element <em>X</em> in the periodic table (since both have the same atomic number <em>Z</em>).</li>
+        <li><strong>(d) General Name:</strong> <strong>Isotopes</strong> (same atomic number <em>Z</em>, different mass numbers <em>A</em> and <em>A</em> − 4).</li>
+        <li><strong>(e) Atomic Number of <em>X</em>:</strong> Since <em>X</em> and <em>Y</em> are isotopes with identical atomic numbers, the atomic number of <em>X</em> is also <strong>80</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <!-- ==================== PART 4: SECTION B LENGTHY FUSED SUBPARTS ==================== -->
+  <div class="section-banner" data-sec="secb">
+    <h2>Part 4: Fused Section B Structured Questions (3 to 4 Marks • Multi-Part &amp; Diagrammatic)</h2>
+    <span>Ordered: Moderate-Hard ➔ Boss Level (Most Subparts &amp; Diagrams)</span>
+  </div>
+
+  <!-- Q14 -->
+  <div class="q-card" data-cat="secb" id="qcard-14">
+    <div class="q-meta">
+      <span class="q-num">Q14 • Section B Fused</span>
+      <span class="badge diff-hard">Hard • 4 Subparts</span>
+      <span class="badge freq-badge">🔥 Repeated 6 Times</span>
+      <span class="badge prob-badge">🎯 95% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2026 Board Q9(iii) [4M] • ICSE 2023 Board Q8(ii) [3M] • ICSE 2020 Board Q10(b)(ii) • ICSE 2015 Board Q10(b)(ii)
+    </div>
+    <div class="q-text">
+      [Master Fused Question — ICSE 2026 Q9(iii) + 2023 Q8(ii) + 2020 Q10(b)]
+      <ol class="subparts-list" type="a">
+        <li>Which element is used in the lining of the special aprons worn by workers in nuclear power plants? Why is this element preferred?</li>
+        <li>How can one stop harmful nuclear radiations from escaping a nuclear reactor in a power plant, and state two safety precautions for handling/disposing of nuclear waste.</li>
+        <li>Name one <strong>internal source</strong> and one <strong>external source</strong> of background radiations.</li>
+        <li><span class="nuc"><sup>24</sup><sub>11</sub></span>Na decays to <span class="nuc"><sup>24</sup><sub>12</sub></span>Mg by emitting a radiation that does not change the mass number but is deflected by a magnetic field. Name this radiation and write the complete balanced nuclear equation for this decay.</li>
+      </ol>
+    </div>
+    <textarea class="workspace-area" placeholder="Write your answers for (a), (b), (c), (d)..."></textarea>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-14')">🔀 Show Variations (4 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-14')">👁️ Reveal Answer &amp; Marking Scheme</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+      <label class="self-check-label"><input type="checkbox" onchange="toggleSelfScore(this, 14)"> ✅ Mark Mastered (+1 XP)</label>
+    </div>
+    <div class="variations-drawer" id="var-14">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2026 Board Q9(iii) - 4M]</span> (a) Which element is used in the lining of the special aprons worn by workers in nuclear power plants? Why is this element preferred? (b) <span class="nuc"><sup>24</sup><sub>11</sub></span>Na decays to <span class="nuc"><sup>24</sup><sub>12</sub></span>Mg. Name the radiation emitted and write the equation for this radioactive decay. <em>(Fused with Electric Iron &amp; Lenz's Law in Q9!)</em></div>
+      <div class="var-item"><span class="var-year">[ICSE 2023 Board Q8(ii) - 3M]</span> (a) Which nuclear radiation will travel undeviated in an electric field? (b) How can one stop the radiations escaping from a nuclear reactor in a nuclear power plant? (c) Name one internal source of background radiations.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2020 Board Q10(b)(ii)]</span> State one safety precaution in the disposal of nuclear waste.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2015 Board Q10(b)(ii)]</span> State any two precautions to be taken while handling radioactive substances.</div>
+    </div>
+    <div class="answer-drawer" id="ans-14">
+      <div class="ans-header">✅ Official CISCE Marking Scheme:</div>
+      <ul class="subparts-list">
+        <li><strong>(a) Apron Lining Element:</strong> <strong>Lead (Pb)</strong>. <strong>Reason:</strong> Lead has a very high atomic number and high density, allowing it to effectively absorb and block penetrating nuclear radiations (γ and X-rays).</li>
+        <li><strong>(b) Reactor Shielding &amp; Waste Disposal:</strong> The nuclear reactor core must be surrounded by thick <strong>lead and concrete/steel walls</strong>. <strong>Handling/Disposal Precautions:</strong> (1) Radioactive materials must be handled with long lead-lined tongs while wearing lead aprons/gloves. (2) Nuclear waste must be sealed in thick lead casks and buried deep underground in uninhabited geological repositories/abandoned mines far from water bodies.</li>
+        <li><strong>(c) Background Radiation Sources:</strong>
+          <br>• <strong>Internal Source:</strong> Radioactive Potassium-40 (<sup>40</sup>K), Carbon-14 (<sup>14</sup>C), or Radium present inside the human body.
+          <br>• <strong>External Source:</strong> Cosmic rays from outer space and Radon-222 gas from rocks/soil.</li>
+        <li><strong>(d) <span class="nuc"><sup>24</sup><sub>11</sub></span>Na Decay:</strong> The radiation emitted is <strong>Beta (β) radiation</strong>.
+          <br><strong>Balanced Equation:</strong> <span class="nuc"><sup>24</sup><sub>11</sub></span>Na → <span class="nuc"><sup>24</sup><sub>12</sub></span>Mg + <span class="nuc"><sup>0</sup><sub>−1</sub></span>e (or β<sup>−</sup>)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q15 (WITH DIAGRAM - FISSION & FUSION) -->
+  <div class="q-card" data-cat="secb diagram" id="qcard-15">
+    <div class="q-meta">
+      <span class="q-num">Q15 • Section B Diagrammatic</span>
+      <span class="badge diff-hard">Hard • 5 Subparts + Diagram</span>
+      <span class="badge freq-badge">🔥 Repeated 6 Times</span>
+      <span class="badge prob-badge">🎯 96% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2025 Board Q8(ii) [Diagram] • ICSE 2025 Improvement Q8(ii) [Diagram] • ICSE 2020 Q10(b)(i) • ICSE 2019 Q10(b)(i) • ICSE 2018 Q10(b) &amp; Q3(c)
+    </div>
+    <div class="q-text">
+      [Master Diagrammatic Question — ICSE 2025 Board Q8(ii) + 2025 Improvement Q8(ii) + 2018 Q10(b)]
+      Study <strong>Diagram A</strong> (ICSE 2025 Board) and <strong>Diagram B</strong> (ICSE 2025 Improvement) below and answer all five subparts:
+    </div>
+
+    <!-- Custom SVG Diagram for 2025 Board Fission & 2025 Improvement Fusion -->
+    <div class="diagram-box">
+      <svg width="760" height="230" viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg">
+        <!-- Left Panel: Diagram A (ICSE 2025 Fission) -->
+        <rect x="10" y="10" width="430" height="210" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+        <text x="225" y="32" fill="#38bdf8" font-size="13" font-weight="bold" text-anchor="middle">DIAGRAM A (ICSE 2025 Board Q8(ii))</text>
+
+        <!-- Neutron -->
+        <circle cx="42" cy="115" r="13" fill="#94a3b8" stroke="#f8fafc" stroke-width="1.5"/>
+        <text x="42" y="119" fill="#090d16" font-size="11" font-weight="bold" text-anchor="middle">¹₀n</text>
+        <line x1="57" y1="115" x2="88" y2="115" stroke="#38bdf8" stroke-width="2"/>
+
+        <!-- U-235 -->
+        <circle cx="120" cy="115" r="28" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2"/>
+        <text x="120" y="119" fill="#f8fafc" font-size="13" font-weight="bold" text-anchor="middle">²³⁵₉₂U</text>
+        <line x1="150" y1="115" x2="180" y2="115" stroke="#38bdf8" stroke-width="2"/>
+
+        <!-- Unstable U-X -->
+        <circle cx="215" cy="115" r="31" fill="#7c2d12" stroke="#fb923c" stroke-width="2" stroke-dasharray="4,2"/>
+        <text x="215" y="119" fill="#fed7aa" font-size="13" font-weight="bold" text-anchor="middle">ˣ₉₂U*</text>
+
+        <!-- Branches to Ba, Kr, 3Y -->
+        <line x1="246" y1="100" x2="295" y2="62" stroke="#f8fafc" stroke-width="1.8"/>
+        <line x1="246" y1="130" x2="295" y2="168" stroke="#f8fafc" stroke-width="1.8"/>
+        <line x1="248" y1="115" x2="355" y2="115" stroke="#fbbf24" stroke-width="1.8"/>
+
+        <!-- Ba-144 -->
+        <circle cx="322" cy="55" r="24" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+        <text x="322" y="59" fill="#f8fafc" font-size="12" font-weight="bold" text-anchor="middle">¹⁴⁴₅₆Ba</text>
+
+        <!-- Kr-89 -->
+        <circle cx="322" cy="175" r="22" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+        <text x="322" y="179" fill="#f8fafc" font-size="12" font-weight="bold" text-anchor="middle">⁸⁹₃₆Kr</text>
+
+        <!-- 3Y -->
+        <rect x="358" y="97" width="68" height="36" rx="8" fill="#422006" stroke="#facc15" stroke-width="2"/>
+        <text x="392" y="119" fill="#fef08a" font-size="13" font-weight="bold" text-anchor="middle">+ 3 [ Y ]</text>
+
+        <!-- Right Panel: Diagram B (ICSE 2025 Improvement Fusion) -->
+        <rect x="455" y="10" width="295" height="210" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+        <text x="602" y="32" fill="#c084fc" font-size="13" font-weight="bold" text-anchor="middle">DIAGRAM B (2025 Improvement Q8(ii))</text>
+
+        <!-- H-2 and H-3 -->
+        <circle cx="505" cy="80" r="20" fill="#4c1d95" stroke="#c084fc" stroke-width="2"/>
+        <text x="505" y="84" fill="#f8fafc" font-size="12" font-weight="bold" text-anchor="middle">²₁H</text>
+
+        <circle cx="505" cy="155" r="20" fill="#4c1d95" stroke="#c084fc" stroke-width="2"/>
+        <text x="505" y="159" fill="#f8fafc" font-size="12" font-weight="bold" text-anchor="middle">³₁H</text>
+
+        <line x1="526" y1="88" x2="585" y2="112" stroke="#c084fc" stroke-width="2"/>
+        <line x1="526" y1="147" x2="585" y2="122" stroke="#c084fc" stroke-width="2"/>
+
+        <!-- He-4 + n + Energy -->
+        <circle cx="622" cy="95" r="23" fill="#831843" stroke="#f472b6" stroke-width="2"/>
+        <text x="622" y="99" fill="#f8fafc" font-size="12" font-weight="bold" text-anchor="middle">⁴₂He</text>
+
+        <circle cx="622" cy="155" r="14" fill="#94a3b8" stroke="#f8fafc" stroke-width="1.5"/>
+        <text x="622" y="159" fill="#090d16" font-size="11" font-weight="bold" text-anchor="middle">¹₀n</text>
+
+        <text x="698" y="125" fill="#fbbf24" font-size="13" font-weight="bold" text-anchor="middle">+ Energy</text>
+      </svg>
+      <div class="diagram-caption">Authentic Exam Diagrams: Diagram A (ICSE 2025 Board Q8(ii)) &amp; Diagram B (ICSE 2025 Improvement Q8(ii))</div>
+    </div>
+
+    <ol class="subparts-list" type="a">
+      <li>Name the nuclear processes depicted in <strong>Diagram A</strong> and <strong>Diagram B</strong>.</li>
+      <li>In Diagram A, what is the numerical value of <em>X</em> (mass number of the intermediate Uranium nucleus), and identify the missing particle <em>Y</em>.</li>
+      <li>The ore of Uranium found in nature contains two isotopes, <span class="nuc"><sup>238</sup><sub>92</sub></span>U and <span class="nuc"><sup>235</sup><sub>92</sub></span>U. Which of the two is easily fissionable? Give a reason.</li>
+      <li>Can the nuclear reaction in Diagram B be conducted at room temperature? Differentiate between Process A and Process B (two points), and state why Process B releases much more energy than Process A for the same mass of fuel.</li>
+      <li>Write the balanced nuclear reaction when <span class="nuc"><sup>238</sup><sub>92</sub></span>U emits an alpha particle to form a Thorium (Th) nucleus.</li>
+    </ol>
+    <textarea class="workspace-area" placeholder="Write your answers for (a) to (e)..."></textarea>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-15')">🔀 Show Variations (5 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-15')">👁️ Reveal Answer &amp; Marking Scheme</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+      <label class="self-check-label"><input type="checkbox" onchange="toggleSelfScore(this, 15)"> ✅ Mark Mastered (+1 XP)</label>
+    </div>
+    <div class="variations-drawer" id="var-15">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2025 Board Q8(ii) - 3M with Diagram]</span> Study the diagram of Uranium-235 bombarded by a neutron: (a) Name the process. (b) What is the value of <em>X</em>? (c) Identify <em>Y</em>, the missing product. <em>(Fused with Household Circuits &amp; Three-pin plug!)</em></div>
+      <div class="var-item"><span class="var-year">[ICSE 2025 Improvement Q8(ii) - 3M with Diagram]</span> Study the diagram of <span class="nuc"><sup>2</sup><sub>1</sub></span>H and <span class="nuc"><sup>3</sup><sub>1</sub></span>H combining: (a) Name the process. (b) Can this reaction be conducted at room temperature? (c) Mass of reactants ________ mass of products.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2020 Board Q10(b)(i)]</span> Differentiate between nuclear fusion and nuclear fission.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2019 Board Q10(b)(i)]</span> What do you understand by the term nuclear fission?</div>
+      <div class="var-item"><span class="var-year">[ICSE 2018 Board Q10(b) &amp; Q3(c)]</span> (i) Which isotope of Uranium (<span class="nuc"><sup>238</sup><sub>92</sub></span>U or <span class="nuc"><sup>235</sup><sub>92</sub></span>U) is easily fissionable? Give a reason. (ii) Write the nuclear reaction when <span class="nuc"><sup>238</sup><sub>92</sub></span>U emits an α-particle to form Thorium. (iii) Why does fusion release more energy per unit mass than fission?</div>
+    </div>
+    <div class="answer-drawer" id="ans-15">
+      <div class="ans-header">✅ Official CISCE Marking Scheme:</div>
+      <ul class="subparts-list">
+        <li><strong>(a) Processes:</strong> Diagram A = <strong>Nuclear Fission</strong>; Diagram B = <strong>Nuclear Fusion</strong>.</li>
+        <li><strong>(b) Values of <em>X</em> and <em>Y</em>:</strong> <em>X</em> = 235 + 1 = <strong>236</strong> (unstable <span class="nuc"><sup>236</sup><sub>92</sub></span>U compound nucleus). <em>Y</em> = <strong>Neutron (<span class="nuc"><sup>1</sup><sub>0</sub></span>n)</strong>.</li>
+        <li><strong>(c) Easily Fissionable Isotope:</strong> <strong><span class="nuc"><sup>235</sup><sub>92</sub></span>U</strong> is easily fissionable. <strong>Reason:</strong> Fission of <span class="nuc"><sup>235</sup><sub>92</sub></span>U is possible even by bombarding it with <em>slow (thermal) neutrons</em>, whereas <span class="nuc"><sup>238</sup><sub>92</sub></span>U can only be fissioned by very fast/high-energy neutrons.</li>
+        <li><strong>(d) Room Temperature &amp; Fission vs. Fusion:</strong>
+          <br>• <strong>No</strong>, Nuclear Fusion (Diagram B) cannot occur at room temperature; it requires an extremely high temperature (≈ 10<sup>7</sup> K) and high pressure to overcome the strong electrostatic repulsion between positively charged nuclei.
+          <br>• <strong>Differences:</strong> (1) Fission splits a heavy nucleus into two lighter nuclei, whereas fusion combines two light nuclei into a heavier nucleus. (2) Fission can be controlled in a nuclear reactor, whereas fusion cannot yet be easily controlled.
+          <br>• <strong>Why Fusion Releases More Energy for Same Mass:</strong> For a given mass, the number of light nuclei (like <span class="nuc"><sup>2</sup><sub>1</sub></span>H) is much larger than the number of heavy <span class="nuc"><sup>235</sup><sub>92</sub></span>U nuclei, and the percentage mass defect (Δ<em>m</em> / <em>m</em>) per nucleon is higher in fusion.</li>
+        <li><strong>(e) α-decay of <span class="nuc"><sup>238</sup><sub>92</sub></span>U:</strong> <span class="nuc"><sup>238</sup><sub>92</sub></span>U → <span class="nuc"><sup>234</sup><sub>90</sub></span>Th + <span class="nuc"><sup>4</sup><sub>2</sub></span>He (α-particle)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q16 -->
+  <div class="q-card" data-cat="secb" id="qcard-16">
+    <div class="q-meta">
+      <span class="q-num">Q16 • Section B Multi-Stage Chain</span>
+      <span class="badge diff-hard">Hard • 5 Subparts</span>
+      <span class="badge freq-badge">🔥 Repeated 5 Times</span>
+      <span class="badge prob-badge">🎯 95% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2020 Board Q10(c) [4M] • ICSE 2024 Board Q7(ii) [3M] • ICSE 2015 Board Q10(c) [3M] • ICSE 2026 Improvement Q9(iii) [4M]
+    </div>
+    <div class="q-text">
+      [Master Multi-Stage Decay Question — ICSE 2020 Q10(c) + 2024 Q7(ii) + 2015 Q10(c)]
+      An atomic nucleus <em>A</em> is composed of 84 protons and 128 neutrons. The nucleus <em>A</em> emits an alpha (α) particle and is transformed into a nucleus <em>B</em>.
+      <ol class="subparts-list" type="i">
+        <li>What is the composition (number of protons and neutrons) of nucleus <em>B</em>?</li>
+        <li>The nucleus <em>B</em> emits a beta (β) particle and is transformed into a nucleus <em>C</em>. What is the composition of nucleus <em>C</em>?</li>
+        <li>What is the mass number of the nucleus <em>A</em>?</li>
+        <li>Does the composition of <em>C</em> change if it emits gamma (γ) radiations? Give a reason.</li>
+        <li><strong>[ICSE 2024 Q7(ii) Backward Chain]:</strong> Uranium nucleus <span class="nuc"><sup>238</sup><sub>92</sub></span>U undergoes several disintegrations and ultimately decays to lead isotope <span class="nuc"><sup>206</sup><sub>82</sub></span>Pb. Also complete the following linked reaction by finding the atomic and mass numbers of <em>X</em> and <em>Y</em>:
+          <br>
+          <span class="chem-eq"><span class="nuc"><sup>[ ? ]</sup><sub>[ ? ]</sub></span>X <span class="arrow-step"><small>−α</small><span>⟶</span></span> <span class="nuc"><sup>[ ? ]</sup><sub>[ ? ]</sub></span>Y + <span class="nuc"><sup>4</sup><sub>2</sub></span>He <span class="arrow-step"><small>−β</small><span>⟶</span></span> <span class="nuc"><sup>234</sup><sub>91</sub></span>Z + <span class="nuc"><sup>0</sup><sub>−1</sub></span>e</span>
+        </li>
+      </ol>
+    </div>
+    <textarea class="workspace-area" placeholder="Solve subparts (i) to (v)..."></textarea>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-16')">🔀 Show Variations (4 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-16')">👁️ Reveal Answer &amp; Marking Scheme</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+      <label class="self-check-label"><input type="checkbox" onchange="toggleSelfScore(this, 16)"> ✅ Mark Mastered (+1 XP)</label>
+    </div>
+    <div class="variations-drawer" id="var-16">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2020 Board Q10(c) - 4M]</span> An atomic nucleus A is composed of 84 protons and 128 neutrons. Nucleus A emits an alpha particle and transforms into B. (i) Composition of B? (ii) B emits a beta particle to form C. Composition of C? (iii) Mass number of A? (iv) Does the composition of C change if it emits gamma radiations?</div>
+      <div class="var-item"><span class="var-year">[ICSE 2015 Board Q10(c) - 3M]</span> Word-for-word identical 84 protons and 128 neutrons decay chain (<em>A</em> → <em>B</em> → <em>C</em>).</div>
+      <div class="var-item"><span class="var-year">[ICSE 2024 Board Q7(ii) - 3M]</span> Complete the following radioactive reaction: <span class="nuc"><sup>...</sup><sub>...</sub></span>X → <span class="nuc"><sup>...</sup><sub>...</sub></span>Y + <span class="nuc"><sup>4</sup><sub>2</sub></span>He → <span class="nuc"><sup>234</sup><sub>91</sub></span>Z + <span class="nuc"><sup>0</sup><sub>−1</sub></span>e. <em>(Fused with Sound Echoes in Q7!)</em></div>
+      <div class="var-item"><span class="var-year">[ICSE 2026 Improvement Q9(iii) - 4M]</span> Carbon-14 (<span class="nuc"><sup>14</sup><sub>6</sub></span>C) decays by β-emission: write balanced equation and compare <span class="nuc"><sup>14</sup><sub>6</sub></span>C / <span class="nuc"><sup>12</sup><sub>6</sub></span>C vs parent/daughter pair.</div>
+    </div>
+    <div class="answer-drawer" id="ans-16">
+      <div class="ans-header">✅ Official CISCE Marking Scheme:</div>
+      <ul class="subparts-list">
+        <li><strong>(i) Composition of <em>B</em> (after α-decay):</strong>
+          <br>Number of protons = 84 − 2 = <strong>82 protons</strong>
+          <br>Number of neutrons = 128 − 2 = <strong>126 neutrons</strong></li>
+        <li><strong>(ii) Composition of <em>C</em> (after β-decay of <em>B</em>):</strong>
+          <br>During β-decay, 1 neutron changes into 1 proton (<span class="nuc"><sup>1</sup><sub>0</sub></span>n → <span class="nuc"><sup>1</sup><sub>1</sub></span>p + <span class="nuc"><sup>0</sup><sub>−1</sub></span>e).
+          <br>Number of protons = 82 + 1 = <strong>83 protons</strong>
+          <br>Number of neutrons = 126 − 1 = <strong>125 neutrons</strong></li>
+        <li><strong>(iii) Mass Number of <em>A</em>:</strong> <em>A</em> = Protons + Neutrons = 84 + 128 = <strong>212</strong>.</li>
+        <li><strong>(iv) Effect of γ-emission on <em>C</em>:</strong> <strong>No</strong>, the composition of <em>C</em> does not change because γ-radiation carries no mass and no electric charge (it only releases excess nuclear excitation energy).</li>
+        <li><strong>(v) ICSE 2024 Q7(ii) Working Backwards from <span class="nuc"><sup>234</sup><sub>91</sub></span>Z:</strong>
+          <br>• Since <em>Y</em> → <span class="nuc"><sup>234</sup><sub>91</sub></span>Z + <span class="nuc"><sup>0</sup><sub>−1</sub></span>e, for <em>Y</em>: Mass number = <strong>234</strong>, Atomic number = 91 + (−1) = <strong>90</strong> (<span class="nuc"><sup>234</sup><sub>90</sub></span>Y).
+          <br>• Since <em>X</em> → <span class="nuc"><sup>234</sup><sub>90</sub></span>Y + <span class="nuc"><sup>4</sup><sub>2</sub></span>He, for <em>X</em>: Mass number = 234 + 4 = <strong>238</strong>, Atomic number = 90 + 2 = <strong>92</strong> (<span class="nuc"><sup>238</sup><sub>92</sub></span>X).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q17 (WITH DIAGRAM - ELECTRIC & MAGNETIC FIELD DEFLECTION) -->
+  <div class="q-card" data-cat="secb diagram" id="qcard-17">
+    <div class="q-meta">
+      <span class="q-num">Q17 • Section B Diagrammatic</span>
+      <span class="badge diff-boss">Very Hard • 6 Subparts + Diagram</span>
+      <span class="badge freq-badge">🔥 Repeated 7 Times (Highest!)</span>
+      <span class="badge prob-badge">🎯 98% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2018 Board Q10(c) [4M Diagram] • ICSE 2015 Board Q10(b)(i) [Diagram] • ICSE 2022 Sem-2 Q6(ii) [3M] • ICSE 2016 Q10(a) [3M] • Specimen 2023 • CFPQ Bank
+    </div>
+    <div class="q-text">
+      [Master Diagrammatic Question — ICSE 2018 Q10(c) + 2015 Q10(b) + 2022 Sem-2 Q6(ii) + 2016 Q10(a)]
+      The diagram below shows a radioactive source <em>S</em> kept inside a thick lead container with a narrow aperture. The emerging beam of radiations passes through a strong electric field between two parallel plates P<sub>1</sub> (+) and P<sub>2</sub> (−) and splits into three paths labelled <strong>A</strong>, <strong>B</strong>, and <strong>C</strong>.
+    </div>
+
+    <!-- Custom SVG Diagram for Deflection in Electric Field -->
+    <div class="diagram-box">
+      <svg width="620" height="250" viewBox="0 0 620 250" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="10" width="600" height="230" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+
+        <!-- Positive Plate P1 (Left) -->
+        <rect x="205" y="75" width="14" height="90" rx="3" fill="#ef4444" stroke="#fca5a5" stroke-width="1.5"/>
+        <text x="175" y="95" fill="#f87171" font-size="14" font-weight="bold">Plate P₁</text>
+        <text x="190" y="115" fill="#f87171" font-size="16" font-weight="bold">+</text>
+        <text x="190" y="135" fill="#f87171" font-size="16" font-weight="bold">+</text>
+        <text x="190" y="155" fill="#f87171" font-size="16" font-weight="bold">+</text>
+
+        <!-- Negative Plate P2 (Right) -->
+        <rect x="385" y="75" width="14" height="90" rx="3" fill="#38bdf8" stroke="#bae6fd" stroke-width="1.5"/>
+        <text x="410" y="95" fill="#38bdf8" font-size="14" font-weight="bold">Plate P₂</text>
+        <text x="410" y="115" fill="#38bdf8" font-size="18" font-weight="bold">−</text>
+        <text x="410" y="135" fill="#38bdf8" font-size="18" font-weight="bold">−</text>
+        <text x="410" y="155" fill="#38bdf8" font-size="18" font-weight="bold">−</text>
+
+        <!-- Lead Container at Bottom -->
+        <path d="M275 180 L275 225 L330 225 L330 180 L312 180 L312 208 L293 208 L293 180 Z" fill="#475569" stroke="#cbd5e1" stroke-width="2"/>
+        <circle cx="302.5" cy="202" r="6" fill="#facc15"/>
+        <text x="342" y="212" fill="#cbd5e1" font-size="12" font-weight="bold">Thick Lead Box + Radioactive Source (S)</text>
+
+        <!-- Path B: Undeviated Straight (Gamma) -->
+        <line x1="302.5" y1="196" x2="302.5" y2="30" stroke="#4ade80" stroke-width="2.5" stroke-dasharray="5,3"/>
+        <text x="302.5" y="23" fill="#4ade80" font-size="15" font-weight="bold" text-anchor="middle">B</text>
+
+        <!-- Path C: Sharply deflected towards Positive Plate P1 (Beta) -->
+        <path d="M302.5 180 Q 295 110 222 52" fill="none" stroke="#f472b6" stroke-width="2.5"/>
+        <text x="210" y="45" fill="#f472b6" font-size="15" font-weight="bold">C (Large deflection)</text>
+
+        <!-- Path A: Slightly deflected towards Negative Plate P2 (Alpha) -->
+        <path d="M302.5 180 Q 308 115 358 45" fill="none" stroke="#fbbf24" stroke-width="2.5"/>
+        <text x="365" y="40" fill="#fbbf24" font-size="15" font-weight="bold">A (Small deflection)</text>
+      </svg>
+      <div class="diagram-caption">Authentic Exam Diagram: ICSE 2018 Board Q10(c) &amp; ICSE 2015 Board Q10(b)(i)</div>
+    </div>
+
+    <ol class="subparts-list" type="i">
+      <li>Identify the radiations labelled <strong>A</strong>, <strong>B</strong>, and <strong>C</strong> in the diagram.</li>
+      <li>Why is the radioactive substance kept inside a thick lead container with a narrow opening?</li>
+      <li>Why is radiation <strong>B</strong> unaffected by the electrostatic field, and which of the three radiations travels with the maximum speed in vacuum?</li>
+      <li>Why does radiation <strong>C</strong> deflect much more sharply than radiation <strong>A</strong>?</li>
+      <li>Arrange A, B, and C in <strong>ascending order</strong> of their: (1) Ionizing power, (2) Penetrating power, and (3) Biological damage.</li>
+      <li>If the electric field is replaced by a magnetic field acting perpendicular to the plane of the paper (into the page), name the rule used to find the direction of deflection of A and C.</li>
+    </ol>
+    <textarea class="workspace-area" placeholder="Write your answers for subparts (i) to (vi)..."></textarea>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-17')">🔀 Show Variations (6 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-17')">👁️ Reveal Answer &amp; Marking Scheme</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+      <label class="self-check-label"><input type="checkbox" onchange="toggleSelfScore(this, 17)"> ✅ Mark Mastered (+1 XP)</label>
+    </div>
+    <div class="variations-drawer" id="var-17">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2018 Board Q10(c) - 4M with Diagram]</span> The diagram shows a radioactive source S in a thick lead-walled container and paths A, B, C between plates: (i) Which radiation causes least biological damage? (ii) Name the radiation which is unaffected by the electrostatic field. (iii) Which radiation is deflected the most? Give a reason. (iv) Which among the three is used in carbon dating?</div>
+      <div class="var-item"><span class="var-year">[ICSE 2015 Board Q10(b)(i) - Diagram]</span> Complete the diagram by drawing the deflection of alpha, beta, and gamma radiations in an electric field.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2022 Sem-2 Board Q6(ii) - 3M]</span> A beam of α, β, and γ rays is travelling through a region between two parallel plates A (positive) and B (negative): (a) Which radiation travels with maximum speed? (b) Which shows maximum deviation? (c) Which shows zero deviation?</div>
+      <div class="var-item"><span class="var-year">[ICSE 2016 Board Q10(a) - 3M]</span> Arrange α, β, and γ rays in ascending order with respect to their: (i) Penetrating power (ii) Ionising power (iii) Biological effect.</div>
+      <div class="var-item"><span class="var-year">[Specimen 2023 / CFPQ]</span> Name the rule used to determine the direction of deflection of α and β particles in a perpendicular magnetic field.</div>
+    </div>
+    <div class="answer-drawer" id="ans-17">
+      <div class="ans-header">✅ Official CISCE Marking Scheme:</div>
+      <ul class="subparts-list">
+        <li><strong>(i) Identification:</strong>
+          <br>• <strong>A = Alpha (α) radiation</strong> (positively charged, deflected slightly towards negative plate P<sub>2</sub>).
+          <br>• <strong>B = Gamma (γ) radiation</strong> (uncharged, passes undeviated).
+          <br>• <strong>C = Beta (β) radiation</strong> (negatively charged, deflected sharply towards positive plate P<sub>1</sub>).</li>
+        <li><strong>(ii) Why Thick Lead Container with Narrow Opening:</strong> Radiations are emitted randomly in all directions. The thick lead walls absorb radiations going in unwanted directions (protecting surroundings) and allow only a fine, collimated beam to emerge through the narrow opening.</li>
+        <li><strong>(iii) Why B is Unaffected &amp; Max Speed:</strong> B (γ-rays) are electromagnetic waves carrying <strong>no electric charge</strong>, so they are not deflected by electric or magnetic fields. γ-radiation (B) travels with the maximum speed (3 × 10<sup>8</sup> m/s in vacuum).</li>
+        <li><strong>(iv) Why C (β) Deflects More Than A (α):</strong> A β-particle (electron) has a negligibly small mass (≈ 1/7300th the mass of an α-particle), so its charge-to-mass ratio (<em>q</em>/<em>m</em>) is much larger and its inertia is much lower than an α-particle.</li>
+        <li><strong>(v) Ascending Orders:</strong>
+          <br>• <strong>Ionizing Power:</strong> γ (B) &lt; β (C) &lt; α (A)
+          <br>• <strong>Penetrating Power:</strong> α (A) &lt; β (C) &lt; γ (B)
+          <br>• <strong>Biological Effect/Damage:</strong> α (A) &lt; β (C) &lt; γ (B) <em>(for external exposure, since α is stopped by skin while γ penetrates deep organs)</em>.</li>
+        <li><strong>(vi) Magnetic Field Rule:</strong> <strong>Fleming's Left-Hand Rule</strong> (remembering that the direction of conventional current is along the motion of α-particles and opposite to the motion of β-particles).</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Q18 (BOSS LEVEL - PROTON vs NEUTRON DECAY GRAPH) -->
+  <div class="q-card" data-cat="secb diagram" id="qcard-18">
+    <div class="q-meta">
+      <span class="q-num">Q18 • BOSS LEVEL • Competency Graph</span>
+      <span class="badge diff-boss">Boss Level • 6 Subparts + Graph</span>
+      <span class="badge freq-badge">🔥 Repeated 5 Times (2024–2027 Trend!)</span>
+      <span class="badge prob-badge">🎯 99% Probability</span>
+    </div>
+    <div class="years-line">
+      <strong>Asked In:</strong> ICSE 2025 Board Q3(vii) [3M Graph] • ICSE 2025 Improvement Q3(vii) [Graph] • Specimen 2025, 2026 &amp; 2027 Q9(iii) [4M Graph] • CISCE CFPQ Bank Q83 [4M Graph]
+    </div>
+    <div class="q-text">
+      [Ultimate Boss Question — Combining Specimen 2025/2026/2027 Q9(iii) + ICSE 2025 Board Q3(vii) + ICSE 2025 Improvement + CFPQ Q83]
+      Study the two CISCE Proton-Neutron Nuclear Decay Graphs below and answer all six subparts:
+    </div>
+
+    <!-- Custom SVG Diagram for Proton vs Neutron Graphs -->
+    <div class="diagram-box">
+      <svg width="760" height="275" viewBox="0 0 760 275" xmlns="http://www.w3.org/2000/svg">
+        <!-- Left Graph: Specimen 2025/2026/2027 Q9(iii) & CFPQ Q83 -->
+        <rect x="10" y="10" width="365" height="255" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+        <text x="192" y="30" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">GRAPH 1 (Specimen 2025/2026/2027 Q9(iii) &amp; CFPQ)</text>
+
+        <!-- Axes -->
+        <line x1="65" y1="220" x2="345" y2="220" stroke="#94a3b8" stroke-width="2"/>
+        <line x1="65" y1="220" x2="65" y2="45" stroke="#94a3b8" stroke-width="2"/>
+        <text x="205" y="248" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">Number of Protons (Z) ➔</text>
+        <text x="22" y="135" fill="#cbd5e1" font-size="11" font-weight="bold" transform="rotate(-90, 22, 135)" text-anchor="middle">Number of Neutrons (N) ➔</text>
+
+        <!-- Grid Lines -->
+        <line x1="115" y1="50" x2="115" y2="220" stroke="#1e293b" stroke-width="1"/>
+        <line x1="165" y1="50" x2="165" y2="220" stroke="#1e293b" stroke-width="1"/>
+        <line x1="215" y1="50" x2="215" y2="220" stroke="#1e293b" stroke-width="1"/>
+        <line x1="265" y1="50" x2="265" y2="220" stroke="#1e293b" stroke-width="1"/>
+        <line x1="315" y1="50" x2="315" y2="220" stroke="#1e293b" stroke-width="1"/>
+
+        <line x1="65" y1="185" x2="340" y2="185" stroke="#1e293b" stroke-width="1"/>
+        <line x1="65" y1="150" x2="340" y2="150" stroke="#1e293b" stroke-width="1"/>
+        <line x1="65" y1="115" x2="340" y2="115" stroke="#1e293b" stroke-width="1"/>
+        <line x1="65" y1="80" x2="340" y2="80" stroke="#1e293b" stroke-width="1"/>
+
+        <!-- Labels on Z axis (89, 90, 91, 92, 93) -->
+        <text x="115" y="234" fill="#94a3b8" font-size="10" text-anchor="middle">89</text>
+        <text x="165" y="234" fill="#94a3b8" font-size="10" text-anchor="middle">90</text>
+        <text x="215" y="234" fill="#94a3b8" font-size="10" text-anchor="middle">91</text>
+        <text x="265" y="234" fill="#94a3b8" font-size="10" text-anchor="middle">92</text>
+        <text x="315" y="234" fill="#94a3b8" font-size="10" text-anchor="middle">93</text>
+
+        <!-- Labels on N axis (143, 144, 145, 146) -->
+        <text x="55" y="189" fill="#94a3b8" font-size="10" text-anchor="end">143</text>
+        <text x="55" y="154" fill="#94a3b8" font-size="10" text-anchor="end">144</text>
+        <text x="55" y="119" fill="#94a3b8" font-size="10" text-anchor="end">145</text>
+        <text x="55" y="84" fill="#94a3b8" font-size="10" text-anchor="end">146</text>
+
+        <!-- Points C(92,146), E(93,145), D(91,145), B(90,144), A(89,143) -->
+        <line x1="265" y1="80" x2="315" y2="115" stroke="#f472b6" stroke-width="2"/>
+        <line x1="265" y1="80" x2="165" y2="150" stroke="#fbbf24" stroke-width="2"/>
+
+        <circle cx="265" cy="80" r="6" fill="#38bdf8"/>
+        <text x="265" y="69" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">C (92,146)</text>
+
+        <circle cx="315" cy="115" r="6" fill="#f472b6"/>
+        <text x="328" y="119" fill="#f472b6" font-size="12" font-weight="bold">E</text>
+
+        <circle cx="215" cy="115" r="5" fill="#c084fc"/>
+        <text x="203" y="112" fill="#c084fc" font-size="12" font-weight="bold">D</text>
+
+        <circle cx="165" cy="150" r="6" fill="#fbbf24"/>
+        <text x="150" y="146" fill="#fbbf24" font-size="12" font-weight="bold">B</text>
+
+        <circle cx="115" cy="185" r="5" fill="#4ade80"/>
+        <text x="102" y="182" fill="#4ade80" font-size="12" font-weight="bold">A</text>
+
+        <!-- Right Graph: ICSE 2025 Board Q3(vii) Curium-247 -->
+        <rect x="385" y="10" width="365" height="255" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+        <text x="567" y="30" fill="#facc15" font-size="12" font-weight="bold" text-anchor="middle">GRAPH 2 (ICSE 2025 Board Q3(vii) — Curium ²⁴⁷₉₆Cm)</text>
+
+        <!-- Axes -->
+        <line x1="440" y1="220" x2="725" y2="220" stroke="#94a3b8" stroke-width="2"/>
+        <line x1="440" y1="220" x2="440" y2="45" stroke="#94a3b8" stroke-width="2"/>
+        <text x="585" y="248" fill="#cbd5e1" font-size="11" font-weight="bold" text-anchor="middle">Number of Neutrons (N) ➔</text>
+        <text x="398" y="135" fill="#cbd5e1" font-size="11" font-weight="bold" transform="rotate(-90, 398, 135)" text-anchor="middle">Number of Protons (Z) ➔</text>
+
+        <!-- Grid Lines -->
+        <line x1="490" y1="50" x2="490" y2="220" stroke="#1e293b" stroke-width="1"/>
+        <line x1="540" y1="50" x2="540" y2="220" stroke="#1e293b" stroke-width="1"/>
+        <line x1="590" y1="50" x2="590" y2="220" stroke="#1e293b" stroke-width="1"/>
+        <line x1="640" y1="50" x2="640" y2="220" stroke="#1e293b" stroke-width="1"/>
+        <line x1="690" y1="50" x2="690" y2="220" stroke="#1e293b" stroke-width="1"/>
+
+        <line x1="440" y1="185" x2="720" y2="185" stroke="#1e293b" stroke-width="1"/>
+        <line x1="440" y1="140" x2="720" y2="140" stroke="#1e293b" stroke-width="1"/>
+        <line x1="440" y1="95" x2="720" y2="95" stroke="#1e293b" stroke-width="1"/>
+
+        <!-- N labels: 147, 148, 149, 150, 151 -->
+        <text x="490" y="234" fill="#94a3b8" font-size="10" text-anchor="middle">147</text>
+        <text x="540" y="234" fill="#94a3b8" font-size="10" text-anchor="middle">148</text>
+        <text x="590" y="234" fill="#94a3b8" font-size="10" text-anchor="middle">149</text>
+        <text x="640" y="234" fill="#94a3b8" font-size="10" text-anchor="middle">150</text>
+        <text x="690" y="234" fill="#94a3b8" font-size="10" text-anchor="middle">151</text>
+
+        <!-- Z labels: 94, 95, 96 -->
+        <text x="432" y="189" fill="#94a3b8" font-size="10" text-anchor="end">94</text>
+        <text x="432" y="144" fill="#94a3b8" font-size="10" text-anchor="end">95</text>
+        <text x="432" y="99" fill="#94a3b8" font-size="10" text-anchor="end">96</text>
+
+        <!-- Curium (N=151, Z=96) and points P, Q, R, S -->
+        <line x1="690" y1="95" x2="590" y2="185" stroke="#fbbf24" stroke-width="1.8" stroke-dasharray="4,2"/>
+        <line x1="590" y1="185" x2="490" y2="95" stroke="#4ade80" stroke-width="1.8" stroke-dasharray="4,2"/>
+
+        <circle cx="690" cy="95" r="6" fill="#f87171"/>
+        <text x="685" y="82" fill="#f87171" font-size="12" font-weight="bold" text-anchor="middle">²⁴⁷₉₆Cm</text>
+
+        <circle cx="640" cy="140" r="5" fill="#c084fc"/>
+        <text x="652" y="138" fill="#c084fc" font-size="12" font-weight="bold">P</text>
+
+        <circle cx="590" cy="185" r="6" fill="#fbbf24"/>
+        <text x="590" y="205" fill="#fbbf24" font-size="12" font-weight="bold" text-anchor="middle">Q</text>
+
+        <circle cx="490" cy="95" r="6" fill="#4ade80"/>
+        <text x="490" y="82" fill="#4ade80" font-size="12" font-weight="bold" text-anchor="middle">R</text>
+
+        <circle cx="540" cy="185" r="5" fill="#38bdf8"/>
+        <text x="540" y="205" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">S</text>
+      </svg>
+      <div class="diagram-caption">Authentic Exam Graphs: Left — Specimen 2025/2026/2027 Q9(iii) &amp; CFPQ Q83 | Right — ICSE 2025 Board Q3(vii)</div>
+    </div>
+
+    <ol class="subparts-list" type="i">
+      <li><strong>[From Graph 1]:</strong> Write the chemical notation for element <em>C</em> along with its mass number (<em>A</em>) and atomic number (<em>Z</em>).</li>
+      <li><strong>[From Graph 1]:</strong> Name the radiation emitted when element <em>C</em> (<em>Z</em> = 92, <em>N</em> = 146) decays into element <em>E</em> (<em>Z</em> = 93, <em>N</em> = 145), and represent this transformation with a balanced nuclear equation.</li>
+      <li><strong>[From Graph 1]:</strong> If element <em>C</em> transforms into element <em>B</em> (<em>Z</em> = 90, <em>N</em> = 144) by emitting a radioactive ray, identify the ray and state how it will behave in an electric field.</li>
+      <li><strong>[From Graph 1]:</strong> What is the special name given to pairs of nuclei like (<em>C</em>, <em>E</em>) that have the same mass number (<em>A</em> = 238) but different atomic numbers, and pairs like (<em>D</em>, <em>E</em>) that have the same number of neutrons (<em>N</em> = 145)?</li>
+      <li><strong>[From Graph 2 — ICSE 2025 Board Q3(vii)]:</strong> Curium (<span class="nuc"><sup>247</sup><sub>96</sub></span>Cm, having <em>Z</em> = 96 and <em>N</em> = 151) undergoes radioactive decay by emitting <strong>1 α followed by 2 β particles</strong>. Which point on Graph 2 (<em>P</em>, <em>Q</em>, <em>R</em>, or <em>S</em>) represents the final daughter nucleus, and what is its mass number?</li>
+      <li><strong>[From ICSE 2025 Improvement Graph]:</strong> Why is a nuclear transition where <em>Z</em> remains constant and <em>N</em> increases by 1 impossible through any combination of α, β, or γ decay?</li>
+    </ol>
+    <textarea class="workspace-area" placeholder="Solve all 6 subparts of this Boss-Level Competency Question..."></textarea>
+    <div class="card-actions">
+      <button class="btn-var" onclick="toggleDrawer('var-18')">🔀 Show Variations (5 Past Questions)</button>
+      <button class="btn-ans" onclick="toggleDrawer('ans-18')">👁️ Reveal Answer &amp; Marking Scheme</button>
+      <span class="dpp-locked-msg">🔒 Answer unlocks on DPP Submit</span>
+      <label class="self-check-label"><input type="checkbox" onchange="toggleSelfScore(this, 18)"> ✅ Mark Mastered (+1 XP)</label>
+    </div>
+    <div class="variations-drawer" id="var-18">
+      <div class="var-title">All Past Exam Variations of This Concept:</div>
+      <div class="var-item"><span class="var-year">[ICSE 2025 Board Q3(vii) - 3M with Graph]</span> Curium (<span class="nuc"><sup>247</sup><sub>96</sub></span>Cm) decays by emitting 1 α and 2 β particles. Study the Protons vs Neutrons graph: (a) Which point (P, Q, R, or S) indicates the daughter nucleus? (b) What is the mass number of the daughter nucleus?</div>
+      <div class="var-item"><span class="var-year">[ICSE Specimen 2025, 2026 &amp; 2027 Q9(iii) - 4M with Graph]</span> Graph of Number of Neutrons vs Number of Protons showing elements A, B, C, D, E: (a) Write symbol with mass number and atomic number for C. (b) Which radiation is emitted when C decays to E? (c) Special name for D and E? (d) If C transforms to B, how will the emitted ray behave in an electric field?</div>
+      <div class="var-item"><span class="var-year">[CISCE CFPQ Bank Q83 - 4M with Graph]</span> Plot the position of daughter nuclei when element C (<em>Z</em> = 92, <em>N</em> = 146) undergoes β-decay and subsequent α-decay on the <em>N</em> vs <em>Z</em> grid.</div>
+      <div class="var-item"><span class="var-year">[ICSE 2025 Improvement Q3(vii) - 3M with Graph]</span> Astatine decay graph with three arrows <em>l</em>, <em>m</em>, <em>n</em>: identify which arrow represents an impossible decay by any combination of α, β, γ.</div>
+    </div>
+    <div class="answer-drawer" id="ans-18">
+      <div class="ans-header">✅ Official CISCE Marking Scheme:</div>
+      <ul class="subparts-list">
+        <li><strong>(i) Symbol for Element <em>C</em>:</strong> Protons (<em>Z</em>) = 92, Neutrons (<em>N</em>) = 146 &nbsp;⇒&nbsp; Mass Number (<em>A</em>) = 92 + 146 = 238. Hence, the symbol is <strong><span class="nuc"><sup>238</sup><sub>92</sub></span>C</strong> (or <span class="nuc"><sup>238</sup><sub>92</sub></span>U).</li>
+        <li><strong>(ii) Transformation <em>C</em> (92, 146) → <em>E</em> (93, 145):</strong> Since <em>Z</em> increases by 1 (92 → 93) and <em>N</em> decreases by 1 (146 → 145) keeping <em>A</em> = 238 constant, the radiation emitted is a <strong>Beta (β<sup>−</sup>) particle</strong>.
+          <br><strong>Equation:</strong> <span class="nuc"><sup>238</sup><sub>92</sub></span>C → <span class="nuc"><sup>238</sup><sub>93</sub></span>E + <span class="nuc"><sup>0</sup><sub>−1</sub></span>e</li>
+        <li><strong>(iii) Transformation <em>C</em> (92, 146) → <em>B</em> (90, 144):</strong> Since both <em>Z</em> and <em>N</em> decrease by 2, the emitted ray is an <strong>Alpha (α) particle</strong> (<span class="nuc"><sup>4</sup><sub>2</sub></span>He). In an electric field, it will be <strong>deflected towards the negatively charged plate</strong>.</li>
+        <li><strong>(iv) Special Names:</strong>
+          <br>• Pairs like <strong>(<em>C</em>, <em>E</em>)</strong> have the same mass number (<em>A</em> = 238) and different atomic numbers, so they are <strong>Isobars</strong>.
+          <br>• Pairs like <strong>(<em>D</em>, <em>E</em>)</strong> have the same number of neutrons (<em>N</em> = 145) and different atomic numbers, so they are <strong>Isotones</strong>.</li>
+        <li><strong>(v) ICSE 2025 Board Q3(vii) Curium (<span class="nuc"><sup>247</sup><sub>96</sub></span>Cm) Solution:</strong>
+          <br>• Start at <span class="nuc"><sup>247</sup><sub>96</sub></span>Cm: <em>Z</em> = 96, <em>N</em> = 151.
+          <br>• After 1 α-emission: <em>Z</em> = 96 − 2 = 94, <em>N</em> = 151 − 2 = 149 (Point <em>Q</em>).
+          <br>• After 2 β-emissions: 2 neutrons convert into 2 protons, so <em>Z</em> = 94 + 2 = <strong>96</strong>, and <em>N</em> = 149 − 2 = <strong>147</strong>, which corresponds to <strong>Point <em>R</em></strong>!
+          <br>• <strong>Mass Number of Daughter Nucleus <em>R</em>:</strong> <em>A</em> = <em>Z</em> + <em>N</em> = 96 + 147 = <strong>243</strong> (or 247 − 4 = 243).</li>
+        <li><strong>(vi) Why <em>Z</em> Constant &amp; <em>N</em> + 1 is Impossible:</strong> Neither α-decay (Δ<em>A</em> = −4) nor β/γ-decay (Δ<em>A</em> = 0) can ever <strong>increase</strong> the mass number <em>A</em> (<em>Z</em> + <em>N</em>) of a nucleus.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Archival Note for 2015-2017 Out-of-Syllabus CRT Questions -->
+  <div class="hero-card" style="border-left-color: #a855f7; margin-top: 30px;">
+    <div class="hero-title" style="font-size: 1.05rem; color: #e9d5ff;">📌 Archival Note (2015–2017 Thermionic Emission &amp; Cathode Ray Tube)</div>
+    <p style="font-size: 0.86rem; color: var(--muted);">
+      In <strong>ICSE 2015 Q10(a)</strong>, <strong>ICSE 2016 Q10(b)</strong>, and <strong>ICSE 2017 Q10(a,b)</strong>, questions on <em>Thermionic Emission, Work Function, and Deflection Plates in a Cathode Ray Tube</em> were asked under Modern Physics. Those sub-topics were <strong>permanently removed from the ICSE Class 10 syllabus in 2018</strong>; every single in-syllabus Radioactivity &amp; Nuclear Energy question from 2015 to 2026 is included in the 18 Master Cards above.
+    </p>
+  </div>
+
+</div>
+
+<!-- Fixed Bottom Bar for DPP Submission -->
+<div class="dpp-footer" id="dppFooter" style="display:none;">
+  <div>
+    <strong style="color:#fbbf24;">⏱️ DPP Test Mode Active:</strong> Answers are hidden while you solve. Click Submit when finished!
+  </div>
+  <button class="btn-primary" onclick="submitDpp()">🚀 Submit DPP &amp; Reveal All Answers</button>
+</div>
+
+<script>
+  let currentMode = 'instant'; // 'instant' or 'dpp'
+  let score = 0;
+  const answeredSet = new Set();
+
+  // Timer variables
+  let timerInterval = null;
+  let remainingSeconds = 30 * 60;
+  let isRunning = false;
+
+  function updateScoreUI() {
+    document.getElementById('scoreDisplay').textContent = 'XP / Score: ' + score + ' / 18';
+  }
+
+  // Native Procedural Web Audio API Micro-Sounds
+  const audioFx = (function() {
+    let ctx = null;
+    function getCtx() {
+      if (!ctx && (window.AudioContext || window.webkitAudioContext)) {
+        try { ctx = new (window.AudioContext || window.webkitAudioContext)(); } catch(e) {}
+      }
+      return ctx;
+    }
+    return {
+      playTick: function() {
+        try {
+          const c = getCtx(); if (!c) return;
+          if (c.state === 'suspended') c.resume();
+          const osc = c.createOscillator(), g = c.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(650, c.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(850, c.currentTime + 0.035);
+          g.gain.setValueAtTime(0.04, c.currentTime);
+          g.gain.exponentialRampToValueAtTime(0.001, c.currentTime + 0.035);
+          osc.connect(g); g.connect(c.destination);
+          osc.start(); osc.stop(c.currentTime + 0.035);
+        } catch(e) {}
+      },
+      playSuccess: function() {
+        try {
+          const c = getCtx(); if (!c) return;
+          if (c.state === 'suspended') c.resume();
+          [523.25, 659.25, 783.99].forEach(function(freq, i) {
+            const osc = c.createOscillator(), g = c.createGain();
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, c.currentTime + i * 0.08);
+            g.gain.setValueAtTime(0.05, c.currentTime + i * 0.08);
+            g.gain.exponentialRampToValueAtTime(0.001, c.currentTime + i * 0.08 + 0.22);
+            osc.connect(g); g.connect(c.destination);
+            osc.start(c.currentTime + i * 0.08);
+            osc.stop(c.currentTime + i * 0.08 + 0.22);
+          });
+        } catch(e) {}
+      }
+    };
+  })();
+
+  function setMode(mode) {
+    audioFx.playTick();
+    currentMode = mode;
+    const body = document.body;
+    const btnInstant = document.getElementById('btnInstantMode');
+    const btnDpp = document.getElementById('btnDppMode');
+    const footer = document.getElementById('dppFooter');
+
+    if (mode === 'dpp') {
+      body.classList.remove('instant-active');
+      body.classList.add('dpp-active');
+      btnDpp.classList.add('active');
+      btnInstant.classList.remove('active');
+      footer.style.display = 'flex';
+      document.querySelectorAll('.answer-drawer').forEach(function(d) { d.classList.remove('open'); });
+    } else {
+      body.classList.remove('dpp-active');
+      body.classList.add('instant-active');
+      btnInstant.classList.add('active');
+      btnDpp.classList.remove('active');
+      footer.style.display = 'none';
+    }
+  }
+
+  function toggleDrawer(id) {
+    audioFx.playTick();
+    const el = document.getElementById(id);
+    if (el) el.classList.toggle('open');
+  }
+
+  // Handle MCQ Click
+  function handleMcq(btn, optIndex) {
+    audioFx.playTick();
+    const grid = btn.parentElement;
+    const correctIdx = parseInt(grid.getAttribute('data-correct'), 10);
+    const qid = grid.getAttribute('data-qid');
+    const allBtns = grid.querySelectorAll('.mcq-opt');
+
+    if (currentMode === 'instant') {
+      allBtns.forEach(function(b, i) {
+        b.classList.remove('selected', 'correct', 'wrong');
+        if (i === correctIdx) b.classList.add('correct');
+      });
+      if (optIndex !== correctIdx) {
+        btn.classList.add('wrong');
+      } else if (!answeredSet.has(qid)) {
+        answeredSet.add(qid);
+        score++;
+        updateScoreUI();
+      }
+      document.getElementById('ans-' + qid).classList.add('open');
+    } else {
+      allBtns.forEach(function(b) { b.classList.remove('selected', 'correct', 'wrong'); });
+      btn.classList.add('selected');
+      grid.setAttribute('data-user-choice', optIndex);
+    }
+  }
+
+  // Handle Fill-in-the-Blank Check
+  function checkFib(qid) {
+    const keywords = Array.prototype.slice.call(arguments, 1);
+    const input = document.getElementById('fib-' + qid);
+    const val = input.value.toLowerCase();
+    const matched = keywords.every(function(k) { return val.includes(k.toLowerCase()); });
+
+    if (currentMode === 'instant') {
+      if (matched) {
+        input.style.borderColor = '#10b981';
+        if (!answeredSet.has(String(qid))) {
+          answeredSet.add(String(qid));
+          score++;
+          updateScoreUI();
+        }
+      } else {
+        input.style.borderColor = '#f43f5e';
+      }
+      document.getElementById('ans-' + qid).classList.add('open');
+    } else {
+      input.style.borderColor = '#38bdf8';
+    }
+  }
+
+  // Self Score Checkbox for Short/Structured Questions
+  function toggleSelfScore(checkbox, qid) {
+    const key = String(qid);
+    if (checkbox.checked && !answeredSet.has(key)) {
+      answeredSet.add(key);
+      score++;
+    } else if (!checkbox.checked && answeredSet.has(key)) {
+      answeredSet.delete(key);
+      score--;
+    }
+    updateScoreUI();
+  }
+
+  // Submit DPP & Evaluate All
+  function submitDpp() {
+    if (timerInterval) {
+      clearInterval(timerInterval);
+      isRunning = false;
+      document.getElementById('timerStartBtn').textContent = '▶ Start';
+    }
+
+    document.querySelectorAll('.mcq-grid').forEach(function(grid) {
+      const correctIdx = parseInt(grid.getAttribute('data-correct'), 10);
+      const userChoice = grid.getAttribute('data-user-choice');
+      const qid = grid.getAttribute('data-qid');
+      const allBtns = grid.querySelectorAll('.mcq-opt');
+
+      allBtns.forEach(function(b, i) {
+        b.classList.remove('selected');
+        if (i === correctIdx) b.classList.add('correct');
+      });
+
+      if (userChoice !== null && userChoice !== undefined) {
+        const chosenIdx = parseInt(userChoice, 10);
+        if (chosenIdx === correctIdx) {
+          if (!answeredSet.has(qid)) {
+            answeredSet.add(qid);
+            score++;
+          }
+        } else {
+          allBtns[chosenIdx].classList.add('wrong');
+        }
+      }
+    });
+
+    setMode('instant');
+    document.querySelectorAll('.answer-drawer').forEach(function(d) { d.classList.add('open'); });
+    updateScoreUI();
+    audioFx.playSuccess();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    alert('🎉 DPP Submitted! All Official CISCE Marking Schemes are now unlocked below. Current Score: ' + score + ' / 18.');
+  }
+
+  // Filter Cards by Category
+  function filterCards(cat, btn) {
+    audioFx.playTick();
+    document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+
+    document.querySelectorAll('.q-card').forEach(function(card) {
+      const cardCats = card.getAttribute('data-cat');
+      if (cat === 'all' || cardCats.includes(cat)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // Timer Logic
+  function formatTime(sec) {
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+  }
+
+  function toggleTimer() {
+    const btn = document.getElementById('timerStartBtn');
+    if (isRunning) {
+      clearInterval(timerInterval);
+      isRunning = false;
+      btn.textContent = '▶ Resume';
+    } else {
+      isRunning = true;
+      btn.textContent = '⏸ Pause';
+      timerInterval = setInterval(function() {
+        if (remainingSeconds > 0) {
+          remainingSeconds--;
+          document.getElementById('timerDisplay').textContent = formatTime(remainingSeconds);
+        } else {
+          clearInterval(timerInterval);
+          isRunning = false;
+          btn.textContent = '▶ Start';
+          alert('⏰ Time is up! Submitting your DPP now...');
+          submitDpp();
+        }
+      }, 1000);
+    }
+  }
+
+  function resetTimer() {
+    clearInterval(timerInterval);
+    isRunning = false;
+    const mins = parseInt(document.getElementById('timeSelect').value, 10);
+    remainingSeconds = mins * 60;
+    document.getElementById('timerDisplay').textContent = formatTime(remainingSeconds);
+    document.getElementById('timerStartBtn').textContent = '▶ Start';
+  }
+</script>
+
+</body>
+</html>

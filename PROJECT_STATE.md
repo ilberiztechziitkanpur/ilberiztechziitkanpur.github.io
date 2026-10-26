@@ -151,8 +151,10 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # 20 Verbatim Board Numericals (70M), Formula Vault, Given/To-Find, Live Timer
 │   ├── unit4-theory/                # Unit 4: Theory, Derivations & Diagrams Vault
 │   │   └── index.html               # 24 Forensic Cards (75M), CISCE Marking Keywords, DC Motor/AC Generator Diagrams, Recall Mode
-│   └── unit4-mcq/                   # Unit 4: Diagnostic MCQ Exam Engine
-│       └── index.html               # 25 Forensic MCQs (85+ Variations), DPP Mode, Live Scoreboard & Detailed Board Rationales
+│   ├── unit4-mcq/                   # Unit 4: Diagnostic MCQ Exam Engine
+│   │   └── index.html               # 25 Forensic MCQs (85+ Variations), DPP Mode, Live Scoreboard & Detailed Board Rationales
+│   └── radioactivity/               # Unit 6 / Ch 12: Radioactivity 10-Yr Master DPP & PYQ Vault (2015–2026)
+│       └── index.html               # 18 Master Archetypes, 72+ Past Board Questions, SVGs (Fission/Fusion, Field Deflection, N-vs-Z Graph), Instant & DPP Exam Modes
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -1780,5 +1782,32 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Bumped cache-busting queries in `index.html` to `v=9.9` for `style.css`, `data.js`, and `script.js`.
       - Verified 100% deep equality between `data.js` and `data.json` via automated canonical JSON parity script (`PARITY_100_MATCH`).
+
+70. **Addition of Physics Unit 6: Radioactivity 10-Yr Master DPP & PYQ Vault (2015–2026) v10.0**:
+    - **Engine Ingestion & Subject Folder Isolation (Rule 1, Rule 2 & Rule 3)**:
+      - Ingested `Radioactivity 10-Yr Vault All mixed questions.html` from `C:\Users\ASUS\Downloads\` into dedicated `physics/radioactivity/index.html` (125 KB, 2,059 lines).
+      - Cleaned up raw download file from `C:\Users\ASUS\Downloads\` immediately (Rule 5 & Rule 14).
+      - Features all 18 Master Archetypes grouping 72+ authentic CISCE questions from Board Papers 2015–2026, Specimen Papers 2023–2027, Improvement Papers 2025–2026, and the CISCE Competency-Focused Bank.
+      - Sections: Part 1 (MCQs, Q1–Q6), Part 2 (Fill-in-the-Blanks, Q7–Q9), Part 3 (Section A Short 2–3M, Q10–Q13), Part 4 (Section B Lengthy & Diagrammatic 3–4M, Q14–Q18).
+      - Diagrammatic SVGs:
+        1. Q15: Authentic diagrams for ICSE 2025 Board Q8(ii) Nuclear Fission of $^{235}_{92}\text{U}$ and ICSE 2025 Improvement Q8(ii) Nuclear Fusion of $^{2}_{1}\text{H} + {^{3}_{1}\text{H}}$.
+        2. Q17: Deflection of Alpha ($\alpha$), Beta ($\beta$), and Gamma ($\gamma$) radiations in an electric field between plates $P_1$ (+) and $P_2$ (−) from a thick lead container (ICSE 2018 Q10(c) & 2015 Q10(b)).
+        3. Q18: Competency-focused Proton ($Z$) vs. Neutron ($N$) nuclear decay graph (Specimen 2025/2026/2027 Q9(iii) & CISCE CFPQ Bank Q83).
+      - Integrated standard Google Fonts bundle (`Outfit`, `Plus Jakarta Sans`, `Inter`, `JetBrains Mono`) and `Material Symbols Outlined`.
+      - Integrated standard `.home-nav-btn` (`target="_top"`) linking back to `../../index.html` (Rule 3).
+      - Procedural Web Audio API sound synthesizer (`audioFx`) providing responsive tactile clicks for mode toggles, MCQ selections, and test submission.
+      - Dual Mode switcher: Instant Reveal Mode vs. DPP Test Mode with 15m/30m/45m countdown timer, dynamic XP/Score pill, and collapsible past variations drawers.
+    - **Curriculum Placement & Dual Data Synchronization (Rule 7)**:
+      - Mapped under **Unit 6: Modern Physics** (`unit-phy-6.items`) as its Unit-level Master Study Module AND under **Ch 12: Radioactivity** (`chap-phy-12.items`).
+      - Synchronized across both `data.js` and `data.json` with 100% verified deep equality (`PARITY_100_MATCH`).
+      - Unit 6 card now dynamically displays `1 Chapters • 2 Modules`.
+      - Physics card on Class 10 dashboard displays `6 Units • 12 Ch • 27 Notes • 8 Modules`.
+    - **Spotlight & Navigation Update (Rule 10 & Rule 15)**:
+      - Updated Overview dashboard High-Yield Fast Track rail (`.spotlight-chips-grid`) to spotlight `Radioactivity • 10-Yr Vault (18 Masters)` with the `NEW` badge.
+      - Updated the single featured sidebar quick-launch in `script.js` to `Physics: Radioactivity Vault` with `NEW` badge.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=10.0` for `style.css`, `data.js`, and `script.js`.
+      - Verified syntax delimiter balance in `script.js` (`Braces: 588/588, Parens: 1420/1420, Brackets: 115/115`).
+
 
 

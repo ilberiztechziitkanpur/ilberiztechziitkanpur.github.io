@@ -541,14 +541,32 @@
                             "name": "Unit 6: Modern Physics",
                             "description": "Nuclear Physics — Atomic nucleus, radioactive emissions (alpha, beta, gamma), nuclear transformations, background radiation, safety precautions and nuclear energy",
                             "icon": "science",
-                            "items": [],
+                            "items": [
+                                {
+                                    "id": "phy-u6-radioactivity-vault",
+                                    "title": "Ch 12: Radioactivity — 10-Yr Master DPP & PYQ Vault (2015–2026)",
+                                    "subtitle": "All 18 Master Archetypes (72+ Board Questions, Specimen 2023–2027 & CFPQ), Fission/Fusion SVGs, Field Deflection & N-vs-Z Graph",
+                                    "type": "interactive",
+                                    "file": "physics/radioactivity/index.html",
+                                    "badge": "10-Yr Vault • 18 Masters • 72+ Qs"
+                                }
+                            ],
                             "subchapters": [
                                 {
                                     "id": "chap-phy-12",
                                     "name": "Ch 12: Radioactivity",
                                     "description": "Structure of atom and nucleus, radioactive emissions (α, β, γ particles/rays), nuclear reactions (alpha & beta decay), background radiation, safety precautions, nuclear fission, fusion and mass-energy equivalence (E=mc²)",
                                     "icon": "bubble_chart",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "phy-ch12-radioactivity-vault",
+                                            "title": "Radioactivity 10-Yr Master DPP & PYQ Vault (2015–2026)",
+                                            "subtitle": "All 18 Master Archetypes (72+ Board Variations), Instant & DPP Exam Modes, Fission/Fusion Diagrams, Field Deflection & Competency N vs Z Graph",
+                                            "type": "interactive",
+                                            "file": "physics/radioactivity/index.html",
+                                            "badge": "10-Yr Vault • 18 Archetypes"
+                                        }
+                                    ]
                                 }
                             ]
                         }
