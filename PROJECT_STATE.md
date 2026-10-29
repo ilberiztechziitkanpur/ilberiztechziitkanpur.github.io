@@ -155,6 +155,16 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # 25 Forensic MCQs (85+ Variations), DPP Mode, Live Scoreboard & Detailed Board Rationales
 │   └── radioactivity/               # Unit 6 / Ch 12: Radioactivity 10-Yr Master DPP & PYQ Vault (2015–2026)
 │       └── index.html               # 18 Master Archetypes, 72+ Past Board Questions, SVGs (Fission/Fusion, Field Deflection, N-vs-Z Graph), Instant & DPP Exam Modes
+├── biology/                         # ALL Biology subject content lives strictly here
+│   └── notes/                       # 32 ICSE Class 10 Biology PDF notes across 8 active chapters
+│       ├── Transpiration_01_Class_Notes.pdf ... 03 (3 files)
+│       ├── Photosynthesis_01_Class_Notes.pdf ... 04 (4 files)
+│       ├── Chemical_Coordination_In_Plants_01_Class_Notes.pdf ... 02 (2 files)
+│       ├── Circulatory_System_01_Class_Notes.pdf ... 08 (8 files)
+│       ├── Excretory_System_01_Class_Notes.pdf ... 04 (4 files)
+│       ├── Nervous_System_01_Class_Notes.pdf ... 05 (5 files)
+│       ├── Sense_Organs_01_Class_Notes.pdf ... 04 (4 files)
+│       └── Endocrine_System_01_Class_Notes.pdf ... 02 (2 files)
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -168,12 +178,12 @@ ILBERIZ TECHZ IIT KANPUR/
 
 ## 3. Strict Autonomous Engineering Rules
 
-1. **Subject Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or chapter-specific interactive theory vaults MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `soil/`, `vegetation/`, `water/`, `transport/`, `waste/`, `notes/`, `mcq/`, `toposheet/`, etc.). All History notes and content MUST reside strictly inside `history/` (e.g. `history/notes/`). All English notes and literature content MUST reside strictly inside `english/` (e.g. `english/notes/`). All Physics notes, interactive numericals, theory vaults, and MCQ engines MUST reside strictly inside `physics/` (e.g. `physics/notes/`, `physics/unit1-numerical/`, `physics/unit1-theory/`, `physics/unit1-mcq/`). Never place loose subject files in the repository root.
+1. **Subject Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or chapter-specific interactive theory vaults MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `soil/`, `vegetation/`, `water/`, `transport/`, `waste/`, `notes/`, `mcq/`, `toposheet/`, etc.). All History notes and content MUST reside strictly inside `history/` (e.g. `history/notes/`). All English notes and literature content MUST reside strictly inside `english/` (e.g. `english/notes/`). All Physics notes, interactive numericals, theory vaults, and MCQ engines MUST reside strictly inside `physics/` (e.g. `physics/notes/`, `physics/unit1-numerical/`, `physics/unit1-theory/`, `physics/unit1-mcq/`). All Biology notes MUST reside strictly inside `biology/notes/`. Never place loose subject files in the repository root.
 2. **Standard File Structure for Engines**: Each interactive chapter vault is named `index.html` inside its respective folder (e.g. `geography/<topic>/index.html`) so it can be served as a clean standalone web app or embedded smoothly inside the main dashboard iframe.
 3. **Always Include Navigation & Fonts**: Every chapter engine `index.html` MUST include:
    - Google Fonts (`Inter`, `Outfit`, `JetBrains Mono`) and `Material Symbols Outlined`.
    - The `.home-nav-btn` linking back to `../../index.html` with `target="_top"` so students can easily return to the dashboard.
-4. **No Empty Subject Folders**: Do NOT create empty directories for Mathematics, Chemistry, Biology, etc., until the user provides actual files for them. Active content folders currently exist for Geography (`geography/`), History (`history/notes/`), English (`english/notes/`), and Physics (`physics/notes/`, `physics/unit1-numerical/`, `physics/unit1-theory/`, `physics/unit1-mcq/`). Full authentic ICSE Class 10 chapter syllabi for all 9 subjects are mapped in `data.js` and `data.json`.
+4. **No Empty Subject Folders**: Do NOT create empty directories for Mathematics, Chemistry, etc., until the user provides actual files for them. Active content folders currently exist for Geography (`geography/`), History (`history/notes/`), English (`english/notes/`), Physics (`physics/notes/`, `physics/unit1-numerical/`, `physics/unit1-theory/`, `physics/unit1-mcq/`), and Biology (`biology/notes/`). Full authentic ICSE Class 10 chapter syllabi for all 9 subjects are mapped in `data.js` and `data.json`.
 5. **No Root Clutter**: Never leave raw download files (like `gemini-code-*.html` or `temp_*.html`) in the root directory. Process them into their proper folder (`geography/...`, `history/...`) and remove the loose download file immediately.
 6. **Leave Video Downloader Untouched**: The `Video_Downloader/` directory is for a completely different utility. Never modify, delete, or commit changes inside `Video_Downloader/`.
 7. **Always Synchronize `data.js` and `data.json`**: When adding a new item or chapter, update both files in parallel. `data.js` attaches to `window.COURSE_DATA` for offline `file://` usage, while `data.json` is for standard HTTP fetching.
@@ -626,6 +636,48 @@ ILBERIZ TECHZ IIT KANPUR/
   - `Sound_02_Class_Notes.pdf` (2.9 MB, 3,017,352 bytes, 31 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Practical Applications of Echoes, Echo Depth Sounding & SONAR ($d = vt/2$), RADAR navigation comparison, Echolocation in Bats and Marine Animals (Dolphins), Medical Ultrasonography (Echocardiography), and solved board numericals.
   - `Sound_03_Class_Notes.pdf` (4.2 MB, 4,417,036 bytes, 36 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Natural (Free) Vibrations (vibrations in vacuum, constant amplitude), Damped Vibrations (energy loss due to friction/medium resistance, decreasing amplitude), Forced Vibrations, Resonance Phenomena (special case of forced vibrations when $f_{\text{ext}} = f_{\text{nat}}$, maximum amplitude), Mechanical & Acoustic tuning fork resonance, and real-world resonance case studies.
   - `Sound_04_Class_Notes.pdf` (4.5 MB, 4,701,649 bytes, 40 widescreen slides, Shailendra Sir / Victory 2027 by Physics Wallah) — Three Subjective Characteristics of Sound: (1) Loudness & Intensity (dependence on amplitude squared, surface area, distance, and density; Decibel unit $\text{dB}$), (2) Pitch / Shrillness (dependence on frequency, grave vs shrill distinction), (3) Quality / Timbre (dependence on waveform and subsidiary notes/harmonics/overtones), Difference between Musical Sound and Noise, and comprehensive board numericals.
+
+### V. Biology Notes (32 Class Notes PDFs in `biology/notes/` across 8 Active Chapters)
+- **Chapter 4: Transpiration (3 Notes)**:
+  - `Transpiration_01_Class_Notes.pdf` (2.4 MB, 2,385,870 bytes) — Mechanism of Transpiration: Stomatal, Cuticular & Lenticular Transpiration, Stomatal Apparatus & Opening/Closing Mechanism.
+  - `Transpiration_02_Class_Notes.pdf` (1.4 MB, 1,405,094 bytes) — Factors Affecting Transpiration: External & Internal Factors, Ganong's Potometer Principle, Setup & Precautions.
+  - `Transpiration_03_Class_Notes.pdf` (4.0 MB, 4,020,935 bytes) — Significance of Transpiration: Cooling Effect, Transpiration Pull, Comparison of Transpiration, Guttation & Bleeding.
+- **Chapter 5: Photosynthesis (4 Notes)**:
+  - `Photosynthesis_01_Class_Notes.pdf` (2.5 MB, 2,535,091 bytes) — Chloroplast Anatomy, Chlorophyll Pigments & Light-Dependent Phase (Photolysis of Water, Hill Reaction, Photophosphorylation).
+  - `Photosynthesis_02_Class_Notes.pdf` (2.2 MB, 2,228,083 bytes) — Light-Independent Phase (Calvin Cycle / Dark Reaction), Synthesis of Glucose & Starch, Leaf Adaptations for Photosynthesis.
+  - `Photosynthesis_03_Class_Notes.pdf` (2.4 MB, 2,442,956 bytes) — Factors Affecting Photosynthesis: Light Intensity, Carbon Dioxide Concentration, Temperature, Water & Blackman's Law.
+  - `Photosynthesis_04_Class_Notes.pdf` (3.3 MB, 3,251,012 bytes) — Mandatory Laboratory Experiments: Destarching, Sunlight Necessary, Chlorophyll Necessary, CO2 Necessary (KOH) & O2 Release.
+- **Chapter 6: Chemical Coordination in Plants (2 Notes)**:
+  - `Chemical_Coordination_In_Plants_01_Class_Notes.pdf` (2.1 MB, 2,166,146 bytes) — Plant Hormones (Phytohormones): Auxins, Gibberellins, Cytokinins, Ethylene & Abscisic Acid (ABA) Roles & Applications.
+  - `Chemical_Coordination_In_Plants_02_Class_Notes.pdf` (3.2 MB, 3,249,607 bytes) — Plant Movements: Tropic Movements (Phototropism, Geotropism, Hydrotropism, Thigmotropism) & Nastic Movements (Mimosa pudica).
+- **Chapter 7: The Circulatory System (8 Notes)**:
+  - `Circulatory_System_01_Class_Notes.pdf` (3.2 MB, 3,194,635 bytes) — Blood Composition: Blood Plasma, RBCs (Erythrocytes), WBCs (Granulocytes & Agranulocytes) & Platelets (Thrombocytes).
+  - `Circulatory_System_02_Class_Notes.pdf` (3.1 MB, 3,091,610 bytes) — Blood Clotting Mechanism (Thromboplastin, Prothrombin, Thrombin, Fibrin Mesh) & Blood Groups (ABO & Rh Factor Compatibility).
+  - `Circulatory_System_03_Class_Notes.pdf` (2.4 MB, 2,360,865 bytes) — Gross Anatomy of Human Heart: Pericardium, External Morphology, 4 Chambers & Great Blood Vessels (Vena Cava, Aorta, Pulmonary Vessels).
+  - `Circulatory_System_04_Class_Notes.pdf` (2.9 MB, 2,914,333 bytes) — Internal Structure of Heart: Valves (Tricuspid, Bicuspid/Mitral, Aortic & Pulmonary Semilunars), Chordae Tendineae & Papillary Muscles.
+  - `Circulatory_System_05_Class_Notes.pdf` (1.4 MB, 1,394,505 bytes) — Cardiac Cycle Physiology: Auricular & Ventricular Systole/Diastole, Lubb & Dup Heart Sounds, Pulse & Pacemaker (SA/AV Nodes).
+  - `Circulatory_System_06_Class_Notes.pdf` (2.3 MB, 2,347,442 bytes) — Blood Vessels Microscopic Anatomy: Comparative Histology of Arteries, Veins and Capillaries (Layers, Lumen & Valves).
+  - `Circulatory_System_07_Class_Notes.pdf` (1.7 MB, 1,746,608 bytes) — Double Circulation Architecture: Pulmonary & Systemic Circulation Circuits, Hepatic Portal System & Renal Circulation.
+  - `Circulatory_System_08_Class_Notes.pdf` (2.6 MB, 2,564,412 bytes) — Lymphatic System & Spleen: Lymph Formation, Lymph Vessels & Nodes, Spleen Functions & Cardiovascular Disorders.
+- **Chapter 8: The Excretory System (4 Notes)**:
+  - `Excretory_System_01_Class_Notes.pdf` (2.7 MB, 2,710,797 bytes) — Excretory Organs & Nitrogenous Wastes (Urea, Uric Acid, Ammonia), Gross Anatomy of Human Urinary System (Kidneys, Ureters, Bladder, Urethra).
+  - `Excretory_System_02_Class_Notes.pdf` (2.7 MB, 2,696,230 bytes) — Internal Structure of Kidney (Cortex, Medulla, Pelvis, Pyramids) & Nephron Anatomy (Bowman's Capsule, Glomerulus, Malpighian Body).
+  - `Excretory_System_03_Class_Notes.pdf` (1.7 MB, 1,691,956 bytes) — Nephron Tubules (PCT, Henle's Loop, DCT, Collecting Duct), Renal Blood Circulation (Afferent/Efferent Arterioles, Peritubular Capillaries).
+  - `Excretory_System_04_Class_Notes.pdf` (3.7 MB, 3,704,265 bytes) — Physiology of Urine Formation: Ultrafiltration, Selective Reabsorption, Tubular Secretion, Osmoregulation & Artificial Kidney (Dialysis).
+- **Chapter 9: The Nervous System (5 Notes)**:
+  - `Nervous_System_01_Class_Notes.pdf` (1.7 MB, 1,731,805 bytes) — Micro-Structure of Neuron: Cyton, Dendrites, Axon, Myelin Sheath, Nodes of Ranvier, Neurilemma & Functional Types of Neurons.
+  - `Nervous_System_02_Class_Notes.pdf` (3.3 MB, 3,287,639 bytes) — Transmission of Nerve Impulses, Synaptic Transmission (Neurotransmitters/Acetylcholine) & Nerve Classification (Sensory, Motor, Mixed).
+  - `Nervous_System_03_Class_Notes.pdf` (2.7 MB, 2,743,654 bytes) — Central Nervous System (CNS) — Human Brain Anatomy: Cerebrum, Cerebral Hemispheres, Gyri/Sulci, Corpus Callosum, Cerebellum & Medulla Oblongata.
+  - `Nervous_System_04_Class_Notes.pdf` (4.7 MB, 4,718,700 bytes) — Brain Ventricles, Meninges (Dura, Arachnoid, Pia Mater), Cerebrospinal Fluid (CSF) & Spinal Cord Structure (Grey & White Matter Distribution).
+  - `Nervous_System_05_Class_Notes.pdf` (3.6 MB, 3,618,684 bytes) — Peripheral & Autonomic Systems (Sympathetic & Parasympathetic Antagonism), Reflex Actions & Reflex Arc (Natural vs Conditioned Reflexes).
+- **Chapter 10: Sense Organs (4 Notes)**:
+  - `Sense_Organs_01_Class_Notes.pdf` (3.3 MB, 3,265,960 bytes) — Sensory Receptors Overview & Anatomy of Human Eye: External Features, Sclera, Cornea, Choroid, Ciliary Body & Iris.
+  - `Sense_Organs_02_Class_Notes.pdf` (3.2 MB, 3,241,912 bytes) — Internal Eye Anatomy: Retina, Rods & Cones (Rhodopsin/Iodopsin), Fovea Centralis (Yellow Spot), Blind Spot, Lens, Aqueous & Vitreous Humour.
+  - `Sense_Organs_03_Class_Notes.pdf` (4.2 MB, 4,158,278 bytes) — Mechanism of Vision, Accommodation of the Eye (Near & Far Vision) & Defects of Vision (Myopia, Hyperopia, Presbyopia, Astigmatism, Cataract).
+  - `Sense_Organs_04_Class_Notes.pdf` (3.6 MB, 3,586,872 bytes) — Anatomy of Human Ear: External Ear, Ear Ossicles (Malleus, Incus, Stapes), Cochlea, Organ of Corti, Semicircular Canals & Balance Organs.
+- **Chapter 11: The Endocrine System (2 Notes)**:
+  - `Endocrine_System_01_Class_Notes.pdf` (4.4 MB, 4,417,889 bytes) — Endocrine vs Exocrine Glands, Hormone Properties, Pituitary Gland (Master Gland: GH, TSH, ACTH, ADH) & Thyroid Gland (Thyroxine & Disorders).
+  - `Endocrine_System_02_Class_Notes.pdf` (4.6 MB, 4,601,225 bytes) — Adrenal Glands (Adrenaline 'Fight or Flight' Hormone, Corticoids), Pancreas (Insulin, Glucagon, Diabetes Mellitus) & Feedback Mechanism.
 
 ### U. Authentic ICSE Class 10 Curriculum Alignment (All 9 Subjects)
 All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus chapters (CBSE chapters completely removed):
@@ -1802,12 +1854,55 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Synchronized across both `data.js` and `data.json` with 100% verified deep equality (`PARITY_100_MATCH`).
       - Unit 6 card now dynamically displays `1 Chapters • 2 Modules`.
       - Physics card on Class 10 dashboard displays `6 Units • 12 Ch • 27 Notes • 8 Modules`.
+71. **Ingestion of 32 ICSE Class 10 Biology Master Class Notes & Syllabus Restructuring v11.0**:
+    - **Interactive Note Ingestion & Subject Folder Isolation (Rule 1, Rule 5 & Rule 14)**:
+      - Promptly identified 15 notes from user screenshot plus 17 companion Biology notes downloaded in the same batch from `C:\Users\ASUS\Downloads\`.
+      - Per user interactive confirmation via `ask_question`, ingested and organized all 32 class notes into dedicated `biology/notes/`:
+        1. `Transpiration_01_Class_Notes.pdf` (2.4 MB) — Ch 4: Stomatal, cuticular & lenticular transpiration.
+        2. `Transpiration_02_Class_Notes.pdf` (1.4 MB) — Ch 4: Factors affecting rate & Ganong's potometer.
+        3. `Transpiration_03_Class_Notes.pdf` (4.0 MB) — Ch 4: Transpiration pull, guttation & bleeding.
+        4. `Photosynthesis_01_Class_Notes.pdf` (2.5 MB) — Ch 5: Chloroplast anatomy & light-dependent phase (photolysis).
+        5. `Photosynthesis_02_Class_Notes.pdf` (2.2 MB) — Ch 5: Light-independent Calvin cycle & leaf adaptations.
+        6. `Photosynthesis_03_Class_Notes.pdf` (2.4 MB) — Ch 5: Factors affecting photosynthesis & Blackman's law.
+        7. `Photosynthesis_04_Class_Notes.pdf` (3.3 MB) — Ch 5: Mandatory experiments (destarching, KOH, O2 release).
+        8. `Chemical_Coordination_In_Plants_01_Class_Notes.pdf` (2.1 MB) — Ch 6: Phytohormones (Auxins, Gibberellins, Cytokinins, Ethylene, ABA).
+        9. `Chemical_Coordination_In_Plants_02_Class_Notes.pdf` (3.2 MB) — Ch 6: Plant movements (Tropic & Nastic movements).
+        10. `Circulatory_System_01_Class_Notes.pdf` (3.2 MB) — Ch 7: Blood composition (Plasma, RBC, WBC, Platelets).
+        11. `Circulatory_System_02_Class_Notes.pdf` (3.1 MB) — Ch 7: Blood clotting mechanism & ABO/Rh groups.
+        12. `Circulatory_System_03_Class_Notes.pdf` (2.4 MB) — Ch 7: Human heart gross anatomy & great blood vessels.
+        13. `Circulatory_System_04_Class_Notes.pdf` (2.9 MB) — Ch 7: Heart valves & chordae tendineae.
+        14. `Circulatory_System_05_Class_Notes.pdf` (1.4 MB) — Ch 7: Cardiac cycle, heart sounds, pulse & pacemakers.
+        15. `Circulatory_System_06_Class_Notes.pdf` (2.3 MB) — Ch 7: Comparative histology of arteries, veins & capillaries.
+        16. `Circulatory_System_07_Class_Notes.pdf` (1.7 MB) — Ch 7: Double circulation & hepatic portal system.
+        17. `Circulatory_System_08_Class_Notes.pdf` (2.6 MB) — Ch 7: Lymphatic system, spleen & cardiovascular health.
+        18. `Excretory_System_01_Class_Notes.pdf` (2.7 MB) — Ch 8: Excretory organs, nitrogenous wastes & urinary system.
+        19. `Excretory_System_02_Class_Notes.pdf` (2.7 MB) — Ch 8: Internal kidney anatomy & nephron structure.
+        20. `Excretory_System_03_Class_Notes.pdf` (1.7 MB) — Ch 8: Nephron tubules & renal micro-circulation.
+        21. `Excretory_System_04_Class_Notes.pdf` (3.7 MB) — Ch 8: Urine formation physiology & artificial kidney dialysis.
+        22. `Nervous_System_01_Class_Notes.pdf` (1.7 MB) — Ch 9: Neuron cytology & functional neuron types.
+        23. `Nervous_System_02_Class_Notes.pdf` (3.3 MB) — Ch 9: Impulse transmission, synapses & nerve types.
+        24. `Nervous_System_03_Class_Notes.pdf` (2.7 MB) — Ch 9: Central nervous system human brain anatomy.
+        25. `Nervous_System_04_Class_Notes.pdf` (4.7 MB) — Ch 9: Brain ventricles, meninges, CSF & spinal cord.
+        26. `Nervous_System_05_Class_Notes.pdf` (3.6 MB) — Ch 9: Peripheral/Autonomic systems & reflex arc.
+        27. `Sense_Organs_01_Class_Notes.pdf` (3.3 MB) — Ch 10: Sensory receptors & human eye anatomy.
+        28. `Sense_Organs_02_Class_Notes.pdf` (3.2 MB) — Ch 10: Internal eye anatomy, retina & photoreceptors.
+        29. `Sense_Organs_03_Class_Notes.pdf` (4.2 MB) — Ch 10: Vision mechanism, accommodation & vision defects.
+        30. `Sense_Organs_04_Class_Notes.pdf` (3.6 MB) — Ch 10: Human ear anatomy, hearing & balance organs.
+        31. `Endocrine_System_01_Class_Notes.pdf` (4.4 MB) — Ch 11: Endocrine vs exocrine, pituitary & thyroid.
+        32. `Endocrine_System_02_Class_Notes.pdf` (4.6 MB) — Ch 11: Adrenal, pancreas, feedback mechanism & disorders.
+      - Cleaned up raw downloads from `C:\Users\ASUS\Downloads\` immediately.
+    - **Syllabus Restructuring & Sense Organs Splitting**:
+      - Restructured ICSE Class 10 Biology into 14 authentic chapters, splitting Sense Organs into its own dedicated Ch 10, adding Chemical Coordination in Plants as Ch 6, and renumbering subsequent chapters.
+    - **Dual Data Synchronization (Rule 7)**:
+      - Synchronized `sub-10-bio` across both `data.js` and `data.json`.
+      - Biology card on Class 10 dashboard dynamically displays `14 Chapters • 32 Notes`.
     - **Spotlight & Navigation Update (Rule 10 & Rule 15)**:
-      - Updated Overview dashboard High-Yield Fast Track rail (`.spotlight-chips-grid`) to spotlight `Radioactivity • 10-Yr Vault (18 Masters)` with the `NEW` badge.
-      - Updated the single featured sidebar quick-launch in `script.js` to `Physics: Radioactivity Vault` with `NEW` badge.
+      - Updated Overview dashboard High-Yield Fast Track rail (`.spotlight-chips-grid`) to exclusively spotlight the new Biology 32 Master Notes Vault, Circulatory, Nervous, Sense Organs, Excretory, Photosynthesis, Transpiration, Chemical Coordination, and Endocrine notes.
+      - Updated the single featured sidebar quick-launch in `script.js` to `Biology: 32 Notes Vault` with `NEW` badge.
     - **Cache Invalidation & Schema Validation (Rule 11)**:
-      - Bumped cache-busting queries in `index.html` to `v=10.0` for `style.css`, `data.js`, and `script.js`.
-      - Verified syntax delimiter balance in `script.js` (`Braces: 588/588, Parens: 1420/1420, Brackets: 115/115`).
+      - Bumped cache-busting queries in `index.html` to `v=11.0` for `data.js` and `script.js`.
+      - Verified 100% of all 154 files across all subjects exist on disk.
+
 
 
 

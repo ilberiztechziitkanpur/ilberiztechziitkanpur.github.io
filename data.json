@@ -679,54 +679,330 @@
                         {
                             "id": "chap-bio-4",
                             "name": "Ch 4: Transpiration",
-                            "description": "Stomatal mechanism, cuticular/lenticular transpiration, factors affecting rate, potometer and guttation",
-                            "items": []
+                            "description": "Stomatal mechanism, cuticular & lenticular transpiration, factors affecting rate, potometer experiments, guttation and bleeding",
+                            "items": [
+                                {
+                                    "id": "bio-transpiration-notes-01",
+                                    "title": "Transpiration 01 Class Notes",
+                                    "subtitle": "Mechanism of Transpiration: Stomatal, Cuticular & Lenticular Transpiration, Stomatal Apparatus & Opening/Closing Mechanism",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Transpiration_01_Class_Notes.pdf",
+                                    "size": "2.4 MB"
+                                },
+                                {
+                                    "id": "bio-transpiration-notes-02",
+                                    "title": "Transpiration 02 Class Notes",
+                                    "subtitle": "Factors Affecting Transpiration: External & Internal Factors, Ganong's Potometer Principle, Setup & Precautions",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Transpiration_02_Class_Notes.pdf",
+                                    "size": "1.4 MB"
+                                },
+                                {
+                                    "id": "bio-transpiration-notes-03",
+                                    "title": "Transpiration 03 Class Notes",
+                                    "subtitle": "Significance of Transpiration: Cooling Effect, Transpiration Pull, Comparison of Transpiration, Guttation & Bleeding",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Transpiration_03_Class_Notes.pdf",
+                                    "size": "4.0 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-bio-5",
                             "name": "Ch 5: Photosynthesis",
-                            "description": "Chloroplast, light-dependent and light-independent phases, factors affecting rate and destarching experiments",
-                            "items": []
+                            "description": "Chloroplast structure, chlorophyll, light-dependent and light-independent phases, limiting factors and destarching experiments",
+                            "items": [
+                                {
+                                    "id": "bio-photosynthesis-notes-01",
+                                    "title": "Photosynthesis 01 Class Notes",
+                                    "subtitle": "Chloroplast Anatomy, Chlorophyll Pigments & Light-Dependent Phase (Photolysis of Water, Hill Reaction, Photophosphorylation)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Photosynthesis_01_Class_Notes.pdf",
+                                    "size": "2.5 MB"
+                                },
+                                {
+                                    "id": "bio-photosynthesis-notes-02",
+                                    "title": "Photosynthesis 02 Class Notes",
+                                    "subtitle": "Light-Independent Phase (Calvin Cycle / Dark Reaction), Synthesis of Glucose & Starch, Leaf Adaptations for Photosynthesis",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Photosynthesis_02_Class_Notes.pdf",
+                                    "size": "2.2 MB"
+                                },
+                                {
+                                    "id": "bio-photosynthesis-notes-03",
+                                    "title": "Photosynthesis 03 Class Notes",
+                                    "subtitle": "Factors Affecting Photosynthesis: Light Intensity, Carbon Dioxide Concentration, Temperature, Water & Blackman's Law",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Photosynthesis_03_Class_Notes.pdf",
+                                    "size": "2.4 MB"
+                                },
+                                {
+                                    "id": "bio-photosynthesis-notes-04",
+                                    "title": "Photosynthesis 04 Class Notes",
+                                    "subtitle": "Mandatory Laboratory Experiments: Destarching, Sunlight Necessary, Chlorophyll Necessary, CO2 Necessary (KOH) & O2 Release",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Photosynthesis_04_Class_Notes.pdf",
+                                    "size": "3.3 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-bio-6",
-                            "name": "Ch 6: The Circulatory System",
-                            "description": "Blood composition, ABO & Rh groups, heart anatomy, double circulation, cardiac cycle and blood vessels",
-                            "items": []
+                            "name": "Ch 6: Chemical Coordination in Plants",
+                            "description": "Plant hormones (Auxins, Gibberellins, Cytokinins, Ethylene, ABA) and plant movements (Tropic and Nastic movements)",
+                            "items": [
+                                {
+                                    "id": "bio-chemical-coord-notes-01",
+                                    "title": "Chemical Coordination In Plants 01 Class Notes",
+                                    "subtitle": "Plant Hormones (Phytohormones): Auxins, Gibberellins, Cytokinins, Ethylene & Abscisic Acid (ABA) Roles & Applications",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Chemical_Coordination_In_Plants_01_Class_Notes.pdf",
+                                    "size": "2.1 MB"
+                                },
+                                {
+                                    "id": "bio-chemical-coord-notes-02",
+                                    "title": "Chemical Coordination In Plants 02 Class Notes",
+                                    "subtitle": "Plant Movements: Tropic Movements (Phototropism, Geotropism, Hydrotropism, Thigmotropism) & Nastic Movements (Mimosa pudica)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Chemical_Coordination_In_Plants_02_Class_Notes.pdf",
+                                    "size": "3.2 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-bio-7",
-                            "name": "Ch 7: The Excretory System",
-                            "description": "Kidney structure, nephron anatomy, ultrafiltration, selective reabsorption, tubular secretion and dialysis",
-                            "items": []
+                            "name": "Ch 7: The Circulatory System",
+                            "description": "Blood composition, coagulation mechanism, ABO/Rh blood groups, heart anatomy, cardiac cycle, blood vessels, double circulation & lymphatic system",
+                            "items": [
+                                {
+                                    "id": "bio-circulatory-notes-01",
+                                    "title": "Circulatory System 01 Class Notes",
+                                    "subtitle": "Blood Composition: Blood Plasma, RBCs (Erythrocytes), WBCs (Granulocytes & Agranulocytes) & Platelets (Thrombocytes)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Circulatory_System_01_Class_Notes.pdf",
+                                    "size": "3.2 MB"
+                                },
+                                {
+                                    "id": "bio-circulatory-notes-02",
+                                    "title": "Circulatory System 02 Class Notes",
+                                    "subtitle": "Blood Clotting Mechanism (Thromboplastin, Prothrombin, Thrombin, Fibrin Mesh) & Blood Groups (ABO & Rh Factor Compatibility)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Circulatory_System_02_Class_Notes.pdf",
+                                    "size": "3.1 MB"
+                                },
+                                {
+                                    "id": "bio-circulatory-notes-03",
+                                    "title": "Circulatory System 03 Class Notes",
+                                    "subtitle": "Gross Anatomy of Human Heart: Pericardium, External Morphology, 4 Chambers & Great Blood Vessels (Vena Cava, Aorta, Pulmonary Vessels)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Circulatory_System_03_Class_Notes.pdf",
+                                    "size": "2.4 MB"
+                                },
+                                {
+                                    "id": "bio-circulatory-notes-04",
+                                    "title": "Circulatory System 04 Class Notes",
+                                    "subtitle": "Internal Structure of Heart: Valves (Tricuspid, Bicuspid/Mitral, Aortic & Pulmonary Semilunars), Chordae Tendineae & Papillary Muscles",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Circulatory_System_04_Class_Notes.pdf",
+                                    "size": "2.9 MB"
+                                },
+                                {
+                                    "id": "bio-circulatory-notes-05",
+                                    "title": "Circulatory System 05 Class Notes",
+                                    "subtitle": "Cardiac Cycle Physiology: Auricular & Ventricular Systole/Diastole, Lubb & Dup Heart Sounds, Pulse & Pacemaker (SA/AV Nodes)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Circulatory_System_05_Class_Notes.pdf",
+                                    "size": "1.4 MB"
+                                },
+                                {
+                                    "id": "bio-circulatory-notes-06",
+                                    "title": "Circulatory System 06 Class Notes",
+                                    "subtitle": "Blood Vessels Microscopic Anatomy: Comparative Histology of Arteries, Veins and Capillaries (Layers, Lumen & Valves)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Circulatory_System_06_Class_Notes.pdf",
+                                    "size": "2.3 MB"
+                                },
+                                {
+                                    "id": "bio-circulatory-notes-07",
+                                    "title": "Circulatory System 07 Class Notes",
+                                    "subtitle": "Double Circulation Architecture: Pulmonary & Systemic Circulation Circuits, Hepatic Portal System & Renal Circulation",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Circulatory_System_07_Class_Notes.pdf",
+                                    "size": "1.7 MB"
+                                },
+                                {
+                                    "id": "bio-circulatory-notes-08",
+                                    "title": "Circulatory System 08 Class Notes",
+                                    "subtitle": "Lymphatic System & Spleen: Lymph Formation, Lymph Vessels & Nodes, Spleen Functions & Cardiovascular Disorders",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Circulatory_System_08_Class_Notes.pdf",
+                                    "size": "2.6 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-bio-8",
-                            "name": "Ch 8: The Nervous System & Sense Organs",
-                            "description": "Neuron, synapses, central nervous system (brain, spinal cord), reflex arc and structure of eye and ear",
-                            "items": []
+                            "name": "Ch 8: The Excretory System",
+                            "description": "Kidney anatomy, nephron structure, ultrafiltration, selective reabsorption, tubular secretion, osmoregulation and dialysis",
+                            "items": [
+                                {
+                                    "id": "bio-excretory-notes-01",
+                                    "title": "Excretory System 01 Class Notes",
+                                    "subtitle": "Excretory Organs & Nitrogenous Wastes (Urea, Uric Acid, Ammonia), Gross Anatomy of Human Urinary System (Kidneys, Ureters, Bladder, Urethra)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Excretory_System_01_Class_Notes.pdf",
+                                    "size": "2.7 MB"
+                                },
+                                {
+                                    "id": "bio-excretory-notes-02",
+                                    "title": "Excretory System 02 Class Notes",
+                                    "subtitle": "Internal Structure of Kidney (Cortex, Medulla, Pelvis, Pyramids) & Nephron Anatomy (Bowman's Capsule, Glomerulus, Malpighian Body)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Excretory_System_02_Class_Notes.pdf",
+                                    "size": "2.7 MB"
+                                },
+                                {
+                                    "id": "bio-excretory-notes-03",
+                                    "title": "Excretory System 03 Class Notes",
+                                    "subtitle": "Nephron Tubules (PCT, Henle's Loop, DCT, Collecting Duct), Renal Blood Circulation (Afferent/Efferent Arterioles, Peritubular Capillaries)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Excretory_System_03_Class_Notes.pdf",
+                                    "size": "1.7 MB"
+                                },
+                                {
+                                    "id": "bio-excretory-notes-04",
+                                    "title": "Excretory System 04 Class Notes",
+                                    "subtitle": "Physiology of Urine Formation: Ultrafiltration, Selective Reabsorption, Tubular Secretion, Osmoregulation & Artificial Kidney (Dialysis)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Excretory_System_04_Class_Notes.pdf",
+                                    "size": "3.7 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-bio-9",
-                            "name": "Ch 9: The Endocrine System",
-                            "description": "Endocrine glands, hormones (pituitary, thyroid, adrenal, pancreas) and hyposecretion/hypersecretion disorders",
-                            "items": []
+                            "name": "Ch 9: The Nervous System",
+                            "description": "Structure of neuron, synapses, central nervous system (brain and spinal cord), peripheral & autonomic nervous systems, reflex arc and reflex actions",
+                            "items": [
+                                {
+                                    "id": "bio-nervous-notes-01",
+                                    "title": "Nervous System 01 Class Notes",
+                                    "subtitle": "Micro-Structure of Neuron: Cyton, Dendrites, Axon, Myelin Sheath, Nodes of Ranvier, Neurilemma & Functional Types of Neurons",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Nervous_System_01_Class_Notes.pdf",
+                                    "size": "1.7 MB"
+                                },
+                                {
+                                    "id": "bio-nervous-notes-02",
+                                    "title": "Nervous System 02 Class Notes",
+                                    "subtitle": "Transmission of Nerve Impulses, Synaptic Transmission (Neurotransmitters/Acetylcholine) & Nerve Classification (Sensory, Motor, Mixed)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Nervous_System_02_Class_Notes.pdf",
+                                    "size": "3.3 MB"
+                                },
+                                {
+                                    "id": "bio-nervous-notes-03",
+                                    "title": "Nervous System 03 Class Notes",
+                                    "subtitle": "Central Nervous System (CNS) — Human Brain Anatomy: Cerebrum, Cerebral Hemispheres, Gyri/Sulci, Corpus Callosum, Cerebellum & Medulla Oblongata",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Nervous_System_03_Class_Notes.pdf",
+                                    "size": "2.7 MB"
+                                },
+                                {
+                                    "id": "bio-nervous-notes-04",
+                                    "title": "Nervous System 04 Class Notes",
+                                    "subtitle": "Brain Ventricles, Meninges (Dura, Arachnoid, Pia Mater), Cerebrospinal Fluid (CSF) & Spinal Cord Structure (Grey & White Matter Distribution)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Nervous_System_04_Class_Notes.pdf",
+                                    "size": "4.7 MB"
+                                },
+                                {
+                                    "id": "bio-nervous-notes-05",
+                                    "title": "Nervous System 05 Class Notes",
+                                    "subtitle": "Peripheral & Autonomic Systems (Sympathetic & Parasympathetic Antagonism), Reflex Actions & Reflex Arc (Natural vs Conditioned Reflexes)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Nervous_System_05_Class_Notes.pdf",
+                                    "size": "3.6 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-bio-10",
-                            "name": "Ch 10: The Reproductive System",
+                            "name": "Ch 10: Sense Organs",
+                            "description": "Sensory receptors, anatomy of human eye and ear, accommodation of eye, defects of vision and correction, mechanism of hearing and dynamic balance",
+                            "items": [
+                                {
+                                    "id": "bio-sense-organs-notes-01",
+                                    "title": "Sense Organs 01 Class Notes",
+                                    "subtitle": "Sensory Receptors Overview & Anatomy of Human Eye: External Features, Sclera, Cornea, Choroid, Ciliary Body & Iris",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Sense_Organs_01_Class_Notes.pdf",
+                                    "size": "3.3 MB"
+                                },
+                                {
+                                    "id": "bio-sense-organs-notes-02",
+                                    "title": "Sense Organs 02 Class Notes",
+                                    "subtitle": "Internal Eye Anatomy: Retina, Rods & Cones (Rhodopsin/Iodopsin), Fovea Centralis (Yellow Spot), Blind Spot, Lens, Aqueous & Vitreous Humour",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Sense_Organs_02_Class_Notes.pdf",
+                                    "size": "3.2 MB"
+                                },
+                                {
+                                    "id": "bio-sense-organs-notes-03",
+                                    "title": "Sense Organs 03 Class Notes",
+                                    "subtitle": "Mechanism of Vision, Accommodation of the Eye (Near & Far Vision) & Defects of Vision (Myopia, Hyperopia, Presbyopia, Astigmatism, Cataract)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Sense_Organs_03_Class_Notes.pdf",
+                                    "size": "4.2 MB"
+                                },
+                                {
+                                    "id": "bio-sense-organs-notes-04",
+                                    "title": "Sense Organs 04 Class Notes",
+                                    "subtitle": "Anatomy of Human Ear: External Ear, Ear Ossicles (Malleus, Incus, Stapes), Cochlea, Organ of Corti, Semicircular Canals & Balance Organs",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Sense_Organs_04_Class_Notes.pdf",
+                                    "size": "3.6 MB"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "chap-bio-11",
+                            "name": "Ch 11: The Endocrine System",
+                            "description": "Endocrine glands, characteristics of hormones, pituitary, thyroid, adrenal, pancreas and hyposecretion/hypersecretion disorders",
+                            "items": [
+                                {
+                                    "id": "bio-endocrine-notes-01",
+                                    "title": "Endocrine System 01 Class Notes",
+                                    "subtitle": "Endocrine vs Exocrine Glands, Hormone Properties, Pituitary Gland (Master Gland: GH, TSH, ACTH, ADH) & Thyroid Gland (Thyroxine & Disorders)",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Endocrine_System_01_Class_Notes.pdf",
+                                    "size": "4.4 MB"
+                                },
+                                {
+                                    "id": "bio-endocrine-notes-02",
+                                    "title": "Endocrine System 02 Class Notes",
+                                    "subtitle": "Adrenal Glands (Adrenaline 'Fight or Flight' Hormone, Corticoids), Pancreas (Insulin, Glucagon, Diabetes Mellitus) & Feedback Mechanism",
+                                    "type": "pdf",
+                                    "file": "biology/notes/Endocrine_System_02_Class_Notes.pdf",
+                                    "size": "4.6 MB"
+                                }
+                            ]
+                        },
+                        {
+                            "id": "chap-bio-12",
+                            "name": "Ch 12: The Reproductive System",
                             "description": "Male and female reproductive organs, menstrual cycle, fertilisation, implantation and gestation",
                             "items": []
                         },
                         {
-                            "id": "chap-bio-11",
-                            "name": "Ch 11: Human Population",
+                            "id": "chap-bio-13",
+                            "name": "Ch 13: Human Population",
                             "description": "Demographic trends, reasons for population explosion in India and birth control measures",
                             "items": []
                         },
                         {
-                            "id": "chap-bio-12",
-                            "name": "Ch 12: Pollution — Environmental Challenges",
+                            "id": "chap-bio-14",
+                            "name": "Ch 14: Pollution — Environmental Challenges",
                             "description": "Air, water, soil and noise pollution sources, acid rain, greenhouse effect, ozone depletion and control",
                             "items": []
                         }

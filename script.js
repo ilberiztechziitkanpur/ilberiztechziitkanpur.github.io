@@ -1076,31 +1076,24 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Physics Unit 6: Radioactivity 10-Yr Vault
-    const phyNav = document.createElement('div');
-    const isPhyActive = state.currentView !== 'search' && state.path[1] === 'sub-10-phy' && state.path[2] === 'unit-phy-6';
-    phyNav.className = `nav-item nav-item-featured ${isPhyActive ? 'active' : ''}`;
-    phyNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #38bdf8;">science</span>
-        <span style="font-weight: 600;">Physics: Radioactivity Vault</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8); color:#fff; box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);">NEW</span>
+    // Latest Update Quick Launch: Biology 32 Class Notes Master Vault
+    const bioNav = document.createElement('div');
+    const isBioActive = state.currentView !== 'search' && state.path[1] === 'sub-10-bio';
+    bioNav.className = `nav-item nav-item-featured ${isBioActive ? 'active' : ''}`;
+    bioNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #10b981;">psychology_alt</span>
+        <span style="font-weight: 600;">Biology: 32 Notes Vault</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #059669, #10b981); color:#fff; box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);">NEW</span>
     `;
-    phyNav.onclick = () => {
+    bioNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        const phySub = batch?.subjects?.find(s => s.id === 'sub-10-phy');
-        const unit6 = phySub?.chapters?.find(c => c.id === 'unit-phy-6');
-        if (unit6) {
-            const vaultItem = unit6.items?.find(i => i.id === 'phy-u6-radioactivity-vault');
-            if (vaultItem) {
-                navigateTo('viewer', [batch.id, phySub.id, unit6.id], vaultItem);
-            } else {
-                navigateTo('subchapters', [batch.id, phySub.id, unit6.id]);
-            }
+        if (batch) {
+            navigateTo('chapters', [batch.id, 'sub-10-bio']);
         }
     };
-    navMenu.appendChild(phyNav);
+    navMenu.appendChild(bioNav);
 }
 
 function resetSearch() {
@@ -1267,7 +1260,7 @@ function renderView() {
                     <span class="stat-label">Prescribed Subjects</span>
                 </div>
                 <div class="hero-stat-card">
-                    <span class="stat-number" data-target="45" data-suffix="+">0</span>
+                    <span class="stat-number" data-target="100" data-suffix="+">0</span>
                     <span class="stat-label">Full Class Notes</span>
                 </div>
                 <div class="hero-stat-card">
@@ -1295,82 +1288,66 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
-                <button class="spotlight-chip featured-chip" id="spot-phy-u6" type="button">
-                    <span class="material-symbols-outlined" style="color: #38bdf8;">science</span>
-                    <span class="spotlight-chip-text">Radioactivity • 10-Yr Vault (18 Masters)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">NEW</span>
+                <button class="spotlight-chip featured-chip" id="spot-bio-all" type="button">
+                    <span class="material-symbols-outlined" style="color: #10b981;">psychology_alt</span>
+                    <span class="spotlight-chip-text">Biology • 32 Master Notes Vault</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #059669, #10b981);">NEW</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-phy-u3" type="button">
-                    <span class="material-symbols-outlined" style="color: #38bdf8;">graphic_eq</span>
-                    <span class="spotlight-chip-text">Physics • Unit 3 Sound (4 Notes)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #059669, #10b981);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-bio-circ" type="button">
+                    <span class="material-symbols-outlined" style="color: #f43f5e;">favorite</span>
+                    <span class="spotlight-chip-text">Circulatory System (8 Notes)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #e11d48, #f43f5e);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-phy-u4" type="button">
-                    <span class="material-symbols-outlined" style="color: #38bdf8;">electric_bolt</span>
-                    <span class="spotlight-chip-text">Physics • Unit 4 Master Vault</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">HOT</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-phy-u4-num" type="button">
-                    <span class="material-symbols-outlined" style="color: #f59e0b;">calculate</span>
-                    <span class="spotlight-chip-text">Electricity • Pure Numericals (70M)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #d97706, #f59e0b);">HOT</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-phy-u4-theory" type="button">
-                    <span class="material-symbols-outlined" style="color: #10b981;">menu_book</span>
-                    <span class="spotlight-chip-text">Electricity • Theory Vault (75M)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #059669, #10b981);">HOT</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-phy-u4-mcq" type="button">
-                    <span class="material-symbols-outlined" style="color: #a855f7;">quiz</span>
-                    <span class="spotlight-chip-text">Electricity • Diagnostic MCQ Exam (25 Qs)</span>
+                <button class="spotlight-chip featured-chip" id="spot-bio-nerv" type="button">
+                    <span class="material-symbols-outlined" style="color: #a855f7;">neurology</span>
+                    <span class="spotlight-chip-text">The Nervous System (5 Notes)</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-phy-u4-ch8" type="button">
-                    <span class="material-symbols-outlined" style="color: #38bdf8;">electrical_services</span>
-                    <span class="spotlight-chip-text">Ch 8: Current Electricity (3 Notes)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #06b6d4);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-bio-sense" type="button">
+                    <span class="material-symbols-outlined" style="color: #38bdf8;">visibility</span>
+                    <span class="spotlight-chip-text">Sense Organs (4 Notes • Eye & Ear)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">HOT</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-bio-excr" type="button">
+                    <span class="material-symbols-outlined" style="color: #f59e0b;">water_drop</span>
+                    <span class="spotlight-chip-text">The Excretory System (4 Notes)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #d97706, #f59e0b);">HOT</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-bio-photo" type="button">
+                    <span class="material-symbols-outlined" style="color: #22c55e;">sunny</span>
+                    <span class="spotlight-chip-text">Photosynthesis (4 Notes • Light/Dark)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #16a34a, #22c55e);">HOT</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-bio-trans" type="button">
+                    <span class="material-symbols-outlined" style="color: #06b6d4;">energy_savings_leaf</span>
+                    <span class="spotlight-chip-text">Transpiration (3 Notes • Potometer)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0891b2, #06b6d4);">HOT</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-bio-chem" type="button">
+                    <span class="material-symbols-outlined" style="color: #84cc16;">eco</span>
+                    <span class="spotlight-chip-text">Chemical Coordination (2 Notes)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #65a30d, #84cc16);">HOT</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-bio-endo" type="button">
+                    <span class="material-symbols-outlined" style="color: #ec4899;">medication</span>
+                    <span class="spotlight-chip-text">The Endocrine System (2 Notes)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #db2777, #ec4899);">HOT</span>
                 </button>
             </div>
         `;
         wrapper.appendChild(spotlightSection);
 
         // Bind Spotlight Clicks (clean, fast, single-lookup)
-        const phySub = batch?.subjects?.find(s => s.id === 'sub-10-phy');
-        const unit3 = phySub?.chapters?.find(c => c.id === 'unit-phy-3');
-        const unit4 = phySub?.chapters?.find(c => c.id === 'unit-phy-4');
-        const unit6 = phySub?.chapters?.find(c => c.id === 'unit-phy-6');
-        const ch8 = unit4?.subchapters?.find(sc => sc.id === 'chap-phy-8');
-        const ch10 = unit4?.subchapters?.find(sc => sc.id === 'chap-phy-10');
-
         const chipActions = {
-            '#spot-phy-u6': () => {
-                audioFX.playTick();
-                const item = unit6?.items?.find(i => i.id === 'phy-u6-radioactivity-vault');
-                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-6'], item);
-                else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-6']);
-            },
-            '#spot-phy-u3': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-3', 'chap-phy-7']); },
-            '#spot-phy-u4': () => { audioFX.playTick(); navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-4']); },
-            '#spot-phy-u4-num': () => {
-                audioFX.playTick();
-                const item = unit4?.items?.find(i => i.id === 'phy-u4-numerical');
-                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-4'], item);
-                else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-4']);
-            },
-            '#spot-phy-u4-theory': () => {
-                audioFX.playTick();
-                const item = unit4?.items?.find(i => i.id === 'phy-u4-theory');
-                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-4'], item);
-                else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-4']);
-            },
-            '#spot-phy-u4-mcq': () => {
-                audioFX.playTick();
-                const item = unit4?.items?.find(i => i.id === 'phy-u4-mcq');
-                if (item) navigateTo('viewer', [batch.id, 'sub-10-phy', 'unit-phy-4'], item);
-                else navigateTo('subchapters', [batch.id, 'sub-10-phy', 'unit-phy-4']);
-            },
-            '#spot-phy-u4-ch8': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-4', 'chap-phy-8']); },
-            '#spot-phy-u4-ch10': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-phy', 'unit-phy-4', 'chap-phy-10']); }
+            '#spot-bio-all': () => { audioFX.playTick(); navigateTo('chapters', [batch.id, 'sub-10-bio']); },
+            '#spot-bio-circ': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-bio', 'chap-bio-7']); },
+            '#spot-bio-nerv': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-bio', 'chap-bio-9']); },
+            '#spot-bio-sense': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-bio', 'chap-bio-10']); },
+            '#spot-bio-excr': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-bio', 'chap-bio-8']); },
+            '#spot-bio-photo': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-bio', 'chap-bio-5']); },
+            '#spot-bio-trans': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-bio', 'chap-bio-4']); },
+            '#spot-bio-chem': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-bio', 'chap-bio-6']); },
+            '#spot-bio-endo': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-bio', 'chap-bio-11']); }
         };
 
         Object.entries(chipActions).forEach(([selector, action]) => {
