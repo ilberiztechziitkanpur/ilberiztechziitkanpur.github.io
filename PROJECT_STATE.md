@@ -97,6 +97,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── The_Second_World_War_01_Class_Notes.pdf (5.9 MB) — Causes: Versailles dissatisfaction, Appeasement, League failure & Invasion of Poland
 │       └── The_Second_World_War_02_Class_Notes.pdf (3.8 MB) — Consequences: Axis defeat, Pearl Harbour, Hiroshima/Nagasaki, UN & Cold War
 ├── english/                         # ALL English subject content lives strictly here
+│   ├── grammar-vault/               # ICSE Class 10 Functional Grammar Master Vault
+│   │   └── index.html               # 202 Forensic Questions (98 Transformations & 104 Prepositions), 21 Rules, 14 Confusing Pairs, Dual Instant & DPP Modes
 │   └── notes/                       # ICSE Class 10 English Literature PDF notes
 │       ├── Julius_Caesar_01_Class_Notes.pdf (4.4 MB) — Act 3 Scene 1 (Part 1): Warm-up, recap, line-by-line & MCQs
 │       ├── Julius_Caesar_02_Class_Notes.pdf (3.7 MB) — Act 3 Scene 1 (Part 2): Conspirators, assassination, mind maps & MCQs
@@ -806,6 +808,15 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
    - Ch 7: Arrays (1D & 2D, Searching & Sorting)
    - Ch 8: String Handling in Java
    - Ch 9: Exception Handling in Java
+
+### L. English Language Functional Grammar Master Vault (1 Interactive Application in `english/grammar-vault/`)
+- **ICSE Class 10 Functional Grammar Master Vault (`english/grammar-vault/index.html`)**:
+  - 202 Forensic Questions (98 Do As Directed Transformations & 104 Prepositions) covering 10-Year Board PYQs (2015–2025), CISCE Specimen 2025, CFPQ Competency Assessment, and Total English Test Papers 1–8.
+  - 21 Rule-Wise Masterclasses: 12 Transformation Rules (T1–T12) and 9 Preposition Rules (P1–P9) with formulas, board traps, and explanations.
+  - 14 High-Yield Controversial Preposition Pairs Matrix (Since/For, Beside/Besides, Between/Among, In/At/On, etc.).
+  - Dual Execution Modes: Instant Answer Reveal with rationales & DPP Timed Test Mode with countdown timer and automated scorecard.
+  - Full `.home-nav-btn` navigation (`target="_top"`), offline support, light/dark editorial ivory theme.
+
 
 ---
 
@@ -1903,6 +1914,23 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Bumped cache-busting queries in `index.html` to `v=11.0` for `data.js` and `script.js`.
       - Verified 100% of all 154 files across all subjects exist on disk.
 
-
-
-
+72. **Integration of ICSE Class 10 Functional Grammar Master Vault (10-Yr PYQs, CFPQ & Total English Test Papers 1–8) v12.0**:
+    - **Interactive Engine Ingestion & Subject Folder Isolation (Rule 1, Rule 2 & Rule 3)**:
+      - Ingested `ICSE Class 10 Functional Grammar Vault.html` (278 KB) from `C:\Users\ASUS\Downloads\` into dedicated directory `english/grammar-vault/index.html`.
+      - Integrated Google Fonts (`Inter`, `Outfit`, `JetBrains Mono`), `Material Symbols Outlined`, and responsive `.home-nav-btn` (`target="_top"`) in the top command bar, allowing students to seamlessly navigate between the standalone application and the dashboard.
+      - Removed raw download file from `C:\Users\ASUS\Downloads\` immediately per Rule 5 and Rule 14.
+    - **Engine Architecture & Functional Coverage**:
+      - **202 High-Yield Questions**: 98 Do As Directed Sentence Transformations and 104 Preposition Drills across 10-Year Board PYQs (2015–2025), CISCE Specimen 2025, Competency Focused Practice Questions (CFPQ), and Total English Test Papers 1 to 8.
+      - **21 Rule-Wise Masterclasses**: 12 Sentence Transformation Rules (T1–T12: No Sooner/Hardly, Too...to / So...that, Active/Passive Voice, Direct/Indirect Speech, Degree of Comparison, Question Tags, Conditional If/Unless, Inversion, etc.) and 9 Preposition Rule Blueprints (P1–P9: Time, Location, Motion, Phrasal Verbs, Fixed Collocations).
+      - **14 Controversial Preposition Pairs Matrix**: Forensic comparison tables for commonly confused pairs (Since vs For, Beside vs Besides, Between vs Among, In vs At vs On, Differ with vs Differ from, etc.).
+      - **Dual Practice Modes**: Instant Answer Reveal Mode with deep rationales and DPP Timed Test Mode (15, 30, 45 min) with live SVG countdown ring, progress bar, and comprehensive scorecard modal.
+    - **Curriculum Placement & Dual Data Parity (Rule 7)**:
+      - Updated `chap-eng-4` ("Ch 4: English Language — Composition & Applied Grammar") under `sub-10-eng` in both `data.json` and `data.js` with `featured: true`, `icon: "spellcheck"`, and the interactive module entry `eng-functional-grammar-vault`.
+      - Verified 100% deep equality between `data.json` and `data.js` via canonical parity verification script.
+      - Updated `script.js` subject badge calculation to distinguish both notes and interactive modules cleanly (`4 Ch • 14 Notes • 1 Module`).
+    - **Spotlight & Navigation Update (Rule 10 & Rule 15)**:
+      - Updated Overview dashboard High-Yield Fast Track rail (`.spotlight-chips-grid`) to exclusively spotlight the new English Language Functional Grammar Master Vault and English literature modules, completely purging prior subject chips per Rule 15.
+      - Updated the featured sidebar quick-launch in `script.js` to `English: Grammar Vault` with `NEW` badge.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=12.0` for `style.css`, `data.js`, and `script.js`.
+      - Verified all 155 content files and interactive engines on disk.

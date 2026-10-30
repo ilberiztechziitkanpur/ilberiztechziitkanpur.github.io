@@ -2061,8 +2061,19 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-eng-4",
                             "name": "Ch 4: English Language — Composition & Applied Grammar",
-                            "description": "Essays, formal/informal letters, Notice & Email writing, comprehension and grammar transformations",
-                            "items": []
+                            "description": "Functional Grammar Master Vault (202 Qs), 10-Yr Board PYQs (2015–2025), CFPQ Competency, Total English Test Papers 1–8, Prepositions Matrix & Transformations",
+                            "items": [
+                                {
+                                    "id": "eng-functional-grammar-vault",
+                                    "title": "ICSE Class 10 Functional Grammar Master Vault — 10-Yr PYQs, CFPQ & Total English",
+                                    "subtitle": "202 Forensic Questions (98 Do As Directed Transformations & 104 Prepositions), 10-Year Board PYQs (2015–2025), Specimen & CFPQ, Total English Test Papers 1–8, Dual Instant & DPP Timed Test Modes",
+                                    "type": "interactive",
+                                    "file": "english/grammar-vault/index.html",
+                                    "badge": "Master Vault • 202 Board & Total English Qs • Dual Modes"
+                                }
+                            ],
+                            "featured": true,
+                            "icon": "spellcheck"
                         }
                     ]
                 },
