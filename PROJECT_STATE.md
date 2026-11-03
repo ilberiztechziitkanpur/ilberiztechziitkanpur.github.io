@@ -169,7 +169,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │       └── Endocrine_System_01_Class_Notes.pdf ... 02 (2 files)
 ├── chemistry/                       # ALL Chemistry subject content lives strictly here
 │   └── notes/                       # ICSE Class 10 Chemistry PDF notes
-│       └── Hydrogen_Chloride_01_Class_Notes.pdf (4.4 MB) — Ch 8: Occurrence, orbital diagram, lab prep from NaCl, drying agents, fountain experiment, physical & chemical properties (45 slides)
+│       ├── Hydrogen_Chloride_01_Class_Notes.pdf (4.4 MB) — Ch 8A: Lab prep from NaCl, fountain experiment, inverted funnel arrangement (45 slides)
+│       └── Ammonia_02_Class_Notes.pdf (5.7 MB) — Ch 8B: Funnel recap, Ammonia discovery, structure, lab prep from NH4Cl + Ca(OH)2, drying with CaO (41 slides)
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -823,16 +824,28 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
 
 ---
 
-### W. Chemistry Notes (1 PDF in `chemistry/notes/`)
-- **Chapter 8: Study of Compounds — Hydrogen Chloride (1 Note)**:
-  - `Hydrogen_Chloride_01_Class_Notes.pdf` (4.4 MB, 45 slides) — Lecture 01: Study of Compounds — Hydrogen Chloride (HCl):
-    - Occurrence in free state (volcanic gases) and combined state (gastric juice in human stomach for activating pepsin).
-    - Molecular structure & Orbital Diagram of covalent HCl molecule (H: 1s¹, Cl: 2,8,7).
-    - Laboratory Preparation of Hydrogen Chloride Gas: Reactants (Sodium Chloride NaCl + concentrated Sulphuric Acid H₂SO₄), Temperature control (< 200°C to prevent sodium sulphate crust formation and apparatus cracking), and Gas collection by upward displacement of air (downward delivery) due to being 1.28 times heavier than air.
-    - Purification & Incompatible Drying Agents: Concentrated H₂SO₄ as preferred dehydrating/drying agent; inapplicability of Quicklime (CaO) and Phosphorus pentoxide (P₂O₅) due to basic/chemical reactions forming CaCl₂ and POCl₃.
-    - Safety & Dissolution Mechanism: Inverted funnel arrangement with rim touching water surface to prevent back-suction (*water rush*) into reaction flask caused by high solubility.
-    - Fountain Experiment: Red fountain demonstration proving high solubility of HCl gas in water and acidic nature turning blue litmus red.
-    - Physical & Chemical Properties: Acidic properties, ionization in water into H₃O⁺ and Cl⁻, reaction with metals, metal oxides, carbonates, bicarbonates, sulphites, sulphides, and precipitation reaction with Silver Nitrate (AgNO₃) forming curdy white AgCl precipitate soluble in excess ammonium hydroxide (NH₄OH).
+### W. Chemistry Notes (2 PDFs in `chemistry/notes/`)
+- **Unit: Ch 8: Study of Compounds (4 Prescribed Chapters)**:
+  - **Study of Compounds — Hydrogen Chloride (1 Note)**:
+    - `Hydrogen_Chloride_01_Class_Notes.pdf` (4.4 MB, 45 slides) — Lecture 01: Study of Compounds — Hydrogen Chloride (HCl):
+      - Occurrence in free state (volcanic gases) and combined state (gastric juice in human stomach for activating pepsin).
+      - Molecular structure & Orbital Diagram of covalent HCl molecule (H: 1s¹, Cl: 2,8,7).
+      - Laboratory Preparation of Hydrogen Chloride Gas: Reactants (Sodium Chloride NaCl + concentrated Sulphuric Acid H₂SO₄), Temperature control (< 200°C to prevent sodium sulphate crust formation and apparatus cracking), and Gas collection by upward displacement of air (downward delivery) due to being 1.28 times heavier than air.
+      - Purification & Incompatible Drying Agents: Concentrated H₂SO₄ as preferred dehydrating/drying agent; inapplicability of Quicklime (CaO) and Phosphorus pentoxide (P₂O₅) due to basic/chemical reactions forming CaCl₂ and POCl₃.
+      - Safety & Dissolution Mechanism: Inverted funnel arrangement with rim touching water surface to prevent back-suction (*water rush*) into reaction flask caused by high solubility.
+      - Fountain Experiment: Red fountain demonstration proving high solubility of HCl gas in water and acidic nature turning blue litmus red.
+      - Physical & Chemical Properties: Acidic properties, ionization in water into H₃O⁺ and Cl⁻, reaction with metals, metal oxides, carbonates, bicarbonates, sulphites, sulphides, and precipitation reaction with Silver Nitrate (AgNO₃) forming curdy white AgCl precipitate soluble in excess ammonium hydroxide (NH₄OH).
+  - **Study of Compounds — Ammonia (1 Note)**:
+    - `Ammonia_02_Class_Notes.pdf` (5.7 MB, 41 slides) — Lecture 02: Study of Compounds — Ammonia (NH3):
+      - Concluding HCl: Inverted funnel arrangement mechanism (preventing back-suction/water rush and increasing surface area for dissolution), board questions on fountain experiment.
+      - Basics of Ammonia: Discovery, occurrence (free and combined state in decaying organic matter), molecular formula, trigonal pyramidal structure with 1 unshared lone pair of electrons.
+      - Forms of Ammonia: Dry gaseous ammonia, liquid ammonia, and liquor ammoniae fortis (0.880 saturated solution).
+      - Laboratory Preparation of Ammonia: Reactants (Ammonium Chloride NH₄Cl + Calcium Hydroxide Ca(OH)₂ / slaked lime in 2:3 ratio), reason for excess slaked lime (cheap and non-deliquescent), reason for tilting round-bottom flask downward (preventing condensation water trickling back into the hot reaction bulb and causing fracture).
+      - Purification & Drying: Quicklime (CaO) as the only applicable basic drying agent; chemical incompatibility of CaCl₂, P₂O₅, and conc. H₂SO₄ which react chemically forming coordination compounds (CaCl₂·8NH₃) and ammonium salts ((NH₄)₃PO₄, (NH₄)₂SO₄).
+      - Collection: Downward displacement of air (inverted jar) due to low vapor density (8.5 vs 14.4 of air) and extreme solubility in water (cannot be collected over water).
+      - Other Preparatory Reactions: Warm water hydrolysis of metal nitrides (Magnesium Nitride Mg₃N₂ + 6H₂O → 3Mg(OH)₂ + 2NH₃↑ and Aluminium Nitride AlN + 3H₂O → Al(OH)₃ + NH₃↑).
+  - **Study of Compounds — Nitric Acid**: Planned / In Progress.
+  - **Study of Compounds — Sulphuric Acid**: Planned / In Progress.
 
 ## 5. Protocol for Future Chats (Step-by-Step Onboarding Guide)
 
@@ -1963,5 +1976,25 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Updated the featured sidebar quick-launch in `script.js` to `Chemistry: HCl Notes` with icon `biotech` and `NEW` badge.
     - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Bumped cache-busting queries in `index.html` to `v=13.0` for `style.css`, `data.js`, and `script.js`.
+      - Validated `data.json` syntax with `python -m json.tool`.
+      - Verified physical file existence on disk via `Test-Path`.
+74. **Restructuring ICSE Class 10 Chemistry into "Study of Compounds" Master Unit & Ingestion of Ammonia 02 Class Notes v13.1**:
+    - **Architecture Restructuring into Master Unit (User Direction)**:
+      - Restructured Chemistry curriculum from loose standalone chapters (Ch 8 to Ch 11) into a single cohesive Master Unit: `unit-chem-compounds` ("Ch 8: Study of Compounds").
+      - Configured 4 nested subchapters with seamless sub-navigation: `subchap-chem-hcl` (Hydrogen Chloride), `subchap-chem-nh3` (Ammonia), `subchap-chem-hno3` (Nitric Acid), and `subchap-chem-h2so4` (Sulphuric Acid).
+      - Renumbered subsequent Organic Chemistry to `Ch 9: Organic Chemistry` (9 continuous chapters total).
+    - **Single-File Note Ingestion & Subject Folder Isolation (Rule 1, Rule 5 & Rule 14)**:
+      - Identified user command `Study of Compounds 02 _ Class Notes` matching `C:\Users\ASUS\Downloads\Study of Compounds 02 _ Class Notes.pdf` (5.7 MB, 41 slides).
+      - Standardized file to `chemistry/notes/Ammonia_02_Class_Notes.pdf` within `chemistry/notes/`.
+      - Removed raw download from `C:\Users\ASUS\Downloads\` immediately per Rule 5.
+    - **Curriculum Placement & Dual Data Synchronization (Rule 7)**:
+      - Placed `Hydrogen Chloride 01 Class Notes` inside `subchap-chem-hcl`.
+      - Placed `Ammonia 02 Class Notes` inside `subchap-chem-nh3`.
+      - Synchronized `data.json` and `data.js` with 100% deep equality.
+      - Subject card dynamically renders `9 Ch • 2 Notes`, and Unit card renders `4 Chapters • 2 Notes` with `Explore Unit` CTA.
+    - **Spotlight & Navigation Update (Rule 10 & Rule 15)**:
+      - Updated sidebar quick-launch in `script.js` to `Chemistry: Compounds Unit` with icon `science` and `NEW` badge linking directly to the Study of Compounds subchapters view.
+      - Updated Overview dashboard High-Yield Fast Track rail to spotlight Ammonia Notes 02 (`NEW`), Hydrogen Chloride Notes 01 (`HOT`), and the Study of Compounds Unit (`HOT`).
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Validated `data.json` syntax with `python -m json.tool`.
       - Verified physical file existence on disk via `Test-Path`.

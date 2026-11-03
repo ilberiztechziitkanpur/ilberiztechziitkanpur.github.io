@@ -621,41 +621,59 @@ window.COURSE_DATA = {
                             "items": []
                         },
                         {
-                            "id": "chap-chem-8",
-                            "name": "Ch 8: Study of Compounds — Hydrogen Chloride",
-                            "description": "Lab preparation from NaCl, fountain experiment, physical/chemical properties and precipitation tests",
-                            "items": [
+                            "id": "unit-chem-compounds",
+                            "name": "Ch 8: Study of Compounds",
+                            "description": "Hydrogen Chloride, Ammonia, Nitric Acid and Sulphuric Acid — Lab preparations, fountain experiments, industrial manufacture & properties",
+                            "icon": "science",
+                            "items": [],
+                            "subchapters": [
                                 {
-                                    "id": "chem-hcl-notes-01",
-                                    "title": "Hydrogen Chloride 01 Class Notes",
-                                    "subtitle": "Study of Compounds: Laboratory Preparation of Hydrogen Chloride Gas & Hydrochloric Acid, Fountain Experiment, Physical & Chemical Properties",
-                                    "type": "pdf",
-                                    "file": "chemistry/notes/Hydrogen_Chloride_01_Class_Notes.pdf",
-                                    "size": "4.4 MB"
+                                    "id": "subchap-chem-hcl",
+                                    "name": "Study of Compounds — Hydrogen Chloride",
+                                    "description": "Lab preparation from NaCl, fountain experiment, inverted funnel arrangement, physical/chemical properties and precipitation tests",
+                                    "items": [
+                                        {
+                                            "id": "chem-hcl-notes-01",
+                                            "title": "Hydrogen Chloride 01 Class Notes",
+                                            "subtitle": "Study of Compounds: Laboratory Preparation of Hydrogen Chloride Gas & Hydrochloric Acid, Fountain Experiment, Physical & Chemical Properties",
+                                            "type": "pdf",
+                                            "file": "chemistry/notes/Hydrogen_Chloride_01_Class_Notes.pdf",
+                                            "size": "4.4 MB"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "subchap-chem-nh3",
+                                    "name": "Study of Compounds — Ammonia",
+                                    "description": "Lab preparation from NH4Cl and Ca(OH)2, Haber's process, drying with CaO, fountain experiment, basic nature and catalytic oxidation",
+                                    "items": [
+                                        {
+                                            "id": "chem-nh3-notes-02",
+                                            "title": "Ammonia 02 Class Notes",
+                                            "subtitle": "Study of Compounds: HCl Funnel Arrangement Recap, Ammonia (NH3) Molecular Structure, Forms & Laboratory Preparation from NH4Cl and Ca(OH)2",
+                                            "type": "pdf",
+                                            "file": "chemistry/notes/Ammonia_02_Class_Notes.pdf",
+                                            "size": "5.7 MB"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "id": "subchap-chem-hno3",
+                                    "name": "Study of Compounds — Nitric Acid",
+                                    "description": "Lab preparation from KNO3/NaNO3, Ostwald's process, oxidising properties and brown ring test",
+                                    "items": []
+                                },
+                                {
+                                    "id": "subchap-chem-h2so4",
+                                    "name": "Study of Compounds — Sulphuric Acid",
+                                    "description": "Industrial manufacture by Contact Process, acidic, oxidising and dehydrating properties",
+                                    "items": []
                                 }
                             ]
                         },
                         {
-                            "id": "chap-chem-9",
-                            "name": "Ch 9: Study of Compounds — Ammonia",
-                            "description": "Lab preparation, Haber's process, fountain experiment, basic nature and catalytic oxidation",
-                            "items": []
-                        },
-                        {
-                            "id": "chap-chem-10",
-                            "name": "Ch 10: Study of Compounds — Nitric Acid",
-                            "description": "Lab preparation from KNO3/NaNO3, Ostwald's process, oxidising properties and brown ring test",
-                            "items": []
-                        },
-                        {
-                            "id": "chap-chem-11",
-                            "name": "Ch 11: Study of Compounds — Sulphuric Acid",
-                            "description": "Industrial manufacture by Contact Process, acidic, oxidising and dehydrating properties",
-                            "items": []
-                        },
-                        {
                             "id": "chap-chem-12",
-                            "name": "Ch 12: Organic Chemistry",
+                            "name": "Ch 9: Organic Chemistry",
                             "description": "Catenation, tetravalency, homologous series, IUPAC nomenclature of alkanes, alkenes, alkynes, alcohols, carboxylic acids",
                             "items": []
                         }
