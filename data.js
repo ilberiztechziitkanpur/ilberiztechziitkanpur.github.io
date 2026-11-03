@@ -663,6 +663,14 @@ window.COURSE_DATA = {
                                             "type": "pdf",
                                             "file": "chemistry/notes/Ammonia_02_Class_Notes.pdf",
                                             "size": "5.7 MB"
+                                        },
+                                        {
+                                            "id": "chem-nh3-notes-03",
+                                            "title": "Ammonia 03 Class Notes",
+                                            "subtitle": "Study of Compounds: Haber's Process, Physical & Chemical Properties of Ammonia, Fountain Experiment, Tests for Ammonia Gas & Board MCQs",
+                                            "type": "pdf",
+                                            "file": "chemistry/notes/Ammonia_03_Class_Notes.pdf",
+                                            "size": "5.0 MB"
                                         }
                                     ]
                                 },

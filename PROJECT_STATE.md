@@ -172,7 +172,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # 57 Verbatim Board & Specimen MCQs across HCl, NH3, HNO3, H2SO4, Instant & DPP Modes
 │   └── notes/                       # ICSE Class 10 Chemistry PDF notes
 │       ├── Hydrogen_Chloride_01_Class_Notes.pdf (4.4 MB) — Ch 8A: Lab prep from NaCl, fountain experiment, inverted funnel arrangement (45 slides)
-│       └── Ammonia_02_Class_Notes.pdf (5.7 MB) — Ch 8B: Funnel recap, Ammonia discovery, structure, lab prep from NH4Cl + Ca(OH)2, drying with CaO (41 slides)
+│       ├── Ammonia_02_Class_Notes.pdf (5.7 MB) — Ch 8B: Funnel recap, Ammonia discovery, structure, lab prep from NH4Cl + Ca(OH)2, drying with CaO (41 slides)
+│       └── Ammonia_03_Class_Notes.pdf (5.0 MB) — Ch 8B: Haber's process, physical/chemical properties, fountain experiment, gas tests & MCQs (51 slides)
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -826,7 +827,7 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
 
 ---
 
-### W. Chemistry Notes (2 PDFs in `chemistry/notes/`)
+### W. Chemistry Notes (3 PDFs in `chemistry/notes/`)
 - **Unit: Ch 8: Study of Compounds (4 Prescribed Chapters)**:
   - **Study of Compounds — Hydrogen Chloride (1 Note)**:
     - `Hydrogen_Chloride_01_Class_Notes.pdf` (4.4 MB, 45 slides) — Lecture 01: Study of Compounds — Hydrogen Chloride (HCl):
@@ -837,15 +838,13 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
       - Safety & Dissolution Mechanism: Inverted funnel arrangement with rim touching water surface to prevent back-suction (*water rush*) into reaction flask caused by high solubility.
       - Fountain Experiment: Red fountain demonstration proving high solubility of HCl gas in water and acidic nature turning blue litmus red.
       - Physical & Chemical Properties: Acidic properties, ionization in water into H₃O⁺ and Cl⁻, reaction with metals, metal oxides, carbonates, bicarbonates, sulphites, sulphides, and precipitation reaction with Silver Nitrate (AgNO₃) forming curdy white AgCl precipitate soluble in excess ammonium hydroxide (NH₄OH).
-  - **Study of Compounds — Ammonia (1 Note)**:
-    - `Ammonia_02_Class_Notes.pdf` (5.7 MB, 41 slides) — Lecture 02: Study of Compounds — Ammonia (NH3):
-      - Concluding HCl: Inverted funnel arrangement mechanism (preventing back-suction/water rush and increasing surface area for dissolution), board questions on fountain experiment.
-      - Basics of Ammonia: Discovery, occurrence (free and combined state in decaying organic matter), molecular formula, trigonal pyramidal structure with 1 unshared lone pair of electrons.
-      - Forms of Ammonia: Dry gaseous ammonia, liquid ammonia, and liquor ammoniae fortis (0.880 saturated solution).
-      - Laboratory Preparation of Ammonia: Reactants (Ammonium Chloride NH₄Cl + Calcium Hydroxide Ca(OH)₂ / slaked lime in 2:3 ratio), reason for excess slaked lime (cheap and non-deliquescent), reason for tilting round-bottom flask downward (preventing condensation water trickling back into the hot reaction bulb and causing fracture).
-      - Purification & Drying: Quicklime (CaO) as the only applicable basic drying agent; chemical incompatibility of CaCl₂, P₂O₅, and conc. H₂SO₄ which react chemically forming coordination compounds (CaCl₂·8NH₃) and ammonium salts ((NH₄)₃PO₄, (NH₄)₂SO₄).
-      - Collection: Downward displacement of air (inverted jar) due to low vapor density (8.5 vs 14.4 of air) and extreme solubility in water (cannot be collected over water).
-      - Other Preparatory Reactions: Warm water hydrolysis of metal nitrides (Magnesium Nitride Mg₃N₂ + 6H₂O → 3Mg(OH)₂ + 2NH₃↑ and Aluminium Nitride AlN + 3H₂O → Al(OH)₃ + NH₃↑).
+  - **Study of Compounds — Ammonia (2 Notes)**:
+    - `Ammonia_02_Class_Notes.pdf` (5.7 MB, 41 slides) — Lecture 02: Study of Compounds — Ammonia (NH3): Concluding HCl inverted funnel arrangement, Ammonia structure, forms, laboratory preparation from NH₄Cl + Ca(OH)₂, drying with CaO, collection by downward displacement of air, and metal nitride hydrolysis.
+    - `Ammonia_03_Class_Notes.pdf` (5.0 MB, 51 slides) — Lecture 03: Study of Compounds — Ammonia (NH3):
+      - Industrial Manufacture by Haber's Process: Direct combination of dry N₂ and H₂ in 1:3 volume ratio, optimum temperature (450°C–500°C), high pressure (200–900 atm), finely divided iron catalyst with molybdenum or Al₂O₃/K₂O promoter, exothermic equilibrium, liquefaction separation and fractional evaporation.
+      - Physical Properties: Colorless gas with characteristic pungent choking smell, non-poisonous, lighter than air, alkaline nature turning red litmus blue and phenolphthalein pink, fountain experiment demonstrating extreme solubility.
+      - Chemical Properties: Combustibility in oxygen (greenish-yellow flame) without burning in air, catalytic oxidation of ammonia over platinum gauze (800°C) forming nitric oxide (NO), basic nature forming ammonium hydroxide (NH₄OH), reaction with acids forming salts, reducing action on metallic oxides (CuO and PbO reduced to copper and lead), reaction with excess chlorine vs excess ammonia (formation of explosive nitrogen trichloride NCl₃ vs dense white ammonium chloride fumes).
+      - Confirmatory Tests & Board MCQs: Dense white fumes with glass rod dipped in conc. HCl, brown coloration with Nessler's reagent (K₂[HgI₄]), blue precipitate with CuSO₄ soluble in excess forming deep inky-blue complex ion [Cu(NH₃)₄]²⁺.
   - **Study of Compounds — Nitric Acid**: Planned / In Progress.
   - **Study of Compounds — Sulphuric Acid**: Planned / In Progress.
 
@@ -2030,5 +2029,21 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Updated featured sidebar quick-launch in `script.js` to `Chemistry: 5-Yr MCQ Vault` with `quiz` icon and `NEW` badge.
     - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Bumped cache-busting queries in `index.html` to `v=13.2` for `style.css`, `data.js`, and `script.js`.
+      - Validated `data.json` syntax with `python -m json.tool`.
+      - Verified physical file existence on disk via `Test-Path`.
+76. **Ingestion of ICSE Class 10 Chemistry: Ammonia 03 Class Notes (Haber's Process & Chemical Properties) v13.3**:
+    - **Single-File Note Ingestion & Subject Folder Isolation (Rule 1, Rule 5 & Rule 14)**:
+      - Identified user UUID `c2f7c6a8-8c0a-4ed9-9933-c45f6ec7b381` matching downloaded file `C:\Users\ASUS\Downloads\c2f7c6a8-8c0a-4ed9-9933-c45f6ec7b381.pdf` (5.0 MB, 51 slides).
+      - Standardized file to `chemistry/notes/Ammonia_03_Class_Notes.pdf` within `chemistry/notes/`.
+      - Removed raw download from `C:\Users\ASUS\Downloads\` immediately per Rule 5.
+    - **Curriculum Placement & Dual Data Synchronization (Rule 7)**:
+      - Placed `Ammonia 03 Class Notes` into `subchap-chem-nh3` under `unit-chem-compounds` in both `data.json` and `data.js`.
+      - Synchronized `data.json` and `data.js` with 100% deep equality.
+      - Chemistry subject card dynamically renders `9 Ch • 3 Notes • 1 Module`, and Ammonia subchapter renders `2 Notes Ready`.
+    - **Spotlight & Navigation Update (Rule 10 & Rule 15)**:
+      - Updated sidebar quick-launch in `script.js` to `Chemistry: Ammonia 03` with icon `bubble_chart` and `NEW` badge linking directly to the Ammonia chapter items view.
+      - Updated Overview dashboard High-Yield Fast Track rail to spotlight Ammonia Notes 03 (`NEW`), 5-Year MCQ Vault (`HOT`), Ammonia Notes 02 (`HOT`), and Hydrogen Chloride Notes 01 (`HOT`).
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=13.3` for `style.css`, `data.js`, and `script.js`.
       - Validated `data.json` syntax with `python -m json.tool`.
       - Verified physical file existence on disk via `Test-Path`.

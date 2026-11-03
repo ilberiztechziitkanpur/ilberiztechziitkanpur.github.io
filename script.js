@@ -1076,21 +1076,21 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Chemistry - Study of Compounds 5-Yr MCQ Vault
+    // Latest Update Quick Launch: Chemistry - Ammonia 03 Class Notes
     const chemNav = document.createElement('div');
-    const isChemActive = state.currentView !== 'search' && state.path[1] === 'sub-10-chem';
+    const isChemActive = state.currentView !== 'search' && state.path[1] === 'sub-10-chem' && state.path[3] === 'subchap-chem-nh3';
     chemNav.className = `nav-item nav-item-featured ${isChemActive ? 'active' : ''}`;
     chemNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #38bdf8;">quiz</span>
-        <span style="font-weight: 600;">Chemistry: 5-Yr MCQ Vault</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8); color:#fff; box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);">NEW</span>
+        <span class="material-symbols-outlined icon" style="color: #14b8a6;">bubble_chart</span>
+        <span style="font-weight: 600;">Chemistry: Ammonia 03</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0d9488, #14b8a6); color:#fff; box-shadow: 0 0 10px rgba(20, 184, 166, 0.4);">NEW</span>
     `;
     chemNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         if (batch) {
-            navigateTo('subchapters', [batch.id, 'sub-10-chem', 'unit-chem-compounds']);
+            navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-nh3']);
         }
     };
     navMenu.appendChild(chemNav);
@@ -1288,28 +1288,33 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
+                <button class="spotlight-chip featured-chip" id="spot-chem-nh3-03" type="button">
+                    <span class="material-symbols-outlined" style="color: #14b8a6;">bubble_chart</span>
+                    <span class="spotlight-chip-text">Study of Compounds • Ammonia (Notes 03)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">NEW</span>
+                </button>
                 <button class="spotlight-chip featured-chip" id="spot-chem-mcq" type="button">
                     <span class="material-symbols-outlined" style="color: #38bdf8;">quiz</span>
                     <span class="spotlight-chip-text">Study of Compounds • 5-Yr MCQ Vault (57 Qs)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">NEW</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-chem-nh3" type="button">
-                    <span class="material-symbols-outlined" style="color: #14b8a6;">bubble_chart</span>
-                    <span class="spotlight-chip-text">Study of Compounds: Ammonia (Notes 02)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">HOT</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-chem-hcl" type="button">
-                    <span class="material-symbols-outlined" style="color: #06b6d4;">biotech</span>
-                    <span class="spotlight-chip-text">Study of Compounds: Hydrogen Chloride (Notes 01)</span>
+                <button class="spotlight-chip featured-chip" id="spot-chem-nh3-02" type="button">
+                    <span class="material-symbols-outlined" style="color: #06b6d4;">menu_book</span>
+                    <span class="spotlight-chip-text">Ammonia Notes 02 (Preparation)</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0891b2, #06b6d4);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-chem-unit" type="button">
-                    <span class="material-symbols-outlined" style="color: #0ea5e9;">science</span>
-                    <span class="spotlight-chip-text">Study of Compounds Unit (4 Chapters)</span>
+                <button class="spotlight-chip featured-chip" id="spot-chem-hcl" type="button">
+                    <span class="material-symbols-outlined" style="color: #0ea5e9;">biotech</span>
+                    <span class="spotlight-chip-text">Hydrogen Chloride (Notes 01)</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #0ea5e9);">HOT</span>
                 </button>
+                <button class="spotlight-chip featured-chip" id="spot-chem-unit" type="button">
+                    <span class="material-symbols-outlined" style="color: #6366f1;">science</span>
+                    <span class="spotlight-chip-text">Study of Compounds Unit (4 Chapters)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #4f46e5, #6366f1);">HOT</span>
+                </button>
                 <button class="spotlight-chip featured-chip" id="spot-chem-all" type="button">
-                    <span class="material-symbols-outlined" style="color: #818cf8;">menu_book</span>
+                    <span class="material-symbols-outlined" style="color: #818cf8;">auto_stories</span>
                     <span class="spotlight-chip-text">Chemistry • ICSE Class 10 Syllabus</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #4f46e5, #818cf8);">HOT</span>
                 </button>
@@ -1323,25 +1328,20 @@ function renderView() {
                     <span class="spotlight-chip-text">Study of Compounds: Sulphuric Acid</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #dc2626, #ef4444);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-chem-org" type="button">
-                    <span class="material-symbols-outlined" style="color: #10b981;">schema</span>
-                    <span class="spotlight-chip-text">Ch 9: Organic Chemistry Vault</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #059669, #10b981);">HOT</span>
-                </button>
             </div>
         `;
         wrapper.appendChild(spotlightSection);
 
         // Bind Spotlight Clicks (clean, fast, single-lookup)
         const chipActions = {
+            '#spot-chem-nh3-03': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-nh3']); },
             '#spot-chem-mcq': () => { audioFX.playTick(); navigateTo('subchapters', [batch.id, 'sub-10-chem', 'unit-chem-compounds']); },
-            '#spot-chem-nh3': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-nh3']); },
+            '#spot-chem-nh3-02': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-nh3']); },
             '#spot-chem-hcl': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-hcl']); },
             '#spot-chem-unit': () => { audioFX.playTick(); navigateTo('subchapters', [batch.id, 'sub-10-chem', 'unit-chem-compounds']); },
             '#spot-chem-all': () => { audioFX.playTick(); navigateTo('chapters', [batch.id, 'sub-10-chem']); },
             '#spot-chem-hno3': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-hno3']); },
-            '#spot-chem-h2so4': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-h2so4']); },
-            '#spot-chem-org': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'chap-chem-12']); }
+            '#spot-chem-h2so4': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-h2so4']); }
         };
 
         Object.entries(chipActions).forEach(([selector, action]) => {
