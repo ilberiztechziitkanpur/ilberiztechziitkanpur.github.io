@@ -625,7 +625,16 @@ window.COURSE_DATA = {
                             "name": "Ch 8: Study of Compounds",
                             "description": "Hydrogen Chloride, Ammonia, Nitric Acid and Sulphuric Acid — Lab preparations, fountain experiments, industrial manufacture & properties",
                             "icon": "science",
-                            "items": [],
+                            "items": [
+                                {
+                                    "id": "chem-compounds-mcq-vault",
+                                    "title": "Study of Compounds — 5-Year MCQ Master Vault (2022–2026)",
+                                    "subtitle": "57 Verbatim ICSE Board & Specimen MCQs covering HCl, NH3, HNO3 & H2SO4 with Instant Review, DPP Mode & Complete Analytics",
+                                    "type": "interactive",
+                                    "file": "chemistry/compounds-mcq/index.html",
+                                    "badge": "5-Yr PYQs • 57 MCQs • Interactive"
+                                }
+                            ],
                             "subchapters": [
                                 {
                                     "id": "subchap-chem-hcl",

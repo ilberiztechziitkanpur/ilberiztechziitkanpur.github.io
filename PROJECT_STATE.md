@@ -168,6 +168,8 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Sense_Organs_01_Class_Notes.pdf ... 04 (4 files)
 │       └── Endocrine_System_01_Class_Notes.pdf ... 02 (2 files)
 ├── chemistry/                       # ALL Chemistry subject content lives strictly here
+│   ├── compounds-mcq/               # Study of Compounds 5-Year MCQ Master Vault (2022–2026)
+│   │   └── index.html               # 57 Verbatim Board & Specimen MCQs across HCl, NH3, HNO3, H2SO4, Instant & DPP Modes
 │   └── notes/                       # ICSE Class 10 Chemistry PDF notes
 │       ├── Hydrogen_Chloride_01_Class_Notes.pdf (4.4 MB) — Ch 8A: Lab prep from NaCl, fountain experiment, inverted funnel arrangement (45 slides)
 │       └── Ammonia_02_Class_Notes.pdf (5.7 MB) — Ch 8B: Funnel recap, Ammonia discovery, structure, lab prep from NH4Cl + Ca(OH)2, drying with CaO (41 slides)
@@ -846,6 +848,18 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
       - Other Preparatory Reactions: Warm water hydrolysis of metal nitrides (Magnesium Nitride Mg₃N₂ + 6H₂O → 3Mg(OH)₂ + 2NH₃↑ and Aluminium Nitride AlN + 3H₂O → Al(OH)₃ + NH₃↑).
   - **Study of Compounds — Nitric Acid**: Planned / In Progress.
   - **Study of Compounds — Sulphuric Acid**: Planned / In Progress.
+
+### X. Study of Compounds 5-Year MCQ Master Vault (`chemistry/compounds-mcq/index.html`)
+- **57 High-Yield Verbatim ICSE Board & Specimen MCQs (2022–2026)**:
+  - 13 Questions on **Study of Compounds: Hydrochloric Acid**
+  - 16 Questions on **Study of Compounds: Ammonia**
+  - 7 Questions on **Study of Compounds: Nitric Acid**
+  - 21 Questions on **Study of Compounds: Sulphuric Acid**
+- **Dual Interactive Practice Modes**:
+  1. ⚡ Instant Answer Reveal Mode: immediate feedback, official CISCE rationale, and explanation.
+  2. 🎯 DPP Examination Mode: strict timed test with timer (15, 30, 45, 60 mins presets), flag for review, and comprehensive scorecard.
+- **Filtering & Search**: Compound-wise filters (All, HCl, NH3, HNO3, H2SO4), Year-wise filters (2022 to 2026), and full-text keyword search.
+- **Navigation**: Integrated `.home-nav-btn` linking back to `../../index.html` with `target="_top"` and imported full Google Fonts bundle (`Inter`, `JetBrains Mono`, `Outfit`, `Material Symbols Outlined`).
 
 ## 5. Protocol for Future Chats (Step-by-Step Onboarding Guide)
 
@@ -1996,5 +2010,25 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Updated sidebar quick-launch in `script.js` to `Chemistry: Compounds Unit` with icon `science` and `NEW` badge linking directly to the Study of Compounds subchapters view.
       - Updated Overview dashboard High-Yield Fast Track rail to spotlight Ammonia Notes 02 (`NEW`), Hydrogen Chloride Notes 01 (`HOT`), and the Study of Compounds Unit (`HOT`).
     - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Validated `data.json` syntax with `python -m json.tool`.
+      - Verified physical file existence on disk via `Test-Path`.
+75. **Integration of ICSE Class 10 Chemistry: Study of Compounds 5-Year MCQ Master Vault (2022–2026) v13.2**:
+    - **Interactive Engine Ingestion & Subject Folder Isolation (Rule 1, Rule 2 & Rule 3)**:
+      - Ingested `Study of compounds, MCQ, 5-year questions valut .html` (272 KB) from `C:\Users\ASUS\Downloads\` into dedicated directory `chemistry/compounds-mcq/index.html`.
+      - Integrated Google Fonts (`Inter`, `JetBrains Mono`, `Outfit`), `Material Symbols Outlined`, and responsive `.home-nav-btn` (`target="_top"`) in the top command bar, allowing students to seamlessly navigate between the standalone application and the dashboard.
+      - Removed raw download file from `C:\Users\ASUS\Downloads\` immediately per Rule 5.
+    - **Engine Architecture & Functional Coverage**:
+      - **57 Verbatim Board & Specimen MCQs**: 13 HCl, 16 NH3, 7 HNO3, and 21 H2SO4 questions covering 2022–2026.
+      - **Dual Study Modes**: Instant Answer Reveal Mode and DPP Timed Examination Mode with 15/30/45/60m presets and automatic score evaluation.
+      - **Compound & Year Filtering**: Live filters for individual compounds, exam years, and real-time text search.
+    - **Curriculum Placement & Dual Data Parity (Rule 7)**:
+      - Registered module `chem-compounds-mcq-vault` under `unit-chem-compounds` in both `data.json` and `data.js`.
+      - Unit renders featured Master Study Module card at top of unit view with `Launch Engine` CTA, while subchapters remain accessible below.
+      - Chemistry card on Class 10 dashboard dynamically renders `9 Ch • 2 Notes • 1 Module`.
+    - **Spotlight & Navigation Update (Rule 10 & Rule 15)**:
+      - Updated Overview dashboard High-Yield Fast Track rail (`.spotlight-chips-grid`) to feature the new 5-Year MCQ Vault (`NEW`), Ammonia Notes 02 (`HOT`), and Hydrogen Chloride Notes 01 (`HOT`).
+      - Updated featured sidebar quick-launch in `script.js` to `Chemistry: 5-Yr MCQ Vault` with `quiz` icon and `NEW` badge.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=13.2` for `style.css`, `data.js`, and `script.js`.
       - Validated `data.json` syntax with `python -m json.tool`.
       - Verified physical file existence on disk via `Test-Path`.
