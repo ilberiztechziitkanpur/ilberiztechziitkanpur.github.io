@@ -678,13 +678,31 @@
                                     "id": "subchap-chem-hno3",
                                     "name": "Study of Compounds — Nitric Acid",
                                     "description": "Lab preparation from KNO3/NaNO3, Ostwald's process, oxidising properties and brown ring test",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "chem-hno3-notes-04",
+                                            "title": "Nitric Acid 04 Class Notes",
+                                            "subtitle": "Study of Compounds: Laboratory Preparation from KNO3/NaNO3, Ostwald's Process, Oxidising Properties, Action on Metals & Non-Metals, Brown Ring Test",
+                                            "type": "pdf",
+                                            "file": "chemistry/notes/Nitric_Acid_04_Class_Notes.pdf",
+                                            "size": "5.7 MB"
+                                        }
+                                    ]
                                 },
                                 {
                                     "id": "subchap-chem-h2so4",
                                     "name": "Study of Compounds — Sulphuric Acid",
                                     "description": "Industrial manufacture by Contact Process, acidic, oxidising and dehydrating properties",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "chem-h2so4-notes-05",
+                                            "title": "Sulphuric Acid 05 Class Notes",
+                                            "subtitle": "Study of Compounds: Industrial Manufacture by Contact Process, Physical Properties, Acidic & Non-Volatile Displacements, Oxidising & Dehydrating Actions",
+                                            "type": "pdf",
+                                            "file": "chemistry/notes/Sulphuric_Acid_05_Class_Notes.pdf",
+                                            "size": "5.0 MB"
+                                        }
+                                    ]
                                 }
                             ]
                         },

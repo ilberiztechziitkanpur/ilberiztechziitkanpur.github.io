@@ -173,7 +173,9 @@ ILBERIZ TECHZ IIT KANPUR/
 │   └── notes/                       # ICSE Class 10 Chemistry PDF notes
 │       ├── Hydrogen_Chloride_01_Class_Notes.pdf (4.4 MB) — Ch 8A: Lab prep from NaCl, fountain experiment, inverted funnel arrangement (45 slides)
 │       ├── Ammonia_02_Class_Notes.pdf (5.7 MB) — Ch 8B: Funnel recap, Ammonia discovery, structure, lab prep from NH4Cl + Ca(OH)2, drying with CaO (41 slides)
-│       └── Ammonia_03_Class_Notes.pdf (5.0 MB) — Ch 8B: Haber's process, physical/chemical properties, fountain experiment, gas tests & MCQs (51 slides)
+│       ├── Ammonia_03_Class_Notes.pdf (5.0 MB) — Ch 8B: Haber's process, physical/chemical properties, fountain experiment, gas tests & MCQs (51 slides)
+│       ├── Nitric_Acid_04_Class_Notes.pdf (5.7 MB) — Ch 8C: Lab prep from KNO3/NaNO3, Ostwald's process, oxidising properties, action on metals, brown ring test (51 slides)
+│       └── Sulphuric_Acid_05_Class_Notes.pdf (5.0 MB) — Ch 8D: Contact Process, physical/chemical properties, non-volatile acid displacements, dehydrating vs oxidising agent (49 slides)
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -827,8 +829,8 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
 
 ---
 
-### W. Chemistry Notes (3 PDFs in `chemistry/notes/`)
-- **Unit: Ch 8: Study of Compounds (4 Prescribed Chapters)**:
+### W. Chemistry Notes (5 PDFs in `chemistry/notes/`)
+- **Unit: Ch 8: Study of Compounds (4 Prescribed Chapters — 100% Complete)**:
   - **Study of Compounds — Hydrogen Chloride (1 Note)**:
     - `Hydrogen_Chloride_01_Class_Notes.pdf` (4.4 MB, 45 slides) — Lecture 01: Study of Compounds — Hydrogen Chloride (HCl):
       - Occurrence in free state (volcanic gases) and combined state (gastric juice in human stomach for activating pepsin).
@@ -845,8 +847,22 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
       - Physical Properties: Colorless gas with characteristic pungent choking smell, non-poisonous, lighter than air, alkaline nature turning red litmus blue and phenolphthalein pink, fountain experiment demonstrating extreme solubility.
       - Chemical Properties: Combustibility in oxygen (greenish-yellow flame) without burning in air, catalytic oxidation of ammonia over platinum gauze (800°C) forming nitric oxide (NO), basic nature forming ammonium hydroxide (NH₄OH), reaction with acids forming salts, reducing action on metallic oxides (CuO and PbO reduced to copper and lead), reaction with excess chlorine vs excess ammonia (formation of explosive nitrogen trichloride NCl₃ vs dense white ammonium chloride fumes).
       - Confirmatory Tests & Board MCQs: Dense white fumes with glass rod dipped in conc. HCl, brown coloration with Nessler's reagent (K₂[HgI₄]), blue precipitate with CuSO₄ soluble in excess forming deep inky-blue complex ion [Cu(NH₃)₄]²⁺.
-  - **Study of Compounds — Nitric Acid**: Planned / In Progress.
-  - **Study of Compounds — Sulphuric Acid**: Planned / In Progress.
+  - **Study of Compounds — Nitric Acid (1 Note)**:
+    - `Nitric_Acid_04_Class_Notes.pdf` (5.7 MB, 51 slides) — Lecture 04: Study of Compounds — Nitric Acid (HNO₃):
+      - Laboratory Preparation of Nitric Acid: Reactants (Potassium Nitrate KNO₃ or Sodium Nitrate NaNO₃ + concentrated Sulphuric Acid H₂SO₄), all-glass apparatus (retort and receiver) because nitric acid vapours attack rubber/cork, temperature control (< 200°C) to prevent decomposition of HNO₃ into reddish-brown NO₂ gas and formation of hard crust of K₂SO₄/Na₂SO₄, inapplicability of concentrated HCl because it is volatile.
+      - Industrial Manufacture by Ostwald's Process: Three-step catalytic oxidation: (1) Catalytic oxidation of NH₃ to NO over Platinum gauze at 700°C–800°C, (2) Oxidation of NO to NO₂ in oxidation chamber at ~50°C, (3) Absorption of NO₂ in quartz-packed water absorption tower forming HNO₃ and HNO₂.
+      - Physical Properties: Pure nitric acid is colorless; commercial acid is yellow due to dissolved NO₂ formed by photochemical decomposition (reversed by bubbling dry air or adding water), miscible with water, suffocating smell.
+      - Chemical & Oxidising Properties: Strong monobasic acid, powerful oxidising agent liberating nascent oxygen [O]; action on non-metals (Carbon oxidised to CO₂ + NO₂ + H₂O; Sulphur oxidised to H₂SO₄ + NO₂ + H₂O; Phosphorus oxidised to H₃PO₄ + NO₂ + H₂O); action on metals (Copper with cold dilute HNO₃ yields Cu(NO₃)₂ + NO + H₂O; with concentrated HNO₃ yields Cu(NO₃)₂ + NO₂ + H₂O); passivity of Iron and Aluminium due to formation of impervious oxide film.
+      - Confirmatory Brown Ring Test: Formation of brown nitroso ferrous sulphate ring [Fe(H₂O)₅(NO)]SO₄ at junction of liquids using freshly prepared FeSO₄ and concentrated H₂SO₄; action of heat on nitrates.
+  - **Study of Compounds — Sulphuric Acid (1 Note)**:
+    - `Sulphuric_Acid_05_Class_Notes.pdf` (5.0 MB, 49 slides) — Lecture 05: Study of Compounds — Sulphuric Acid (H₂SO₄):
+      - "King of Chemicals" / Oil of Vitriol: Chemical importance, industrial significance, and occurrence.
+      - Industrial Manufacture by Contact Process: (1) Production of SO₂ by burning sulphur (S + O₂ → SO₂) or roasting iron pyrites (4FeS₂ + 11O₂ → 2Fe₂O₃ + 8SO₂), (2) Purification of SO₂ (dust precipitator, scrubbing tower, drying tower, arsenic purifier with Fe(OH)₃, testing box), (3) Catalytic oxidation of SO₂ to SO₃ over Vanadium Pentoxide (V₂O₅) at 450°C–500°C and 1–2 atm (exothermic equilibrium), (4) Absorption of SO₃ in 98% concentrated H₂SO₄ forming Oleum / Pyrosulphuric acid (H₂S₂O₇), (5) Controlled dilution of oleum with water to yield concentrated H₂SO₄ (98%). Why SO₃ is not absorbed directly in water (dense mist of acid droplets that is difficult to condense).
+      - Physical Properties: Dense oily hygroscopic liquid, boiling point 338°C, non-volatile acid, extreme affinity for water (exothermic dilution requiring acid to be poured slowly into water with constant stirring, never water into acid).
+      - Chemical Properties: Dibasic acid (forms normal sulphates and acid bisulphates), non-volatile acid displacing volatile acids from their salts (preparation of HCl from NaCl and HNO₃ from KNO₃/NaNO₃).
+      - Oxidising Property: Concentrated H₂SO₄ acts as strong oxidising agent (liberating SO₂ and nascent oxygen): oxidises Carbon to CO₂, Sulphur to SO₂, Copper to CuSO₄ + SO₂ + H₂O.
+      - Dehydrating Property: Removes chemically combined water/elements of water (H:O in 2:1 ratio) from organic compounds: charring of cane sugar (C₁₂H₂₂O₁₁ → 12C + 11H₂O, "sugar charcoal sponge"), dehydration of blue copper sulphate crystals (CuSO₄·5H₂O → white anhydrous CuSO₄), dehydration of oxalic acid (H₂C₂O₄ → CO + CO₂ + H₂O) and formic acid (HCOOH → CO + H₂O). Distinguishing between drying agent (removes surface/uncombined moisture) and dehydrating agent (removes chemically combined water).
+      - Tests for Sulphuric Acid: Barium Chloride (BaCl₂) test forming dense white precipitate of BaSO₄ insoluble in dilute HCl or HNO₃.
 
 ### X. Study of Compounds 5-Year MCQ Master Vault (`chemistry/compounds-mcq/index.html`)
 - **57 High-Yield Verbatim ICSE Board & Specimen MCQs (2022–2026)**:
@@ -2047,3 +2063,30 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
       - Bumped cache-busting queries in `index.html` to `v=13.3` for `style.css`, `data.js`, and `script.js`.
       - Validated `data.json` syntax with `python -m json.tool`.
       - Verified physical file existence on disk via `Test-Path`.
+
+77. **Ingestion of ICSE Class 10 Chemistry: Nitric Acid 04 & Sulphuric Acid 05 Class Notes (Study of Compounds Unit 100% Complete) v13.4**:
+    - **Dual Note Ingestion & Subject Folder Isolation (Rule 1, Rule 5 & Rule 14)**:
+      - Identified user UUIDs:
+        1. `c6cf6374-b675-4b16-ae1f-4a2c1acdf2ef` matching `C:\Users\ASUS\Downloads\c6cf6374-b675-4b16-ae1f-4a2c1acdf2ef.pdf` (5.7 MB, 51 slides) — Lecture 04: Study of Compounds — Nitric Acid (HNO₃).
+        2. `bcb78bb8-aaec-4880-9fb5-70bb16392d53` matching `C:\Users\ASUS\Downloads\bcb78bb8-aaec-4880-9fb5-70bb16392d53.pdf` (5.0 MB, 49 slides) — Lecture 05: Study of Compounds — Sulphuric Acid (H₂SO₄).
+      - Standardized and isolated both files into `chemistry/notes/`:
+        - `chemistry/notes/Nitric_Acid_04_Class_Notes.pdf` (5.7 MB)
+        - `chemistry/notes/Sulphuric_Acid_05_Class_Notes.pdf` (5.0 MB)
+      - Immediately deleted both raw files from `C:\Users\ASUS\Downloads\` and purged temporary inspection artifacts per Rule 5.
+    - **Curriculum Placement & Dual Data Synchronization (Rule 7)**:
+      - Populated `subchap-chem-hno3` with item `chem-hno3-notes-04` ("Nitric Acid 04 Class Notes").
+      - Populated `subchap-chem-h2so4` with item `chem-h2so4-notes-05` ("Sulphuric Acid 05 Class Notes").
+      - All 4 subchapters of the Study of Compounds Master Unit (`unit-chem-compounds`) now feature active class notes:
+        1. Hydrogen Chloride: 1 Class Note (`Hydrogen_Chloride_01_Class_Notes.pdf`)
+        2. Ammonia: 2 Class Notes (`Ammonia_02_Class_Notes.pdf`, `Ammonia_03_Class_Notes.pdf`)
+        3. Nitric Acid: 1 Class Note (`Nitric_Acid_04_Class_Notes.pdf`)
+        4. Sulphuric Acid: 1 Class Note (`Sulphuric_Acid_05_Class_Notes.pdf`)
+        5. Master Module: 5-Year MCQ Master Vault (57 MCQs, 2022–2026)
+      - Synchronized `data.json` and `data.js` with 100% deep equality.
+      - Chemistry subject card dynamically calculates `9 Ch • 5 Notes • 1 Module`, and Study of Compounds Unit card displays `4 Chapters • 5 Notes • 1 Module`.
+    - **Spotlight & Navigation Update (Rule 10 & Rule 15)**:
+      - Updated sidebar quick-launch in `script.js` to `Chemistry: Compounds Unit` with icon `local_fire_department` and `NEW` badge linking directly to the Study of Compounds subchapters view.
+      - Updated Overview dashboard High-Yield Fast Track rail (`.spotlight-chips-grid`) to prioritize Sulphuric Acid Notes 05 (`NEW`), Nitric Acid Notes 04 (`NEW`), 5-Year MCQ Vault (`HOT`), Ammonia Notes 03 & 02 (`HOT`), and Hydrogen Chloride Notes 01 (`HOT`).
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=13.4` for `style.css`, `data.js`, and `script.js`.
+      - Validated 100% schema parity and confirmed all 161 files on disk exist.

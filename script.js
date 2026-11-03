@@ -1076,21 +1076,21 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Chemistry - Ammonia 03 Class Notes
+    // Latest Update Quick Launch: Chemistry - Study of Compounds Master Unit
     const chemNav = document.createElement('div');
-    const isChemActive = state.currentView !== 'search' && state.path[1] === 'sub-10-chem' && state.path[3] === 'subchap-chem-nh3';
+    const isChemActive = state.currentView !== 'search' && state.path[1] === 'sub-10-chem' && state.path[2] === 'unit-chem-compounds';
     chemNav.className = `nav-item nav-item-featured ${isChemActive ? 'active' : ''}`;
     chemNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #14b8a6;">bubble_chart</span>
-        <span style="font-weight: 600;">Chemistry: Ammonia 03</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0d9488, #14b8a6); color:#fff; box-shadow: 0 0 10px rgba(20, 184, 166, 0.4);">NEW</span>
+        <span class="material-symbols-outlined icon" style="color: #ef4444;">local_fire_department</span>
+        <span style="font-weight: 600;">Chemistry: Compounds Unit</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #dc2626, #ef4444); color:#fff; box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);">NEW</span>
     `;
     chemNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         if (batch) {
-            navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-nh3']);
+            navigateTo('subchapters', [batch.id, 'sub-10-chem', 'unit-chem-compounds']);
         }
     };
     navMenu.appendChild(chemNav);
@@ -1288,20 +1288,25 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
-                <button class="spotlight-chip featured-chip" id="spot-chem-nh3-03" type="button">
-                    <span class="material-symbols-outlined" style="color: #14b8a6;">bubble_chart</span>
-                    <span class="spotlight-chip-text">Study of Compounds • Ammonia (Notes 03)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">NEW</span>
+                <button class="spotlight-chip featured-chip" id="spot-chem-h2so4" type="button">
+                    <span class="material-symbols-outlined" style="color: #ef4444;">local_fire_department</span>
+                    <span class="spotlight-chip-text">Sulphuric Acid Notes 05</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #dc2626, #ef4444);">NEW</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-chem-hno3" type="button">
+                    <span class="material-symbols-outlined" style="color: #f59e0b;">experiment</span>
+                    <span class="spotlight-chip-text">Nitric Acid Notes 04</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #d97706, #f59e0b);">NEW</span>
                 </button>
                 <button class="spotlight-chip featured-chip" id="spot-chem-mcq" type="button">
                     <span class="material-symbols-outlined" style="color: #38bdf8;">quiz</span>
                     <span class="spotlight-chip-text">Study of Compounds • 5-Yr MCQ Vault (57 Qs)</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-chem-nh3-02" type="button">
-                    <span class="material-symbols-outlined" style="color: #06b6d4;">menu_book</span>
-                    <span class="spotlight-chip-text">Ammonia Notes 02 (Preparation)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0891b2, #06b6d4);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-chem-nh3-03" type="button">
+                    <span class="material-symbols-outlined" style="color: #14b8a6;">bubble_chart</span>
+                    <span class="spotlight-chip-text">Ammonia Notes 03 & 02</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">HOT</span>
                 </button>
                 <button class="spotlight-chip featured-chip" id="spot-chem-hcl" type="button">
                     <span class="material-symbols-outlined" style="color: #0ea5e9;">biotech</span>
@@ -1317,16 +1322,6 @@ function renderView() {
                     <span class="material-symbols-outlined" style="color: #818cf8;">auto_stories</span>
                     <span class="spotlight-chip-text">Chemistry • ICSE Class 10 Syllabus</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #4f46e5, #818cf8);">HOT</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-chem-hno3" type="button">
-                    <span class="material-symbols-outlined" style="color: #f59e0b;">experiment</span>
-                    <span class="spotlight-chip-text">Study of Compounds: Nitric Acid</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #d97706, #f59e0b);">HOT</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-chem-h2so4" type="button">
-                    <span class="material-symbols-outlined" style="color: #ef4444;">local_fire_department</span>
-                    <span class="spotlight-chip-text">Study of Compounds: Sulphuric Acid</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #dc2626, #ef4444);">HOT</span>
                 </button>
             </div>
         `;
