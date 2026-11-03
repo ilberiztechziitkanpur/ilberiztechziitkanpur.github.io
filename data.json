@@ -624,7 +624,16 @@
                             "id": "chap-chem-8",
                             "name": "Ch 8: Study of Compounds — Hydrogen Chloride",
                             "description": "Lab preparation from NaCl, fountain experiment, physical/chemical properties and precipitation tests",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "chem-hcl-notes-01",
+                                    "title": "Hydrogen Chloride 01 Class Notes",
+                                    "subtitle": "Study of Compounds: Laboratory Preparation of Hydrogen Chloride Gas & Hydrochloric Acid, Fountain Experiment, Physical & Chemical Properties",
+                                    "type": "pdf",
+                                    "file": "chemistry/notes/Hydrogen_Chloride_01_Class_Notes.pdf",
+                                    "size": "4.4 MB"
+                                }
+                            ]
                         },
                         {
                             "id": "chap-chem-9",

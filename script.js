@@ -1076,24 +1076,24 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: English Functional Grammar Master Vault
-    const engNav = document.createElement('div');
-    const isEngActive = state.currentView !== 'search' && state.path[1] === 'sub-10-eng' && state.path[2] === 'chap-eng-4';
-    engNav.className = `nav-item nav-item-featured ${isEngActive ? 'active' : ''}`;
-    engNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #a855f7;">spellcheck</span>
-        <span style="font-weight: 600;">English: Grammar Vault</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #7c3aed, #a855f7); color:#fff; box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);">NEW</span>
+    // Latest Update Quick Launch: Chemistry - Hydrogen Chloride Class Notes
+    const chemNav = document.createElement('div');
+    const isChemActive = state.currentView !== 'search' && state.path[1] === 'sub-10-chem';
+    chemNav.className = `nav-item nav-item-featured ${isChemActive ? 'active' : ''}`;
+    chemNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #06b6d4;">biotech</span>
+        <span style="font-weight: 600;">Chemistry: HCl Notes</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #0891b2, #06b6d4); color:#fff; box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);">NEW</span>
     `;
-    engNav.onclick = () => {
+    chemNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         if (batch) {
-            navigateTo('items', [batch.id, 'sub-10-eng', 'chap-eng-4']);
+            navigateTo('items', [batch.id, 'sub-10-chem', 'chap-chem-8']);
         }
     };
-    navMenu.appendChild(engNav);
+    navMenu.appendChild(chemNav);
 }
 
 function resetSearch() {
@@ -1288,45 +1288,45 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
-                <button class="spotlight-chip featured-chip" id="spot-eng-all" type="button">
-                    <span class="material-symbols-outlined" style="color: #a855f7;">auto_awesome</span>
-                    <span class="spotlight-chip-text">English Language • Grammar Master Vault</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">NEW</span>
+                <button class="spotlight-chip featured-chip" id="spot-chem-hcl" type="button">
+                    <span class="material-symbols-outlined" style="color: #06b6d4;">biotech</span>
+                    <span class="spotlight-chip-text">Study of Compounds • Hydrogen Chloride (Notes 01)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0891b2, #06b6d4);">NEW</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-eng-pyq" type="button">
-                    <span class="material-symbols-outlined" style="color: #6366f1;">history_edu</span>
-                    <span class="spotlight-chip-text">10-Yr Board PYQs (2015–2025)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #4f46e5, #6366f1);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-chem-all" type="button">
+                    <span class="material-symbols-outlined" style="color: #0ea5e9;">science</span>
+                    <span class="spotlight-chip-text">Chemistry • ICSE Class 10 Chapters</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #0ea5e9);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-eng-total" type="button">
-                    <span class="material-symbols-outlined" style="color: #ec4899;">menu_book</span>
-                    <span class="spotlight-chip-text">Total English Papers 1–8 Drill</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #db2777, #ec4899);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-chem-nh3" type="button">
+                    <span class="material-symbols-outlined" style="color: #14b8a6;">bubble_chart</span>
+                    <span class="spotlight-chip-text">Study of Compounds: Ammonia (Ch 9)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-eng-cfpq" type="button">
-                    <span class="material-symbols-outlined" style="color: #06b6d4;">psychology</span>
-                    <span class="spotlight-chip-text">Specimen & CFPQ Competency Assessment</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0891b2, #06b6d4);">HOT</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-eng-prep" type="button">
-                    <span class="material-symbols-outlined" style="color: #f59e0b;">compare_arrows</span>
-                    <span class="spotlight-chip-text">Prepositions & Phrasal Verbs Matrix</span>
+                <button class="spotlight-chip featured-chip" id="spot-chem-hno3" type="button">
+                    <span class="material-symbols-outlined" style="color: #f59e0b;">experiment</span>
+                    <span class="spotlight-chip-text">Study of Compounds: Nitric Acid (Ch 10)</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #d97706, #f59e0b);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-eng-jc" type="button">
-                    <span class="material-symbols-outlined" style="color: #38bdf8;">theater_comedy</span>
-                    <span class="spotlight-chip-text">Julius Caesar (7 Class Notes)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-chem-h2so4" type="button">
+                    <span class="material-symbols-outlined" style="color: #ef4444;">local_fire_department</span>
+                    <span class="spotlight-chip-text">Study of Compounds: Sulphuric Acid (Ch 11)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #dc2626, #ef4444);">HOT</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-eng-poems" type="button">
-                    <span class="material-symbols-outlined" style="color: #10b981;">history_edu</span>
-                    <span class="spotlight-chip-text">Treasure Chest: ICSE Poems (6 Notes)</span>
+                <button class="spotlight-chip featured-chip" id="spot-chem-periodic" type="button">
+                    <span class="material-symbols-outlined" style="color: #8b5cf6;">grid_view</span>
+                    <span class="spotlight-chip-text">Ch 1: Periodic Properties & Variations</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #7c3aed, #8b5cf6);">HOT</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-chem-bonding" type="button">
+                    <span class="material-symbols-outlined" style="color: #3b82f6;">hub</span>
+                    <span class="spotlight-chip-text">Ch 2: Chemical Bonding & Structures</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #2563eb, #3b82f6);">HOT</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-chem-org" type="button">
+                    <span class="material-symbols-outlined" style="color: #10b981;">schema</span>
+                    <span class="spotlight-chip-text">Ch 12: Organic Chemistry Vault</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #059669, #10b981);">HOT</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-eng-prose" type="button">
-                    <span class="material-symbols-outlined" style="color: #eab308;">article</span>
-                    <span class="spotlight-chip-text">Treasure Chest: The Pedestrian</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #ca8a04, #eab308);">HOT</span>
                 </button>
             </div>
         `;
@@ -1334,14 +1334,14 @@ function renderView() {
 
         // Bind Spotlight Clicks (clean, fast, single-lookup)
         const chipActions = {
-            '#spot-eng-all': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-eng', 'chap-eng-4']); },
-            '#spot-eng-pyq': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-eng', 'chap-eng-4']); },
-            '#spot-eng-total': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-eng', 'chap-eng-4']); },
-            '#spot-eng-cfpq': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-eng', 'chap-eng-4']); },
-            '#spot-eng-prep': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-eng', 'chap-eng-4']); },
-            '#spot-eng-jc': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-eng', 'chap-eng-1']); },
-            '#spot-eng-poems': () => { audioFX.playTick(); navigateTo('subchapters', [batch.id, 'sub-10-eng', 'chap-eng-2']); },
-            '#spot-eng-prose': () => { audioFX.playTick(); navigateTo('subchapters', [batch.id, 'sub-10-eng', 'chap-eng-3']); }
+            '#spot-chem-hcl': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'chap-chem-8']); },
+            '#spot-chem-all': () => { audioFX.playTick(); navigateTo('chapters', [batch.id, 'sub-10-chem']); },
+            '#spot-chem-nh3': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'chap-chem-9']); },
+            '#spot-chem-hno3': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'chap-chem-10']); },
+            '#spot-chem-h2so4': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'chap-chem-11']); },
+            '#spot-chem-periodic': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'chap-chem-1']); },
+            '#spot-chem-bonding': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'chap-chem-2']); },
+            '#spot-chem-org': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'chap-chem-12']); }
         };
 
         Object.entries(chipActions).forEach(([selector, action]) => {

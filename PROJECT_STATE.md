@@ -167,6 +167,9 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Nervous_System_01_Class_Notes.pdf ... 05 (5 files)
 │       ├── Sense_Organs_01_Class_Notes.pdf ... 04 (4 files)
 │       └── Endocrine_System_01_Class_Notes.pdf ... 02 (2 files)
+├── chemistry/                       # ALL Chemistry subject content lives strictly here
+│   └── notes/                       # ICSE Class 10 Chemistry PDF notes
+│       └── Hydrogen_Chloride_01_Class_Notes.pdf (4.4 MB) — Ch 8: Occurrence, orbital diagram, lab prep from NaCl, drying agents, fountain experiment, physical & chemical properties (45 slides)
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
@@ -180,12 +183,12 @@ ILBERIZ TECHZ IIT KANPUR/
 
 ## 3. Strict Autonomous Engineering Rules
 
-1. **Subject Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or chapter-specific interactive theory vaults MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `soil/`, `vegetation/`, `water/`, `transport/`, `waste/`, `notes/`, `mcq/`, `toposheet/`, etc.). All History notes and content MUST reside strictly inside `history/` (e.g. `history/notes/`). All English notes and literature content MUST reside strictly inside `english/` (e.g. `english/notes/`). All Physics notes, interactive numericals, theory vaults, and MCQ engines MUST reside strictly inside `physics/` (e.g. `physics/notes/`, `physics/unit1-numerical/`, `physics/unit1-theory/`, `physics/unit1-mcq/`). All Biology notes MUST reside strictly inside `biology/notes/`. Never place loose subject files in the repository root.
+1. **Subject Folder Isolation**: All Geography notes, MCQs, toposheets, maps, or chapter-specific interactive theory vaults MUST reside strictly inside `geography/` and its dedicated subfolders (`climate/`, `soil/`, `vegetation/`, `water/`, `transport/`, `waste/`, `notes/`, `mcq/`, `toposheet/`, etc.). All History notes and content MUST reside strictly inside `history/` (e.g. `history/notes/`). All English notes and literature content MUST reside strictly inside `english/` (e.g. `english/notes/`). All Physics notes, interactive numericals, theory vaults, and MCQ engines MUST reside strictly inside `physics/` (e.g. `physics/notes/`, `physics/unit1-numerical/`, `physics/unit1-theory/`, `physics/unit1-mcq/`). All Biology notes MUST reside strictly inside `biology/notes/`. All Chemistry notes MUST reside strictly inside `chemistry/notes/`. Never place loose subject files in the repository root.
 2. **Standard File Structure for Engines**: Each interactive chapter vault is named `index.html` inside its respective folder (e.g. `geography/<topic>/index.html`) so it can be served as a clean standalone web app or embedded smoothly inside the main dashboard iframe.
 3. **Always Include Navigation & Fonts**: Every chapter engine `index.html` MUST include:
    - Google Fonts (`Inter`, `Outfit`, `JetBrains Mono`) and `Material Symbols Outlined`.
    - The `.home-nav-btn` linking back to `../../index.html` with `target="_top"` so students can easily return to the dashboard.
-4. **No Empty Subject Folders**: Do NOT create empty directories for Mathematics, Chemistry, etc., until the user provides actual files for them. Active content folders currently exist for Geography (`geography/`), History (`history/notes/`), English (`english/notes/`), Physics (`physics/notes/`, `physics/unit1-numerical/`, `physics/unit1-theory/`, `physics/unit1-mcq/`), and Biology (`biology/notes/`). Full authentic ICSE Class 10 chapter syllabi for all 9 subjects are mapped in `data.js` and `data.json`.
+4. **No Empty Subject Folders**: Do NOT create empty directories for Mathematics, Chemistry, etc., until the user provides actual files for them. Active content folders currently exist for Geography (`geography/`), History (`history/notes/`), English (`english/notes/`), Physics (`physics/notes/`, `physics/unit1-numerical/`, `physics/unit1-theory/`, `physics/unit1-mcq/`), Biology (`biology/notes/`), and Chemistry (`chemistry/notes/`). Full authentic ICSE Class 10 chapter syllabi for all 9 subjects are mapped in `data.js` and `data.json`.
 5. **No Root Clutter**: Never leave raw download files (like `gemini-code-*.html` or `temp_*.html`) in the root directory. Process them into their proper folder (`geography/...`, `history/...`) and remove the loose download file immediately.
 6. **Leave Video Downloader Untouched**: The `Video_Downloader/` directory is for a completely different utility. Never modify, delete, or commit changes inside `Video_Downloader/`.
 7. **Always Synchronize `data.js` and `data.json`**: When adding a new item or chapter, update both files in parallel. `data.js` attaches to `window.COURSE_DATA` for offline `file://` usage, while `data.json` is for standard HTTP fetching.
@@ -819,6 +822,17 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
 
 
 ---
+
+### W. Chemistry Notes (1 PDF in `chemistry/notes/`)
+- **Chapter 8: Study of Compounds — Hydrogen Chloride (1 Note)**:
+  - `Hydrogen_Chloride_01_Class_Notes.pdf` (4.4 MB, 45 slides) — Lecture 01: Study of Compounds — Hydrogen Chloride (HCl):
+    - Occurrence in free state (volcanic gases) and combined state (gastric juice in human stomach for activating pepsin).
+    - Molecular structure & Orbital Diagram of covalent HCl molecule (H: 1s¹, Cl: 2,8,7).
+    - Laboratory Preparation of Hydrogen Chloride Gas: Reactants (Sodium Chloride NaCl + concentrated Sulphuric Acid H₂SO₄), Temperature control (< 200°C to prevent sodium sulphate crust formation and apparatus cracking), and Gas collection by upward displacement of air (downward delivery) due to being 1.28 times heavier than air.
+    - Purification & Incompatible Drying Agents: Concentrated H₂SO₄ as preferred dehydrating/drying agent; inapplicability of Quicklime (CaO) and Phosphorus pentoxide (P₂O₅) due to basic/chemical reactions forming CaCl₂ and POCl₃.
+    - Safety & Dissolution Mechanism: Inverted funnel arrangement with rim touching water surface to prevent back-suction (*water rush*) into reaction flask caused by high solubility.
+    - Fountain Experiment: Red fountain demonstration proving high solubility of HCl gas in water and acidic nature turning blue litmus red.
+    - Physical & Chemical Properties: Acidic properties, ionization in water into H₃O⁺ and Cl⁻, reaction with metals, metal oxides, carbonates, bicarbonates, sulphites, sulphides, and precipitation reaction with Silver Nitrate (AgNO₃) forming curdy white AgCl precipitate soluble in excess ammonium hydroxide (NH₄OH).
 
 ## 5. Protocol for Future Chats (Step-by-Step Onboarding Guide)
 
@@ -1934,3 +1948,20 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Bumped cache-busting queries in `index.html` to `v=12.0` for `style.css`, `data.js`, and `script.js`.
       - Verified all 155 content files and interactive engines on disk.
+73. **Ingestion of ICSE Class 10 Chemistry: Hydrogen Chloride 01 Class Notes (Study of Compounds) v13.0**:
+    - **Single-File Note Ingestion & Subject Folder Isolation (Rule 1, Rule 5 & Rule 14)**:
+      - Identified user UUID `9e7176c1-2a19-4e9b-985d-e1de054d7104` as downloaded note file `9e7176c1-2a19-4e9b-985d-e1de054d7104.pdf` (4.4 MB, 45 slides) in `C:\Users\ASUS\Downloads\`.
+      - Extracted metadata without heavy OCR: verified Lecture 01 of Study of Compounds: Hydrogen Chloride (HCl), covering orbital diagram, lab preparation from NaCl + conc. H₂SO₄, temperature regulation (<200°C), drying agents, inverted funnel setup, fountain experiment, and chemical properties.
+      - Standardized file to `chemistry/notes/Hydrogen_Chloride_01_Class_Notes.pdf` within brand-new isolated subject folder `chemistry/notes/`.
+      - Removed raw download from `C:\Users\ASUS\Downloads\` immediately per Rule 5.
+    - **Curriculum Placement & Dual Data Synchronization (Rule 7)**:
+      - Populated `chap-chem-8` ("Ch 8: Study of Compounds — Hydrogen Chloride") under `sub-10-chem` in both `data.json` and `data.js` with item `chem-hcl-notes-01`.
+      - Verified 100% deep equality between `data.json` and `data.js`.
+      - Chemistry subject card dynamically calculates `12 Chapters • 1 Note`.
+    - **Spotlight & Navigation Update (Rule 10 & Rule 15)**:
+      - Updated Overview dashboard High-Yield Fast Track rail (`.spotlight-chips-grid`) to exclusively spotlight the new Chemistry release (Hydrogen Chloride Notes 01, All Chemistry Chapters, Ammonia, Nitric Acid, Sulphuric Acid, Periodic Properties, Bonding, and Organic Chemistry), cleanly purging previous subject chips per Rule 15.
+      - Updated the featured sidebar quick-launch in `script.js` to `Chemistry: HCl Notes` with icon `biotech` and `NEW` badge.
+    - **Cache Invalidation & Schema Validation (Rule 11)**:
+      - Bumped cache-busting queries in `index.html` to `v=13.0` for `style.css`, `data.js`, and `script.js`.
+      - Validated `data.json` syntax with `python -m json.tool`.
+      - Verified physical file existence on disk via `Test-Path`.
