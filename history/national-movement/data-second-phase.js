@@ -335,7 +335,15 @@ window.NM_DPP_DATA.sp = {
      "<b>Lord Curzon</b> - the Viceroy (1899-1905) who put the partition into effect."
     ],
     "why": "Curzon was Viceroy when Bengal was divided in 1905. Canning was Viceroy during and after the 1857 Revolt; Dalhousie is linked with the Doctrine of Lapse; Ripon with the Ilbert Bill and local self-government - none had anything to do with 1905.",
-    "official": null,
+    "official": {
+     "src": "CISCE APP 2023 marking scheme",
+     "points": [
+      "(c) Lord Curzon"
+     ],
+     "errors": [
+      "Many candidates wrote 'Lord Canning' instead of 'Lord Curzon'."
+     ]
+    },
     "tip": "Link the name to the event: Curzon = Partition of Bengal (and other repressive measures that fuelled Assertive Nationalism).",
     "words": null
    },
@@ -350,7 +358,7 @@ window.NM_DPP_DATA.sp = {
    "skill": "Recall",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
+    "key-official-APP"
    ]
   },
   {
@@ -429,7 +437,15 @@ window.NM_DPP_DATA.sp = {
      "<b>(d)</b> - both statements are true, and the partition (A) is what made the nationalists feel the British meant to divide Hindus and Muslims (R)."
     ],
     "why": "A is true (Curzon, 1905) and R is true (the nationalist view), so (a) and (b) fail. They are not independent - R is a reaction to the very event in A, so (c) fails. Because the partition itself produced the nationalist feeling, A is the reason for R: (d).",
-    "official": null,
+    "official": {
+     "src": "CISCE APP 2025 marking scheme",
+     "points": [
+      "(d) (A) is the reason for (R)."
+     ],
+     "errors": [
+      "Majority of the candidates attempted this part correctly. However, some candidates experienced difficulty in correctly connecting the assertion with the reason, which led to confusion in their responses."
+     ]
+    },
     "tip": "In an A-R item first test truth of each statement, then ask 'does one lead to the other?' Here the partition led to the nationalist suspicion. Read the option wording carefully - this paper's option set is non-standard.",
     "words": null
    },
@@ -443,8 +459,8 @@ window.NM_DPP_DATA.sp = {
    "skill": "Analysis",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined",
-    "non-standard-AR-options"
+    "non-standard-AR-options",
+    "key-official-APP"
    ]
   },
   {
@@ -529,7 +545,15 @@ window.NM_DPP_DATA.sp = {
      "<b>Swadeshi</b> - use and promote goods made in India to make the country <mark>self-reliant</mark>."
     ],
     "why": "Buying Indian products to lift local industry and cut dependence is Swadeshi. Passive Resistance means non-violent non-cooperation with the government; National Education means schools and colleges free from government control; Revivalism means reviving India's glorious past and heroes.",
-    "official": null,
+    "official": {
+     "src": "CISCE APP 2025 marking scheme",
+     "points": [
+      "(c) Swadeshi"
+     ],
+     "errors": [
+      "Most of the candidates answered this question correctly, while some candidates chose option (d) 'Revivalism' instead of (c) 'Swadeshi'."
+     ]
+    },
     "tip": "Match the scenario keyword to the method: local industry / self-reliant = Swadeshi; refuse foreign goods = Boycott; own schools = National Education.",
     "words": null
    },
@@ -543,7 +567,7 @@ window.NM_DPP_DATA.sp = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
+    "key-official-APP"
    ]
   },
   {
@@ -575,7 +599,15 @@ window.NM_DPP_DATA.sp = {
      "<b>Purna Swaraj</b> - complete independence from British control."
     ],
     "why": "Assertive Nationalists demanded Swaraj in the sense of full independence. Self-government under British rule (d) was the Early Nationalists' aim, and constitutional agitation (a) and peaceful protests (b) are methods, not the objective.",
-    "official": null,
+    "official": {
+     "src": "CISCE APP 2023 marking scheme",
+     "points": [
+      "(c) Purna Swaraj"
+     ],
+     "errors": [
+      "Some candidates chose 'Self-government under British Rule' instead of 'Purna Swaraj' as they were confused with the concept of the word 'Swaraj'."
+     ]
+    },
     "tip": "Objective vs method: Assertive objective = Swaraj/complete independence; methods = Swadeshi, Boycott, National Education, Passive Resistance.",
     "words": null
    },
@@ -591,7 +623,7 @@ window.NM_DPP_DATA.sp = {
    "skill": "Recall",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
+    "key-official-APP"
    ]
   },
   {
@@ -673,11 +705,13 @@ window.NM_DPP_DATA.sp = {
     ],
     "why": "Pal, Lajpat Rai and Tilak are the three Assertive leaders (Lal-Bal-Pal). Naoroji, the 'Grand Old Man of India', belonged to the Early Nationalists, so he is the odd one out.",
     "official": {
-     "src": "CISCE Specimen 2026 marking scheme",
+     "src": "CISCE APP 2025 marking scheme",
      "points": [
-      "(b) Dadabhai Naoroji (option order as in the Specimen)"
+      "(c) Dadabhai Naoroji (option order as in the 2025 paper: Pal, Lajpat Rai, Naoroji, Tilak)"
      ],
-     "errors": []
+     "errors": [
+      "Almost all the candidates attempted this part correctly. However, a few candidates missed out the word 'odd' and thus selected Bal Gangadhar Tilak as the answer."
+     ]
     },
     "tip": "Memorise the two lists: Assertive = Lal-Bal-Pal (Aurobindo Ghose also associated); Early = Naoroji, Surendranath Banerjee, Gokhale.",
     "words": null
@@ -728,7 +762,9 @@ window.NM_DPP_DATA.sp = {
    "difficulty": "Easy",
    "skill": "Recall",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [
+    "key-official-APP"
+   ]
   },
   {
    "id": "sp-mcq-09",
@@ -1041,7 +1077,19 @@ window.NM_DPP_DATA.sp = {
      "<b>Responsible:</b> <mark>Lord Curzon</mark>, the Viceroy of India, who divided the Bengal Presidency into Bengal and Eastern Bengal and Assam."
     ],
     "why": null,
-    "official": null,
+    "official": {
+     "src": "CISCE APP 2026 marking scheme",
+     "points": [
+      "1905",
+      "Lord Curzon"
+     ],
+     "errors": [
+      "This question had two parts.",
+      "1905 - The year of partition was identified incorrectly by many candidates.",
+      "Lord Curzon - Few candidates identified incorrectly and named Lord Canning and Lord Dalhousie.",
+      "Few candidates were confused between Partition of India and Partition of Bengal."
+     ]
+    },
     "tip": "Give the year AND the person in separate sentences - one mark each. Adding 'Curzon, Viceroy' and 16 October 1905 shows full knowledge.",
     "words": "≈20-30 words"
    },
@@ -1077,10 +1125,19 @@ window.NM_DPP_DATA.sp = {
    "answer": {
     "points": [
      "<b>Year:</b> the Surat Split took place in <mark>1907</mark> (Surat session of the Indian National Congress).",
-     "<b>Result:</b> the Congress <mark>split into Early Nationalists and Assertive Nationalists</mark>; the Assertives were expelled and stayed out for about nine years, the national movement was weakened and the British got a chance to apply 'divide and rule'."
+     "<b>Result:</b> the <mark>Congress party split</mark> – the <mark>Assertive Nationalists were removed from the party</mark> (expelled; they stayed out for about nine years), the national movement was weakened and the British got a chance to apply 'divide and rule'."
     ],
     "why": null,
-    "official": null,
+    "official": {
+     "src": "CISCE APP 2024 marking scheme",
+     "points": [
+      "1907",
+      "The Congress party split or the assertive nationalists were removed from the party."
+     ],
+     "errors": [
+      "Many candidates got the first part of the question wrong as they failed to mention the year of the Surat Split. However, many answered the second part correctly while some did not attend this question."
+     ]
+    },
     "tip": "Two marks = year + one clear consequence. Write the 'result' (split, weakened movement), not the 'causes' (Swadeshi, president dispute) - that is a different question.",
     "words": "≈30-40 words"
    },
@@ -1442,11 +1499,26 @@ window.NM_DPP_DATA.sp = {
    "answer": {
     "points": [
      "<b>Who:</b> Bengal was partitioned by <mark>Lord Curzon</mark>, the Viceroy, in 1905 (announced 20 July, in force 16 October).",
-     "<b>Divide and rule:</b> nationalists saw the 'administrative efficiency' plea as fake; the real motive was to <mark>divide Bengalis on religious and territorial lines</mark> (Muslim-majority east, Hindus a minority there; Bengalis a minority in the new Bengal).",
-     "<b>Weaken nationalism:</b> Bengal was the <mark>centre of Indian nationalism</mark>; the partition was a hidden attack to weaken the rising opposition (Risley, the Home Secretary, admitted this), ignoring public opinion and hurting Bengali sentiment."
+     "<b>To divide Hindus and Muslims:</b> nationalists saw the 'administrative efficiency' plea as fake; the real motive was to <mark>divide Hindus and Muslims</mark> (Muslim-majority east, Hindus a minority there; Bengalis a minority in the new Bengal).",
+     "<b>To stop the rising tide of nationalism:</b> Bengal was the <mark>nerve centre of Indian nationalism</mark>, so the partition was a hidden attack to weaken it and to <mark>demonstrate the strength of the British Raj</mark>, ignoring public opinion (Risley, the Home Secretary, admitted this)."
     ],
     "why": null,
-    "official": null,
+    "official": {
+     "src": "CISCE APP 2024 marking scheme",
+     "points": [
+      "Lord Curzon",
+      "To divide Hindus and Muslims",
+      "To stop the rising tide of nationalism because Bengal was the nerve centre of Indian nationalism",
+      "To demonstrate the strength of the British Raj",
+      "(Any two points)"
+     ],
+     "errors": [
+      "Many candidates were able to answer this question correctly.",
+      "A few candidates wrote Lord Lytton or Lord Canning instead of Lord Curzon.",
+      "Additionally, they wrote from the perspective of the British instead of the Nationalist perspective.",
+      "Some candidates got confused with the actual reason and the reason given by Lord Curzon for the partition of Bengal."
+     ]
+    },
     "tip": "1 mark for the name + 1 mark each for two nationalist points. Do not give the British 'administration' reason here - the question asks the ACTUAL motive.",
     "words": "≈60-70 words"
    },
@@ -1740,12 +1812,33 @@ window.NM_DPP_DATA.sp = {
    ],
    "answer": {
     "points": [
-     "<b>Objective:</b> the Assertive Nationalists aimed at <mark>Swaraj - complete independence</mark> from British control.",
-     "<b>Contribution 1:</b> Tilak declared <mark>'Swaraj is my birthright and I shall have it'</mark>, making Swaraj the people's goal, and spread his message through the newspapers <mark>Kesari</mark> (Marathi) and <mark>Mahratta</mark> (English).",
-     "<b>Contribution 2:</b> he roused mass patriotism by <mark>organising the Ganapati and Shivaji festivals</mark>, setting up akharas and lathi clubs, and later started the Home Rule League at Pune (1916)."
+     "<b>Objective:</b> the Assertive Nationalists aimed at <mark>Purna Swaraj - complete independence</mark> from British control.",
+     "<b>Contribution 1:</b> Tilak <mark>advocated Swadeshi, Swaraj and Boycott</mark> and gave the slogan <mark>'Swaraj is my birthright, and I shall have it'</mark>; he started the newspapers <mark>Mahratta</mark> (English) and <mark>Kesari</mark> (Marathi).",
+     "<b>Contribution 2:</b> he <mark>revived the Ganapati and Shivaji festivals</mark>, organised akharas and lathi clubs for the youth, led a no-rent campaign, opposed the Partition of Bengal, advocated National Education and launched the Home Rule Movement (1916)."
     ],
     "why": null,
-    "official": null,
+    "official": {
+     "src": "CISCE APP 2024 marking scheme",
+     "points": [
+      "Purna Swaraj or complete independence",
+      "He advocated Swadeshi, Swaraj and Boycott.",
+      "He started two newspapers, Mahratta and Kesri",
+      "Revived the Ganapathi and Shivaji festival",
+      "Organised the Akharas and Lathi Clubs for the youth",
+      "He led a no-rent campaign",
+      "Opposed the Partition of Bengal",
+      "Launched the Home Rule Movement",
+      "Gave the slogan 'Swaraj is my birthright, and I shall have it.'",
+      "Advocated National Education",
+      "He is regarded as the 'Forerunner of Gandhi' because Tilak followed the idea of Swadeshi and Boycott much before Gandhiji. His idea of Swaraj was similar to Gandhiji's idea of complete Independence. He also believed in mass movements.",
+      "He wrote three great works- Gitarahasya, The Orion, The Arctic Home in the Vedas.",
+      "(Any two points)"
+     ],
+     "errors": [
+      "Some candidates could not mention the objective of the Assertive Nationalists and wrote the objective of the Early Nationalists.",
+      "Some could not list out the contributions of Bal Gangadhar Tilak."
+     ]
+    },
     "tip": "1 mark for the objective + 1 mark each for the two contributions. State 'complete independence', not 'self-government' (the Early Nationalists' aim).",
     "words": "≈50-60 words"
    },

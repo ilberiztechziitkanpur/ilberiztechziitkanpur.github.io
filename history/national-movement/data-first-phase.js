@@ -323,7 +323,15 @@ window.NM_DPP_DATA.fp = {
      "<mark>(a) Gopal Krishna Gokhale</mark> – a Moderate, Ranade's disciple and Gandhi's political mentor."
     ],
     "why": "Gokhale (Servants of India Society, 1905; President of the 1905 Varanasi Congress) was an Early Nationalist. Bipin Chandra Pal and Bal Gangadhar Tilak were Assertive Nationalists (Lal-Bal-Pal). Jyotiba Phule was a social reformer (Satyashodhak Samaj), not a Congress nationalist leader.",
-    "official": null,
+    "official": {
+     "src": "CISCE APP 2023 marking scheme",
+     "points": [
+      "(a) Gopal Krishna Gokhale"
+     ],
+     "errors": [
+      "Most of the candidates answered this question correctly. Some candidates were confused and chose different answers."
+     ]
+    },
     "tip": "Learn the Moderate roster: Naoroji, Gokhale, Surendranath Banerjee, Pherozeshah Mehta, Ranade, W.C. Bonnerjee. Anyone in the Lal-Bal-Pal / Aurobindo group is Assertive.",
     "words": ""
    },
@@ -335,7 +343,7 @@ window.NM_DPP_DATA.fp = {
    "skill": "Recall",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
+    "key-official-APP"
    ]
   },
   {
@@ -367,7 +375,15 @@ window.NM_DPP_DATA.fp = {
      "<mark>(a) Dadabhai Naoroji</mark> presided over the second INC session (Calcutta, 1886); he was President three times – 1886, 1893 and 1906."
     ],
     "why": "Naoroji presided over the Calcutta session of 1886 – the second session. Gokhale presided in 1905 (Varanasi), not in 1886. Pal and Tilak were Assertive Nationalists and never held the Congress presidency in this period.",
-    "official": null,
+    "official": {
+     "src": "CISCE APP 2026 marking scheme",
+     "points": [
+      "(a) Dadabhai Naoroji"
+     ],
+     "errors": [
+      "Majority of the candidates were able to answer correctly."
+     ]
+    },
     "tip": "Remember Naoroji's three presidentships (1886, 1893, 1906) and that the Swaraj demand was first made from the Congress platform under him in 1906.",
     "words": ""
    },
@@ -380,7 +396,7 @@ window.NM_DPP_DATA.fp = {
    "confidence": "HIGH",
    "flags": [
     "straddles-growth-of-nationalism",
-    "key-agent-determined"
+    "key-official-APP"
    ]
   },
   {
@@ -412,7 +428,15 @@ window.NM_DPP_DATA.fp = {
      "<mark>(c)</mark> – the Early Nationalists used <mark>petitions and memorandums</mark> to place problems before the authorities peacefully and constitutionally."
     ],
     "why": "(c) is the classic Early Nationalist method: a written petition to the authorities (the '3 Ps' – petitions, prayers, protests). (a) Boycott was an Assertive Nationalist method. (b) A protest is also part of the 3 Ps, but a group demonstration is less typical than a petition, so (c) is the MOST likely choice. (d) Blocking the road is direct, coercive action the Moderates avoided.",
-    "official": null,
+    "official": {
+     "src": "CISCE APP 2024 marking scheme",
+     "points": [
+      "(c) Write a petition to the authorities highlighting the problem"
+     ],
+     "errors": [
+      "Most of the candidates answered this question correctly."
+     ]
+    },
     "tip": "For 'most likely Early Nationalist method' scenarios, choose the quiet, written, polite option (petition, letter, memorandum, newspaper article). Boycott and blockades signal Assertive or direct action.",
     "words": ""
    },
@@ -428,8 +452,8 @@ window.NM_DPP_DATA.fp = {
    "confidence": "HIGH",
    "flags": [
     "scenario-based",
-    "key-agent-determined",
-    "minor-distractor-overlap-protest-is-also-a-3P"
+    "minor-distractor-overlap-protest-is-also-a-3P",
+    "key-official-APP"
    ]
   },
   {
@@ -570,7 +594,15 @@ window.NM_DPP_DATA.fp = {
      "<mark>(d) Forcibly prevent workers</mark> – the Early Nationalists rejected <mark>force and confrontation</mark> and used only peaceful, constitutional protest."
     ],
     "why": "(d) uses force against Government workers – the Early Nationalists never did this. (a) Placards are a peaceful protest, part of the 3 Ps. (b) Letters to newspapers use the press, a standard Moderate method. (c) Planting saplings is a peaceful, non-violent expression of commitment, nothing contrary to their approach.",
-    "official": null,
+    "official": {
+     "src": "CISCE APP 2026 marking scheme",
+     "points": [
+      "(d) Forcibly prevent workers sent by the Government."
+     ],
+     "errors": [
+      "Most candidates were able to answer correctly, but some were incorrectly confused between option (b) and (c)."
+     ]
+    },
     "tip": "When the question says 'NOT likely', hunt for violence, coercion or boycott. Every peaceful, law-abiding option is consistent with the Early Nationalists.",
     "words": ""
    },
@@ -585,7 +617,7 @@ window.NM_DPP_DATA.fp = {
    "confidence": "HIGH",
    "flags": [
     "scenario-based",
-    "key-agent-determined"
+    "key-official-APP"
    ]
   },
   {
@@ -612,15 +644,31 @@ window.NM_DPP_DATA.fp = {
     ],
     "why": null,
     "official": {
-     "src": "CISCE Analysis of Pupil Performance 2020 – marking scheme (same ask, 2020 paper)",
+     "src": "CISCE APP 2025 marking scheme",
      "points": [
-      "Any two methods: held meetings and made speeches; used the press, newspapers and journals to criticise Government policies",
-      "Sent memorandums and petitions to officials and the British Parliament; the 3 Ps – petitions, prayers, protests – through constitutional means",
-      "Also credited: passing resolutions, uniting public opinion, deputations to Britain, leaflets and pamphlets"
+      "Prayer",
+      "Protest",
+      "Petition or 3Ps or methods of political mendicancy",
+      "Prepare memorandums",
+      "Give speeches",
+      "Send deputations or delegations to Britain",
+      "Hold meetings",
+      "distribution of pamphlets and leaflets",
+      "appeals",
+      "constitutional methods",
+      "passing resolutions",
+      "Made use of the press, newspapers, and journals",
+      "criticised government policies",
+      "peaceful propaganda",
+      "held discussions",
+      "held processions",
+      "United public opinion",
+      "A British Committee of the INC was set up in London",
+      "Published a weekly journal 'India' to present India's case before the British Public",
+      "(Any two)"
      ],
      "errors": [
-      "A few candidates wrote the objectives of the Early Nationalists instead of methods",
-      "A few wrote methods of the Assertive Nationalists (boycott, Swadeshi)"
+      "Several candidates answered this question appropriately; however, few candidates mixed up the categories of powers and functions and gave diverse responses."
      ]
     },
     "tip": "Give exactly two distinct methods, one point each, in one or two lines. Do NOT write objectives or beliefs, and avoid boycott/Swadeshi (Assertive). Other creditable methods: deputations to Britain, British Committee of the INC (1889) with its journal 'India'.",

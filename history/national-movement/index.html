@@ -782,7 +782,7 @@
     }
     @media (max-width: 899px) {
       .brand { display: none; }
-      .ch-switch { margin-left: auto; }
+      .ch-switch { margin-left: auto; flex: 1 1 auto; min-width: 0; flex-wrap: wrap; justify-content: flex-end; }
       .tab-full { display: none; }
       .tab-short { display: block; white-space: nowrap; }
       .tab-sub { display: block; font-size: 11px; color: var(--tx-3); font-weight: 500; }
@@ -824,8 +824,12 @@
       .mini { margin-left: 0; }
       .dlg-body { padding: 14px 16px 18px; }
     }
+    @media (max-width: 600px) {
+      .chb .chb-no { display: inline; font-size: 13px; color: inherit; } .chb .chb-t { display: none; }
+      .ch-switch { flex-wrap: nowrap; }
+    }
     @media (max-width: 420px) {
-      .chb .chb-no { display: none; }
+      .chb .chb-no { display: inline; font-size: 13px; color: inherit; } .chb .chb-t { display: none; }
       .tab { padding: 6px 8px; gap: 6px; }
       .tab .msi { display: none; }
       .heat-row { gap: 2px; }
@@ -1023,8 +1027,10 @@
   <div class="sr-only" id="announcer" aria-live="assertive"></div>
 
   <script src="pattern.js?v=1"></script>
-  <script src="data-first-phase.js?v=1"></script>
-  <script src="data-second-phase.js?v=1"></script>
+  <script src="data-first-phase.js?v=2"></script>
+  <script src="data-second-phase.js?v=2"></script>
+  <script src="data-muslim-league.js?v=2"></script>
+  <script src="data-gandhi.js?v=1"></script>
   <script>
 /* =====================================================================
    National Movement DPP engine
@@ -1101,6 +1107,16 @@
     short: { full: 'Short Answers (Sec A)', short: 'Short', sub: 'Section A', icon: 'short_text', noun: 'short-answer' },
     long: { full: 'Long Answers (Sec B)', short: 'Long', sub: 'Section B', icon: 'subject', noun: 'long-answer' }
   };
+  // Subjects whose paper has other DPP sections (e.g. Maths, Physics numericals, Geography map work)
+  // declare them in pattern.js: dppSections: [{ id, full, short, sub, icon, noun }]
+  if (Array.isArray(PAT.dppSections) && PAT.dppSections.length) {
+    SECS = []; SEC_META = {};
+    PAT.dppSections.forEach(function (d) {
+      if (!d || !d.id) return;
+      SECS.push(String(d.id));
+      SEC_META[d.id] = { full: d.full || d.id, short: d.short || d.id, sub: d.sub || '', icon: d.icon || 'quiz', noun: d.noun || d.short || d.id };
+    });
+  }
   var TYPE_META = {
     BOARD: { short: 'Board', group: 'board', board: true, strip: true },
     BOARD_SEM1: { short: 'Sem 1', group: 'sem', board: true, strip: true },
@@ -1157,7 +1173,7 @@
       var c = {
         code: code, meta: meta, title: str(meta.title) || code, shortTitle: str(meta.shortTitle) || str(meta.title) || code,
         chapterNo: num(meta.chapterNo, null), sources: sources, srcById: srcById, notes: notes,
-        topics: topics, topicById: topicById, bySec: { mcq: [], short: [], long: [] }, all: []
+        topics: topics, topicById: topicById, bySec: SECS.reduce(function (o, k) { o[k] = []; return o; }, {}), all: []
       };
       /* board-year denominators and the year strip range */
       var den = new Set(), stripYears = [], hasYear = {};
@@ -1221,7 +1237,7 @@
     var it = {
       id: str(raw.id), ch: c.code, sec: sec, isVar: !!parent, parent: parent, order: order,
       topic: topic, format: fmt,
-      marks: num(raw.marks, parent ? parent.marks : (sec === 'mcq' ? 1 : 2)),
+      marks: num(raw.marks, parent ? parent.marks : (hasOpts ? 1 : 2)),
       stem: raw.stem ? str(raw.stem) : null,
       picture: raw.picture ? str(raw.picture) : null,
       q: str(raw.q),
@@ -1331,7 +1347,7 @@
   var prefs = LS.get('prefs', {}); if (!prefs || typeof prefs !== 'object') prefs = {};
   var PROG = LS.get('progress', {}); if (!PROG || typeof PROG !== 'object' || Array.isArray(PROG)) PROG = {};
   var state = {
-    ch: null, sec: 'mcq',
+    ch: null, sec: SECS[0],
     mode: (prefs.mode === 'learn' || prefs.mode === 'practice') ? prefs.mode : 'practice',
     sort: ['expected', 'recent', 'frequent', 'topic', 'marks'].indexOf(prefs.sort) >= 0 ? prefs.sort : 'expected',
     expandAll: !!prefs.expandAll,
@@ -2044,12 +2060,12 @@
     h += '<p class="dlg-lead">' + plural(c.sources.length, 'paper or document', 'papers and documents') + ' checked for ' + esc(c.shortTitle) + ' · ' + found + ' found.' +
       (c.meta.updated ? ' Last updated ' + esc(c.meta.updated) + '.' : '') + '</p>';
     if (c.sources.length) {
-      h += '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Source</th><th>Found</th><th class="num">MCQ</th><th class="num">Short</th><th class="num">Long</th><th>Link</th></tr></thead><tbody>' +
+      h += '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Source</th><th>Found</th>' + SECS.map(function (k) { return '<th class="num">' + esc(SEC_META[k].short) + '</th>'; }).join('') + '<th>Link</th></tr></thead><tbody>' +
         c.sources.slice().sort(function (a, b) { return (GROUP_ORDER[srcGroup(a)] - GROUP_ORDER[srcGroup(b)]) || (num(a.year, 0) - num(b.year, 0)); }).map(function (s) {
           var g = srcGroup(s), nf = s.found === false, u = safeUrl(s.url);
           var cell = function (k) { return '<td class="num' + (nf ? ' nf' : '') + '">' + (nf || !s.marks || typeof s.marks[k] !== 'number' ? '—' : fmtN(s.marks[k])) + '</td>'; };
           return '<tr><td><span class="src src-' + g + '">' + esc(srcShort(s)) + '</span><br><small>' + esc(str(s.label) || s.id) + '</small></td>' +
-            '<td>' + (nf ? '<span class="bad-t">Not found</span>' : '<span class="ok-t">Found</span>') + '</td>' + cell('mcq') + cell('short') + cell('long') +
+            '<td>' + (nf ? '<span class="bad-t">Not found</span>' : '<span class="ok-t">Found</span>') + '</td>' + SECS.map(cell).join('') +
             '<td>' + (u ? '<a href="' + esc(u) + '" target="_blank" rel="noopener noreferrer">Open</a>' : '—') + '</td></tr>';
         }).join('') + '</tbody></table></div>';
     } else h += '<p>No sources are listed for this chapter yet.</p>';
@@ -2699,7 +2715,7 @@
     var qp = null; try { qp = new URLSearchParams(window.location.search); } catch (e) {}
     var ch = qp && qp.get('ch'), sec = qp && qp.get('sec'), mode = qp && qp.get('mode');
     if (!ch || !CH[ch]) ch = CH_ORDER[0];
-    if (SECS.indexOf(sec) < 0) sec = 'mcq';
+    if (SECS.indexOf(sec) < 0) sec = SECS[0];
     if (mode === 'learn' || mode === 'practice') state.mode = mode;
     bind();
     setMode(state.mode);

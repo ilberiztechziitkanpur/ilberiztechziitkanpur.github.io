@@ -1685,8 +1685,32 @@
                         {
                             "id": "chap-his-5",
                             "name": "Ch 5: The Muslim League & Lucknow Pact",
-                            "description": "Factors leading to formation of Muslim League, objectives, Nawab Salimullah, Aga Khan, and Lucknow Pact 1916",
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank + 2 Class Notes: factors behind the Muslim League, Shimla Deputation, foundation 1906, objectives, Lucknow Pact 1916",
                             "items": [
+                                {
+                                    "id": "his-ml-dpp-mcq",
+                                    "title": "Muslim League — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "6 official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — Muslim League 1906, factors, Shimla Deputation, objectives, Lucknow Pact 1916",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=ml&sec=mcq",
+                                    "badge": "DPP 1 • 6 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "his-ml-dpp-short",
+                                    "title": "Muslim League — Interactive DPP 2: Short Answers (Section A · Q2)",
+                                    "subtitle": "4 official 2-mark questions with board-exact answers, highlighted keywords, Show Variations & CISCE examiner notes — Muslim League 1906, factors, Shimla Deputation, objectives, Lucknow Pact 1916",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=ml&sec=short",
+                                    "badge": "DPP 2 • 4 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-ml-dpp-long",
+                                    "title": "Muslim League — Interactive DPP 3: Long Answers (Section B)",
+                                    "subtitle": "3 official Section B sub-questions (3–4 marks) with point-wise board answers, self-marking checklist & timed test mode — Muslim League 1906, factors, Shimla Deputation, objectives, Lucknow Pact 1916",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=ml&sec=long",
+                                    "badge": "DPP 3 • 3 Qs • 3–4 Marks"
+                                },
                                 {
                                     "id": "his-muslim-league-notes-01",
                                     "title": "The Muslim League 01 Class Notes",
@@ -1703,21 +1727,38 @@
                                     "file": "history/notes/The_Muslim_League_02_Class_Notes.pdf",
                                     "size": "8.4 MB"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-his-6",
                             "name": "Ch 6: Mahatma Gandhi and the National Movement",
-                            "description": "15 Theory Clusters (86+ PYQ Twists), Official Marking Scheme, Dual Instant/DPP Modes & 3 Full Class Notes",
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank + 3 Class Notes: Rowlatt Act, Jallianwala Bagh, Khilafat, Non-Cooperation, Simon Commission, Lahore Session, Dandi March, Civil Disobedience, Gandhi-Irwin Pact",
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "his-gandhi-theory-master",
-                                    "title": "Mahatma Gandhi & National Movement — 15 Clusters & 86+ PYQ Twists Vault",
-                                    "subtitle": "15 Master Question Clusters, 86+ Twisted Variations (2015–2026), Official CISCE Marking Scheme, Instant Check & DPP Modes, Live Exam Countdown Timer",
+                                    "id": "his-gandhi-dpp-mcq",
+                                    "title": "Mahatma Gandhi & the National Movement — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "12 official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — Rowlatt Act, Jallianwala Bagh, Khilafat, Non-Cooperation, Chauri Chaura, Simon Commission, Lahore Session, Dandi March, Civil Disobedience, Gandhi-Irwin Pact",
                                     "type": "interactive",
-                                    "file": "history/gandhi/index.html",
-                                    "badge": "PYQ Vault • 15 Clusters • 86+ Twists"
+                                    "file": "history/national-movement/index.html?ch=gandhi&sec=mcq",
+                                    "badge": "DPP 1 • 12 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "his-gandhi-dpp-short",
+                                    "title": "Mahatma Gandhi & the National Movement — Interactive DPP 2: Short Answers (Section A · Q2)",
+                                    "subtitle": "9 (+2 variations) official 2-mark questions with board-exact answers, highlighted keywords, Show Variations & CISCE examiner notes — Rowlatt Act, Jallianwala Bagh, Khilafat, Non-Cooperation, Chauri Chaura, Simon Commission, Lahore Session, Dandi March, Civil Disobedience, Gandhi-Irwin Pact",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=gandhi&sec=short",
+                                    "badge": "DPP 2 • 11 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-gandhi-dpp-long",
+                                    "title": "Mahatma Gandhi & the National Movement — Interactive DPP 3: Long Answers (Section B)",
+                                    "subtitle": "23 official Section B sub-questions (3–4 marks) with point-wise board answers, self-marking checklist & timed test mode — Rowlatt Act, Jallianwala Bagh, Khilafat, Non-Cooperation, Chauri Chaura, Simon Commission, Lahore Session, Dandi March, Civil Disobedience, Gandhi-Irwin Pact",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=gandhi&sec=long",
+                                    "badge": "DPP 3 • 23 Qs • 3–4 Marks"
                                 },
                                 {
                                     "id": "his-gandhi-notes-01",
