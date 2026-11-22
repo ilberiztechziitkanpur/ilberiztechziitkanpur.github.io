@@ -1076,13 +1076,13 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: History - Ch 3–6 Interactive PYQ DPPs (newest: Ch 7 Quit India)
+    // Latest Update Quick Launch: History - Ch 3–6 Interactive PYQ DPPs (newest: Ch 8 Forward Bloc & INA)
     const hisNav = document.createElement('div');
-    const isHisActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && ['chap-his-3', 'chap-his-4', 'chap-his-5', 'chap-his-6', 'chap-his-7'].includes(state.path[2]);
+    const isHisActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && ['chap-his-3', 'chap-his-4', 'chap-his-5', 'chap-his-6', 'chap-his-7', 'chap-his-8'].includes(state.path[2]);
     hisNav.className = `nav-item nav-item-featured ${isHisActive ? 'active' : ''}`;
     hisNav.innerHTML = `
         <span class="material-symbols-outlined icon" style="color: #f59e0b;">history_edu</span>
-        <span style="font-weight: 600;">History: Ch 3–7 DPPs</span>
+        <span style="font-weight: 600;">History: Ch 3–8 DPPs</span>
         <span class="nav-badge-hot" style="background: linear-gradient(135deg, #d97706, #f59e0b); color:#fff; box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);">NEW</span>
     `;
     hisNav.onclick = () => {
@@ -1288,24 +1288,24 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
-                <button class="spotlight-chip featured-chip" id="spot-his-qim-mcq" type="button">
+                <button class="spotlight-chip featured-chip" id="spot-his-ina-mcq" type="button">
                     <span class="material-symbols-outlined" style="color: #f59e0b;">quiz</span>
-                    <span class="spotlight-chip-text">Quit India Movement • DPP 1: MCQs (4)</span>
+                    <span class="spotlight-chip-text">Forward Bloc & INA • DPP 1: MCQs (8)</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #d97706, #f59e0b);">NEW</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-qim-short" type="button">
+                <button class="spotlight-chip featured-chip" id="spot-his-ina-short" type="button">
                     <span class="material-symbols-outlined" style="color: #ef4444;">edit_note</span>
-                    <span class="spotlight-chip-text">Quit India Movement • DPP 2: Short (2)</span>
+                    <span class="spotlight-chip-text">Forward Bloc & INA • DPP 2: Short (6)</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #dc2626, #ef4444);">NEW</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-qim-long" type="button">
+                <button class="spotlight-chip featured-chip" id="spot-his-ina-long" type="button">
                     <span class="material-symbols-outlined" style="color: #a855f7;">history_edu</span>
-                    <span class="spotlight-chip-text">Quit India Movement • DPP 3: Long (6)</span>
+                    <span class="spotlight-chip-text">Forward Bloc & INA • DPP 3: Long (6)</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #9333ea, #a855f7);">NEW</span>
                 </button>
                 <button class="spotlight-chip featured-chip" id="spot-his-all" type="button">
                     <span class="material-symbols-outlined" style="color: #818cf8;">auto_stories</span>
-                    <span class="spotlight-chip-text">History • Ch 3–7 Interactive DPPs</span>
+                    <span class="spotlight-chip-text">History • Ch 3–8 Interactive DPPs</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #4f46e5, #818cf8);">HOT</span>
                 </button>
             </div>
@@ -1322,9 +1322,9 @@ function renderView() {
             else navigateTo('items', [batch.id, 'sub-10-his', chapId]);
         };
         const chipActions = {
-            '#spot-his-qim-mcq': () => openHisDpp('chap-his-7', 'his-qim-dpp-mcq'),
-            '#spot-his-qim-short': () => openHisDpp('chap-his-7', 'his-qim-dpp-short'),
-            '#spot-his-qim-long': () => openHisDpp('chap-his-7', 'his-qim-dpp-long'),
+            '#spot-his-ina-mcq': () => openHisDpp('chap-his-8', 'his-ina-dpp-mcq'),
+            '#spot-his-ina-short': () => openHisDpp('chap-his-8', 'his-ina-dpp-short'),
+            '#spot-his-ina-long': () => openHisDpp('chap-his-8', 'his-ina-dpp-long'),
             '#spot-his-all': () => { audioFX.playTick(); navigateTo('chapters', [batch.id, 'sub-10-his']); }
         };
 

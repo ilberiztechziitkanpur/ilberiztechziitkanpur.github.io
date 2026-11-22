@@ -1837,8 +1837,34 @@
                         {
                             "id": "chap-his-8",
                             "name": "Ch 8: Forward Bloc and the INA",
-                            "description": "Subhas Chandra Bose: Forward Bloc objectives, Indian National Army (INA) formation, Netaji's contributions",
-                            "items": []
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank: Subhas Chandra Bose, Forward Bloc objectives, formation & objectives of the INA, Azad Hind and impact of the INA",
+                            "items": [
+                                {
+                                    "id": "his-ina-dpp-mcq",
+                                    "title": "Forward Bloc & the INA — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "8 official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — Subhas Chandra Bose, Forward Bloc 1939, Indian National Army, Azad Hind, objectives & impact of the INA",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=ina&sec=mcq",
+                                    "badge": "DPP 1 • 8 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "his-ina-dpp-short",
+                                    "title": "Forward Bloc & the INA — Interactive DPP 2: Short Answers (Section A · Q2)",
+                                    "subtitle": "5 (+1 variation) official 2-mark questions with board-exact answers, highlighted keywords, Show Variations & CISCE examiner notes — Subhas Chandra Bose, Forward Bloc 1939, Indian National Army, Azad Hind, objectives & impact of the INA",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=ina&sec=short",
+                                    "badge": "DPP 2 • 6 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-ina-dpp-long",
+                                    "title": "Forward Bloc & the INA — Interactive DPP 3: Long Answers (Section B)",
+                                    "subtitle": "6 official Section B sub-questions (3–4 marks) with point-wise board answers, self-marking checklist & timed test mode — Subhas Chandra Bose, Forward Bloc 1939, Indian National Army, Azad Hind, objectives & impact of the INA",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=ina&sec=long",
+                                    "badge": "DPP 3 • 6 Qs • 3–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-his-9",
