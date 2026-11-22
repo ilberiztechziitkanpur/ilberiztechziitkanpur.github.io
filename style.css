@@ -252,6 +252,7 @@ kbd {
     inset: 0;
     z-index: 100;
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     place-items: center;
     padding: 24px 16px calc(24px + var(--safe-b));
     background:

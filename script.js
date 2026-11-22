@@ -24,7 +24,7 @@ const LATEST_RELEASE = {
     nav: { label: 'History: Ch 3–9 DPPs', href: '#/s/sub-10-his' }
 };
 
-const APP_VERSION = '14.0';
+const APP_VERSION = '14.1';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------
