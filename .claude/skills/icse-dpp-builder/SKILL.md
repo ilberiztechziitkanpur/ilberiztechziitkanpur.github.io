@@ -42,6 +42,9 @@ Do NOT offer to read the PW class-notes PDFs — the user said never read them; 
 ## Step 4 — YOU review variations (cheap, do it yourself)
 Read the clusters report. Be stricter than the compiler: a different scenario, a picture/portrait instead of a quote, different options logic, different number of points, causes vs results, name vs explain → NOT a variation. Promote with `node scripts/promote-variation.js <file> <code> <varId> <newId>` and fix any "same as main question" wording in the promoted answer. Tell the user which ones you split and why.
 
+## Step 4b — Completeness audit (always; one fresh Sonnet-high agent, read-only)
+A fresh agent re-reads EVERY question of the subject's part of each in-scope paper from the official text (APP reproductions, specimen PDFs, CFPQ), tags each with its chapter, and diffs against the data files: missing / wrong chapter / wrong ref-marks / items not found in any paper. Add whatever it reports missing before publishing. (History Ch 3–8 audit, Nov 2026: 146 in-scope items in 14 papers = 146 DPP rows, 0 missing.) This is what lets you tell the user "nothing is missing" truthfully.
+
 ## Step 5 — Plug into the engine
 - History engine: `history/national-movement/index.html` (chapters fp, sp, ml, gandhi, …). Add `<script src="data-<chapter>.js?v=1">` next to the others. Chapters appear in the switcher automatically (ordered by `meta.chapterNo`).
 - Another subject: create ONE engine copy per subject (e.g. `physics/dpp/index.html`) from the history engine, with that subject's `pattern.js`. If its DPP sections differ from mcq/short/long, declare `dppSections: [{id, full, short, sub, icon, noun}]` in pattern.js — the engine reads it. Never copy the engine per chapter. Record every engine copy in PROJECT_STATE.md so fixes are applied to all copies.
