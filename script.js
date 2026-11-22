@@ -1076,24 +1076,24 @@ function renderNav() {
         navMenu.appendChild(item);
     });
 
-    // Latest Update Quick Launch: Chemistry - Study of Compounds Master Unit
-    const chemNav = document.createElement('div');
-    const isChemActive = state.currentView !== 'search' && state.path[1] === 'sub-10-chem' && state.path[2] === 'unit-chem-compounds';
-    chemNav.className = `nav-item nav-item-featured ${isChemActive ? 'active' : ''}`;
-    chemNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #ef4444;">local_fire_department</span>
-        <span style="font-weight: 600;">Chemistry: Compounds Unit</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #dc2626, #ef4444); color:#fff; box-shadow: 0 0 10px rgba(239, 68, 68, 0.4);">NEW</span>
+    // Latest Update Quick Launch: History - Ch 3 & 4 Interactive PYQ DPPs (First & Second Phase)
+    const hisNav = document.createElement('div');
+    const isHisActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && (state.path[2] === 'chap-his-3' || state.path[2] === 'chap-his-4');
+    hisNav.className = `nav-item nav-item-featured ${isHisActive ? 'active' : ''}`;
+    hisNav.innerHTML = `
+        <span class="material-symbols-outlined icon" style="color: #f59e0b;">history_edu</span>
+        <span style="font-weight: 600;">History: Ch 3 & 4 DPPs</span>
+        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #d97706, #f59e0b); color:#fff; box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);">NEW</span>
     `;
-    chemNav.onclick = () => {
+    hisNav.onclick = () => {
         closeSidebarOnMobile();
         resetSearch();
         const batch = state.data.batches.find(b => b.id === 'batch-class-10');
         if (batch) {
-            navigateTo('subchapters', [batch.id, 'sub-10-chem', 'unit-chem-compounds']);
+            navigateTo('chapters', [batch.id, 'sub-10-his']);
         }
     };
-    navMenu.appendChild(chemNav);
+    navMenu.appendChild(hisNav);
 }
 
 function resetSearch() {
@@ -1288,39 +1288,39 @@ function renderView() {
                 <span class="spotlight-sub">Jump straight to top requested resources</span>
             </div>
             <div class="spotlight-chips-grid">
-                <button class="spotlight-chip featured-chip" id="spot-chem-h2so4" type="button">
-                    <span class="material-symbols-outlined" style="color: #ef4444;">local_fire_department</span>
-                    <span class="spotlight-chip-text">Sulphuric Acid Notes 05</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #dc2626, #ef4444);">NEW</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-chem-hno3" type="button">
-                    <span class="material-symbols-outlined" style="color: #f59e0b;">experiment</span>
-                    <span class="spotlight-chip-text">Nitric Acid Notes 04</span>
+                <button class="spotlight-chip featured-chip" id="spot-his-sp-mcq" type="button">
+                    <span class="material-symbols-outlined" style="color: #f59e0b;">quiz</span>
+                    <span class="spotlight-chip-text">Second Phase • DPP 1: MCQs (14)</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #d97706, #f59e0b);">NEW</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-chem-mcq" type="button">
+                <button class="spotlight-chip featured-chip" id="spot-his-sp-short" type="button">
+                    <span class="material-symbols-outlined" style="color: #ef4444;">edit_note</span>
+                    <span class="spotlight-chip-text">Second Phase • DPP 2: Short Answers (11)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #dc2626, #ef4444);">NEW</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-his-sp-long" type="button">
+                    <span class="material-symbols-outlined" style="color: #a855f7;">history_edu</span>
+                    <span class="spotlight-chip-text">Second Phase • DPP 3: Long Answers (7)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #9333ea, #a855f7);">NEW</span>
+                </button>
+                <button class="spotlight-chip featured-chip" id="spot-his-fp-mcq" type="button">
                     <span class="material-symbols-outlined" style="color: #38bdf8;">quiz</span>
-                    <span class="spotlight-chip-text">Study of Compounds • 5-Yr MCQ Vault (57 Qs)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">HOT</span>
+                    <span class="spotlight-chip-text">First Phase • DPP 1: MCQs (7)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #38bdf8);">NEW</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-chem-nh3-03" type="button">
-                    <span class="material-symbols-outlined" style="color: #14b8a6;">bubble_chart</span>
-                    <span class="spotlight-chip-text">Ammonia Notes 03 & 02</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-his-fp-short" type="button">
+                    <span class="material-symbols-outlined" style="color: #14b8a6;">edit_note</span>
+                    <span class="spotlight-chip-text">First Phase • DPP 2: Short Answers (3)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0d9488, #14b8a6);">NEW</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-chem-hcl" type="button">
-                    <span class="material-symbols-outlined" style="color: #0ea5e9;">biotech</span>
-                    <span class="spotlight-chip-text">Hydrogen Chloride (Notes 01)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #0284c7, #0ea5e9);">HOT</span>
+                <button class="spotlight-chip featured-chip" id="spot-his-fp-long" type="button">
+                    <span class="material-symbols-outlined" style="color: #6366f1;">history_edu</span>
+                    <span class="spotlight-chip-text">First Phase • DPP 3: Long Answers (1)</span>
+                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #4f46e5, #6366f1);">NEW</span>
                 </button>
-                <button class="spotlight-chip featured-chip" id="spot-chem-unit" type="button">
-                    <span class="material-symbols-outlined" style="color: #6366f1;">science</span>
-                    <span class="spotlight-chip-text">Study of Compounds Unit (4 Chapters)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #4f46e5, #6366f1);">HOT</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-chem-all" type="button">
+                <button class="spotlight-chip featured-chip" id="spot-his-all" type="button">
                     <span class="material-symbols-outlined" style="color: #818cf8;">auto_stories</span>
-                    <span class="spotlight-chip-text">Chemistry • ICSE Class 10 Syllabus</span>
+                    <span class="spotlight-chip-text">History • ICSE Class 10 Syllabus</span>
                     <span class="chip-badge-hot" style="background: linear-gradient(135deg, #4f46e5, #818cf8);">HOT</span>
                 </button>
             </div>
@@ -1328,15 +1328,22 @@ function renderView() {
         wrapper.appendChild(spotlightSection);
 
         // Bind Spotlight Clicks (clean, fast, single-lookup)
+        const openHisDpp = (chapId, itemId) => {
+            audioFX.playTick();
+            const sub = batch.subjects.find(sb => sb.id === 'sub-10-his');
+            const chap = sub && sub.chapters.find(ch => ch.id === chapId);
+            const item = chap && (chap.items || []).find(it => it.id === itemId);
+            if (item) navigateTo('viewer', [batch.id, 'sub-10-his', chapId], item);
+            else navigateTo('items', [batch.id, 'sub-10-his', chapId]);
+        };
         const chipActions = {
-            '#spot-chem-nh3-03': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-nh3']); },
-            '#spot-chem-mcq': () => { audioFX.playTick(); navigateTo('subchapters', [batch.id, 'sub-10-chem', 'unit-chem-compounds']); },
-            '#spot-chem-nh3-02': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-nh3']); },
-            '#spot-chem-hcl': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-hcl']); },
-            '#spot-chem-unit': () => { audioFX.playTick(); navigateTo('subchapters', [batch.id, 'sub-10-chem', 'unit-chem-compounds']); },
-            '#spot-chem-all': () => { audioFX.playTick(); navigateTo('chapters', [batch.id, 'sub-10-chem']); },
-            '#spot-chem-hno3': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-hno3']); },
-            '#spot-chem-h2so4': () => { audioFX.playTick(); navigateTo('items', [batch.id, 'sub-10-chem', 'unit-chem-compounds', 'subchap-chem-h2so4']); }
+            '#spot-his-sp-mcq': () => openHisDpp('chap-his-4', 'his-sp-dpp-mcq'),
+            '#spot-his-sp-short': () => openHisDpp('chap-his-4', 'his-sp-dpp-short'),
+            '#spot-his-sp-long': () => openHisDpp('chap-his-4', 'his-sp-dpp-long'),
+            '#spot-his-fp-mcq': () => openHisDpp('chap-his-3', 'his-fp-dpp-mcq'),
+            '#spot-his-fp-short': () => openHisDpp('chap-his-3', 'his-fp-dpp-short'),
+            '#spot-his-fp-long': () => openHisDpp('chap-his-3', 'his-fp-dpp-long'),
+            '#spot-his-all': () => { audioFX.playTick(); navigateTo('chapters', [batch.id, 'sub-10-his']); }
         };
 
         Object.entries(chipActions).forEach(([selector, action]) => {

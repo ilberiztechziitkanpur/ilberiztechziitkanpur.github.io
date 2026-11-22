@@ -72,6 +72,11 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # 8 Canonical Clusters, 54+ PYQ Twists, Sarajevo, Versailles & League of Nations
 │   ├── 1857-ww1/                    # Dual-Chapter Master Vault (1857 Revolt + First World War)
 │   │   └── index.html               # 18 Canonical Clusters, 116+ Board Variations, 1-Click Chapter Switcher
+│   ├── national-movement/           # Ch 3 & Ch 4: Shared National Movement Interactive PYQ DPP Engine (v13.5)
+│   │   ├── index.html               # Data-driven engine: 3 DPPs/chapter (MCQ · Short · Long), Learn/Practice/Test, Show Variations, probability, self-marking
+│   │   ├── data-first-phase.js      # window.NM_DPP_DATA.fp — Ch 3 First Phase: 10 unique Qs + 1 variation (7 MCQ, 2 Short, 1 Long)
+│   │   ├── data-second-phase.js     # window.NM_DPP_DATA.sp — Ch 4 Second Phase: 31 unique Qs + 1 variation (13 MCQ, 11 Short, 7 Long)
+│   │   └── pattern.js               # window.NM_DPP_PATTERN — official 2027 exam blueprint (sections, marks, marking conventions)
 │   └── notes/                       # ICSE Class 10 History PDF notes (22 files across Chapters 1 to 12)
 │       ├── The_First_War_Of_Independence_01_Class_Notes.pdf (5.8 MB) — Causes & factors
 │       ├── The_First_War_Of_Independence_02_Class_Notes.pdf (4.0 MB) — Events & consequences
@@ -571,6 +576,18 @@ ILBERIZ TECHZ IIT KANPUR/
   - `NAT-11`: British Attitude towards the Early Congress (initial benevolent neutrality/hospitality by Lord Dufferin, rapid shift to hostility, "microscopic minority" mockery, ban on government officials).
 - **Exam Countdown Timer**: 15, 30, 45, 60 mins presets with active warning pulse.
 - **Navigation**: Integrated `.home-nav-btn` linking back to `../../index.html` with `target="_top"` and imported full Google Fonts bundle (`Outfit`, `Material Symbols Outlined`).
+
+### S2. Chapters 3 & 4: National Movement Interactive PYQ DPP Engine (`history/national-movement/`) — v13.5
+- **One shared, data-driven engine** (`index.html`) + one data file per chapter. Deep links: `index.html?ch=fp|sp&sec=mcq|short|long` (optional `&mode=learn|practice|test`). data.json lists **3 interactive items per chapter** (DPP 1 MCQ · DPP 2 Short · DPP 3 Long) pointing at those links, and both chapters are `featured: true`.
+- **To add another chapter later (e.g. Ch 5 Muslim League, Ch 6 Gandhi):** write `data-<chapter>.js` with the same schema (`window.NM_DPP_DATA.<code> = {meta, sources, questions}`), add a `<script>` tag for it in index.html, and add 3 items to data.json/data.js. **Do NOT copy the engine** — the 156 KB duplicate files (1857 / 1857-ww1 / first-world-war) are the anti-pattern to avoid.
+- **User-mandated content rules (apply to every future DPP):**
+  1. Only official sources: ICSE Board papers of the last 10 years (2016–2026, no exam 2021; includes 2022 Semester 1 & 2), CISCE Specimen papers of the latest 3 releases (2025, 2026, 2027), and the CISCE Competency Focused Practice Questions (only edition: July 2024). CISCE "Analysis of Pupil Performance" reports supply official answer points & common errors (found for 2016–2020 only; none exist online for 2023–2026).
+  2. **Excluded:** 2025/2026 Improvement/Supplementary papers (only unofficial KnowledgeBoat copies exist — user said leave them out), older specimens, invented "expected" questions.
+  3. **Strict variation rule:** a question is a variation ONLY if it asks the same thing in very similar language and the same answer core earns full marks. A different cue (picture vs quote), different scenario, different number of points, causes vs results, name vs explain → separate question linked under "related". Exact repeats are extra `seen` entries, not variations.
+  4. Muslim League (1906) & Lucknow Pact (1916) are kept OUT of Ch 4 (their questions are already extracted for a future Ch 5 DPP).
+- **Engine features:** per-question year/source chips (Board/Semester/Specimen/CFPQ), topic-aware probability score (question frequency + topic frequency across 10 board years + recency + specimen/CFPQ presence; formula shown in "Sources & method"), Overdue tag, mini year strip, marking points with marks each and `<mark>` keywords, self-marking checklist, official CISCE examiner note, tips/word targets, Show Variations (each with its own answer + "how it differs"), related-question jumps, Learn / Practice / Test modes (timer survives refresh, scorecard with weak topics), filters, search, revision list, print sheet, keyboard shortcuts, dark/light theme, progress in localStorage (`nmdpp_` prefix, try/catch).
+- **Research archive:** raw extracted questions (incl. Muslim League items) were compiled from cisce.org PDFs, APP reports and verified mirrors. Verbatim confidence is recorded per question (`confidence`). MCQ keys for board papers are agent-determined (CISCE publishes none); specimen 2025–27 and CFPQ keys are official.
+- **Token-efficiency lessons (user request):** run at most 2–3 subagents at once; use Sonnet (medium effort) for search/extraction and file-writing; reserve heavy models for judgement work. Rendering image-only PW note PDFs needs PyMuPDF (installed for Python 3.14) into the scratchpad, not the repo.
 
 ### K. English Literature Notes (14 PDFs in `english/notes/` across Julius Caesar, Treasure Chest Poetry & Short Stories)
 - **Chapter 1: Drama — Julius Caesar (William Shakespeare) (7 Notes)**:

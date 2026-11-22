@@ -1589,8 +1589,32 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-his-3",
                             "name": "Ch 3: First Phase of the Indian National Movement (1885–1907)",
-                            "description": "Early Nationalists (Moderates): Objectives, methods of constitutional agitation (3 P's), beliefs, demands, achievements, criticisms & contributions of Dadabhai Naoroji, Gopal Krishna Gokhale, Surendranath Banerjea",
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank + 2 Class Notes: Early Nationalists (Moderates), methods, Naoroji, Gokhale, Banerjea",
                             "items": [
+                                {
+                                    "id": "his-fp-dpp-mcq",
+                                    "title": "First Phase (Early Nationalists) — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "7 official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, answer keys & explanations — Moderates, methods, Naoroji, Gokhale, Banerjea",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=fp&sec=mcq",
+                                    "badge": "DPP 1 • 7 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "his-fp-dpp-short",
+                                    "title": "First Phase (Early Nationalists) — Interactive DPP 2: Short Answers (Section A · Q2)",
+                                    "subtitle": "2 (+1 variation) official 2-mark questions with marking points, highlighted keywords, Show Variations & CISCE examiner notes — Moderates, methods, Naoroji, Gokhale, Banerjea",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=fp&sec=short",
+                                    "badge": "DPP 2 • 3 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-fp-dpp-long",
+                                    "title": "First Phase (Early Nationalists) — Interactive DPP 3: Long Answers (Section B)",
+                                    "subtitle": "1 official Section B sub-question (3–4 marks) with point-wise answers, self-marking checklist, timed test mode — Moderates, methods, Naoroji, Gokhale, Banerjea",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=fp&sec=long",
+                                    "badge": "DPP 3 • 1 Q • 3–4 Marks"
+                                },
                                 {
                                     "id": "his-first-phase-notes-01",
                                     "title": "First Phase Of The Indian National Movement 01 Class Notes",
@@ -1607,13 +1631,38 @@ window.COURSE_DATA = {
                                     "file": "history/notes/First_Phase_Of_The_Indian_National_Movement_02_Class_Notes.pdf",
                                     "size": "2.6 MB"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-his-4",
                             "name": "Ch 4: Second Phase of the Indian National Movement (Assertive Nationalism)",
-                            "description": "Causes of radical nationalism, methods, Assertive leaders (Tilak, Pal, Rai), Partition of Bengal, Swadeshi & Boycott, Surat Split",
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank + 2 Class Notes: Assertive Nationalism, Curzon, Partition of Bengal, Swadeshi & Boycott, Lal-Bal-Pal, Surat Split",
                             "items": [
+                                {
+                                    "id": "his-sp-dpp-mcq",
+                                    "title": "Second Phase (Assertive Nationalism) — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "13 (+1 variation) official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, answer keys & explanations — Partition of Bengal, Curzon, Swadeshi, Boycott, Lal-Bal-Pal, Tilak, Surat Split",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=sp&sec=mcq",
+                                    "badge": "DPP 1 • 14 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "his-sp-dpp-short",
+                                    "title": "Second Phase (Assertive Nationalism) — Interactive DPP 2: Short Answers (Section A · Q2)",
+                                    "subtitle": "11 official 2-mark questions with marking points, highlighted keywords, Show Variations & CISCE examiner notes — Partition of Bengal, Curzon, Swadeshi, Boycott, Lal-Bal-Pal, Tilak, Surat Split",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=sp&sec=short",
+                                    "badge": "DPP 2 • 11 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-sp-dpp-long",
+                                    "title": "Second Phase (Assertive Nationalism) — Interactive DPP 3: Long Answers (Section B)",
+                                    "subtitle": "7 official Section B sub-questions (3–4 marks) with point-wise answers, self-marking checklist, timed test mode — Partition of Bengal, Curzon, Swadeshi, Boycott, Lal-Bal-Pal, Tilak, Surat Split",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=sp&sec=long",
+                                    "badge": "DPP 3 • 7 Qs • 3–4 Marks"
+                                },
                                 {
                                     "id": "his-second-phase-notes-01",
                                     "title": "Second Phase Of The Indian National Movement 01 Class Notes",
@@ -1630,7 +1679,8 @@ window.COURSE_DATA = {
                                     "file": "history/notes/Second_Phase_Of_The_Indian_National_Movement_02_Class_Notes.pdf",
                                     "size": "2.9 MB"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-his-5",
