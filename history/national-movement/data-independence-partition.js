@@ -481,7 +481,7 @@ window.NM_DPP_DATA.ip = {
     },
     {
      "id": "ip-short-01-v2",
-     "q": "Why was Mountbatten's Plan finally accepted by the Congress?",
+     "q": "Why was Mountbatten’s Plan finally accepted by the Congress?",
      "stem": null,
      "picture": null,
      "marks": 2,
@@ -553,7 +553,8 @@ window.NM_DPP_DATA.ip = {
       },
       "tip": "The headlines (dominion status granted, people asked to decide the partition question) are context; the marks are for reasons the Congress had for accepting partition.",
       "words": "≈25-35 words"
-     }
+     },
+     "img": "img/ip/CFPQ2024-Q40.jpg"
     }
    ],
    "related": [
@@ -573,8 +574,8 @@ window.NM_DPP_DATA.ip = {
    "topic": "congress-accepts-partition",
    "format": "SHORT",
    "marks": 2,
-   "stem": null,
-   "picture": "\"The whole plan may not be perfect but like all plans, its success will depend on the spirit of goodwill with which it is carried out.\" - Lord Mountbatten",
+   "stem": "The whole plan may not be perfect but like all plans, its success will depend on the spirit of goodwill with which it is carried out.\n– Lord Mountbatten",
+   "picture": null,
    "q": "Give two reasons for the acceptance of the above plan by the Congress.",
    "seen": [
     {
@@ -940,7 +941,7 @@ window.NM_DPP_DATA.ip = {
    "topic": "mountbatten-plan",
    "format": "LONG",
    "marks": 4,
-   "stem": "The Quit India Resolution in 1942 was one of the final calls given by Gandhi for the British to leave India. Moving towards Independence, Lord Mountbatten's Plan was significant. In this context, answer the following:",
+   "stem": "The Quit India Resolution in 1942 was one of the final calls given by Gandhi for the British to leave India. Moving towards Independence, Lord Mountbatten’s Plan was significant. In this context, answer the following:",
    "picture": null,
    "q": "Give any four clauses of the Mountbatten Plan of 1947.",
    "seen": [
@@ -1113,7 +1114,7 @@ window.NM_DPP_DATA.ip = {
    "format": "SOURCE",
    "marks": 3,
    "stem": "Read the passage given below and answer the questions that follow:",
-   "picture": "India's last Viceroy released a plan on the country's independence from the British on June 3, 1947. The plan came to be celebrated as the 'last plan for independence'. He was appointed Viceroy to India to speed up the process of transfer of power by the then British Prime Minister Clement Atlee.\n— hindustantimes.com, June 3, 2021 [edited]",
+   "picture": "India’s last Viceroy released a plan on the country's independence from the British on June 3, 1947. The plan came to be celebrated as the 'last plan for independence'. He was appointed Viceroy to India to speed up the process of transfer of power by the then British Prime Minister Clement Atlee.\nhindustantimes.com, June 3,2021[edited]",
    "q": "Identify the Viceroy. Mention any two terms of his plan with reference to the Princely States.",
    "seen": [
     {
@@ -1200,7 +1201,8 @@ window.NM_DPP_DATA.ip = {
    "difficulty": "Medium",
    "skill": "Recall",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/ip/B2024-Q8.jpg"
   },
   {
    "id": "ip-long-08",
@@ -1264,7 +1266,7 @@ window.NM_DPP_DATA.ip = {
    "format": "SOURCE",
    "marks": 3,
    "stem": "Read the passage given below and answer the questions that follow:",
-   "picture": "India's last Viceroy released a plan on the country's independence from the British on June 3, 1947. The plan came to be celebrated as the 'last plan for independence'. He was appointed Viceroy to India to speed up the process of transfer of power by the then British Prime Minister Clement Atlee.\n— hindustantimes.com, June 3, 2021 [edited]",
+   "picture": "India’s last Viceroy released a plan on the country's independence from the British on June 3, 1947. The plan came to be celebrated as the 'last plan for independence'. He was appointed Viceroy to India to speed up the process of transfer of power by the then British Prime Minister Clement Atlee.\nhindustantimes.com, June 3,2021[edited]",
    "q": "Mention any three reasons given by the Congress to justify the acceptance of the plan.",
    "seen": [
     {
@@ -1351,7 +1353,8 @@ window.NM_DPP_DATA.ip = {
    "difficulty": "Medium",
    "skill": "Understanding",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/ip/B2024-Q8.jpg"
   },
   {
    "id": "ip-long-10",
@@ -1360,7 +1363,7 @@ window.NM_DPP_DATA.ip = {
    "format": "SOURCE",
    "marks": 4,
    "stem": "Read the passage given below and answer the questions that follow:",
-   "picture": "India's last Viceroy released a plan on the country's independence from the British on June 3, 1947. The plan came to be celebrated as the 'last plan for independence'. He was appointed Viceroy to India to speed up the process of transfer of power by the then British Prime Minister Clement Atlee.\n— hindustantimes.com, June 3, 2021 [edited]",
+   "picture": "India’s last Viceroy released a plan on the country's independence from the British on June 3, 1947. The plan came to be celebrated as the 'last plan for independence'. He was appointed Viceroy to India to speed up the process of transfer of power by the then British Prime Minister Clement Atlee.\nhindustantimes.com, June 3,2021[edited]",
    "q": "Mention any four provisions of the Indian Independence Act of 1947.",
    "seen": [
     {
@@ -1425,7 +1428,9 @@ window.NM_DPP_DATA.ip = {
    "difficulty": "Medium",
    "skill": "Recall",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [
+    "B2024-Q8(iii)-printed-under-newspaper-picture-lead-in"
+   ]
   }
  ]
 };

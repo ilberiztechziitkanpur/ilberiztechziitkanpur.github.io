@@ -268,7 +268,7 @@ window.NM_DPP_DATA.sp = {
    "marks": 1,
    "stem": null,
    "picture": null,
-   "q": "When was Bengal partitioned?",
+   "q": "Who was Bengal partitioned?",
    "options": [
     "1905",
     "1907",
@@ -303,7 +303,8 @@ window.NM_DPP_DATA.sp = {
    "skill": "Recall",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
+    "key-agent-determined",
+    "printed-as-is-wording"
    ]
   },
   {
@@ -314,7 +315,7 @@ window.NM_DPP_DATA.sp = {
    "marks": 1,
    "stem": null,
    "picture": null,
-   "q": "The plan of Partition of Bengal was proposed by ________.",
+   "q": "The plan of Partition of Bengal was proposed by __________.",
    "options": [
     "Lord Canning",
     "Lord Dalhousie",
@@ -369,9 +370,9 @@ window.NM_DPP_DATA.sp = {
    "marks": 1,
    "stem": null,
    "picture": null,
-   "q": "Which of the following was a nationalist perspective of the Partition of Bengal?",
+   "q": "Which of the following was a nationalist perspective of the partition of Bengal?",
    "options": [
-    "There were only Hindus in West Bengal.",
+    "There was only Hindus in West Bengal.",
     "To divide the Hindus and Muslims.",
     "There were many riots in Bengal.",
     "It was an administrative necessity as Bengal was a large territory."
@@ -405,7 +406,8 @@ window.NM_DPP_DATA.sp = {
    "skill": "Understanding",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
+    "key-agent-determined",
+    "printed-as-is-wording"
    ]
   },
   {
@@ -471,7 +473,7 @@ window.NM_DPP_DATA.sp = {
    "marks": 1,
    "stem": null,
    "picture": null,
-   "q": "Read the two statements given below about the Partition of Bengal and select the option that shows the correct relationship between (A) and (B).\n(A) The partition of Bengal \"was a mere readjustment of administrative boundaries.\"\n(B) The nationalists believed that the Government did not intend to strike at the roots of Indian nationalism.",
+   "q": "Read the two statements given below about the Partition of Bengal and select the option that shows the correct relationship between (A) and (B).\n(A) The partition of Bengal “was a mere readjustment of administrative boundaries.”\n(B) The nationalists believed that the Government did not intend to strike at the roots of Indian nationalism.",
    "options": [
     "(B) contradicts (A).",
     "(B) is the reason for (A).",
@@ -578,7 +580,7 @@ window.NM_DPP_DATA.sp = {
    "marks": 1,
    "stem": null,
    "picture": null,
-   "q": "The main objective of the Assertive Nationalists was ________.",
+   "q": "The main objective of the Assertive Nationalists was _________.",
    "options": [
     "Constitutional agitation",
     "Peaceful protests",
@@ -634,11 +636,11 @@ window.NM_DPP_DATA.sp = {
    "marks": 1,
    "stem": "Look at the picture given below and answer the questions that follow:",
    "picture": "Black-and-white group photograph of three seated men: on the left a man in a turban and dark Western-style coat (Lala Lajpat Rai), in the centre a man in a Maratha pagdi and white clothes holding a walking stick (Bal Gangadhar Tilak), on the right a man in Bengali dress with a shawl (Bipin Chandra Pal) - the well-known 'Lal-Bal-Pal' photograph.",
-   "q": "What was their main objective?",
+   "q": "What was there main objective?",
    "options": [
     "Attainment of Poorna Swaraj",
     "Self-Government under British Rule",
-    "Abolition of India Council",
+    "Abolition of Indian Council",
     "Demand for Provincial Government for Indians."
    ],
    "correct": 0,
@@ -666,8 +668,10 @@ window.NM_DPP_DATA.sp = {
    "skill": "Recall",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
-   ]
+    "key-agent-determined",
+    "printed-as-is-wording"
+   ],
+   "img": "img/sp/SEM1-2022-Q34.jpg"
   },
   {
    "id": "sp-mcq-08",
@@ -777,7 +781,7 @@ window.NM_DPP_DATA.sp = {
    "q": "Identify the leaders in the picture.",
    "options": [
     "Surendranath Banerjee, Dadabhai Naoroji, Gopal Krishna Gokhale",
-    "Dadabhai Naoroji, Lala Lajpat Rai, Bipin Chandra Pal",
+    "Dadabhai Naoroji, Lala Lajpat Rai, Bipin Chandra pal",
     "Gopal Krishna Gokhale, Bal Gangadhar Tilak, Dadabhai Naoroji",
     "Lala Lajpat Rai, Bal Gangadhar Tilak, Bipin Chandra Pal"
    ],
@@ -813,7 +817,8 @@ window.NM_DPP_DATA.sp = {
    "confidence": "HIGH",
    "flags": [
     "key-agent-determined"
-   ]
+   ],
+   "img": "img/sp/SEM1-2022-Q34.jpg"
   },
   {
    "id": "sp-mcq-10",
@@ -860,7 +865,8 @@ window.NM_DPP_DATA.sp = {
    "confidence": "HIGH",
    "flags": [
     "key-agent-determined"
-   ]
+   ],
+   "img": "img/sp/SEM1-2022-Q34.jpg"
   },
   {
    "id": "sp-mcq-11",
@@ -872,10 +878,10 @@ window.NM_DPP_DATA.sp = {
    "picture": "Black-and-white group photograph of three seated men: on the left a man in a turban and dark Western-style coat (Lala Lajpat Rai), in the centre a man in a Maratha pagdi and white clothes holding a walking stick (Bal Gangadhar Tilak), on the right a man in Bengali dress with a shawl (Bipin Chandra Pal) - the well-known 'Lal-Bal-Pal' photograph.",
    "q": "What are the methods associated with them?",
    "options": [
-    "Prayers and Protests",
+    "Prayers and protest",
     "Swadeshi and Boycott",
-    "Sending deputations of Indian leaders to Britain",
-    "Sending petitions to the British government"
+    "Sending Deputations of Indian leaders to Britain",
+    "Sending petitions to the British government."
    ],
    "correct": 1,
    "seen": [
@@ -908,7 +914,8 @@ window.NM_DPP_DATA.sp = {
    "confidence": "HIGH",
    "flags": [
     "key-agent-determined"
-   ]
+   ],
+   "img": "img/sp/SEM1-2022-Q34.jpg"
   },
   {
    "id": "sp-mcq-12",
@@ -1103,7 +1110,8 @@ window.NM_DPP_DATA.sp = {
    "difficulty": "Easy",
    "skill": "Recall",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/sp/B2026-Q2iii.png"
   },
   {
    "id": "sp-short-04",
@@ -1286,7 +1294,8 @@ window.NM_DPP_DATA.sp = {
    "difficulty": "Easy",
    "skill": "Recall",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/sp/S2026-Q2v.jpg"
   },
   {
    "id": "sp-short-07",
@@ -1379,7 +1388,8 @@ window.NM_DPP_DATA.sp = {
    "difficulty": "Medium",
    "skill": "Understanding",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/sp/S2027-Q2v.jpg"
   },
   {
    "id": "sp-short-09",
@@ -1644,7 +1654,7 @@ window.NM_DPP_DATA.sp = {
    "format": "SOURCE",
    "marks": 3,
    "stem": "The conflict between the two sections of the Congress came to surface in its Session in 1906 at Calcutta. In this context explain the following:",
-   "picture": "Black-and-white group photograph of three seated men: on the left a man in a turban and dark Western-style coat (Lala Lajpat Rai), in the centre a man in a Maratha pagdi and white clothes holding a walking stick (Bal Gangadhar Tilak), on the right a man in Bengali dress with a shawl (Bipin Chandra Pal) - the well-known 'Lal-Bal-Pal' photograph.",
+   "picture": "Black-and-white group photograph of three seated men on a bench in front of a wall with shutters: on the left a man in Bengali dress with a shawl (Bipin Chandra Pal), in the centre a man in a Maratha pagdi and white clothes holding a walking stick (Bal Gangadhar Tilak), on the right a man in a turban and dark Western-style coat (Lala Lajpat Rai) - the well-known 'Lal-Bal-Pal' photograph.",
    "q": "With reference to the picture given below, answer the following:\n(i) What were the three personalities popularly known as?\n(ii) Which section of the Congress did they represent?\n(iii) Mention two of their popular Beliefs.",
    "seen": [
     {
@@ -1686,7 +1696,8 @@ window.NM_DPP_DATA.sp = {
    "difficulty": "Medium",
    "skill": "Recall",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/sp/B2017-Q7b.jpg"
   },
   {
    "id": "sp-long-05",

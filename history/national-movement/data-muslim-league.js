@@ -256,10 +256,10 @@ window.NM_DPP_DATA.ml = {
    "marks": 1,
    "stem": null,
    "picture": null,
-   "q": "From the given list, identify the objective of the Muslim League.",
+   "q": "From the given list, identify the objective of the Muslim league.",
    "options": [
     "To train and organise public opinion in the country.",
-    "To promote friendly relations between nationalists political workers.",
+    "To promote friendly relation between nationalist political workers.",
     "To promote among Muslims of India support for the British Government.",
     "To agitate through constitutional means."
    ],
@@ -353,7 +353,7 @@ window.NM_DPP_DATA.ml = {
    "marks": 1,
    "stem": null,
    "picture": null,
-   "q": "Formation of Congress : 1885 : : Formation of Muslim League : ________.",
+   "q": "Formation of Congress : 1885 : : Formation of Muslim League : __________",
    "options": [
     "1905",
     "1906",
@@ -458,7 +458,7 @@ window.NM_DPP_DATA.ml = {
    "marks": 1,
    "stem": null,
    "picture": null,
-   "q": "The Lucknow Pact was signed between ________.",
+   "q": "The Lucknow Pact was signed between __________.",
    "options": [
     "The British and the Congress",
     "The Congress and the Muslim League",
@@ -781,7 +781,8 @@ window.NM_DPP_DATA.ml = {
    "difficulty": "Medium",
    "skill": "Understanding",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/ml/CFPQ2024-Q36.jpg"
   },
   {
    "id": "ml-long-01",

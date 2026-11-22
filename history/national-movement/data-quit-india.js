@@ -312,8 +312,8 @@ window.NM_DPP_DATA.qim = {
    "q": "What were the causes of the Quit India Movement?",
    "options": [
     "Failure of Simon Commission and Rowlatt Act.",
-    "Failure of the Cripps Mission and Declaration of Poorna Swaraj.",
-    "Growing Unemployment and Jallianwala Bagh Massacre.",
+    "Failure of the Cripps mission and Declaration of Poorna Swaraj.",
+    "Growing unemployment and Jallianwala Bagh massacre.",
     "Failure of Cripps Mission and Japanese threat."
    ],
    "correct": 3,
@@ -357,7 +357,7 @@ window.NM_DPP_DATA.qim = {
    "topic": "do-or-die",
    "format": "MCQ",
    "marks": 1,
-   "q": "The statement, \"We shall either free India or die in the attempt\", is associated with which of the following?",
+   "q": "The statement, “We shall either free India or die in the attempt”, is associated with which of the following?",
    "options": [
     "Non-Cooperation Movement",
     "Civil Disobedience Movement",
@@ -558,7 +558,7 @@ window.NM_DPP_DATA.qim = {
    "flags": []
   },
   {
-   "stem": "The Quit India Resolution in 1942 was one of the final calls given by Gandhi for the British to leave India. Moving towards Independence, Lord Mountbatten's Plan was significant. In this context, answer the following:",
+   "stem": "The Quit India Resolution in 1942 was one of the final calls given by Gandhi for the British to leave India. Moving towards Independence, Lord Mountbatten’s Plan was significant. In this context, answer the following:",
    "picture": null,
    "variations": [],
    "confidence": "HIGH",
@@ -676,7 +676,7 @@ window.NM_DPP_DATA.qim = {
    "topic": "qim-causes",
    "format": "LONG",
    "marks": 3,
-   "q": "The name given to the uprising of 1942. Two reasons for launching this mass uprising.",
+   "q": "The name given to the uprising of 1942.Two reasons for launching this mass uprising.",
    "seen": [
     {
      "src": "B2016",
@@ -719,7 +719,7 @@ window.NM_DPP_DATA.qim = {
    "flags": []
   },
   {
-   "stem": "The Quit India Resolution in 1942 was one of the final calls given by Gandhi for the British to leave India. Moving towards Independence, Lord Mountbatten's Plan was significant. In this context, answer the following:",
+   "stem": "The Quit India Resolution in 1942 was one of the final calls given by Gandhi for the British to leave India. Moving towards Independence, Lord Mountbatten’s Plan was significant. In this context, answer the following:",
    "picture": null,
    "variations": [],
    "confidence": "HIGH",
@@ -840,7 +840,7 @@ window.NM_DPP_DATA.qim = {
    "topic": "qim-impact",
    "format": "LONG",
    "marks": 3,
-   "q": "`The Quit India Movement made Independence of India as the only agenda of the National Movement. It proved that there could be no retreat and future negotiations could only be on the manner of the transfer of power.'\n\nWith reference to the above statement, enlist the impact of the Quit India Movement.",
+   "q": "‘The Quit India Movement made Independence of India as the only agenda of the National Movement. It proved that there could be no retreat and future negotiations could only be on the manner of the transfer of power.’\n\nWith reference to the above statement, enlist the impact of the Quit India Movement.",
    "seen": [
     {
      "src": "CFPQ2024",

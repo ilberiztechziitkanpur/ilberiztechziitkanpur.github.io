@@ -261,7 +261,7 @@ window.NM_DPP_DATA.fp = {
    "q": "Which of the following statements about Early Nationalists is false?",
    "options": [
     "Their leaders were Dadabhai Naoroji and Gopal Krishna Gokhale",
-    "They believed in constitutional means of protest",
+    "They believed in constitutional means of protest.",
     "They wanted self-government under British rule",
     "They wanted to launch violent agitations against the British"
    ],
@@ -315,7 +315,7 @@ window.NM_DPP_DATA.fp = {
      "src": "B2023",
      "ref": "Q1(xi)",
      "marks": 1,
-     "note": "The printed paper may carry a portrait; the text-only wording is identical in all copies and the options alone decide the answer."
+     "note": "Board 2023 prints this as a text-only question (no portrait)."
     }
    ],
    "answer": {

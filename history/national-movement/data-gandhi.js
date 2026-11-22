@@ -441,7 +441,7 @@ window.NM_DPP_DATA.gandhi = {
    "marks": 1,
    "stem": null,
    "picture": null,
-   "q": "Replace the underlined phrase with the correct option:\nThe objective of the Non-Cooperation Movement was [underlined: to demobilise public opinion all over the country].",
+   "q": "Replace the underlined phrase with the correct option:\nThe objective of the Non-Cooperation Movement was <u>to demobilise public opinion all over the country</u>.",
    "options": [
     "to make the movement rare and unique.",
     "to provide an international base for Congress.",
@@ -1124,7 +1124,8 @@ window.NM_DPP_DATA.gandhi = {
    "difficulty": "Easy",
    "skill": "Understanding",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/gandhi/CFPQ2024-Q39.jpg"
   },
   {
    "id": "gandhi-short-06",
@@ -1210,15 +1211,15 @@ window.NM_DPP_DATA.gandhi = {
    "topic": "cdm-movement",
    "format": "SHORT",
    "marks": 2,
-   "stem": "Mention the following: (a) Any two causes of the Quit India Movement. (b) Any two causes of the Civil Disobedience Movement. [Part (a) belongs to another chapter; only part (b) is in this DPP.]",
+   "stem": "Mention the following:\n(a) Any two causes of the Quit India Movement.",
    "picture": null,
-   "q": "Any two causes of the Civil Disobedience Movement.",
+   "q": "(b) Any two causes of the Civil Disobedience Movement.",
    "seen": [
     {
      "src": "B2025",
      "ref": "Q8(iii)(b)",
      "marks": 2,
-     "note": ""
+     "note": "Part (a) (causes of the Quit India Movement) belongs to another chapter; only part (b) is in this DPP."
     }
    ],
    "answer": {
@@ -1382,7 +1383,8 @@ window.NM_DPP_DATA.gandhi = {
    "difficulty": "Easy",
    "skill": "Recall",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/gandhi/B2023-Q7.jpg"
   },
   {
    "id": "gandhi-long-01",
@@ -1443,7 +1445,7 @@ window.NM_DPP_DATA.gandhi = {
    "topic": "ncm-causes-objective",
    "format": "LONG",
    "marks": 4,
-   "stem": "Look at the picture given below and answer the following questions: [In the paper the picture shown is the Dandi March photograph from Q7(i), but this part asks about the Non-Cooperation Movement.]",
+   "stem": "Look at the picture given below and answer the following questions:",
    "picture": "Black-and-white photograph of Mahatma Gandhi (centre, bare-chested, in a dhoti, holding a long staff) walking at the head of a group of marchers - men in dhotis and caps, some carrying bundles - along a tree-lined road (the Dandi March, 1930).",
    "q": "What were the three causes of the Non-Cooperation Movement?\nName the incident which led to the suspension of this movement.",
    "seen": [
@@ -1451,7 +1453,7 @@ window.NM_DPP_DATA.gandhi = {
      "src": "B2023",
      "ref": "Q7(ii)",
      "marks": 4,
-     "note": ""
+     "note": "The picture shown is the Dandi March photograph from Q7(i), though this part asks about the Non-Cooperation Movement."
     }
    ],
    "answer": {
@@ -1489,7 +1491,8 @@ window.NM_DPP_DATA.gandhi = {
    "difficulty": "Easy",
    "skill": "Recall",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/gandhi/B2023-Q7.jpg"
   },
   {
    "id": "gandhi-long-03",
@@ -1602,7 +1605,7 @@ window.NM_DPP_DATA.gandhi = {
    "topic": "ncm-impact",
    "format": "LONG",
    "marks": 4,
-   "stem": "With reference to the picture given below, answer the following questions: [In the paper, \"the movement\" is the Non-Cooperation Movement named in Q7(a)(iii).]",
+   "stem": "With reference to the picture given below, answer the following questions:",
    "picture": "Colour photograph of a tall flame-shaped red sandstone memorial pillar standing in a landscaped garden with low red buildings on either side and trees/cloudy sky behind it (the Jallianwala Bagh memorial, Amritsar).",
    "q": "State any four impacts of the movement.",
    "seen": [
@@ -1610,7 +1613,7 @@ window.NM_DPP_DATA.gandhi = {
      "src": "B2019",
      "ref": "Q7(c)",
      "marks": 4,
-     "note": ""
+     "note": "\"The movement\" is the Non-Cooperation Movement named in Q7(a)(iii)."
     }
    ],
    "answer": {
@@ -1651,7 +1654,8 @@ window.NM_DPP_DATA.gandhi = {
    "difficulty": "Medium",
    "skill": "Understanding",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/gandhi/B2019-Q7.jpg"
   },
   {
    "id": "gandhi-long-05",
@@ -1748,7 +1752,8 @@ window.NM_DPP_DATA.gandhi = {
    "difficulty": "Easy",
    "skill": "Recall",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/gandhi/B2019-Q7.jpg"
   },
   {
    "id": "gandhi-long-07",
@@ -1757,14 +1762,14 @@ window.NM_DPP_DATA.gandhi = {
    "format": "LONG",
    "marks": 3,
    "stem": "With reference to the picture given below, answer the following questions:",
-   "picture": "Colour photograph of a tall flame-shaped red sandstone memorial pillar standing in a landscaped garden with low red buildings on either side and trees/cloudy sky behind it (the Jallianwala Bagh memorial, Amritsar). [In the paper, \"this particular movement\" is the Non-Cooperation Movement named in Q7(a)(iii).]",
+   "picture": "Colour photograph of a tall flame-shaped red sandstone memorial pillar standing in a landscaped garden with low red buildings on either side and trees/cloudy sky behind it (the Jallianwala Bagh memorial, Amritsar).",
    "q": "Explain briefly the reason for the suspension of this particular movement by Gandhi in 1922.",
    "seen": [
     {
      "src": "B2019",
      "ref": "Q7(b)",
      "marks": 3,
-     "note": ""
+     "note": "\"This particular movement\" is the Non-Cooperation Movement named in Q7(a)(iii)."
     }
    ],
    "answer": {
@@ -1801,7 +1806,8 @@ window.NM_DPP_DATA.gandhi = {
    "difficulty": "Medium",
    "skill": "Understanding",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/gandhi/B2019-Q7.jpg"
   },
   {
    "id": "gandhi-long-08",
@@ -1851,7 +1857,8 @@ window.NM_DPP_DATA.gandhi = {
    "difficulty": "Easy",
    "skill": "Recall",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/gandhi/B2025-Q8.jpg"
   },
   {
    "id": "gandhi-long-09",
@@ -1899,7 +1906,8 @@ window.NM_DPP_DATA.gandhi = {
    "difficulty": "Easy",
    "skill": "Recall",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/gandhi/B2025-Q8.jpg"
   },
   {
    "id": "gandhi-long-10",
@@ -1946,7 +1954,8 @@ window.NM_DPP_DATA.gandhi = {
    "difficulty": "Medium",
    "skill": "Analysis",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/gandhi/CFPQ2024-Q75.png"
   },
   {
    "id": "gandhi-long-11",
@@ -1954,7 +1963,7 @@ window.NM_DPP_DATA.gandhi = {
    "topic": "cdm-movement",
    "format": "SOURCE",
    "marks": 3,
-   "stem": "Read the excerpt given below and answer the question that follows: [Summary of the excerpt (Modern History, NCERT): a commission without any Indian members was sent to India to discuss constitutional reforms; Indian parties boycotted it; when it visited Lahore on 30 October 1928, Lala Lajpat Rai led a non-violent march in protest.]",
+   "stem": "Read the excerpt given below and answer the question that follows:\nA commission, without any Indian members, was sent to India to discuss constitutional reforms. The step agitated the people, and the Indian political parties boycotted the commission. When the Commission visited Lahore on October 30, 1928, Rai led the nonviolent march to protest the commission. (Source: Modern History, NCERT)",
    "picture": null,
    "q": "Name the movement that ensued with the commission coming to India. State any two significant impacts of the movement.",
    "seen": [
@@ -2060,7 +2069,7 @@ window.NM_DPP_DATA.gandhi = {
    "topic": "dandi-march",
    "format": "SOURCE",
    "marks": 3,
-   "stem": "Read the excerpt given below and answer the questions that follow- The March, which took place in India, was led by Mohandas Gandhi to protest British rule in India. During the march, thousands of Indians followed Gandhi from his religious retreat near Ahmedabad to the Arabian Sea coast, a distance of some 240 miles. The march resulted in the arrest of nearly 60,000 people, including Gandhi himself.\" -- The Marion (Ohio) Star [Edited]",
+   "stem": "Read the excerpt given below and answer the questions that follow-\nThe March, which took place in India, was led by Mohandas Gandhi to protest British rule in India. During the march, thousands of Indians followed Gandhi from his religious retreat near Ahmedabad to the Arabian Sea coast, a distance of some 240 miles. The march resulted in the arrest of nearly 60,000 people, including Gandhi himself. \"\n— The Marion (Ohio) Star [Edited]",
    "picture": null,
    "q": "Name the march being discussed above. Which movement did this march lead to? In which year was that movement launched?",
    "seen": [
@@ -2217,7 +2226,7 @@ window.NM_DPP_DATA.gandhi = {
    "topic": "cdm-movement",
    "format": "SOURCE",
    "marks": 3,
-   "stem": "Read the excerpt given below and answer the questions that follow- The March, which took place in India, was led by Mohandas Gandhi to protest British rule in India. During the march, thousands of Indians followed Gandhi from his religious retreat near Ahmedabad to the Arabian Sea coast, a distance of some 240 miles. The march resulted in the arrest of nearly 60,000 people, including Gandhi himself.\" -- The Marion (Ohio) Star [Edited]",
+   "stem": "Read the excerpt given below and answer the questions that follow-\nThe March, which took place in India, was led by Mohandas Gandhi to protest British rule in India. During the march, thousands of Indians followed Gandhi from his religious retreat near Ahmedabad to the Arabian Sea coast, a distance of some 240 miles. The march resulted in the arrest of nearly 60,000 people, including Gandhi himself. \"\n— The Marion (Ohio) Star [Edited]",
    "picture": null,
    "q": "The movement which began with this march made a considerable impact on the social and political surroundings of the country. Analyse this statement by mentioning any three impacts.",
    "seen": [
@@ -2329,7 +2338,7 @@ window.NM_DPP_DATA.gandhi = {
    "topic": "gandhi-irwin-pact",
    "format": "LONG",
    "marks": 4,
-   "stem": "Look at the picture given below and answer the following questions: [picture = Dandi March photograph]",
+   "stem": "Look at the picture given below and answer the following questions:",
    "picture": "Black-and-white photograph of Mahatma Gandhi (centre, bare-chested, in a dhoti, holding a long staff) walking at the head of a group of marchers - men in dhotis and caps, some carrying bundles - along a tree-lined road (the Dandi March, 1930).",
    "q": "Mahatma Gandhi and Lord Irwin signed a pact in 1931.\nMention any two conditions that the Congress agreed to and two conditions that the British Government agreed to according to this pact.",
    "seen": [
@@ -2372,7 +2381,8 @@ window.NM_DPP_DATA.gandhi = {
    "difficulty": "Medium",
    "skill": "Application",
    "confidence": "HIGH",
-   "flags": []
+   "flags": [],
+   "img": "img/gandhi/B2023-Q7.jpg"
   },
   {
    "id": "gandhi-long-18",
@@ -2438,7 +2448,7 @@ window.NM_DPP_DATA.gandhi = {
    "topic": "gandhi-irwin-pact",
    "format": "LONG",
    "marks": 4,
-   "stem": "Read the excerpt given below and answer the questions that follow- The March, which took place in India, was led by Mohandas Gandhi to protest British rule in India. During the march, thousands of Indians followed Gandhi from his religious retreat near Ahmedabad to the Arabian Sea coast, a distance of some 240 miles. The march resulted in the arrest of nearly 60,000 people, including Gandhi himself.\" -- The Marion (Ohio) Star [Edited]",
+   "stem": "Read the excerpt given below and answer the questions that follow-\nThe March, which took place in India, was led by Mohandas Gandhi to protest British rule in India. During the march, thousands of Indians followed Gandhi from his religious retreat near Ahmedabad to the Arabian Sea coast, a distance of some 240 miles. The march resulted in the arrest of nearly 60,000 people, including Gandhi himself. \"\n— The Marion (Ohio) Star [Edited]",
    "picture": null,
    "q": "Mention any four clauses of the treaty which led to the suspension of this movement.",
    "seen": [

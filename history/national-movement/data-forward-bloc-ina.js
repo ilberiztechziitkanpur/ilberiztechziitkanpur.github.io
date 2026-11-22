@@ -501,7 +501,7 @@ window.NM_DPP_DATA.ina = {
    "topic": "bose-career",
    "format": "MCQ",
    "marks": 1,
-   "q": "Read the description and identify the person –\nHe established the Forward Bloc and coined the slogan, 'Delhi Chalo'.",
+   "q": "Read the description and identify the person –\nHe established the Forward Bloc and coined the slogan, ‘Delhi Chalo’.",
    "options": [
     "Mahatma Gandhi",
     "Subash Chandra Bose",
@@ -602,7 +602,8 @@ window.NM_DPP_DATA.ina = {
    "skill": "Understanding",
    "flags": [
     "key-official-specimen"
-   ]
+   ],
+   "img": "img/ina/S2027-Q1xvi.png"
   },
   {
    "stem": null,
@@ -868,7 +869,7 @@ window.NM_DPP_DATA.ina = {
    "topic": "bose-career",
    "format": "SHORT",
    "marks": 2,
-   "q": "\"It is our duty to pay for our liberty with our own blood. The Freedom that we shall win through our sacrifice and Exertions, we shall be able to preserve with our own strength.\"\n\nWith reference to the above quote, put forth the slogans given by the great Indian freedom fighter Subhash Chandra Bose.",
+   "q": "“It is our duty to pay for our liberty with our own blood. The Freedom that we shall win through our sacrifice and Exertions, we shall be able to preserve with our own strength.’’\n\nWith reference to the above quote, put forth the slogans given by the great Indian freedom fighter Subhash Chandra Bose.",
    "seen": [
     {
      "src": "CFPQ2024",
@@ -1163,7 +1164,8 @@ window.NM_DPP_DATA.ina = {
    ],
    "difficulty": "Easy",
    "skill": "Recall",
-   "flags": []
+   "flags": [],
+   "img": "img/ina/B2018-Q8.jpg"
   },
   {
    "stem": "Study the picture given below and answer the following questions:",
@@ -1219,7 +1221,8 @@ window.NM_DPP_DATA.ina = {
    ],
    "difficulty": "Medium",
    "skill": "Application",
-   "flags": []
+   "flags": [],
+   "img": "img/ina/B2018-Q8.jpg"
   },
   {
    "stem": "Study the picture given below and answer the following questions:",
@@ -1279,7 +1282,8 @@ window.NM_DPP_DATA.ina = {
    "skill": "Application",
    "flags": [
     "scheme-typo-armed-resolution"
-   ]
+   ],
+   "img": "img/ina/B2018-Q8.jpg"
   }
  ]
 };

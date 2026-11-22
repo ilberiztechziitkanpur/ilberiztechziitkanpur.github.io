@@ -33,4 +33,4 @@ ICSE rarely repeats History wording, but topics recur. Score = 10 + 6·min(F,4) 
 - `node --check` the engine's inline script after any edit (extract between `<script>` tags).
 - data.json is edited with Node and data.js regenerated from it; keep the 4-space indent and trailing newline.
 - The site has a frontend passcode; for local testing set `sessionStorage.ilberiz_auth = 'granted'` and reload.
-- Image questions (maps, diagrams, photos, graphs, circuits): crop the figure from the official PDF into `img/<chapter>/` and set `img` (+ `optionImgs` for image options); `picture` stays as alt text. Never hot-link from other sites. NOTE: History Ch 3–9 were built before this rule — their figures are still text descriptions and need retrofitting.
+- Image questions (maps, diagrams, photos, graphs, circuits): crop the figure from the official PDF into `img/<chapter>/` and set `img` (+ `optionImgs` for image options); `picture` stays as alt text. Never hot-link from other sites. History Ch 3–9 were retrofitted to this rule (15 cropped figures). Bump the data scripts' ?v= after changing data so browsers don't show cached copies.
