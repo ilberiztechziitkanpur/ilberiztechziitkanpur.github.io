@@ -56,7 +56,9 @@ window.NM_DPP_DATA.fp = {
   format: "MCQ",              // MCQ | AR | PICTURE | SHORT | LONG | SOURCE
   marks: 1,
   stem: null,                 // shared Section-B stem line, e.g. "With reference to the Early Nationalists, answer the following:"
-  picture: null,              // text description of a picture/map/source, if the question uses one
+  picture: null,              // text description of the figure (alt text + search)
+  img: null,                  // "img/<chapter>/<src-id>-<ref>.png" or array of them / {src, alt} — figure CROPPED from the official paper, shown exactly as printed
+  optionImgs: null,           // [null, "img/...png", null, null] — images inside MCQ options, aligned with options
   q: "Question text exactly as printed (primary version = most recent board appearance)",
   options: ["...", "...", "...", "..."],   // MCQ/AR/PICTURE-MCQ only; no "(a)" prefixes
   correct: 2,                 // 0-based index into options

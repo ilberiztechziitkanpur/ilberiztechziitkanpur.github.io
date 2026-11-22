@@ -21,7 +21,7 @@ ICSE rarely repeats History wording, but topics recur. Score = 10 + 6·min(F,4) 
 ## Extraction prompt template (one agent per year-range)
 > CONTEXT: interactive practice DPPs for ICSE Class 10 <Subject>, chapter "<Chapter>" (tag <TAG>): <topic list>. Exclude other chapters (<list>); include straddlers with a note.
 > SCOPE: <papers / years>. Reuse local files first: <paths>. Python 3.14 + fitz for PDFs.
-> RULES: never invent; exact wording (summarise long passages in [brackets]); describe pictures; MCQ options exact + key ("official" only if CISCE-provided, else "agent-determined: reason"); copy official answers verbatim into official_answer[]; official_errors[] from APP; verbatim_confidence HIGH/MEDIUM/LOW; source_inventory for every paper with chapter marks (zeros too).
+> RULES: never invent; exact wording and layout as printed (passages/extracts in full); for every figure give pdf file + page + bounding box and crop it to img/<chapter>/<src-id>-<ref>.png; describe pictures in `picture` (alt text); MCQ options exact + key ("official" only if CISCE-provided, else "agent-determined: reason"); copy official answers verbatim into official_answer[]; official_errors[] from APP; verbatim_confidence HIGH/MEDIUM/LOW; source_inventory for every paper with chapter marks (zeros too).
 > OUTPUT: JSON to <path>; reply ≤150 words.
 
 ## Compile prompt template
@@ -33,4 +33,4 @@ ICSE rarely repeats History wording, but topics recur. Score = 10 + 6·min(F,4) 
 - `node --check` the engine's inline script after any edit (extract between `<script>` tags).
 - data.json is edited with Node and data.js regenerated from it; keep the 4-space indent and trailing newline.
 - The site has a frontend passcode; for local testing set `sessionStorage.ilberiz_auth = 'granted'` and reload.
-- Image-heavy questions (maps, diagrams, pictures): describe the image in `picture`; never hot-link exam images.
+- Image questions (maps, diagrams, photos, graphs, circuits): crop the figure from the official PDF into `img/<chapter>/` and set `img` (+ `optionImgs` for image options); `picture` stays as alt text. Never hot-link from other sites. NOTE: History Ch 3–9 were built before this rule — their figures are still text descriptions and need retrofitting.

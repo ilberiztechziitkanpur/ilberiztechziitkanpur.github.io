@@ -496,6 +496,9 @@
       padding: 12px 14px; border-radius: 12px;
       border: 1px dashed var(--line-2); background: var(--bg-1);
     }
+    .fig-exact { display: block; text-align: center; }
+    .fig-exact img { display: block; max-width: 100%; height: auto; margin: 0 auto 6px; border-radius: 8px; background: #fff; }
+    .opt-img { display: block; max-width: 100%; height: auto; margin-top: 6px; border-radius: 6px; background: #fff; }
     .fig-ic { width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; background: var(--bg-4); color: var(--tx-2); flex-shrink: 0; }
     .fig-ic .msi { font-size: 24px; }
     .fig figcaption { font-size: 14px; color: var(--tx-2); font-style: italic; min-width: 0; }
@@ -1243,6 +1246,8 @@
       marks: num(raw.marks, parent ? parent.marks : (hasOpts ? 1 : 2)),
       stem: raw.stem ? str(raw.stem) : null,
       picture: raw.picture ? str(raw.picture) : null,
+      img: imgList(raw.img, raw.picture),
+      optionImgs: Array.isArray(raw.optionImgs) ? raw.optionImgs.map(function (p) { return safeImg(p); }) : null,
       q: str(raw.q),
       options: hasOpts ? opts : null, correct: correct, objective: hasOpts && correct !== null,
       seen: arr(raw.seen).filter(function (s) { return s && s.src; }).map(function (s) {
@@ -1451,18 +1456,33 @@
     var lbl = 'Year strip ' + (c.years[0] || '') + '–' + (c.years[c.years.length - 1] || '') + ': ' + (it.prob.years.length ? 'asked in ' + it.prob.years.join(', ') : 'no board year');
     return '<span class="mini" role="img" aria-label="' + esc(lbl) + '" title="' + esc(lbl) + '">' + cells + (dots ? '<span class="ms-gap"></span>' + dots : '') + '</span>';
   }
+  // Exact figures (photos, maps, diagrams, tables, circuits) cropped from the official paper live in ./img/
+  function safeImg(p) { p = str(p); return /^img\/[\w\-.\/]+\.(png|jpe?g|webp|svg|gif)$/i.test(p) && p.indexOf('..') < 0 ? p : null; }
+  function imgList(v, alt) {
+    var arr = Array.isArray(v) ? v : (v ? [v] : []);
+    return arr.map(function (x) {
+      var src = safeImg(x && typeof x === 'object' ? x.src : x);
+      return src ? { src: src, alt: str(x && typeof x === 'object' && x.alt ? x.alt : (alt || 'Figure from the question paper')) } : null;
+    }).filter(Boolean);
+  }
   function figureHTML(it) {
+    if (it.img && it.img.length) {
+      return '<figure class="fig fig-exact">' + it.img.map(function (m) {
+        return '<img src="' + esc(m.src) + '" alt="' + esc(strip(m.alt)) + '" loading="lazy" decoding="async">';
+      }).join('') + '<figcaption><span class="fig-k">As printed in the question paper</span></figcaption></figure>';
+    }
     if (!it.picture) return '';
     var isSrc = it.format === 'SOURCE';
     return '<figure class="fig"><span class="fig-ic">' + icon(isSrc ? 'article' : 'image') + '</span><figcaption><span class="fig-k">' +
       (isSrc ? 'Source extract' : 'Picture in the paper (description)') + '</span>' + rt(it.picture) + '</figcaption></figure>';
   }
+  function optImg(it, i) { var p = it.optionImgs && it.optionImgs[i]; return p ? '<img class="opt-img" src="' + esc(p) + '" alt="Option ' + letter(i) + '" loading="lazy">' : ''; }
   function stemHTML(it) { return it.stem ? '<p class="stem"><span class="stem-k">Stem</span>' + rt(it.stem) + '</p>' : ''; }
   function optsHTML(it, act) {
     var two = it.options.every(function (o) { return strip(o).length <= 46; }) && it.options.length % 2 === 0;
     return '<div class="opts' + (two ? ' two' : '') + '" role="group" aria-label="Options">' + it.options.map(function (o, i) {
       return '<button type="button" class="opt' + (i === it.correct && act === 'opt' ? ' is-key' : '') + '" data-act="' + act + '" data-i="' + i + '" aria-pressed="false">' +
-        '<span class="opt-l" aria-hidden="true">' + letter(i) + '</span><span class="opt-t">' + rt(o) + '</span>' +
+        '<span class="opt-l" aria-hidden="true">' + letter(i) + '</span><span class="opt-t">' + rt(o) + optImg(it, i) + '</span>' +
         '<span class="opt-ic msi" aria-hidden="true">' + (i === it.correct ? 'check_circle' : 'cancel') + '</span><span class="sr-only opt-sr"></span></button>';
     }).join('') + '</div>';
   }
@@ -2255,7 +2275,7 @@
       stemHTML(it) + figureHTML(it) + '<p class="q-text" id="tqh">' + rt(it.q) + '</p>';
     if (it.objective) {
       h += '<div class="opts" role="group" aria-label="Options">' + it.options.map(function (o, i) {
-        return '<button type="button" class="opt' + (picked === i ? ' is-sel' : '') + '" data-act="tpick" data-i="' + i + '" aria-pressed="' + (picked === i) + '"><span class="opt-l" aria-hidden="true">' + letter(i) + '</span><span class="opt-t">' + rt(o) + '</span></button>';
+        return '<button type="button" class="opt' + (picked === i ? ' is-sel' : '') + '" data-act="tpick" data-i="' + i + '" aria-pressed="' + (picked === i) + '"><span class="opt-l" aria-hidden="true">' + letter(i) + '</span><span class="opt-t">' + rt(o) + optImg(it, i) + '</span></button>';
       }).join('') + '</div>';
     } else {
       h += '<div class="tw"><p class="tw-hint">' + icon('edit_note') + '<span>Write your answer on paper' + (it.answer.words ? ' (' + esc(it.answer.words) + ')' : '') +

@@ -19,6 +19,16 @@ Existing DPP engines (apply engine fixes to every copy): `history/national-movem
 
 For a small chapter (≲30 raw questions) one Sonnet-high agent can extract AND compile in one go (worked for Ch 7) — cheaper than separate agents.
 
+## THE EXACT-PRESENTATION RULE (user's top requirement — every subject, every question)
+Every question must appear in the DPP **exactly as it is printed in the question paper** — a student should feel they are looking at the real paper:
+- **Text verbatim:** same words, spelling, punctuation, numbering ((i)/(ii), (a)/(b)), bracketed marks, instructions ("any two", "with reference to the picture given below"). Never paraphrase, shorten or "clean up". Source/case extracts and passages are reproduced in full, not summarised.
+- **Same structure:** the shared stem/lead-in goes in `stem`; sub-parts keep their order and labels; MCQ options keep their exact order and wording (A–R labels "(A)/(B)/(R)" are content).
+- **Images exactly as printed:** every picture, photograph, map, cartoon, graph, diagram, circuit, ray diagram, table drawn as an image, chemical apparatus, toposheet extract etc. is CROPPED from the official paper PDF page (PyMuPDF: render the page at zoom ≈2, crop the figure with its labels, save PNG/WebP ≲150 KB) into `<engine folder>/img/<chapter>/<src-id>-<ref>.png` (e.g. `img/gandhi/B2019-Q7.png`) and referenced with `img` (string or array). Images inside options go in `optionImgs` (array aligned with options, null where none). Keep `picture` as the text description (used as alt text and for search). Never hot-link images from other websites; crop only from the official CISCE PDF (or the APP/specimen reproduction).
+- **Maths / science notation exact:** keep subscripts/superscripts (<sub>/<sup>), units, symbols (Ω, °, √, π, →, ⇌), fractions and equations exactly; if notation can't be typed faithfully (matrices, long equations, constructions, tables), crop it as an image too.
+- **Language exact:** Hindi in Devanagari exactly as printed; English grammar/transformation items character-for-character.
+- If the printed text is unreadable in every official copy, keep the closest official copy and add flag `text-reconstructed` — never silently fill gaps.
+The answer side is the only place that is rewritten (board's official answer first, then point-wise).
+
 ## Step 1 — Intake (ask once, in ONE AskUserQuestion call, max 4 questions)
 Default answers are in brackets; mark the default "(Recommended)". Skip any question already answered.
 - **DPP sections** for this chapter, taken from the subject file (e.g. History: MCQ / Short / Long; Maths: MCQ / Short / Long problems; Physics: MCQ / Theory / Numericals; Geography: MCQ / Short / Long / Map). [the subject file's recommended split]
@@ -31,7 +41,7 @@ Do NOT offer to read the PW class-notes PDFs — the user said never read them; 
 - Run at most 2–3 agents at once (the user's usage limit burns fast). Use Sonnet (medium for search/file work, high for extraction & compiling). Avoid many parallel Opus agents.
 - FIRST reuse local caches: `~/.../scratchpad/research/` from earlier sessions may be gone — check; if present, reuse (txt/, dl*/, spec_dl/, cfpq_dl/). Otherwise download into the scratchpad, never into the repo.
 - Split extraction by year range when a chapter is big (2016–2020 / 2022–2026 / specimens+CFPQ). Prompt template: `references/workflow-notes.md`.
-- Output per agent: raw JSON with `source_inventory` (every paper scanned, found or not, marks this chapter carried — zeros included) and `questions[]` (exact wording, q_ref, marks, format, options + key, picture description, verbatim_confidence, official_answer[] copied as printed, official_errors[]).
+- Output per agent: raw JSON with `source_inventory` (every paper scanned, found or not, marks this chapter carried — zeros included) and `questions[]` (exact wording and layout as printed, q_ref, marks, format, options + key, picture description PLUS the page number and bounding box of every figure so it can be cropped, verbatim_confidence, official_answer[] copied as printed, official_errors[]).
 - Never invent questions. Missing paper > guessed paper.
 
 ## Step 3 — Compile the chapter data file
@@ -48,6 +58,7 @@ A fresh agent re-reads EVERY question of the subject's part of each in-scope pap
 ## Step 5 — Plug into the engine
 - History engine: `history/national-movement/index.html` (chapters fp, sp, ml, gandhi, …). Add `<script src="data-<chapter>.js?v=1">` next to the others. Chapters appear in the switcher automatically (ordered by `meta.chapterNo`).
 - Another subject: create ONE engine copy per subject (e.g. `physics/dpp/index.html`) from the history engine, with that subject's `pattern.js`. If its DPP sections differ from mcq/short/long, declare `dppSections: [{id, full, short, sub, icon, noun}]` in pattern.js — the engine reads it. Never copy the engine per chapter. Record every engine copy in PROJECT_STATE.md so fixes are applied to all copies.
+- Crop every figure into `img/<chapter>/` and set `img` / `optionImgs` (Exact-presentation rule). Open a few image questions in the browser and compare side-by-side with the PDF page.
 - Run `node scripts/smoke.js <engine-folder>` → 0 errors. (A–R options starting "(A)/(B)/(R)" are content, not letter prefixes — ignore that warning.)
 
 ## Step 6 — Wire into the site (see PROJECT_STATE rules)
