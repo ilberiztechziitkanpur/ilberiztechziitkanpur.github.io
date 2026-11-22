@@ -1789,16 +1789,32 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-his-7",
                             "name": "Ch 7: The Quit India Movement",
-                            "description": "7 Theory Clusters (48+ PYQ Twists), Official Council Pointers, Dual Instant/DPP Modes & 2 Full Class Notes",
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank + 2 Class Notes: August Offer, Cripps Mission, Japanese threat, Quit India Resolution, Do or Die, repression & significance",
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "his-quit-india-theory-master",
-                                    "title": "Quit India Movement — 7 Clusters & 48+ PYQ Twists Vault",
-                                    "subtitle": "7 Master Question Clusters, 48+ Twisted Variations, Cripps Mission, Japanese Threat, Wardha Resolution & Significance, Instant Check & DPP Modes",
+                                    "id": "his-qim-dpp-mcq",
+                                    "title": "Quit India Movement — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "4 official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — August Offer 1940, Cripps Mission, Japanese threat, Quit India Resolution 1942, Do or Die, repression, significance",
                                     "type": "interactive",
-                                    "file": "history/quit-india/index.html",
-                                    "badge": "PYQ Vault • 7 Clusters • 48+ Twists"
+                                    "file": "history/national-movement/index.html?ch=qim&sec=mcq",
+                                    "badge": "DPP 1 • 4 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "his-qim-dpp-short",
+                                    "title": "Quit India Movement — Interactive DPP 2: Short Answers (Section A · Q2)",
+                                    "subtitle": "2 official 2-mark questions with board-exact answers, highlighted keywords & CISCE examiner notes — August Offer 1940, Cripps Mission, Japanese threat, Quit India Resolution 1942, Do or Die, repression, significance",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=qim&sec=short",
+                                    "badge": "DPP 2 • 2 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-qim-dpp-long",
+                                    "title": "Quit India Movement — Interactive DPP 3: Long Answers (Section B)",
+                                    "subtitle": "6 official Section B sub-questions (3–4 marks) with point-wise board answers, self-marking checklist & timed test mode — August Offer 1940, Cripps Mission, Japanese threat, Quit India Resolution 1942, Do or Die, repression, significance",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=qim&sec=long",
+                                    "badge": "DPP 3 • 6 Qs • 3–4 Marks"
                                 },
                                 {
                                     "id": "his-quit-india-notes-01",

@@ -10,14 +10,18 @@ const err = m => errors.push(m), warn = m => warnings.push(m);
 
 const ctx = { window: {}, console };
 vm.createContext(ctx);
-for (const f of ['pattern.js', 'data-first-phase.js', 'data-second-phase.js']) {
+// Load every <script src> the engine loads (pattern.js + all data-*.js), in page order
+const SCRIPTS = (() => { try { return Array.from(fs.readFileSync(path.join(dir, 'index.html'), 'utf8').matchAll(/<script src="([^"?]+\.js)(?:\?[^"]*)?"/g)).map(m => m[1]); } catch (e) { return []; } })();
+if (!SCRIPTS.length) SCRIPTS.push('pattern.js', ...fs.readdirSync(dir).filter(n => /^data-.*.js$/.test(n)));
+console.log('checking: ' + SCRIPTS.join(', '));
+for (const f of SCRIPTS) {
   const p = path.join(dir, f);
   if (!fs.existsSync(p)) { err('missing file ' + f); continue; }
   try { vm.runInContext(fs.readFileSync(p, 'utf8'), ctx, { filename: f }); } catch (e) { err(f + ' threw: ' + e.message); }
 }
 const DATA = ctx.window.NM_DPP_DATA, PAT = ctx.window.NM_DPP_PATTERN;
 
-const SECS = ['mcq', 'short', 'long'];
+const SECS = (PAT && Array.isArray(PAT.dppSections) && PAT.dppSections.length) ? PAT.dppSections.map(d => d.id) : ['mcq', 'short', 'long'];
 const TYPES = { BOARD: 'board', BOARD_SEM1: 'board', BOARD_SEM2: 'board', SUPPLEMENTARY: 'board', SPECIMEN: 'official', CFPQ: 'official' };
 const FORMATS = ['MCQ', 'AR', 'PICTURE', 'SHORT', 'LONG', 'SOURCE'];
 const DIFF = ['Easy', 'Medium', 'Hard'], SKILL = ['Recall', 'Understanding', 'Application', 'Analysis', 'Evaluation'], CONF = ['HIGH', 'MEDIUM', 'LOW'];
