@@ -15,7 +15,7 @@ Read first, every time:
 
 Subject files in `references/subjects/`: maths.md · physics.md · chemistry.md · biology.md · history-civics.md · geography.md · english.md (Language + Literature) · hindi.md · computer.md. Each has the exact 2027 paper pattern, the recommended DPP section split, marking conventions, official source URLs, the syllabus chapter list and subject gotchas. Items marked UNVERIFIED there must be checked against the latest specimen before relying on them.
 
-Existing DPP engines (apply engine fixes to every copy): `history/national-movement/` (History Ch 3 fp, Ch 4 sp, Ch 5 ml, Ch 6 gandhi, Ch 7 qim, Ch 8 ina). Old per-chapter vaults replaced so far: Ch 6, Ch 7 (user prefers "replace").
+Existing DPP engines (apply engine fixes to every copy): `history/national-movement/` (History Ch 3 fp, Ch 4 sp, Ch 5 ml, Ch 6 gandhi, Ch 7 qim, Ch 8 ina, Ch 9 ip). Old per-chapter vaults replaced so far: Ch 6, Ch 7, Ch 9 (user prefers "replace").
 
 For a small chapter (≲30 raw questions) one Sonnet-high agent can extract AND compile in one go (worked for Ch 7) — cheaper than separate agents.
 

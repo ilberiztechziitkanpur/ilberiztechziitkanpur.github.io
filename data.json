@@ -1869,16 +1869,32 @@
                         {
                             "id": "chap-his-9",
                             "name": "Ch 9: Indian Independence and Partition of India",
-                            "description": "12 Theory Clusters (68+ PYQ Twists), Cabinet Mission to 1947 Act, Dual Instant/DPP Modes & 2 Full Class Notes",
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank + 2 Class Notes: Cabinet Mission Plan, Mountbatten Plan, Princely States, Congress acceptance of Partition, Indian Independence Act 1947",
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "his-independence-theory-master",
-                                    "title": "Independence & Partition of India — 12 Clusters & 68+ PYQ Twists Vault",
-                                    "subtitle": "12 Master Question Clusters, 68+ Twisted Variations (2015–2026), Cabinet Mission to 1947 Act, Instant Check & DPP Modes, Live Exam Countdown Timer",
+                                    "id": "his-ip-dpp-mcq",
+                                    "title": "Independence & Partition of India — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "3 official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — Cabinet Mission Plan 1946, Mountbatten Plan 1947, Princely States, why Congress accepted Partition, Indian Independence Act 1947",
                                     "type": "interactive",
-                                    "file": "history/independence/index.html",
-                                    "badge": "PYQ Vault • 12 Clusters • 68+ Twists"
+                                    "file": "history/national-movement/index.html?ch=ip&sec=mcq",
+                                    "badge": "DPP 1 • 3 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "his-ip-dpp-short",
+                                    "title": "Independence & Partition of India — Interactive DPP 2: Short Answers (Section A · Q2)",
+                                    "subtitle": "4 (+3 variations) official 2-mark questions with board-exact answers, highlighted keywords, Show Variations & CISCE examiner notes — Cabinet Mission Plan 1946, Mountbatten Plan 1947, Princely States, why Congress accepted Partition, Indian Independence Act 1947",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=ip&sec=short",
+                                    "badge": "DPP 2 • 7 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-ip-dpp-long",
+                                    "title": "Independence & Partition of India — Interactive DPP 3: Long Answers (Section B)",
+                                    "subtitle": "12 (+1 variation) official Section B sub-questions (3–4 marks) with point-wise board answers, self-marking checklist & timed test mode — Cabinet Mission Plan 1946, Mountbatten Plan 1947, Princely States, why Congress accepted Partition, Indian Independence Act 1947",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=ip&sec=long",
+                                    "badge": "DPP 3 • 13 Qs • 3–4 Marks"
                                 },
                                 {
                                     "id": "his-independence-notes-01",

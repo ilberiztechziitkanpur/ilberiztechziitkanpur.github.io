@@ -72,7 +72,7 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # 8 Canonical Clusters, 54+ PYQ Twists, Sarajevo, Versailles & League of Nations
 │   ├── 1857-ww1/                    # Dual-Chapter Master Vault (1857 Revolt + First World War)
 │   │   └── index.html               # 18 Canonical Clusters, 116+ Board Variations, 1-Click Chapter Switcher
-│   ├── national-movement/           # Ch 3–8: Shared National Movement Interactive PYQ DPP Engine (v13.8)
+│   ├── national-movement/           # Ch 3–9: Shared National Movement Interactive PYQ DPP Engine (v13.9)
 │   │   ├── index.html               # Data-driven engine: 3 DPPs/chapter (MCQ · Short · Long), Learn/Practice/Test, Show Variations, probability, self-marking
 │   │   ├── data-first-phase.js      # window.NM_DPP_DATA.fp — Ch 3 First Phase: 10 unique Qs + 1 variation (7 MCQ, 2 Short, 1 Long)
 │   │   ├── data-second-phase.js     # window.NM_DPP_DATA.sp — Ch 4 Second Phase: 31 unique Qs + 1 variation (13 MCQ, 11 Short, 7 Long)
@@ -80,6 +80,7 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   ├── data-gandhi.js           # window.NM_DPP_DATA.gandhi — Ch 6 Gandhi: 44 unique Qs + 2 variations (12 MCQ, 9 Short, 23 Long)
 │   │   ├── data-quit-india.js       # window.NM_DPP_DATA.qim — Ch 7 Quit India: 12 unique Qs (4 MCQ, 2 Short, 6 Long)
 │   │   ├── data-forward-bloc-ina.js # window.NM_DPP_DATA.ina — Ch 8 Forward Bloc & INA: 19 unique Qs + 1 variation (8 MCQ, 5 Short, 6 Long)
+│   │   ├── data-independence-partition.js # window.NM_DPP_DATA.ip — Ch 9 Independence & Partition: 19 unique Qs + 4 variations (3 MCQ, 4 Short, 12 Long)
 │   │   └── pattern.js               # window.NM_DPP_PATTERN — official 2027 exam blueprint (sections, marks, marking conventions)
 │   └── notes/                       # ICSE Class 10 History PDF notes (22 files across Chapters 1 to 12)
 │       ├── The_First_War_Of_Independence_01_Class_Notes.pdf (5.8 MB) — Causes & factors
@@ -585,6 +586,7 @@ ILBERIZ TECHZ IIT KANPUR/
 - **v13.6 additions:** Ch 5 Muslim League (`ml`, 13 Qs) and Ch 6 Mahatma Gandhi (`gandhi`, 44 Qs + 2 variations). The old Ch 6 "DNA PYQ Vault" card (`his-gandhi-theory-master`, `history/gandhi/index.html`) was REMOVED from data.json at the user's request (file kept in the repo, no longer linked). Official CISCE Analysis of Pupil Performance answers for 2023–2026 were backfilled into fp/sp/ml; every board-paper MCQ key is now confirmed by the APP (flag `key-official-APP`). Answers follow the board's official marking scheme verbatim where one exists (user: never read PW notes PDFs). Engine sections are now data-driven (`pattern.js → dppSections`) for future non-History subjects; chapter switcher shows "Ch N" only on phones.
 - **v13.7:** Ch 7 Quit India (`qim`, 12 Qs, 0 variations) built with the skill; old Ch 7 vault card (`his-quit-india-theory-master`, `history/quit-india/index.html`) removed from data.json (file kept). Fast Track = Ch 7 only. smoke.js now checks every data file the engine loads.
 - **v13.8:** Ch 8 Forward Bloc & INA (`ina`, 19 Qs + 1 variation; no notes PDFs exist, `meta.notes: []`). Fast Track = Ch 8 only.
+- **v13.9:** Ch 9 Independence & Partition (`ip`, 19 Qs + 4 variations; 3 cue-based look-alikes split out). Old Ch 9 vault card (`his-independence-theory-master`, `history/independence/index.html`) removed from data.json (file kept). Audit: 26 in-scope paper items = 26 DPP appearances. Fast Track = Ch 9 only. GitHub CLI (`gh`, logged in as ilberiztechziitkanpur) installed on the user's machine at `C:Program FilesGitHub CLIgh.exe`.
 - **Completeness audit (Nov 2026):** an independent agent re-read all 14 in-scope papers (Board 2016–2026 incl. Sem 1/2, Specimen 2025–27, CFPQ July 2024): 146 in-scope History items for Ch 3–8 = 146 DPP rows, 0 missing, 0 mis-tagged. Excluded by user choice: Improvement 2025/26 papers and specimens older than 2025.
 - **Reusable skill:** `.claude/skills/icse-dpp-builder/` (SKILL.md + references for all 9 subjects' 2027 paper patterns, official sources, schema, workflow notes, scripts `smoke.js` and `promote-variation.js`). Use it for every future "make interactive DPP for <subject> <chapter>" request.
 - **One shared, data-driven engine** (`index.html`) + one data file per chapter. Deep links: `index.html?ch=fp|sp&sec=mcq|short|long` (optional `&mode=learn|practice|test`). data.json lists **3 interactive items per chapter** (DPP 1 MCQ · DPP 2 Short · DPP 3 Long) pointing at those links, and both chapters are `featured: true`.
