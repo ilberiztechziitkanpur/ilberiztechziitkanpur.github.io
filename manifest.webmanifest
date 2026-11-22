@@ -1,0 +1,22 @@
+{
+  "name": "Ilberiz Techz — ICSE Class 10",
+  "short_name": "Ilberiz Techz",
+  "description": "ICSE Class 10 class notes and interactive PYQ DPPs for all subjects.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0F1216",
+  "theme_color": "#0F1216",
+  "categories": ["education"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Subjects", "url": "./#/subjects", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "My library", "url": "./#/library", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

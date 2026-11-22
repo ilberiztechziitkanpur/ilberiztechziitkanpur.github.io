@@ -189,9 +189,13 @@ ILBERIZ TECHZ IIT KANPUR/
 ├── Video_Downloader/                # EXCLUDED / UNTOUCHED (Independent utility — DO NOT TOUCH OR COMMIT)
 ├── data.js                          # Course hierarchy, chapters, and file pointers (Offline & Online)
 ├── data.json                        # JSON mirror of course hierarchy (Fetched via HTTP)
-├── index.html                       # Main web application dashboard and app container
-├── script.js                        # App controller: Navigation, search, breadcrumbs, viewer, sidebar
-├── style.css                        # Design system: Dark glassmorphism, responsive grid, animations
+├── index.html                       # App shell: lock screen, sidebar (laptop), top bar, bottom tabs (phone)
+├── script.js                        # App controller (v14): LATEST_RELEASE config, hash router, pages, search, readers, PWA
+├── style.css                        # Design system (v14): dark/light tokens, highlighter accents, subject colours
+├── sw.js                            # Service worker: offline shell/engines, cache-first PDF notes (VERSION = ?v=)
+├── manifest.webmanifest             # Installable app (PWA) manifest
+├── icons/                           # App icons (192, 512, maskable, apple-touch, favicon)
+├── vendor/pdfjs/                    # Self-hosted PDF.js 3.11.174 for the built-in phone reader
 └── PROJECT_STATE.md                 # This file (Persistent project state & autonomous setup guide)
 ```
 
@@ -211,6 +215,7 @@ ILBERIZ TECHZ IIT KANPUR/
 8. **Git Push Protocol**: Always commit changes and use `BypassSandbox: true` for `git push origin main` because sandbox restricts network access.
 9. **Sidebar Navigation Stability**: Keep `.nav-menu` with `overflow-x: hidden !important;`, `overscroll-behavior: contain;`, and `padding-bottom: 24px;`. Prevent any hover `translateX` on `.nav-item` / `.nav-item-featured` that triggers horizontal scrollbars or boundary oscillation loops. Both `.logo-area` and `.sidebar-footer` must have `flex-shrink: 0;`.
 10. **Sidebar & Landing View Cleanliness Protocol (MANDATORY)**: The left navigation sidebar (`.nav-menu`) must NEVER accumulate past chapter buttons or older DPP engines into a massive scrolling list. Only **Overview**, curriculum batch links, and the **single latest update** (e.g. newly published chapter notes or active focus module) with a `NEW` badge are displayed in the sidebar quick-launch area. All previously published chapters, notes, and engines remain permanently accessible through their respective Subject and Chapter dashboard pages with all their original tags and badges. This ensures the dashboard on laptops and mobile devices remains uncluttered, elegant, and immediately signals to returning students what has just been updated.
+    - **v14 amendment**: The laptop sidebar (`#side-nav`) now shows Home, All subjects, Library, the single NEW link from `LATEST_RELEASE.nav`, and the fixed list of the 9 subjects (stable navigation, never chapters or engines). Phones/tablets use the bottom tab bar (Home, Subjects, Search, Library, More) instead.
 11. **Testing & Validation Protocol (Ultra-Fast Schema Validation vs Conditional Browser Subagent)**:
     - **For Routine Note Additions (Default Mode - Target Under 45 Seconds)**: DO NOT launch a 15–20 minute `browser_subagent` and DO NOT spin up a background local server for basic file additions. Instead, perform instant zero-overhead validation: verify file existence via `Test-Path`, validate JSON syntax in `data.json` via standard JSON parser (`python -m json.tool`), verify `data.js` sync, update `script.js` quick launch, and push to GitHub Pages.
     - **When to Use Browser Subagent**: Browser subagents on port 8080 are strictly reserved for major architectural changes, core UI layout overhauls, new interactive examination engines, or when explicitly requested by the user.
@@ -242,12 +247,12 @@ ILBERIZ TECHZ IIT KANPUR/
       - Clean up the raw download file from `C:\Users\ASUS\Downloads\` immediately (Rule 5).
     - **Synchronize & Deploy**:
       - Update `data.json` (source of truth) and synchronize `data.js`.
-      - Update the single sidebar quick-launch in `script.js` with the `NEW` badge (Rule 10).
-      - Bump cache-busting query parameter in `index.html` (e.g. `v=5.2`).
+      - Update the `LATEST_RELEASE` block at the top of `script.js` (Rule 10/15; v14+ — no other script.js edits needed).
+      - Bump cache-busting query parameter in `index.html` (e.g. `v=14.1`) AND the same number in `sw.js` (`const VERSION`).
       - Update `PROJECT_STATE.md` with a concise milestone entry.
       - Commit and push to `origin/main` (`BypassSandbox: true`).
 15. **Exclusive Latest-Release Spotlight Protocol (100% Exclusive to the Newest Published Release - MANDATORY)**:
-    - **Single Focus Exclusive Presentation**: Whenever a new subject, unit, or chapter release is published (e.g. Physics Unit 1), the High-Yield Fast Track rail on the Overview dashboard (`.spotlight-chips-grid` in `renderBatches()`) must **EXCLUSIVELY** feature items belonging to that newly published release.
+    - **Single Focus Exclusive Presentation**: Whenever a new subject, unit, or chapter release is published (e.g. Physics Unit 1), the Home "New" release card (driven by the `LATEST_RELEASE` block at the top of `script.js` since v14; formerly the High-Yield Fast Track rail) must **EXCLUSIVELY** feature items belonging to that newly published release.
     - **Total Purge of Older Content**: You must **REMOVE ALL OF THE REST** from Overview and High-Yield Fast Track. Do NOT retain Geography, English, History, or any other previous subject chips. When a new release is published, that release is now the single important focus. All other subjects and chapters are already permanently available in their respective subject pages and known to users.
     - **No Multi-Subject Hybrid Fast Track**: Never mix older subjects into the Fast Track rail under the guise of "flagship" or "cross-curriculum" resources. When Physics is published, show ONLY Physics. When another subject is released in the future, show ONLY that new release.
 
@@ -916,7 +921,7 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
    - Remove any temporary files from the workspace root.
 4. **Wire Data**:
    - Update `data.js` and `data.json` under the respective chapter in `sub-10-geo` with the new interactive theory DPP master item.
-   - Update `script.js` to add a quick-launch shortcut with an icon and `NEW` badge in `renderNav()`.
+   - Update the `LATEST_RELEASE` block at the top of `script.js` (sidebar NEW link + Home "New" card). Since v14 there is no `renderNav()`.
 5. **Standardized Browser Verification on Port 8080**:
    - Start temporary test server: Run `python -m http.server 8080` (`BypassSandbox: true`, `IsDaemon: true`).
    - Run `browser_subagent` targeting `http://localhost:8080/index.html` to verify navigation, PDF rendering, tabs, search, and modes.
@@ -2119,3 +2124,17 @@ When the user provides a new `gemini-code-*.html` file or notes PDF in any futur
     - **Cache Invalidation & Schema Validation (Rule 11)**:
       - Bumped cache-busting queries in `index.html` to `v=13.4` for `style.css`, `data.js`, and `script.js`.
       - Validated 100% schema parity and confirmed all 161 files on disk exist.
+
+78. **v14.0 — Complete UI/UX Redesign (Phone-first, Laptop-complete) + PWA + Built-in Phone PDF Reader**:
+    - **Why**: The user asked for a handy, modern, fast UI where phone students get the same full experience as laptop students, plus better sound, graphics and features. Design work used the workspace skills in `.agents/skills/` (ui-ux-pro-max, taste-skill, frontend-design, ui-craft-motion, shadcn-ui, ux-ui-architecture).
+    - **User decisions (asked 2026-11-22)**: (1) Dark + Light mode with 5 "highlighter" accent colours (yellow default, green, pink, blue, orange) replaces the 6 neon themes; (2) soft sounds ON by default with an easy mute + light Android vibration; (3) built-in full-screen PDF reader on phones (minimal chrome, easy way home), with "open in phone's PDF viewer" always one tap away; (4) installable app (PWA) with offline notes.
+    - **Design system** (`style.css`, fully rewritten): ink surfaces `#0F1216`/`#171C22`, light `#F3F4F6`/`#FFFFFF`; one highlighter accent; per-subject index-tab colours via `[data-subject]` (`--sub`, `--sub-ink`); fonts Bricolage Grotesque (display) + Plus Jakarta Sans (body); icons Material Symbols **Rounded** (fixed axes, smaller download). Hand-drawn SVG subject emblems live in `EMBLEM_PATHS` in `script.js`. No particle canvas, cursor spotlight or 3D tilt any more (battery + speed); motion = one first-load reveal + View Transitions between pages; `prefers-reduced-motion` respected.
+    - **Layout**: phones/tablets (<1024px) = sticky top bar (back + page title, theme & sound toggles) + bottom tab bar (Home, Subjects, Search, Library, More); laptops (>=1024px) = sidebar + breadcrumb top bar + Ctrl K search box. Document scrolls (not an inner container).
+    - **Routing**: hash routes with history so the phone back button works and links are shareable: `#/`, `#/subjects`, `#/s/<subjectId>`, `#/s/<subjectId>/<chapterId>[/<subchapterId>]`, `#/library[/recent|saved|done]`, `#/read/<itemId>` (item ids are unique site-wide). Search, settings and sheets push a history entry so Back closes them.
+    - **Pages**: Home (time-of-day greeting, Continue card with page progress, single New-release card from `LATEST_RELEASE`, subject tiles with emblems + progress, Saved, Telegram), Subjects (filters), Subject (header with stats/progress, chapter rows with progress rings, filters With notes / With DPPs), Chapter (DPP practice cards, Class notes rows, sub-chapters), Library (Recent / Saved / Done).
+    - **Readers**: PDFs on laptops keep Chrome's own viewer inside a slim bar (note stepper, all-notes list, save, Mark done, new tab, download, full screen; keys `[` `]` F Esc). PDFs on touch devices (or when `navigator.pdfViewerEnabled` is false) use the built-in PDF.js reader (`vendor/pdfjs/pdf.min.js` + `pdf.worker.min.js`, v3.11.174, self-hosted for offline): download progress, lazy page rendering (only nearby pages drawn), pinch / double-tap / Ctrl+wheel zoom, auto-hiding bar, page pill, resume at last page, end-of-note card (Mark done / Next note). Settings → "Opening PDF notes" switches Built-in reader / Browser viewer per device. DPP engines open in a full-screen frame with a slim bar.
+    - **Per-device library** (`localStorage` key `ilberiz_library`: recent, saved, done, pos{page,pages}); prefs keys `ilberiz_theme` (dark|light|system), `ilberiz_accent`, `ilberiz_audio`, `ilberiz_haptics`, `ilberiz_reader`, `ilberiz_searches`. Auth keys unchanged (Rule 13). The lock screen auto-unlocks the moment the correct passcode is typed and shows a numeric keypad on phones.
+    - **PWA**: `manifest.webmanifest`, `icons/` (generated "highlighted notes" mark), `sw.js` at the root. Strategy: shell/engines/data network-first with `cache: 'no-cache'` revalidation (always fresh online, cached offline); PDFs cache-first in `ilb-notes-v1` (Range requests served from cache); vendor/icons cache-first; Google Fonts stale-while-revalidate. Settings shows offline notes count/size with Clear. **Version bump rule: `?v=` in index.html AND `VERSION` in sw.js must match.**
+    - **Latest release config**: `LATEST_RELEASE` at the top of `script.js` is now the ONLY place to change for Rules 10 & 15 (sidebar NEW link + Home New card). The icse-dpp-builder skill (Step 6) was updated accordingly.
+    - **Sound**: Web Audio synth with soft tap / open / back / save / success / error / page sounds through a gentle low-pass + short room echo; haptics via `navigator.vibrate` (toggle in Settings).
+    - **Verification**: Tested in the browser pane at 360px, 375px, 768px and 1440px, dark and light: no horizontal overflow on 10 routes, phone reader (33-page note renders, bars hide, resume at page 15 from offline cache), laptop viewer (note stepper, Mark done + Undo toast, `]` key), search (Ctrl K, grouped results with highlights, Back closes it), settings sheet.

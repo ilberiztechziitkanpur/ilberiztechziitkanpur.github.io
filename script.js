@@ -1,731 +1,2118 @@
-// State Management
-const state = {
-    data: null,
-    currentView: 'batches', // batches, subjects, chapters, subchapters, items, viewer, search
-    previousView: 'batches',
-    path: [], // [batchId, subjectId, chapterId]
-    currentItem: null,
-    searchQuery: '',
-    isFullscreenActive: false, // Persists true F11 fullscreen across note & chapter switches
+'use strict';
+/* ==========================================================================
+   Ilberiz Techz — ICSE Class 10 study portal (v14)
+   Vanilla JS, no build step. Data comes from data.js (window.COURSE_DATA)
+   with data.json as the HTTP fallback.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. Latest release spotlight (Rules 10 & 15)
+   Update ONLY this block when a new release is published. It drives the
+   single "New" link in the laptop sidebar and the "New" card on Home.
+   -------------------------------------------------------------------------- */
+const LATEST_RELEASE = {
+    subjectId: 'sub-10-his',
+    chapterId: 'chap-his-9',
+    title: 'Indian Independence and Partition of India',
+    note: 'Interactive PYQ DPPs from ICSE Board 2016–2026, Specimen papers and the CISCE competency bank.',
+    items: [
+        { id: 'his-ip-dpp-mcq', label: 'DPP 1: MCQs', meta: '3 questions, 1 mark each' },
+        { id: 'his-ip-dpp-short', label: 'DPP 2: Short answers', meta: '7 questions, 2 marks each' },
+        { id: 'his-ip-dpp-long', label: 'DPP 3: Long answers', meta: '13 questions, 3–4 marks each' }
+    ],
+    more: { label: 'All History DPPs (Ch 3–9)', href: '#/s/sub-10-his' },
+    nav: { label: 'History: Ch 3–9 DPPs', href: '#/s/sub-10-his' }
 };
 
-// DOM Elements
-const contentArea = document.getElementById('content-area');
-const breadcrumbs = document.getElementById('breadcrumbs');
-const navMenu = document.getElementById('nav-menu');
-const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-const sidebar = document.getElementById('sidebar');
-const sidebarOverlay = document.getElementById('sidebar-overlay');
-const searchInput = document.getElementById('search-input');
-const clearSearchBtn = document.getElementById('clear-search-btn');
+const APP_VERSION = '14.0';
+const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
-// ==========================================================================
-// Zero-Network Web Audio Synthesizer (Instant Tactical Haptics)
-// ==========================================================================
-const audioFX = {
-    ctx: null,
-    muted: localStorage.getItem('ilberiz_audio') === 'off',
-    
-    getCtx() {
-        if (!this.ctx && (window.AudioContext || window.webkitAudioContext)) {
-            const AudioCtx = window.AudioContext || window.webkitAudioContext;
-            this.ctx = new AudioCtx();
-        }
-        if (this.ctx && this.ctx.state === 'suspended') {
-            this.ctx.resume();
-        }
-        return this.ctx;
-    },
+/* --------------------------------------------------------------------------
+   1. Small helpers
+   -------------------------------------------------------------------------- */
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+function h(html) {
+    const t = document.createElement('template');
+    t.innerHTML = html.trim();
+    return t.content.firstElementChild;
+}
+const plural = (n, one, many) => `${n} ${n === 1 ? one : (many || one + 's')}`;
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const reducedMotion = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isDesktop = () => window.matchMedia && matchMedia('(min-width: 1024px)').matches;
 
-    playTick() {
-        if (this.muted) return;
-        try {
-            const ctx = this.getCtx();
-            if (!ctx) return;
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            osc.type = 'sine';
-            osc.frequency.setValueAtTime(620, ctx.currentTime);
-            osc.frequency.exponentialRampToValueAtTime(840, ctx.currentTime + 0.03);
-            gain.gain.setValueAtTime(0.035, ctx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.03);
-            osc.connect(gain);
-            gain.connect(ctx.destination);
-            osc.start();
-            osc.stop(ctx.currentTime + 0.035);
-        } catch (e) {}
-    },
-
-    playSuccess() {
-        if (this.muted) return;
-        try {
-            const ctx = this.getCtx();
-            if (!ctx) return;
-            const now = ctx.currentTime;
-            [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(freq, now + i * 0.07);
-                gain.gain.setValueAtTime(0.05, now + i * 0.07);
-                gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.07 + 0.22);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start(now + i * 0.07);
-                osc.stop(now + i * 0.07 + 0.25);
-            });
-        } catch (e) {}
-    },
-
-    playError() {
-        if (this.muted) return;
-        try {
-            const ctx = this.getCtx();
-            if (!ctx) return;
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            osc.type = 'sawtooth';
-            osc.frequency.setValueAtTime(140, ctx.currentTime);
-            osc.frequency.linearRampToValueAtTime(95, ctx.currentTime + 0.18);
-            gain.gain.setValueAtTime(0.06, ctx.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.18);
-            osc.connect(gain);
-            gain.connect(ctx.destination);
-            osc.start();
-            osc.stop(ctx.currentTime + 0.2);
-        } catch (e) {}
-    },
-
-    playThemeChange() {
-        if (this.muted) return;
-        try {
-            const ctx = this.getCtx();
-            if (!ctx) return;
-            const now = ctx.currentTime;
-            [440, 554.37, 659.25].forEach((freq, i) => {
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(freq, now + i * 0.05);
-                gain.gain.setValueAtTime(0.04, now + i * 0.05);
-                gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.05 + 0.18);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start(now + i * 0.05);
-                osc.stop(now + i * 0.05 + 0.2);
-            });
-        } catch (e) {}
-    },
-
-    toggle() {
-        this.muted = !this.muted;
-        localStorage.setItem('ilberiz_audio', this.muted ? 'off' : 'on');
-        const btn = document.getElementById('topbar-audio-btn');
-        const icon = document.getElementById('audio-icon');
-        if (btn) btn.classList.toggle('audio-muted', this.muted);
-        if (icon) icon.textContent = this.muted ? 'volume_off' : 'volume_up';
-        if (!this.muted) this.playTick();
-    }
-};
-
-function setupAudioButton() {
-    const btn = document.getElementById('topbar-audio-btn');
-    const icon = document.getElementById('audio-icon');
-    if (!btn) return;
-    if (audioFX.muted) {
-        btn.classList.add('audio-muted');
-        if (icon) icon.textContent = 'volume_off';
-    }
-    btn.addEventListener('click', () => audioFX.toggle());
+function lsGet(key, fallback = null) {
+    try { const v = localStorage.getItem(key); return v == null ? fallback : v; } catch (e) { return fallback; }
+}
+function lsSet(key, value) {
+    try { localStorage.setItem(key, value); } catch (e) {}
+}
+function lsJSON(key, fallback) {
+    try { const v = localStorage.getItem(key); if (!v) return fallback; const p = JSON.parse(v); return p == null ? fallback : p; } catch (e) { return fallback; }
+}
+function timeAgo(t) {
+    const s = Math.max(1, Math.round((Date.now() - t) / 1000));
+    if (s < 60) return 'just now';
+    const m = Math.round(s / 60); if (m < 60) return `${m} min ago`;
+    const hr = Math.round(m / 60); if (hr < 24) return `${hr} h ago`;
+    const d = Math.round(hr / 24); if (d < 7) return `${d} d ago`;
+    return new Date(t).toLocaleDateString(undefined, { day: 'numeric', month: 'short' });
+}
+function formatMB(bytes) {
+    if (!bytes) return '0 MB';
+    const mb = bytes / (1024 * 1024);
+    return mb >= 100 ? `${Math.round(mb)} MB` : `${mb.toFixed(1)} MB`;
 }
 
-// ==========================================================================
-// Elite Multi-Theme Engineering Architecture (6 Hand-Crafted Palettes)
-// ==========================================================================
-const THEMES = [
-    {
-        id: 'titanium',
-        name: 'Linear Titanium Slate',
-        subtitle: 'Silicon Valley High-Craft • Apple Pro',
-        desc: 'Precision titanium violet, polar sky cyan, and hairline carbon slate.',
-        swatches: ['#090a0f', '#121522', '#8b5cf6', '#38bdf8']
-    },
-    {
-        id: 'emerald',
-        name: 'Cyber Emerald & Obsidian',
-        subtitle: 'Matrix Quantum • Supabase Dark',
-        desc: 'Electric hyper emerald, cyber cyan, and deep void obsidian terminal.',
-        swatches: ['#040808', '#091613', '#10b981', '#06b6d4']
-    },
-    {
-        id: 'oxford',
-        name: 'Academic Sovereign',
-        subtitle: 'Oxford Gold • Imperial Navy',
-        desc: 'Radiant amber gold, imperial sapphire, and prestigious midnight navy.',
-        swatches: ['#040711', '#081126', '#f59e0b', '#3b82f6']
-    },
-    {
-        id: 'crimson',
-        name: 'Crimson Carbon',
-        subtitle: 'Stealth Hypercar • ROG Elite',
-        desc: 'Razor neon crimson, solar flare orange, and ultra-dense carbon black.',
-        swatches: ['#060608', '#111118', '#f43f5e', '#f97316']
-    },
-    {
-        id: 'aurora',
-        name: 'Nordic Aurora',
-        subtitle: 'Bioluminescent Frost • Oceanic',
-        desc: 'Glacial mint teal, deep arctic cyan, and abyssal navy focus.',
-        swatches: ['#030a14', '#08192d', '#14b8a6', '#38bdf8']
-    },
-    {
-        id: 'synthwave',
-        name: 'Tokyo Synthwave',
-        subtitle: 'Cyberpunk Neon • Night City',
-        desc: 'Electric fuchsia, ultraviolet violet, and vibrant retro synthwave.',
-        swatches: ['#080512', '#130d28', '#ec4899', '#a855f7']
-    }
+/* --------------------------------------------------------------------------
+   2. Preferences (theme, accent, sound, haptics, reader)
+   -------------------------------------------------------------------------- */
+const ACCENTS = [
+    { id: 'yellow', name: 'Yellow', c: '#FFD43B' },
+    { id: 'green', name: 'Green', c: '#5EE08A' },
+    { id: 'pink', name: 'Pink', c: '#FF8CC6' },
+    { id: 'blue', name: 'Blue', c: '#6CCBFF' },
+    { id: 'orange', name: 'Orange', c: '#FFA552' }
 ];
 
-function initThemeEngine() {
-    const themeBtn = document.getElementById('topbar-theme-btn');
-    const modal = document.getElementById('theme-modal-backdrop');
-    const closeBtn = document.getElementById('theme-modal-close-btn');
-    const grid = document.getElementById('theme-grid');
-    if (!modal || !grid) return;
-
-    let activeTheme = localStorage.getItem('ilberiz_theme') || 'titanium';
-    document.documentElement.setAttribute('data-theme', activeTheme);
-
-    function renderThemeOptions() {
-        grid.innerHTML = '';
-        THEMES.forEach((t) => {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = `theme-option-btn ${t.id === activeTheme ? 'active' : ''}`;
-            btn.setAttribute('data-theme-id', t.id);
-
-            const swatchesHtml = t.swatches.map(c => `<span style="background: ${c};"></span>`).join('');
-
-            btn.innerHTML = `
-                <div class="theme-preview-swatch">
-                    ${swatchesHtml}
-                </div>
-                <div class="theme-option-meta">
-                    <span class="theme-option-title">${t.name}</span>
-                    <span class="theme-active-badge">ACTIVE</span>
-                </div>
-                <span class="theme-option-desc">${t.desc}</span>
-            `;
-
-            btn.addEventListener('click', () => {
-                setTheme(t.id);
-            });
-
-            grid.appendChild(btn);
-        });
-    }
-
-    function setTheme(themeId) {
-        if (themeId === activeTheme) return;
-        activeTheme = themeId;
-        document.documentElement.setAttribute('data-theme', themeId);
-        localStorage.setItem('ilberiz_theme', themeId);
-        audioFX.playThemeChange();
-
-        if (window.updateCyberCanvasTheme) {
-            window.updateCyberCanvasTheme(themeId);
-        }
-
-        renderThemeOptions();
-    }
-
-    function openModal() {
-        audioFX.playTick();
-        renderThemeOptions();
-        modal.classList.add('open');
-        modal.setAttribute('aria-hidden', 'false');
-    }
-
-    function closeModal() {
-        audioFX.playTick();
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-    }
-
-    if (themeBtn) themeBtn.addEventListener('click', openModal);
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('open')) {
-            closeModal();
-        }
-    });
-
-    renderThemeOptions();
-}
-
-// ==========================================================================
-// High-Performance Interactive Cyber Nebula Canvas (120 FPS Engineered)
-// ==========================================================================
-const THEME_PALETTES = {
-    titanium: { hues: [255, 270, 195], lineRgb: '139, 92, 246' },
-    emerald:  { hues: [155, 165, 185], lineRgb: '16, 185, 129' },
-    oxford:   { hues: [38, 45, 215],   lineRgb: '245, 158, 11' },
-    crimson:  { hues: [345, 355, 25],  lineRgb: '244, 63, 94' },
-    aurora:   { hues: [170, 185, 205], lineRgb: '20, 184, 166' },
-    synthwave:{ hues: [320, 335, 280], lineRgb: '236, 72, 153' }
+const prefs = {
+    theme: (() => { const v = lsGet('ilberiz_theme', 'dark'); return v === 'light' || v === 'system' ? v : 'dark'; })(),
+    accent: (() => { const v = lsGet('ilberiz_accent', 'yellow'); return ACCENTS.some((a) => a.id === v) ? v : 'yellow'; })(),
+    sound: lsGet('ilberiz_audio', 'on') !== 'off',
+    haptics: lsGet('ilberiz_haptics', 'on') !== 'off',
+    reader: (() => { const v = lsGet('ilberiz_reader', 'auto'); return v === 'builtin' || v === 'native' ? v : 'auto'; })()
 };
 
-function initCyberCanvas() {
-    const canvas = document.getElementById('cyber-canvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d', { alpha: true });
-    if (!ctx) return;
-
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    let mouse = { x: -1000, y: -1000, active: false };
-    const maxDistance = 135;
-    const maxDistSq = maxDistance * maxDistance;
-    const nodeCount = Math.min(50, Math.floor((width * height) / 24000));
-
-    function getActiveThemeHues() {
-        const currentTheme = document.documentElement.getAttribute('data-theme') || 'titanium';
-        const pal = THEME_PALETTES[currentTheme] || THEME_PALETTES.titanium;
-        return pal.hues;
+function effectiveTheme() {
+    if (prefs.theme === 'system') return window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    return prefs.theme;
+}
+function applyTheme() {
+    const mode = effectiveTheme();
+    document.documentElement.setAttribute('data-theme', mode);
+    document.documentElement.setAttribute('data-accent', prefs.accent);
+    const meta = document.getElementById('meta-theme-color');
+    if (meta) meta.setAttribute('content', mode === 'light' ? '#F3F4F6' : '#0F1216');
+    const btn = document.getElementById('btn-theme');
+    if (btn) {
+        btn.querySelector('.ms').textContent = mode === 'light' ? 'dark_mode' : 'light_mode';
+        btn.setAttribute('aria-label', mode === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
     }
+}
+function setThemePref(v) { prefs.theme = v; lsSet('ilberiz_theme', v); applyTheme(); }
+function setAccent(v) { prefs.accent = v; lsSet('ilberiz_accent', v); applyTheme(); }
+function syncSoundButton() {
+    const btn = document.getElementById('btn-sound');
+    if (!btn) return;
+    btn.querySelector('.ms').textContent = prefs.sound ? 'volume_up' : 'volume_off';
+    btn.setAttribute('aria-label', prefs.sound ? 'Mute sounds' : 'Turn sounds on');
+}
+function setSound(on) {
+    prefs.sound = on;
+    lsSet('ilberiz_audio', on ? 'on' : 'off');
+    syncSoundButton();
+    if (on) sfx.play('on');
+}
+function useBuiltInReader() {
+    if (location.protocol === 'file:') return false;
+    if (prefs.reader === 'builtin') return true;
+    if (prefs.reader === 'native') return false;
+    const coarse = window.matchMedia && matchMedia('(pointer: coarse)').matches;
+    return coarse || navigator.pdfViewerEnabled === false;
+}
 
-    class Particle {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.vx = (Math.random() - 0.5) * 0.45;
-            this.vy = (Math.random() - 0.5) * 0.45;
-            this.radius = Math.random() * 1.6 + 1;
-            this.baseAlpha = Math.random() * 0.45 + 0.25;
-            const hues = getActiveThemeHues();
-            this.hue = hues[Math.floor(Math.random() * hues.length)];
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (this.x < 0 || this.x > width) this.vx *= -1;
-            if (this.y < 0 || this.y > height) this.vy *= -1;
-
-            if (mouse.active) {
-                const dx = this.x - mouse.x;
-                const dy = this.y - mouse.y;
-                const distSq = dx * dx + dy * dy;
-                if (distSq < 14400 && distSq > 0) {
-                    const dist = Math.sqrt(distSq);
-                    const force = (120 - dist) / 120;
-                    this.x += (dx / dist) * force * 2.0;
-                    this.y += (dy / dist) * force * 2.0;
-                }
+/* --------------------------------------------------------------------------
+   3. Sound (soft synthesized UI sounds, zero network) + haptics
+   -------------------------------------------------------------------------- */
+const sfx = {
+    ctx: null,
+    out: null,
+    lastTap: 0,
+    ensure() {
+        if (!prefs.sound) return null;
+        try {
+            if (!this.ctx) {
+                const AC = window.AudioContext || window.webkitAudioContext;
+                if (!AC) return null;
+                const ctx = new AC();
+                const master = ctx.createGain();
+                master.gain.value = 0.9;
+                const tone = ctx.createBiquadFilter();
+                tone.type = 'lowpass';
+                tone.frequency.value = 5200;
+                const comp = ctx.createDynamicsCompressor();
+                comp.threshold.value = -18;
+                comp.ratio.value = 3;
+                // soft room: short feedback delay mixed low
+                const delay = ctx.createDelay(0.3);
+                delay.delayTime.value = 0.085;
+                const fb = ctx.createGain();
+                fb.gain.value = 0.18;
+                const wet = ctx.createGain();
+                wet.gain.value = 0.16;
+                master.connect(tone);
+                tone.connect(comp);
+                tone.connect(delay);
+                delay.connect(fb);
+                fb.connect(delay);
+                delay.connect(wet);
+                wet.connect(comp);
+                comp.connect(ctx.destination);
+                this.ctx = ctx;
+                this.out = master;
             }
-        }
-
-        draw() {
-            // High-Performance Dual-Pass Drawing (Zero software Gaussian blur overhead)
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius * 2.2, 0, Math.PI * 2);
-            ctx.fillStyle = `hsla(${this.hue}, 85%, 65%, ${this.baseAlpha * 0.25})`;
-            ctx.fill();
-
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `hsla(${this.hue}, 90%, 75%, ${this.baseAlpha})`;
-            ctx.fill();
-        }
+            if (this.ctx.state === 'suspended') this.ctx.resume();
+            return this.ctx;
+        } catch (e) { return null; }
+    },
+    note(freq, { t = 0, dur = 0.12, type = 'sine', gain = 0.05, attack = 0.006, slide = null } = {}) {
+        const ctx = this.ctx;
+        const now = ctx.currentTime + t;
+        const o = ctx.createOscillator();
+        const g = ctx.createGain();
+        o.type = type;
+        o.frequency.setValueAtTime(freq, now);
+        if (slide) o.frequency.exponentialRampToValueAtTime(slide, now + dur);
+        g.gain.setValueAtTime(0.0001, now);
+        g.gain.exponentialRampToValueAtTime(gain, now + attack);
+        g.gain.exponentialRampToValueAtTime(0.0001, now + dur);
+        o.connect(g);
+        g.connect(this.out);
+        o.start(now);
+        o.stop(now + dur + 0.03);
+    },
+    whoosh(dur = 0.16, gain = 0.03) {
+        const ctx = this.ctx;
+        const now = ctx.currentTime;
+        const len = Math.floor(ctx.sampleRate * dur);
+        const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < len; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / len);
+        const src = ctx.createBufferSource();
+        src.buffer = buf;
+        const bp = ctx.createBiquadFilter();
+        bp.type = 'bandpass';
+        bp.Q.value = 0.9;
+        bp.frequency.setValueAtTime(900, now);
+        bp.frequency.exponentialRampToValueAtTime(3200, now + dur);
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0.0001, now);
+        g.gain.exponentialRampToValueAtTime(gain, now + 0.03);
+        g.gain.exponentialRampToValueAtTime(0.0001, now + dur);
+        src.connect(bp);
+        bp.connect(g);
+        g.connect(this.out);
+        src.start(now);
+    },
+    lastEvent: 0,
+    play(name) {
+        const ctx = this.ensure();
+        if (!ctx) return;
+        const t0 = performance.now();
+        if (name !== 'tap') this.lastEvent = t0;
+        try {
+            switch (name) {
+                case 'tap': {
+                    if (t0 - this.lastTap < 50 || t0 - this.lastEvent < 150) return;
+                    this.lastTap = t0;
+                    this.note(720, { dur: 0.05, gain: 0.04, slide: 430 });
+                    break;
+                }
+                case 'open':
+                    this.note(587.33, { dur: 0.1, gain: 0.035, type: 'triangle' });
+                    this.note(880, { t: 0.05, dur: 0.14, gain: 0.03, type: 'triangle' });
+                    break;
+                case 'back':
+                    this.note(784, { dur: 0.08, gain: 0.03, type: 'triangle' });
+                    this.note(523.25, { t: 0.045, dur: 0.12, gain: 0.028, type: 'triangle' });
+                    break;
+                case 'on':
+                    this.note(660, { dur: 0.07, gain: 0.04 });
+                    this.note(990, { t: 0.05, dur: 0.1, gain: 0.035 });
+                    break;
+                case 'off':
+                    this.note(740, { dur: 0.07, gain: 0.035 });
+                    this.note(494, { t: 0.05, dur: 0.1, gain: 0.03 });
+                    break;
+                case 'save':
+                    this.note(1046.5, { dur: 0.09, gain: 0.032 });
+                    this.note(1396.9, { t: 0.06, dur: 0.16, gain: 0.028 });
+                    break;
+                case 'success':
+                    [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => this.note(f, { t: i * 0.075, dur: 0.38, gain: 0.04 }));
+                    this.note(261.63, { dur: 0.5, gain: 0.025, type: 'triangle' });
+                    break;
+                case 'error':
+                    this.note(330, { dur: 0.14, gain: 0.05, type: 'triangle' });
+                    this.note(247, { t: 0.12, dur: 0.22, gain: 0.05, type: 'triangle' });
+                    break;
+                case 'page':
+                    this.whoosh();
+                    break;
+                default:
+                    break;
+            }
+        } catch (e) {}
     }
+};
+function haptic(pattern = 6) {
+    if (!prefs.haptics || !navigator.vibrate) return;
+    try { navigator.vibrate(pattern); } catch (e) {}
+}
 
-    let particles = Array.from({ length: nodeCount }, () => new Particle());
-
-    window.updateCyberCanvasTheme = (themeId) => {
-        const pal = THEME_PALETTES[themeId] || THEME_PALETTES.titanium;
-        particles.forEach(p => {
-            p.hue = pal.hues[Math.floor(Math.random() * pal.hues.length)];
-        });
+/* --------------------------------------------------------------------------
+   4. Library: recent, saved, done, reading position (per device)
+   -------------------------------------------------------------------------- */
+const LIB_KEY = 'ilberiz_library';
+const lib = (() => {
+    const raw = lsJSON(LIB_KEY, {});
+    const data = {
+        recent: Array.isArray(raw.recent) ? raw.recent : [],
+        saved: Array.isArray(raw.saved) ? raw.saved : [],
+        done: Array.isArray(raw.done) ? raw.done : [],
+        pos: raw.pos && typeof raw.pos === 'object' ? raw.pos : {}
     };
-
-    function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-        particles = Array.from({ length: Math.min(50, Math.floor((width * height) / 24000)) }, () => new Particle());
-    }
-
-    let animId;
-    let isRunning = true;
-
-    function renderLoop() {
-        if (!isRunning) return;
-        ctx.clearRect(0, 0, width, height);
-
-        // Update and draw particles
-        for (let i = 0; i < particles.length; i++) {
-            particles[i].update();
-            particles[i].draw();
-        }
-
-        // Batch particle filaments into a single draw call per frame (10x faster)
-        const currentTheme = document.documentElement.getAttribute('data-theme') || 'titanium';
-        const palette = THEME_PALETTES[currentTheme] || THEME_PALETTES.titanium;
-        const lineRgb = palette.lineRgb;
-
-        ctx.beginPath();
-        for (let i = 0; i < particles.length; i++) {
-            const p = particles[i];
-            for (let j = i + 1; j < particles.length; j++) {
-                const p2 = particles[j];
-                const dx = p.x - p2.x;
-                const dy = p.y - p2.y;
-                const distSq = dx * dx + dy * dy;
-
-                if (distSq < maxDistSq) {
-                    ctx.moveTo(p.x, p.y);
-                    ctx.lineTo(p2.x, p2.y);
-                }
+    const save = () => lsSet(LIB_KEY, JSON.stringify(data));
+    return {
+        data,
+        touch(id) {
+            data.recent = [{ id, t: Date.now() }, ...data.recent.filter((r) => r.id !== id)].slice(0, 24);
+            save();
+        },
+        isSaved: (id) => data.saved.includes(id),
+        toggleSave(id) {
+            if (data.saved.includes(id)) data.saved = data.saved.filter((x) => x !== id);
+            else data.saved = [id, ...data.saved];
+            save();
+            return data.saved.includes(id);
+        },
+        isDone: (id) => data.done.includes(id),
+        setDone(id, on) {
+            data.done = data.done.filter((x) => x !== id);
+            if (on) data.done.unshift(id);
+            save();
+        },
+        getPos: (id) => data.pos[id] || null,
+        setPos(id, page, pages) {
+            data.pos[id] = { page, pages, t: Date.now() };
+            const keys = Object.keys(data.pos);
+            if (keys.length > 200) {
+                keys.sort((a, b) => data.pos[a].t - data.pos[b].t).slice(0, keys.length - 200).forEach((k) => delete data.pos[k]);
             }
-        }
-        ctx.strokeStyle = `rgba(${lineRgb}, 0.14)`;
-        ctx.lineWidth = 0.75;
-        ctx.stroke();
+            save();
+        },
+        clear() { data.recent = []; data.saved = []; data.done = []; data.pos = {}; save(); }
+    };
+})();
 
-        animId = requestAnimationFrame(renderLoop);
-    }
+/* --------------------------------------------------------------------------
+   5. Course data index
+   -------------------------------------------------------------------------- */
+const state = { data: null, batch: null, rendered: null, navType: 'push', first: true };
+const subjectIdx = new Map();
+const chapIdx = new Map();   // chapter + subchapter id -> { node, subject, parent }
+const itemIdx = new Map();   // item id -> { item, subject, chapter, subchapter, container }
 
-    window.addEventListener('resize', resize, { passive: true });
-    window.addEventListener('mousemove', (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-        mouse.active = true;
-    }, { passive: true });
+const SUBJECT_GROUPS = {
+    stem: ['sub-10-math', 'sub-10-phy', 'sub-10-chem', 'sub-10-bio', 'sub-10-comp'],
+    humanities: ['sub-10-his', 'sub-10-geo'],
+    lang: ['sub-10-eng', 'sub-10-hin']
+};
 
-    document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-            isRunning = false;
-            cancelAnimationFrame(animId);
-        } else {
-            isRunning = true;
-            renderLoop();
-        }
+function itemKind(item) {
+    if (item.type === 'pdf') return 'pdf';
+    if (item.type === 'interactive' || item.type === 'app') return 'dpp';
+    return 'video';
+}
+function allItems(node) {
+    return [...(node.items || []), ...((node.subchapters || []).flatMap((sc) => sc.items || []))];
+}
+function countItems(list) {
+    let notes = 0; let dpps = 0; let done = 0;
+    list.forEach((it) => {
+        const k = itemKind(it);
+        if (k === 'pdf') notes++; else dpps++;
+        if (lib.isDone(it.id)) done++;
     });
-
-    renderLoop();
+    return { notes, dpps, done, total: list.length };
 }
-
-// ==========================================================================
-// Interactive Ambient Cursor Follower Spotlight (GPU Accelerated)
-// ==========================================================================
-function initCursorSpotlight() {
-    const spotlight = document.getElementById('cursor-glow');
-    if (!spotlight) return;
-
-    let targetX = -1000, targetY = -1000;
-    let currentX = -1000, currentY = -1000;
-    let isTicking = false;
-
-    window.addEventListener('mousemove', (e) => {
-        targetX = e.clientX;
-        targetY = e.clientY;
-        if (!isTicking) {
-            isTicking = true;
-            requestAnimationFrame(updateSpotlight);
-        }
-    }, { passive: true });
-
-    function updateSpotlight() {
-        currentX += (targetX - currentX) * 0.18;
-        currentY += (targetY - currentY) * 0.18;
-        spotlight.style.transform = `translate3d(${currentX - 260}px, ${currentY - 260}px, 0)`;
-
-        if (Math.abs(targetX - currentX) > 0.5 || Math.abs(targetY - currentY) > 0.5) {
-            requestAnimationFrame(updateSpotlight);
-        } else {
-            isTicking = false;
-        }
+function chapterLabel(name, parentName) {
+    let clean = String(name || '').replace(/^[\p{Extended_Pictographic}️‍\s]+/u, '').trim();
+    if (parentName) {
+        const pt = chapterLabel(parentName).title;
+        if (clean.startsWith(pt + ' — ')) clean = clean.slice(pt.length + 3);
     }
-}
-
-// ==========================================================================
-// High-Craft 3D Tilt Physics and Specular Reflection (RAF Debounced & Zero-Thrash)
-// ==========================================================================
-function initCardTiltPhysics() {
-    let activeCard = null;
-    let cardRect = null;
-    let isTicking = false;
-    let mouseX = 0, mouseY = 0;
-
-    document.addEventListener('pointerenter', (e) => {
-        const card = e.target.closest && e.target.closest('.card');
-        if (card) {
-            activeCard = card;
-            cardRect = card.getBoundingClientRect();
-        }
-    }, true);
-
-    document.addEventListener('pointerleave', (e) => {
-        const card = e.target.closest && e.target.closest('.card');
-        if (card && card === activeCard) {
-            card.style.transform = '';
-            activeCard = null;
-            cardRect = null;
-        }
-    }, true);
-
-    document.addEventListener('mousemove', (e) => {
-        if (!activeCard || !cardRect) return;
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-
-        if (!isTicking) {
-            isTicking = true;
-            requestAnimationFrame(() => {
-                if (activeCard && cardRect) {
-                    const x = mouseX - cardRect.left;
-                    const y = mouseY - cardRect.top;
-
-                    activeCard.style.setProperty('--mouse-x', `${(x / cardRect.width) * 100}%`);
-                    activeCard.style.setProperty('--mouse-y', `${(y / cardRect.height) * 100}%`);
-
-                    const centerX = cardRect.width / 2;
-                    const centerY = cardRect.height / 2;
-                    const rotateX = ((y - centerY) / centerY) * -5.5;
-                    const rotateY = ((x - centerX) / centerX) * 5.5;
-
-                    activeCard.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-5px) scale3d(1.015, 1.015, 1.015)`;
-                }
-                isTicking = false;
-            });
-        }
-    }, { passive: true });
-}
-
-// ==========================================================================
-// Ease-Out Count Up Animation for Hero Stats
-// ==========================================================================
-function animateStatCounters() {
-    const statCards = document.querySelectorAll('.hero-stat-card .stat-number[data-target]');
-    statCards.forEach((el) => {
-        const target = parseFloat(el.getAttribute('data-target'));
-        const suffix = el.getAttribute('data-suffix') || '';
-        const duration = 1200;
-        const startTime = performance.now();
-
-        function updateCount(now) {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easeOut = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-            const currentVal = Math.round(target * easeOut);
-            el.textContent = currentVal + suffix;
-
-            if (progress < 1) {
-                requestAnimationFrame(updateCount);
-            }
-        }
-        requestAnimationFrame(updateCount);
-    });
-}
-
-// Native F11 Fullscreen Helpers
-function getNativeFullscreenElement() {
-    return document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement || null;
-}
-
-async function requestPureFullscreen(element) {
-    const el = element || document.documentElement;
-    const req = el.requestFullscreen || el.webkitRequestFullscreen || el.mozRequestFullScreen || el.msRequestFullscreen;
-    if (req) {
-        try {
-            await req.call(el);
-            return true;
-        } catch (err) {
-            console.warn('Native requestFullscreen failed:', err);
-            if (el !== document.documentElement) {
-                const docReq = document.documentElement.requestFullscreen || document.documentElement.webkitRequestFullscreen || document.documentElement.mozRequestFullScreen || document.documentElement.msRequestFullscreen;
-                if (docReq) {
-                    try {
-                        await docReq.call(document.documentElement);
-                        return true;
-                    } catch (e) {
-                        console.warn('Fallback fullscreen failed:', e);
-                    }
-                }
-            }
-        }
+    const m = clean.match(/^(Civics\s+)?(Ch|Chapter|Unit|Poem|Story)\s*(\d+)\s*[:.]\s*(.+)$/i);
+    if (m) {
+        const n = m[3];
+        const kind = m[2].toLowerCase();
+        const num = m[1] ? 'C' + n : (kind === 'unit' ? 'U' + n : n);
+        const short = m[1] ? `Civics ${n}` : (kind === 'unit' ? `Unit ${n}` : kind === 'poem' ? `Poem ${n}` : kind === 'story' ? `Story ${n}` : `Ch ${n}`);
+        return { num, short, title: m[4].trim(), kind };
     }
-    return false;
+    return { num: null, short: '', title: clean, kind: '' };
 }
-
-async function exitPureFullscreen() {
-    const exit = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen;
-    if (getNativeFullscreenElement() && exit) {
-        try {
-            await exit.call(document);
-        } catch (err) {
-            console.warn('exitFullscreen failed:', err);
-        }
+function itemParts(item) {
+    const t = String(item.title || '');
+    const note = t.match(/^(.+?)\s+(\d{1,2})\s+Class Notes$/i);
+    if (note) return { eyebrow: note[1], title: `Class notes ${note[2]}` };
+    const i = t.indexOf(' — ');
+    if (i > 0) return { eyebrow: t.slice(0, i), title: t.slice(i + 3) };
+    return { eyebrow: '', title: t };
+}
+function subjectShort(subject) { return subject ? subject.name : ''; }
+function contextLine(entry) {
+    const parts = [subjectShort(entry.subject)];
+    const c = chapterLabel(entry.chapter.name);
+    parts.push(c.short || c.title);
+    if (entry.subchapter) {
+        const s = chapterLabel(entry.subchapter.name, entry.chapter.name);
+        parts.push(s.short || s.title);
     }
+    return parts.filter(Boolean).join(' · ');
+}
+function containerHref(entry) {
+    return entry.subchapter
+        ? `#/s/${entry.subject.id}/${entry.chapter.id}/${entry.subchapter.id}`
+        : `#/s/${entry.subject.id}/${entry.chapter.id}`;
+}
+function fileURL(file) {
+    try { return new URL(file, location.href).href.split('#')[0].split('?')[0]; } catch (e) { return file; }
 }
 
-// Centralized path resolution helper - safe, fast, DRY
-function resolvePath(pathArgs = state.path) {
-    if (!state.data || !state.data.batches) return {};
-    const batch = state.data.batches.find(b => b.id === pathArgs[0]);
-    const subject = batch?.subjects?.find(s => s.id === pathArgs[1]);
-    const chapter = subject?.chapters?.find(c => c.id === pathArgs[2]);
-    const subchapter = (pathArgs.length >= 4 && chapter?.subchapters)
-        ? chapter.subchapters.find(sc => sc.id === pathArgs[3])
-        : null;
-    return { batch, subject, chapter, subchapter };
-}
-
-// Unified back navigation from any viewer (PDF, Interactive, Video)
-function navigateBackFromViewer() {
-    const { chapter } = resolvePath(state.path);
-    if (state.path.length >= 4) {
-        navigateTo('items', state.path.slice(0, 4));
-    } else if (chapter?.subchapters && chapter.subchapters.length > 0) {
-        navigateTo('subchapters', state.path.slice(0, 3));
-    } else {
-        navigateTo('items', state.path.slice(0, 3));
-    }
-}
-
-// Single-pass subject statistics counter
-function getSubjectStats(sub) {
-    let totalChapters = sub.chapters.length;
-    let totalNotes = 0;
-    let totalModules = 0;
-
-    sub.chapters.forEach(chap => {
-        if (chap.subchapters && chap.subchapters.length > 0) {
-            totalChapters += (chap.subchapters.length - 1);
-            chap.subchapters.forEach(sc => {
-                (sc.items || []).forEach(it => {
-                    if (it.type === 'pdf') totalNotes++;
-                    else totalModules++;
+function buildIndexes() {
+    subjectIdx.clear(); chapIdx.clear(); itemIdx.clear();
+    state.data.batches.forEach((batch) => {
+        (batch.subjects || []).forEach((subject) => {
+            subjectIdx.set(subject.id, subject);
+            (subject.chapters || []).forEach((chapter) => {
+                chapIdx.set(chapter.id, { node: chapter, subject, parent: null });
+                (chapter.items || []).forEach((item) => itemIdx.set(item.id, { item, subject, chapter, subchapter: null, container: chapter }));
+                (chapter.subchapters || []).forEach((sc) => {
+                    chapIdx.set(sc.id, { node: sc, subject, parent: chapter });
+                    (sc.items || []).forEach((item) => itemIdx.set(item.id, { item, subject, chapter, subchapter: sc, container: sc }));
                 });
             });
-        }
-        (chap.items || []).forEach(it => {
-            if (it.type === 'pdf') totalNotes++;
-            else totalModules++;
         });
     });
-
-    return { totalChapters, totalNotes, totalModules, totalItems: totalNotes + totalModules };
 }
 
-// Pre-computed search index for instant zero-overhead lookups
-let searchIndex = [];
+/* --------------------------------------------------------------------------
+   6. Subject emblems (hand-drawn line art, currentColor)
+   -------------------------------------------------------------------------- */
+const EMBLEM_PATHS = {
+    'sub-10-math': '<path d="M8 40h32M8 40V8"/><path d="M12 36Q24 2 36 36"/><path d="M8 24h3M8 16h3M20 40v-3M32 40v-3"/>',
+    'sub-10-phy': '<path d="M24 6c5.5 6 5.5 30 0 36c-5.5-6-5.5-30 0-36z"/><path d="M3 15h21l18 9M3 33h21l18-9M3 24h39"/>',
+    'sub-10-chem': '<path d="M24 8l14 8v16l-14 8l-14-8V16z"/><circle cx="24" cy="24" r="7"/>',
+    'sub-10-bio': '<path d="M9 39C9 20 21 9 40 8c0 19-11 31-31 31z"/><path d="M9 39L31 17M17 31h8M22 26v-7M27 21h6"/>',
+    'sub-10-geo': '<path d="M24 7c10 0 17 6.5 17 16.5S34 41 23.5 41S7 34 7 24.5S14 7 24 7z"/><path d="M24 14.5c6 0 9.5 4 9.5 9.5s-4 10-9.5 10s-9.5-4-9.5-9.5s3.5-10 9.5-10z"/><circle cx="24" cy="24" r="2.6"/>',
+    'sub-10-his': '<path d="M7 12L24 5l17 7M9 12h30M12 16h24M16 16v20M24 16v20M32 16v20M12 36h24M9 41h30"/>',
+    'sub-10-eng': '<path d="M24 13c-5-3.5-11-4.5-17-3.5v27c6-1 12 0 17 3.5c5-3.5 11-4.5 17-3.5v-27c-6-1-12 0-17 3.5z"/><path d="M24 13v27"/>',
+    'sub-10-hin': '<text x="24" y="34" text-anchor="middle" font-size="27" font-weight="700" fill="currentColor" stroke="none" font-family="\'Noto Sans Devanagari\',\'Nirmala UI\',Mangal,sans-serif">अ</text>',
+    'sub-10-comp': '<path d="M17 14L7 24l10 10M31 14l10 10l-10 10M27 9l-6 30"/>'
+};
+function emblem(subjectId, cls = '') {
+    const paths = EMBLEM_PATHS[subjectId] || '<circle cx="24" cy="24" r="14"/>';
+    return `<svg class="${cls}" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+}
 
+/* --------------------------------------------------------------------------
+   7. Toasts
+   -------------------------------------------------------------------------- */
+function toast(message, { icon = 'check_circle', action = null, ms = 2800 } = {}) {
+    const root = document.getElementById('toasts');
+    if (!root) return;
+    const el = h(`<div class="toast" role="status"><span class="ms">${icon}</span><span>${esc(message)}</span></div>`);
+    if (action) {
+        const b = h(`<button type="button">${esc(action.label)}</button>`);
+        b.addEventListener('click', () => { action.fn(); remove(); });
+        el.appendChild(b);
+    }
+    while (root.children.length > 2) root.firstElementChild.remove();
+    root.appendChild(el);
+    let timer = setTimeout(remove, ms);
+    function remove() {
+        clearTimeout(timer);
+        if (!el.isConnected) return;
+        el.classList.add('out');
+        setTimeout(() => el.remove(), 200);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   8. History-aware navigation + overlays (phone back button works)
+   -------------------------------------------------------------------------- */
+const scrollMem = new Map();
+let overlay = null;         // { name, unmount }
+let afterOverlayPop = null;
+let reader = null;          // { id, el, cleanup }
+
+const depth = () => (history.state && typeof history.state.ilb === 'number' ? history.state.ilb : 0);
+
+function go(hash, { replace = false } = {}) {
+    if (!hash.startsWith('#')) hash = '#' + hash;
+    if (overlay) {
+        dismissOverlay(() => go(hash, { replace }));
+        return;
+    }
+    if (hash === location.hash && !replace) { route(); return; }
+    rememberScroll();
+    if (replace) history.replaceState({ ilb: depth() }, '', hash);
+    else history.pushState({ ilb: depth() + 1 }, '', hash);
+    state.navType = 'push';
+    route();
+}
+function goBack(fallback) {
+    if (depth() > 0) history.back();
+    else go(fallback || '#/', { replace: true });
+}
+function rememberScroll() {
+    if (state.rendered) scrollMem.set(state.rendered, window.scrollY);
+}
+
+function showOverlay(name, mount, unmount) {
+    if (overlay) closeOverlayUI();
+    history.pushState({ ilb: depth() + 1, overlay: name }, '', location.href);
+    overlay = { name, unmount };
+    mount();
+    document.body.classList.add('no-scroll');
+}
+function closeOverlayUI() {
+    if (!overlay) return;
+    const o = overlay;
+    overlay = null;
+    try { o.unmount(); } catch (e) {}
+    if (!reader) document.body.classList.remove('no-scroll');
+}
+function dismissOverlay(then) {
+    if (!overlay) { if (then) then(); return; }
+    if (overlay.closing) return;
+    if (history.state && history.state.overlay === overlay.name) {
+        overlay.closing = true;
+        afterOverlayPop = then || null;
+        history.back();
+    } else {
+        closeOverlayUI();
+        if (then) then();
+    }
+}
+
+window.addEventListener('popstate', (e) => {
+    const st = e.state || {};
+    if (overlay && st.overlay !== overlay.name) {
+        closeOverlayUI();
+        if (afterOverlayPop) { const fn = afterOverlayPop; afterOverlayPop = null; fn(); return; }
+    }
+    if (st.overlay && !overlay) {
+        history.replaceState({ ilb: st.ilb || 0 }, '', location.href);
+    }
+    state.navType = 'pop';
+    route();
+});
+window.addEventListener('hashchange', () => {
+    if (!history.state || typeof history.state.ilb !== 'number') {
+        history.replaceState({ ilb: 1 }, '', location.href);
+        state.navType = 'push';
+    }
+    route();
+});
+
+function parseHash() {
+    const raw = (location.hash || '').replace(/^#\/?/, '');
+    const parts = raw.split('?')[0].split('/').filter(Boolean).map(decodeURIComponent);
+    if (parts[0] === 'subjects') return { name: 'subjects', key: '#/subjects' };
+    if (parts[0] === 'library') return { name: 'library', tab: parts[1] || 'recent', key: '#/library' + (parts[1] ? '/' + parts[1] : '') };
+    if (parts[0] === 's' && parts[1]) {
+        if (parts[2]) return { name: 'chapter', subjectId: parts[1], chapterId: parts[2], subId: parts[3] || null, key: '#/' + parts.join('/') };
+        return { name: 'subject', subjectId: parts[1], key: '#/s/' + parts[1] };
+    }
+    if (parts[0] === 'read' && parts[1]) return { name: 'read', itemId: parts[1], key: '#/read/' + parts[1] };
+    return { name: 'home', key: '#/' };
+}
+
+function route() {
+    if (!state.data) return;
+    const r = parseHash();
+    if (overlay && !(history.state && history.state.overlay)) closeOverlayUI();
+    if (r.name === 'read') {
+        const entry = itemIdx.get(r.itemId);
+        if (!entry) { go('#/', { replace: true }); return; }
+        const parentHash = containerHref(entry);
+        const parentRoute = parseRoute(parentHash);
+        if (state.rendered !== parentRoute.key) renderPage(parentRoute, { transition: false });
+        if (!reader || reader.id !== r.itemId) openReader(entry);
+        return;
+    }
+    if (reader) {
+        closeReader();
+        state.rendered = null; // refresh so progress / done states are current
+        renderPage(r, { transition: false });
+        return;
+    }
+    renderPage(r, { transition: !state.first });
+}
+function parseRoute(hash) {
+    const raw = hash.replace(/^#\/?/, '');
+    const parts = raw.split('/').filter(Boolean);
+    if (parts[0] === 's' && parts[2]) return { name: 'chapter', subjectId: parts[1], chapterId: parts[2], subId: parts[3] || null, key: '#/' + parts.join('/') };
+    if (parts[0] === 's') return { name: 'subject', subjectId: parts[1], key: '#/s/' + parts[1] };
+    return { name: 'home', key: '#/' };
+}
+
+/* --------------------------------------------------------------------------
+   9. Page rendering
+   -------------------------------------------------------------------------- */
+const view = () => document.getElementById('view');
+
+function renderPage(r, { transition = true } = {}) {
+    const same = state.rendered === r.key;
+    if (same && transition) return; // duplicate event for a page already on screen
+    state.rendered = r.key;
+    const navType = state.navType;
+    const paint = () => {
+        const page = buildPage(r);
+        const v = view();
+        v.innerHTML = '';
+        v.appendChild(page.el);
+        updateChrome(r, page);
+        markOffline(v);
+        const y = navType === 'pop' ? (scrollMem.get(r.key) || 0) : 0;
+        window.scrollTo(0, same ? window.scrollY : y);
+    };
+    if (transition && !same && document.startViewTransition && !reducedMotion() && !document.hidden) {
+        try {
+            const vt = document.startViewTransition(paint);
+            vt.ready.catch(() => {});
+            vt.finished.catch(() => {});
+        } catch (e) { paint(); }
+    } else {
+        paint();
+    }
+    state.first = false;
+}
+
+function buildPage(r) {
+    switch (r.name) {
+        case 'subjects': return pageSubjects();
+        case 'subject': return pageSubject(r.subjectId);
+        case 'chapter': return pageChapter(r.subjectId, r.chapterId, r.subId);
+        case 'library': return pageLibrary(r.tab);
+        default: return pageHome();
+    }
+}
+
+function updateChrome(r, page) {
+    const topbar = document.getElementById('topbar');
+    const title = document.getElementById('top-title');
+    const isRoot = r.name === 'home' || r.name === 'subjects' || r.name === 'library';
+    topbar.classList.toggle('has-back', !isRoot);
+    title.textContent = page.topTitle || 'Ilberiz Techz';
+    topbar.dataset.back = page.backHref || '#/';
+    document.title = page.docTitle ? `${page.docTitle} | Ilberiz Techz` : 'Ilberiz Techz | ICSE Class 10 Notes & DPPs';
+
+    // breadcrumbs (laptop)
+    const crumbs = document.getElementById('crumbs');
+    const trail = page.crumbs || [];
+    crumbs.innerHTML = '';
+    const homeLink = trail.length ? `<a href="#/">Home</a>` : `<span class="here">Home</span>`;
+    crumbs.insertAdjacentHTML('beforeend', homeLink);
+    trail.forEach((c, i) => {
+        crumbs.insertAdjacentHTML('beforeend', '<span class="ms sep" aria-hidden="true">chevron_right</span>');
+        if (i === trail.length - 1 || !c.href) crumbs.insertAdjacentHTML('beforeend', `<span class="here" aria-current="page">${esc(c.label)}</span>`);
+        else crumbs.insertAdjacentHTML('beforeend', `<a href="${c.href}">${esc(c.label)}</a>`);
+    });
+
+    // tab bar
+    const tab = r.name === 'home' ? 'home' : r.name === 'library' ? 'library' : 'subjects';
+    $$('#tabbar .tab').forEach((t) => {
+        const on = t.dataset.tab === tab;
+        t.classList.toggle('active', on);
+        if (t.tagName === 'A') { if (on) t.setAttribute('aria-current', 'page'); else t.removeAttribute('aria-current'); }
+    });
+
+    // sidebar
+    const navKey = r.name === 'home' ? 'home' : r.name === 'subjects' ? 'subjects' : r.name === 'library' ? 'library' : 's:' + r.subjectId;
+    $$('#side-nav [data-nav]').forEach((a) => a.classList.toggle('active', a.dataset.nav === navKey));
+    const libCount = $('#side-nav [data-lib-count]');
+    if (libCount) libCount.textContent = lib.data.saved.length || '';
+}
+
+function sectionHead(title, link) {
+    return `<div class="section-head"><h2>${esc(title)}</h2>${link ? `<a class="link" href="${link.href}">${esc(link.label)}<span class="ms">chevron_right</span></a>` : ''}</div>`;
+}
+
+function subjectTile(subject) {
+    const c = countItems(subject.chapters.flatMap(allItems));
+    const pct = c.total ? Math.round((c.done / c.total) * 100) : 0;
+    const meta = c.total
+        ? [c.notes ? plural(c.notes, 'note') : '', c.dpps ? plural(c.dpps, 'DPP') : ''].filter(Boolean).join(' · ')
+        : 'Notes coming soon';
+    return `
+        <a class="subj${c.total ? '' : ' soon'}" href="#/s/${subject.id}" data-subject="${subject.id}">
+            <span class="subj-emblem">${emblem(subject.id)}</span>
+            ${emblem(subject.id, 'subj-art')}
+            <h3>${esc(subject.name)}</h3>
+            <p class="desc">${esc(subject.description || '')}</p>
+            <span class="meta">${meta}</span>
+            ${c.done ? `<span class="bar" title="${pct}% done"><i style="--w:${pct}%"></i></span>` : ''}
+        </a>`;
+}
+
+function itemRow(entry, { context = false } = {}) {
+    const { item } = entry;
+    const k = itemKind(item);
+    const parts = itemParts(item);
+    const done = lib.isDone(item.id);
+    const saved = lib.isSaved(item.id);
+    const pos = lib.getPos(item.id);
+    const icon = k === 'pdf' ? 'description' : k === 'dpp' ? 'quiz' : 'play_circle';
+    const eyebrow = context ? contextLine(entry) : '';
+    const metaBits = [];
+    if (k === 'pdf' && item.size) metaBits.push(`<span class="m">${esc(item.size)}</span>`);
+    if (k === 'dpp' && item.badge) metaBits.push(`<span class="m">${esc(item.badge)}</span>`);
+    if (pos && pos.page > 1 && !done) metaBits.push(`<span class="m resume"><span class="ms">bookmark</span>Page ${pos.page} of ${pos.pages}</span>`);
+    if (k === 'pdf') metaBits.push(`<span class="m offline" data-offline-file="${esc(fileURL(item.file))}" hidden><span class="ms">offline_pin</span>Offline</span>`);
+    const title = context ? item.title : parts.title;
+    return `
+        <div class="item" data-subject="${entry.subject.id}">
+            <a class="item-main" href="#/read/${item.id}">
+                <span class="type-ico ${k}"><span class="ms">${icon}</span>${done ? '<span class="done-dot"><span class="ms">check</span></span>' : ''}</span>
+                <div class="item-text">
+                    ${eyebrow ? `<div class="eyebrow">${esc(eyebrow)}</div>` : ''}
+                    <h3>${esc(title)}</h3>
+                    ${item.subtitle ? `<p class="sub">${esc(item.subtitle)}</p>` : ''}
+                    ${metaBits.length ? `<div class="item-meta">${metaBits.join('')}</div>` : ''}
+                </div>
+            </a>
+            <button type="button" class="icon-btn star${saved ? ' on' : ''}" data-star="${item.id}" aria-pressed="${saved}" aria-label="${saved ? 'Remove from Library' : 'Save to Library'}"><span class="ms">${saved ? 'bookmark' : 'bookmark_add'}</span></button>
+        </div>`;
+}
+
+function dppCard(entry) {
+    const { item } = entry;
+    const parts = itemParts(item);
+    const saved = lib.isSaved(item.id);
+    const done = lib.isDone(item.id);
+    return `
+        <div class="dpp" data-subject="${entry.subject.id}">
+            <a class="dpp-main" href="#/read/${item.id}">
+                <span class="dpp-top">${item.badge ? `<span class="chip accent">${esc(item.badge)}</span>` : '<span class="chip accent">Interactive</span>'}${done ? '<span class="chip ok"><span class="ms">check</span>Done</span>' : ''}</span>
+                <h3>${esc(parts.title)}</h3>
+                ${item.subtitle ? `<p class="sub">${esc(item.subtitle)}</p>` : ''}
+                <span class="dpp-foot"><span class="start"><span class="ms">play_arrow</span>${done ? 'Practise again' : 'Start practice'}</span></span>
+            </a>
+            <button type="button" class="icon-btn star${saved ? ' on' : ''}" data-star="${item.id}" aria-pressed="${saved}" aria-label="${saved ? 'Remove from Library' : 'Save to Library'}"><span class="ms">${saved ? 'bookmark' : 'bookmark_add'}</span></button>
+        </div>`;
+}
+
+function greeting() {
+    const hr = new Date().getHours();
+    if (hr >= 5 && hr < 12) return 'Good morning';
+    if (hr >= 12 && hr < 17) return 'Good afternoon';
+    if (hr >= 17 && hr < 22) return 'Good evening';
+    return 'Late-night revision?';
+}
+
+function recentEntries() {
+    return lib.data.recent.map((r) => ({ ...itemIdx.get(r.id), t: r.t })).filter((e) => e.item);
+}
+
+/* ----- Home ----- */
+function pageHome() {
+    const recents = recentEntries();
+    const last = recents[0];
+    let topLeft;
+    if (last) {
+        const k = itemKind(last.item);
+        const pos = lib.getPos(last.item.id);
+        const pct = pos && pos.pages ? Math.round((pos.page / pos.pages) * 100) : 0;
+        const more = recents.slice(1, 4).map((e) => `<a class="btn btn-sm" href="#/read/${e.item.id}" data-subject="${e.subject.id}"><span class="ms" style="color:var(--sub-ink)">${itemKind(e.item) === 'pdf' ? 'description' : 'quiz'}</span>${esc(truncate(itemParts(e.item).title.replace(/^Interactive\s+/i, ''), 30))}</a>`).join('');
+        topLeft = `
+            <div class="panel continue-wrap" data-subject="${last.subject.id}">
+                <a class="continue" href="#/read/${last.item.id}">
+                    <span class="continue-label"><span class="ms">${k === 'pdf' ? 'auto_stories' : 'quiz'}</span>${k === 'pdf' ? 'Continue reading' : 'Continue practice'}</span>
+                    <h3>${esc(last.item.title)}</h3>
+                    <span class="meta">${esc(contextLine(last))}${pos && pos.pages ? ` · Page ${pos.page} of ${pos.pages}` : ` · Opened ${timeAgo(last.t)}`}</span>
+                    ${pos && pos.pages ? `<span class="bar"><i style="--w:${pct}%"></i></span>` : ''}
+                    <span class="continue-foot"><span class="btn btn-primary btn-sm"><span class="ms">play_arrow</span>${k === 'pdf' ? 'Resume' : 'Open DPP'}</span></span>
+                </a>
+                ${more ? `<div class="continue-more">${more}</div>` : ''}
+            </div>`;
+    } else {
+        topLeft = `
+            <div class="panel welcome">
+                <h3>Start with a subject</h3>
+                <p>Open any note and the site remembers the page you stopped at.</p>
+                <div class="actions">
+                    <a class="btn btn-primary" href="#/subjects"><span class="ms">grid_view</span>Subjects</a>
+                    <button type="button" class="btn" data-action="search"><span class="ms">search</span>Search a topic</button>
+                </div>
+            </div>`;
+    }
+
+    const rel = LATEST_RELEASE;
+    const relSub = subjectIdx.get(rel.subjectId);
+    const relChap = chapIdx.get(rel.chapterId);
+    const relItems = rel.items.map((ri) => ({ ri, e: itemIdx.get(ri.id) })).filter((x) => x.e);
+    const relCh = relChap ? chapterLabel(relChap.node.name) : null;
+    const release = relSub ? `
+        <section class="panel release" data-subject="${relSub.id}" aria-label="New release">
+            ${emblem(relSub.id, 'release-art')}
+            <div class="release-top"><span class="chip new">New</span><span class="chip sub">${esc(relSub.name)}${relCh && relCh.short ? ' · ' + esc(relCh.short) : ''}</span></div>
+            <h3>${esc(rel.title)}</h3>
+            <p>${esc(rel.note)}</p>
+            <div class="release-list">
+                ${relItems.map(({ ri, e }) => `
+                    <a class="release-item" href="#/read/${e.item.id}">
+                        <span class="ico"><span class="ms">quiz</span></span>
+                        <span><strong>${esc(ri.label)}</strong><small>${esc(ri.meta)}</small></span>
+                        <span class="ms go">chevron_right</span>
+                    </a>`).join('')}
+            </div>
+            ${rel.more ? `<a class="btn btn-ghost btn-sm" style="align-self:flex-start;margin-left:-8px;color:var(--accent-text)" href="${rel.more.href}">${esc(rel.more.label)}<span class="ms">chevron_right</span></a>` : ''}
+        </section>` : '';
+
+    const saved = lib.data.saved.map((id) => itemIdx.get(id)).filter(Boolean).slice(0, 4);
+    const subjects = state.batch.subjects;
+    const sub = recents.length
+        ? 'Pick up where you stopped, or open a subject.'
+        : 'ICSE Class 10 class notes and PYQ practice for every subject.';
+
+    const el = h(`
+        <div class="page${state.first ? ' reveal' : ''}">
+            <div class="greet"><h1>${greeting()}</h1><p>${sub}</p></div>
+            <div class="home-top">${topLeft}${release}</div>
+            <div data-install-slot></div>
+            <section class="section">
+                ${sectionHead('Subjects', { href: '#/subjects', label: 'See all' })}
+                <div class="subj-grid">${subjects.map(subjectTile).join('')}</div>
+            </section>
+            ${saved.length ? `<section class="section">${sectionHead('Saved', { href: '#/library/saved', label: 'Library' })}<div class="item-list two">${saved.map((e) => itemRow(e, { context: true })).join('')}</div></section>` : ''}
+            <a class="panel community" href="${TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">
+                <span class="ico"><span class="ms">send</span></span>
+                <div><strong>Join the Telegram group</strong><small>New notes, DPP releases and doubt help</small></div>
+                <span class="ms" style="color:var(--faint)">open_in_new</span>
+            </a>
+        </div>`);
+    renderInstallBanner(el.querySelector('[data-install-slot]'));
+    return { el, topTitle: 'Ilberiz Techz', docTitle: '', crumbs: [] };
+}
+function truncate(s, n) { s = String(s || ''); return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s; }
+
+/* ----- All subjects ----- */
+let subjectFilter = 'all';
+function pageSubjects() {
+    const subjects = state.batch.subjects;
+    const filters = [
+        { id: 'all', label: 'All', n: subjects.length },
+        { id: 'stem', label: 'Science & Maths', n: subjects.filter((s) => SUBJECT_GROUPS.stem.includes(s.id)).length },
+        { id: 'humanities', label: 'History & Geography', n: subjects.filter((s) => SUBJECT_GROUPS.humanities.includes(s.id)).length },
+        { id: 'lang', label: 'Languages', n: subjects.filter((s) => SUBJECT_GROUPS.lang.includes(s.id)).length }
+    ];
+    const totals = countItems(subjects.flatMap((s) => s.chapters.flatMap(allItems)));
+    const el = h(`
+        <div class="page">
+            <div class="page-head">
+                <h1>Subjects</h1>
+                <p>${plural(totals.notes, 'class note')} and ${plural(totals.dpps, 'interactive DPP')} across ${subjects.length} ICSE Class 10 subjects (2025–27 syllabus).</p>
+            </div>
+            <div class="filters" role="group" aria-label="Filter subjects">
+                ${filters.map((f) => `<button type="button" class="filter" data-filter="${f.id}" aria-pressed="${subjectFilter === f.id}">${esc(f.label)} <span class="n">${f.n}</span></button>`).join('')}
+            </div>
+            <div class="subj-grid wide" data-grid></div>
+        </div>`);
+    const grid = el.querySelector('[data-grid]');
+    const paintGrid = () => {
+        const list = subjectFilter === 'all' ? subjects : subjects.filter((s) => (SUBJECT_GROUPS[subjectFilter] || []).includes(s.id));
+        grid.innerHTML = list.map(subjectTile).join('');
+    };
+    paintGrid();
+    el.querySelectorAll('[data-filter]').forEach((b) => b.addEventListener('click', () => {
+        subjectFilter = b.dataset.filter;
+        el.querySelectorAll('[data-filter]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+        paintGrid();
+        markOffline(grid);
+    }));
+    return { el, topTitle: 'Subjects', docTitle: 'Subjects', crumbs: [{ label: 'Subjects' }] };
+}
+
+/* ----- One subject (chapters) ----- */
+const chapterFilters = {};
+function chapterRow(subject, node, parent) {
+    const items = allItems(node);
+    const c = countItems(items);
+    const lbl = chapterLabel(node.name, parent ? parent.name : null);
+    const pct = c.total ? Math.round((c.done / c.total) * 100) : 0;
+    const href = parent ? `#/s/${subject.id}/${parent.id}/${node.id}` : `#/s/${subject.id}/${node.id}`;
+    const tags = [];
+    if (node.subchapters && node.subchapters.length) {
+        const first = chapterLabel(node.subchapters[0].name, node.name);
+        const word = first.kind === 'poem' ? 'poem' : first.kind === 'story' ? 'story' : first.kind === 'ch' ? 'chapter' : 'topic';
+        tags.push(`<span class="chip">${plural(node.subchapters.length, word, word === 'story' ? 'stories' : null)}</span>`);
+    }
+    if (c.notes) tags.push(`<span class="chip"><span class="ms">description</span>${plural(c.notes, 'note')}</span>`);
+    if (c.dpps) tags.push(`<span class="chip accent"><span class="ms">quiz</span>${plural(c.dpps, 'DPP')}</span>`);
+    if (c.done) tags.push(`<span class="chip ok"><span class="ms">check</span>${c.done}/${c.total} done</span>`);
+    const numInner = lbl.num ? esc(lbl.num) : `<span class="ms">${esc(node.icon || 'auto_stories')}</span>`;
+    return `
+        <a class="chap${c.total ? '' : ' empty'}" href="${href}" data-subject="${subject.id}" data-has-notes="${c.notes > 0}" data-has-dpps="${c.dpps > 0}">
+            <span class="ring${pct === 100 ? ' done' : ''}" style="--p:${pct}"><span>${pct === 100 ? '<span class="ms">check</span>' : numInner}</span></span>
+            <div>
+                <h3>${esc(lbl.title)}</h3>
+                ${node.description ? `<p class="desc">${esc(node.description)}</p>` : ''}
+                ${tags.length ? `<div class="tags">${tags.join('')}</div>` : `<div class="tags"><span class="chip">Notes coming soon</span></div>`}
+            </div>
+            <span class="ms go">chevron_right</span>
+        </a>`;
+}
+
+function pageSubject(subjectId) {
+    const subject = subjectIdx.get(subjectId);
+    if (!subject) return notFound();
+    const items = subject.chapters.flatMap(allItems);
+    const c = countItems(items);
+    const pct = c.total ? Math.round((c.done / c.total) * 100) : 0;
+    const isUnits = subject.chapters.some((ch) => /^Unit\s/i.test(ch.name));
+    const f = chapterFilters[subjectId] || 'all';
+    const notesN = subject.chapters.filter((ch) => countItems(allItems(ch)).notes).length;
+    const dppN = subject.chapters.filter((ch) => countItems(allItems(ch)).dpps).length;
+    const el = h(`
+        <div class="page" data-subject="${subject.id}">
+            <header class="subj-head" data-subject="${subject.id}">
+                <span class="subj-emblem">${emblem(subject.id)}</span>
+                ${emblem(subject.id, 'subj-art')}
+                <div><h1>${esc(subject.name)}</h1><p>${esc(subject.description || '')}</p></div>
+                <div class="subj-stats">
+                    <span class="chip">${plural(subject.chapters.length, isUnits ? 'unit' : 'chapter')}</span>
+                    ${c.notes ? `<span class="chip"><span class="ms">description</span>${plural(c.notes, 'note')}</span>` : ''}
+                    ${c.dpps ? `<span class="chip accent"><span class="ms">quiz</span>${plural(c.dpps, 'DPP')}</span>` : ''}
+                </div>
+                ${c.total ? `<div class="subj-progress"><span class="bar"><i style="--w:${pct}%"></i></span><span>${c.done} of ${c.total} done</span></div>` : ''}
+            </header>
+            ${(notesN && notesN < subject.chapters.length) || dppN ? `
+            <div class="filters" role="group" aria-label="Filter chapters">
+                <button type="button" class="filter" data-cf="all" aria-pressed="${f === 'all'}">All <span class="n">${subject.chapters.length}</span></button>
+                ${notesN ? `<button type="button" class="filter" data-cf="notes" aria-pressed="${f === 'notes'}">With notes <span class="n">${notesN}</span></button>` : ''}
+                ${dppN ? `<button type="button" class="filter" data-cf="dpps" aria-pressed="${f === 'dpps'}">With DPPs <span class="n">${dppN}</span></button>` : ''}
+            </div>` : '<div style="height:16px"></div>'}
+            <div class="chap-list" data-list>${subject.chapters.map((ch) => chapterRow(subject, ch, null)).join('')}</div>
+        </div>`);
+    const list = el.querySelector('[data-list]');
+    const applyFilter = (val) => {
+        chapterFilters[subjectId] = val;
+        $$('.chap', list).forEach((row) => {
+            const show = val === 'all' || (val === 'notes' && row.dataset.hasNotes === 'true') || (val === 'dpps' && row.dataset.hasDpps === 'true');
+            row.hidden = !show;
+        });
+        el.querySelectorAll('[data-cf]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.cf === val)));
+    };
+    applyFilter(f);
+    el.querySelectorAll('[data-cf]').forEach((b) => b.addEventListener('click', () => applyFilter(b.dataset.cf)));
+    return { el, topTitle: subject.name, docTitle: subject.name, backHref: '#/subjects', crumbs: [{ label: 'Subjects', href: '#/subjects' }, { label: subject.name }] };
+}
+
+/* ----- One chapter / unit / sub-chapter ----- */
+function pageChapter(subjectId, chapterId, subId) {
+    const subject = subjectIdx.get(subjectId);
+    const ch = chapIdx.get(chapterId);
+    if (!subject || !ch) return notFound();
+    const chapter = ch.node;
+    const sc = subId ? chapIdx.get(subId) : null;
+    const node = sc ? sc.node : chapter;
+    const lbl = chapterLabel(node.name, sc ? chapter.name : null);
+    const parentLbl = chapterLabel(chapter.name);
+    const items = node.items || [];
+    const dpps = items.filter((it) => itemKind(it) === 'dpp').map((it) => itemIdx.get(it.id));
+    const notes = items.filter((it) => itemKind(it) !== 'dpp').map((it) => itemIdx.get(it.id));
+    const subs = !sc && chapter.subchapters ? chapter.subchapters : [];
+    const c = countItems(allItems(node));
+    const eyebrowBits = [subject.name];
+    if (sc) eyebrowBits.push(parentLbl.short || parentLbl.title);
+
+    let subsTitle = 'Topics';
+    if (subs.length) {
+        const k = chapterLabel(subs[0].name, chapter.name).kind;
+        subsTitle = k === 'poem' ? 'Poems' : k === 'story' ? 'Stories' : k === 'ch' ? 'Chapters in this unit' : 'Topics';
+    }
+    const emptyAll = !items.length && !subs.length;
+    const backHref = sc ? `#/s/${subject.id}/${chapter.id}` : `#/s/${subject.id}`;
+
+    const el = h(`
+        <div class="page" data-subject="${subject.id}">
+            <div class="page-head">
+                <div class="row" style="margin:0 0 4px">
+                    <a class="chip sub" href="#/s/${subject.id}"><span class="side-dot" style="margin:0;width:8px;height:8px"></span>${esc(eyebrowBits.join(' · '))}</a>
+                    ${lbl.short ? `<span class="chip">${esc(lbl.short)}</span>` : ''}
+                </div>
+                <h1>${esc(lbl.title)}</h1>
+                ${node.author ? `<p>${esc(node.author)}</p>` : ''}
+                ${node.description ? `<p class="clamp" data-expand title="Tap to read more">${esc(node.description)}</p>` : ''}
+                ${c.total ? `<div class="row">
+                    ${c.notes ? `<span class="chip"><span class="ms">description</span>${plural(c.notes, 'note')}</span>` : ''}
+                    ${c.dpps ? `<span class="chip accent"><span class="ms">quiz</span>${plural(c.dpps, 'DPP')}</span>` : ''}
+                    ${c.done ? `<span class="chip ok"><span class="ms">check</span>${c.done}/${c.total} done</span>` : ''}
+                </div>` : ''}
+            </div>
+            ${dpps.length ? `<section class="section" style="margin-top:8px">${sectionHead(subs.length ? 'Unit practice' : 'Practice (PYQ DPPs)')}<div class="dpp-grid">${dpps.map(dppCard).join('')}</div></section>` : ''}
+            ${notes.length ? `<section class="section">${sectionHead(subs.length ? 'Unit notes' : 'Class notes')}<div class="item-list two">${notes.map((e) => itemRow(e)).join('')}</div></section>` : ''}
+            ${subs.length ? `<section class="section">${sectionHead(subsTitle)}<div class="chap-list">${subs.map((s) => chapterRow(subject, s, chapter)).join('')}</div></section>` : ''}
+            ${emptyAll ? `
+                <div class="empty-state" style="margin-top:12px">
+                    <span class="ms">hourglass_top</span>
+                    <h3>Notes for this chapter are on the way</h3>
+                    <p>Join the Telegram group to hear the moment they are published. Other chapters of ${esc(subject.name)} may already have notes.</p>
+                    <div class="actions">
+                        <a class="btn" href="${backHref}"><span class="ms">arrow_back</span>Back to ${esc(sc ? (parentLbl.short || 'unit') : subject.name)}</a>
+                        <a class="btn btn-primary" href="${TELEGRAM_URL}" target="_blank" rel="noopener noreferrer"><span class="ms">send</span>Telegram group</a>
+                    </div>
+                </div>` : ''}
+        </div>`);
+    const crumbs = [{ label: 'Subjects', href: '#/subjects' }, { label: subject.name, href: `#/s/${subject.id}` }];
+    if (sc) crumbs.push({ label: parentLbl.short || parentLbl.title, href: `#/s/${subject.id}/${chapter.id}` });
+    crumbs.push({ label: lbl.short ? `${lbl.short}: ${lbl.title}` : lbl.title });
+    return { el, topTitle: lbl.short ? `${lbl.short} · ${lbl.title}` : lbl.title, docTitle: `${lbl.title} — ${subject.name}`, backHref, crumbs };
+}
+
+/* ----- Library ----- */
+function pageLibrary(tab) {
+    const tabs = [
+        { id: 'recent', label: 'Recent', icon: 'history', ids: lib.data.recent.map((r) => r.id) },
+        { id: 'saved', label: 'Saved', icon: 'bookmark', ids: lib.data.saved },
+        { id: 'done', label: 'Done', icon: 'task_alt', ids: lib.data.done }
+    ];
+    const cur = tabs.find((t) => t.id === tab) || tabs[0];
+    const entries = cur.ids.map((id) => itemIdx.get(id)).filter(Boolean);
+    const empties = {
+        recent: ['history', 'Nothing opened yet', 'Notes and DPPs you open will show up here, with the page you stopped at.'],
+        saved: ['bookmark_add', 'No saved items', 'Tap the bookmark on any note or DPP to keep it here for quick revision.'],
+        done: ['task_alt', 'Nothing marked done', 'Mark a note as done from the reader menu to track your progress per chapter.']
+    };
+    const e = empties[cur.id];
+    const el = h(`
+        <div class="page">
+            <div class="page-head"><h1>Library</h1><p>Your recent, saved and finished notes. Stored on this device only.</p></div>
+            <div class="seg lib-tabs" role="group" aria-label="Library sections">
+                ${tabs.map((t) => `<button type="button" data-lib="${t.id}" aria-pressed="${t.id === cur.id}"><span class="ms">${t.icon}</span>${t.label}${t.ids.length ? ` <span style="opacity:.6">${t.ids.length}</span>` : ''}</button>`).join('')}
+            </div>
+            ${entries.length
+                ? `<div class="item-list two">${entries.map((en) => itemRow(en, { context: true })).join('')}</div>`
+                : `<div class="empty-state"><span class="ms">${e[0]}</span><h3>${e[1]}</h3><p>${e[2]}</p><div class="actions"><a class="btn btn-primary" href="#/subjects"><span class="ms">grid_view</span>Browse subjects</a></div></div>`}
+        </div>`);
+    el.querySelectorAll('[data-lib]').forEach((b) => b.addEventListener('click', () => go(`#/library/${b.dataset.lib}`, { replace: true })));
+    return { el, topTitle: 'Library', docTitle: 'Library', crumbs: [{ label: 'Library' }] };
+}
+
+function notFound() {
+    const el = h(`<div class="page"><div class="empty-state" style="margin-top:24px"><span class="ms">search_off</span><h3>This page does not exist</h3><p>The link may be old. Open Subjects to find your chapter.</p><div class="actions"><a class="btn btn-primary" href="#/subjects">Open subjects</a></div></div></div>`);
+    return { el, topTitle: 'Not found', docTitle: 'Not found', crumbs: [] };
+}
+
+/* ----- Sidebar ----- */
+function renderSidebar() {
+    const nav = document.getElementById('side-nav');
+    if (!nav) return;
+    const subjects = state.batch.subjects;
+    nav.innerHTML = `
+        <a class="side-link" href="#/" data-nav="home"><span class="ms">home</span><span>Home</span></a>
+        <a class="side-link" href="#/subjects" data-nav="subjects"><span class="ms">grid_view</span><span>All subjects</span></a>
+        <a class="side-link" href="#/library" data-nav="library"><span class="ms">bookmarks</span><span>Library</span><span class="count" data-lib-count>${lib.data.saved.length || ''}</span></a>
+        <a class="side-link side-new" href="${LATEST_RELEASE.nav.href}"><span class="ms">auto_awesome</span><span>${esc(LATEST_RELEASE.nav.label)}</span><span class="chip new">New</span></a>
+        <div class="side-label">Subjects</div>
+        ${subjects.map((s) => {
+            const c = countItems(s.chapters.flatMap(allItems));
+            return `<a class="side-link" href="#/s/${s.id}" data-nav="s:${s.id}" data-subject="${s.id}"><span class="side-dot"></span><span>${esc(s.name)}</span><span class="count">${c.total || ''}</span></a>`;
+        }).join('')}
+    `;
+}
+
+/* --------------------------------------------------------------------------
+   10. Search (command palette on laptop, full-screen on phone)
+   -------------------------------------------------------------------------- */
+let searchIndex = [];
 function buildSearchIndex() {
     searchIndex = [];
-    if (!state.data || !state.data.batches) return;
+    itemIdx.forEach((entry) => {
+        const { item, subject, chapter, subchapter } = entry;
+        const blob = [item.title, item.subtitle, item.badge, chapter.name, chapter.description, subchapter && subchapter.name, subchapter && subchapter.author, subject.name]
+            .filter(Boolean).join(' ').toLowerCase();
+        searchIndex.push({ kind: itemKind(item), id: item.id, title: item.title, path: contextLine(entry), href: `#/read/${item.id}`, subjectId: subject.id, blob, tl: item.title.toLowerCase() });
+    });
+    chapIdx.forEach(({ node, subject, parent }) => {
+        const lbl = chapterLabel(node.name, parent ? parent.name : null);
+        const blob = [node.name, node.description, node.author, parent && parent.name, subject.name].filter(Boolean).join(' ').toLowerCase();
+        const href = parent ? `#/s/${subject.id}/${parent.id}/${node.id}` : `#/s/${subject.id}/${node.id}`;
+        const n = allItems(node).length;
+        searchIndex.push({ kind: 'chap', id: node.id, title: lbl.short ? `${lbl.short}: ${lbl.title}` : lbl.title, path: `${subject.name}${parent ? ' · ' + (chapterLabel(parent.name).short || '') : ''} · ${n ? plural(n, 'item') : 'coming soon'}`, href, subjectId: subject.id, blob, tl: node.name.toLowerCase() });
+    });
+    subjectIdx.forEach((s) => {
+        searchIndex.push({ kind: 'subject', id: s.id, title: s.name, path: 'Subject', href: `#/s/${s.id}`, subjectId: s.id, blob: (s.name + ' ' + (s.description || '')).toLowerCase(), tl: s.name.toLowerCase() });
+    });
+}
+function runSearch(q) {
+    const words = q.toLowerCase().split(/\s+/).filter(Boolean);
+    if (!words.length) return [];
+    const phrase = q.toLowerCase().trim();
+    const out = [];
+    for (const e of searchIndex) {
+        if (!words.every((w) => e.blob.includes(w))) continue;
+        let score = 0;
+        words.forEach((w) => {
+            if (e.tl.includes(w)) score += 3;
+            if (new RegExp('(^|[^a-z0-9])' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).test(e.tl)) score += 2;
+            score += 1;
+        });
+        if (e.tl.includes(phrase)) score += 6;
+        if (e.kind === 'subject') score += 4;
+        if (e.kind === 'chap') score += 1;
+        out.push({ e, score });
+    }
+    out.sort((a, b) => b.score - a.score);
+    return out.map((x) => x.e);
+}
+function highlight(text, q) {
+    const words = q.toLowerCase().split(/\s+/).filter((w) => w.length > 0).map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    const safe = esc(text);
+    if (!words.length) return safe;
+    try { return safe.replace(new RegExp(`(${words.join('|')})`, 'gi'), '<mark>$1</mark>'); } catch (e) { return safe; }
+}
+const SEARCH_SUGGESTIONS = ['Quit India', 'Julius Caesar', 'Electricity', 'Photosynthesis', 'Climate', 'Ammonia', 'Nervous System', 'Light'];
 
-    state.data.batches.forEach(batch => {
-        batch.subjects.forEach(subject => {
-            subject.chapters.forEach(chapter => {
-                // 1. Index chapter-level / unit-level items (e.g. Unit 1 MCQ, Theory, Numerical)
-                if (chapter.items && chapter.items.length > 0) {
-                    chapter.items.forEach(item => {
-                        const searchBlob = [
-                            item.title,
-                            item.subtitle || '',
-                            chapter.name,
-                            subject.name,
-                            batch.name
-                        ].join(' ').toLowerCase();
-                        searchIndex.push({
-                            type: 'item',
-                            batch,
-                            subject,
-                            chapter,
-                            item,
-                            searchBlob
-                        });
-                    });
-                }
+function openSearch(initial = '') {
+    let sel = 0;
+    let results = [];
+    const el = h(`
+        <div class="search" role="dialog" aria-modal="true" aria-label="Search">
+            <div class="search-head">
+                <button type="button" class="icon-btn back" aria-label="Close search"><span class="ms">arrow_back</span></button>
+                <label class="search-field">
+                    <span class="ms">search</span>
+                    <input type="search" placeholder="Search notes, chapters, DPPs" autocomplete="off" enterkeyhint="search" aria-label="Search notes, chapters and DPPs" spellcheck="false">
+                    <button type="button" class="icon-btn clear" aria-label="Clear search" hidden><span class="ms">close</span></button>
+                </label>
+            </div>
+            <div class="search-body" role="listbox" aria-label="Results"></div>
+            <div class="search-foot"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>Enter</kbd> open</span><span><kbd>Esc</kbd> close</span></div>
+        </div>`);
+    const scrim = h('<div class="scrim"></div>');
+    const input = el.querySelector('input');
+    const body = el.querySelector('.search-body');
+    const clearBtn = el.querySelector('.clear');
 
-                // 2. Index subchapters if present (e.g. Physics chapters inside units)
-                if (chapter.subchapters && chapter.subchapters.length > 0) {
-                    chapter.subchapters.forEach(subchap => {
-                        const items = subchap.items || [];
-                        items.forEach(item => {
-                            const searchBlob = [
-                                item.title,
-                                item.subtitle || '',
-                                subchap.name,
-                                subchap.author || '',
-                                chapter.name,
-                                subject.name,
-                                batch.name
-                            ].join(' ').toLowerCase();
-                            searchIndex.push({
-                                type: 'item',
-                                batch,
-                                subject,
-                                chapter,
-                                subchapter: subchap,
-                                item,
-                                searchBlob
-                            });
-                        });
-                        const subchapBlob = [
-                            subchap.name,
-                            subchap.author || '',
-                            subchap.description || '',
-                            chapter.name,
-                            subject.name,
-                            batch.name
-                        ].join(' ').toLowerCase();
-                        searchIndex.push({
-                            type: 'subchapter',
-                            batch,
-                            subject,
-                            chapter,
-                            subchapter: subchap,
-                            itemCount: items.length,
-                            searchBlob: subchapBlob
-                        });
-                    });
-                }
+    function recentSearches() { return lsJSON('ilberiz_searches', []); }
+    function pushRecent(q) {
+        const list = [q, ...recentSearches().filter((x) => x.toLowerCase() !== q.toLowerCase())].slice(0, 6);
+        lsSet('ilberiz_searches', JSON.stringify(list));
+    }
+    function resultHTML(r, q, i) {
+        const ico = r.kind === 'pdf' ? ['pdf', 'description'] : r.kind === 'dpp' ? ['dpp', 'quiz'] : r.kind === 'video' ? ['video', 'play_circle'] : ['chap', r.kind === 'subject' ? 'grid_view' : 'menu_book'];
+        return `<a class="result${i === sel ? ' sel' : ''}" href="${r.href}" data-i="${i}" role="option" data-subject="${r.subjectId}">
+            <span class="type-ico ${ico[0]}"><span class="ms">${ico[1]}</span></span>
+            <span><strong>${highlight(r.title, q)}</strong><small>${esc(r.path)}</small></span>
+            <span class="ms enter">keyboard_return</span></a>`;
+    }
+    function paint() {
+        const q = input.value.trim();
+        clearBtn.hidden = !q;
+        if (!q) {
+            results = [];
+            const rec = recentSearches();
+            const recentItems = recentEntries().slice(0, 4);
+            body.innerHTML = `
+                ${rec.length ? `<div class="search-group"><h4>Recent searches <button type="button" data-clear-recent>Clear</button></h4><div class="suggest">${rec.map((s) => `<button type="button" data-q="${esc(s)}">${esc(s)}</button>`).join('')}</div></div>` : ''}
+                ${recentItems.length ? `<div class="search-group"><h4>Recently opened</h4>${recentItems.map((e) => `<a class="result" href="#/read/${e.item.id}" data-subject="${e.subject.id}"><span class="type-ico ${itemKind(e.item)}"><span class="ms">${itemKind(e.item) === 'pdf' ? 'description' : 'quiz'}</span></span><span><strong>${esc(e.item.title)}</strong><small>${esc(contextLine(e))}</small></span><span class="ms enter">keyboard_return</span></a>`).join('')}</div>` : ''}
+                <div class="search-group"><h4>Try</h4><div class="suggest">${SEARCH_SUGGESTIONS.map((s) => `<button type="button" data-q="${esc(s)}">${esc(s)}</button>`).join('')}</div></div>`;
+            return;
+        }
+        results = runSearch(q);
+        sel = clamp(sel, 0, Math.max(0, results.length - 1));
+        if (!results.length) {
+            body.innerHTML = `<div class="search-empty"><span class="ms">search_off</span><p>No notes or chapters match “${esc(q)}”.<br>Try a chapter name like “Climate” or a topic like “Dandi March”.</p></div>`;
+            return;
+        }
+        const chaps = []; const things = [];
+        results.forEach((r, i) => ((r.kind === 'chap' || r.kind === 'subject') ? chaps : things).push([r, i]));
+        // keep keyboard order = visual order
+        const ordered = [...chaps.slice(0, 6), ...things.slice(0, 40)];
+        results = ordered.map(([r]) => r);
+        let i = 0;
+        const groupHTML = (title, arr) => arr.length ? `<div class="search-group"><h4>${title}</h4>${arr.map(([r]) => resultHTML(r, q, i++)).join('')}</div>` : '';
+        body.innerHTML = groupHTML('Subjects & chapters', chaps.slice(0, 6)) + groupHTML(`Notes & DPPs${things.length > 40 ? ' (top 40)' : ''}`, things.slice(0, 40));
+    }
+    function moveSel(d) {
+        const list = $$('.result[data-i]', body);
+        if (!list.length) return;
+        sel = clamp(sel + d, 0, list.length - 1);
+        list.forEach((x) => x.classList.toggle('sel', Number(x.dataset.i) === sel));
+        const cur = list[sel];
+        if (cur) cur.scrollIntoView({ block: 'nearest' });
+    }
+    function openHref(href) {
+        const q = input.value.trim();
+        if (q) pushRecent(q);
+        dismissOverlay(() => go(href));
+    }
 
-                // 3. Index chapter / unit so topics and chapters without uploaded PDFs can be discovered
-                const chapBlob = [
-                    chapter.name,
-                    chapter.description || '',
-                    subject.name,
-                    batch.name
-                ].join(' ').toLowerCase();
-                const totalItemCount = (chapter.subchapters
-                    ? chapter.subchapters.reduce((sum, sc) => sum + (sc.items ? sc.items.length : 0), 0)
-                    : 0) + (chapter.items ? chapter.items.length : 0);
-                searchIndex.push({
-                    type: 'chapter',
-                    batch,
-                    subject,
-                    chapter,
-                    itemCount: totalItemCount,
-                    searchBlob: chapBlob
-                });
-            });
+    let deb;
+    input.addEventListener('input', () => { clearTimeout(deb); sel = 0; deb = setTimeout(paint, 60); });
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown') { e.preventDefault(); moveSel(1); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); moveSel(-1); }
+        else if (e.key === 'Enter') {
+            e.preventDefault();
+            const cur = $(`.result[data-i="${sel}"]`, body) || $('.result', body);
+            if (cur) openHref(cur.getAttribute('href'));
+        } else if (e.key === 'Escape') { e.preventDefault(); dismissOverlay(); }
+    });
+    clearBtn.addEventListener('click', () => { input.value = ''; paint(); input.focus(); });
+    el.querySelector('.back').addEventListener('click', () => dismissOverlay());
+    scrim.addEventListener('click', () => dismissOverlay());
+    body.addEventListener('click', (e) => {
+        const qBtn = e.target.closest('[data-q]');
+        if (qBtn) { input.value = qBtn.dataset.q; sel = 0; paint(); input.focus(); return; }
+        if (e.target.closest('[data-clear-recent]')) { lsSet('ilberiz_searches', '[]'); paint(); return; }
+        const a = e.target.closest('a.result');
+        if (a) { e.preventDefault(); e.stopPropagation(); sfx.play('open'); haptic(6); openHref(a.getAttribute('href')); }
+    });
+
+    const prevFocus = document.activeElement;
+    showOverlay('search', () => {
+        const root = document.getElementById('overlay-root');
+        if (isDesktopSearch()) root.appendChild(scrim);
+        root.appendChild(el);
+        input.value = initial;
+        paint();
+        requestAnimationFrame(() => input.focus());
+    }, () => {
+        el.remove();
+        scrim.remove();
+        if (prevFocus && prevFocus.focus) { try { prevFocus.focus({ preventScroll: true }); } catch (e) {} }
+    });
+}
+const isDesktopSearch = () => window.matchMedia && matchMedia('(min-width: 720px)').matches;
+
+/* --------------------------------------------------------------------------
+   11. Sheets (settings, reader menu, contents)
+   -------------------------------------------------------------------------- */
+function openSheet(name, title, buildBody) {
+    const scrim = h('<div class="scrim"></div>');
+    const sheet = h(`<div class="sheet" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="sheet-grip" aria-hidden="true"></div><div class="sheet-head"><h2>${esc(title)}</h2><button type="button" class="icon-btn" data-close aria-label="Close"><span class="ms">close</span></button></div><div class="sheet-body"></div></div>`);
+    const body = sheet.querySelector('.sheet-body');
+    buildBody(body);
+    scrim.addEventListener('click', () => dismissOverlay());
+    sheet.querySelector('[data-close]').addEventListener('click', () => dismissOverlay());
+    sheet.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); dismissOverlay(); } });
+    // swipe down to close (phones)
+    let startY = null;
+    sheet.addEventListener('touchstart', (e) => { if (body.scrollTop <= 0) startY = e.touches[0].clientY; }, { passive: true });
+    sheet.addEventListener('touchmove', (e) => {
+        if (startY == null) return;
+        const dy = e.touches[0].clientY - startY;
+        if (dy > 0) sheet.style.transform = `translateY(${dy}px)`;
+    }, { passive: true });
+    sheet.addEventListener('touchend', (e) => {
+        if (startY == null) return;
+        const dy = (e.changedTouches[0].clientY - startY);
+        startY = null;
+        sheet.style.transform = '';
+        if (dy > 90) dismissOverlay();
+    });
+    const prevFocus = document.activeElement;
+    showOverlay(name, () => {
+        const root = document.getElementById('overlay-root');
+        root.appendChild(scrim);
+        root.appendChild(sheet);
+        requestAnimationFrame(() => { const f = sheet.querySelector('[data-close]'); if (f) f.focus({ preventScroll: true }); });
+    }, () => {
+        scrim.classList.add('out');
+        sheet.classList.add('out');
+        setTimeout(() => { scrim.remove(); sheet.remove(); }, 230);
+        if (prevFocus && prevFocus.focus) { try { prevFocus.focus({ preventScroll: true }); } catch (e) {} }
+    });
+    return { sheet, body };
+}
+
+let installPrompt = null;
+const isStandalone = () => (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+function openSettings() {
+    openSheet('settings', 'Settings', (body) => {
+        const readerNow = useBuiltInReader() ? 'builtin' : 'native';
+        body.innerHTML = `
+            <div class="set-group">
+                <h3>Appearance</h3>
+                <div class="seg full" role="group" aria-label="Theme">
+                    <button type="button" data-theme-pref="system" aria-pressed="${prefs.theme === 'system'}"><span class="ms">contrast</span>Auto</button>
+                    <button type="button" data-theme-pref="dark" aria-pressed="${prefs.theme === 'dark'}"><span class="ms">dark_mode</span>Dark</button>
+                    <button type="button" data-theme-pref="light" aria-pressed="${prefs.theme === 'light'}"><span class="ms">light_mode</span>Light</button>
+                </div>
+                <div class="set-row" style="margin-top:8px">
+                    <div class="label"><strong>Highlighter colour</strong><small>Used for buttons, progress and highlights</small></div>
+                </div>
+                <div class="swatches" role="group" aria-label="Highlighter colour">
+                    ${ACCENTS.map((a) => `<button type="button" class="swatch" style="--c:${a.c}" data-accent="${a.id}" aria-pressed="${prefs.accent === a.id}" aria-label="${a.name}"></button>`).join('')}
+                </div>
+            </div>
+            <div class="set-group">
+                <h3>Sound & touch</h3>
+                <label class="set-row"><span class="ms">volume_up</span><span class="label"><strong>Sound effects</strong><small>Soft taps and chimes</small></span><span class="switch"><input type="checkbox" data-pref="sound" ${prefs.sound ? 'checked' : ''}><span></span></span></label>
+                ${'vibrate' in navigator ? `<label class="set-row"><span class="ms">vibration</span><span class="label"><strong>Vibration</strong><small>Light buzz on taps (Android)</small></span><span class="switch"><input type="checkbox" data-pref="haptics" ${prefs.haptics ? 'checked' : ''}><span></span></span></label>` : ''}
+            </div>
+            <div class="set-group">
+                <h3>Opening PDF notes</h3>
+                <div class="seg full" role="group" aria-label="PDF reader">
+                    <button type="button" data-reader="builtin" aria-pressed="${readerNow === 'builtin'}"><span class="ms">chrome_reader_mode</span>Built-in reader</button>
+                    <button type="button" data-reader="native" aria-pressed="${readerNow === 'native'}"><span class="ms">picture_as_pdf</span>Browser viewer</button>
+                </div>
+                <p style="font-size:.8rem;color:var(--muted);margin-top:8px">The built-in reader works on every phone, remembers your page and opens saved notes offline. The browser viewer uses your browser's own PDF tools.</p>
+            </div>
+            <div class="set-group">
+                <h3>Offline & app</h3>
+                <div class="set-row"><span class="ms">offline_pin</span><span class="label"><strong>Notes saved offline</strong><small data-offline-usage>Checking…</small></span><button type="button" class="btn btn-sm" data-clear-offline hidden>Clear</button></div>
+                <div data-install-row></div>
+            </div>
+            <div class="set-group">
+                <a class="set-row" href="${TELEGRAM_URL}" target="_blank" rel="noopener noreferrer"><span class="ms">send</span><span class="label"><strong>Telegram community</strong><small>Updates and doubt help</small></span><span class="ms">open_in_new</span></a>
+                <button type="button" class="set-row" data-reset-lib><span class="ms">restart_alt</span><span class="label"><strong>Clear history & progress</strong><small>Recent, saved, done and reading positions on this device</small></span></button>
+                <button type="button" class="set-row" data-action="lock"><span class="ms">lock</span><span class="label"><strong>Lock website</strong><small>Asks for the passcode again</small></span></button>
+            </div>
+            <p style="font-size:.75rem;color:var(--faint);text-align:center;padding-top:6px">Ilberiz Techz · version ${APP_VERSION}</p>`;
+
+        body.querySelectorAll('[data-theme-pref]').forEach((b) => b.addEventListener('click', () => {
+            setThemePref(b.dataset.themePref);
+            body.querySelectorAll('[data-theme-pref]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+        }));
+        body.querySelectorAll('[data-accent]').forEach((b) => b.addEventListener('click', () => {
+            setAccent(b.dataset.accent);
+            body.querySelectorAll('[data-accent]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+            sfx.play('save');
+        }));
+        body.querySelectorAll('[data-pref]').forEach((inp) => inp.addEventListener('change', () => {
+            if (inp.dataset.pref === 'sound') setSound(inp.checked);
+            if (inp.dataset.pref === 'haptics') { prefs.haptics = inp.checked; lsSet('ilberiz_haptics', inp.checked ? 'on' : 'off'); haptic(20); }
+        }));
+        body.querySelectorAll('[data-reader]').forEach((b) => b.addEventListener('click', () => {
+            prefs.reader = b.dataset.reader;
+            lsSet('ilberiz_reader', prefs.reader);
+            body.querySelectorAll('[data-reader]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+        }));
+        body.querySelector('[data-reset-lib]').addEventListener('click', () => {
+            if (!window.confirm('Clear recent, saved, done and reading positions on this device?')) return;
+            lib.clear();
+            toast('History and progress cleared', { icon: 'restart_alt' });
+            dismissOverlay(() => { state.rendered = null; route(); renderSidebar(); });
+        });
+
+        // offline usage
+        const usage = body.querySelector('[data-offline-usage]');
+        const clearBtn = body.querySelector('[data-clear-offline]');
+        offlineUsage().then((u) => {
+            if (!u) { usage.textContent = location.protocol === 'file:' ? 'Available when the site is opened online' : 'Not supported in this browser'; return; }
+            usage.textContent = u.count ? `${plural(u.count, 'note')} · ${formatMB(u.bytes)}` : 'None yet — notes you open are saved automatically';
+            clearBtn.hidden = !u.count;
+        });
+        clearBtn.addEventListener('click', async () => {
+            try { await caches.delete('ilb-notes-v1'); } catch (e) {}
+            offlineSet = new Set();
+            usage.textContent = 'None yet — notes you open are saved automatically';
+            clearBtn.hidden = true;
+            toast('Offline notes cleared', { icon: 'delete' });
+        });
+
+        // install row
+        const row = body.querySelector('[data-install-row]');
+        if (isStandalone()) {
+            row.innerHTML = `<div class="set-row"><span class="ms">install_mobile</span><span class="label"><strong>App installed</strong><small>You are using the installed app</small></span></div>`;
+        } else if (installPrompt) {
+            row.innerHTML = `<div class="set-row"><span class="ms">install_mobile</span><span class="label"><strong>Install as an app</strong><small>Home-screen icon, opens full screen</small></span><button type="button" class="btn btn-primary btn-sm" data-install>Install</button></div>`;
+            row.querySelector('[data-install]').addEventListener('click', doInstall);
+        } else if (isIOS()) {
+            row.innerHTML = `<div class="set-row"><span class="ms">ios_share</span><span class="label"><strong>Install on iPhone or iPad</strong><small>In Safari tap Share, then “Add to Home Screen”</small></span></div>`;
+        } else {
+            row.innerHTML = `<div class="set-row"><span class="ms">install_mobile</span><span class="label"><strong>Install as an app</strong><small>Open the browser menu and choose “Install app” or “Add to Home screen”</small></span></div>`;
+        }
+    });
+}
+
+async function doInstall() {
+    if (!installPrompt) return;
+    const p = installPrompt;
+    installPrompt = null;
+    try {
+        p.prompt();
+        const choice = await p.userChoice;
+        if (choice && choice.outcome === 'accepted') { toast('Installing Ilberiz Techz', { icon: 'install_mobile' }); sfx.play('success'); }
+    } catch (e) {}
+    $$('[data-install-banner]').forEach((b) => b.remove());
+}
+function renderInstallBanner(slot) {
+    if (!slot || !installPrompt || isStandalone() || lsGet('ilberiz_install_dismissed') === '1') return;
+    const b = h(`<div class="panel install-banner" data-install-banner>
+        <span class="ms">install_mobile</span>
+        <div><strong>Install the app</strong><small>One tap from your home screen, works offline for opened notes</small></div>
+        <button type="button" class="btn btn-primary btn-sm" data-install>Install</button>
+        <button type="button" class="icon-btn" data-dismiss aria-label="Not now"><span class="ms">close</span></button>
+    </div>`);
+    b.querySelector('[data-install]').addEventListener('click', doInstall);
+    b.querySelector('[data-dismiss]').addEventListener('click', () => { lsSet('ilberiz_install_dismissed', '1'); b.remove(); });
+    slot.appendChild(b);
+}
+
+/* --------------------------------------------------------------------------
+   12. Offline notes bookkeeping
+   -------------------------------------------------------------------------- */
+let offlineSet = new Set();
+async function loadOfflineSet() {
+    if (!('caches' in window)) return;
+    try {
+        const cache = await caches.open('ilb-notes-v1');
+        const keys = await cache.keys();
+        offlineSet = new Set(keys.map((k) => k.url.split('#')[0].split('?')[0]));
+        markOffline(document);
+    } catch (e) {}
+}
+function markOffline(root) {
+    if (!offlineSet.size || !root) return;
+    $$('[data-offline-file]', root).forEach((el) => { el.hidden = !offlineSet.has(el.dataset.offlineFile); });
+}
+async function offlineUsage() {
+    if (!('caches' in window) || location.protocol === 'file:') return null;
+    try {
+        const cache = await caches.open('ilb-notes-v1');
+        const keys = await cache.keys();
+        let bytes = 0;
+        await Promise.all(keys.map(async (k) => {
+            const r = await cache.match(k);
+            const len = r && Number(r.headers.get('content-length'));
+            if (len) bytes += len;
+        }));
+        return { count: keys.length, bytes };
+    } catch (e) { return null; }
+}
+
+/* --------------------------------------------------------------------------
+   13. Readers: PDF (built-in or browser viewer), DPP engines, video
+   -------------------------------------------------------------------------- */
+function notesInContainer(entry) {
+    return (entry.container.items || []).filter((it) => itemKind(it) === 'pdf').map((it) => itemIdx.get(it.id));
+}
+function notesInSubject(subject) {
+    const groups = [];
+    subject.chapters.forEach((ch) => {
+        const add = (node, label) => {
+            const list = (node.items || []).filter((it) => itemKind(it) === 'pdf').map((it) => itemIdx.get(it.id));
+            if (list.length) groups.push({ label, list });
+        };
+        const cl = chapterLabel(ch.name);
+        add(ch, cl.short ? `${cl.short}: ${cl.title}` : cl.title);
+        (ch.subchapters || []).forEach((sc) => {
+            const sl = chapterLabel(sc.name, ch.name);
+            add(sc, sl.short ? `${sl.short}: ${sl.title}` : sl.title);
+        });
+    });
+    return groups;
+}
+
+function openReader(entry) {
+    if (reader) closeReader(true);
+    const k = itemKind(entry.item);
+    lib.touch(entry.item.id);
+    document.body.classList.add('no-scroll');
+    const root = document.getElementById('overlay-root');
+    let r;
+    if (k === 'pdf') r = useBuiltInReader() ? builtInReader(entry) : browserPdfReader(entry);
+    else if (k === 'dpp') r = engineViewer(entry);
+    else r = videoViewer(entry);
+    root.appendChild(r.el);
+    reader = { id: entry.item.id, el: r.el, cleanup: r.cleanup, entry, api: r };
+    document.title = `${entry.item.title} | Ilberiz Techz`;
+}
+function closeReader(immediate = false) {
+    if (!reader) return;
+    const r = reader;
+    reader = null;
+    try { r.cleanup && r.cleanup(); } catch (e) {}
+    if (document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) {} }
+    if (immediate || reducedMotion()) r.el.remove();
+    else { r.el.classList.add('out'); setTimeout(() => r.el.remove(), 160); }
+    if (!overlay) document.body.classList.remove('no-scroll');
+}
+function toChapter(entry) {
+    sfx.play('back');
+    go(containerHref(entry), { replace: true });
+}
+function closeReaderNav() {
+    sfx.play('back');
+    const entry = reader && reader.entry;
+    goBack(entry ? containerHref(entry) : '#/');
+}
+function setReaderItem(entry) {
+    // switch note inside an open reader without adding history entries
+    history.replaceState({ ilb: depth() }, '', `#/read/${entry.item.id}`);
+    if (reader) { reader.id = entry.item.id; reader.entry = entry; }
+    lib.touch(entry.item.id);
+    document.title = `${entry.item.title} | Ilberiz Techz`;
+}
+
+function toggleDone(entry, btn) {
+    const on = !lib.isDone(entry.item.id);
+    lib.setDone(entry.item.id, on);
+    if (btn) syncDoneBtn(btn, on);
+    if (on) { sfx.play('success'); haptic([12, 40, 12]); toast('Marked as done', { icon: 'task_alt', action: { label: 'Undo', fn: () => { lib.setDone(entry.item.id, false); if (btn) syncDoneBtn(btn, false); } } }); }
+    else { sfx.play('off'); toast('Marked as not done', { icon: 'radio_button_unchecked' }); }
+}
+function syncDoneBtn(btn, on) {
+    btn.classList.toggle('on', on);
+    btn.setAttribute('aria-pressed', String(on));
+    btn.setAttribute('aria-label', on ? 'Mark as not done' : 'Mark as done');
+    const ic = btn.querySelector('.ms'); if (ic) { ic.textContent = on ? 'task_alt' : 'check_circle'; ic.classList.toggle('fill', on); }
+    const lbl = btn.querySelector('[data-lbl]'); if (lbl) lbl.textContent = on ? 'Done' : 'Mark done';
+}
+function toggleSave(id, btn) {
+    const on = lib.toggleSave(id);
+    if (btn) syncSaveBtn(btn, on);
+    $$(`[data-star="${id}"]`).forEach((b) => syncSaveBtn(b, on));
+    sfx.play(on ? 'save' : 'off');
+    haptic(on ? [8, 30, 8] : 6);
+    toast(on ? 'Saved to Library' : 'Removed from Library', { icon: on ? 'bookmark' : 'bookmark_remove' });
+    const c = $('#side-nav [data-lib-count]'); if (c) c.textContent = lib.data.saved.length || '';
+}
+function syncSaveBtn(btn, on) {
+    btn.classList.toggle('on', on);
+    btn.setAttribute('aria-pressed', String(on));
+    btn.setAttribute('aria-label', on ? 'Remove from Library' : 'Save to Library');
+    const ic = btn.querySelector('.ms'); if (ic) ic.textContent = on ? 'bookmark' : 'bookmark_add';
+}
+
+function openContents(entry, onPick) {
+    openSheet('contents', `${entry.subject.name} notes`, (body) => {
+        const groups = notesInSubject(entry.subject);
+        body.innerHTML = groups.map((g) => `
+            <div class="toc-chapter">${esc(g.label)}</div>
+            ${g.list.map((e) => `<button type="button" class="toc-item${e.item.id === entry.item.id ? ' current' : ''}" data-id="${e.item.id}"><span class="ms">${lib.isDone(e.item.id) ? 'task_alt' : 'description'}</span><span>${esc(itemParts(e.item).title)}${e.item.subtitle ? `<br><small style="white-space:normal;font-weight:500">${esc(truncate(e.item.subtitle, 90))}</small>` : ''}</span><small>${esc(e.item.size || '')}</small></button>`).join('')}`).join('');
+        body.querySelectorAll('[data-id]').forEach((b) => b.addEventListener('click', () => {
+            const target = itemIdx.get(b.dataset.id);
+            dismissOverlay(() => onPick(target));
+        }));
+        requestAnimationFrame(() => { const cur = body.querySelector('.current'); if (cur) cur.scrollIntoView({ block: 'center' }); });
+    });
+}
+
+function openReaderMenu(entry, extra) {
+    openSheet('reader-menu', 'Note options', (body) => {
+        const saved = lib.isSaved(entry.item.id);
+        const done = lib.isDone(entry.item.id);
+        body.innerHTML = `
+            ${extra && extra.contents ? `<button type="button" class="menu-item" data-m="contents"><span class="ms">format_list_bulleted</span>All notes in ${esc(entry.subject.name)}</button>` : ''}
+            <button type="button" class="menu-item${done ? ' on' : ''}" data-m="done"><span class="ms">task_alt</span>${done ? 'Marked as done' : 'Mark as done'}</button>
+            <button type="button" class="menu-item${saved ? ' on' : ''}" data-m="save"><span class="ms">bookmark</span>${saved ? 'Saved in Library' : 'Save to Library'}</button>
+            ${entry.item.file ? `<a class="menu-item" data-m="ext" href="${esc(entry.item.file)}" target="_blank" rel="noopener noreferrer"><span class="ms">open_in_new</span>${itemKind(entry.item) === 'pdf' ? "Open in your phone's PDF viewer" : 'Open in a new tab'}</a>` : ''}
+            ${itemKind(entry.item) === 'pdf' ? `<a class="menu-item" data-m="dl" href="${esc(entry.item.file)}" download="${esc(entry.item.title)}.pdf"><span class="ms">download</span>Download PDF${entry.item.size ? ` (${esc(entry.item.size)})` : ''}</a>` : ''}
+            ${itemKind(entry.item) === 'pdf' ? `<button type="button" class="menu-item" data-m="mode"><span class="ms">swap_horiz</span>${useBuiltInReader() ? "Always use the browser's PDF viewer" : 'Always use the built-in reader'}</button>` : ''}
+            <button type="button" class="menu-item" data-m="chapter"><span class="ms">arrow_back</span>Back to chapter</button>`;
+        body.addEventListener('click', (e) => {
+            const b = e.target.closest('[data-m]');
+            if (!b) return;
+            const m = b.dataset.m;
+            if (m === 'contents') dismissOverlay(() => extra.contents());
+            else if (m === 'done') dismissOverlay(() => { toggleDone(entry, extra && extra.doneBtn); if (extra && extra.onDone) extra.onDone(); });
+            else if (m === 'save') dismissOverlay(() => toggleSave(entry.item.id, extra && extra.saveBtn));
+            else if (m === 'mode') {
+                prefs.reader = useBuiltInReader() ? 'native' : 'builtin';
+                lsSet('ilberiz_reader', prefs.reader);
+                dismissOverlay(() => { const e2 = reader && reader.entry; if (e2) { closeReader(true); openReader(e2); } });
+            } else if (m === 'chapter') dismissOverlay(() => toChapter(entry));
+            else if (m === 'ext' || m === 'dl') setTimeout(() => dismissOverlay(), 50);
         });
     });
 }
 
-// ==========================================================================
-// Frontend Access Control Gate (Single Source of Truth)
-// ==========================================================================
+/* ----- Browser PDF viewer (laptops): native iframe with thin bar ----- */
+function browserPdfReader(entry) {
+    let cur = entry;
+    const frames = new Map();
+    const el = h(`
+        <div class="reader" role="dialog" aria-modal="true" aria-label="Notes reader" data-subject="${entry.subject.id}">
+            <div class="reader-bar">
+                <button type="button" class="icon-btn" data-r="back" aria-label="Close notes"><span class="ms">arrow_back</span></button>
+                <div class="reader-title"><strong data-r="title"></strong><small data-r="ctx"></small></div>
+                <div class="note-steps" data-r="steps">
+                    <button type="button" class="icon-btn" data-r="prev" aria-label="Previous note ([)"><span class="ms">chevron_left</span></button>
+                    <span class="label" data-r="pos"></span>
+                    <button type="button" class="icon-btn" data-r="next" aria-label="Next note (])"><span class="ms">chevron_right</span></button>
+                </div>
+                <button type="button" class="icon-btn" data-r="toc" aria-label="All notes in this subject"><span class="ms">format_list_bulleted</span></button>
+                <button type="button" class="icon-btn star wide-only" data-r="save" aria-label="Save to Library"><span class="ms">bookmark_add</span></button>
+                <button type="button" class="btn btn-sm wide-only" data-r="done" aria-pressed="false"><span class="ms">check_circle</span><span data-lbl>Mark done</span></button>
+                <span class="sep wide-only"></span>
+                <a class="icon-btn wide-only" data-r="ext" target="_blank" rel="noopener noreferrer" aria-label="Open in new tab"><span class="ms">open_in_new</span></a>
+                <a class="icon-btn wide-only" data-r="dl" aria-label="Download PDF"><span class="ms">download</span></a>
+                <button type="button" class="icon-btn wide-only" data-r="fs" aria-label="Full screen (F)"><span class="ms">fullscreen</span></button>
+                <button type="button" class="icon-btn" data-r="more" aria-label="More options" style="display:var(--more-d, inline-grid)"><span class="ms">more_vert</span></button>
+            </div>
+            <div class="reader-body" data-r="body"></div>
+        </div>`);
+    const q = (n) => el.querySelector(`[data-r="${n}"]`);
+    const doneBtn = q('done');
+    const saveBtn = q('save');
+    if (window.matchMedia && matchMedia('(min-width: 720px)').matches) q('more').style.display = 'none';
+
+    function show(e) {
+        cur = e;
+        const list = notesInContainer(e);
+        const i = list.findIndex((x) => x.item.id === e.item.id);
+        q('title').textContent = e.item.title;
+        q('ctx').textContent = contextLine(e);
+        q('steps').hidden = list.length < 2;
+        q('pos').textContent = `${i + 1} / ${list.length}`;
+        q('prev').disabled = i <= 0;
+        q('next').disabled = i < 0 || i >= list.length - 1;
+        q('ext').href = e.item.file;
+        q('dl').href = e.item.file;
+        q('dl').setAttribute('download', `${e.item.title}.pdf`);
+        syncDoneBtn(doneBtn, lib.isDone(e.item.id));
+        syncSaveBtn(saveBtn, lib.isSaved(e.item.id));
+        let f = frames.get(e.item.id);
+        if (!f) {
+            f = document.createElement('iframe');
+            f.className = 'reader-frame';
+            f.title = e.item.title;
+            f.setAttribute('allow', 'fullscreen');
+            const pos = lib.getPos(e.item.id);
+            f.src = `${e.item.file}#${pos && pos.page > 1 ? `page=${pos.page}&` : ''}view=Fit`;
+            q('body').appendChild(f);
+            frames.set(e.item.id, f);
+            if (frames.size > 5) {
+                const oldest = frames.keys().next().value;
+                if (oldest !== e.item.id) { frames.get(oldest).remove(); frames.delete(oldest); }
+            }
+        }
+        frames.forEach((fr, id) => fr.classList.toggle('hidden', id !== e.item.id));
+        if (e !== entry || reader) setReaderItem(e);
+    }
+    function step(d) {
+        const list = notesInContainer(cur);
+        const i = list.findIndex((x) => x.item.id === cur.item.id);
+        const t = list[i + d];
+        if (t) { sfx.play('page'); show(t); }
+    }
+    async function toggleFs() {
+        try {
+            if (document.fullscreenElement) await document.exitFullscreen();
+            else if (el.requestFullscreen) await el.requestFullscreen();
+        } catch (e) {}
+    }
+    function onFsChange() {
+        const on = document.fullscreenElement === el;
+        const ic = q('fs').querySelector('.ms');
+        ic.textContent = on ? 'fullscreen_exit' : 'fullscreen';
+        q('fs').setAttribute('aria-label', on ? 'Exit full screen (F)' : 'Full screen (F)');
+    }
+    function onKey(e) {
+        if (overlay) return;
+        const tag = e.target && e.target.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+        if (e.key === '[' || (e.altKey && e.key === 'ArrowLeft')) { e.preventDefault(); step(-1); }
+        else if (e.key === ']' || (e.altKey && e.key === 'ArrowRight')) { e.preventDefault(); step(1); }
+        else if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFs(); }
+        else if (e.key === 'Escape' && !document.fullscreenElement) { e.preventDefault(); closeReaderNav(); }
+    }
+    const bar = el.querySelector('.reader-bar');
+    const refocus = () => { try { window.focus(); } catch (e) {} };
+    bar.addEventListener('pointerenter', refocus, { passive: true });
+    bar.addEventListener('pointerdown', refocus, { passive: true });
+
+    q('back').addEventListener('click', closeReaderNav);
+    q('prev').addEventListener('click', () => step(-1));
+    q('next').addEventListener('click', () => step(1));
+    q('toc').addEventListener('click', () => openContents(cur, (t) => { sfx.play('page'); show(t); }));
+    doneBtn.addEventListener('click', () => toggleDone(cur, doneBtn));
+    saveBtn.addEventListener('click', () => toggleSave(cur.item.id, saveBtn));
+    q('fs').addEventListener('click', toggleFs);
+    q('more').addEventListener('click', () => openReaderMenu(cur, { doneBtn, saveBtn, contents: () => openContents(cur, (t) => show(t)) }));
+    window.addEventListener('keydown', onKey, true);
+    document.addEventListener('fullscreenchange', onFsChange);
+    show(entry);
+    return {
+        el,
+        cleanup() {
+            window.removeEventListener('keydown', onKey, true);
+            document.removeEventListener('fullscreenchange', onFsChange);
+        }
+    };
+}
+
+/* ----- Built-in reader (phones): PDF.js, full screen, pinch zoom, resume ----- */
+let pdfjsPromise = null;
+function loadPdfJs() {
+    if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
+    if (!pdfjsPromise) {
+        pdfjsPromise = new Promise((resolve, reject) => {
+            const s = document.createElement('script');
+            s.src = 'vendor/pdfjs/pdf.min.js';
+            s.onload = () => {
+                const lib2 = window.pdfjsLib;
+                if (!lib2) { reject(new Error('PDF engine missing')); return; }
+                lib2.GlobalWorkerOptions.workerSrc = 'vendor/pdfjs/pdf.worker.min.js';
+                resolve(lib2);
+            };
+            s.onerror = () => { pdfjsPromise = null; reject(new Error('PDF engine failed to load')); };
+            document.head.appendChild(s);
+        });
+    }
+    return pdfjsPromise;
+}
+async function fetchWithProgress(url, onProgress, signal) {
+    const res = await fetch(url, { signal });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const total = Number(res.headers.get('content-length')) || 0;
+    if (!res.body || !res.body.getReader) {
+        const buf = new Uint8Array(await res.arrayBuffer());
+        onProgress(buf.length, buf.length);
+        return buf;
+    }
+    const rd = res.body.getReader();
+    const chunks = [];
+    let got = 0;
+    for (;;) {
+        const { done, value } = await rd.read();
+        if (done) break;
+        chunks.push(value);
+        got += value.length;
+        onProgress(got, total);
+    }
+    const out = new Uint8Array(got);
+    let o = 0;
+    chunks.forEach((c) => { out.set(c, o); o += c.length; });
+    return out;
+}
+
+function builtInReader(entry) {
+    let cur = entry;
+    let doc = null;
+    let pages = [];          // { el, n, w, h, canvas, task, renderedW }
+    let zoom = 1;
+    let current = 1;
+    let destroyed = false;
+    let abort = null;
+    let io = null;
+    let saveTimer = null;
+    let pillTimer = null;
+    let lastScroll = 0;
+    let quietScroll = 0;   // ignore bar auto-hide for programmatic scrolls
+
+    const el = h(`
+        <div class="reader pr" role="dialog" aria-modal="true" aria-label="Notes reader" data-subject="${entry.subject.id}">
+            <div class="reader-bar">
+                <button type="button" class="icon-btn" data-r="back" aria-label="Close notes"><span class="ms">arrow_back</span></button>
+                <div class="reader-title"><strong data-r="title"></strong><small data-r="ctx"></small></div>
+                <button type="button" class="icon-btn" data-r="toc" aria-label="All notes in this subject"><span class="ms">format_list_bulleted</span></button>
+                <button type="button" class="icon-btn star wide-only" data-r="save" aria-label="Save to Library"><span class="ms">bookmark_add</span></button>
+                <button type="button" class="icon-btn" data-r="more" aria-label="More options"><span class="ms">more_vert</span></button>
+            </div>
+            <div class="reader-body">
+                <div class="pr-scroll" data-r="scroll"><div class="pr-pages" data-r="pages"></div></div>
+                <div class="pr-loading" data-r="loading"></div>
+                <div class="pr-pill" data-r="pill" aria-live="polite"></div>
+                <div class="pr-zoom" data-r="zoom" hidden>
+                    <button type="button" data-z="in" aria-label="Zoom in"><span class="ms">add</span></button>
+                    <button type="button" data-z="out" aria-label="Zoom out"><span class="ms">remove</span></button>
+                </div>
+            </div>
+        </div>`);
+    const q = (n) => el.querySelector(`[data-r="${n}"]`);
+    const scroller = q('scroll');
+    const pagesEl = q('pages');
+    const loading = q('loading');
+    const pill = q('pill');
+    const saveBtn = q('save');
+
+    function setBars(show) { el.classList.toggle('bars-hidden', !show); }
+    function showPill() {
+        if (!doc) return;
+        pill.textContent = `${current} / ${doc.numPages}`;
+        pill.classList.add('show');
+        clearTimeout(pillTimer);
+        pillTimer = setTimeout(() => pill.classList.remove('show'), 1200);
+    }
+    function headerText() {
+        q('title').textContent = itemParts(cur.item).title;
+        q('ctx').textContent = doc ? `${contextLine(cur)} · Page ${current} of ${doc.numPages}` : contextLine(cur);
+        syncSaveBtn(saveBtn, lib.isSaved(cur.item.id));
+    }
+
+    function loadingCard(html) { loading.hidden = false; loading.innerHTML = `<div class="pr-loading-card">${html}</div>`; }
+    function showError(msg) {
+        const offline = !navigator.onLine;
+        loadingCard(`
+            <span class="ms">${offline ? 'cloud_off' : 'error'}</span>
+            <strong>${offline ? 'This note is not saved on this device yet' : 'The note could not be opened'}</strong>
+            <small>${offline ? 'Connect to the internet once and open it — after that it works offline.' : esc(msg)}</small>
+            <div class="actions">
+                <button type="button" class="btn btn-primary btn-sm" data-retry><span class="ms">refresh</span>Try again</button>
+                <a class="btn btn-sm" href="${esc(cur.item.file)}" target="_blank" rel="noopener noreferrer"><span class="ms">open_in_new</span>Open in phone viewer</a>
+            </div>`);
+        loading.querySelector('[data-retry]').addEventListener('click', () => load(cur));
+    }
+
+    async function load(e) {
+        cur = e;
+        teardownDoc();
+        headerText();
+        pagesEl.innerHTML = '';
+        loadingCard(`<span class="ms">description</span><strong>Opening notes</strong><span class="bar"><i style="--w:4%"></i></span><small data-prog>${esc(e.item.size || '')}</small>`);
+        const barI = loading.querySelector('.bar > i');
+        const prog = loading.querySelector('[data-prog]');
+        abort = window.AbortController ? new AbortController() : null;
+        try {
+            const [pdfjs, data] = await Promise.all([
+                loadPdfJs(),
+                fetchWithProgress(e.item.file, (got, total) => {
+                    if (destroyed) return;
+                    if (total) {
+                        barI.style.setProperty('--w', `${Math.max(4, Math.round((got / total) * 100))}%`);
+                        prog.textContent = `${formatMB(got)} of ${formatMB(total)}`;
+                    } else prog.textContent = `${formatMB(got)} loaded`;
+                }, abort && abort.signal)
+            ]);
+            if (destroyed || cur !== e) return;
+            doc = await pdfjs.getDocument({ data, isEvalSupported: false }).promise;
+            if (destroyed || cur !== e) { doc.destroy(); return; }
+            offlineSet.add(fileURL(e.item.file));
+            await buildPages(e);
+        } catch (err) {
+            if (destroyed || (err && err.name === 'AbortError')) return;
+            showError(err && err.message ? err.message : 'Unknown error');
+        }
+    }
+
+    async function buildPages(e) {
+        const first = await doc.getPage(1);
+        const vp = first.getViewport({ scale: 1 });
+        const frag = document.createDocumentFragment();
+        pages = [];
+        for (let n = 1; n <= doc.numPages; n++) {
+            const p = document.createElement('div');
+            p.className = 'pr-page';
+            p.style.aspectRatio = `${vp.width} / ${vp.height}`;
+            p.dataset.n = n;
+            p.innerHTML = `<span class="pn">${n}</span>`;
+            frag.appendChild(p);
+            pages.push({ el: p, n, canvas: null, task: null, renderedW: 0, near: false });
+        }
+        const list = notesInContainer(e);
+        const i = list.findIndex((x) => x.item.id === e.item.id);
+        const next = list[i + 1];
+        const end = h(`<div class="pr-end">
+            <span class="ms" style="font-size:32px;color:var(--accent-text)">${lib.isDone(e.item.id) ? 'task_alt' : 'flag'}</span>
+            <h3>End of ${esc(itemParts(e.item).title)}</h3>
+            <p>${next ? `Next up: ${esc(itemParts(next.item).title)}${next.item.subtitle ? ' — ' + esc(truncate(next.item.subtitle, 80)) : ''}` : 'That was the last note in this chapter.'}</p>
+            <div class="actions">
+                <button type="button" class="btn${lib.isDone(e.item.id) ? '' : ' btn-primary'}" data-end="done"><span class="ms">task_alt</span>${lib.isDone(e.item.id) ? 'Done' : 'Mark as done'}</button>
+                ${next ? `<button type="button" class="btn btn-primary" data-end="next"><span class="ms">skip_next</span>Next note</button>` : `<button type="button" class="btn" data-end="chapter"><span class="ms">arrow_back</span>Back to chapter</button>`}
+            </div></div>`);
+        end.addEventListener('click', (ev) => {
+            const b = ev.target.closest('[data-end]');
+            if (!b) return;
+            if (b.dataset.end === 'done') {
+                if (!lib.isDone(cur.item.id)) toggleDone(cur, null);
+                b.classList.remove('btn-primary');
+                b.innerHTML = '<span class="ms">task_alt</span>Done';
+            } else if (b.dataset.end === 'next' && next) { sfx.play('page'); switchTo(next); }
+            else if (b.dataset.end === 'chapter') toChapter(cur);
+        });
+        frag.appendChild(end);
+        pagesEl.appendChild(frag);
+        loading.hidden = true;
+        loading.innerHTML = '';
+        q('zoom').hidden = !(window.matchMedia && matchMedia('(min-width: 720px)').matches) && zoom === 1;
+
+        io = new IntersectionObserver((ents) => {
+            ents.forEach((en) => {
+                const pg = pages[Number(en.target.dataset.n) - 1];
+                if (!pg) return;
+                pg.near = en.isIntersecting;
+                if (en.isIntersecting) renderPage(pg); else releasePage(pg);
+            });
+        }, { root: scroller, rootMargin: '150% 0px' });
+        pages.forEach((pg) => io.observe(pg.el));
+
+        // resume
+        const pos = lib.getPos(e.item.id);
+        current = 1;
+        if (pos && pos.page > 1 && pos.page <= doc.numPages) {
+            const target = pages[pos.page - 1].el;
+            requestAnimationFrame(() => {
+                quietScroll = performance.now() + 400;
+                scroller.scrollTop = target.offsetTop - 56;
+                current = pos.page;
+                headerText();
+                toast(`Opened at page ${pos.page}`, { icon: 'bookmark', action: { label: 'Start over', fn: () => { scroller.scrollTop = 0; } } });
+            });
+        } else {
+            scroller.scrollTop = 0;
+        }
+        headerText();
+    }
+
+    async function renderPage(pg) {
+        if (!doc || destroyed) return;
+        const cssW = pg.el.clientWidth;
+        if (!cssW) return;
+        if (pg.canvas && Math.abs(pg.renderedW - cssW) / cssW < 0.15) return;
+        if (pg.task) { try { pg.task.cancel(); } catch (e) {} pg.task = null; }
+        try {
+            const page = await doc.getPage(pg.n);
+            if (destroyed || !pg.near) return;
+            const base = page.getViewport({ scale: 1 });
+            pg.el.style.aspectRatio = `${base.width} / ${base.height}`;
+            const dpr = Math.min(window.devicePixelRatio || 1, 2.5);
+            let scale = (cssW / base.width) * dpr;
+            const maxPx = 7.5e6;
+            if (base.width * base.height * scale * scale > maxPx) scale = Math.sqrt(maxPx / (base.width * base.height));
+            const vp = page.getViewport({ scale });
+            const canvas = document.createElement('canvas');
+            canvas.width = Math.floor(vp.width);
+            canvas.height = Math.floor(vp.height);
+            const ctx = canvas.getContext('2d', { alpha: false });
+            const task = page.render({ canvasContext: ctx, viewport: vp });
+            pg.task = task;
+            await task.promise;
+            pg.task = null;
+            if (destroyed || !pg.near) { canvas.width = 0; canvas.height = 0; return; }
+            if (pg.canvas) { pg.canvas.width = 0; pg.canvas.remove(); }
+            pg.canvas = canvas;
+            pg.renderedW = cssW;
+            pg.el.insertBefore(canvas, pg.el.firstChild);
+        } catch (e) { pg.task = null; }
+    }
+    function releasePage(pg) {
+        if (pg.task) { try { pg.task.cancel(); } catch (e) {} pg.task = null; }
+        if (pg.canvas) { pg.canvas.width = 0; pg.canvas.height = 0; pg.canvas.remove(); pg.canvas = null; pg.renderedW = 0; }
+    }
+    function rerenderVisible() { pages.forEach((pg) => { if (pg.near) renderPage(pg); }); }
+
+    function updateCurrent() {
+        if (!pages.length) return;
+        const mid = scroller.scrollTop + Math.min(160, scroller.clientHeight * 0.25);
+        let lo = 0; let hi = pages.length - 1; let ans = 0;
+        while (lo <= hi) {
+            const m = (lo + hi) >> 1;
+            if (pages[m].el.offsetTop <= mid) { ans = m; lo = m + 1; } else hi = m - 1;
+        }
+        const n = ans + 1;
+        if (n !== current) {
+            current = n;
+            headerText();
+            clearTimeout(saveTimer);
+            const id = cur.item.id; const total = doc.numPages;
+            saveTimer = setTimeout(() => lib.setPos(id, n, total), 500);
+        }
+    }
+
+    let ticking = false;
+    function onScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            ticking = false;
+            const y = scroller.scrollTop;
+            const dy = y - lastScroll;
+            if (performance.now() < quietScroll) { lastScroll = y; updateCurrent(); return; }
+            if (Math.abs(dy) > 6) {
+                if (dy > 0 && y > 120) setBars(false);
+                else if (dy < 0) setBars(true);
+                lastScroll = y;
+            }
+            updateCurrent();
+            showPill();
+        });
+    }
+
+    // ---- pinch zoom, double tap, tap to toggle bars ----
+    let pinch = null;
+    let tapInfo = null;
+    let lastTap = 0;
+    function applyZoom(newZoom, fx, fy) {
+        // fx, fy: focal point in scroller viewport coordinates
+        newZoom = clamp(newZoom, 1, 4);
+        const k = newZoom / zoom;
+        if (Math.abs(k - 1) < 0.01) return;
+        const cx = scroller.scrollLeft + fx;
+        const cy = scroller.scrollTop + fy;
+        zoom = newZoom;
+        quietScroll = performance.now() + 300;
+        pagesEl.style.width = `${zoom * 100}%`;
+        scroller.scrollLeft = cx * k - fx;
+        scroller.scrollTop = cy * k - fy;
+        q('zoom').hidden = zoom === 1 && !(window.matchMedia && matchMedia('(min-width: 720px)').matches);
+        clearTimeout(applyZoom.t);
+        applyZoom.t = setTimeout(rerenderVisible, 160);
+    }
+    function dist(t) { const dx = t[0].clientX - t[1].clientX; const dy = t[0].clientY - t[1].clientY; return Math.hypot(dx, dy); }
+    scroller.addEventListener('touchstart', (e) => {
+        if (e.touches.length === 2) {
+            const rect = scroller.getBoundingClientRect();
+            const mx = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left;
+            const my = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top;
+            pinch = { d0: dist(e.touches), z0: zoom, mx, my, k: 1, ox: scroller.scrollLeft + mx, oy: scroller.scrollTop + my };
+            pagesEl.style.transformOrigin = `${pinch.ox}px ${pinch.oy}px`;
+            tapInfo = null;
+        } else if (e.touches.length === 1 && !e.target.closest('.pr-end')) {
+            tapInfo = { x: e.touches[0].clientX, y: e.touches[0].clientY, t: Date.now() };
+        }
+    }, { passive: true });
+    scroller.addEventListener('touchmove', (e) => {
+        if (pinch && e.touches.length === 2) {
+            e.preventDefault();
+            const target = clamp(pinch.z0 * (dist(e.touches) / pinch.d0), 1, 4);
+            pinch.k = target / pinch.z0;
+            pagesEl.style.transform = `scale(${pinch.k})`;
+        } else if (tapInfo && e.touches.length === 1) {
+            if (Math.hypot(e.touches[0].clientX - tapInfo.x, e.touches[0].clientY - tapInfo.y) > 10) tapInfo = null;
+        }
+    }, { passive: false });
+    scroller.addEventListener('touchend', (e) => {
+        if (pinch && e.touches.length < 2) {
+            const p = pinch;
+            pinch = null;
+            pagesEl.style.transform = '';
+            pagesEl.style.transformOrigin = '';
+            applyZoom(p.z0 * p.k, p.mx, p.my);
+            return;
+        }
+        if (tapInfo && e.touches.length === 0 && Date.now() - tapInfo.t < 300) {
+            const now = Date.now();
+            const rect = scroller.getBoundingClientRect();
+            const fx = tapInfo.x - rect.left;
+            const fy = tapInfo.y - rect.top;
+            if (now - lastTap < 300) {
+                lastTap = 0;
+                clearTimeout(onTapToggle.t);
+                applyZoom(zoom > 1.05 ? 1 : 2.2, fx, fy);
+                haptic(6);
+            } else {
+                lastTap = now;
+                clearTimeout(onTapToggle.t);
+                onTapToggle.t = setTimeout(onTapToggle, 280);
+            }
+        }
+        tapInfo = null;
+    });
+    function onTapToggle() { setBars(el.classList.contains('bars-hidden')); }
+    // desktop: ctrl + wheel zoom
+    scroller.addEventListener('wheel', (e) => {
+        if (!e.ctrlKey) return;
+        e.preventDefault();
+        const rect = scroller.getBoundingClientRect();
+        applyZoom(zoom * (e.deltaY < 0 ? 1.15 : 1 / 1.15), e.clientX - rect.left, e.clientY - rect.top);
+    }, { passive: false });
+    q('zoom').addEventListener('click', (e) => {
+        const b = e.target.closest('[data-z]');
+        if (!b) return;
+        applyZoom(zoom * (b.dataset.z === 'in' ? 1.35 : 1 / 1.35), scroller.clientWidth / 2, scroller.clientHeight / 2);
+    });
+
+    function switchTo(e) {
+        setReaderItem(e);
+        zoom = 1;
+        pagesEl.style.width = '';
+        load(e);
+    }
+    function teardownDoc() {
+        clearTimeout(saveTimer);
+        if (io) { io.disconnect(); io = null; }
+        pages.forEach(releasePage);
+        pages = [];
+        if (abort) { try { abort.abort(); } catch (e) {} abort = null; }
+        if (doc) { try { doc.destroy(); } catch (e) {} doc = null; }
+    }
+    function onKey(e) {
+        if (overlay) return;
+        if (e.key === 'Escape') { e.preventDefault(); closeReaderNav(); }
+    }
+    let lastW = window.innerWidth;
+    function onResize() {
+        if (Math.abs(window.innerWidth - lastW) < 40) return;
+        lastW = window.innerWidth;
+        clearTimeout(onResize.t);
+        onResize.t = setTimeout(rerenderVisible, 200);
+    }
+
+    scroller.addEventListener('scroll', onScroll, { passive: true });
+    q('back').addEventListener('click', closeReaderNav);
+    q('toc').addEventListener('click', () => openContents(cur, (t) => { if (t.item.id !== cur.item.id) { sfx.play('page'); switchTo(t); } }));
+    saveBtn.addEventListener('click', () => toggleSave(cur.item.id, saveBtn));
+    q('more').addEventListener('click', () => openReaderMenu(cur, { saveBtn, contents: () => openContents(cur, (t) => { if (t.item.id !== cur.item.id) switchTo(t); }) }));
+    window.addEventListener('keydown', onKey);
+    window.addEventListener('resize', onResize);
+    load(entry);
+    return {
+        el,
+        cleanup() {
+            destroyed = true;
+            if (doc && cur) lib.setPos(cur.item.id, current, doc.numPages);
+            teardownDoc();
+            clearTimeout(pillTimer);
+            window.removeEventListener('keydown', onKey);
+            window.removeEventListener('resize', onResize);
+        }
+    };
+}
+
+/* ----- DPP engine viewer ----- */
+function engineViewer(entry) {
+    const parts = itemParts(entry.item);
+    const el = h(`
+        <div class="reader" role="dialog" aria-modal="true" aria-label="Practice" data-subject="${entry.subject.id}">
+            <div class="reader-bar">
+                <button type="button" class="icon-btn" data-r="back" aria-label="Close practice"><span class="ms">arrow_back</span></button>
+                <div class="reader-title"><strong>${esc(parts.title)}</strong><small>${esc(contextLine(entry))}${entry.item.badge ? ' · ' + esc(entry.item.badge) : ''}</small></div>
+                <button type="button" class="icon-btn star wide-only" data-r="save" aria-label="Save to Library"><span class="ms">bookmark_add</span></button>
+                <button type="button" class="btn btn-sm wide-only" data-r="done" aria-pressed="false"><span class="ms">check_circle</span><span data-lbl>Mark done</span></button>
+                <button type="button" class="icon-btn wide-only" data-r="reload" aria-label="Restart"><span class="ms">refresh</span></button>
+                <a class="icon-btn wide-only" href="${esc(entry.item.file)}" target="_blank" rel="noopener noreferrer" aria-label="Open in new tab"><span class="ms">open_in_new</span></a>
+                <button type="button" class="icon-btn" data-r="more" aria-label="More options"><span class="ms">more_vert</span></button>
+            </div>
+            <div class="reader-body"><iframe class="reader-frame" title="${esc(entry.item.title)}" allow="fullscreen" src="${esc(entry.item.file)}"></iframe></div>
+        </div>`);
+    const q = (n) => el.querySelector(`[data-r="${n}"]`);
+    const doneBtn = q('done');
+    const saveBtn = q('save');
+    syncDoneBtn(doneBtn, lib.isDone(entry.item.id));
+    syncSaveBtn(saveBtn, lib.isSaved(entry.item.id));
+    if (window.matchMedia && matchMedia('(min-width: 720px)').matches) q('more').style.display = 'none';
+    q('back').addEventListener('click', closeReaderNav);
+    doneBtn.addEventListener('click', () => toggleDone(entry, doneBtn));
+    saveBtn.addEventListener('click', () => toggleSave(entry.item.id, saveBtn));
+    q('reload').addEventListener('click', () => { const f = el.querySelector('iframe'); f.src = entry.item.file; });
+    q('more').addEventListener('click', () => openReaderMenu(entry, { doneBtn, saveBtn }));
+    const onKey = (e) => { if (!overlay && e.key === 'Escape') { e.preventDefault(); closeReaderNav(); } };
+    window.addEventListener('keydown', onKey);
+    return { el, cleanup() { window.removeEventListener('keydown', onKey); } };
+}
+
+/* ----- Telegram video viewer (legacy items) ----- */
+function videoViewer(entry) {
+    const post = `https://t.me/${state.data.channelUsername}/${entry.item.telegramPostId}`;
+    const el = h(`
+        <div class="reader" role="dialog" aria-modal="true" aria-label="Lecture video">
+            <div class="reader-bar">
+                <button type="button" class="icon-btn" data-r="back" aria-label="Close video"><span class="ms">arrow_back</span></button>
+                <div class="reader-title"><strong>${esc(entry.item.title)}</strong><small>${esc(contextLine(entry))}</small></div>
+                <a class="btn btn-sm" href="${post}" target="_blank" rel="noopener noreferrer"><span class="ms">open_in_new</span>Telegram</a>
+            </div>
+            <div class="reader-body"><iframe class="reader-frame" src="${post}?embed=1&dark=1" title="${esc(entry.item.title)}" allowfullscreen></iframe></div>
+        </div>`);
+    el.querySelector('[data-r="back"]').addEventListener('click', closeReaderNav);
+    return { el, cleanup() {} };
+}
+
+/* --------------------------------------------------------------------------
+   14. Passcode lock (single source of truth: Rule 13)
+   -------------------------------------------------------------------------- */
 const SITE_SECURITY_PASSCODE = '11223344';
 const AUTH_STORAGE_KEY = 'ilberiz_auth';
 const AUTH_TOKEN = 'granted';
@@ -734,1935 +2121,234 @@ function isUserAuthenticated() {
     try {
         const auth = sessionStorage.getItem(AUTH_STORAGE_KEY) || localStorage.getItem(AUTH_STORAGE_KEY);
         return auth === AUTH_TOKEN || auth === SITE_SECURITY_PASSCODE;
-    } catch (e) {
-        return false;
-    }
+    } catch (e) { return false; }
 }
-
-function setAuthentication(rememberDevice) {
+function setAuthentication(remember) {
     try {
         sessionStorage.setItem(AUTH_STORAGE_KEY, AUTH_TOKEN);
-        if (rememberDevice) {
-            localStorage.setItem(AUTH_STORAGE_KEY, AUTH_TOKEN);
-        } else {
-            localStorage.removeItem(AUTH_STORAGE_KEY);
-        }
+        if (remember) localStorage.setItem(AUTH_STORAGE_KEY, AUTH_TOKEN);
+        else localStorage.removeItem(AUTH_STORAGE_KEY);
     } catch (e) {}
 }
-
 function clearAuthentication() {
-    try {
-        sessionStorage.removeItem(AUTH_STORAGE_KEY);
-        localStorage.removeItem(AUTH_STORAGE_KEY);
-    } catch (e) {}
+    try { sessionStorage.removeItem(AUTH_STORAGE_KEY); localStorage.removeItem(AUTH_STORAGE_KEY); } catch (e) {}
 }
 
 function setupAuthGate() {
-    const authForm = document.getElementById('auth-form');
-    const authInput = document.getElementById('auth-password-input');
-    const authError = document.getElementById('auth-error-msg');
-    const authGroup = document.getElementById('auth-input-group');
-    const authSubmitBtn = document.getElementById('auth-submit-btn');
-    const toggleVisibilityBtn = document.getElementById('auth-toggle-visibility');
-    const rememberCheckbox = document.getElementById('auth-remember-checkbox');
-    const eyeIcon = document.getElementById('auth-eye-icon');
-    const sidebarLockBtn = document.getElementById('sidebar-lock-btn');
-    const topbarLockBtn = document.getElementById('topbar-lock-btn');
+    const form = document.getElementById('auth-form');
+    const input = document.getElementById('auth-password-input');
+    const group = document.getElementById('auth-input-group');
+    const err = document.getElementById('auth-error-msg');
+    const btn = document.getElementById('auth-submit-btn');
+    const eye = document.getElementById('auth-toggle-visibility');
+    const remember = document.getElementById('auth-remember-checkbox');
+    let unlocking = false;
 
-    if (toggleVisibilityBtn && authInput && eyeIcon) {
-        toggleVisibilityBtn.addEventListener('click', () => {
-            const isPassword = authInput.type === 'password';
-            authInput.type = isPassword ? 'text' : 'password';
-            eyeIcon.textContent = isPassword ? 'visibility_off' : 'visibility';
-            audioFX.playTick();
-        });
-    }
+    eye.addEventListener('click', () => {
+        const show = input.type === 'password';
+        input.type = show ? 'text' : 'password';
+        document.getElementById('auth-eye-icon').textContent = show ? 'visibility_off' : 'visibility';
+        eye.setAttribute('aria-label', show ? 'Hide passcode' : 'Show passcode');
+        input.focus();
+    });
+    input.addEventListener('input', () => {
+        group.classList.remove('has-error');
+        err.textContent = '';
+        if (input.value.trim() === SITE_SECURITY_PASSCODE) submit();
+    });
+    form.addEventListener('submit', (e) => { e.preventDefault(); submit(); });
 
-    if (authInput) {
-        authInput.addEventListener('input', () => {
-            if (authGroup && authGroup.classList.contains('has-error')) {
-                authGroup.classList.remove('has-error');
-            }
-            if (authError) {
-                authError.style.display = 'none';
-            }
-            audioFX.playTick();
-        });
-    }
-
-    function handleAuthSubmit(e) {
-        if (e) e.preventDefault();
-        if (!authInput) return;
-        const entered = authInput.value.trim();
-
+    function submit() {
+        if (unlocking) return;
+        const entered = input.value.trim();
         if (entered === SITE_SECURITY_PASSCODE) {
-            // Password Correct -> Unlock website
-            audioFX.playSuccess();
-            if (authError) authError.style.display = 'none';
-            if (authGroup) authGroup.classList.remove('has-error', 'shake');
-
-            const remember = rememberCheckbox ? rememberCheckbox.checked : true;
-            setAuthentication(remember);
-
-            if (authSubmitBtn) {
-                authSubmitBtn.classList.add('success');
-                authSubmitBtn.innerHTML = '<span class="material-symbols-outlined btn-icon">check_circle</span><span>Access Granted!</span>';
-            }
-
-            const authGate = document.getElementById('auth-gate');
-            if (authGate) {
-                authGate.classList.add('unlocking');
-            }
-
+            unlocking = true;
+            sfx.play('success');
+            haptic([12, 40, 12]);
+            setAuthentication(remember ? remember.checked : true);
+            btn.classList.add('success');
+            btn.innerHTML = '<span class="ms">check_circle</span><span>Unlocked</span>';
+            const gate = document.getElementById('auth-gate');
+            gate.classList.add('unlocking');
             setTimeout(() => {
                 document.documentElement.classList.add('is-authenticated');
-                if (authGate) {
-                    authGate.classList.remove('unlocking');
-                }
-                // Check if a destination redirect was requested
-                const urlParams = new URLSearchParams(window.location.search);
-                const redirectParam = urlParams.get('redirect');
-                if (redirectParam) {
+                gate.classList.remove('unlocking');
+                unlocking = false;
+                const redirect = new URLSearchParams(location.search).get('redirect');
+                if (redirect) {
                     try {
-                        const decoded = decodeURIComponent(redirectParam);
-                        if (decoded.startsWith('/') || decoded.startsWith('./') || decoded.startsWith('../') || decoded.startsWith('geography/') || decoded.startsWith('file://') || decoded.startsWith(window.location.origin)) {
-                            window.location.replace(decoded);
-                            return;
-                        }
-                    } catch (err) {}
+                        const d = decodeURIComponent(redirect);
+                        if (d.startsWith('/') || d.startsWith('./') || d.startsWith('../') || d.startsWith('geography/') || d.startsWith(location.origin)) { location.replace(d); return; }
+                    } catch (e) {}
                 }
                 startApp();
-            }, 350);
+            }, 340);
         } else {
-            // Password Incorrect -> Deny access
-            audioFX.playError();
-            if (authError) {
-                authError.innerHTML = '<span class="material-symbols-outlined">gpp_bad</span> Incorrect password. Access denied.';
-                authError.style.display = 'flex';
-            }
-            if (authGroup) {
-                authGroup.classList.add('has-error', 'shake');
-                setTimeout(() => authGroup.classList.remove('shake'), 480);
-            }
-            if (navigator.vibrate) {
-                try { navigator.vibrate(200); } catch (e) {}
-            }
-            authInput.select();
-            authInput.focus();
+            sfx.play('error');
+            haptic([30, 40, 30]);
+            err.textContent = entered ? 'That passcode is not right. Check it and try again.' : 'Enter the passcode to continue.';
+            group.classList.remove('shake');
+            void group.offsetWidth;
+            group.classList.add('has-error', 'shake');
+            input.select();
+            input.focus();
         }
     }
-
-    if (authForm) {
-        authForm.addEventListener('submit', handleAuthSubmit);
-    }
-
-    function lockWebsite() {
+}
+function lockWebsite() {
+    const doLock = () => {
+        if (reader) {
+            const en = reader.entry;
+            closeReader(true);
+            history.replaceState({ ilb: depth() }, '', containerHref(en));
+            state.rendered = null;
+            route();
+        }
         clearAuthentication();
         document.documentElement.classList.remove('is-authenticated');
-        appStarted = false;
-        if (contentArea) contentArea.innerHTML = '';
-        if (navMenu) navMenu.innerHTML = '';
-        if (authInput) {
-            authInput.value = '';
-            authInput.type = 'password';
-            if (eyeIcon) eyeIcon.textContent = 'visibility';
-            setTimeout(() => authInput.focus(), 150);
-        }
-        if (authSubmitBtn) {
-            authSubmitBtn.classList.remove('success');
-            authSubmitBtn.innerHTML = '<span class="material-symbols-outlined btn-icon">lock_open</span><span class="btn-text">Unlock Platform</span>';
-        }
-        if (authError) {
-            authError.style.display = 'none';
-        }
-        if (authGroup) {
-            authGroup.classList.remove('has-error', 'shake');
-        }
-    }
+        const input = document.getElementById('auth-password-input');
+        const btn = document.getElementById('auth-submit-btn');
+        input.value = '';
+        input.type = 'password';
+        btn.classList.remove('success');
+        btn.innerHTML = '<span class="ms">lock_open</span><span>Unlock</span>';
+        document.getElementById('auth-error-msg').textContent = '';
+        sfx.play('off');
+        setTimeout(() => input.focus(), 120);
+    };
+    if (overlay) dismissOverlay(doLock); else doLock();
+}
 
-    if (sidebarLockBtn) {
-        sidebarLockBtn.addEventListener('click', lockWebsite);
+/* --------------------------------------------------------------------------
+   15. Global wiring
+   -------------------------------------------------------------------------- */
+function onGlobalClick(e) {
+    const actionEl = e.target.closest('[data-action]');
+    if (actionEl) {
+        const a = actionEl.dataset.action;
+        if (a === 'search') { sfx.play('tap'); haptic(6); openSearch(); return; }
+        if (a === 'settings') { sfx.play('tap'); haptic(6); openSettings(); return; }
+        if (a === 'theme') {
+            setThemePref(effectiveTheme() === 'dark' ? 'light' : 'dark');
+            sfx.play(effectiveTheme() === 'light' ? 'on' : 'off');
+            haptic(8);
+            return;
+        }
+        if (a === 'sound') { const next = !prefs.sound; if (!next) sfx.play('off'); setSound(next); haptic(8); return; }
+        if (a === 'lock') { lockWebsite(); return; }
     }
-    if (topbarLockBtn) {
-        topbarLockBtn.addEventListener('click', lockWebsite);
+    const expand = e.target.closest('[data-expand]');
+    if (expand) { expand.classList.toggle('open'); return; }
+    const star = e.target.closest('[data-star]');
+    if (star && !star.closest('.reader')) { e.preventDefault(); toggleSave(star.dataset.star, star); return; }
+
+    const back = e.target.closest('#top-back');
+    if (back) { sfx.play('back'); haptic(6); goBack(document.getElementById('topbar').dataset.back || '#/'); return; }
+
+    const link = e.target.closest('a[href^="#/"], a[href="#"]');
+    if (link && !e.defaultPrevented && !e.metaKey && !e.ctrlKey && !e.shiftKey && e.button === 0) {
+        e.preventDefault();
+        const href = link.getAttribute('href') === '#' ? '#/' : link.getAttribute('href');
+        sfx.play('open');
+        haptic(6);
+        if (link.closest('.tabbar') || link.closest('.sidebar')) {
+            if (href === location.hash || (href === '#/' && !location.hash)) { window.scrollTo({ top: 0, behavior: reducedMotion() ? 'auto' : 'smooth' }); return; }
+        }
+        go(href);
+        return;
     }
+    const tappable = e.target.closest('button, a, label.set-row');
+    if (tappable && !tappable.closest('.lock')) { sfx.play('tap'); haptic(5); }
+}
+
+function onGlobalKey(e) {
+    const tag = document.activeElement ? document.activeElement.tagName : '';
+    const editing = tag === 'INPUT' || tag === 'TEXTAREA' || (document.activeElement && document.activeElement.isContentEditable);
+    if (!document.documentElement.classList.contains('is-authenticated')) return;
+    if (((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) || (e.key === '/' && !editing)) {
+        e.preventDefault();
+        if (overlay && overlay.name === 'search') return;
+        openSearch();
+        return;
+    }
+    if (e.key === 'Escape' && overlay) { e.preventDefault(); dismissOverlay(); }
+}
+
+function setupPWA() {
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        installPrompt = e;
+        const slot = document.querySelector('[data-install-slot]');
+        if (slot && !slot.children.length) renderInstallBanner(slot);
+    });
+    window.addEventListener('appinstalled', () => { installPrompt = null; $$('[data-install-banner]').forEach((b) => b.remove()); toast('App installed', { icon: 'install_mobile' }); });
+    if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js').then(() => loadOfflineSet()).catch(() => {});
+        });
+    }
+    const pill = document.getElementById('offline-pill');
+    const syncOnline = () => { pill.hidden = navigator.onLine; };
+    window.addEventListener('online', () => { syncOnline(); toast('Back online', { icon: 'wifi' }); });
+    window.addEventListener('offline', syncOnline);
+    syncOnline();
 }
 
 let appStarted = false;
-
-// Launch Main App
 async function startApp() {
     if (appStarted) return;
     appStarted = true;
-
-    // 1. Direct local load (works when double-clicking index.html offline via file://)
     if (window.COURSE_DATA) {
         state.data = window.COURSE_DATA;
     } else {
-        // 2. Fetch data.json fallback (works when served on GitHub Pages or local HTTP server)
         try {
-            const response = await fetch('data.json');
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            state.data = await response.json();
-        } catch (error) {
-            contentArea.innerHTML = `
-                <div class="no-results">
-                    <span class="material-symbols-outlined icon">error</span>
-                    <h3>Failed to load course data</h3>
-                    <p>Please ensure data.json exists and is accessible.</p>
-                </div>
-            `;
-            console.error('Data fetch error:', error);
+            const res = await fetch('data.json');
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            state.data = await res.json();
+        } catch (err) {
+            view().innerHTML = `<div class="page"><div class="empty-state" style="margin-top:24px"><span class="ms">cloud_off</span><h3>Course data could not load</h3><p>Check your internet connection and reload the page.</p><div class="actions"><button type="button" class="btn btn-primary" onclick="location.reload()">Reload</button></div></div></div>`;
+            appStarted = false;
             return;
         }
     }
-
+    state.batch = state.data.batches[0];
+    buildIndexes();
     buildSearchIndex();
-    renderNav();
-    renderView();
-    if (contentArea) contentArea.scrollTop = 0;
+    renderSidebar();
+    if (!history.state || typeof history.state.ilb !== 'number') history.replaceState({ ilb: 0 }, '', location.href);
+    state.navType = 'push';
+    route();
+    loadOfflineSet();
 }
 
-// Initialize App
-async function init() {
-    setupMobileMenu();
-    setupSearch();
+function init() {
+    try { history.scrollRestoration = 'manual'; } catch (e) {}
+    applyTheme();
+    syncSoundButton();
+    if (window.matchMedia) {
+        const mq = matchMedia('(prefers-color-scheme: light)');
+        const onChange = () => { if (prefs.theme === 'system') applyTheme(); };
+        if (mq.addEventListener) mq.addEventListener('change', onChange); else if (mq.addListener) mq.addListener(onChange);
+    }
+    document.addEventListener('click', onGlobalClick);
+    window.addEventListener('keydown', onGlobalKey);
+    const topbar = document.getElementById('topbar');
+    let sTick = false;
+    window.addEventListener('scroll', () => {
+        if (sTick) return;
+        sTick = true;
+        requestAnimationFrame(() => { topbar.classList.toggle('scrolled', window.scrollY > 4); sTick = false; });
+    }, { passive: true });
     setupAuthGate();
-    setupAudioButton();
-    initThemeEngine();
-    initCyberCanvas();
-    initCursorSpotlight();
-    initCardTiltPhysics();
-
+    setupPWA();
     if (isUserAuthenticated()) {
         document.documentElement.classList.add('is-authenticated');
         startApp();
     } else {
         document.documentElement.classList.remove('is-authenticated');
-        const authInput = document.getElementById('auth-password-input');
-        if (authInput) {
-            setTimeout(() => authInput.focus(), 150);
-        }
+        setTimeout(() => { const i = document.getElementById('auth-password-input'); if (i) i.focus(); }, 150);
     }
 }
 
-// Mobile Menu Setup
-function setupMobileMenu() {
-    if (mobileMenuBtn && sidebar) {
-        mobileMenuBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-            if (sidebarOverlay) sidebarOverlay.classList.toggle('active');
-        });
-    }
-
-    if (sidebarOverlay) {
-        sidebarOverlay.addEventListener('click', closeSidebarOnMobile);
-    }
-}
-
-function closeSidebarOnMobile() {
-    if (sidebar) sidebar.classList.remove('open');
-    if (sidebarOverlay) sidebarOverlay.classList.remove('active');
-}
-
-// Search Setup
-function setupSearch() {
-    if (!searchInput) return;
-
-    let debounceTimer;
-    searchInput.addEventListener('input', (e) => {
-        clearTimeout(debounceTimer);
-        const query = e.target.value.trim();
-
-        if (clearSearchBtn) {
-            if (query.length > 0) {
-                clearSearchBtn.classList.remove('hidden');
-            } else {
-                clearSearchBtn.classList.add('hidden');
-            }
-        }
-
-        debounceTimer = setTimeout(() => {
-            handleSearch(query);
-        }, 150);
-    });
-
-    if (clearSearchBtn) {
-        clearSearchBtn.addEventListener('click', () => {
-            searchInput.value = '';
-            clearSearchBtn.classList.add('hidden');
-            handleSearch('');
-            searchInput.focus();
-        });
-    }
-
-    searchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            searchInput.value = '';
-            if (clearSearchBtn) clearSearchBtn.classList.add('hidden');
-            handleSearch('');
-            searchInput.blur();
-        }
-    });
-
-    // Global keyboard shortcut: Press / or Ctrl+K anywhere to focus search
-    window.addEventListener('keydown', (e) => {
-        const activeTag = document.activeElement ? document.activeElement.tagName : '';
-        const isEditing = activeTag === 'INPUT' || activeTag === 'TEXTAREA' || (document.activeElement && document.activeElement.isContentEditable);
-        if ((e.key === '/' || ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K'))) && !isEditing) {
-            e.preventDefault();
-            searchInput.focus();
-            searchInput.select();
-        }
-    });
-}
-
-function handleSearch(query) {
-    state.searchQuery = query;
-
-    if (!query) {
-        if (state.currentView === 'search') {
-            state.currentView = state.previousView || 'batches';
-            renderNav();
-            renderBreadcrumbs();
-            renderView();
-        }
-        return;
-    }
-
-    if (state.currentView !== 'search') {
-        state.previousView = state.currentView;
-        state.currentView = 'search';
-    }
-
-    renderNav();
-    renderBreadcrumbs();
-    renderSearchResults(query);
-}
-
-// Navigation Rendering
-function renderNav() {
-    if (!state.data) return;
-    navMenu.innerHTML = '';
-
-    // "All Batches" Home Item
-    const homeItem = document.createElement('div');
-    homeItem.className = `nav-item ${state.currentView === 'batches' && state.path.length === 0 ? 'active' : ''}`;
-    homeItem.innerHTML = `
-        <span class="material-symbols-outlined icon">dashboard</span>
-        <span>Overview</span>
-    `;
-    homeItem.onclick = () => {
-        closeSidebarOnMobile();
-        resetSearch();
-        navigateTo('batches', []);
-    };
-    navMenu.appendChild(homeItem);
-
-    // Batches
-    state.data.batches.forEach(batch => {
-        const item = document.createElement('div');
-        const isActive = state.currentView !== 'search' && state.currentView !== 'viewer' && state.path[0] === batch.id && state.path.length <= 1;
-        item.className = `nav-item ${isActive ? 'active' : ''}`;
-        item.innerHTML = `
-            <span class="material-symbols-outlined icon">${batch.icon || 'school'}</span>
-            <span>${batch.name}</span>
-        `;
-        item.onclick = () => {
-            closeSidebarOnMobile();
-            resetSearch();
-            navigateTo('subjects', [batch.id]);
-        };
-        navMenu.appendChild(item);
-    });
-
-    // Latest Update Quick Launch: History - Ch 3–6 Interactive PYQ DPPs (newest: Ch 9 Independence & Partition)
-    const hisNav = document.createElement('div');
-    const isHisActive = state.currentView !== 'search' && state.path[1] === 'sub-10-his' && ['chap-his-3', 'chap-his-4', 'chap-his-5', 'chap-his-6', 'chap-his-7', 'chap-his-8', 'chap-his-9'].includes(state.path[2]);
-    hisNav.className = `nav-item nav-item-featured ${isHisActive ? 'active' : ''}`;
-    hisNav.innerHTML = `
-        <span class="material-symbols-outlined icon" style="color: #f59e0b;">history_edu</span>
-        <span style="font-weight: 600;">History: Ch 3–9 DPPs</span>
-        <span class="nav-badge-hot" style="background: linear-gradient(135deg, #d97706, #f59e0b); color:#fff; box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);">NEW</span>
-    `;
-    hisNav.onclick = () => {
-        closeSidebarOnMobile();
-        resetSearch();
-        const batch = state.data.batches.find(b => b.id === 'batch-class-10');
-        if (batch) {
-            navigateTo('chapters', [batch.id, 'sub-10-his']);
-        }
-    };
-    navMenu.appendChild(hisNav);
-}
-
-function resetSearch() {
-    if (searchInput) {
-        searchInput.value = '';
-        if (clearSearchBtn) clearSearchBtn.classList.add('hidden');
-        state.searchQuery = '';
-    }
-}
-
-// Breadcrumb Rendering
-function renderBreadcrumbs() {
-    breadcrumbs.innerHTML = '';
-
-    // Home
-    const isHomeActive = state.currentView === 'batches' && state.path.length === 0;
-    const homeBtn = document.createElement('span');
-    homeBtn.className = `breadcrumb-item material-symbols-outlined ${isHomeActive ? 'active' : ''}`;
-    homeBtn.textContent = 'home';
-    homeBtn.title = 'Back to Overview';
-    if (!isHomeActive) {
-        homeBtn.onclick = () => {
-            resetSearch();
-            navigateTo('batches', []);
-        };
-    }
-    breadcrumbs.appendChild(homeBtn);
-
-    if (state.currentView === 'search') {
-        addCrumbSeparator();
-        const searchCrumb = document.createElement('span');
-        searchCrumb.className = 'breadcrumb-item active';
-        searchCrumb.textContent = `Search: "${state.searchQuery}"`;
-        breadcrumbs.appendChild(searchCrumb);
-        return;
-    }
-
-    const { batch, subject, chapter, subchapter } = resolvePath(state.path);
-
-    if (state.path.length > 0 && batch) {
-        addCrumbSeparator();
-        const isCurrent = state.currentView === 'subjects' && state.path.length === 1;
-        addCrumb(batch.name, isCurrent ? null : () => navigateTo('subjects', [batch.id]), isCurrent);
-    }
-
-    if (state.path.length > 1 && subject) {
-        addCrumbSeparator();
-        const isCurrent = state.currentView === 'chapters' && state.path.length === 2;
-        addCrumb(subject.name, isCurrent ? null : () => navigateTo('chapters', [batch.id, subject.id]), isCurrent);
-    }
-
-    if (state.path.length > 2 && chapter) {
-        addCrumbSeparator();
-        const hasSubchap = chapter.subchapters && chapter.subchapters.length > 0;
-        const isCurrent = (state.currentView === 'subchapters' || (state.currentView === 'items' && !hasSubchap)) && state.path.length === 3;
-        addCrumb(chapter.name, isCurrent ? null : () => {
-            navigateTo(hasSubchap ? 'subchapters' : 'items', [batch.id, subject.id, chapter.id]);
-        }, isCurrent);
-    }
-
-    if (state.path.length > 3 && subchapter) {
-        addCrumbSeparator();
-        const isCurrent = state.currentView === 'items' && state.path.length === 4;
-        addCrumb(subchapter.name, isCurrent ? null : () => navigateTo('items', state.path.slice(0, 4)), isCurrent);
-    }
-
-    if (state.currentView === 'viewer' && state.currentItem) {
-        addCrumbSeparator();
-        const itemCrumb = document.createElement('span');
-        itemCrumb.className = 'breadcrumb-item active';
-        itemCrumb.textContent = state.currentItem.title;
-        breadcrumbs.appendChild(itemCrumb);
-    }
-}
-
-function addCrumbSeparator() {
-    const sep = document.createElement('span');
-    sep.className = 'material-symbols-outlined breadcrumb-separator';
-    sep.textContent = 'chevron_right';
-    breadcrumbs.appendChild(sep);
-}
-
-function addCrumb(name, onClick, isActive = false) {
-    const crumb = document.createElement('span');
-    crumb.className = `breadcrumb-item ${isActive ? 'active' : ''}`;
-    crumb.textContent = name;
-    if (onClick && !isActive) crumb.onclick = onClick;
-    breadcrumbs.appendChild(crumb);
-}
-
-// Navigation Logic
-function navigateTo(view, pathArgs, item = null) {
-    state.currentView = view;
-    state.path = pathArgs;
-    state.currentItem = (view === 'viewer') ? item : null;
-
-    renderNav();
-    renderBreadcrumbs();
-    renderView();
-    if (contentArea) contentArea.scrollTop = 0;
-}
-
-// Main View Rendering
-function renderView() {
-    contentArea.innerHTML = '';
-    const appContainer = document.querySelector('.app-container');
-    if (contentArea) {
-        contentArea.scrollTop = 0;
-        if (state.currentView === 'viewer') {
-            document.body.classList.add('viewer-active');
-            if (appContainer) appContainer.classList.add('viewer-active');
-            if (state.isFullscreenActive) {
-                document.body.classList.add('theater-fullscreen-active');
-                if (appContainer) appContainer.classList.add('theater-fullscreen-active');
-            }
-            contentArea.classList.add('viewer-active');
-        } else {
-            if (activeViewerCleanup) {
-                activeViewerCleanup();
-                activeViewerCleanup = null;
-            }
-            state.isFullscreenActive = false;
-            exitPureFullscreen();
-            document.body.classList.remove('viewer-active');
-            document.body.classList.remove('theater-fullscreen-active');
-            if (appContainer) {
-                appContainer.classList.remove('viewer-active');
-                appContainer.classList.remove('theater-fullscreen-active');
-                appContainer.classList.remove('sidebar-collapsed');
-            }
-            contentArea.classList.remove('viewer-active');
-        }
-    }
-    const wrapper = document.createElement('div');
-    wrapper.className = 'fade-in';
-
-    if (state.currentView === 'batches') {
-        const batch = state.data.batches[0]; // Class 10th
-
-        // Executive Hero Header & Dashboard Spotlight
-        const heroSection = document.createElement('div');
-        heroSection.className = 'dashboard-hero-banner';
-        heroSection.innerHTML = `
-            <div class="hero-telemetry-strip">
-                <div class="telemetry-chip chip-online">
-                    <span class="pulse-radar-dot"></span>
-                    <span>QUANTUM CORE ONLINE</span>
-                </div>
-                <div class="telemetry-chip chip-latency">
-                    <span class="material-symbols-outlined" style="font-size: 14px;">speed</span>
-                    <span>PING 14ms</span>
-                </div>
-                <div class="telemetry-chip chip-curriculum">
-                    <span class="material-symbols-outlined" style="font-size: 14px;">verified</span>
-                    <span>CISCE 2025–2027 MATRIX</span>
-                </div>
-            </div>
-            <h1 class="hero-title">Ilberiz Techz <span class="text-gradient">IIT Kanpur</span></h1>
-            <p class="hero-description">The authoritative Class 10th ICSE study vault & examination platform. Access high-yield theory notes, board specimen blueprints, and interactive DPP test engines.</p>
-            
-            <div class="hero-stats-row">
-                <div class="hero-stat-card">
-                    <span class="stat-number" data-target="9" data-suffix="">0</span>
-                    <span class="stat-label">Prescribed Subjects</span>
-                </div>
-                <div class="hero-stat-card">
-                    <span class="stat-number" data-target="100" data-suffix="+">0</span>
-                    <span class="stat-label">Full Class Notes</span>
-                </div>
-                <div class="hero-stat-card">
-                    <span class="stat-number" data-target="12" data-suffix="+">0</span>
-                    <span class="stat-label">Interactive Engines</span>
-                </div>
-                <div class="hero-stat-card">
-                    <span class="stat-number" data-target="100" data-suffix="%">0</span>
-                    <span class="stat-label">Board Aligned</span>
-                </div>
-            </div>
-        `;
-        wrapper.appendChild(heroSection);
-        setTimeout(animateStatCounters, 50);
-
-        // Fast-Track Study Spotlight
-        const spotlightSection = document.createElement('div');
-        spotlightSection.className = 'spotlight-section';
-        spotlightSection.innerHTML = `
-            <div class="spotlight-header">
-                <div class="spotlight-header-left">
-                    <span class="material-symbols-outlined icon">bolt</span>
-                    <h3>High-Yield Fast Track</h3>
-                </div>
-                <span class="spotlight-sub">Jump straight to top requested resources</span>
-            </div>
-            <div class="spotlight-chips-grid">
-                <button class="spotlight-chip featured-chip" id="spot-his-ip-mcq" type="button">
-                    <span class="material-symbols-outlined" style="color: #f59e0b;">quiz</span>
-                    <span class="spotlight-chip-text">Independence & Partition • DPP 1: MCQs (3)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #d97706, #f59e0b);">NEW</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-ip-short" type="button">
-                    <span class="material-symbols-outlined" style="color: #ef4444;">edit_note</span>
-                    <span class="spotlight-chip-text">Independence & Partition • DPP 2: Short (7)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #dc2626, #ef4444);">NEW</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-ip-long" type="button">
-                    <span class="material-symbols-outlined" style="color: #a855f7;">history_edu</span>
-                    <span class="spotlight-chip-text">Independence & Partition • DPP 3: Long (13)</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #9333ea, #a855f7);">NEW</span>
-                </button>
-                <button class="spotlight-chip featured-chip" id="spot-his-all" type="button">
-                    <span class="material-symbols-outlined" style="color: #818cf8;">auto_stories</span>
-                    <span class="spotlight-chip-text">History • Ch 3–9 Interactive DPPs</span>
-                    <span class="chip-badge-hot" style="background: linear-gradient(135deg, #4f46e5, #818cf8);">HOT</span>
-                </button>
-            </div>
-        `;
-        wrapper.appendChild(spotlightSection);
-
-        // Bind Spotlight Clicks (clean, fast, single-lookup)
-        const openHisDpp = (chapId, itemId) => {
-            audioFX.playTick();
-            const sub = batch.subjects.find(sb => sb.id === 'sub-10-his');
-            const chap = sub && sub.chapters.find(ch => ch.id === chapId);
-            const item = chap && (chap.items || []).find(it => it.id === itemId);
-            if (item) navigateTo('viewer', [batch.id, 'sub-10-his', chapId], item);
-            else navigateTo('items', [batch.id, 'sub-10-his', chapId]);
-        };
-        const chipActions = {
-            '#spot-his-ip-mcq': () => openHisDpp('chap-his-9', 'his-ip-dpp-mcq'),
-            '#spot-his-ip-short': () => openHisDpp('chap-his-9', 'his-ip-dpp-short'),
-            '#spot-his-ip-long': () => openHisDpp('chap-his-9', 'his-ip-dpp-long'),
-            '#spot-his-all': () => { audioFX.playTick(); navigateTo('chapters', [batch.id, 'sub-10-his']); }
-        };
-
-        Object.entries(chipActions).forEach(([selector, action]) => {
-            const btn = spotlightSection.querySelector(selector);
-            if (btn) btn.onclick = action;
-        });
-
-        const header = createSectionHeader('Curriculum Classes', 'Choose your curriculum level to explore subjects, study notes & lectures');
-        wrapper.appendChild(header);
-
-        const grid = document.createElement('div');
-        grid.className = 'cards-grid';
-        state.data.batches.forEach((b, idx) => {
-            const subjectNames = b.subjects ? b.subjects.map(s => s.name).slice(0, 7).join(' • ') + '...' : '';
-            grid.appendChild(createCard({
-                title: b.name + ' ICSE Board Preparation',
-                subtitle: b.description || 'Comprehensive study notes, solutions, and lectures',
-                icon: b.icon || 'school',
-                onClick: () => navigateTo('subjects', [b.id]),
-                badge: `${b.subjects.length} Prescribed Subjects`,
-                actionText: 'Explore All 9 Subjects',
-                index: idx,
-                extraMeta: `<span class="curriculum-preview-pills">${subjectNames}</span>`
-            }));
-        });
-        wrapper.appendChild(grid);
-    } 
-    else if (state.currentView === 'subjects') {
-        const { batch } = resolvePath(state.path);
-        if (!batch) return;
-
-        const header = createSectionHeader(batch.name + ' Prescribed Subjects', `${batch.description} • CISCE Class 10 Syllabus`);
-        wrapper.appendChild(header);
-
-        // Interactive Bento Category Filters
-        const bentoFilterBar = document.createElement('div');
-        bentoFilterBar.className = 'bento-filter-bar';
-        bentoFilterBar.innerHTML = `
-            <button class="bento-tab-btn active" data-category="all"><span class="material-symbols-outlined" style="font-size: 15px;">grid_view</span> All Subjects (9)</button>
-            <button class="bento-tab-btn" data-category="stem"><span class="material-symbols-outlined" style="font-size: 15px;">science</span> Sciences & STEM</button>
-            <button class="bento-tab-btn" data-category="social"><span class="material-symbols-outlined" style="font-size: 15px;">public</span> Social Sciences</button>
-            <button class="bento-tab-btn" data-category="lang"><span class="material-symbols-outlined" style="font-size: 15px;">translate</span> Languages</button>
-        `;
-        wrapper.appendChild(bentoFilterBar);
-
-        const grid = document.createElement('div');
-        grid.className = 'cards-grid';
-
-        function renderSubjectCards(filterCategory = 'all') {
-            grid.innerHTML = '';
-            let cardIndex = 0;
-            batch.subjects.forEach((sub) => {
-                const isPhysics = sub.id === 'sub-10-phy';
-                const isStem = ['sub-10-phy', 'sub-10-chem', 'sub-10-bio', 'sub-10-math', 'sub-10-comp'].includes(sub.id);
-                const isSocial = ['sub-10-his', 'sub-10-geo', 'sub-10-econ', 'sub-10-comm'].includes(sub.id);
-                const isLang = ['sub-10-eng', 'sub-10-hindi'].includes(sub.id);
-
-                if (filterCategory === 'stem' && !isStem) return;
-                if (filterCategory === 'social' && !isSocial) return;
-                if (filterCategory === 'lang' && !isLang) return;
-
-                const stats = getSubjectStats(sub);
-                let badgeText = '';
-                if (isPhysics) {
-                    if (stats.totalNotes > 0 && stats.totalModules > 0) {
-                        badgeText = `${sub.chapters.length} Units • ${stats.totalChapters} Ch • ${stats.totalNotes} Note${stats.totalNotes === 1 ? '' : 's'} • ${stats.totalModules} Module${stats.totalModules === 1 ? '' : 's'}`;
-                    } else if (stats.totalNotes > 0) {
-                        badgeText = `${sub.chapters.length} Units • ${stats.totalChapters} Ch • ${stats.totalNotes} Note${stats.totalNotes === 1 ? '' : 's'}`;
-                    } else {
-                        badgeText = `${sub.chapters.length} Units • ${stats.totalChapters} Chapters`;
-                    }
-                } else {
-                    if (stats.totalNotes > 0 && stats.totalModules > 0) {
-                        badgeText = `${sub.chapters.length} Ch • ${stats.totalNotes} Note${stats.totalNotes === 1 ? '' : 's'} • ${stats.totalModules} Module${stats.totalModules === 1 ? '' : 's'}`;
-                    } else if (stats.totalNotes > 0) {
-                        badgeText = `${sub.chapters.length} Ch • ${stats.totalNotes} Note${stats.totalNotes === 1 ? '' : 's'}`;
-                    } else if (stats.totalModules > 0) {
-                        badgeText = `${sub.chapters.length} Ch • ${stats.totalModules} Module${stats.totalModules === 1 ? '' : 's'}`;
-                    } else {
-                        badgeText = `${sub.chapters.length} Chapters`;
-                    }
-                }
-                
-                grid.appendChild(createCard({
-                    title: sub.name,
-                    subtitle: sub.description,
-                    icon: sub.icon || 'menu_book',
-                    onClick: () => navigateTo('chapters', [batch.id, sub.id]),
-                    badge: badgeText,
-                    actionText: isPhysics ? 'Explore Units' : 'Open Chapters',
-                    index: cardIndex++,
-                    subjectId: sub.id
-                }));
-            });
-        }
-
-        renderSubjectCards('all');
-
-        bentoFilterBar.querySelectorAll('.bento-tab-btn').forEach((btn) => {
-            btn.addEventListener('click', () => {
-                audioFX.playTick();
-                bentoFilterBar.querySelectorAll('.bento-tab-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                renderSubjectCards(btn.getAttribute('data-category'));
-            });
-        });
-
-        wrapper.appendChild(grid);
-    }
-    else if (state.currentView === 'chapters') {
-        const { batch, subject: sub } = resolvePath(state.path);
-        if (!batch || !sub) return;
-
-        const isPhysics = sub.id === 'sub-10-phy';
-        const subHeading = isPhysics
-            ? `${batch.name} • Select a unit to explore chapters and study resources`
-            : `${batch.name} • Select a chapter to read notes and solutions`;
-        const header = createSectionHeader(sub.name, subHeading);
-        wrapper.appendChild(header);
-
-        const grid = document.createElement('div');
-        grid.className = 'cards-grid';
-        sub.chapters.forEach((chap, idx) => {
-            const hasSub = chap.subchapters && chap.subchapters.length > 0;
-            let count = 0;
-            let badgeText = '';
-            let actionText = 'View Notes';
-
-            if (hasSub) {
-                const totalNotes = chap.subchapters.reduce((sum, sc) => sum + (sc.items ? sc.items.filter(i => i.type === 'pdf').length : 0), 0);
-                const totalModules = (chap.items ? chap.items.length : 0) + chap.subchapters.reduce((sum, sc) => sum + (sc.items ? sc.items.filter(i => i.type !== 'pdf').length : 0), 0);
-                const isPoemCollection = chap.id === 'chap-eng-2';
-                const isUnit = isPhysics || chap.id.startsWith('unit-');
-                const unitType = isUnit ? 'Chapters' : (isPoemCollection ? 'Poems' : 'Stories');
-                if (totalNotes > 0 && totalModules > 0) {
-                    badgeText = `${chap.subchapters.length} ${unitType} • ${totalNotes} Note${totalNotes === 1 ? '' : 's'} • ${totalModules} Module${totalModules === 1 ? '' : 's'}`;
-                } else if (totalNotes > 0) {
-                    badgeText = `${chap.subchapters.length} ${unitType} • ${totalNotes} Note${totalNotes === 1 ? '' : 's'}`;
-                } else if (totalModules > 0) {
-                    badgeText = `${chap.subchapters.length} ${unitType} • ${totalModules} Module${totalModules === 1 ? '' : 's'}`;
-                } else {
-                    badgeText = `${chap.subchapters.length} ${unitType}`;
-                }
-                actionText = isUnit ? 'Explore Unit' : `Explore ${unitType}`;
-            } else {
-                count = chap.items ? chap.items.length : 0;
-                badgeText = chap.featured ? 'Interactive DPP' : (count > 0 ? `${count} Notes Ready` : 'In Progress');
-                actionText = chap.featured ? 'Open Engine' : 'View Notes';
-            }
-            const iconName = chap.icon || (chap.featured ? 'bolt' : (isPhysics ? 'category' : 'auto_stories'));
-            
-            const cardEl = createCard({
-                title: chap.name,
-                subtitle: chap.description || `${count} available study resources`,
-                icon: iconName,
-                onClick: () => {
-                    if (hasSub) {
-                        navigateTo('subchapters', [batch.id, sub.id, chap.id]);
-                    } else {
-                        navigateTo('items', [batch.id, sub.id, chap.id]);
-                    }
-                },
-                badge: badgeText,
-                isInteractive: !!chap.featured,
-                actionText: actionText,
-                index: idx,
-                subjectId: sub.id
-            });
-            if (chap.featured) cardEl.classList.add('card-featured');
-            grid.appendChild(cardEl);
-        });
-        wrapper.appendChild(grid);
-    }
-    else if (state.currentView === 'subchapters') {
-        const { batch, subject: sub, chapter: chap } = resolvePath(state.path);
-        if (!chap) return;
-
-        const isPhysics = sub.id === 'sub-10-phy' || chap.id.startsWith('unit-');
-        const isPoemCollection = chap.id === 'chap-eng-2';
-        const unitType = isPhysics ? 'Chapters' : (isPoemCollection ? 'Poems' : 'Short Stories');
-        const subHeading = isPhysics
-            ? `${sub.name} • All Prescribed Chapters in this Unit`
-            : `${sub.name} • All 5 Prescribed ${unitType} for ICSE Class 10`;
-        const header = createSectionHeader(chap.name, subHeading);
-        wrapper.appendChild(header);
-
-        // Unit-Level Master Study Modules (such as MCQ, Theory, Numerical when provided)
-        if (chap.items && chap.items.length > 0) {
-            const unitModulesHeader = document.createElement('div');
-            unitModulesHeader.innerHTML = `
-                <div class="spotlight-header" style="margin-bottom: 14px; margin-top: 6px;">
-                    <div class="spotlight-header-left">
-                        <span class="material-symbols-outlined icon" style="color: #06b6d4;">bolt</span>
-                        <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff;">${chap.name} — Master Study Modules</h3>
-                    </div>
-                    <span class="spotlight-sub" style="color: #94a3b8; font-size: 0.85rem;">Interactive practice, theory vaults & numericals</span>
-                </div>
-            `;
-            wrapper.appendChild(unitModulesHeader);
-
-            const unitGrid = document.createElement('div');
-            unitGrid.className = 'cards-grid';
-            unitGrid.style.marginBottom = '28px';
-            chap.items.forEach((item, idx) => {
-                const isInter = item.type === 'interactive' || item.type === 'app';
-                const isPdf = item.type === 'pdf';
-                const cardEl = createCard({
-                    title: item.title,
-                    subtitle: item.subtitle || `${chap.name} Master Resource`,
-                    icon: isInter ? 'quiz' : (isPdf ? 'picture_as_pdf' : 'menu_book'),
-                    onClick: () => navigateTo('viewer', [batch.id, sub.id, chap.id], item),
-                    badge: item.badge || (isInter ? 'Interactive Engine' : 'Master Resource'),
-                    isPdf: isPdf,
-                    isInteractive: isInter,
-                    actionText: isInter ? 'Launch Engine' : (isPdf ? 'Read Notes' : 'Open Resource'),
-                    index: idx,
-                    subjectId: sub.id
-                });
-                if (isInter) cardEl.classList.add('card-featured');
-                unitGrid.appendChild(cardEl);
-            });
-            wrapper.appendChild(unitGrid);
-
-            const chaptersHeader = document.createElement('div');
-            chaptersHeader.innerHTML = `
-                <div class="spotlight-header" style="margin-bottom: 14px;">
-                    <div class="spotlight-header-left">
-                        <span class="material-symbols-outlined icon" style="color: #38bdf8;">menu_book</span>
-                        <h3 style="font-size: 1.15rem; font-weight: 700; color: #fff;">Prescribed Chapters</h3>
-                    </div>
-                    <span class="spotlight-sub" style="color: #94a3b8; font-size: 0.85rem;">Chapter-wise notes, diagrams & questions</span>
-                </div>
-            `;
-            wrapper.appendChild(chaptersHeader);
-        }
-
-        const grid = document.createElement('div');
-        grid.className = 'cards-grid';
-        (chap.subchapters || []).forEach((subchap, idx) => {
-            const count = subchap.items ? subchap.items.length : 0;
-            const badgeText = count > 0 ? `${count} Note${count === 1 ? '' : 's'} Ready` : 'In Progress';
-            const cardEl = createCard({
-                title: subchap.name,
-                subtitle: subchap.author ? `${subchap.author} • ${subchap.description}` : subchap.description,
-                icon: subchap.icon || (isPhysics ? 'auto_stories' : 'menu_book'),
-                onClick: () => navigateTo('items', [batch.id, sub.id, chap.id, subchap.id]),
-                badge: badgeText,
-                actionText: count > 0 ? 'View Notes' : 'Open Chapter',
-                index: idx,
-                subjectId: sub.id
-            });
-            grid.appendChild(cardEl);
-        });
-        wrapper.appendChild(grid);
-    }
-    else if (state.currentView === 'items') {
-        const { batch, subject: sub, chapter: chap, subchapter: subchap } = resolvePath(state.path);
-        if (!chap) return;
-
-        const currentTarget = subchap || chap;
-        const parentTitle = subchap ? chap.name : sub.name;
-        const header = createSectionHeader(currentTarget.name, `${parentTitle} • Class Notes & Study Material`);
-        wrapper.appendChild(header);
-
-        const items = currentTarget.items || [];
-        if (items.length === 0) {
-            const emptyBox = document.createElement('div');
-            emptyBox.className = 'empty-chapter-box';
-            emptyBox.innerHTML = `
-                <span class="material-symbols-outlined icon">cloud_sync</span>
-                <h3>Notes Being Uploaded for ${currentTarget.name}</h3>
-                <p>The notes and lecture modules for this ${subchap ? 'chapter' : 'section'} are currently in progress. You can explore available notes across the curriculum!</p>
-                <div style="margin-top: 20px;">
-                    <button class="viewer-btn primary" id="jump-back-btn">
-                        <span class="material-symbols-outlined">arrow_back</span> ${subchap ? 'Back to ' + chap.name : 'Back to Chapters'}
-                    </button>
-                </div>
-            `;
-            wrapper.appendChild(emptyBox);
-
-            const jumpBtn = emptyBox.querySelector('#jump-back-btn');
-            if (jumpBtn) {
-                jumpBtn.onclick = () => {
-                    if (subchap) {
-                        navigateTo('subchapters', [batch.id, sub.id, chap.id]);
-                    } else {
-                        navigateTo('chapters', [batch.id, sub.id]);
-                    }
-                };
-            }
-        } else {
-            const grid = document.createElement('div');
-            grid.className = 'cards-grid';
-            items.forEach((item, idx) => {
-                const isInter = item.type === 'interactive' || item.type === 'app';
-                const isPdf = item.type === 'pdf';
-                const cardEl = createCard({
-                    title: item.title,
-                    subtitle: item.subtitle || 'High-yield comprehensive notes with diagrams',
-                    icon: isInter ? 'quiz' : (isPdf ? 'picture_as_pdf' : 'play_circle'),
-                    onClick: () => navigateTo('viewer', state.path, item),
-                    badge: item.badge || (isPdf ? `PDF • ${item.size || 'Notes'}` : 'Video Lecture'),
-                    isPdf: isPdf,
-                    isInteractive: isInter,
-                    actionText: isInter ? 'Launch Engine' : (isPdf ? 'Read Notes' : 'Watch Lecture'),
-                    index: idx
-                });
-                if (isInter) cardEl.classList.add('card-featured');
-                grid.appendChild(cardEl);
-            });
-            wrapper.appendChild(grid);
-        }
-    }
-    else if (state.currentView === 'viewer') {
-        if (state.currentItem?.type === 'pdf') {
-            wrapper.appendChild(createPdfViewer(state.currentItem));
-        } else if (state.currentItem?.type === 'interactive' || state.currentItem?.type === 'app') {
-            wrapper.appendChild(createInteractiveViewer(state.currentItem));
-        } else {
-            wrapper.appendChild(createVideoPlayer(state.currentItem));
-        }
-    }
-
-    contentArea.appendChild(wrapper);
-}
-
-// Search Results Rendering
-function renderSearchResults(query) {
-    contentArea.innerHTML = '';
-    if (contentArea) contentArea.scrollTop = 0;
-    const wrapper = document.createElement('div');
-    wrapper.className = 'fade-in';
-
-    const queryWords = query.toLowerCase().split(/\s+/).filter(Boolean);
-    const itemResults = [];
-    const chapterResults = [];
-    const seenChapterIds = new Set();
-
-    searchIndex.forEach(entry => {
-        const matches = queryWords.every(word => entry.searchBlob.includes(word));
-        if (!matches) return;
-        if (entry.type === 'item') {
-            itemResults.push(entry);
-            seenChapterIds.add(entry.subchapter ? entry.subchapter.id : entry.chapter.id);
-        } else if (entry.type === 'chapter' || entry.type === 'subchapter') {
-            const id = entry.subchapter ? entry.subchapter.id : entry.chapter.id;
-            if (!seenChapterIds.has(id)) {
-                chapterResults.push(entry);
-            }
-        }
-    });
-
-    const standaloneChapters = chapterResults.filter(ch => !seenChapterIds.has(ch.subchapter ? ch.subchapter.id : ch.chapter.id));
-    const totalResults = itemResults.length + standaloneChapters.length;
-
-    const header = createSectionHeader(
-        `Search Results for "${query}"`,
-        `Found ${totalResults} matching study resource${totalResults === 1 ? '' : 's'}`
-    );
-    wrapper.appendChild(header);
-
-    if (totalResults === 0) {
-        const emptyState = document.createElement('div');
-        emptyState.className = 'no-results';
-        emptyState.innerHTML = `
-            <span class="material-symbols-outlined icon">search_off</span>
-            <h3>No matching notes found</h3>
-            <p>Try searching for topics like "Julius Caesar", "Act 3 Scene 1", "Act 3 Scene 2", "Antony Speech", "Mahatma Gandhi", "Dandi March", "Simon Commission", "Civil Disobedience", "Chauri Chaura", "Rowlatt Act", "Jallianwala Bagh", "Non-Cooperation", "Muslim League", "1857", "Nationalism", "First Phase", "Second Phase", "Climate", "Soil", "Vegetation", "Water", "Energy", "GST" or "Trigonometry".</p>
-        `;
-        wrapper.appendChild(emptyState);
-    } else {
-        const grid = document.createElement('div');
-        grid.className = 'cards-grid';
-        let cardIndex = 0;
-
-        // 1. Direct Item Matches (Notes & Interactive Engines)
-        itemResults.forEach((res) => {
-            const isInter = res.item.type === 'interactive' || res.item.type === 'app';
-            const isPdf = res.item.type === 'pdf';
-            const itemPath = res.subchapter
-                ? [res.batch.id, res.subject.id, res.chapter.id, res.subchapter.id]
-                : [res.batch.id, res.subject.id, res.chapter.id];
-            const targetSubtitle = res.subchapter
-                ? `${res.batch.name} • ${res.subject.name} • ${res.subchapter.name}`
-                : `${res.batch.name} • ${res.subject.name} • ${res.chapter.name}`;
-            const card = createCard({
-                title: res.item.title,
-                subtitle: targetSubtitle,
-                icon: isInter ? 'quiz' : (isPdf ? 'picture_as_pdf' : 'play_circle'),
-                onClick: () => {
-                    resetSearch();
-                    navigateTo('viewer', itemPath, res.item);
-                },
-                badge: isInter ? 'Interactive Engine' : res.subject.name,
-                isPdf: isPdf,
-                isInteractive: isInter,
-                actionText: isInter ? 'Launch Engine' : (isPdf ? 'Read Notes' : 'Watch Lecture'),
-                index: cardIndex++
-            });
-            if (isInter) card.classList.add('card-featured');
-            grid.appendChild(card);
-        });
-
-        // 2. Standalone Chapter Matches (for subject/chapter searches)
-        standaloneChapters.forEach((res) => {
-            const isSub = !!res.subchapter;
-            const targetTitle = isSub ? res.subchapter.name : res.chapter.name;
-            const targetSubtitle = isSub
-                ? `${res.batch.name} • ${res.subject.name} • ${res.chapter.name} • ${res.subchapter.author || res.subchapter.description || ''}`
-                : `${res.batch.name} • ${res.subject.name} • ${res.chapter.description || 'Chapter Overview'}`;
-            const count = res.itemCount;
-            const card = createCard({
-                title: targetTitle,
-                subtitle: targetSubtitle,
-                icon: 'auto_stories',
-                onClick: () => {
-                    resetSearch();
-                    if (isSub) {
-                        navigateTo('items', [res.batch.id, res.subject.id, res.chapter.id, res.subchapter.id]);
-                    } else if (res.chapter.subchapters && res.chapter.subchapters.length > 0) {
-                        navigateTo('subchapters', [res.batch.id, res.subject.id, res.chapter.id]);
-                    } else {
-                        navigateTo('items', [res.batch.id, res.subject.id, res.chapter.id]);
-                    }
-                },
-                badge: count > 0 ? `${count} Note${count === 1 ? '' : 's'} Ready` : 'Class 10 Syllabus',
-                isPdf: false,
-                isInteractive: false,
-                actionText: count > 0 ? 'View Notes' : 'Open Chapter',
-                index: cardIndex++
-            });
-            grid.appendChild(card);
-        });
-
-        wrapper.appendChild(grid);
-    }
-
-    contentArea.appendChild(wrapper);
-}
-
-// UI Helpers
-function createSectionHeader(title, subtitle) {
-    const header = document.createElement('div');
-    header.className = 'section-header';
-    header.innerHTML = `
-        <div>
-            <h2>${title}</h2>
-            <p>${subtitle}</p>
-        </div>
-    `;
-    return header;
-}
-
-function createCard({ title, subtitle, icon, onClick, badge = null, isPdf = false, isInteractive = false, actionText = 'Explore', index = 0, subjectId = null, extraMeta = null }) {
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.setAttribute('role', 'button');
-    card.setAttribute('tabindex', '0');
-    card.style.setProperty('--i', Math.min(index, 10));
-    if (subjectId) {
-        card.setAttribute('data-subject', subjectId);
-    }
-    card.onclick = (e) => {
-        audioFX.playTick();
-        if (onClick) onClick(e);
-    };
-    card.onkeydown = (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            audioFX.playTick();
-            if (onClick) onClick(e);
-        }
-    };
-    
-    let iconClass = 'card-icon';
-    let badgeClass = 'card-badge';
-    if (isInteractive) {
-        iconClass = 'card-icon interactive-icon';
-        badgeClass = 'card-badge interactive-badge';
-    } else if (isPdf) {
-        iconClass = 'card-icon pdf-icon';
-        badgeClass = 'card-badge pdf-badge';
-    }
-
-    card.innerHTML = `
-        <div class="card-top">
-            <div class="${iconClass}">
-                <span class="material-symbols-outlined">${icon}</span>
-            </div>
-            ${badge ? `<span class="${badgeClass}">${isInteractive ? '<span class="live-pulse-dot"></span>' : ''}${badge}</span>` : ''}
-        </div>
-        <div class="card-content">
-            <h3>${title}</h3>
-            <p>${subtitle}</p>
-            ${extraMeta ? `<div class="card-extra-meta">${extraMeta}</div>` : ''}
-        </div>
-        <div class="card-footer-action">
-            <span>${actionText}</span>
-            <span class="material-symbols-outlined">arrow_forward</span>
-        </div>
-    `;
-    return card;
-}
-
-// Interactive App & DPP Engine Viewer Component
-function createInteractiveViewer(item) {
-    const container = document.createElement('div');
-    container.className = 'interactive-viewer-container';
-
-    const { subject } = resolvePath(state.path);
-    const currentSubName = subject?.name || 'Class 10';
-
-    // Header
-    const header = document.createElement('div');
-    header.className = 'viewer-header';
-    header.innerHTML = `
-        <div class="viewer-title-wrap">
-            <span class="lecture-badge" style="color: #38bdf8; display:flex; align-items:center; gap:5px;">
-                <span class="material-symbols-outlined" style="font-size:16px;">bolt</span>
-                Interactive Engine • ${currentSubName}
-            </span>
-            <h2>${item.title}</h2>
-        </div>
-        <div class="viewer-actions">
-            <button class="viewer-btn" id="interactive-back-btn">
-                <span class="material-symbols-outlined">arrow_back</span> Back
-            </button>
-            <a href="${item.file}" target="_blank" rel="noopener noreferrer" class="viewer-btn primary" title="Open in dedicated full screen tab">
-                <span class="material-symbols-outlined">open_in_new</span> Fullscreen Tab
-            </a>
-            <button class="viewer-btn" id="interactive-reload-btn" title="Reset or Reload Session">
-                <span class="material-symbols-outlined">refresh</span> Reload
-            </button>
-        </div>
-    `;
-
-    // Frame Wrapper
-    const frameWrapper = document.createElement('div');
-    frameWrapper.className = 'interactive-frame-wrapper';
-
-    const iframe = document.createElement('iframe');
-    iframe.src = item.file;
-    iframe.className = 'interactive-iframe';
-    iframe.title = item.title;
-    iframe.setAttribute('allow', 'fullscreen');
-
-    frameWrapper.appendChild(iframe);
-
-    // Footer
-    const footer = document.createElement('div');
-    footer.className = 'viewer-footer';
-    footer.innerHTML = `
-        <div style="display: flex; align-items: center; gap: 8px;">
-            <span class="material-symbols-outlined" style="color: #38bdf8;">quiz</span>
-            <span>${item.subtitle || `ICSE 2027 ${currentSubName} Interactive Engine`}</span>
-        </div>
-        <div>
-            <span>${item.badge || 'High-Yield Engine • Automated Feedback & Diagnostics'}</span>
-        </div>
-    `;
-
-    container.appendChild(header);
-    container.appendChild(frameWrapper);
-    container.appendChild(footer);
-
-    header.querySelector('#interactive-back-btn').onclick = navigateBackFromViewer;
-
-    header.querySelector('#interactive-reload-btn').onclick = () => {
-        iframe.src = item.file;
-    };
-
-    return container;
-}
-
-// PDF Reader & Viewer Component with Fullscreen, In-Chapter Note Switcher, Persistent Slides & Chapter Switcher
-let activeViewerCleanup = null;
-
-// High-Responsiveness Pointer & Click Binder
-// Fixes browser focus de-activation delays when clicking HTML UI out of native PDF plugins
-function bindInstantClick(btn, action) {
-    if (!btn) return;
-    let lastTrigger = 0;
-    const trigger = (e) => {
-        if (btn.disabled || btn.getAttribute('aria-disabled') === 'true') {
-            return;
-        }
-        const now = Date.now();
-        // 450ms debounce prevents synthetic mouse/click events emitted 300ms after touchstart from double-firing
-        if (now - lastTrigger < 450) {
-            if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
-            if (e && typeof e.preventDefault === 'function') e.preventDefault();
-            return;
-        }
-        lastTrigger = now;
-        window.focus();
-        if (e && typeof e.stopPropagation === 'function') {
-            e.stopPropagation();
-        }
-        action(e);
-    };
-
-    // Primary events: pointerdown fires immediately on the very first touch/mouse press before browser click suppression
-    btn.addEventListener('pointerdown', (e) => {
-        if (e.button !== undefined && e.button !== 0) return; // Only primary button
-        trigger(e);
-    });
-    // Universal click fallback (keyboard Enter/Space, accessibility tools)
-    btn.addEventListener('click', trigger);
-
-    // Proactively reclaim window focus the instant mouse cursor enters the button
-    btn.addEventListener('pointerenter', () => window.focus(), { passive: true });
-    btn.addEventListener('mouseenter', () => window.focus(), { passive: true });
-}
-
-function createPdfViewer(initialItem) {
-    if (activeViewerCleanup) {
-        activeViewerCleanup();
-        activeViewerCleanup = null;
-    }
-
-    const container = document.createElement('div');
-    container.className = 'pdf-viewer-container';
-    container.setAttribute('tabindex', '-1');
-    container.style.outline = 'none';
-
-    // Contextual Data
-    const { batch, subject, chapter: initialChapter, subchapter: initialSubchapter } = resolvePath(state.path);
-    let currentChapter = initialChapter;
-    let currentSubchapter = initialSubchapter;
-
-    let activeContainer = currentSubchapter || currentChapter;
-    const allChapters = currentSubchapter ? currentChapter?.subchapters || [] : (subject?.chapters || []);
-    let chapterNotes = (activeContainer?.items || []).filter(it => it.type === 'pdf');
-
-    // Live DOM iframe cache: preserves exact reading slide & zoom when switching notes
-    const iframeCache = new Map();
-    let currentNoteItem = initialItem;
-    let isTheaterFullscreen = !!state.isFullscreenActive;
-
-    // Header element
-    const header = document.createElement('div');
-    header.className = 'viewer-header';
-
-    // Build Chapter Dropdown items
-    const currentChapIdx = allChapters.findIndex(c => c.id === activeContainer?.id);
-    const prevChapter = currentChapIdx > 0 ? allChapters[currentChapIdx - 1] : null;
-    const nextChapter = currentChapIdx >= 0 && currentChapIdx < allChapters.length - 1 ? allChapters[currentChapIdx + 1] : null;
-
-    let chapterDropdownHtml = '';
-    allChapters.forEach((chap) => {
-        const pCount = (chap.items || []).filter(i => i.type === 'pdf').length;
-        const iCount = (chap.items || []).filter(i => i.type === 'interactive' || i.type === 'app').length;
-        let badgeHtml = '';
-        if (pCount > 0) {
-            badgeHtml = `<span class="chap-drop-badge notes">${pCount} Note${pCount === 1 ? '' : 's'}</span>`;
-        } else if (iCount > 0) {
-            badgeHtml = `<span class="chap-drop-badge dpp">Theory Vault</span>`;
-        } else {
-            badgeHtml = `<span class="chap-drop-badge empty">In Progress</span>`;
-        }
-        const isActive = chap.id === activeContainer?.id;
-        const chapLabel = chap.name.includes(':') ? chap.name.split(':')[0] : (currentSubchapter ? 'Poem' : 'Ch');
-        const chapTitle = chap.name.includes(':') ? chap.name.split(':').slice(1).join(':').trim() : chap.name;
-
-        chapterDropdownHtml += `
-            <div class="chapter-dropdown-item ${isActive ? 'active' : ''}" data-chap-id="${chap.id}">
-                <div class="chap-drop-info">
-                    <span class="chap-drop-num">${chapLabel}</span>
-                    <span class="chap-drop-title">${chapTitle}</span>
-                </div>
-                ${badgeHtml}
-            </div>
-        `;
-    });
-
-    header.innerHTML = `
-        <div class="viewer-left-group">
-            <button class="viewer-btn" id="viewer-back-btn" title="Back to Chapter Grid">
-                <span class="material-symbols-outlined">arrow_back</span>
-                <span class="btn-label">Back</span>
-            </button>
-            <div class="chapter-select-wrapper" id="chapter-select-wrapper">
-                <button class="viewer-btn chapter-select-btn" id="chapter-select-btn" title="Switch ${currentSubchapter ? 'Chapter' : 'Chapter'} in ${currentSubchapter ? currentChapter?.name || 'Collection' : subject?.name || 'Subject'}">
-                    <span class="material-symbols-outlined icon">menu_book</span>
-                    <span class="chapter-select-text">${activeContainer?.name || 'Chapter'}</span>
-                    <span class="material-symbols-outlined arrow">expand_more</span>
-                </button>
-                <div class="chapter-dropdown-menu" id="chapter-dropdown-menu">
-                    <div class="chapter-dropdown-header">
-                        <span>${currentSubchapter ? currentChapter?.name || 'Collection' : 'Chapters in ' + (subject?.name || 'Subject')}</span>
-                        <div class="chapter-nav-quick">
-                            <button class="chap-quick-btn" id="quick-prev-chap" ${!prevChapter ? 'disabled' : ''} title="Previous Chapter">
-                                <span class="material-symbols-outlined">arrow_back_ios</span>
-                            </button>
-                            <button class="chap-quick-btn" id="quick-next-chap" ${!nextChapter ? 'disabled' : ''} title="Next Chapter">
-                                <span class="material-symbols-outlined">arrow_forward_ios</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="chapter-dropdown-list">
-                        ${chapterDropdownHtml}
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="viewer-center-group"></div>
-
-        <div class="viewer-actions">
-            <button class="viewer-btn viewer-fullscreen-btn" id="viewer-fullscreen-btn" title="Full Screen View (Press F or F11)">
-                <span class="material-symbols-outlined">fullscreen</span>
-                <span class="btn-label">Fullscreen</span>
-            </button>
-            <a href="${initialItem.file}" target="_blank" rel="noopener noreferrer" class="viewer-btn icon-only-mobile" id="viewer-newtab-btn" title="Open PDF in Browser Tab">
-                <span class="material-symbols-outlined">open_in_new</span>
-                <span class="btn-label">New Tab</span>
-            </a>
-            <a href="${initialItem.file}" download="${initialItem.title}.pdf" class="viewer-btn primary icon-only-mobile" id="viewer-download-btn" title="Download Offline Copy">
-                <span class="material-symbols-outlined">download</span>
-                <span class="btn-label">Download</span>
-            </a>
-        </div>
-    `;
-
-    // Frame Wrapper for Persistent Iframes
-    const frameWrapper = document.createElement('div');
-    frameWrapper.className = 'pdf-frame-wrapper';
-
-    // Floating Edge Note Navigation Buttons (Effortless 1-click note switching)
-    const floatPrevBtn = document.createElement('button');
-    floatPrevBtn.className = 'floating-note-nav prev-note-float';
-    floatPrevBtn.id = 'float-prev-note';
-    floatPrevBtn.innerHTML = '<span class="material-symbols-outlined">chevron_left</span>';
-    floatPrevBtn.setAttribute('aria-label', 'Previous Note');
-
-    const floatNextBtn = document.createElement('button');
-    floatNextBtn.className = 'floating-note-nav next-note-float';
-    floatNextBtn.id = 'float-next-note';
-    floatNextBtn.innerHTML = '<span class="material-symbols-outlined">chevron_right</span>';
-    floatNextBtn.setAttribute('aria-label', 'Next Note');
-
-    bindInstantClick(floatPrevBtn, (e) => {
-        const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
-        if (curIdx > 0) showNote(chapterNotes[curIdx - 1]);
-    });
-
-    bindInstantClick(floatNextBtn, (e) => {
-        const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
-        if (curIdx < chapterNotes.length - 1 && curIdx !== -1) {
-            showNote(chapterNotes[curIdx + 1]);
-        }
-    });
-
-    frameWrapper.appendChild(floatPrevBtn);
-    frameWrapper.appendChild(floatNextBtn);
-
-    // Footer
-    const footer = document.createElement('div');
-    footer.className = 'viewer-footer';
-    footer.innerHTML = `
-        <div class="viewer-footer-left">
-            <span class="material-symbols-outlined" style="color: #f87171;">picture_as_pdf</span>
-            <span id="footer-note-title" class="footer-note-title">${initialItem.title}</span>
-            <span class="footer-badge" id="footer-note-size">${initialItem.size || 'Document'}</span>
-        </div>
-        <div class="viewer-footer-right">
-            <span class="viewer-shortcut-hint"><kbd>F11</kbd> / <kbd>F</kbd> Fullscreen</span>
-            <span class="viewer-shortcut-hint"><kbd>Esc</kbd> Exit</span>
-            <span class="viewer-shortcut-hint"><kbd>[</kbd> / <kbd>]</kbd> Switch Notes</span>
-        </div>
-    `;
-
-    container.appendChild(header);
-    container.appendChild(frameWrapper);
-    container.appendChild(footer);
-
-    // Proactive Window Focus Reclamation: When cursor hovers over header, controls, or footer,
-    // seamlessly bring window focus back to main document so single clicks and key shortcuts work on the very first event
-    header.addEventListener('pointerenter', () => window.focus(), { passive: true });
-    header.addEventListener('mouseenter', () => window.focus(), { passive: true });
-    header.addEventListener('pointerdown', () => window.focus(), { passive: true });
-    header.addEventListener('mousedown', () => window.focus(), { passive: true });
-
-    footer.addEventListener('pointerenter', () => window.focus(), { passive: true });
-    footer.addEventListener('pointerdown', () => window.focus(), { passive: true });
-
-    const newTabLink = header.querySelector('#viewer-newtab-btn');
-    if (newTabLink) newTabLink.addEventListener('pointerenter', () => window.focus(), { passive: true });
-    const downloadLink = header.querySelector('#viewer-download-btn');
-    if (downloadLink) downloadLink.addEventListener('pointerenter', () => window.focus(), { passive: true });
-
-    const fullscreenBtn = header.querySelector('#viewer-fullscreen-btn');
-    if (isTheaterFullscreen) {
-        container.classList.add('theater-fullscreen');
-        document.body.classList.add('theater-fullscreen-active');
-        const appContainer = document.querySelector('.app-container');
-        if (appContainer) appContainer.classList.add('theater-fullscreen-active');
-        if (fullscreenBtn) {
-            fullscreenBtn.classList.add('active');
-            const iconEl = fullscreenBtn.querySelector('.material-symbols-outlined');
-            const labelEl = fullscreenBtn.querySelector('.btn-label');
-            if (iconEl) iconEl.textContent = 'fullscreen_exit';
-            if (labelEl) labelEl.textContent = 'Exit';
-            fullscreenBtn.title = 'Exit Fullscreen (Esc, F, or F11)';
-        }
-        if (!getNativeFullscreenElement()) {
-            requestPureFullscreen(container);
-        }
-    }
-
-    // Note Switcher Function preserving live DOM scroll & slide position
-    function showNote(targetItem) {
-        if (!targetItem) return;
-        currentNoteItem = targetItem;
-        state.currentItem = targetItem;
-        renderBreadcrumbs();
-
-        // 1. Update Note Tabs UI
-        const pillBtns = header.querySelectorAll('.note-pill-btn');
-        pillBtns.forEach(pill => {
-            if (pill.dataset.noteId === targetItem.id) {
-                pill.classList.add('active');
-            } else {
-                pill.classList.remove('active');
-            }
-        });
-
-        const curIdx = chapterNotes.findIndex(n => n.id === targetItem.id);
-        const prevNoteBtn = header.querySelector('#prev-note-btn');
-        const nextNoteBtn = header.querySelector('#next-note-btn');
-        if (prevNoteBtn) prevNoteBtn.disabled = (curIdx <= 0);
-        if (nextNoteBtn) nextNoteBtn.disabled = (curIdx >= chapterNotes.length - 1 || curIdx === -1);
-
-        // Update Floating Edge Chevrons
-        if (floatPrevBtn) {
-            floatPrevBtn.style.display = (chapterNotes.length > 1 && curIdx > 0) ? 'flex' : 'none';
-            floatPrevBtn.title = (curIdx > 0) ? `Previous Note (${chapterNotes[curIdx - 1]?.title || ''})` : '';
-        }
-        if (floatNextBtn) {
-            floatNextBtn.style.display = (chapterNotes.length > 1 && curIdx < chapterNotes.length - 1 && curIdx !== -1) ? 'flex' : 'none';
-            floatNextBtn.title = (curIdx < chapterNotes.length - 1 && curIdx !== -1) ? `Next Note (${chapterNotes[curIdx + 1]?.title || ''})` : '';
-        }
-
-        // 2. Manage Iframes without destroying: keep active in view, hide inactive
-        let activeIframe = iframeCache.get(targetItem.id);
-        if (!activeIframe) {
-            activeIframe = document.createElement('iframe');
-            activeIframe.className = 'pdf-iframe active';
-            activeIframe.title = targetItem.title;
-            activeIframe.setAttribute('allow', 'fullscreen');
-
-            const savedPage = localStorage.getItem('icse_last_page_' + targetItem.id);
-            const pageHash = savedPage ? `#page=${savedPage}&view=Fit` : '#view=Fit';
-            activeIframe.src = `${targetItem.file}${pageHash}`;
-
-            frameWrapper.appendChild(activeIframe);
-            iframeCache.set(targetItem.id, activeIframe);
-        } else {
-            activeIframe.className = 'pdf-iframe active';
-        }
-
-        // Hide other iframes smoothly while keeping them mounted in DOM
-        iframeCache.forEach((frame, id) => {
-            if (id !== targetItem.id) {
-                frame.className = 'pdf-iframe inactive';
-            }
-        });
-
-        // 3. Update actions & footer
-        const newTabBtn = header.querySelector('#viewer-newtab-btn');
-        if (newTabBtn) newTabBtn.href = targetItem.file;
-
-        const downloadBtn = header.querySelector('#viewer-download-btn');
-        if (downloadBtn) {
-            downloadBtn.href = targetItem.file;
-            downloadBtn.download = `${targetItem.title}.pdf`;
-        }
-
-        const footerTitle = footer.querySelector('#footer-note-title');
-        if (footerTitle) footerTitle.textContent = targetItem.title;
-
-        const footerSize = footer.querySelector('#footer-note-size');
-        if (footerSize) footerSize.textContent = targetItem.size || 'Document';
-    }
-
-    // Render Center Note Tabs dynamically
-    function renderNoteTabsUI() {
-        const centerGroup = header.querySelector('.viewer-center-group');
-        if (!centerGroup) return;
-
-        let noteTabsHtml = '';
-        if (chapterNotes.length > 1) {
-            let pillsHtml = '';
-            chapterNotes.forEach((note, idx) => {
-                const isActive = note.id === currentNoteItem.id;
-                pillsHtml += `
-                    <button class="note-pill-btn ${isActive ? 'active' : ''}" data-note-id="${note.id}" title="${note.title}">
-                        <span class="material-symbols-outlined pill-icon">description</span>
-                        <span>Note ${String(idx + 1).padStart(2, '0')}</span>
-                    </button>
-                `;
-            });
-            noteTabsHtml = `
-                <div class="notes-tab-group">
-                    <button class="note-nav-arrow" id="prev-note-btn" title="Previous Note (Alt + ←)">
-                        <span class="material-symbols-outlined">chevron_left</span>
-                    </button>
-                    <div class="note-pills-container">
-                        ${pillsHtml}
-                    </div>
-                    <button class="note-nav-arrow" id="next-note-btn" title="Next Note (Alt + →)">
-                        <span class="material-symbols-outlined">chevron_right</span>
-                    </button>
-                </div>
-            `;
-        } else if (chapterNotes.length === 1) {
-            noteTabsHtml = `
-                <div class="single-note-badge">
-                    <span class="material-symbols-outlined">description</span>
-                    <span>Part 01 • Complete Notes</span>
-                </div>
-            `;
-        } else {
-            noteTabsHtml = `
-                <div class="single-note-badge">
-                    <span class="material-symbols-outlined">description</span>
-                    <span>No Notes Available</span>
-                </div>
-            `;
-        }
-
-        centerGroup.innerHTML = noteTabsHtml;
-
-        // Bind Note Pill Clicks (Instant responsiveness on very first touch or click)
-        const pillBtns = centerGroup.querySelectorAll('.note-pill-btn');
-        pillBtns.forEach(pill => {
-            bindInstantClick(pill, () => {
-                const targetNote = chapterNotes.find(n => n.id === pill.dataset.noteId);
-                if (targetNote) showNote(targetNote);
-            });
-        });
-
-        // Bind Prev / Next Note Buttons
-        const prevNoteBtn = centerGroup.querySelector('#prev-note-btn');
-        if (prevNoteBtn) {
-            const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
-            prevNoteBtn.disabled = (curIdx <= 0);
-            bindInstantClick(prevNoteBtn, () => {
-                const idx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
-                if (idx > 0) showNote(chapterNotes[idx - 1]);
-            });
-        }
-
-        const nextNoteBtn = centerGroup.querySelector('#next-note-btn');
-        if (nextNoteBtn) {
-            const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
-            nextNoteBtn.disabled = (curIdx >= chapterNotes.length - 1 || curIdx === -1);
-            bindInstantClick(nextNoteBtn, () => {
-                const idx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
-                if (idx < chapterNotes.length - 1 && idx !== -1) {
-                    showNote(chapterNotes[idx + 1]);
-                }
-            });
-        }
-    }
-
-    // Chapter Selector Dropdown Helpers
-    function closeChapterDropdown() {
-        if (chapterDropdownMenu && chapterDropdownMenu.classList.contains('open')) {
-            chapterDropdownMenu.classList.remove('open');
-        }
-        if (chapterSelectBtn && chapterSelectBtn.classList.contains('open')) {
-            chapterSelectBtn.classList.remove('open');
-        }
-    }
-
-    function openChapterDropdown() {
-        if (!chapterDropdownMenu) return;
-        chapterDropdownMenu.classList.add('open');
-        if (chapterSelectBtn) chapterSelectBtn.classList.add('open');
-        // Scroll currently active chapter into view within dropdown list
-        const activeItem = chapterDropdownMenu.querySelector('.chapter-dropdown-item.active');
-        if (activeItem) {
-            try {
-                activeItem.scrollIntoView({ block: 'nearest' });
-            } catch (err) {}
-        }
-    }
-
-    // In-Place Chapter Switching: preserves existing container in DOM, keeping pure F11 native fullscreen 100% active
-    function switchChapterInViewer(targetChapId) {
-        if (!targetChapId) return;
-
-        // If clicking currently active chapter, cleanly close menu and return
-        if (targetChapId === activeContainer?.id) {
-            closeChapterDropdown();
-            return;
-        }
-
-        const targetChap = allChapters.find(c => c.id === targetChapId);
-        if (!targetChap) return;
-
-        const pdfs = (targetChap.items || []).filter(i => i.type === 'pdf');
-        if (pdfs.length === 0) {
-            state.isFullscreenActive = false;
-            exitPureFullscreen();
-            const appContainer = document.querySelector('.app-container');
-            document.body.classList.remove('viewer-active');
-            document.body.classList.remove('theater-fullscreen-active');
-            if (appContainer) {
-                appContainer.classList.remove('viewer-active');
-                appContainer.classList.remove('theater-fullscreen-active');
-            }
-            if (currentSubchapter) {
-                navigateTo('items', [batch.id, subject.id, currentChapter.id, targetChap.id]);
-            } else {
-                navigateTo('items', [batch.id, subject.id, targetChap.id]);
-            }
-            return;
-        }
-
-        // 1. Update Chapter References & State without unmounting container
-        if (currentSubchapter) {
-            currentSubchapter = targetChap;
-            state.path = [batch.id, subject.id, currentChapter.id, targetChap.id];
-        } else {
-            currentChapter = targetChap;
-            state.path = [batch.id, subject.id, targetChap.id];
-        }
-        activeContainer = targetChap;
-        chapterNotes = pdfs;
-        currentNoteItem = pdfs[0];
-        state.currentItem = pdfs[0];
-
-        // 2. Update Header Dropdown UI
-        const chapTitleText = header.querySelector('.chapter-select-text');
-        if (chapTitleText) chapTitleText.textContent = targetChap.name || 'Chapter';
-
-        header.querySelectorAll('.chapter-dropdown-item').forEach(itemEl => {
-            if (itemEl.dataset.chapId === targetChap.id) {
-                itemEl.classList.add('active');
-            } else {
-                itemEl.classList.remove('active');
-            }
-        });
-
-        // 3. Update Quick Prev / Next Chapter Buttons
-        const curChapIdx = allChapters.findIndex(c => c.id === targetChap.id);
-        const newPrev = curChapIdx > 0 ? allChapters[curChapIdx - 1] : null;
-        const newNext = curChapIdx >= 0 && curChapIdx < allChapters.length - 1 ? allChapters[curChapIdx + 1] : null;
-
-        const qPrev = header.querySelector('#quick-prev-chap');
-        if (qPrev) {
-            qPrev.disabled = !newPrev;
-            qPrev.title = newPrev ? `Previous: ${newPrev.name}` : 'No Previous Chapter';
-        }
-
-        const qNext = header.querySelector('#quick-next-chap');
-        if (qNext) {
-            qNext.disabled = !newNext;
-            qNext.title = newNext ? `Next: ${newNext.name}` : 'No Next Chapter';
-        }
-
-        // 4. Reset iframes & cache, mount new note immediately
-        frameWrapper.querySelectorAll('.pdf-iframe').forEach(el => el.remove());
-        iframeCache.clear();
-        showNote(pdfs[0]);
-
-        // 5. Re-render Note Tabs
-        renderNoteTabsUI();
-
-        // 6. Sync background breadcrumbs & navigation
-        renderBreadcrumbs();
-        renderNav();
-
-        // 7. Close dropdown menu cleanly
-        closeChapterDropdown();
-    }
-
-    // Initialize with first note and render center note tabs
-    showNote(initialItem);
-    renderNoteTabsUI();
-
-    // Event: Chapter Selector Dropdown Toggle (Rock-Solid Touch & Click Handling)
-    const chapterSelectBtn = header.querySelector('#chapter-select-btn');
-    const chapterDropdownMenu = header.querySelector('#chapter-dropdown-menu');
-    const chapterSelectWrapper = header.querySelector('#chapter-select-wrapper');
-
-    if (chapterSelectBtn && chapterDropdownMenu) {
-        let lastToggleTime = 0;
-
-        const toggleDropdown = (e) => {
-            if (e && typeof e.stopPropagation === 'function') e.stopPropagation();
-            const now = Date.now();
-            if (now - lastToggleTime < 350) return;
-            lastToggleTime = now;
-            window.focus();
-
-            const isOpen = chapterDropdownMenu.classList.contains('open');
-            if (isOpen) {
-                closeChapterDropdown();
-            } else {
-                openChapterDropdown();
-            }
-        };
-
-        chapterSelectBtn.addEventListener('click', toggleDropdown);
-        chapterSelectBtn.addEventListener('pointerenter', () => window.focus(), { passive: true });
-        chapterSelectBtn.addEventListener('mouseenter', () => window.focus(), { passive: true });
-    }
-
-    // Event: Chapter Item Click (In-Place Chapter Switch, preserving Fullscreen)
-    // Uses standard click with stopPropagation so touch-drag scrolling is NEVER blocked or misfired
-    const chapItems = header.querySelectorAll('.chapter-dropdown-item');
-    chapItems.forEach(itemEl => {
-        itemEl.addEventListener('click', (e) => {
-            e.stopPropagation();
-            window.focus();
-            switchChapterInViewer(itemEl.dataset.chapId);
-        });
-    });
-
-    // Event: Quick Prev/Next Chapter Buttons
-    const quickPrevChap = header.querySelector('#quick-prev-chap');
-    if (quickPrevChap) {
-        quickPrevChap.addEventListener('click', (e) => {
-            e.stopPropagation();
-            window.focus();
-            const curChapIdx = allChapters.findIndex(c => c.id === activeContainer?.id);
-            if (curChapIdx > 0) {
-                switchChapterInViewer(allChapters[curChapIdx - 1].id);
-            }
-        });
-    }
-
-    const quickNextChap = header.querySelector('#quick-next-chap');
-    if (quickNextChap) {
-        quickNextChap.addEventListener('click', (e) => {
-            e.stopPropagation();
-            window.focus();
-            const curChapIdx = allChapters.findIndex(c => c.id === activeContainer?.id);
-            if (curChapIdx >= 0 && curChapIdx < allChapters.length - 1) {
-                switchChapterInViewer(allChapters[curChapIdx + 1].id);
-            }
-        });
-    }
-
-    // Event: Fullscreen Toggle (Pure Native F11 Fullscreen)
-    async function toggleTheaterFullscreen(forcedState = null) {
-        const nextState = (forcedState !== null) ? forcedState : !isTheaterFullscreen;
-        isTheaterFullscreen = nextState;
-        state.isFullscreenActive = nextState;
-
-        const iconEl = fullscreenBtn ? fullscreenBtn.querySelector('.material-symbols-outlined') : null;
-        const labelEl = fullscreenBtn ? fullscreenBtn.querySelector('.btn-label') : null;
-        const appContainer = document.querySelector('.app-container');
-
-        if (isTheaterFullscreen) {
-            document.body.classList.add('theater-fullscreen-active');
-            if (appContainer) appContainer.classList.add('theater-fullscreen-active');
-            container.classList.add('theater-fullscreen');
-            if (fullscreenBtn) {
-                fullscreenBtn.classList.add('active');
-                if (iconEl) iconEl.textContent = 'fullscreen_exit';
-                if (labelEl) labelEl.textContent = 'Exit';
-                fullscreenBtn.title = 'Exit Fullscreen (Esc, F, or F11)';
-            }
-            await requestPureFullscreen(container);
-        } else {
-            state.isFullscreenActive = false;
-            document.body.classList.remove('theater-fullscreen-active');
-            if (appContainer) appContainer.classList.remove('theater-fullscreen-active');
-            container.classList.remove('theater-fullscreen');
-            if (fullscreenBtn) {
-                fullscreenBtn.classList.remove('active');
-                if (iconEl) iconEl.textContent = 'fullscreen';
-                if (labelEl) labelEl.textContent = 'Fullscreen';
-                fullscreenBtn.title = 'Full Screen View (Press F or F11)';
-            }
-            await exitPureFullscreen();
-        }
-    }
-
-    if (fullscreenBtn) {
-        bindInstantClick(fullscreenBtn, () => toggleTheaterFullscreen());
-    }
-
-    // Event: Back Button
-    const viewerBackBtn = header.querySelector('#viewer-back-btn');
-    if (viewerBackBtn) {
-        bindInstantClick(viewerBackBtn, navigateBackFromViewer);
-    }
-
-    // Global Keydown & Document Click Listeners
-    function handleViewerKeydown(e) {
-        if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
-
-        const isFKey = e.key === 'f' || e.key === 'F' || e.code === 'KeyF' || e.key === 'F11' || e.code === 'F11';
-        const isEscKey = e.key === 'Escape' || e.code === 'Escape';
-        
-        // Clean, non-conflicting note switching shortcuts for keyboard users
-        const isNextNote = (e.key === ']' || e.code === 'BracketRight' || e.key === 'n' || e.key === 'N' || (e.altKey && (e.key === 'ArrowRight' || e.code === 'ArrowRight')));
-        const isPrevNote = (e.key === '[' || e.code === 'BracketLeft' || e.key === 'p' || e.key === 'P' || (e.altKey && (e.key === 'ArrowLeft' || e.code === 'ArrowLeft')));
-
-        if (isFKey) {
-            e.preventDefault();
-            e.stopPropagation();
-            toggleTheaterFullscreen();
-        } else if (isEscKey) {
-            // Close chapter dropdown first if open
-            if (chapterDropdownMenu && chapterDropdownMenu.classList.contains('open')) {
-                e.preventDefault();
-                e.stopPropagation();
-                closeChapterDropdown();
-                return;
-            }
-            if (isTheaterFullscreen) {
-                e.preventDefault();
-                e.stopPropagation();
-                toggleTheaterFullscreen(false);
-            }
-        } else if (isNextNote) {
-            if (e.repeat) return;
-            const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
-            if (curIdx < chapterNotes.length - 1 && curIdx !== -1) {
-                showNote(chapterNotes[curIdx + 1]);
-            }
-        } else if (isPrevNote) {
-            if (e.repeat) return;
-            const curIdx = chapterNotes.findIndex(n => n.id === currentNoteItem.id);
-            if (curIdx > 0) {
-                showNote(chapterNotes[curIdx - 1]);
-            }
-        }
-    }
-
-    function handleDocClick(e) {
-        if (chapterSelectWrapper && !chapterSelectWrapper.contains(e.target)) {
-            closeChapterDropdown();
-        }
-    }
-
-    function handleWindowBlur() {
-        closeChapterDropdown();
-    }
-
-    function handleFullscreenChange() {
-        const fsEl = getNativeFullscreenElement();
-        if (!fsEl && isTheaterFullscreen) {
-            toggleTheaterFullscreen(false);
-        } else if (fsEl && !isTheaterFullscreen) {
-            toggleTheaterFullscreen(true);
-        }
-    }
-
-    window.addEventListener('keydown', handleViewerKeydown, true);
-    window.addEventListener('blur', handleWindowBlur);
-    document.addEventListener('pointerdown', handleDocClick);
-    document.addEventListener('click', handleDocClick);
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
-
-    activeViewerCleanup = () => {
-        state.isFullscreenActive = false;
-        exitPureFullscreen();
-        document.body.classList.remove('theater-fullscreen-active');
-        document.body.classList.remove('viewer-active');
-        const appContainer = document.querySelector('.app-container');
-        if (appContainer) {
-            appContainer.classList.remove('theater-fullscreen-active');
-            appContainer.classList.remove('viewer-active');
-        }
-        window.removeEventListener('keydown', handleViewerKeydown, true);
-        window.removeEventListener('blur', handleWindowBlur);
-        document.removeEventListener('pointerdown', handleDocClick);
-        document.removeEventListener('click', handleDocClick);
-        document.removeEventListener('fullscreenchange', handleFullscreenChange);
-        document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
-        document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
-    };
-
-    return container;
-}
-
-// Video Player Component
-function createVideoPlayer(item) {
-    const container = document.createElement('div');
-    container.className = 'video-player-container';
-
-    // Header
-    const header = document.createElement('div');
-    header.className = 'video-header';
-    header.innerHTML = `
-        <div class="video-title-wrap">
-            <span class="lecture-badge">Lecture Video</span>
-            <h2>${item.title}</h2>
-        </div>
-        <button class="back-btn" id="player-back-btn">
-            <span class="material-symbols-outlined">arrow_back</span> Back
-        </button>
-    `;
-
-    // Embed Wrapper
-    const wrapper = document.createElement('div');
-    wrapper.className = 'embed-wrapper';
-
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://t.me/${state.data.channelUsername}/${item.telegramPostId}?embed=1&dark=1`;
-    iframe.className = 'telegram-iframe';
-    iframe.frameBorder = '0';
-    iframe.scrolling = 'no';
-    iframe.allowFullscreen = true;
-
-    wrapper.appendChild(iframe);
-
-    // Footer
-    const footer = document.createElement('div');
-    footer.className = 'player-footer';
-    footer.innerHTML = `
-        <div class="player-info">
-            <span class="material-symbols-outlined">info</span>
-            <span>Having playback issues? You can open the lecture directly on Telegram:</span>
-        </div>
-        <a href="https://t.me/${state.data.channelUsername}/${item.telegramPostId}" target="_blank" rel="noopener noreferrer" class="open-telegram-btn">
-            <span class="material-symbols-outlined">open_in_new</span> Open in Telegram
-        </a>
-    `;
-
-    container.appendChild(header);
-    container.appendChild(wrapper);
-    container.appendChild(footer);
-
-    header.querySelector('#player-back-btn').onclick = navigateBackFromViewer;
-
-    return container;
-}
-
-// Start
-document.addEventListener('DOMContentLoaded', init);
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+else init();

@@ -63,8 +63,8 @@ A fresh agent re-reads EVERY question of the subject's part of each in-scope pap
 
 ## Step 6 — Wire into the site (see PROJECT_STATE rules)
 - data.json: add one `interactive` item per DPP section at the TOP of the chapter's `items`, `file: "<engine>/index.html?ch=<code>&sec=<sec>"`, badge like `"DPP 1 • 14 MCQs • 1 Mark"`; set chapter `featured: true`; update description with searchable keywords. Regenerate data.js = `window.COURSE_DATA = <json>;`. Replacing an old vault = remove its item from `items` (keep the file).
-- script.js: replace the single sidebar NEW quick-launch; replace Fast Track chips with the new release only (+ `chipActions` entries, opening the viewer via the chapter item).
-- index.html: bump `?v=` on all 3 lines.
+- script.js: edit ONLY the `LATEST_RELEASE` block at the top (subjectId, chapterId, title, note, `items` = the new DPP item ids with short labels, `more`, `nav`). It drives the sidebar NEW link and the Home "New" card — nothing else in script.js needs touching (v14+).
+- index.html: bump `?v=` on all 3 lines, and set the same number in `sw.js` (`const VERSION`).
 - PROJECT_STATE.md: add a section for the new DPPs (counts, sources, decisions) and update the directory tree.
 
 ## Step 7 — Verify, commit, push
