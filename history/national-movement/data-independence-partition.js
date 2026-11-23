@@ -50,7 +50,7 @@ window.NM_DPP_DATA.ip = {
     "note": 1
    }
   ],
-  "updated": "2026-11-22"
+  "updated": "2026-11-23"
  },
  "sources": [
   {
@@ -197,6 +197,87 @@ window.NM_DPP_DATA.ip = {
    "url": "https://static.pw.live/5eb393ee95fab7468a79d189/cbc20ea3-b995-4ad9-a925-f55db257cbf7.pdf"
   },
   {
+   "id": "S2017",
+   "label": "CISCE Specimen 2017",
+   "type": "SPECIMEN",
+   "year": 2017,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 2,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_CivicsHCG-Paper-1-2014.pdf",
+   "note": "Listed on CISCE's \"Specimen Question Papers ICSE Class X 2017\" page (file name says 2014)."
+  },
+  {
+   "id": "S2018",
+   "label": "CISCE Specimen 2018",
+   "type": "SPECIMEN",
+   "year": 2018,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 2,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_Civics-1.pdf"
+  },
+  {
+   "id": "S2022-SEM1",
+   "label": "CISCE Specimen 2022 Semester 1",
+   "short": "Specimen 2022 S1",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": true,
+   "marks": {
+    "mcq": 5,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/SPECIMEN-HCG1.pdf"
+  },
+  {
+   "id": "S2022-SEM2",
+   "label": "CISCE Specimen 2022 Semester 2",
+   "short": "Specimen 2022 S2",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/03/ICSE-Semester-2-Specimen-501-HCG14.pdf"
+  },
+  {
+   "id": "S2023",
+   "label": "CISCE Specimen 2023",
+   "type": "SPECIMEN",
+   "year": 2023,
+   "found": true,
+   "marks": {
+    "mcq": 1,
+    "short": 0,
+    "long": 4
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/12/ICSE_2023_SPECIMEN_HCG1.pdf"
+  },
+  {
+   "id": "S2024",
+   "label": "CISCE Specimen 2024",
+   "type": "SPECIMEN",
+   "year": 2024,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 2,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/501-HCG1-SP.pdf"
+  },
+  {
    "id": "S2025",
    "label": "CISCE Specimen 2025",
    "type": "SPECIMEN",
@@ -286,7 +367,8 @@ window.NM_DPP_DATA.ip = {
    "related": [
     "ip-short-01",
     "ip-long-08",
-    "ip-long-09"
+    "ip-long-09",
+    "ip-mcq-06"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -332,7 +414,10 @@ window.NM_DPP_DATA.ip = {
    "related": [
     "ip-long-10",
     "ip-short-02",
-    "ip-short-03"
+    "ip-short-03",
+    "ip-short-06",
+    "ip-mcq-04",
+    "ip-mcq-09"
    ],
    "difficulty": "Medium",
    "skill": "Understanding",
@@ -384,7 +469,8 @@ window.NM_DPP_DATA.ip = {
    "related": [
     "ip-short-02",
     "ip-long-07",
-    "ip-long-05"
+    "ip-long-05",
+    "ip-mcq-08"
    ],
    "difficulty": "Medium",
    "skill": "Understanding",
@@ -393,6 +479,288 @@ window.NM_DPP_DATA.ip = {
     "key-official-CFPQ"
    ],
    "variations": []
+  },
+  {
+   "id": "ip-mcq-04",
+   "sec": "mcq",
+   "topic": "independence-act",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Which of these was not a provision of the Indian Independence Act, 1947?",
+   "options": [
+    "There would be a Governor General for each Dominion.",
+    "There would be no division of the army.",
+    "The office of the Secretary of State was abolished.",
+    "The jurisdiction of the British Parliament would end."
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q15",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(b) There would be no division of the army.</b> - The Act provided for the DIVISION of the army and the assets between the two dominions, so 'There would be no division of the army' was NOT a provision."
+    ],
+    "why": "The Act provided for the DIVISION of the army and the assets between the two dominions, so 'There would be no division of the army' was NOT a provision. A Governor-General for each dominion, abolition of the Secretary of State's office and the end of the British Parliament's jurisdiction were all provisions.",
+    "official": null,
+    "tip": "The word NOT: find the false statement. Division of army and assets was a clause.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "ip-mcq-02",
+    "ip-mcq-09",
+    "ip-short-03",
+    "ip-short-06"
+   ],
+   "difficulty": "Medium",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "ip-mcq-05",
+   "sec": "mcq",
+   "topic": "mountbatten-plan",
+   "format": "PICTURE",
+   "marks": 1,
+   "stem": "Look at the picture given below and answer the questions that follow:",
+   "picture": "Black-and-white photograph of Mahatma Gandhi seated in an armchair, laughing with a smiling man in a suit (Lord Mountbatten) seated in another armchair; a lamp and a framed photograph on the table between them.",
+   "img": "img/ip/S2022-SEM1-Q34.jpg",
+   "q": "Identify the man with Mahatma",
+   "options": [
+    "Lord Mountbatten",
+    "Lord Curzon",
+    "Lord Wavell",
+    "Lord Dalhousie"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q34(a)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(a) Lord Mountbatten</b> - The man seated with Gandhi in the photograph is Lord Mountbatten, the last Viceroy of India (1947)."
+    ],
+    "why": "The man seated with Gandhi in the photograph is Lord Mountbatten, the last Viceroy of India (1947). Lord Curzon (1899-1905), Lord Wavell (1943-47) and Lord Dalhousie (1848-56) were different Viceroys/Governors-General.",
+    "official": null,
+    "tip": "Mountbatten = last Viceroy, announced the Partition Plan on 3 June 1947.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "ip-mcq-06",
+    "ip-mcq-07",
+    "ip-mcq-08",
+    "ip-long-06"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 0
+  },
+  {
+   "id": "ip-mcq-06",
+   "sec": "mcq",
+   "topic": "mountbatten-plan",
+   "format": "PICTURE",
+   "marks": 1,
+   "stem": "Look at the picture given below and answer the questions that follow:",
+   "picture": "Black-and-white photograph of Mahatma Gandhi seated in an armchair, laughing with a smiling man in a suit (Lord Mountbatten) seated in another armchair; a lamp and a framed photograph on the table between them.",
+   "img": "img/ip/S2022-SEM1-Q34.jpg",
+   "q": "He was deputed to India for the following reason:",
+   "options": [
+    "To implement Lord Wavell Plan",
+    "For  effective administration",
+    "for peaceful transfer of power",
+    "to delay the partition of India"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q34(b)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(c) for peaceful transfer of power</b> - Mountbatten was sent to India in 1947 to arrange the peaceful transfer of power."
+    ],
+    "why": "Mountbatten was sent to India in 1947 to arrange the peaceful transfer of power. He did not come to implement the Wavell Plan, nor to delay partition.",
+    "official": null,
+    "tip": "Mountbatten's mission: transfer power peacefully and quickly.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "ip-mcq-05",
+    "ip-long-06",
+    "ip-mcq-01"
+   ],
+   "difficulty": "Easy",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 2
+  },
+  {
+   "id": "ip-mcq-07",
+   "sec": "mcq",
+   "topic": "mountbatten-plan",
+   "format": "SHORT",
+   "marks": 1,
+   "stem": "Look at the picture given below and answer the questions that follow:",
+   "picture": "Black-and-white photograph of Mahatma Gandhi seated in an armchair, laughing with a smiling man in a suit (Lord Mountbatten) seated in another armchair; a lamp and a framed photograph on the table between them.",
+   "img": "img/ip/S2022-SEM1-Q34.jpg",
+   "q": "Identify from the list, two proposals of the plan formulated by him.\n1. The country would be divided into two dominions\n2. Formation of a Constituent Assembly\n3. There would be grouping of provinces\n4. Setting up of a Boundary Commission",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q34(c)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Option 1 - Two dominions:</b> the country would be <mark>divided into two dominions</mark>, India and Pakistan.",
+     "<b>Option 4 - Boundary Commission:</b> a <mark>Boundary Commission</mark> would be set up to demarcate the borders of the partitioned provinces."
+    ],
+    "why": "Options 2 and 3 are wrong: the formation of a Constituent Assembly and the grouping of provinces were features of the Cabinet Mission Plan (1946), not the Mountbatten Plan.",
+    "official": null,
+    "tip": "Cabinet Mission = grouping of provinces + Constituent Assembly; Mountbatten = two dominions + Boundary Commission.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "ip-long-04",
+    "ip-long-05",
+    "ip-short-05",
+    "ip-mcq-05"
+   ],
+   "difficulty": "Medium",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "pick-two-self-marked"
+   ]
+  },
+  {
+   "id": "ip-mcq-08",
+   "sec": "mcq",
+   "topic": "mountbatten-plan",
+   "format": "PICTURE",
+   "marks": 1,
+   "stem": "Look at the picture given below and answer the questions that follow:",
+   "picture": "Black-and-white photograph of Mahatma Gandhi seated in an armchair, laughing with a smiling man in a suit (Lord Mountbatten) seated in another armchair; a lamp and a framed photograph on the table between them.",
+   "img": "img/ip/S2022-SEM1-Q34.jpg",
+   "q": "Which of the following clauses about the Princely States was not part of the plan proposed by him?",
+   "options": [
+    "Princely states had to join only India",
+    "All treaties with the Princely states would come to an end",
+    "Princely states could remain independent",
+    "The states could join either India or Pakistan"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q34(d)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(a) Princely states had to join only India</b> - The plan did NOT require the princely states to join only India: they could join either India or Pakistan (or, as the Act allowed, remain independent)."
+    ],
+    "why": "The plan did NOT require the princely states to join only India: they could join either India or Pakistan (or, as the Act allowed, remain independent). Treaties with the states would lapse.",
+    "official": null,
+    "tip": "NOT type: three options are genuine clauses; the false one says 'only India'.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "ip-mcq-03",
+    "ip-long-07",
+    "ip-long-11",
+    "ip-mcq-05"
+   ],
+   "difficulty": "Medium",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 0
+  },
+  {
+   "id": "ip-mcq-09",
+   "sec": "mcq",
+   "topic": "independence-act",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Which of the following clauses was NOT part of the Indian Independence Act of 1947?",
+   "options": [
+    "There would be a Governor General for each Dominion.",
+    "The country would be divided into two Dominions.",
+    "The British Parliament had legislative control over India.",
+    "There would be a division of army and assets."
+   ],
+   "seen": [
+    {
+     "src": "S2023",
+     "ref": "Q1(xiii)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(c) The British Parliament had legislative control over India.</b> - The British Parliament's control over India ENDED with the Act (option 3 is the false clause)."
+    ],
+    "why": "The British Parliament's control over India ENDED with the Act (option 3 is the false clause). The two dominions, a Governor-General for each, and the division of army and assets were all clauses.",
+    "official": null,
+    "tip": "The Act ended British legislative control over India.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "ip-mcq-02",
+    "ip-mcq-04",
+    "ip-short-03"
+   ],
+   "difficulty": "Medium",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "text-read-from-scan",
+    "key-agent-determined"
+   ],
+   "correct": 2
   },
   {
    "id": "ip-short-01",
@@ -406,6 +774,12 @@ window.NM_DPP_DATA.ip = {
    "seen": [
     {
      "src": "B2023",
+     "ref": "Q2(iv)",
+     "marks": 2,
+     "note": ""
+    },
+    {
+     "src": "S2024",
      "ref": "Q2(iv)",
      "marks": 2,
      "note": ""
@@ -662,7 +1036,8 @@ window.NM_DPP_DATA.ip = {
     "ip-long-10",
     "ip-mcq-03",
     "ip-short-03",
-    "ip-mcq-02"
+    "ip-mcq-02",
+    "ip-short-06"
    ],
    "difficulty": "Medium",
    "skill": "Recall",
@@ -717,9 +1092,96 @@ window.NM_DPP_DATA.ip = {
     "ip-long-06",
     "ip-long-10",
     "ip-mcq-02",
-    "ip-short-02"
+    "ip-short-02",
+    "ip-short-06",
+    "ip-mcq-04",
+    "ip-mcq-09"
    ],
    "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "ip-short-05",
+   "sec": "short",
+   "topic": "mountbatten-plan",
+   "format": "SHORT",
+   "marks": 2,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Mention any two clauses of the Mountbatten Plan. ",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2017",
+     "ref": "Q2(f)",
+     "marks": 2,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Two dominions:</b> India was to be <mark>divided into two independent dominions, India and Pakistan</mark>.",
+     "<b>Partition of provinces:</b> the Legislative Assemblies of <mark>Bengal and Punjab</mark> were to vote on partition, with a <mark>referendum in NWFP and Sylhet</mark>; a Boundary Commission would mark the borders and the <mark>princely states were free to join either dominion</mark>."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Give exactly two distinct clauses of the Plan, each with a short explanation. Other creditable clauses: Boundary Commission, Governor-General for each dominion, Constituent Assemblies as legislatures, end of British Parliament's jurisdiction, division of army and assets.",
+    "words": "≈40–60 words"
+   },
+   "variations": [],
+   "related": [
+    "ip-long-04",
+    "ip-long-05",
+    "ip-short-06",
+    "ip-mcq-07"
+   ],
+   "difficulty": "Medium",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "ip-short-06",
+   "sec": "short",
+   "topic": "independence-act",
+   "format": "SHORT",
+   "marks": 2,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Mention any two provisions of the Indian Independence Act 1947.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2018",
+     "ref": "Q2(f)",
+     "marks": 2,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Two dominions:</b> British India was <mark>partitioned into two independent dominions, India and Pakistan</mark>, from 15 August 1947, each with its own Governor-General.",
+     "<b>End of British control:</b> the <mark>jurisdiction of the British Parliament ended</mark>, the office of Secretary of State was abolished and British paramountcy over the <mark>princely states lapsed</mark> (they could join either dominion)."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Two distinct provisions of the Act, one explained line each. Other creditable provisions: Constituent Assemblies as central legislatures, division of army and assets.",
+    "words": "≈40–60 words"
+   },
+   "variations": [],
+   "related": [
+    "ip-short-02",
+    "ip-short-03",
+    "ip-long-10",
+    "ip-mcq-02",
+    "ip-short-05",
+    "ip-mcq-04"
+   ],
+   "difficulty": "Medium",
    "skill": "Recall",
    "confidence": "HIGH",
    "flags": []
@@ -986,12 +1448,49 @@ window.NM_DPP_DATA.ip = {
     "tip": "The 2018 scheme accepts the clauses listed for the Independence Act, while the 2020 scheme for the same plan stresses partition into two dominions, the Boundary Commission (headed by Sir Cyril Radcliffe), the Bengal/Punjab/Sindh assemblies, referendums in NWFP and Sylhet, the princely states and transfer of power before 1948. Choose four points common to both.",
     "words": "≈60-80 words"
    },
-   "variations": [],
+   "variations": [
+    {
+     "id": "ip-long-04-v1",
+     "q": "Mention any four clauses of the Mountbatten Plan.",
+     "stem": "The mass phase of the National Movement led to the freedom of India. With reference to this phase, answer the following questions:",
+     "picture": null,
+     "img": null,
+     "options": null,
+     "marks": 4,
+     "seen": [
+      {
+       "src": "S2023",
+       "ref": "Q8(iii)",
+       "marks": 4,
+       "note": "Printed 'Mention any four clauses of the Mountbatten Plan.' (stem: 'The mass phase of the National Movement led to the freedom of India...')"
+      }
+     ],
+     "diff": "Printed as \"Mention any four clauses of the Mountbatten Plan.\" instead of \"Give any four clauses of the Mountbatten Plan of 1947.\" — only the wording of the instruction / name differs; the same answer core earns full marks.",
+     "answer": {
+      "points": [
+       "<b>Two new Dominions:</b> India and Pakistan.",
+       "<b>Provisions of Partition:</b> the Legislative Assemblies of <mark>Bengal and Punjab</mark> (and Sindh) to decide; <mark>NWFP and Sylhet</mark> by referendum.",
+       "<b>Governor-General for each Dominion.</b>",
+       "<b>Constituent Assemblies to serve as central legislatures</b> of the two Dominions.",
+       "<b>Other credited clauses:</b> end of the British Parliament's jurisdiction; Princely States; treaties and agreements; division of the army and assets; creation of a Boundary Commission; transfer of power."
+      ],
+      "why": null,
+      "official": null,
+      "tip": "The 2018 scheme accepts the clauses listed for the Independence Act, while the 2020 scheme for the same plan stresses partition into two dominions, the Boundary Commission (headed by Sir Cyril Radcliffe), the Bengal/Punjab/Sindh assemblies, referendums in NWFP and Sylhet, the princely states and transfer of power before 1948. Choose four points common to both.",
+      "words": "≈60-80 words"
+     },
+     "flags": [
+      "text-read-from-scan"
+     ]
+    }
+   ],
    "related": [
     "ip-long-05",
     "ip-long-07",
     "ip-long-10",
-    "ip-mcq-02"
+    "ip-mcq-02",
+    "ip-short-05",
+    "ip-mcq-07"
    ],
    "difficulty": "Medium",
    "skill": "Recall",
@@ -1052,7 +1551,9 @@ window.NM_DPP_DATA.ip = {
    "related": [
     "ip-long-04",
     "ip-long-07",
-    "ip-long-10"
+    "ip-long-10",
+    "ip-short-05",
+    "ip-mcq-07"
    ],
    "difficulty": "Medium",
    "skill": "Recall",
@@ -1100,7 +1601,9 @@ window.NM_DPP_DATA.ip = {
    "related": [
     "ip-long-04",
     "ip-long-05",
-    "ip-short-03"
+    "ip-short-03",
+    "ip-mcq-05",
+    "ip-mcq-06"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -1151,7 +1654,8 @@ window.NM_DPP_DATA.ip = {
     "ip-long-04",
     "ip-long-05",
     "ip-long-10",
-    "ip-long-11"
+    "ip-long-11",
+    "ip-mcq-08"
    ],
    "difficulty": "Medium",
    "skill": "Recall",
@@ -1196,7 +1700,8 @@ window.NM_DPP_DATA.ip = {
    },
    "variations": [],
    "related": [
-    "ip-long-07"
+    "ip-long-07",
+    "ip-mcq-08"
    ],
    "difficulty": "Medium",
    "skill": "Recall",
@@ -1423,7 +1928,8 @@ window.NM_DPP_DATA.ip = {
     "ip-short-02",
     "ip-short-03",
     "ip-long-04",
-    "ip-long-05"
+    "ip-long-05",
+    "ip-short-06"
    ],
    "difficulty": "Medium",
    "skill": "Recall",

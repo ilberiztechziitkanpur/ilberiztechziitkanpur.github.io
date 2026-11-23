@@ -45,7 +45,7 @@ window.NM_DPP_DATA.qim = {
     "note": 1
    }
   ],
-  "updated": "2026-11-22"
+  "updated": "2026-11-23"
  },
  "sources": [
   {
@@ -192,6 +192,87 @@ window.NM_DPP_DATA.qim = {
    "url": "https://static.pw.live/5eb393ee95fab7468a79d189/cbc20ea3-b995-4ad9-a925-f55db257cbf7.pdf"
   },
   {
+   "id": "S2017",
+   "label": "CISCE Specimen 2017",
+   "type": "SPECIMEN",
+   "year": 2017,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_CivicsHCG-Paper-1-2014.pdf",
+   "note": "Listed on CISCE's \"Specimen Question Papers ICSE Class X 2017\" page (file name says 2014)."
+  },
+  {
+   "id": "S2018",
+   "label": "CISCE Specimen 2018",
+   "type": "SPECIMEN",
+   "year": 2018,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_Civics-1.pdf"
+  },
+  {
+   "id": "S2022-SEM1",
+   "label": "CISCE Specimen 2022 Semester 1",
+   "short": "Specimen 2022 S1",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": true,
+   "marks": {
+    "mcq": 1,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/SPECIMEN-HCG1.pdf"
+  },
+  {
+   "id": "S2022-SEM2",
+   "label": "CISCE Specimen 2022 Semester 2",
+   "short": "Specimen 2022 S2",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/03/ICSE-Semester-2-Specimen-501-HCG14.pdf"
+  },
+  {
+   "id": "S2023",
+   "label": "CISCE Specimen 2023",
+   "type": "SPECIMEN",
+   "year": 2023,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 2,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/12/ICSE_2023_SPECIMEN_HCG1.pdf"
+  },
+  {
+   "id": "S2024",
+   "label": "CISCE Specimen 2024",
+   "type": "SPECIMEN",
+   "year": 2024,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/501-HCG1-SP.pdf"
+  },
+  {
    "id": "S2025",
    "label": "CISCE Specimen 2025",
    "type": "SPECIMEN",
@@ -291,7 +372,9 @@ window.NM_DPP_DATA.qim = {
     "qim-short-01",
     "qim-long-01",
     "qim-long-02",
-    "qim-long-03"
+    "qim-long-03",
+    "gandhi-mcq-14",
+    "qim-mcq-05"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -339,7 +422,8 @@ window.NM_DPP_DATA.qim = {
     "qim-short-01",
     "qim-long-01",
     "qim-long-02",
-    "qim-long-03"
+    "qim-long-03",
+    "qim-mcq-05"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -450,9 +534,96 @@ window.NM_DPP_DATA.qim = {
    ]
   },
   {
+   "id": "qim-mcq-05",
+   "sec": "mcq",
+   "topic": "qim-causes",
+   "format": "MCQ",
+   "marks": 1,
    "stem": null,
    "picture": null,
+   "img": null,
+   "q": "Complete the given analogy.\nSimon Commission: Civil Disobedience Movement:: Cripps Mission :?",
+   "options": [
+    "Non Cooperation Movement",
+    "Anti Partition Movement",
+    "Quit India Movement",
+    "Khilafat movement"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q13",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(c) Quit India Movement</b> - The Simon Commission (1927) led to the Civil Disobedience Movement; in the same way the failure of the Cripps Mission (1942) led to the Quit India Movement."
+    ],
+    "why": "The Simon Commission (1927) led to the Civil Disobedience Movement; in the same way the failure of the Cripps Mission (1942) led to the Quit India Movement. The Non-Cooperation, Anti-Partition and Khilafat movements belong to other events.",
+    "official": null,
+    "tip": "Work out the relationship in the first pair (event - movement it triggered) and apply it to the second pair.",
+    "words": null
+   },
    "variations": [],
+   "related": [
+    "qim-mcq-02",
+    "qim-mcq-01",
+    "qim-short-01",
+    "gandhi-mcq-09"
+   ],
+   "difficulty": "Medium",
+   "skill": "Application",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 2
+  },
+  {
+   "stem": null,
+   "picture": null,
+   "variations": [
+    {
+     "id": "qim-short-01-v1",
+     "q": "What are the causes of the Quit India Movement?",
+     "stem": null,
+     "picture": null,
+     "options": null,
+     "correct": null,
+     "marks": 2,
+     "seen": [
+      {
+       "src": "S2023",
+       "ref": "Q2(v)",
+       "marks": 2,
+       "note": ""
+      }
+     ],
+     "diff": "Same ask (causes of the Quit India Movement, 2 marks). 'What are the causes of the Quit India Movement?' prints no number but carries 2 marks, so the same two causes (failure of the Cripps Mission, Japanese threat/British policies) earn full marks.",
+     "answer": {
+      "points": [
+       "<b>Failure of the Cripps Mission (1942):</b> it offered only <mark>dominion status after the war</mark> and <mark>no immediate transfer of power</mark>, so Congress rejected it as bringing no promise of early independence.",
+       "<b>Japanese threat:</b> in 1942 Japan attacked Myanmar (Burma) and advanced towards India; the British presence <mark>invited a Japanese invasion</mark>, so Gandhi demanded the <mark>immediate withdrawal of the British</mark> (Quit India)."
+      ],
+      "official": {
+       "src": "CISCE APP 2024 and APP 2025 marking schemes",
+       "points": [
+        "APP 2024 - (iii) Failure of the Cripps Mission / Threat of Japanese Invasion",
+        "(Any two points)",
+        "APP 2025 - (iii) (a) Failure of the Cripps Mission / Japanese Threat."
+       ],
+       "errors": [
+        "APP 2024 - Most of the candidates answered this correctly. However, some gave different answers like communal clashes and resignation of Congress ministries, etc.",
+        "APP 2025 - Most candidates incorrectly answered this part as they did not have clarity on the exact causes. The candidates mentioned the events which led to the `Movement' instead of `causes of the Quit India Movement'."
+       ]
+      },
+      "tip": "Write exactly the two syllabus causes - the failure of the Cripps Mission and the Japanese threat - with one short reason each. Do not write communal clashes, resignation of Congress ministries, or events such as the Bombay session (these are not causes).",
+      "words": "≈25-35 words"
+     }
+    }
+   ],
    "confidence": "HIGH",
    "id": "qim-short-01",
    "sec": "short",
@@ -499,7 +670,8 @@ window.NM_DPP_DATA.qim = {
     "qim-mcq-02",
     "qim-long-01",
     "qim-long-02",
-    "qim-long-03"
+    "qim-long-03",
+    "qim-mcq-05"
    ],
    "difficulty": "Easy",
    "skill": "Recall",

@@ -85,7 +85,7 @@ window.NM_DPP_DATA.gandhi = {
     "note": 2
    }
   ],
-  "updated": "2026-11-22"
+  "updated": "2026-11-23"
  },
  "sources": [
   {
@@ -230,6 +230,87 @@ window.NM_DPP_DATA.gandhi = {
     "long": 10
    },
    "url": "https://static.pw.live/5eb393ee95fab7468a79d189/cbc20ea3-b995-4ad9-a925-f55db257cbf7.pdf"
+  },
+  {
+   "id": "S2017",
+   "label": "CISCE Specimen 2017",
+   "type": "SPECIMEN",
+   "year": 2017,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 10
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_CivicsHCG-Paper-1-2014.pdf",
+   "note": "Listed on CISCE's \"Specimen Question Papers ICSE Class X 2017\" page (file name says 2014)."
+  },
+  {
+   "id": "S2018",
+   "label": "CISCE Specimen 2018",
+   "type": "SPECIMEN",
+   "year": 2018,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 10
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_Civics-1.pdf"
+  },
+  {
+   "id": "S2022-SEM1",
+   "label": "CISCE Specimen 2022 Semester 1",
+   "short": "Specimen 2022 S1",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": true,
+   "marks": {
+    "mcq": 7,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/SPECIMEN-HCG1.pdf"
+  },
+  {
+   "id": "S2022-SEM2",
+   "label": "CISCE Specimen 2022 Semester 2",
+   "short": "Specimen 2022 S2",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/03/ICSE-Semester-2-Specimen-501-HCG14.pdf"
+  },
+  {
+   "id": "S2023",
+   "label": "CISCE Specimen 2023",
+   "type": "SPECIMEN",
+   "year": 2023,
+   "found": true,
+   "marks": {
+    "mcq": 2,
+    "short": 0,
+    "long": 6
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/12/ICSE_2023_SPECIMEN_HCG1.pdf"
+  },
+  {
+   "id": "S2024",
+   "label": "CISCE Specimen 2024",
+   "type": "SPECIMEN",
+   "year": 2024,
+   "found": true,
+   "marks": {
+    "mcq": 2,
+    "short": 0,
+    "long": 10
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/501-HCG1-SP.pdf"
   },
   {
    "id": "S2025",
@@ -380,7 +461,8 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-short-01",
     "gandhi-long-09",
     "gandhi-mcq-01",
-    "gandhi-long-02"
+    "gandhi-long-02",
+    "gandhi-mcq-16"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -424,7 +506,8 @@ window.NM_DPP_DATA.gandhi = {
    "related": [
     "gandhi-short-03",
     "gandhi-short-02",
-    "gandhi-long-03"
+    "gandhi-long-03",
+    "gandhi-mcq-22"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -475,7 +558,8 @@ window.NM_DPP_DATA.gandhi = {
    "variations": [],
    "related": [
     "gandhi-short-04",
-    "gandhi-long-01"
+    "gandhi-long-01",
+    "gandhi-mcq-20"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -520,7 +604,11 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-mcq-06",
     "gandhi-long-07",
     "gandhi-long-08",
-    "gandhi-long-02"
+    "gandhi-long-02",
+    "gandhi-long-27",
+    "gandhi-mcq-18",
+    "gandhi-mcq-19",
+    "gandhi-mcq-23"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -572,7 +660,11 @@ window.NM_DPP_DATA.gandhi = {
    "related": [
     "gandhi-mcq-05",
     "gandhi-long-07",
-    "gandhi-long-08"
+    "gandhi-long-08",
+    "gandhi-long-27",
+    "gandhi-mcq-18",
+    "gandhi-mcq-19",
+    "gandhi-mcq-23"
    ],
    "difficulty": "Medium",
    "skill": "Application",
@@ -716,7 +808,9 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-mcq-12",
     "gandhi-long-13",
     "gandhi-short-07",
-    "gandhi-mcq-08"
+    "gandhi-mcq-08",
+    "qim-mcq-05",
+    "gandhi-mcq-17"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -770,7 +864,10 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-mcq-09",
     "gandhi-short-07",
     "gandhi-long-14",
-    "gandhi-short-06"
+    "gandhi-short-06",
+    "gandhi-mcq-13",
+    "gandhi-mcq-15",
+    "gandhi-mcq-17"
    ],
    "difficulty": "Medium",
    "skill": "Understanding",
@@ -822,7 +919,9 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-long-18",
     "gandhi-mcq-12",
     "gandhi-long-20",
-    "gandhi-long-16"
+    "gandhi-long-16",
+    "gandhi-mcq-13",
+    "gandhi-mcq-14"
    ],
    "difficulty": "Medium",
    "skill": "Analysis",
@@ -889,6 +988,521 @@ window.NM_DPP_DATA.gandhi = {
    "flags": []
   },
   {
+   "id": "gandhi-mcq-13",
+   "sec": "mcq",
+   "topic": "cdm-movement",
+   "format": "AR",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Read the two statements given below about the Civil Disobedience Movement and select the option that shows the correct relationship between (A) and (B).\n(A) Gandhi's Civil Disobedience was based on engaging in dialogue and negotiation with the British.\n(B)  Gandhi believed that violence and aggression are counterproductive to achieve any goal.",
+   "options": [
+    "(B) contradicts (A).",
+    "(B) is the reason for (A).",
+    "(A) is true but (B) is false.",
+    "(A) and (B) are independent of each other."
+   ],
+   "seen": [
+    {
+     "src": "S2024",
+     "ref": "Q1(vii)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(b) (B) is the reason for (A).</b> - Gandhi believed violence is counter-productive, which is why Civil Disobedience relied on non-violent persuasion, dialogue and negotiation."
+    ],
+    "why": "(B) is the reason for (A). Gandhi believed violence is counter-productive, which is why Civil Disobedience relied on non-violent persuasion, dialogue and negotiation (the Gandhi-Irwin talks). Option 1 is wrong because (B) supports, not contradicts, (A). Option 3 is wrong because both statements are true. Option 4 is wrong because the two statements are logically linked. (Note: the key is a judgement call on an ambiguously worded item - the Movement also defied unjust laws.)",
+    "official": null,
+    "tip": "Test each statement separately, then ask whether (B) explains (A). Here Gandhi's belief in non-violence explains why he used dialogue and negotiation.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "gandhi-mcq-11",
+    "gandhi-mcq-10"
+   ],
+   "difficulty": "Hard",
+   "skill": "Analysis",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined",
+    "key-debatable"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "gandhi-mcq-14",
+   "sec": "mcq",
+   "topic": "cdm-movement",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "__________ was the cause for the renewal of the Civil Disobedience Movement.",
+   "options": [
+    "Failure of the Second Round Table Conference",
+    "Rowlatt Act",
+    "Mountbatten Plan",
+    "Failure of the Cripps Mission"
+   ],
+   "seen": [
+    {
+     "src": "S2024",
+     "ref": "Q1(xiii)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(a) Failure of the Second Round Table Conference</b> - The failure of the Second Round Table Conference (1931) led Gandhi to renew the Civil Disobedience Movement in 1932."
+    ],
+    "why": "The failure of the Second Round Table Conference (1931) led Gandhi to renew the Civil Disobedience Movement in 1932. Rowlatt Act (1919) led to the Non-Cooperation Movement; Mountbatten Plan (1947) belongs to the partition; the failure of the Cripps Mission (1942) led to the Quit India Movement.",
+    "official": null,
+    "tip": "Match each event to its movement: Rowlatt - NCM; Second RTC failure - renewed CDM; Cripps failure - Quit India.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "qim-mcq-01",
+    "gandhi-mcq-11"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 0
+  },
+  {
+   "id": "gandhi-mcq-15",
+   "sec": "mcq",
+   "topic": "gandhi-irwin-pact",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Mahatma Gandhi signed a pact with ____________ to end the Civil Disobedience Movement.",
+   "options": [
+    "Lord Mountbatten",
+    "Lord Irwin",
+    "Lord Wavell",
+    "Stafford Cripps"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q19",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(b) Lord Irwin</b> - Gandhi signed the Gandhi-Irwin Pact with the Viceroy Lord Irwin on 5 March 1931, ending the Civil Disobedience Movement."
+    ],
+    "why": "Gandhi signed the Gandhi-Irwin Pact with the Viceroy Lord Irwin on 5 March 1931, ending the Civil Disobedience Movement. Mountbatten (1947), Wavell (1943-47) and Stafford Cripps (1942 mission) belong to later events.",
+    "official": null,
+    "tip": "Pact named after the two signatories: Gandhi + Irwin.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "gandhi-long-16",
+    "gandhi-long-18",
+    "gandhi-mcq-10"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "gandhi-mcq-16",
+   "sec": "mcq",
+   "topic": "rowlatt-jallianwala",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Identify the clauses of the Rowlatt Act.",
+   "options": [
+    "In camera trial",
+    "Arrest  people with a  warrant",
+    "Vernacular Press must not publish anything against the British",
+    "Compulsory License for arms"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q28",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(a) In camera trial</b> - The Rowlatt Act (1919) allowed trial in camera (in secret, without jury)."
+    ],
+    "why": "The Rowlatt Act (1919) allowed trial in camera (in secret, without jury). It allowed arrest WITHOUT a warrant (option 2 reverses this); curbs on the vernacular press belong to the Vernacular Press Act 1878 and compulsory licensing of arms to the Arms Act 1878.",
+    "official": null,
+    "tip": "Rowlatt Act: arrest without warrant, detention without trial, in camera trial, restrictions on the press.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "gandhi-mcq-02",
+    "gandhi-short-01",
+    "gandhi-long-09"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 0
+  },
+  {
+   "id": "gandhi-mcq-17",
+   "sec": "mcq",
+   "topic": "cdm-movement",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "The Civil Disobedience Movement was launched in __________.",
+   "options": [
+    "1929",
+    "1920",
+    "1930",
+    "1942"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q29",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(c) 1930</b> - The Civil Disobedience Movement was launched in 1930 (Dandi March, 12 March 1930)."
+    ],
+    "why": "The Civil Disobedience Movement was launched in 1930 (Dandi March, 12 March 1930). 1929 was the Lahore session; 1920 the Non-Cooperation Movement; 1942 the Quit India Movement.",
+    "official": null,
+    "tip": "NCM 1920, CDM 1930, QIM 1942.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "gandhi-mcq-09",
+    "gandhi-mcq-10"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 2
+  },
+  {
+   "id": "gandhi-mcq-18",
+   "sec": "mcq",
+   "topic": "ncm-chauri-chaura",
+   "format": "SOURCE",
+   "marks": 1,
+   "stem": "Read the passage given and answer the questions that follow-\nOn February 4, 1922, a large group of nationalist volunteers had gathered on the streets of a small, obscure hamlet. More than a year had passed since Mahatma Gandhi had launched the movement with the aim of attaining ‘Purna Swaraj’ (full independence). The volunteers marched through the streets shouting slogans of Gandhi and the Khilafat. Soon they walked into the police. Sticks and stones were thrown from one end in return for bullets from the other. As the crowd grew larger and fiercer, the cops retreated inside the police station. The protestors doused the building in kerosene and set it on fire. Twenty-three policemen perished. A total of 228 people were brought to trial in the incident, out of which 19 were sentenced to death.\nSource- The Indian Express",
+   "picture": null,
+   "img": null,
+   "q": "Where did this incident take place?",
+   "options": [
+    "Lahore",
+    "Chauri Chaura",
+    "Dandi",
+    "Awadh"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q33(a)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(b) Chauri Chaura</b> - The incident described (a mob setting a police station on fire) took place at Chauri Chaura in Gorakhpur district, UP."
+    ],
+    "why": "The incident described (a mob setting a police station on fire) took place at Chauri Chaura in Gorakhpur district, UP. Lahore, Dandi and Awadh are other places.",
+    "official": null,
+    "tip": "Chauri Chaura = Gorakhpur, February 1922; Gandhi suspended the NCM.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "gandhi-mcq-05",
+    "gandhi-mcq-06",
+    "gandhi-long-07",
+    "gandhi-mcq-19"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "gandhi-mcq-19",
+   "sec": "mcq",
+   "topic": "ncm-chauri-chaura",
+   "format": "SOURCE",
+   "marks": 1,
+   "stem": "Read the passage given and answer the questions that follow-\nOn February 4, 1922, a large group of nationalist volunteers had gathered on the streets of a small, obscure hamlet. More than a year had passed since Mahatma Gandhi had launched the movement with the aim of attaining ‘Purna Swaraj’ (full independence). The volunteers marched through the streets shouting slogans of Gandhi and the Khilafat. Soon they walked into the police. Sticks and stones were thrown from one end in return for bullets from the other. As the crowd grew larger and fiercer, the cops retreated inside the police station. The protestors doused the building in kerosene and set it on fire. Twenty-three policemen perished. A total of 228 people were brought to trial in the incident, out of which 19 were sentenced to death.\nSource- The Indian Express",
+   "picture": null,
+   "img": null,
+   "q": "Which movement did Gandhiji withdraw because of this incident?",
+   "options": [
+    "Non-Cooperation Movement",
+    "Civil Disobedience Movement",
+    "Quit India Movement",
+    "Anti Partition Movement"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q33(b)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(a) Non-Cooperation Movement</b> - Gandhi withdrew the Non-Cooperation Movement after Chauri Chaura (1922)."
+    ],
+    "why": "Gandhi withdrew the Non-Cooperation Movement after Chauri Chaura (1922). The Civil Disobedience, Quit India and Anti-Partition movements were different movements.",
+    "official": null,
+    "tip": "The passage mentions Khilafat and 1922 - that dates it to the Non-Cooperation Movement.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "gandhi-mcq-05",
+    "gandhi-mcq-06",
+    "gandhi-mcq-18",
+    "gandhi-mcq-20",
+    "gandhi-mcq-21"
+   ],
+   "difficulty": "Easy",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 0
+  },
+  {
+   "id": "gandhi-mcq-20",
+   "sec": "mcq",
+   "topic": "ncm-causes-objective",
+   "format": "SOURCE",
+   "marks": 1,
+   "stem": "Read the passage given and answer the questions that follow-\nOn February 4, 1922, a large group of nationalist volunteers had gathered on the streets of a small, obscure hamlet. More than a year had passed since Mahatma Gandhi had launched the movement with the aim of attaining ‘Purna Swaraj’ (full independence). The volunteers marched through the streets shouting slogans of Gandhi and the Khilafat. Soon they walked into the police. Sticks and stones were thrown from one end in return for bullets from the other. As the crowd grew larger and fiercer, the cops retreated inside the police station. The protestors doused the building in kerosene and set it on fire. Twenty-three policemen perished. A total of 228 people were brought to trial in the incident, out of which 19 were sentenced to death.\nSource- The Indian Express",
+   "picture": null,
+   "img": null,
+   "q": "Identify the programmes which were adopted during this movement.",
+   "options": [
+    "Swadeshi and Boycott",
+    "Violent agitations",
+    "Walked barefoot and bathed in the Ganga",
+    "Established many British schools"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q33(c)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(a) Swadeshi and Boycott</b> - The Non-Cooperation Movement adopted Swadeshi and Boycott (boycott of foreign cloth, schools, courts and councils)."
+    ],
+    "why": "The Non-Cooperation Movement adopted Swadeshi and Boycott (boycott of foreign cloth, schools, courts and councils). Violent agitations were against its non-violent creed; walking barefoot and bathing in the Ganga were not programmes, and it asked Indians to leave British schools, not establish them.",
+    "official": null,
+    "tip": "NCM programme: boycott + Swadeshi + non-payment of taxes + national schools.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "gandhi-mcq-04",
+    "gandhi-long-01",
+    "gandhi-mcq-19"
+   ],
+   "difficulty": "Medium",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 0
+  },
+  {
+   "id": "gandhi-mcq-21",
+   "sec": "mcq",
+   "topic": "ncm-impact",
+   "format": "SHORT",
+   "marks": 1,
+   "stem": "Read the passage given and answer the questions that follow-\nOn February 4, 1922, a large group of nationalist volunteers had gathered on the streets of a small, obscure hamlet. More than a year had passed since Mahatma Gandhi had launched the movement with the aim of attaining ‘Purna Swaraj’ (full independence). The volunteers marched through the streets shouting slogans of Gandhi and the Khilafat. Soon they walked into the police. Sticks and stones were thrown from one end in return for bullets from the other. As the crowd grew larger and fiercer, the cops retreated inside the police station. The protestors doused the building in kerosene and set it on fire. Twenty-three policemen perished. A total of 228 people were brought to trial in the incident, out of which 19 were sentenced to death.\nSource- The Indian Express",
+   "picture": null,
+   "img": null,
+   "q": "Identify any two impacts of the movement that was suspended due to this event.\n1. Instilled confidence in people\n2. Led to large scale communal riots\n3. Promoted Social reforms\n4. Led to the First Round table Conference",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q33(d)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Option 1 - Instilled confidence in people:</b> the NCM <mark>instilled confidence</mark> among the people and made the freedom struggle a mass movement.",
+     "<b>Option 3 - Promoted social reforms:</b> it <mark>promoted social reforms</mark> (removal of untouchability, spread of khadi and national education)."
+    ],
+    "why": "Options 2 and 4 are wrong: the NCM did not cause large-scale communal riots (they followed its withdrawal, not as an impact of it) and the First Round Table Conference (1930-31) was linked to the Civil Disobedience period, not the NCM.",
+    "official": null,
+    "tip": "Pick the two correct numbers (1 and 3); self-mark - the engine cannot key a pick-two item.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "gandhi-long-04",
+    "gandhi-long-05",
+    "gandhi-mcq-19"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": [
+    "pick-two-self-marked"
+   ]
+  },
+  {
+   "id": "gandhi-mcq-22",
+   "sec": "mcq",
+   "topic": "khilafat",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "The Khilafat Movement was started in India by __________.",
+   "options": [
+    "Ali Brothers",
+    "Mahatma Gandhi",
+    "Jinnah",
+    "Sir Sayyid Ahmed Khan"
+   ],
+   "seen": [
+    {
+     "src": "S2023",
+     "ref": "Q1(xi)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(a) Ali Brothers</b> - The Khilafat Movement was started by the Ali Brothers (Maulana Mohammad Ali and Shaukat Ali)."
+    ],
+    "why": "The Khilafat Movement was started by the Ali Brothers (Maulana Mohammad Ali and Shaukat Ali). Gandhi supported it and combined it with the NCM; Jinnah and Sir Syed Ahmed Khan had no role in launching it.",
+    "official": null,
+    "tip": "Khilafat leaders: Ali Brothers; Gandhi joined and merged it with Non-Cooperation.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "gandhi-mcq-03",
+    "gandhi-short-03",
+    "gandhi-long-03"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "text-read-from-scan",
+    "key-agent-determined"
+   ],
+   "correct": 0
+  },
+  {
+   "id": "gandhi-mcq-23",
+   "sec": "mcq",
+   "topic": "ncm-chauri-chaura",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "The Non Cooperation Movement was suspended due to the __________.",
+   "options": [
+    "Gandhi -Irwin pact",
+    "Chauri-Chaura Incident",
+    "Cripps Mission",
+    "Rowlatt Act"
+   ],
+   "seen": [
+    {
+     "src": "S2023",
+     "ref": "Q1(xii)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(b) Chauri-Chaura Incident</b> - The NCM was suspended after the Chauri Chaura incident (5 February 1922)."
+    ],
+    "why": "The NCM was suspended after the Chauri Chaura incident (5 February 1922). The Gandhi-Irwin Pact ended the CDM; the Cripps Mission (1942) and Rowlatt Act (1919) are unrelated to its suspension.",
+    "official": null,
+    "tip": "Chauri Chaura = withdrawal of NCM; Gandhi-Irwin Pact = suspension of CDM.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "gandhi-mcq-05",
+    "gandhi-mcq-06",
+    "gandhi-long-07"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "text-read-from-scan",
+    "key-agent-determined"
+   ],
+   "correct": 1
+  },
+  {
    "id": "gandhi-short-01",
    "sec": "short",
    "topic": "rowlatt-jallianwala",
@@ -931,7 +1545,8 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-long-09",
     "gandhi-mcq-02",
     "gandhi-mcq-01",
-    "gandhi-long-01"
+    "gandhi-long-01",
+    "gandhi-mcq-16"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -1022,7 +1637,8 @@ window.NM_DPP_DATA.gandhi = {
    "related": [
     "gandhi-mcq-03",
     "gandhi-short-02",
-    "gandhi-long-03"
+    "gandhi-long-03",
+    "gandhi-mcq-22"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -1283,7 +1899,11 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-long-14",
     "gandhi-mcq-09",
     "gandhi-short-05",
-    "gandhi-long-11"
+    "gandhi-long-11",
+    "gandhi-long-24",
+    "gandhi-long-25",
+    "gandhi-long-28",
+    "gandhi-long-31"
    ],
    "difficulty": "Medium",
    "skill": "Recall",
@@ -1330,7 +1950,8 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-short-09",
     "gandhi-long-12",
     "gandhi-long-13",
-    "gandhi-mcq-10"
+    "gandhi-mcq-10",
+    "gandhi-long-24"
    ],
    "difficulty": "Easy",
    "skill": "Understanding",
@@ -1378,7 +1999,9 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-short-08",
     "gandhi-long-12",
     "gandhi-long-02",
-    "gandhi-long-17"
+    "gandhi-long-17",
+    "gandhi-long-24",
+    "gandhi-long-31"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -1424,13 +2047,93 @@ window.NM_DPP_DATA.gandhi = {
     "tip": "Three causes, each with one line of explanation (the scheme says \"brief explanation for each point\"). Do not give causes of the Civil Disobedience Movement.",
     "words": "≈60-80 words"
    },
-   "variations": [],
+   "variations": [
+    {
+     "id": "gandhi-long-01-v1",
+     "q": "What were the causes which led to the launching of the Non-Cooperation Movement?",
+     "stem": "The advent of Mahatma Gandhi on the Indian political scene gave a new direction to the freedom struggle. In this context, answer the following:",
+     "picture": null,
+     "options": null,
+     "correct": null,
+     "marks": 3,
+     "seen": [
+      {
+       "src": "S2018",
+       "ref": "Q8(a)",
+       "marks": 3,
+       "note": ""
+      }
+     ],
+     "diff": "Same ask (causes of the Non-Cooperation Movement, 3 marks, three points). 'What were the causes which led to the launching of the NCM?' prints no number but is worth 3 marks, so the same three causes (Khilafat, Rowlatt Act, Jallianwala Bagh) earn full marks.",
+     "answer": {
+      "points": [
+       "<b>Khilafat Movement:</b> started by the Ali brothers (1920) to preserve the Caliph, the religious head of Muslims; Gandhi combined it with <mark>Non-Cooperation</mark> to <mark>unite Hindus and Muslims</mark>.",
+       "<b>The Rowlatt Act, 1919:</b> gave the British extraordinary powers to <mark>imprison a person without trial</mark>.",
+       "<b>Jallianwala Bagh:</b> the <mark>massacre at Amritsar</mark> (13 April 1919) outraged Indians and strengthened the demand for non-cooperation."
+      ],
+      "official": {
+       "src": "CISCE APP 2016 marking scheme",
+       "points": [
+        "(i) Khilafat Movement – started by Ali brothers in August 1920 for the preservation of the office of Khalifa, the religious head of the Muslims, Gandhiji combined the Khilafat Movement with the No-Cooperation Movement as he saw this as an opportunity to unite the Hindus and Muslims.",
+        "(ii) The Rowlatt Act 1919 – gave extraordinary powers to the British to imprison a person with trial.",
+        "(iii) JallianwalaBagh incident",
+        "Brief Explanation to be provided for each of the point."
+       ],
+       "errors": [
+        "Answered correctly by most candidates. A few however wrote the causes of other movements like the Civil Disobedience Movement."
+       ]
+      },
+      "tip": "Three causes, each with one line of explanation (the scheme says \"brief explanation for each point\"). Do not give causes of the Civil Disobedience Movement.",
+      "words": "≈60-80 words"
+     }
+    },
+    {
+     "id": "gandhi-long-01-v2",
+     "q": "Mention any three causes of the Non Cooperation Movement.",
+     "stem": "The mass phase of the National Movement led to the freedom of India. With reference to this phase, answer the following questions:",
+     "picture": null,
+     "options": null,
+     "correct": null,
+     "marks": 3,
+     "seen": [
+      {
+       "src": "S2023",
+       "ref": "Q8(ii)",
+       "marks": 3,
+       "note": ""
+      }
+     ],
+     "diff": "Same ask (three causes of the Non-Cooperation Movement, 3 marks). 'Mention any three causes of the Non Cooperation Movement.' vs 'Any three causes for Gandhi to launch the Non-Cooperation Movement?' The same three causes (Rowlatt Act, Jallianwala Bagh, Khilafat) earn full marks.",
+     "answer": {
+      "points": [
+       "<b>Khilafat Movement:</b> started by the Ali brothers (1920) to preserve the Caliph, the religious head of Muslims; Gandhi combined it with <mark>Non-Cooperation</mark> to <mark>unite Hindus and Muslims</mark>.",
+       "<b>The Rowlatt Act, 1919:</b> gave the British extraordinary powers to <mark>imprison a person without trial</mark>.",
+       "<b>Jallianwala Bagh:</b> the <mark>massacre at Amritsar</mark> (13 April 1919) outraged Indians and strengthened the demand for non-cooperation."
+      ],
+      "official": {
+       "src": "CISCE APP 2016 marking scheme",
+       "points": [
+        "(i) Khilafat Movement – started by Ali brothers in August 1920 for the preservation of the office of Khalifa, the religious head of the Muslims, Gandhiji combined the Khilafat Movement with the No-Cooperation Movement as he saw this as an opportunity to unite the Hindus and Muslims.",
+        "(ii) The Rowlatt Act 1919 – gave extraordinary powers to the British to imprison a person with trial.",
+        "(iii) JallianwalaBagh incident",
+        "Brief Explanation to be provided for each of the point."
+       ],
+       "errors": [
+        "Answered correctly by most candidates. A few however wrote the causes of other movements like the Civil Disobedience Movement."
+       ]
+      },
+      "tip": "Three causes, each with one line of explanation (the scheme says \"brief explanation for each point\"). Do not give causes of the Civil Disobedience Movement.",
+      "words": "≈60-80 words"
+     }
+    }
+   ],
    "related": [
     "gandhi-short-04",
     "gandhi-long-02",
     "gandhi-long-03",
     "gandhi-mcq-04",
-    "gandhi-short-01"
+    "gandhi-short-01",
+    "gandhi-mcq-20"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -1486,7 +2189,8 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-short-09",
     "gandhi-mcq-02",
     "gandhi-mcq-05",
-    "gandhi-long-17"
+    "gandhi-long-17",
+    "gandhi-long-27"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -1537,7 +2241,8 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-mcq-03",
     "gandhi-long-01",
     "gandhi-long-02",
-    "gandhi-short-04"
+    "gandhi-short-04",
+    "gandhi-mcq-22"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -1588,11 +2293,58 @@ window.NM_DPP_DATA.gandhi = {
     "tip": "Four distinct impacts, each in a line. Examiners found some candidates wrote impacts of other movements - stay with NCM (1920-22).",
     "words": "≈60-80 words"
    },
-   "variations": [],
+   "variations": [
+    {
+     "id": "gandhi-long-04-v1",
+     "q": "What was the impact of the Non-Cooperation Movement?",
+     "stem": "The advent of Mahatma Gandhi on the Indian political scene gave a new direction to the freedom struggle. In this context, answer the following:",
+     "picture": null,
+     "options": null,
+     "correct": null,
+     "marks": 4,
+     "seen": [
+      {
+       "src": "S2018",
+       "ref": "Q8(c)",
+       "marks": 4,
+       "note": ""
+      }
+     ],
+     "diff": "Same ask (impact of the Non-Cooperation Movement, 4 marks); 'What was the impact of the Non-Cooperation Movement?' vs 'The impact of the Non-Cooperation Movement in India's freedom struggle.' The same four impacts earn full marks.",
+     "answer": {
+      "points": [
+       "<b>Mass movement:</b> the national movement became a <mark>mass movement</mark> with a national base for the Congress.",
+       "<b>Confidence and revolutionary spirit:</b> it <mark>instilled confidence</mark> among the people and made the Congress a revolutionary organisation.",
+       "<b>Hindu-Muslim unity:</b> merging with Khilafat <mark>fostered Hindu-Muslim unity</mark>.",
+       "<b>Swaraj and nationalism:</b> it <mark>spread nationalism</mark>, promoted social reforms and popularised the <mark>cult of Swaraj</mark>."
+      ],
+      "official": {
+       "src": "CISCE APP 2016 marking scheme",
+       "points": [
+        "Impact of the Non Cooperation movement:",
+        "(i) National movement became of mass movement.",
+        "(ii) Instilled confidence among the people.",
+        "(iii) Congress revolutionary movement.",
+        "(iv) Fostered Hindi-Muslim unity.",
+        "(v) Promoted social reforms.",
+        "(vi) Spread of Nationalism.",
+        "(vii) Popularized cult of Swaraj.",
+        "Any four points."
+       ],
+       "errors": [
+        "Most candidates answered correctly. A few however were unable to state all four points required in the question."
+       ]
+      },
+      "tip": "Four distinct impacts, each in a line. Examiners found some candidates wrote impacts of other movements - stay with NCM (1920-22).",
+      "words": "≈60-80 words"
+     }
+    }
+   ],
    "related": [
     "gandhi-long-05",
     "gandhi-long-15",
-    "gandhi-long-21"
+    "gandhi-long-21",
+    "gandhi-mcq-21"
    ],
    "difficulty": "Medium",
    "skill": "Understanding",
@@ -1697,7 +2449,8 @@ window.NM_DPP_DATA.gandhi = {
    "variations": [],
    "related": [
     "gandhi-long-04",
-    "gandhi-long-15"
+    "gandhi-long-15",
+    "gandhi-mcq-21"
    ],
    "difficulty": "Medium",
    "skill": "Analysis",
@@ -1801,7 +2554,10 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-mcq-06",
     "gandhi-long-06",
     "gandhi-long-08",
-    "gandhi-long-02"
+    "gandhi-long-02",
+    "gandhi-long-27",
+    "gandhi-mcq-18",
+    "gandhi-mcq-23"
    ],
    "difficulty": "Medium",
    "skill": "Understanding",
@@ -1901,7 +2657,8 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-short-01",
     "gandhi-mcq-02",
     "gandhi-long-08",
-    "gandhi-long-10"
+    "gandhi-long-10",
+    "gandhi-mcq-16"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -2001,7 +2758,9 @@ window.NM_DPP_DATA.gandhi = {
    "related": [
     "gandhi-long-15",
     "gandhi-short-05",
-    "gandhi-short-07"
+    "gandhi-short-07",
+    "gandhi-long-26",
+    "gandhi-long-29"
    ],
    "difficulty": "Medium",
    "skill": "Understanding",
@@ -2056,7 +2815,9 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-short-09",
     "gandhi-long-13",
     "gandhi-long-14",
-    "gandhi-mcq-12"
+    "gandhi-mcq-12",
+    "gandhi-long-24",
+    "gandhi-long-31"
    ],
    "difficulty": "Medium",
    "skill": "Understanding",
@@ -2213,7 +2974,10 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-long-12",
     "gandhi-long-15",
     "gandhi-short-07",
-    "gandhi-mcq-10"
+    "gandhi-mcq-10",
+    "gandhi-long-25",
+    "gandhi-long-26",
+    "gandhi-long-28"
    ],
    "difficulty": "Medium",
    "skill": "Recall",
@@ -2272,7 +3036,9 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-long-11",
     "gandhi-long-05",
     "gandhi-long-14",
-    "gandhi-long-04"
+    "gandhi-long-04",
+    "gandhi-long-26",
+    "gandhi-long-29"
    ],
    "difficulty": "Medium",
    "skill": "Analysis",
@@ -2325,7 +3091,9 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-long-17",
     "gandhi-long-18",
     "gandhi-long-19",
-    "gandhi-mcq-11"
+    "gandhi-mcq-11",
+    "gandhi-long-30",
+    "gandhi-mcq-15"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -2376,7 +3144,8 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-long-16",
     "gandhi-long-18",
     "gandhi-short-09",
-    "gandhi-long-02"
+    "gandhi-long-02",
+    "gandhi-long-30"
    ],
    "difficulty": "Medium",
    "skill": "Application",
@@ -2435,7 +3204,9 @@ window.NM_DPP_DATA.gandhi = {
     "gandhi-long-19",
     "gandhi-mcq-11",
     "gandhi-long-13",
-    "gandhi-long-23"
+    "gandhi-long-23",
+    "gandhi-long-30",
+    "gandhi-mcq-15"
    ],
    "difficulty": "Medium",
    "skill": "Recall",
@@ -2488,7 +3259,8 @@ window.NM_DPP_DATA.gandhi = {
    },
    "variations": [],
    "related": [
-    "gandhi-long-18"
+    "gandhi-long-18",
+    "gandhi-long-30"
    ],
    "difficulty": "Medium",
    "skill": "Recall",
@@ -2593,6 +3365,400 @@ window.NM_DPP_DATA.gandhi = {
    "skill": "Recall",
    "confidence": "HIGH",
    "flags": []
+  },
+  {
+   "id": "gandhi-long-24",
+   "sec": "long",
+   "topic": "dandi-march",
+   "format": "PICTURE",
+   "marks": 3,
+   "stem": null,
+   "picture": "Photograph of Mahatma Gandhi leading a column of white-clad marchers carrying staffs and bundles along a tree-lined road (Dandi March, Salt Satyagraha)",
+   "img": "img/gandhi/S2017-Q8.jpg",
+   "q": "Identify the event in the above picture. Briefly explain any two causes that led to this event.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2017",
+     "ref": "Q8(a)",
+     "marks": 3,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>The event:</b> the <mark>Dandi March (Salt March)</mark>, 12 March - 6 April 1930, led by Gandhi, which began the Civil Disobedience Movement.",
+     "<b>Cause 1:</b> the <mark>Simon Commission</mark> (1927) had no Indian member and the demand for Dominion Status was rejected, leading to the <mark>Purna Swaraj resolution</mark> (Lahore, 1929).",
+     "<b>Cause 2:</b> the <mark>salt tax</mark> and economic hardship caused by the Great Depression; Gandhi's eleven-point ultimatum was ignored by the Government."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "1 mark for naming the event, then 1 mark for each cause (the 3 marks are 1 + 1 + 1). Do not give the causes of the Non-Cooperation Movement.",
+    "words": "≈60–80 words"
+   },
+   "variations": [],
+   "related": [
+    "gandhi-short-09",
+    "gandhi-short-08",
+    "gandhi-short-07",
+    "gandhi-long-12",
+    "gandhi-long-25",
+    "gandhi-long-26",
+    "gandhi-long-28",
+    "gandhi-long-31"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "gandhi-long-25",
+   "sec": "long",
+   "topic": "cdm-movement",
+   "format": "PICTURE",
+   "marks": 3,
+   "stem": null,
+   "picture": "Photograph of Mahatma Gandhi leading a column of white-clad marchers carrying staffs and bundles along a tree-lined road (Dandi March, Salt Satyagraha)",
+   "img": "img/gandhi/S2017-Q8.jpg",
+   "q": "Programme of the movement.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2017",
+     "ref": "Q8(b)",
+     "marks": 3,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Defiance of salt laws:</b> gathering salt at Dandi signalled <mark>disobedience of civil laws</mark>.",
+     "<b>Boycotts:</b> <mark>boycott of foreign cloth</mark> and British goods, of liquor, schools and colleges, and Government jobs.",
+     "<b>Non-payment of taxes:</b> <mark>non-payment of taxes and land revenue</mark> and violation of laws of different kinds, including forest laws."
+    ],
+    "official": {
+     "src": "CISCE APP 2019 marking scheme",
+     "points": [
+      "Gandhi reached Dandi on 5th April,1930 and next morning Gandhi violated the salt-laws by picking up some salt left by the sea waves. Gandhi's campaign against the salt-laws was a signal to disobey – civil laws.",
+      "Civil Disobedience campaign involved:",
+      "- Defiance of salt laws.",
+      "- Boycott of liquor/schools and colleges/ Government jobs.",
+      "- Boycott of foreign cloth and British goods of all kinds.",
+      "- It also involved non-payment of taxes and land-revenue and violation of laws of different kinds, including forest laws.",
+      "- Spread to NWFP where Khan Abdul Gaffar Khan took the campaign against the government and he was called as Frontier Gandhi.",
+      "- Paralysed the British Government.",
+      "(Any three points)"
+     ],
+     "errors": [
+      "However, a few candidates mentioned the features of the programmes of Non-cooperation and the Quit India Movement."
+     ]
+    },
+    "tip": "The examiners warned that some candidates wrote programmes of the Non-Cooperation or Quit India Movements. Salt law defiance is the CDM signature.",
+    "words": "≈60 words"
+   },
+   "variations": [],
+   "related": [
+    "gandhi-long-14",
+    "gandhi-short-07",
+    "gandhi-long-24",
+    "gandhi-long-26"
+   ],
+   "difficulty": "Medium",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "gandhi-long-26",
+   "sec": "long",
+   "topic": "cdm-movement",
+   "format": "PICTURE",
+   "marks": 4,
+   "stem": null,
+   "picture": "Photograph of Mahatma Gandhi leading a column of white-clad marchers carrying staffs and bundles along a tree-lined road (Dandi March, Salt Satyagraha)",
+   "img": "img/gandhi/S2017-Q8.jpg",
+   "q": "Impact of the movement.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2017",
+     "ref": "Q8(c)",
+     "marks": 4,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Mass participation:</b> peasants, students and <mark>women</mark> joined in large numbers, making it a truly national movement.",
+     "<b>Weakened British authority:</b> the Government was forced to negotiate - the <mark>Gandhi-Irwin Pact</mark> (1931) and Congress's participation in the <mark>Second Round Table Conference</mark>.",
+     "<b>Economic impact:</b> the <mark>boycott of foreign cloth</mark> and salt-law defiance hurt British trade and revenue and spread self-reliance.",
+     "<b>Political awakening:</b> it <mark>strengthened the demand for complete independence</mark> and spread patriotic feeling and the significance of non-violence."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Four distinct impacts (1 mark each), each in one line. Write impacts (results), not causes or the programme.",
+    "words": "≈60–80 words"
+   },
+   "variations": [],
+   "related": [
+    "gandhi-long-15",
+    "gandhi-long-11",
+    "gandhi-long-14",
+    "gandhi-long-24",
+    "gandhi-long-25",
+    "gandhi-long-29"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "gandhi-long-27",
+   "sec": "long",
+   "topic": "ncm-chauri-chaura",
+   "format": "LONG",
+   "marks": 3,
+   "stem": "The advent of Mahatma Gandhi on the Indian political scene gave a new direction to the freedom struggle. In this context, answer the following:",
+   "picture": null,
+   "img": null,
+   "q": "Why did Gandhi withdraw the Non-Cooperation Movement?",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2018",
+     "ref": "Q8(b)",
+     "marks": 3,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>The incident:</b> at <mark>Chauri Chaura</mark>, a village in Gorakhpur district (Uttar Pradesh), about 3,000 peasants marched to the police station after a police officer had beaten farmers picketing a liquor shop.",
+     "<b>The violence:</b> the police fired at the peasants, who reacted by <mark>setting the police station on fire</mark>; 22 policemen were killed.",
+     "<b>Gandhi's reaction:</b> Gandhi, who believed in <mark>Ahimsa</mark>, was greatly shocked and <mark>withdrew the movement on 12 February 1922</mark>."
+    ],
+    "official": {
+     "src": "CISCE APP 2019 marking scheme",
+     "points": [
+      "- The tragedy at Chauri Chaura, a village in Gorakhpur district in Uttar Pradesh.",
+      "- A procession of about 3,000 peasants marched to the police station to protest against the police officer.",
+      "- Police fired at the peasants.",
+      "- Peasants reacted and set the police station on fire.",
+      "- 22 policemen were killed.",
+      "- Gandhiji, who believed in Ahimsa was greatly shocked and withdrew the movement on February 12, 1922.",
+      "- A police officer had beaten some farmers picketing a liquor shop.",
+      "(Narration of Incident with any of the three points cited in the answer)"
+     ],
+     "errors": []
+    },
+    "tip": "Narrate the incident with at least three points (what happened, the violence, Gandhi's decision). The marking scheme asks for \"narration of incident with any of the three points\".",
+    "words": "≈60 words"
+   },
+   "variations": [],
+   "related": [
+    "gandhi-long-07",
+    "gandhi-mcq-05",
+    "gandhi-mcq-06",
+    "gandhi-long-02"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "gandhi-long-28",
+   "sec": "long",
+   "topic": "cdm-movement",
+   "format": "SOURCE",
+   "marks": 3,
+   "stem": "Read the excerpt given below and answer the questions that follow-\nThe movement had generated worldwide publicity, and British were looking for a way to end it. Gandhiji was released from custody in January 1931, and the two men began negotiating the terms of the pact. For many conservatives in England, the meetings and talks seemed unacceptable. They thought it was inappropriate for the Viceroy, who was the representative of the British Monarch, to receive their arch-enemy. Gandhiji was authorised by the then President of the Congress, Sardar Vallabh Bhai Patel, to negotiate with the Viceroy. He advised the nation to wait, watch, pray and hope for a better prospect for India. He was full of admiration for the people, their heroic struggle and hard suffering.\nSource: The Hindu",
+   "picture": null,
+   "img": null,
+   "q": "Who was the Viceroy who negotiated with Gandhiji?\nName any two causes of the movement being discussed above.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2024",
+     "ref": "Q8(i)",
+     "marks": 3,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>The Viceroy:</b> <mark>Lord Irwin</mark>.",
+     "<b>Cause 1:</b> the <mark>Simon Commission</mark> (1927), with no Indian member, was boycotted by Indians.",
+     "<b>Cause 2:</b> the <mark>Declaration of Purna Swaraj</mark> at the Lahore session (1929) and the rejection of the Dominion Status demand (the <mark>salt tax</mark> is also accepted)."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "The passage describes the Gandhi-Irwin talks (1931), which ended the Civil Disobedience Movement. 1 mark for the Viceroy, 1 each for two causes of CDM - not of the Non-Cooperation Movement.",
+    "words": "≈60–80 words"
+   },
+   "variations": [],
+   "related": [
+    "gandhi-short-07",
+    "gandhi-long-14",
+    "gandhi-long-24",
+    "gandhi-long-29",
+    "gandhi-long-30",
+    "gandhi-long-31"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "gandhi-long-29",
+   "sec": "long",
+   "topic": "cdm-movement",
+   "format": "SOURCE",
+   "marks": 3,
+   "stem": "Read the excerpt given below and answer the questions that follow-\nThe movement had generated worldwide publicity, and British were looking for a way to end it. Gandhiji was released from custody in January 1931, and the two men began negotiating the terms of the pact. For many conservatives in England, the meetings and talks seemed unacceptable. They thought it was inappropriate for the Viceroy, who was the representative of the British Monarch, to receive their arch-enemy. Gandhiji was authorised by the then President of the Congress, Sardar Vallabh Bhai Patel, to negotiate with the Viceroy. He advised the nation to wait, watch, pray and hope for a better prospect for India. He was full of admiration for the people, their heroic struggle and hard suffering.\nSource: The Hindu",
+   "picture": null,
+   "img": null,
+   "q": "Mention any three impacts of this movement.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2024",
+     "ref": "Q8(ii)",
+     "marks": 3,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Patriotic feelings:</b> it <mark>created patriotic feelings</mark> and widened the base of the freedom struggle.",
+     "<b>Non-violence and depressed classes:</b> people understood the <mark>significance of non-violence</mark>, and the status of the <mark>depressed classes</mark> improved.",
+     "<b>Women and propaganda:</b> <mark>women became part of the movement</mark>, and new methods of propaganda like <mark>Prabhat Pheris</mark> were used."
+    ],
+    "official": {
+     "src": "CISCE Specimen 2025 draft marking scheme",
+     "points": [
+      "(ii) Created patriotic feelings/widened the base of freedom struggle/made people understand the significance of non-violence/there was improvement in the status of the depressed classes/women became part of the movement/new methods of propaganda like Prabhat Pheris were used /Congress took part in Legislative elections.",
+      "(Any three points)"
+     ],
+     "errors": []
+    },
+    "tip": "The word \"analyse\" asks for impact on BOTH the social and the political surroundings. Pick three from: patriotic feelings, wider base, non-violence, depressed classes, women, Prabhat Pheris, legislative elections.",
+    "words": "≈50-60 words"
+   },
+   "variations": [],
+   "related": [
+    "gandhi-long-15",
+    "gandhi-long-11",
+    "gandhi-long-28",
+    "gandhi-long-30",
+    "gandhi-long-26"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "gandhi-long-30",
+   "sec": "long",
+   "topic": "gandhi-irwin-pact",
+   "format": "SOURCE",
+   "marks": 4,
+   "stem": "Read the excerpt given below and answer the questions that follow-\nThe movement had generated worldwide publicity, and British were looking for a way to end it. Gandhiji was released from custody in January 1931, and the two men began negotiating the terms of the pact. For many conservatives in England, the meetings and talks seemed unacceptable. They thought it was inappropriate for the Viceroy, who was the representative of the British Monarch, to receive their arch-enemy. Gandhiji was authorised by the then President of the Congress, Sardar Vallabh Bhai Patel, to negotiate with the Viceroy. He advised the nation to wait, watch, pray and hope for a better prospect for India. He was full of admiration for the people, their heroic struggle and hard suffering.\nSource: The Hindu",
+   "picture": null,
+   "img": null,
+   "q": "As a consequence of this meeting, a pact was signed.\nMention any four conditions that the Congress  and the British Government agreed to according to this pact.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2024",
+     "ref": "Q8(iii)",
+     "marks": 4,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Suspension:</b> the Congress agreed to <mark>suspend the Civil Disobedience Movement</mark> and to <mark>participate in the Second Round Table Conference</mark>.",
+     "<b>Police atrocities:</b> the Congress agreed <mark>not to press for investigation into police atrocities</mark>.",
+     "<b>Prisoners:</b> the British agreed to <mark>withdraw all ordinances and end prosecutions</mark> and <mark>release all political prisoners</mark> except those guilty of violence.",
+     "<b>Picketing, property and salt:</b> the British agreed to <mark>permit peaceful picketing</mark> of liquor and foreign cloth shops, <mark>restore confiscated properties</mark>, and <mark>permit salt-making near the coast</mark>."
+    ],
+    "official": {
+     "src": "CISCE APP 2026 marking scheme",
+     "points": [
+      "(iii) Congress agreed to - suspend the Civil Disobedience Movement / participate in the Second Round Table Conference/not press for investigation into police atrocities",
+      "The British government agreed to - withdraw all ordinances and end prosecutions / release all political prisoners except those guilty of violence / permit peaceful picketing of liquor and foreign cloth shops/restore the confiscated properties of the satyagrahis / permit people near the coast to manufacture salt",
+      "(Any four points overall)"
+     ],
+     "errors": [
+      "Majority of the candidates were able to correctly answer the provisions of the Gandhi-Irwin Pact."
+     ]
+    },
+    "tip": "Four clauses OVERALL from either side are accepted, but mention who agreed to what. The 2023 version of this question needed two from each side.",
+    "words": "≈60-80 words"
+   },
+   "variations": [],
+   "related": [
+    "gandhi-long-18",
+    "gandhi-long-23",
+    "gandhi-long-17",
+    "gandhi-long-16",
+    "gandhi-long-28",
+    "gandhi-long-29"
+   ],
+   "difficulty": "Medium",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "gandhi-long-31",
+   "sec": "long",
+   "topic": "cdm-movement",
+   "format": "LONG",
+   "marks": 3,
+   "stem": "The mass phase of the National Movement led to the freedom of India. With reference to this phase, answer the following questions:",
+   "picture": null,
+   "img": null,
+   "q": "What were the causes of the Civil Disobedience Movement? Name the march which marked the beginning of this movement.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2023",
+     "ref": "Q8(i)",
+     "marks": 3,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Cause 1:</b> the <mark>Simon Commission</mark> (1927) had no Indian member and was boycotted by Indians.",
+     "<b>Cause 2:</b> the <mark>Lahore session of the Congress (1929)</mark> declared <mark>Purna Swaraj</mark> as the goal, and the Viceroy's Dominion Status offer was vague and unsatisfactory (the salt tax and the Great Depression are also credited).",
+     "<b>The march:</b> the <mark>Dandi March (Salt March)</mark> of 12 March 1930 marked the beginning of the movement."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Two causes of CDM (not NCM) plus the name of the march (3 marks = 1 + 1 + 1).",
+    "words": "≈60–80 words"
+   },
+   "variations": [],
+   "related": [
+    "gandhi-short-07",
+    "gandhi-short-09",
+    "gandhi-long-12",
+    "gandhi-long-28",
+    "gandhi-long-24"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": [
+    "text-read-from-scan"
+   ]
   }
  ]
 };

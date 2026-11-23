@@ -11,7 +11,7 @@ Each chapter has **3 DPPs**, matching the ICSE History & Civics paper:
 
 ## Allowed sources (FIXED default since 23 Nov 2026 — don't ask the user)
 - ICSE Board papers of the last 10 exams held (2016–2020, 2022 Semester 1 (MCQ) & Semester 2, 2023–2026; no exam 2021)
-- ALL official CISCE Specimen papers of the last 10 years (≈2017–2027; History Ch 3–9 were built with only 2025–27 before this rule)
+- ALL official CISCE Specimen papers of the last 10 years (≈2017–2027; History Ch 3–9 now use S2017, S2018, S2022-SEM1, S2022-SEM2, S2023–S2027)
 - CISCE Competency Focused Practice Questions / item banks — every edition on cisce.org (History & Civics: July 2024; Chemistry: Nov 2025)
 - CISCE Analysis of Pupil Performance — official answer points, official MCQ keys & common errors (only some years are on cisce.org; for Chemistry: 2020, 2024, 2025, 2026)
 - EXCLUDED: Improvement/Supplementary papers (no official copies), invented "expected" questions.

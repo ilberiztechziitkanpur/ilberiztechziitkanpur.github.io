@@ -48,7 +48,7 @@ window.NM_DPP_DATA.ml = {
     "name": "Chronology: League - Surat Split - Lucknow Pact"
    }
   ],
-  "updated": "2026-11-22"
+  "updated": "2026-11-23"
  },
  "sources": [
   {
@@ -195,6 +195,87 @@ window.NM_DPP_DATA.ml = {
    "url": "https://static.pw.live/5eb393ee95fab7468a79d189/cbc20ea3-b995-4ad9-a925-f55db257cbf7.pdf"
   },
   {
+   "id": "S2017",
+   "label": "CISCE Specimen 2017",
+   "type": "SPECIMEN",
+   "year": 2017,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 2,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_CivicsHCG-Paper-1-2014.pdf",
+   "note": "Listed on CISCE's \"Specimen Question Papers ICSE Class X 2017\" page (file name says 2014)."
+  },
+  {
+   "id": "S2018",
+   "label": "CISCE Specimen 2018",
+   "type": "SPECIMEN",
+   "year": 2018,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 4,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_Civics-1.pdf"
+  },
+  {
+   "id": "S2022-SEM1",
+   "label": "CISCE Specimen 2022 Semester 1",
+   "short": "Specimen 2022 S1",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": true,
+   "marks": {
+    "mcq": 1,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/SPECIMEN-HCG1.pdf"
+  },
+  {
+   "id": "S2022-SEM2",
+   "label": "CISCE Specimen 2022 Semester 2",
+   "short": "Specimen 2022 S2",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/03/ICSE-Semester-2-Specimen-501-HCG14.pdf"
+  },
+  {
+   "id": "S2023",
+   "label": "CISCE Specimen 2023",
+   "type": "SPECIMEN",
+   "year": 2023,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 2,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/12/ICSE_2023_SPECIMEN_HCG1.pdf"
+  },
+  {
+   "id": "S2024",
+   "label": "CISCE Specimen 2024",
+   "type": "SPECIMEN",
+   "year": 2024,
+   "found": true,
+   "marks": {
+    "mcq": 1,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/501-HCG1-SP.pdf"
+  },
+  {
    "id": "S2025",
    "label": "CISCE Specimen 2025",
    "type": "SPECIMEN",
@@ -286,7 +367,9 @@ window.NM_DPP_DATA.ml = {
     "ml-mcq-02",
     "ml-short-02",
     "ml-long-02",
-    "ml-long-03"
+    "ml-long-03",
+    "ml-mcq-07",
+    "ml-mcq-08"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -338,7 +421,9 @@ window.NM_DPP_DATA.ml = {
    "related": [
     "ml-mcq-01",
     "ml-short-02",
-    "ml-long-02"
+    "ml-long-02",
+    "ml-mcq-07",
+    "ml-mcq-08"
    ],
    "difficulty": "Medium",
    "skill": "Analysis",
@@ -495,7 +580,8 @@ window.NM_DPP_DATA.ml = {
    "related": [
     "ml-short-01",
     "ml-short-04",
-    "ml-mcq-06"
+    "ml-mcq-06",
+    "ml-short-05"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -561,6 +647,101 @@ window.NM_DPP_DATA.ml = {
    ]
   },
   {
+   "id": "ml-mcq-07",
+   "sec": "mcq",
+   "topic": "ml-objectives",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Identify the odd one out of the following objectives:",
+   "options": [
+    "To promote among Muslims of India, support for the British government",
+    "To remove any misconceptions regarding the intention of the government",
+    "To protect and advance the political rights and interests of the Muslims",
+    "To abolish the zamindari system"
+   ],
+   "seen": [
+    {
+     "src": "S2024",
+     "ref": "Q1(xi)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(d) To abolish the zamindari system</b> - Abolishing the zamindari system was never an aim of the Muslim League (it was an objective of the Forward Bloc)."
+    ],
+    "why": "Abolishing the zamindari system was never an aim of the Muslim League (it was an objective of the Forward Bloc). The other three - support for the British Government, removing misconceptions about the Government's intentions, and protecting Muslim political rights - were stated aims of the League (1906).",
+    "official": null,
+    "tip": "Odd-one-out: recall the League's aims (loyalty to the British, protect Muslim rights and interests, remove misconceptions about the Government's intentions) and eliminate them.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "ml-mcq-02",
+    "ml-mcq-01",
+    "ml-short-02",
+    "ml-mcq-08"
+   ],
+   "difficulty": "Easy",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 3
+  },
+  {
+   "id": "ml-mcq-08",
+   "sec": "mcq",
+   "topic": "ml-objectives",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Which of the following is not the aim of the Muslim League?",
+   "options": [
+    "To develop and consolidate the feelings of national unity among Muslims.",
+    "To protect and advance the political rights of Muslims.",
+    "To promote among Muslims of India, support for the British Government.",
+    "To prevent hostilities between Muslims and other communities."
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q27",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(a) To develop and consolidate the feelings of national unity among Muslims.</b> - Option 1 is not a stated aim: the League was founded to protect Muslim interests, not to build 'national unity among Muslims'."
+    ],
+    "why": "Option 1 is not a stated aim: the League was founded to protect Muslim interests, not to build 'national unity among Muslims'. Options 2, 3 and 4 (protect political rights, promote support for the British Government, prevent hostility towards other communities) were its stated aims.",
+    "official": null,
+    "tip": "The League's aims in 1906: loyalty to the British, protect Muslim political rights and interests, prevent hostility with other communities.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "ml-mcq-01",
+    "ml-mcq-02",
+    "ml-mcq-07"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 0
+  },
+  {
    "id": "ml-short-01",
    "sec": "short",
    "topic": "lucknow-pact",
@@ -599,7 +780,8 @@ window.NM_DPP_DATA.ml = {
    "related": [
     "ml-mcq-05",
     "ml-short-04",
-    "ml-mcq-06"
+    "ml-mcq-06",
+    "ml-short-05"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -633,6 +815,12 @@ window.NM_DPP_DATA.ml = {
      "ref": "Q2(d)",
      "marks": 2,
      "note": "Printed 'State any two objectives of the Muslim League' (verb 'State' for 'Mention')."
+    },
+    {
+     "src": "S2018",
+     "ref": "Q2(c)",
+     "marks": 2,
+     "note": ""
     }
    ],
    "answer": {
@@ -663,12 +851,79 @@ window.NM_DPP_DATA.ml = {
     "tip": "Any two of the five - 1 mark each. Write the 1906 objectives only; never the later demands (Pakistan, Urdu, separate state). Safest pair: loyalty to the British + protect Muslim political rights.",
     "words": "≈25-35 words"
    },
-   "variations": [],
+   "variations": [
+    {
+     "id": "ml-short-02-v1",
+     "q": "State any two objectives of the All-India Muslim League.",
+     "stem": null,
+     "picture": null,
+     "img": null,
+     "options": null,
+     "marks": 2,
+     "seen": [
+      {
+       "src": "S2017",
+       "ref": "Q2(d)",
+       "marks": 2,
+       "note": "Printed 'State any two objectives of the All-India Muslim League.'"
+      }
+     ],
+     "diff": "Printed as \"State any two objectives of the All-India Muslim League.\" instead of \"Mention any two objectives of the Muslim League.\" — only the wording of the instruction / name differs; the same answer core earns full marks.",
+     "answer": {
+      "points": [
+       "<b>Loyalty to the British:</b> to promote among Muslims of India <mark>loyal support for the British government</mark>.",
+       "<b>Remove misconceptions:</b> to <mark>remove any misconceptions</mark> regarding the intention of the government with regard to the Muslims.",
+       "<b>Protect Muslim rights:</b> to <mark>protect and advance the political rights and interests</mark> of the Muslims.",
+       "<b>Represent their needs:</b> to place the needs and aspirations of Muslims before the Government in <mark>mild and moderate language</mark>.",
+       "<b>Prevent hostility:</b> to <mark>prevent the rise of feelings of hostility</mark> between the Muslims and other communities."
+      ],
+      "why": null,
+      "official": null,
+      "tip": "Any two of the five - 1 mark each. Write the 1906 objectives only; never the later demands (Pakistan, Urdu, separate state). Safest pair: loyalty to the British + protect Muslim political rights.",
+      "words": "≈25-35 words"
+     }
+    },
+    {
+     "id": "ml-short-02-v2",
+     "q": "State any two objectives of the Muslim League.",
+     "stem": null,
+     "picture": null,
+     "img": null,
+     "options": null,
+     "marks": 2,
+     "seen": [
+      {
+       "src": "S2023",
+       "ref": "Q2(iv)",
+       "marks": 2,
+       "note": "Printed 'State any two objectives of the Muslim League.'"
+      }
+     ],
+     "diff": "Printed as \"State any two objectives of the Muslim League.\" instead of \"Mention any two objectives of the Muslim League.\" — only the wording of the instruction differs; the same answer core earns full marks.",
+     "answer": {
+      "points": [
+       "<b>Loyalty to the British:</b> to promote among Muslims of India <mark>loyal support for the British government</mark>.",
+       "<b>Remove misconceptions:</b> to <mark>remove any misconceptions</mark> regarding the intention of the government with regard to the Muslims.",
+       "<b>Protect Muslim rights:</b> to <mark>protect and advance the political rights and interests</mark> of the Muslims.",
+       "<b>Represent their needs:</b> to place the needs and aspirations of Muslims before the Government in <mark>mild and moderate language</mark>.",
+       "<b>Prevent hostility:</b> to <mark>prevent the rise of feelings of hostility</mark> between the Muslims and other communities."
+      ],
+      "why": null,
+      "official": null,
+      "tip": "Any two of the five - 1 mark each. Write the 1906 objectives only; never the later demands (Pakistan, Urdu, separate state). Safest pair: loyalty to the British + protect Muslim political rights.",
+      "words": "≈25-35 words"
+     },
+     "flags": [
+      "text-read-from-scan"
+     ]
+    }
+   ],
    "related": [
     "ml-mcq-01",
     "ml-mcq-02",
     "ml-long-02",
-    "ml-long-03"
+    "ml-long-03",
+    "ml-mcq-07"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -776,13 +1031,54 @@ window.NM_DPP_DATA.ml = {
    "variations": [],
    "related": [
     "ml-short-01",
-    "ml-mcq-05"
+    "ml-mcq-05",
+    "ml-short-05"
    ],
    "difficulty": "Medium",
    "skill": "Understanding",
    "confidence": "HIGH",
    "flags": [],
    "img": "img/ml/CFPQ2024-Q36.jpg"
+  },
+  {
+   "id": "ml-short-05",
+   "sec": "short",
+   "topic": "lucknow-pact",
+   "format": "SHORT",
+   "marks": 2,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Mention the significance of the Lucknow Pact of 1916.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2018",
+     "ref": "Q2(d)",
+     "marks": 2,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Congress-League unity:</b> it brought the <mark>Congress and the Muslim League together</mark> for the first time, an important step towards Hindu-Muslim unity.",
+     "<b>Common demand:</b> Congress accepted <mark>separate electorates</mark> for Muslims and both parties jointly <mark>demanded self-government</mark>; the British realised a united front was emerging (the Early and Assertive Nationalists were also reunited)."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Write the SIGNIFICANCE of the Pact (what it achieved), two distinct points. Do not just narrate the clauses.",
+    "words": "≈40–60 words"
+   },
+   "variations": [],
+   "related": [
+    "ml-short-04",
+    "ml-short-01",
+    "ml-mcq-05"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": []
   },
   {
    "id": "ml-long-01",

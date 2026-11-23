@@ -25,7 +25,7 @@ window.NM_DPP_DATA.ina = {
     "name": "Contributions and impact of the INA on the National Movement"
    }
   ],
-  "updated": "2026-11-22"
+  "updated": "2026-11-23"
  },
  "sources": [
   {
@@ -172,6 +172,87 @@ window.NM_DPP_DATA.ina = {
    "url": "https://static.pw.live/5eb393ee95fab7468a79d189/cbc20ea3-b995-4ad9-a925-f55db257cbf7.pdf"
   },
   {
+   "id": "S2017",
+   "label": "CISCE Specimen 2017",
+   "type": "SPECIMEN",
+   "year": 2017,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_CivicsHCG-Paper-1-2014.pdf",
+   "note": "Listed on CISCE's \"Specimen Question Papers ICSE Class X 2017\" page (file name says 2014)."
+  },
+  {
+   "id": "S2018",
+   "label": "CISCE Specimen 2018",
+   "type": "SPECIMEN",
+   "year": 2018,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 4,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_Civics-1.pdf"
+  },
+  {
+   "id": "S2022-SEM1",
+   "label": "CISCE Specimen 2022 Semester 1",
+   "short": "Specimen 2022 S1",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": true,
+   "marks": {
+    "mcq": 3,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/SPECIMEN-HCG1.pdf"
+  },
+  {
+   "id": "S2022-SEM2",
+   "label": "CISCE Specimen 2022 Semester 2",
+   "short": "Specimen 2022 S2",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/03/ICSE-Semester-2-Specimen-501-HCG14.pdf"
+  },
+  {
+   "id": "S2023",
+   "label": "CISCE Specimen 2023",
+   "type": "SPECIMEN",
+   "year": 2023,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 2,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/12/ICSE_2023_SPECIMEN_HCG1.pdf"
+  },
+  {
+   "id": "S2024",
+   "label": "CISCE Specimen 2024",
+   "type": "SPECIMEN",
+   "year": 2024,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 2,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/501-HCG1-SP.pdf"
+  },
+  {
    "id": "S2025",
    "label": "CISCE Specimen 2025",
    "type": "SPECIMEN",
@@ -274,7 +355,9 @@ window.NM_DPP_DATA.ina = {
     "ina-long-05",
     "ina-mcq-05",
     "ina-mcq-06",
-    "ina-mcq-07"
+    "ina-mcq-07",
+    "ina-mcq-10",
+    "ina-mcq-11"
    ],
    "difficulty": "Medium",
    "skill": "Analysis",
@@ -330,7 +413,8 @@ window.NM_DPP_DATA.ina = {
     "ina-short-02",
     "ina-short-05",
     "ina-long-03",
-    "ina-long-06"
+    "ina-long-06",
+    "ina-mcq-10"
    ],
    "difficulty": "Medium",
    "skill": "Analysis",
@@ -482,7 +566,8 @@ window.NM_DPP_DATA.ina = {
     "ina-mcq-08",
     "ina-long-02",
     "ina-long-04",
-    "ina-mcq-01"
+    "ina-mcq-01",
+    "ina-mcq-09"
    ],
    "difficulty": "Medium",
    "skill": "Analysis",
@@ -540,7 +625,8 @@ window.NM_DPP_DATA.ina = {
     "ina-mcq-08",
     "ina-short-04",
     "ina-long-02",
-    "ina-long-04"
+    "ina-long-04",
+    "ina-mcq-09"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -659,6 +745,147 @@ window.NM_DPP_DATA.ina = {
    ]
   },
   {
+   "id": "ina-mcq-09",
+   "sec": "mcq",
+   "topic": "bose-career",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "The Supreme Commander of the Indian National Army:",
+   "options": [
+    "Subash Chandra Bose",
+    "Ras Behari Gosh",
+    "Jawaharlal Nehru",
+    "Lord Wavell"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q14",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(a) Subash Chandra Bose</b> - Subhas Chandra Bose was the Supreme Commander of the Indian National Army (Azad Hind Fauj)."
+    ],
+    "why": "Subhas Chandra Bose was the Supreme Commander of the Indian National Army (Azad Hind Fauj). Ras Behari Bose (not 'Gosh') founded the first INA and invited Subhas to lead it; Nehru and Lord Wavell were not connected with the INA command.",
+    "official": null,
+    "tip": "Bose took over the INA from Rash Behari Bose in Singapore (1943) as its Supreme Commander.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "ina-mcq-05",
+    "ina-mcq-06",
+    "ina-short-06"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 0
+  },
+  {
+   "id": "ina-mcq-10",
+   "sec": "mcq",
+   "topic": "ina-objectives",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Replace the underlined word to correct the statement.\nUnity, Faith, Sacrifice was the motto of the <u>Forward Bloc</u>.",
+   "options": [
+    "Indian National Congress",
+    "Indian National Army",
+    "East India Association",
+    "The Muslim League"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q16",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(b) Indian National Army</b> - 'Unity, Faith, Sacrifice' (Ittehad, Etmad, Qurbani) was the motto of the Indian National Army, not the Forward Bloc."
+    ],
+    "why": "'Unity, Faith, Sacrifice' (Ittehad, Etmad, Qurbani) was the motto of the Indian National Army, not the Forward Bloc. Congress, the East India Association and the Muslim League had different mottos/aims.",
+    "official": null,
+    "tip": "The INA's motto is 'unity, faith and sacrifice'; do not confuse INA and Forward Bloc objectives.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "ina-mcq-02",
+    "ina-short-02",
+    "ina-mcq-01"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": [
+    "straddles-forward-bloc-and-ina",
+    "key-agent-determined"
+   ],
+   "correct": 1
+  },
+  {
+   "id": "ina-mcq-11",
+   "sec": "mcq",
+   "topic": "forward-bloc",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "To   reorganise agriculture and industry on socialist lines was an aim of:",
+   "options": [
+    "Indian National Congress",
+    "The Indian National Army",
+    "The Forward Bloc",
+    "The Muslim League"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q31",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(c) The Forward Bloc</b> - Reorganising agriculture and industry on socialist lines was an aim of the Forward Bloc (with abolition of zamindari)."
+    ],
+    "why": "Reorganising agriculture and industry on socialist lines was an aim of the Forward Bloc (with abolition of zamindari). The Congress, INA and Muslim League did not state this aim.",
+    "official": null,
+    "tip": "Forward Bloc = socialist reorganisation + abolition of zamindari; INA = armed struggle + provisional government.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "ina-mcq-01",
+    "ina-short-03"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 2
+  },
+  {
    "stem": null,
    "picture": null,
    "variations": [],
@@ -700,7 +927,8 @@ window.NM_DPP_DATA.ina = {
    "related": [
     "ina-long-02",
     "ina-short-05",
-    "ina-short-02"
+    "ina-short-02",
+    "ina-short-06"
    ],
    "difficulty": "Medium",
    "skill": "Understanding",
@@ -723,6 +951,12 @@ window.NM_DPP_DATA.ina = {
       {
        "src": "B2017",
        "ref": "Q2(f)",
+       "marks": 2,
+       "note": ""
+      },
+      {
+       "src": "S2023",
+       "ref": "Q2(vi)",
        "marks": 2,
        "note": ""
       }
@@ -797,7 +1031,8 @@ window.NM_DPP_DATA.ina = {
     "ina-long-03",
     "ina-long-06",
     "ina-short-03",
-    "ina-short-01"
+    "ina-short-01",
+    "ina-mcq-10"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -806,7 +1041,38 @@ window.NM_DPP_DATA.ina = {
   {
    "stem": null,
    "picture": null,
-   "variations": [],
+   "variations": [
+    {
+     "id": "ina-short-03-v1",
+     "q": "State any two objectives of the Forward Bloc.",
+     "stem": null,
+     "picture": null,
+     "img": null,
+     "options": null,
+     "marks": 2,
+     "seen": [
+      {
+       "src": "S2018",
+       "ref": "Q2(g)",
+       "marks": 2,
+       "note": "Printed 'State any two objectives of the Forward Bloc.'"
+      }
+     ],
+     "diff": "Printed as \"State any two objectives of the Forward Bloc.\" instead of \"Mention any two objectives of the Forward Bloc.\" — only the wording of the instruction differs; the same answer core earns full marks.",
+     "answer": {
+      "points": [
+       "<b>Independence with mass support:</b> to attain <mark>independence with the support of workers, peasants and youth</mark>.",
+       "<b>Socialist reorganisation:</b> to work towards a <mark>socialist state/society</mark> by <mark>reorganising agriculture and industry on socialist lines</mark>.",
+       "<b>Zamindari and credit:</b> <mark>abolition of the zamindari system</mark> and the <mark>introduction of a new monetary and credit system</mark>.",
+       "<b>Other credited points:</b> making the <mark>right to work</mark> a fundamental right; benefits for workers (minimum wages, occupational safety); freedom of religious worship; linguistic and cultural autonomy; social ownership and control of production and distribution."
+      ],
+      "why": null,
+      "official": null,
+      "tip": "Forward Bloc = socialist and economic aims (workers-peasants-youth, socialism, zamindari abolition, new monetary and credit system, right to work). INA = armed struggle aims. Keep two columns in your notes. Asked in 2020 and 2025 with identical wording.",
+      "words": "≈20-30 words"
+     }
+    }
+   ],
    "confidence": "HIGH",
    "id": "ina-short-03",
    "sec": "short",
@@ -853,7 +1119,8 @@ window.NM_DPP_DATA.ina = {
     "ina-long-01",
     "ina-long-05",
     "ina-mcq-01",
-    "ina-short-02"
+    "ina-short-02",
+    "ina-mcq-11"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -899,7 +1166,8 @@ window.NM_DPP_DATA.ina = {
    "related": [
     "ina-mcq-04",
     "ina-mcq-06",
-    "ina-long-02"
+    "ina-long-02",
+    "ina-short-06"
    ],
    "difficulty": "Easy",
    "skill": "Application",
@@ -957,6 +1225,76 @@ window.NM_DPP_DATA.ina = {
    "flags": [
     "marks-inferred-from-CFPQ-section-III"
    ]
+  },
+  {
+   "id": "ina-short-06",
+   "sec": "short",
+   "topic": "bose-career",
+   "format": "SHORT",
+   "marks": 2,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Give any two contributions of Subhash Chandra Bose.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2018",
+     "ref": "Q2(e)",
+     "marks": 2,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Forward Bloc:</b> formed the <mark>Forward Bloc (1939)</mark> after leaving the Congress, to unite all anti-British radical forces.",
+     "<b>Indian National Army:</b> reorganised and led the <mark>Indian National Army (Azad Hind Fauj)</mark> from East Asia with the slogans <mark>'Delhi Chalo'</mark> and 'Give me blood and I shall give you freedom'."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Give two distinct contributions (Forward Bloc, INA / Provisional Government of Free India / slogans / Congress President 1938-39). Do not write the objectives of the INA or Forward Bloc.",
+    "words": "≈40–60 words"
+   },
+   "variations": [
+    {
+     "id": "ina-short-06-v1",
+     "q": "Mention any two contributions of Subash Chandra Bose.",
+     "stem": null,
+     "picture": null,
+     "img": null,
+     "options": null,
+     "marks": 2,
+     "seen": [
+      {
+       "src": "S2024",
+       "ref": "Q2(iii)",
+       "marks": 2,
+       "note": "Printed 'Mention any two contributions of Subash Chandra Bose.'"
+      }
+     ],
+     "diff": "Printed as \"Mention any two contributions of Subash Chandra Bose.\" instead of \"Give any two contributions of Subhash Chandra Bose.\" — only the wording of the instruction / name differs; the same answer core earns full marks.",
+     "answer": {
+      "points": [
+       "<b>Forward Bloc:</b> formed the <mark>Forward Bloc (1939)</mark> after leaving the Congress, to unite all anti-British radical forces.",
+       "<b>Indian National Army:</b> reorganised and led the <mark>Indian National Army (Azad Hind Fauj)</mark> from East Asia with the slogans <mark>'Delhi Chalo'</mark> and 'Give me blood and I shall give you freedom'."
+      ],
+      "why": null,
+      "official": null,
+      "tip": "Give two distinct contributions (Forward Bloc, INA / Provisional Government of Free India / slogans / Congress President 1938-39). Do not write the objectives of the INA or Forward Bloc.",
+      "words": "≈40–60 words"
+     }
+    }
+   ],
+   "related": [
+    "ina-long-02",
+    "ina-short-01",
+    "ina-short-04",
+    "ina-mcq-09"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": []
   },
   {
    "stem": "The heroism of the Indians was revealed by the courage of Subash Chandra Bose and the Indian National Army. With reference to this, answer the following questions:",
@@ -1057,7 +1395,8 @@ window.NM_DPP_DATA.ina = {
     "ina-short-04",
     "ina-long-04",
     "ina-short-01",
-    "ina-long-01"
+    "ina-long-01",
+    "ina-short-06"
    ],
    "difficulty": "Medium",
    "skill": "Recall",

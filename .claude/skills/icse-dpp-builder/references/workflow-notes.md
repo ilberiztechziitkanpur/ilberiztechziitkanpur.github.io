@@ -11,7 +11,8 @@
 ## Facts already established (don't re-research)
 - Board-paper MCQ keys: take them from that year's APP (official). Only if the APP is unavailable are they agent-determined (flag it). Specimen 2025–2027 and CFPQ (July 2024) keys are official.
 - CISCE Analysis of Pupil Performance (APP: the board's official marking scheme + examiners' common errors for EVERY question of the paper) exists for 2016–2020 and 2023–2026 (none for 2021–22). cisce.org HTML pages sit behind Cloudflare (403 to bots), but direct PDF links work with a browser User-Agent; Byjus/Educart mirror 2016–2020. Search "analysis-of-pupil-performance-icse-<year>" on cisce.org. Always use the APP for official answers AND official MCQ keys of board papers.
-- No History & Civics specimen was released for 2020/2021. The 2022 Sem 2 History part was Contemporary World only.
+- History & Civics specimens on cisce.org: 2017 (https://cisce.org/wp-content/uploads/2025/11/History_CivicsHCG-Paper-1-2014.pdf — on the 2017 page despite the name), 2018 (…/2025/11/History_Civics-1.pdf), 2022 Sem 1 (…/2025/11/SPECIMEN-HCG1.pdf), 2022 Sem 2 (…/2025/03/ICSE-Semester-2-Specimen-501-HCG14.pdf), 2023 (…/2025/12/ICSE_2023_SPECIMEN_HCG1.pdf — scanned, no text layer), 2024 (…/2025/11/501-HCG1-SP.pdf), 2025–2027. None for 2019/2020/2021. Specimens before 2025 print no answer key. The 2022 Sem 2 History part was Contemporary World only. All merged into History Ch 3–9 (v14.3).
+- The specimen year pages (cisce.org/specimen-question-papers-icse-class-x-<year>-2/) return 200 to curl with a browser User-Agent.
 - Specimen 2027 was released 9 Oct 2026 with answer keys.
 - PyMuPDF is installed for Python 3.14 (`C:\Users\ASUS\AppData\Local\Programs\Python\Python314\python.exe`), not 3.13. `pdftoppm` is not installed, so the Read tool cannot render PDF pages; extract text with fitz.
 

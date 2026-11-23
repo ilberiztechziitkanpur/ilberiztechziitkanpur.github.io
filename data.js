@@ -1615,12 +1615,12 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-his-3",
                             "name": "Ch 3: First Phase of the Indian National Movement (1885–1907)",
-                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank + 2 Class Notes: Early Nationalists (Moderates), methods, Naoroji, Gokhale, Banerjea",
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2017–27 & CISCE Competency Bank + 2 Class Notes: Early Nationalists (Moderates), methods, Naoroji, Gokhale, Banerjea",
                             "items": [
                                 {
                                     "id": "his-fp-dpp-mcq",
                                     "title": "First Phase (Early Nationalists) — Interactive DPP 1: MCQs (Section A · Q1)",
-                                    "subtitle": "7 official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, answer keys & explanations — Moderates, methods, Naoroji, Gokhale, Banerjea",
+                                    "subtitle": "7 official ICSE MCQs (Board 2016–2026, Specimen 2017–27, CISCE Competency Bank) with year tags, probability, answer keys & explanations — Moderates, methods, Naoroji, Gokhale, Banerjea",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=fp&sec=mcq",
                                     "badge": "DPP 1 • 7 MCQs • 1 Mark"
@@ -1628,18 +1628,18 @@ window.COURSE_DATA = {
                                 {
                                     "id": "his-fp-dpp-short",
                                     "title": "First Phase (Early Nationalists) — Interactive DPP 2: Short Answers (Section A · Q2)",
-                                    "subtitle": "2 (+1 variation) official 2-mark questions with marking points, highlighted keywords, Show Variations & CISCE examiner notes — Moderates, methods, Naoroji, Gokhale, Banerjea",
+                                    "subtitle": "3 (+1 variation) official 2-mark questions with marking points, highlighted keywords, Show Variations & CISCE examiner notes — Moderates, methods, Naoroji, Gokhale, Banerjea",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=fp&sec=short",
-                                    "badge": "DPP 2 • 3 Qs • 2 Marks"
+                                    "badge": "DPP 2 • 4 Qs • 2 Marks"
                                 },
                                 {
                                     "id": "his-fp-dpp-long",
                                     "title": "First Phase (Early Nationalists) — Interactive DPP 3: Long Answers (Section B)",
-                                    "subtitle": "1 official Section B sub-question (3–4 marks) with point-wise answers, self-marking checklist, timed test mode — Moderates, methods, Naoroji, Gokhale, Banerjea",
+                                    "subtitle": "2 official Section B sub-questions (3–4 marks) with point-wise answers, self-marking checklist, timed test mode — Moderates, methods, Naoroji, Gokhale, Banerjea",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=fp&sec=long",
-                                    "badge": "DPP 3 • 1 Q • 3–4 Marks"
+                                    "badge": "DPP 3 • 2 Qs • 3–4 Marks"
                                 },
                                 {
                                     "id": "his-first-phase-notes-01",
@@ -1663,31 +1663,31 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-his-4",
                             "name": "Ch 4: Second Phase of the Indian National Movement (Assertive Nationalism)",
-                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank + 2 Class Notes: Assertive Nationalism, Curzon, Partition of Bengal, Swadeshi & Boycott, Lal-Bal-Pal, Surat Split",
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2017–27 & CISCE Competency Bank + 2 Class Notes: Assertive Nationalism, Curzon, Partition of Bengal, Swadeshi & Boycott, Lal-Bal-Pal, Surat Split",
                             "items": [
                                 {
                                     "id": "his-sp-dpp-mcq",
                                     "title": "Second Phase (Assertive Nationalism) — Interactive DPP 1: MCQs (Section A · Q1)",
-                                    "subtitle": "13 (+1 variation) official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, answer keys & explanations — Partition of Bengal, Curzon, Swadeshi, Boycott, Lal-Bal-Pal, Tilak, Surat Split",
+                                    "subtitle": "15 (+1 variation) official ICSE MCQs (Board 2016–2026, Specimen 2017–27, CISCE Competency Bank) with year tags, probability, answer keys & explanations — Partition of Bengal, Curzon, Swadeshi, Boycott, Lal-Bal-Pal, Tilak, Surat Split",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=sp&sec=mcq",
-                                    "badge": "DPP 1 • 14 MCQs • 1 Mark"
+                                    "badge": "DPP 1 • 16 MCQs • 1 Mark"
                                 },
                                 {
                                     "id": "his-sp-dpp-short",
                                     "title": "Second Phase (Assertive Nationalism) — Interactive DPP 2: Short Answers (Section A · Q2)",
-                                    "subtitle": "11 official 2-mark questions with marking points, highlighted keywords, Show Variations & CISCE examiner notes — Partition of Bengal, Curzon, Swadeshi, Boycott, Lal-Bal-Pal, Tilak, Surat Split",
+                                    "subtitle": "14 official 2-mark questions with marking points, highlighted keywords, Show Variations & CISCE examiner notes — Partition of Bengal, Curzon, Swadeshi, Boycott, Lal-Bal-Pal, Tilak, Surat Split",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=sp&sec=short",
-                                    "badge": "DPP 2 • 11 Qs • 2 Marks"
+                                    "badge": "DPP 2 • 14 Qs • 2 Marks"
                                 },
                                 {
                                     "id": "his-sp-dpp-long",
                                     "title": "Second Phase (Assertive Nationalism) — Interactive DPP 3: Long Answers (Section B)",
-                                    "subtitle": "7 official Section B sub-questions (3–4 marks) with point-wise answers, self-marking checklist, timed test mode — Partition of Bengal, Curzon, Swadeshi, Boycott, Lal-Bal-Pal, Tilak, Surat Split",
+                                    "subtitle": "11 (+2 variations) official Section B sub-questions (3–4 marks) with point-wise answers, self-marking checklist, timed test mode — Partition of Bengal, Curzon, Swadeshi, Boycott, Lal-Bal-Pal, Tilak, Surat Split",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=sp&sec=long",
-                                    "badge": "DPP 3 • 7 Qs • 3–4 Marks"
+                                    "badge": "DPP 3 • 13 Qs • 3–4 Marks"
                                 },
                                 {
                                     "id": "his-second-phase-notes-01",
@@ -1711,23 +1711,23 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-his-5",
                             "name": "Ch 5: The Muslim League & Lucknow Pact",
-                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank + 2 Class Notes: factors behind the Muslim League, Shimla Deputation, foundation 1906, objectives, Lucknow Pact 1916",
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2017–27 & CISCE Competency Bank + 2 Class Notes: factors behind the Muslim League, Shimla Deputation, foundation 1906, objectives, Lucknow Pact 1916",
                             "items": [
                                 {
                                     "id": "his-ml-dpp-mcq",
                                     "title": "Muslim League — Interactive DPP 1: MCQs (Section A · Q1)",
-                                    "subtitle": "6 official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — Muslim League 1906, factors, Shimla Deputation, objectives, Lucknow Pact 1916",
+                                    "subtitle": "8 official ICSE MCQs (Board 2016–2026, Specimen 2017–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — Muslim League 1906, factors, Shimla Deputation, objectives, Lucknow Pact 1916",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=ml&sec=mcq",
-                                    "badge": "DPP 1 • 6 MCQs • 1 Mark"
+                                    "badge": "DPP 1 • 8 MCQs • 1 Mark"
                                 },
                                 {
                                     "id": "his-ml-dpp-short",
                                     "title": "Muslim League — Interactive DPP 2: Short Answers (Section A · Q2)",
-                                    "subtitle": "4 official 2-mark questions with board-exact answers, highlighted keywords, Show Variations & CISCE examiner notes — Muslim League 1906, factors, Shimla Deputation, objectives, Lucknow Pact 1916",
+                                    "subtitle": "5 (+2 variations) official 2-mark questions with board-exact answers, highlighted keywords, Show Variations & CISCE examiner notes — Muslim League 1906, factors, Shimla Deputation, objectives, Lucknow Pact 1916",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=ml&sec=short",
-                                    "badge": "DPP 2 • 4 Qs • 2 Marks"
+                                    "badge": "DPP 2 • 7 Qs • 2 Marks"
                                 },
                                 {
                                     "id": "his-ml-dpp-long",
@@ -1759,16 +1759,16 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-his-6",
                             "name": "Ch 6: Mahatma Gandhi and the National Movement",
-                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank + 3 Class Notes: Rowlatt Act, Jallianwala Bagh, Khilafat, Non-Cooperation, Simon Commission, Lahore Session, Dandi March, Civil Disobedience, Gandhi-Irwin Pact",
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2017–27 & CISCE Competency Bank + 3 Class Notes: Rowlatt Act, Jallianwala Bagh, Khilafat, Non-Cooperation, Simon Commission, Lahore Session, Dandi March, Civil Disobedience, Gandhi-Irwin Pact",
                             "featured": true,
                             "items": [
                                 {
                                     "id": "his-gandhi-dpp-mcq",
                                     "title": "Mahatma Gandhi & the National Movement — Interactive DPP 1: MCQs (Section A · Q1)",
-                                    "subtitle": "12 official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — Rowlatt Act, Jallianwala Bagh, Khilafat, Non-Cooperation, Chauri Chaura, Simon Commission, Lahore Session, Dandi March, Civil Disobedience, Gandhi-Irwin Pact",
+                                    "subtitle": "23 official ICSE MCQs (Board 2016–2026, Specimen 2017–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — Rowlatt Act, Jallianwala Bagh, Khilafat, Non-Cooperation, Chauri Chaura, Simon Commission, Lahore Session, Dandi March, Civil Disobedience, Gandhi-Irwin Pact",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=gandhi&sec=mcq",
-                                    "badge": "DPP 1 • 12 MCQs • 1 Mark"
+                                    "badge": "DPP 1 • 23 MCQs • 1 Mark"
                                 },
                                 {
                                     "id": "his-gandhi-dpp-short",
@@ -1781,10 +1781,10 @@ window.COURSE_DATA = {
                                 {
                                     "id": "his-gandhi-dpp-long",
                                     "title": "Mahatma Gandhi & the National Movement — Interactive DPP 3: Long Answers (Section B)",
-                                    "subtitle": "23 official Section B sub-questions (3–4 marks) with point-wise board answers, self-marking checklist & timed test mode — Rowlatt Act, Jallianwala Bagh, Khilafat, Non-Cooperation, Chauri Chaura, Simon Commission, Lahore Session, Dandi March, Civil Disobedience, Gandhi-Irwin Pact",
+                                    "subtitle": "31 (+3 variations) official Section B sub-questions (3–4 marks) with point-wise board answers, self-marking checklist & timed test mode — Rowlatt Act, Jallianwala Bagh, Khilafat, Non-Cooperation, Chauri Chaura, Simon Commission, Lahore Session, Dandi March, Civil Disobedience, Gandhi-Irwin Pact",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=gandhi&sec=long",
-                                    "badge": "DPP 3 • 23 Qs • 3–4 Marks"
+                                    "badge": "DPP 3 • 34 Qs • 3–4 Marks"
                                 },
                                 {
                                     "id": "his-gandhi-notes-01",
@@ -1815,24 +1815,24 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-his-7",
                             "name": "Ch 7: The Quit India Movement",
-                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank + 2 Class Notes: August Offer, Cripps Mission, Japanese threat, Quit India Resolution, Do or Die, repression & significance",
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2017–27 & CISCE Competency Bank + 2 Class Notes: August Offer, Cripps Mission, Japanese threat, Quit India Resolution, Do or Die, repression & significance",
                             "featured": true,
                             "items": [
                                 {
                                     "id": "his-qim-dpp-mcq",
                                     "title": "Quit India Movement — Interactive DPP 1: MCQs (Section A · Q1)",
-                                    "subtitle": "4 official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — August Offer 1940, Cripps Mission, Japanese threat, Quit India Resolution 1942, Do or Die, repression, significance",
+                                    "subtitle": "5 official ICSE MCQs (Board 2016–2026, Specimen 2017–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — August Offer 1940, Cripps Mission, Japanese threat, Quit India Resolution 1942, Do or Die, repression, significance",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=qim&sec=mcq",
-                                    "badge": "DPP 1 • 4 MCQs • 1 Mark"
+                                    "badge": "DPP 1 • 5 MCQs • 1 Mark"
                                 },
                                 {
                                     "id": "his-qim-dpp-short",
                                     "title": "Quit India Movement — Interactive DPP 2: Short Answers (Section A · Q2)",
-                                    "subtitle": "2 official 2-mark questions with board-exact answers, highlighted keywords & CISCE examiner notes — August Offer 1940, Cripps Mission, Japanese threat, Quit India Resolution 1942, Do or Die, repression, significance",
+                                    "subtitle": "2 (+1 variation) official 2-mark questions with board-exact answers, highlighted keywords & CISCE examiner notes — August Offer 1940, Cripps Mission, Japanese threat, Quit India Resolution 1942, Do or Die, repression, significance",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=qim&sec=short",
-                                    "badge": "DPP 2 • 2 Qs • 2 Marks"
+                                    "badge": "DPP 2 • 3 Qs • 2 Marks"
                                 },
                                 {
                                     "id": "his-qim-dpp-long",
@@ -1863,23 +1863,23 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-his-8",
                             "name": "Ch 8: Forward Bloc and the INA",
-                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank: Subhas Chandra Bose, Forward Bloc objectives, formation & objectives of the INA, Azad Hind and impact of the INA",
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2017–27 & CISCE Competency Bank: Subhas Chandra Bose, Forward Bloc objectives, formation & objectives of the INA, Azad Hind and impact of the INA",
                             "items": [
                                 {
                                     "id": "his-ina-dpp-mcq",
                                     "title": "Forward Bloc & the INA — Interactive DPP 1: MCQs (Section A · Q1)",
-                                    "subtitle": "8 official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — Subhas Chandra Bose, Forward Bloc 1939, Indian National Army, Azad Hind, objectives & impact of the INA",
+                                    "subtitle": "11 official ICSE MCQs (Board 2016–2026, Specimen 2017–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — Subhas Chandra Bose, Forward Bloc 1939, Indian National Army, Azad Hind, objectives & impact of the INA",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=ina&sec=mcq",
-                                    "badge": "DPP 1 • 8 MCQs • 1 Mark"
+                                    "badge": "DPP 1 • 11 MCQs • 1 Mark"
                                 },
                                 {
                                     "id": "his-ina-dpp-short",
                                     "title": "Forward Bloc & the INA — Interactive DPP 2: Short Answers (Section A · Q2)",
-                                    "subtitle": "5 (+1 variation) official 2-mark questions with board-exact answers, highlighted keywords, Show Variations & CISCE examiner notes — Subhas Chandra Bose, Forward Bloc 1939, Indian National Army, Azad Hind, objectives & impact of the INA",
+                                    "subtitle": "6 (+3 variations) official 2-mark questions with board-exact answers, highlighted keywords, Show Variations & CISCE examiner notes — Subhas Chandra Bose, Forward Bloc 1939, Indian National Army, Azad Hind, objectives & impact of the INA",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=ina&sec=short",
-                                    "badge": "DPP 2 • 6 Qs • 2 Marks"
+                                    "badge": "DPP 2 • 9 Qs • 2 Marks"
                                 },
                                 {
                                     "id": "his-ina-dpp-long",
@@ -1895,32 +1895,32 @@ window.COURSE_DATA = {
                         {
                             "id": "chap-his-9",
                             "name": "Ch 9: Indian Independence and Partition of India",
-                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2025–27 & CISCE Competency Bank + 2 Class Notes: Cabinet Mission Plan, Mountbatten Plan, Princely States, Congress acceptance of Partition, Indian Independence Act 1947",
+                            "description": "3 Interactive PYQ DPPs (MCQ · Short · Long) from official ICSE Board 2016–2026, Specimen 2017–27 & CISCE Competency Bank + 2 Class Notes: Cabinet Mission Plan, Mountbatten Plan, Princely States, Congress acceptance of Partition, Indian Independence Act 1947",
                             "featured": true,
                             "items": [
                                 {
                                     "id": "his-ip-dpp-mcq",
                                     "title": "Independence & Partition of India — Interactive DPP 1: MCQs (Section A · Q1)",
-                                    "subtitle": "3 official ICSE MCQs (Board 2016–2026, Specimen 2025–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — Cabinet Mission Plan 1946, Mountbatten Plan 1947, Princely States, why Congress accepted Partition, Indian Independence Act 1947",
+                                    "subtitle": "9 official ICSE MCQs (Board 2016–2026, Specimen 2017–27, CISCE Competency Bank) with year tags, probability, official answer keys & explanations — Cabinet Mission Plan 1946, Mountbatten Plan 1947, Princely States, why Congress accepted Partition, Indian Independence Act 1947",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=ip&sec=mcq",
-                                    "badge": "DPP 1 • 3 MCQs • 1 Mark"
+                                    "badge": "DPP 1 • 9 MCQs • 1 Mark"
                                 },
                                 {
                                     "id": "his-ip-dpp-short",
                                     "title": "Independence & Partition of India — Interactive DPP 2: Short Answers (Section A · Q2)",
-                                    "subtitle": "4 (+3 variations) official 2-mark questions with board-exact answers, highlighted keywords, Show Variations & CISCE examiner notes — Cabinet Mission Plan 1946, Mountbatten Plan 1947, Princely States, why Congress accepted Partition, Indian Independence Act 1947",
+                                    "subtitle": "6 (+3 variations) official 2-mark questions with board-exact answers, highlighted keywords, Show Variations & CISCE examiner notes — Cabinet Mission Plan 1946, Mountbatten Plan 1947, Princely States, why Congress accepted Partition, Indian Independence Act 1947",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=ip&sec=short",
-                                    "badge": "DPP 2 • 7 Qs • 2 Marks"
+                                    "badge": "DPP 2 • 9 Qs • 2 Marks"
                                 },
                                 {
                                     "id": "his-ip-dpp-long",
                                     "title": "Independence & Partition of India — Interactive DPP 3: Long Answers (Section B)",
-                                    "subtitle": "12 (+1 variation) official Section B sub-questions (3–4 marks) with point-wise board answers, self-marking checklist & timed test mode — Cabinet Mission Plan 1946, Mountbatten Plan 1947, Princely States, why Congress accepted Partition, Indian Independence Act 1947",
+                                    "subtitle": "12 (+2 variations) official Section B sub-questions (3–4 marks) with point-wise board answers, self-marking checklist & timed test mode — Cabinet Mission Plan 1946, Mountbatten Plan 1947, Princely States, why Congress accepted Partition, Indian Independence Act 1947",
                                     "type": "interactive",
                                     "file": "history/national-movement/index.html?ch=ip&sec=long",
-                                    "badge": "DPP 3 • 13 Qs • 3–4 Marks"
+                                    "badge": "DPP 3 • 14 Qs • 3–4 Marks"
                                 },
                                 {
                                     "id": "his-independence-notes-01",

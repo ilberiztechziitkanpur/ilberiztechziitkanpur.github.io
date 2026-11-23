@@ -60,7 +60,7 @@ window.NM_DPP_DATA.sp = {
     "note": 1
    }
   ],
-  "updated": "2026-11-22"
+  "updated": "2026-11-23"
  },
  "sources": [
   {
@@ -207,6 +207,87 @@ window.NM_DPP_DATA.sp = {
    "url": "https://static.pw.live/5eb393ee95fab7468a79d189/cbc20ea3-b995-4ad9-a925-f55db257cbf7.pdf"
   },
   {
+   "id": "S2017",
+   "label": "CISCE Specimen 2017",
+   "type": "SPECIMEN",
+   "year": 2017,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 4,
+    "long": 10
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_CivicsHCG-Paper-1-2014.pdf",
+   "note": "Listed on CISCE's \"Specimen Question Papers ICSE Class X 2017\" page (file name says 2014)."
+  },
+  {
+   "id": "S2018",
+   "label": "CISCE Specimen 2018",
+   "type": "SPECIMEN",
+   "year": 2018,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 7
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_Civics-1.pdf"
+  },
+  {
+   "id": "S2022-SEM1",
+   "label": "CISCE Specimen 2022 Semester 1",
+   "short": "Specimen 2022 S1",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": true,
+   "marks": {
+    "mcq": 2,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/SPECIMEN-HCG1.pdf"
+  },
+  {
+   "id": "S2022-SEM2",
+   "label": "CISCE Specimen 2022 Semester 2",
+   "short": "Specimen 2022 S2",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/03/ICSE-Semester-2-Specimen-501-HCG14.pdf"
+  },
+  {
+   "id": "S2023",
+   "label": "CISCE Specimen 2023",
+   "type": "SPECIMEN",
+   "year": 2023,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 6
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/12/ICSE_2023_SPECIMEN_HCG1.pdf"
+  },
+  {
+   "id": "S2024",
+   "label": "CISCE Specimen 2024",
+   "type": "SPECIMEN",
+   "year": 2024,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 2,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/501-HCG1-SP.pdf"
+  },
+  {
    "id": "S2025",
    "label": "CISCE Specimen 2025",
    "type": "SPECIMEN",
@@ -297,7 +378,8 @@ window.NM_DPP_DATA.sp = {
    "related": [
     "sp-mcq-02",
     "sp-short-03",
-    "sp-short-02"
+    "sp-short-02",
+    "sp-short-12"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -353,7 +435,8 @@ window.NM_DPP_DATA.sp = {
     "sp-mcq-01",
     "sp-short-03",
     "sp-long-01",
-    "sp-mcq-04"
+    "sp-mcq-04",
+    "sp-short-12"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -400,7 +483,8 @@ window.NM_DPP_DATA.sp = {
     "sp-mcq-04",
     "sp-mcq-05",
     "sp-long-01",
-    "sp-short-01"
+    "sp-short-01",
+    "sp-mcq-15"
    ],
    "difficulty": "Easy",
    "skill": "Understanding",
@@ -455,7 +539,8 @@ window.NM_DPP_DATA.sp = {
    "related": [
     "sp-mcq-03",
     "sp-mcq-05",
-    "sp-mcq-02"
+    "sp-mcq-02",
+    "sp-mcq-15"
    ],
    "difficulty": "Medium",
    "skill": "Analysis",
@@ -563,7 +648,10 @@ window.NM_DPP_DATA.sp = {
    "related": [
     "sp-mcq-11",
     "sp-long-02",
-    "sp-long-05"
+    "sp-long-05",
+    "sp-short-13",
+    "sp-short-14",
+    "sp-mcq-14"
    ],
    "difficulty": "Easy",
    "skill": "Application",
@@ -619,7 +707,8 @@ window.NM_DPP_DATA.sp = {
     "sp-short-05",
     "sp-long-07",
     "sp-long-04",
-    "sp-mcq-13"
+    "sp-mcq-13",
+    "sp-long-08"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -907,7 +996,10 @@ window.NM_DPP_DATA.sp = {
     "sp-mcq-09",
     "sp-long-05",
     "sp-long-06",
-    "sp-mcq-10"
+    "sp-mcq-10",
+    "sp-short-13",
+    "sp-short-14",
+    "sp-mcq-14"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -965,6 +1057,100 @@ window.NM_DPP_DATA.sp = {
    "skill": "Analysis",
    "confidence": "HIGH",
    "flags": []
+  },
+  {
+   "id": "sp-mcq-14",
+   "sec": "mcq",
+   "topic": "assertive-methods",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Which of the following is a method of the Assertive Nationalists?\n(i) Swadeshi\n(ii) Boycott\n(iii) Passive Resistance\n(iv) Revivalism",
+   "options": [
+    "(i)",
+    "(ii)",
+    "(iii) and (iv)",
+    "All"
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q12",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(d) All</b> - All four - Swadeshi, Boycott, Passive Resistance and Revivalism (reviving India's past through the Shivaji and Ganapati festivals) - were methods of the Assertive Nationalists, so 'All' is correct."
+    ],
+    "why": "All four - Swadeshi, Boycott, Passive Resistance and Revivalism (reviving India's past through the Shivaji and Ganapati festivals) - were methods of the Assertive Nationalists, so 'All' is correct. Options (i) and (ii) are each right but incomplete, and (iii) and (iv) omit (i) and (ii).",
+    "official": null,
+    "tip": "When a list item is split across the options, check every item first; here all four are Assertive methods.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "sp-mcq-11",
+    "sp-mcq-06",
+    "sp-short-14"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 3
+  },
+  {
+   "id": "sp-mcq-15",
+   "sec": "mcq",
+   "topic": "partition-bengal",
+   "format": "MCQ",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "The nationalists felt Bengal was partitioned.",
+   "options": [
+    "To divide Hindus and Muslims.",
+    "For effective administration.",
+    "To stop the spread of Swadeshi.",
+    "To help the Muslims."
+   ],
+   "seen": [
+    {
+     "src": "S2022-SEM1",
+     "ref": "Q20",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(a) To divide Hindus and Muslims.</b> - Nationalists believed the real motive was to divide Hindus and Muslims (divide and rule)."
+    ],
+    "why": "Nationalists believed the real motive was to divide Hindus and Muslims (divide and rule). 'Effective administration' was the Government's official plea; stopping Swadeshi and helping Muslims were not the nationalists' stated view.",
+    "official": null,
+    "tip": "Remember the contrast: Government's reason = administration; nationalists' view = divide and rule.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "sp-mcq-03",
+    "sp-mcq-04",
+    "sp-long-01"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ],
+   "correct": 0
   },
   {
    "id": "sp-short-01",
@@ -1105,7 +1291,8 @@ window.NM_DPP_DATA.sp = {
     "sp-mcq-01",
     "sp-mcq-02",
     "sp-short-02",
-    "sp-long-01"
+    "sp-long-01",
+    "sp-short-12"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -1247,7 +1434,9 @@ window.NM_DPP_DATA.sp = {
     "sp-short-10",
     "sp-short-08",
     "sp-short-05",
-    "sp-short-11"
+    "sp-short-11",
+    "sp-long-10",
+    "sp-long-11"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -1435,7 +1624,9 @@ window.NM_DPP_DATA.sp = {
    "variations": [],
    "related": [
     "sp-short-07",
-    "sp-short-05"
+    "sp-short-05",
+    "sp-long-10",
+    "sp-long-11"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -1490,6 +1681,129 @@ window.NM_DPP_DATA.sp = {
    ]
   },
   {
+   "id": "sp-short-12",
+   "sec": "short",
+   "topic": "partition-bengal",
+   "format": "SHORT",
+   "marks": 2,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "When and by whom was Bengal partitioned?",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2017",
+     "ref": "Q2(c)",
+     "marks": 2,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>When:</b> Bengal was partitioned in <mark>1905</mark> (announced in July 1905; came into force on 16 October 1905).",
+     "<b>By whom:</b> by the Viceroy <mark>Lord Curzon</mark>."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "One mark for the year and one for the name. Do not confuse Curzon with Lord Canning, Dalhousie or Ripon. The year of the annulment (1911) is not asked.",
+    "words": "≈40–60 words"
+   },
+   "variations": [],
+   "related": [
+    "sp-short-03",
+    "sp-long-01",
+    "sp-mcq-01",
+    "sp-mcq-02"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "sp-short-13",
+   "sec": "short",
+   "topic": "swadeshi-boycott",
+   "format": "SHORT",
+   "marks": 2,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Briefly explain the terms ‘Swadeshi’ and ‘Boycott’.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2017",
+     "ref": "Q2(e)",
+     "marks": 2,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Swadeshi:</b> the <mark>use of goods made in India</mark> and giving up foreign goods, to promote self-reliance and Indian industries.",
+     "<b>Boycott:</b> <mark>refusal to buy or use British goods</mark> (and to cooperate with British institutions such as government schools, courts and services) as a form of protest."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Define BOTH terms (1 mark each) in one clear line; add what each aimed to do. Do not write the impact of the movement.",
+    "words": "≈40–60 words"
+   },
+   "variations": [],
+   "related": [
+    "sp-long-02",
+    "sp-mcq-06",
+    "sp-mcq-11"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "sp-short-14",
+   "sec": "short",
+   "topic": "assertive-methods",
+   "format": "SHORT",
+   "marks": 2,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Mention any two methods of the Assertive Nationalists.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2024",
+     "ref": "Q2(v)",
+     "marks": 2,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Swadeshi and Boycott:</b> they promoted <mark>Swadeshi goods</mark> and the <mark>boycott of foreign goods</mark> and British institutions to hit British economic interests.",
+     "<b>Passive resistance and mass action:</b> <mark>passive resistance</mark> (non-violent non-cooperation, non-payment of taxes) and <mark>mass mobilisation</mark>, with national education and revival of India's past."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Two distinct METHODS (not aims or leaders). Avoid petitions and prayers - those are the Early Nationalists' methods.",
+    "words": "≈40–60 words"
+   },
+   "variations": [],
+   "related": [
+    "sp-long-05",
+    "sp-mcq-11",
+    "sp-mcq-06",
+    "sp-long-06",
+    "sp-mcq-14"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
    "id": "sp-long-01",
    "sec": "long",
    "topic": "partition-bengal",
@@ -1532,13 +1846,60 @@ window.NM_DPP_DATA.sp = {
     "tip": "1 mark for the name + 1 mark each for two nationalist points. Do not give the British 'administration' reason here - the question asks the ACTUAL motive.",
     "words": "≈60-70 words"
    },
-   "variations": [],
+   "variations": [
+    {
+     "id": "sp-long-01-v1",
+     "q": "Who partitioned Bengal? State any two actual reasons behind the Partition.",
+     "stem": "With reference to first and second phase of the Indian National Movement, answer the following:",
+     "picture": null,
+     "options": null,
+     "correct": null,
+     "marks": 3,
+     "seen": [
+      {
+       "src": "S2023",
+       "ref": "Q7(ii)",
+       "marks": 3,
+       "note": ""
+      }
+     ],
+     "diff": "Same ask (Who partitioned Bengal + two actual reasons/motives behind it, 3 marks). 'State any two actual reasons behind the Partition' vs 'Mention any two points to explain the perspective of the Nationalists regarding the actual motive'; the answer core (divide Hindus and Muslims; stop the rising tide of nationalism) earns full marks in both.",
+     "answer": {
+      "points": [
+       "<b>Who:</b> Bengal was partitioned by <mark>Lord Curzon</mark>, the Viceroy, in 1905 (announced 20 July, in force 16 October).",
+       "<b>To divide Hindus and Muslims:</b> nationalists saw the 'administrative efficiency' plea as fake; the real motive was to <mark>divide Hindus and Muslims</mark> (Muslim-majority east, Hindus a minority there; Bengalis a minority in the new Bengal).",
+       "<b>To stop the rising tide of nationalism:</b> Bengal was the <mark>nerve centre of Indian nationalism</mark>, so the partition was a hidden attack to weaken it and to <mark>demonstrate the strength of the British Raj</mark>, ignoring public opinion (Risley, the Home Secretary, admitted this)."
+      ],
+      "why": null,
+      "official": {
+       "src": "CISCE APP 2024 marking scheme",
+       "points": [
+        "Lord Curzon",
+        "To divide Hindus and Muslims",
+        "To stop the rising tide of nationalism because Bengal was the nerve centre of Indian nationalism",
+        "To demonstrate the strength of the British Raj",
+        "(Any two points)"
+       ],
+       "errors": [
+        "Many candidates were able to answer this question correctly.",
+        "A few candidates wrote Lord Lytton or Lord Canning instead of Lord Curzon.",
+        "Additionally, they wrote from the perspective of the British instead of the Nationalist perspective.",
+        "Some candidates got confused with the actual reason and the reason given by Lord Curzon for the partition of Bengal."
+       ]
+      },
+      "tip": "1 mark for the name + 1 mark each for two nationalist points. Do not give the British 'administration' reason here - the question asks the ACTUAL motive.",
+      "words": "≈60-70 words"
+     }
+    }
+   ],
    "related": [
     "sp-short-01",
     "sp-short-03",
     "sp-mcq-03",
     "sp-mcq-05",
-    "sp-mcq-02"
+    "sp-mcq-02",
+    "sp-short-12",
+    "sp-mcq-15"
    ],
    "difficulty": "Medium",
    "skill": "Understanding",
@@ -1590,7 +1951,8 @@ window.NM_DPP_DATA.sp = {
    "related": [
     "sp-short-02",
     "sp-mcq-06",
-    "sp-long-05"
+    "sp-long-05",
+    "sp-short-13"
    ],
    "difficulty": "Medium",
    "skill": "Understanding",
@@ -1691,7 +2053,8 @@ window.NM_DPP_DATA.sp = {
     "sp-mcq-10",
     "sp-mcq-07",
     "sp-long-05",
-    "sp-short-07"
+    "sp-short-07",
+    "sp-long-08"
    ],
    "difficulty": "Medium",
    "skill": "Recall",
@@ -1746,7 +2109,9 @@ window.NM_DPP_DATA.sp = {
     "sp-mcq-11",
     "sp-long-06",
     "sp-long-04",
-    "sp-long-02"
+    "sp-long-02",
+    "sp-long-09",
+    "sp-short-14"
    ],
    "difficulty": "Medium",
    "skill": "Recall",
@@ -1795,7 +2160,10 @@ window.NM_DPP_DATA.sp = {
    "related": [
     "sp-long-05",
     "sp-mcq-11",
-    "sp-long-03"
+    "sp-long-03",
+    "sp-long-09",
+    "sp-short-14",
+    "fp-long-02"
    ],
    "difficulty": "Hard",
    "skill": "Analysis",
@@ -1814,6 +2182,12 @@ window.NM_DPP_DATA.sp = {
    "picture": null,
    "q": "What was the objective of the Assertive Nationalists? Mention any two contributions of Bal Gangadhar Tilak.",
    "seen": [
+    {
+     "src": "S2023",
+     "ref": "Q7(i)",
+     "marks": 3,
+     "note": "Printed with the stem 'With reference to first and second phase of the Indian National Movement, answer the following:'"
+    },
     {
      "src": "B2024",
      "ref": "Q7(ii)",
@@ -1857,12 +2231,214 @@ window.NM_DPP_DATA.sp = {
    "related": [
     "sp-mcq-07",
     "sp-short-06",
-    "sp-short-10"
+    "sp-short-10",
+    "sp-long-08",
+    "sp-long-10"
    ],
    "difficulty": "Medium",
    "skill": "Recall",
    "confidence": "HIGH",
    "flags": []
+  },
+  {
+   "id": "sp-long-08",
+   "sec": "long",
+   "topic": "assertive-identity",
+   "format": "LONG",
+   "marks": 3,
+   "stem": "The Assertive Nationalists lost faith in the methods and ultimate success of the early nationalists. In the light of this statement, briefly describe:",
+   "picture": null,
+   "img": null,
+   "q": "Basic beliefs of assertive nationalists",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2017",
+     "ref": "Q7(a)",
+     "marks": 3,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Swaraj as the goal:</b> they demanded <mark>Swaraj (complete self-government/independence)</mark>, not just reforms under British rule.",
+     "<b>Self-reliance:</b> they believed in <mark>self-help and self-reliance</mark> rather than dependence on British goodwill.",
+     "<b>Faith in mass action:</b> having lost faith in British justice, they relied on <mark>boycott, Swadeshi, passive resistance and mass mobilisation</mark> and were ready for sacrifice."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Write BELIEFS (convictions), not methods or leaders. One point each, with a short explanation.",
+    "words": "≈60–80 words"
+   },
+   "variations": [],
+   "related": [
+    "sp-long-04",
+    "sp-long-07",
+    "sp-mcq-07"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "sp-long-09",
+   "sec": "long",
+   "topic": "early-vs-assertive",
+   "format": "LONG",
+   "marks": 3,
+   "stem": "The Assertive Nationalists lost faith in the methods and ultimate success of the early nationalists. In the light of this statement, briefly describe:",
+   "picture": null,
+   "img": null,
+   "q": "Difference between their methods and those of the early nationalists",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2017",
+     "ref": "Q7(b)",
+     "marks": 3,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Petitions vs boycott:</b> Early Nationalists used <mark>prayers, petitions and memorandums</mark>; Assertive Nationalists used <mark>Swadeshi and boycott</mark> to hit British interests.",
+     "<b>Constitutional vs assertive:</b> the Early Nationalists believed in <mark>constitutional agitation and British justice</mark>; the Assertives used <mark>passive resistance and open opposition</mark>.",
+     "<b>Elite vs masses:</b> the Early Nationalists appealed mainly to the educated classes through meetings, the press and deputations; the Assertives <mark>mobilised the masses</mark> and promoted national education and self-reliance."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Answer as three pairs (Early vs Assertive), one difference per mark. Write METHODS only, not aims.",
+    "words": "≈60–80 words"
+   },
+   "variations": [
+    {
+     "id": "sp-long-09-v1",
+     "q": "Differentiate between the methods adopted by the Early Nationalists and the Radical Nationalists.",
+     "stem": "With reference to the growth of Nationalism:",
+     "picture": null,
+     "options": null,
+     "correct": null,
+     "marks": 3,
+     "seen": [
+      {
+       "src": "S2018",
+       "ref": "Q7(b)",
+       "marks": 3,
+       "note": ""
+      }
+     ],
+     "diff": "Same ask (differences between the methods of Early and Assertive/Radical Nationalists, 3 marks). Only the wording differs ('Differentiate between the methods adopted by ...' vs 'Difference between their methods and those of the early nationalists') and Radical = Assertive; the answer core (petitions/prayers vs boycott/Swadeshi/passive resistance) is identical.",
+     "answer": {
+      "points": [
+       "<b>Petitions vs boycott:</b> Early Nationalists used <mark>prayers, petitions and memorandums</mark>; Assertive Nationalists used <mark>Swadeshi and boycott</mark> to hit British interests.",
+       "<b>Constitutional vs assertive:</b> the Early Nationalists believed in <mark>constitutional agitation and British justice</mark>; the Assertives used <mark>passive resistance and open opposition</mark>.",
+       "<b>Elite vs masses:</b> the Early Nationalists appealed mainly to the educated classes through meetings, the press and deputations; the Assertives <mark>mobilised the masses</mark> and promoted national education and self-reliance."
+      ],
+      "why": null,
+      "official": null,
+      "tip": "Answer as three pairs (Early vs Assertive), one difference per mark. Write METHODS only, not aims.",
+      "words": "≈60–80 words"
+     }
+    }
+   ],
+   "related": [
+    "sp-long-06",
+    "fp-short-01",
+    "sp-long-05"
+   ],
+   "difficulty": "Medium",
+   "skill": "Analysis",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "sp-long-10",
+   "sec": "long",
+   "topic": "tilak",
+   "format": "LONG",
+   "marks": 4,
+   "stem": "The Assertive Nationalists lost faith in the methods and ultimate success of the early nationalists. In the light of this statement, briefly describe:",
+   "picture": null,
+   "img": null,
+   "q": "Any two contributions made by Bal Gangadhar Tilak and Lala Lajpat Rai.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2017",
+     "ref": "Q7(c)",
+     "marks": 4,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Tilak - Swaraj and the press:</b> gave the slogan <mark>'Swaraj is my birthright and I shall have it'</mark> and started the newspapers <mark>Kesari and Mahratta</mark>.",
+     "<b>Tilak - festivals:</b> revived the <mark>Ganapati and Shivaji festivals</mark> to arouse national pride (also launched the Home Rule League, 1916).",
+     "<b>Lajpat Rai - Partition agitation:</b> led the <mark>agitation against the Partition of Bengal</mark> and advocated Swadeshi and boycott (deported to Mandalay, 1907).",
+     "<b>Lajpat Rai - institutions and writing:</b> founded the <mark>Punjab National Bank</mark>, promoted D.A.V. education and ran papers such as <mark>The Punjabee</mark> (also led the protest against the Simon Commission, 1928)."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Two contributions for EACH leader (2 + 2 = 4 marks). Keep the two leaders separate so the examiner can credit both.",
+    "words": "≈60–80 words"
+   },
+   "variations": [],
+   "related": [
+    "sp-short-06",
+    "sp-short-09",
+    "sp-long-07",
+    "sp-long-11"
+   ],
+   "difficulty": "Medium",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": []
+  },
+  {
+   "id": "sp-long-11",
+   "sec": "long",
+   "topic": "pal-rai",
+   "format": "LONG",
+   "marks": 4,
+   "stem": "With reference to the growth of Nationalism:",
+   "picture": null,
+   "img": null,
+   "q": "State two contributions of Gopal Krishna Gokhale and Lala Lajpat Rai.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2018",
+     "ref": "Q7(c)",
+     "marks": 4,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Gokhale - Servants of India Society:</b> founded the <mark>Servants of India Society (1905)</mark> to train selfless workers for national service.",
+     "<b>Gokhale - Legislative Council:</b> raised <mark>financial and administrative issues in the Imperial Legislative Council</mark>; a leading Early Nationalist and Congress President (1905).",
+     "<b>Lajpat Rai - Partition agitation:</b> led the <mark>agitation against the Partition of Bengal</mark> and advocated Swadeshi and boycott (deported to Mandalay, 1907).",
+     "<b>Lajpat Rai - institutions and writing:</b> founded the <mark>Punjab National Bank</mark>, promoted D.A.V. education and ran the paper <mark>The Punjabee</mark>."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Two contributions for EACH leader (2 + 2). Gokhale belongs to the Early Nationalists, Lajpat Rai to the Assertives - do not mix their contributions.",
+    "words": "≈60–80 words"
+   },
+   "variations": [],
+   "related": [
+    "sp-short-09",
+    "sp-short-06",
+    "sp-long-10",
+    "fp-short-02"
+   ],
+   "difficulty": "Medium",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "straddles-first-phase"
+   ]
   }
  ]
 };

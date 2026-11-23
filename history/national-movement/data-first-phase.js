@@ -50,7 +50,7 @@ window.NM_DPP_DATA.fp = {
     "note": 0
    }
   ],
-  "updated": "2026-11-22"
+  "updated": "2026-11-23"
  },
  "sources": [
   {
@@ -197,6 +197,87 @@ window.NM_DPP_DATA.fp = {
    "url": "https://static.pw.live/5eb393ee95fab7468a79d189/cbc20ea3-b995-4ad9-a925-f55db257cbf7.pdf"
   },
   {
+   "id": "S2017",
+   "label": "CISCE Specimen 2017",
+   "type": "SPECIMEN",
+   "year": 2017,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 2,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_CivicsHCG-Paper-1-2014.pdf",
+   "note": "Listed on CISCE's \"Specimen Question Papers ICSE Class X 2017\" page (file name says 2014)."
+  },
+  {
+   "id": "S2018",
+   "label": "CISCE Specimen 2018",
+   "type": "SPECIMEN",
+   "year": 2018,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/History_Civics-1.pdf"
+  },
+  {
+   "id": "S2022-SEM1",
+   "label": "CISCE Specimen 2022 Semester 1",
+   "short": "Specimen 2022 S1",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/SPECIMEN-HCG1.pdf"
+  },
+  {
+   "id": "S2022-SEM2",
+   "label": "CISCE Specimen 2022 Semester 2",
+   "short": "Specimen 2022 S2",
+   "type": "SPECIMEN",
+   "year": 2022,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/03/ICSE-Semester-2-Specimen-501-HCG14.pdf"
+  },
+  {
+   "id": "S2023",
+   "label": "CISCE Specimen 2023",
+   "type": "SPECIMEN",
+   "year": 2023,
+   "found": true,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 4
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/12/ICSE_2023_SPECIMEN_HCG1.pdf"
+  },
+  {
+   "id": "S2024",
+   "label": "CISCE Specimen 2024",
+   "type": "SPECIMEN",
+   "year": 2024,
+   "found": false,
+   "marks": {
+    "mcq": 0,
+    "short": 0,
+    "long": 0
+   },
+   "url": "https://cisce.org/wp-content/uploads/2025/11/501-HCG1-SP.pdf"
+  },
+  {
    "id": "S2025",
    "label": "CISCE Specimen 2025",
    "type": "SPECIMEN",
@@ -285,7 +366,8 @@ window.NM_DPP_DATA.fp = {
    },
    "variations": [],
    "related": [
-    "fp-mcq-04"
+    "fp-mcq-04",
+    "fp-short-03"
    ],
    "difficulty": "Easy",
    "skill": "Understanding",
@@ -716,7 +798,10 @@ window.NM_DPP_DATA.fp = {
    "related": [
     "fp-mcq-04",
     "fp-mcq-05",
-    "fp-mcq-06"
+    "fp-mcq-06",
+    "fp-short-03",
+    "sp-long-09",
+    "fp-long-02"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -763,7 +848,8 @@ window.NM_DPP_DATA.fp = {
    },
    "variations": [],
    "related": [
-    "fp-long-01"
+    "fp-long-01",
+    "sp-long-11"
    ],
    "difficulty": "Medium",
    "skill": "Recall",
@@ -772,6 +858,46 @@ window.NM_DPP_DATA.fp = {
     "official-key-prints-only-one-title",
     "second-title-from-textbooks-not-official-key"
    ]
+  },
+  {
+   "id": "fp-short-03",
+   "sec": "short",
+   "topic": "en-profile",
+   "format": "SHORT",
+   "marks": 2,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "q": "Mention any two objectives of the Early Nationalists.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2017",
+     "ref": "Q2(b)",
+     "marks": 2,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>National unity:</b> to <mark>create a feeling of unity and national consciousness</mark> among Indians of all regions, castes and communities.",
+     "<b>Share in government:</b> to obtain <mark>a greater share for Indians in the government</mark> - Indianisation of the services, expansion of the legislative councils and administrative reforms."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Write exactly two objectives (aims), one line each. Do not give METHODS (petitions, prayers) - that is a different question (fp-short-01). Other creditable aims: to train public opinion, to demand constitutional reform, to work for self-government under British rule.",
+    "words": "≈40–60 words"
+   },
+   "variations": [],
+   "related": [
+    "fp-short-01",
+    "fp-mcq-01",
+    "fp-long-02"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": []
   },
   {
    "id": "fp-long-01",
@@ -821,6 +947,50 @@ window.NM_DPP_DATA.fp = {
    "flags": [
     "straddles-growth-of-nationalism",
     "cfpq-3-mark-short-answer-placed-in-long"
+   ]
+  },
+  {
+   "id": "fp-long-02",
+   "sec": "long",
+   "topic": "en-methods",
+   "format": "LONG",
+   "marks": 4,
+   "stem": "With reference to first and second phase of the Indian National Movement, answer the following:",
+   "picture": null,
+   "img": null,
+   "q": "Mention any four methods used by the Early Nationalists.",
+   "options": null,
+   "seen": [
+    {
+     "src": "S2023",
+     "ref": "Q7(iii)",
+     "marks": 4,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>Prayers, petitions and memorials:</b> they sent <mark>petitions, prayers and memorials</mark> to the British Government and Parliament (the '3 Ps').",
+     "<b>Public meetings and Congress sessions:</b> they held <mark>public meetings, speeches and annual Congress sessions</mark> to pass resolutions and build public opinion.",
+     "<b>Press and propaganda:</b> they used <mark>newspapers and journals</mark> and pamphlets to educate the public and criticise Government policies.",
+     "<b>Deputations to Britain:</b> they <mark>sent deputations to England</mark> and set up the British Committee of the Congress (1889) with the journal 'India', pressing for reforms by constitutional agitation."
+    ],
+    "why": null,
+    "official": null,
+    "tip": "Four distinct METHODS, one explained line each. Do not write objectives; avoid boycott/Swadeshi, which belong to the Assertive Nationalists.",
+    "words": "≈60–80 words"
+   },
+   "variations": [],
+   "related": [
+    "fp-short-01",
+    "sp-long-06",
+    "fp-short-03"
+   ],
+   "difficulty": "Medium",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "text-read-from-scan"
    ]
   }
  ]
