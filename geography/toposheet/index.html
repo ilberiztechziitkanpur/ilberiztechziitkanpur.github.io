@@ -667,7 +667,10 @@
         page-break-inside: avoid;
       }
     }
-  </style>
+  
+/* v14.3 phone fix: no sideways page scroll */
+@media (max-width: 640px) { .timer-cluster,.filter-group,.timer-box{min-width:0;max-width:100%}.timer-cluster .timer-box{flex-wrap:wrap !important;row-gap:8px}.select-input{max-width:100%;min-width:0;width:100%} }
+</style>
 </head>
 <body>
 

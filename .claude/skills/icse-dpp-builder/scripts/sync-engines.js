@@ -15,13 +15,14 @@ function split(html, file) {
   if (!m) throw new Error('no <script src> block in ' + file);
   return { before: html.slice(0, m.index), block: m[1], after: html.slice(m.index + m[1].length) };
 }
-const master = split(fs.readFileSync(path.join(ROOT, MASTER), 'utf8'), MASTER);
+const read = (p) => fs.readFileSync(p, 'utf8').replace(/\r\n/g, '\n');   // compare ignoring CRLF/LF
+const master = split(read(path.join(ROOT, MASTER)), MASTER);
 let drift = 0;
 for (const rel of ENGINE_COPIES) {
   const p = path.join(ROOT, rel);
-  const cur = split(fs.readFileSync(p, 'utf8'), rel);
+  const cur = split(read(p), rel);
   const next = master.before + cur.block + master.after;
-  const same = next === fs.readFileSync(p, 'utf8');
+  const same = next === read(p);
   if (!same) drift++;
   if (CHECK) { console.log((same ? 'in sync  ' : 'DRIFTED  ') + rel); continue; }
   if (!same) fs.writeFileSync(p, next);
