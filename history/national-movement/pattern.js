@@ -1,4 +1,5 @@
 window.NM_DPP_PATTERN = {
+  ui: { title: "National Movement DPP", subject: "History", storePrefix: "nmdpp_", soundBase: "../../sounds/" },
   paper: "ICSE History & Civics (H.C.G. Paper 1)", duration: "2 hours (+15 min reading time, no writing)", marks: 80, internal: 20,
   sections: [
     { name: "Part I (compulsory)", marks: 30, items: [

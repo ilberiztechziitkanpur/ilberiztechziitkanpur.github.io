@@ -4,7 +4,7 @@
  * - PDF.js engine, icons and Google Fonts: cache-first / stale-while-revalidate.
  * Bump VERSION together with the ?v= numbers in index.html.
  */
-const VERSION = '14.1';
+const VERSION = '14.2';
 const SHELL = 'ilb-shell-' + VERSION;
 const NOTES = 'ilb-notes-v1';
 const PAGES = 'ilb-pages-v1';
@@ -145,7 +145,7 @@ self.addEventListener('fetch', (event) => {
       event.respondWith(noteStrategy(request));
       return;
     }
-    if (path.includes('/vendor/') || path.includes('/icons/')) {
+    if (path.includes('/vendor/') || path.includes('/icons/') || path.includes('/sounds/')) {
       event.respondWith(cacheFirst(request, STATIC));
       return;
     }

@@ -4,14 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="dark light" />
-  <title>National Movement DPP — ICSE Class 10 History</title>
-  <meta name="description" content="Interactive PYQ-based DPPs for ICSE Class 10 History, Chapters 3 and 4: unique board, specimen and CFPQ questions with variations, marking points and timed tests." />
+  <title>ICSE PYQ DPP — Ilberiz Techz</title>
+  <meta name="description" content="Interactive PYQ-based DPPs for ICSE Class 10: official board, specimen and competency questions shown exactly as printed, with variations, marking points and timed tests." />
   <script>
     (function () {
-      var t = 'dark';
-      try { var v = window.localStorage.getItem('nmdpp_theme'); if (v) { v = JSON.parse(v); if (v === 'light') t = 'light'; } } catch (e) {}
-      document.documentElement.setAttribute('data-theme', t);
-      document.documentElement.className = t;
+      /* one theme for the whole site: ilberiz_theme = dark | light | system (legacy nmdpp_theme as fallback) */
+      var d = document.documentElement, t = 'dark', v = null, emb = false;
+      try { v = window.localStorage.getItem('ilberiz_theme'); } catch (e) {}
+      if (v === 'light') t = 'light';
+      else if (v === 'system') { try { if (window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light'; } catch (e) {} }
+      else if (v == null) { try { if (JSON.parse(window.localStorage.getItem('nmdpp_theme')) === 'light') t = 'light'; } catch (e) {} }
+      try { emb = window.self !== window.top; } catch (e) { emb = true; }
+      d.setAttribute('data-theme', t);
+      d.className = t + (emb ? ' embedded' : '');
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -199,7 +204,7 @@
       border-bottom: 1px solid var(--line);
     }
     .tb-row { max-width: 1120px; margin: 0 auto; padding: 0 16px; display: flex; align-items: center; gap: 10px; }
-    .tb-1 { min-height: 58px; }
+    .tb-1 { min-height: 58px; position: relative; }
     .home-nav-btn {
       display: inline-flex; align-items: center; gap: 6px;
       background: rgba(255, 255, 255, 0.08);
@@ -225,18 +230,47 @@
     .brand-t { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
     .brand-t b { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; white-space: nowrap; }
     .brand-t span { font-size: 11.5px; color: var(--tx-3); white-space: nowrap; }
-    .ch-switch { display: flex; gap: 4px; padding: 3px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--line); margin-left: auto; flex-shrink: 0; }
-    .chb {
-      display: inline-flex; align-items: baseline; gap: 6px;
-      min-height: 34px; padding: 0 12px; border-radius: 9px; border: 0;
-      background: transparent; color: var(--tx-2); font-size: 13px; font-weight: 600; white-space: nowrap;
+    /* chapter picker: one button + dropdown menu (scales to any number of chapters) */
+    .ch-pick { position: relative; min-width: 0; flex: 0 1 auto; }
+    .ch-btn {
+      display: inline-flex; align-items: center; gap: 9px; max-width: 100%;
+      min-height: 40px; padding: 0 8px 0 6px; border-radius: 12px;
+      border: 1px solid var(--line); background: var(--bg-2); color: var(--tx);
+      font-size: 14px; font-weight: 600; text-align: left;
+      transition: border-color .15s, background-color .15s, box-shadow .15s;
     }
-    .chb .chb-no { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--tx-3); }
-    .chb:hover { color: var(--tx); }
-    .chb[aria-pressed="true"] { background: var(--bg-4); color: var(--tx); box-shadow: inset 0 0 0 1px var(--line-2); }
-    .chb[aria-pressed="true"] .chb-no { color: var(--acc-tx); }
-    .chb[disabled] { opacity: .45; cursor: not-allowed; }
+    .ch-btn:hover { border-color: var(--line-2); background: var(--bg-3); }
+    .ch-btn[aria-expanded="true"] { border-color: var(--acc); box-shadow: 0 0 0 3px var(--acc-soft); }
+    .ch-btn .ch-no { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 600; line-height: 1; padding: 5px 7px; border-radius: 8px; background: var(--acc); color: var(--acc-ink); flex-shrink: 0; }
+    .ch-btn .ch-t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+    .ch-btn .ch-cv { color: var(--tx-3); margin-left: auto; transition: transform .2s; }
+    .ch-btn[aria-expanded="true"] .ch-cv { transform: rotate(180deg); }
+    .ch-btn.single { cursor: default; }
+    .ch-btn.single .ch-cv { display: none; }
+    .ch-menu {
+      position: absolute; top: calc(100% + 8px); left: 0; z-index: 80;
+      width: min(400px, calc(100vw - 24px)); max-height: min(72vh, 540px); overflow: auto; overscroll-behavior: contain;
+      padding: 6px; border-radius: 16px; background: var(--bg-1); border: 1px solid var(--line-2);
+      box-shadow: 0 28px 60px -22px rgba(0, 0, 0, .65), 0 2px 10px rgba(0, 0, 0, .22);
+      transform-origin: top left; animation: menuIn .16s ease-out;
+    }
+    @keyframes menuIn { from { opacity: 0; transform: translateY(-6px) scale(.98); } to { opacity: 1; transform: none; } }
+    .ch-menu-h { font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--tx-3); padding: 8px 10px 6px; }
+    .ch-item { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px; padding: 8px 10px; border-radius: 11px; border: 0; background: transparent; color: var(--tx-2); text-align: left; }
+    .ch-item:hover, .ch-item:focus-visible { background: var(--bg-3); color: var(--tx); outline: none; }
+    .ch-item:focus-visible { box-shadow: inset 0 0 0 2px var(--acc); }
+    .ch-item[aria-checked="true"] { background: var(--acc-soft); color: var(--tx); }
+    .ch-item .ci-no { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--bg-3); font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: var(--tx-2); flex-shrink: 0; }
+    .ch-item[aria-checked="true"] .ci-no { background: var(--acc); color: var(--acc-ink); }
+    .ch-item .ci-t { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+    .ch-item .ci-t b { font-weight: 600; font-size: 14px; line-height: 1.3; }
+    .ch-item .ci-t small { font-size: 12px; color: var(--tx-3); font-weight: 500; }
+    .ch-item .ci-ok { color: var(--acc-tx); visibility: hidden; }
+    .ch-item[aria-checked="true"] .ci-ok { visibility: visible; }
+    .tb-sp { flex: 1 1 0; min-width: 0; }
     .tb-icons { display: flex; gap: 4px; flex-shrink: 0; }
+    /* inside the Ilberiz Techz app the site's own bar already has Back + the title */
+    .embedded .home-nav-btn, .embedded .brand { display: none; }
 
     .tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; padding-bottom: 8px; }
     .tab {
@@ -257,7 +291,7 @@
     .tab-n { font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 1px 7px; border-radius: 99px; background: var(--bg-4); color: var(--tx-2); flex-shrink: 0; }
     .tab[aria-selected="true"] .tab-n { background: var(--acc); color: var(--acc-ink); }
     .tab-prog { position: absolute; left: 0; bottom: 0; height: 2px; width: var(--p, 0%); background: var(--ok); transition: width .3s; }
-    .in-test .tabs, .in-test .ch-switch { display: none; }
+    .in-test .tabs, .in-test .ch-pick { display: none; }
 
     /* ================= Layout ================= */
     .wrap { max-width: 1120px; margin: 0 auto; padding: 18px 16px 80px; }
@@ -333,6 +367,7 @@
     .note-chip .msi { font-size: 17px; color: var(--bad); }
     .note-chip:hover { border-color: var(--acc); }
     .hero-links .grow { flex: 1; }
+    .hero-more, .hero-sum { display: none; }
 
     /* ================= Mode bar + toolbar ================= */
     .modebar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 18px 0 12px; }
@@ -347,6 +382,7 @@
     .mode-hint { color: var(--tx-2); font-size: 13.5px; flex: 1; min-width: 220px; }
 
     .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .lbl-m { display: none; }
     .search { position: relative; flex: 1 1 260px; min-width: 0; }
     .search .msi { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--tx-3); pointer-events: none; }
     .search input {
@@ -434,7 +470,9 @@
     .qcard.var-hit .var-hit-tag { display: inline-flex; }
 
     .q-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; align-items: center; }
-    .topic-chip { color: var(--tx); background: var(--bg-3); border-color: var(--line); }
+    .topic-chip { color: var(--tx); background: var(--bg-3); border-color: var(--line); max-width: 100%; min-width: 0; }
+    .flag-chip.flag-ok { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, transparent); }
+    .topic-chip .tc-t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
     .note-link {
       display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; color: var(--acc-tx);
       text-decoration: none; padding: 2px 6px; border-radius: 6px;
@@ -504,6 +542,10 @@
     .fig figcaption { font-size: 14px; color: var(--tx-2); font-style: italic; min-width: 0; }
     .fig-k { display: block; font-style: normal; font-size: 11.5px; font-weight: 600; color: var(--tx-3); margin-bottom: 2px; }
     .q-text { font-size: 16.5px; line-height: 1.55; font-weight: 500; color: var(--tx); max-width: 78ch; overflow-wrap: anywhere; }
+    .rt-tbl { display: block; overflow-x: auto; max-width: 100%; margin: 8px 0; -webkit-overflow-scrolling: touch; }
+    .rt-tbl table { border-collapse: collapse; font-size: .92em; line-height: 1.4; overflow-wrap: normal; }
+    .rt-tbl th, .rt-tbl td { border: 1px solid var(--line-2); padding: 6px 10px; text-align: left; vertical-align: top; font-weight: 500; }
+    .rt-tbl th { background: var(--bg-3); font-weight: 600; }
     .w-hint { margin-top: 8px; font-size: 13px; color: var(--tx-3); display: flex; gap: 6px; align-items: center; }
     .w-hint .msi { font-size: 17px; }
     [data-mode="learn"] .qitem .w-hint { display: none; }
@@ -785,7 +827,6 @@
     }
     @media (max-width: 899px) {
       .brand { display: none; }
-      .ch-switch { margin-left: auto; flex: 1 1 auto; min-width: 0; flex-wrap: wrap; justify-content: flex-end; }
       .tab-full { display: none; }
       .tab-short { display: block; white-space: nowrap; }
       .tab-sub { display: block; font-size: 11px; color: var(--tx-3); font-weight: 500; }
@@ -810,7 +851,18 @@
       .tb-icons .hide-sm { display: none; }
       .home-nav-btn span:last-child { display: none; }
       .home-nav-btn { padding: 6px 9px; }
-      .chb { padding: 0 10px; }
+      .tb-row { gap: 8px; }
+      .ch-pick { flex: 1 1 auto; position: static; }
+      .ch-btn { width: 100%; }
+      .tb-sp { display: none; }
+      .ch-menu { left: 12px; right: 12px; width: auto; top: calc(100% - 2px); }
+      .hero-sum { display: block; margin-top: 6px; font-size: 13px; color: var(--tx-2); line-height: 1.45; }
+      .hero-sum b { color: var(--tx); font-weight: 600; }
+      .hero-more { display: flex; align-items: center; gap: 8px; width: 100%; margin-top: 12px; min-height: 42px; padding: 0 12px; border-radius: 11px; border: 1px solid var(--line); background: var(--bg-3); color: var(--tx-2); font-size: 13.5px; font-weight: 600; }
+      .hero-more .msi { color: var(--tx-3); }
+      .hero-more .hm-c { margin-left: auto; transition: transform .2s; }
+      .hero-more[aria-expanded="true"] .hm-c { transform: rotate(180deg); }
+      .hero:not(.open) .hero-details { display: none; }
       .wrap { padding-top: 14px; }
       .hero { padding: 16px 14px 14px; border-radius: 16px; }
       .hero-top { gap: 12px; }
@@ -819,6 +871,12 @@
       .qcard { padding: 14px 14px 12px; border-radius: 14px; }
       .q-text { font-size: 16px; }
       .toolbar .btn .lbl-x { display: none; }
+      .toolbar .btn .lbl-m { display: inline; }
+      .toolbar { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+      .toolbar .search { grid-column: 1 / -1; }
+      .toolbar #sort, .toolbar #btnFilters { grid-column: span 3; width: 100%; }
+      .toolbar #btnRevision, .toolbar #btnExpand { grid-column: span 2; }
+      .toolbar .btn { justify-content: center; min-width: 0; padding: 0 6px; gap: 5px; white-space: nowrap; }
       .modebar { gap: 8px; }
       .seg { width: 100%; }
       .seg button { flex: 1; justify-content: center; padding: 0 8px; }
@@ -827,12 +885,7 @@
       .mini { margin-left: 0; }
       .dlg-body { padding: 14px 16px 18px; }
     }
-    @media (max-width: 600px) {
-      .chb .chb-no { display: inline; font-size: 13px; color: inherit; } .chb .chb-t { display: none; }
-      .ch-switch { flex-wrap: nowrap; }
-    }
     @media (max-width: 420px) {
-      .chb .chb-no { display: inline; font-size: 13px; color: inherit; } .chb .chb-t { display: none; }
       .tab { padding: 6px 8px; gap: 6px; }
       .tab .msi { display: none; }
       .heat-row { gap: 2px; }
@@ -893,13 +946,18 @@
       </a>
       <div class="brand" aria-hidden="true">
         <span class="brand-mark">DPP</span>
-        <span class="brand-t"><b>National Movement DPP</b><span>ICSE Class 10 History · PYQ practice</span></span>
+        <span class="brand-t"><b id="brandTitle">PYQ DPP</b><span id="brandSub">ICSE Class 10 · PYQ practice</span></span>
       </div>
-      <div class="ch-switch" id="chSwitch" role="group" aria-label="Chapter"></div>
+      <div class="ch-pick" id="chPick">
+        <button type="button" class="ch-btn" id="chBtn" aria-haspopup="true" aria-expanded="false" aria-controls="chMenu"></button>
+        <div class="ch-menu" id="chMenu" role="menu" aria-label="Chapters" hidden></div>
+      </div>
+      <span class="tb-sp"></span>
       <div class="tb-icons">
         <button type="button" class="icon-btn hide-sm" id="btnBlueprintTop" data-fb="Blueprint" aria-label="Exam blueprint" title="Exam blueprint"><span class="msi" aria-hidden="true">table_chart</span></button>
         <button type="button" class="icon-btn hide-sm" id="btnSourcesTop" data-fb="Sources" aria-label="Sources and method" title="Sources & method"><span class="msi" aria-hidden="true">fact_check</span></button>
         <button type="button" class="icon-btn hide-sm" id="btnKeys" data-fb="Keys" aria-label="Keyboard shortcuts" title="Keyboard shortcuts (?)"><span class="msi" aria-hidden="true">keyboard</span></button>
+        <button type="button" class="icon-btn" id="btnSound" data-fb="Sound" aria-label="Mute sounds" title="Sound on/off"><span class="msi" aria-hidden="true">volume_up</span></button>
         <button type="button" class="icon-btn" id="btnTheme" data-fb="Theme" aria-label="Switch to light theme" title="Switch theme"><span class="msi" aria-hidden="true">light_mode</span></button>
       </div>
     </div>
@@ -912,7 +970,7 @@
     <div class="empty" id="loadError" hidden>
       <span class="msi" aria-hidden="true">error</span>
       <h2>Question data didn't load</h2>
-      <p>This page needs <code>data-first-phase.js</code>, <code>data-second-phase.js</code> and <code>pattern.js</code> in the same folder. Check that the files exist, then reload.</p>
+      <p>This page needs its <code>data-*.js</code> chapter files and <code>pattern.js</code> in the same folder. Check that the files exist, then reload.</p>
       <div class="row"><button type="button" class="btn btn-primary" onclick="location.reload()">Reload</button></div>
     </div>
 
@@ -922,6 +980,7 @@
           <p class="hero-kicker" id="heroKicker"></p>
           <h1 id="heroTitle"></h1>
           <p class="hero-where" id="heroWhere"></p>
+          <p class="hero-sum" id="heroSum"></p>
         </div>
         <div class="ring" id="ring" role="img" aria-label="Mastered 0 of 0">
           <svg viewBox="0 0 64 64" aria-hidden="true">
@@ -931,9 +990,12 @@
           <div class="ring-t" aria-hidden="true"><b id="ringNum">0/0</b><span>mastered</span></div>
         </div>
       </div>
-      <dl class="stats" id="stats"></dl>
-      <div class="heat" id="heat"></div>
-      <div class="hero-links" id="heroLinks"></div>
+      <button type="button" class="hero-more" id="heroMore" aria-expanded="false" aria-controls="heroDetails"><span class="msi" aria-hidden="true">insights</span>Chapter stats &amp; year-wise marks<span class="msi hm-c" aria-hidden="true">expand_more</span></button>
+      <div class="hero-details" id="heroDetails">
+        <dl class="stats" id="stats"></dl>
+        <div class="heat" id="heat"></div>
+        <div class="hero-links" id="heroLinks"></div>
+      </div>
     </section>
 
     <section id="listView" aria-label="Questions">
@@ -959,8 +1021,8 @@
           <option value="marks">Marks</option>
         </select>
         <button type="button" class="btn" id="btnFilters" aria-expanded="false" aria-controls="filters"><span class="msi" aria-hidden="true">tune</span>Filters <span class="badge" id="fCount" hidden>0</span></button>
-        <button type="button" class="btn" id="btnRevision" aria-pressed="false" title="Missed + Partly + Bookmarked"><span class="msi" aria-hidden="true">replay</span>Revision list</button>
-        <button type="button" class="btn" id="btnExpand" aria-pressed="false"><span class="msi" aria-hidden="true">layers</span><span class="lbl-x">Expand all </span>variations</button>
+        <button type="button" class="btn" id="btnRevision" aria-pressed="false" title="Missed + Partly + Bookmarked"><span class="msi" aria-hidden="true">replay</span>Revision<span class="lbl-x"> list</span></button>
+        <button type="button" class="btn" id="btnExpand" aria-pressed="false"><span class="msi" aria-hidden="true">layers</span><span class="lbl-x">Expand all variations</span><span class="lbl-m">Variations</span></button>
         <button type="button" class="btn" id="btnPrint" aria-label="Print revision sheet" title="Print revision sheet"><span class="msi" aria-hidden="true">print</span><span class="lbl-x">Print</span></button>
         <button type="button" class="btn btn-ghost" id="btnReset" aria-label="Reset progress" title="Reset progress"><span class="msi" aria-hidden="true">restart_alt</span><span class="lbl-x">Reset</span></button>
       </div>
@@ -1029,7 +1091,7 @@
   <div class="toast-wrap" id="toasts" role="status" aria-live="polite"></div>
   <div class="sr-only" id="announcer" aria-live="assertive"></div>
 
-  <script src="pattern.js?v=1"></script>
+  <script src="pattern.js?v=2"></script>
   <script src="data-first-phase.js?v=3"></script>
   <script src="data-second-phase.js?v=3"></script>
   <script src="data-muslim-league.js?v=3"></script>
@@ -1050,12 +1112,17 @@
      Helpers
      ------------------------------------------------------------------ */
   var ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-  var RT_TAGS = /&lt;(\/?)(b|i|em|strong|u|sub|sup|mark|small)\s*&gt;/gi;
+  var RT_TAGS = /&lt;(\/?)(b|i|em|strong|u|sub|sup|mark|small|table|thead|tbody|tr|th|td)\s*&gt;/gi;
   function $(s, r) { return (r || document).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return ESC[c]; }); }
   /* question text: escaped, with a small whitelist of inline tags + line breaks */
-  function rt(s) { return esc(s).replace(RT_TAGS, '<$1$2>').replace(/&lt;br\s*\/?&gt;/gi, '<br>').replace(/\r?\n/g, '<br>'); }
+  function rt(s) {
+    var h = esc(s).replace(RT_TAGS, '<$1$2>').replace(/&lt;br\s*\/?&gt;/gi, '<br>');
+    /* tables (element tables, match-the-columns) scroll sideways on phones; no <br> inside table markup */
+    h = h.replace(/<table>([\s\S]*?)<\/table>/g, function (m, t) { return '<span class="rt-tbl"><table>' + t.replace(/\r?\n\s*/g, '') + '</table></span>'; });
+    return h.replace(/\r?\n/g, '<br>');
+  }
   /* answer fields are authored HTML (spec: "HTML allowed") */
   function trusted(s) { return s == null ? '' : String(s); }
   function strip(s) {
@@ -1085,7 +1152,9 @@
   /* ------------------------------------------------------------------
      Storage (prefix nmdpp_, every access guarded)
      ------------------------------------------------------------------ */
-  var PFX = 'nmdpp_', storageWarned = false;
+  var UI = (window.NM_DPP_PATTERN && window.NM_DPP_PATTERN.ui && typeof window.NM_DPP_PATTERN.ui === 'object') ? window.NM_DPP_PATTERN.ui : {};
+  var PFX = (typeof UI.storePrefix === 'string' && UI.storePrefix) ? UI.storePrefix : 'nmdpp_', storageWarned = false;
+  var UI_TITLE = UI.title || 'National Movement DPP', UI_SUBJECT = UI.subject || 'History';
   var LS = {
     get: function (k, fb) {
       try { var v = window.localStorage.getItem(PFX + k); if (v == null) return fb; var p = JSON.parse(v); return p == null ? fb : p; }
@@ -1143,7 +1212,32 @@
     { id: 'new', label: 'New' }, { id: 'got', label: 'Got it' }, { id: 'partly', label: 'Partly' },
     { id: 'missed', label: 'Missed' }, { id: 'bm', label: 'Bookmarked' }
   ];
-  var FORMAT_LABEL = { MCQ: 'MCQ', AR: 'Assertion–Reason', PICTURE: 'Picture-based', SHORT: 'Short answer', LONG: 'Long answer', SOURCE: 'Source-based' };
+  var FORMAT_LABEL = {
+    MCQ: 'MCQ', AR: 'Assertion–Reason', PICTURE: 'Picture-based', SHORT: 'Short answer', LONG: 'Long answer', SOURCE: 'Source-based',
+    FILL: 'Fill in / choose', MATCH: 'Match the columns', NAME: 'Name the following', ARRANGE: 'Arrange in order',
+    REASON: 'Give reasons', TABLE: 'Element table', NUMERICAL: 'Numerical', EQUATION: 'Equations', DIAGRAM: 'Diagram-based'
+  };
+  var FLAG_META = {
+    'key-official-APP': { label: 'Official CISCE key', icon: 'verified', ok: true, title: 'Answer key from the CISCE marking scheme (Analysis of Pupil Performance)' },
+    'key-official-specimen': { label: 'Official specimen key', icon: 'verified', ok: true, title: 'Answer key from the CISCE specimen paper marking scheme' },
+    'key-official-CFPQ': { label: 'Official CFPQ key', icon: 'verified', ok: true, title: 'Answer key from the CISCE Competency Focused Practice Questions' },
+    'key-agent-determined': { label: 'Key worked out', icon: 'calculate', title: 'CISCE published no key for this paper; the answer was worked out and double-checked' },
+    'straddles-ch': { label: 'Also uses Ch {ch}', icon: 'call_split', title: 'Part of this question needs ideas from another chapter' },
+    'partly-other-chapters': { label: 'Mixed-chapter question', icon: 'call_split', title: 'Shown whole, exactly as printed; only some parts belong to this chapter' },
+    'text-reconstructed': { label: 'Text reconstructed', icon: 'help', title: 'The printed text was unclear in every copy; closest official wording used' },
+    'official-scheme-typo': { label: 'Scheme typo kept', icon: 'spellcheck', title: 'The official marking scheme has a typo, kept as printed' },
+    'key-disputed': { label: 'Key disputed', icon: 'gavel', title: 'Teachers disagree on this key; read the explanation' },
+    'key-debatable-official-treats-quoted-claim-as-true': { label: 'Key debatable', icon: 'gavel', title: 'The official key treats the quoted claim as true; read the explanation' },
+    'official-simplified-trend': { label: "Board's simplified trend", icon: 'trending_up', title: 'The official answer follows the simplified textbook trend; real data has exceptions' },
+    'partly-out-of-syllabus': { label: 'Partly outside syllabus', icon: 'block', title: 'Part of this question is no longer in the syllabus' },
+    'partly-out-of-chapter-stem': { label: 'Stem from another chapter', icon: 'call_split', title: 'The shared lead-in belongs to another chapter' },
+    'borderline-scope': { label: 'Borderline topic', icon: 'call_split', title: 'Sits on the edge of this chapter' },
+    'printed-as-is-wording': { label: 'Wording as printed', icon: 'spellcheck', title: 'Kept exactly as printed, including any slips' },
+    'non-standard-AR-options': { label: 'Unusual A–R options', icon: 'rule', title: 'The paper printed non-standard assertion–reason options' },
+    'straddles-redox': { label: 'Also uses redox', icon: 'call_split', title: 'Needs oxidation–reduction ideas too' },
+    'straddles-home-rule': { label: 'Also Home Rule', icon: 'call_split', title: 'Touches the Home Rule movement as well' },
+    'compares-first-phase': { label: 'Compares with First Phase', icon: 'compare_arrows', title: 'Asks for a comparison with the First Phase' }
+  };
   var CONF_META = {
     HIGH: { label: 'Verbatim', icon: 'verified', title: 'Question text matches the paper word for word' },
     MEDIUM: { label: 'Near-verbatim', icon: 'rule', title: 'Question text is very close to the paper (minor wording uncertainty)' },
@@ -1277,6 +1371,7 @@
   function srcGroup(src) { var tm = src && TYPE_META[src.type]; return tm ? tm.group : 'unk'; }
   function srcShort(src) {
     if (!src) return 'Unknown';
+    if (typeof src.short === 'string' && src.short) return src.short;
     var tm = TYPE_META[src.type];
     var base = tm ? tm.short : (str(src.type) || 'Source');
     return src.year ? base + ' ' + src.year : (str(src.label) || base);
@@ -1391,6 +1486,88 @@
     while (wrap.children.length > 3) wrap.removeChild(wrap.firstChild);
     setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, kind === 'warn' ? 6000 : 3800);
   }
+  /* Sounds: same recorded set and prefs as the main site */
+  var SFX = (function () {
+    var FILES = { tap: 'tap.wav', open: 'open.wav', on: 'on.wav', off: 'off.wav', chime: 'chime.wav', page: 'page.wav', save: 'save.mp3', success: 'success.mp3' };
+    var MAP = {
+      tap: [['tap', 0.38, 1]], open: [['open', 0.6, 1]], on: [['on', 0.5, 1]], off: [['off', 0.42, 1]],
+      save: [['save', 0.45, 1]], page: [['page', 0.55, 1]],
+      correct: [['chime', 0.55, 1], ['save', 0.22, 1, 0.05]],
+      wrong: [['chime', 0.42, 0.75], ['chime', 0.36, 0.63, 0.11]],
+      success: [['success', 0.8, 1], ['save', 0.16, 1, 0.07]]
+    };
+    var base = typeof UI.soundBase === 'string' ? UI.soundBase : '../../sounds/';
+    var ctx = null, out = null, buf = {}, loading = false, lastTap = 0, lastEvent = 0;
+    function pref(k, fb) { try { var v = window.localStorage.getItem(k); return v == null ? fb : v; } catch (e) { return fb; } }
+    function on() { return pref('ilberiz_audio', 'on') !== 'off'; }
+    function vol() { var v = parseInt(pref('ilberiz_volume', '80'), 10); v = isFinite(v) ? Math.max(0, Math.min(100, v)) : 80; return 1.4 * Math.pow(v / 100, 1.6); }
+    function ensure() {
+      if (!on()) return null;
+      try {
+        if (!ctx) {
+          var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null;
+          ctx = new AC(); out = ctx.createGain(); out.gain.value = vol();
+          var lim = ctx.createDynamicsCompressor();
+          lim.threshold.value = -6; lim.knee.value = 6; lim.ratio.value = 12; lim.attack.value = 0.002; lim.release.value = 0.12;
+          out.connect(lim); lim.connect(ctx.destination);
+          load();
+        }
+        if (ctx.state === 'suspended') ctx.resume();
+        return ctx;
+      } catch (e) { return null; }
+    }
+    function load() {
+      if (loading || location.protocol === 'file:' || !window.fetch) return;
+      loading = true;
+      Object.keys(FILES).forEach(function (k) {
+        fetch(base + FILES[k]).then(function (r) { return r.ok ? r.arrayBuffer() : Promise.reject(new Error(r.status)); })
+          .then(function (ab) { return new Promise(function (res, rej) { ctx.decodeAudioData(ab, res, rej); }); })
+          .then(function (b) { buf[k] = b; }, function () {});
+      });
+    }
+    function synth(name) {
+      var f = { tap: [720, 430], open: [587, 880], on: [660, 990], off: [740, 494], save: [1047, 1397], page: [520, 900], correct: [784, 1175], wrong: [330, 247], success: [523, 1047] }[name];
+      if (!f) return;
+      [0, 1].forEach(function (i) {
+        var t = ctx.currentTime + i * 0.06, o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = 'triangle'; o.frequency.setValueAtTime(f[i], t);
+        g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.09, t + 0.006); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.16);
+        o.connect(g); g.connect(out); o.start(t); o.stop(t + 0.2);
+      });
+    }
+    function play(name) {
+      var c = ensure(); if (!c) return;
+      var t0 = Date.now();
+      if (name === 'tap') { if (t0 - lastTap < 50 || t0 - lastEvent < 150) return; lastTap = t0; } else lastEvent = t0;
+      var layers = MAP[name]; if (!layers) return;
+      try {
+        if (layers.every(function (l) { return buf[l[0]]; })) {
+          layers.forEach(function (l) {
+            var src = c.createBufferSource(), g = c.createGain();
+            src.buffer = buf[l[0]];
+            src.playbackRate.value = l[2] * (l[0] === 'tap' ? 0.97 + Math.random() * 0.06 : 1);
+            g.gain.value = l[1]; src.connect(g); g.connect(out);
+            src.start(c.currentTime + (l[3] || 0));
+          });
+        } else synth(name);
+      } catch (e) {}
+    }
+    function sync() {
+      var b = document.getElementById('btnSound'); if (!b) return;
+      var o = on();
+      b.querySelector('.msi').textContent = o ? 'volume_up' : 'volume_off';
+      b.setAttribute('aria-label', o ? 'Mute sounds' : 'Turn sounds on');
+      b.setAttribute('aria-pressed', String(!o));
+      if (out && ctx) { try { out.gain.setTargetAtTime(vol(), ctx.currentTime, 0.02); } catch (e) {} }
+    }
+    function toggle() {
+      var next = !on();
+      try { window.localStorage.setItem('ilberiz_audio', next ? 'on' : 'off'); } catch (e) {}
+      sync(); if (next) play('on');
+    }
+    return { play: play, sync: sync, toggle: toggle };
+  })();
+
   function announce(msg) { var a = $('#announcer'); if (!a) return; a.textContent = ''; setTimeout(function () { a.textContent = msg; }, 30); }
 
   var dlg, dlgOpener = null, dlgOnClose = null;
@@ -1477,7 +1654,7 @@
       (isSrc ? 'Source extract' : 'Picture in the paper (description)') + '</span>' + rt(it.picture) + '</figcaption></figure>';
   }
   function optImg(it, i) { var p = it.optionImgs && it.optionImgs[i]; return p ? '<img class="opt-img" src="' + esc(p) + '" alt="Option ' + letter(i) + '" loading="lazy">' : ''; }
-  function stemHTML(it) { return it.stem ? '<p class="stem"><span class="stem-k">Stem</span>' + rt(it.stem) + '</p>' : ''; }
+  function stemHTML(it) { return it.stem ? '<div class="stem"><span class="stem-k">Stem</span>' + rt(it.stem) + '</div>' : ''; }
   function optsHTML(it, act) {
     var two = it.options.every(function (o) { return strip(o).length <= 46; }) && it.options.length % 2 === 0;
     return '<div class="opts' + (two ? ' two' : '') + '" role="group" aria-label="Options">' + it.options.map(function (o, i) {
@@ -1536,14 +1713,18 @@
     if (main) {
       h += '<div class="q-tags">';
       if (tp) {
-        h += '<span class="chip topic-chip">' + icon('sell') + esc(tp.name) + '</span>';
+        h += '<span class="chip topic-chip" title="' + esc(tp.name) + '">' + icon('sell') + '<span class="tc-t">' + esc(tp.name) + '</span></span>';
         if (tp.note && safeUrl(tp.note.file)) h += '<a class="note-link" href="' + esc(safeUrl(tp.note.file)) + '" target="_blank" rel="noopener" title="' + esc(str(tp.note.covers) || 'Open the class notes PDF') + '">' + icon('menu_book') + esc(str(tp.note.label) || 'Notes') + '</a>';
       }
       if (it.difficulty) h += '<span class="chip diff-' + esc(it.difficulty) + '">' + esc(it.difficulty) + '</span>';
       if (it.skill) h += '<span class="chip">' + esc(it.skill) + '</span>';
       var cm = CONF_META[it.confidence];
       if (cm) h += '<span class="chip conf-' + it.confidence + '" title="' + esc(cm.title) + '">' + icon(cm.icon) + esc(cm.label) + '</span>';
-      it.flags.forEach(function (f) { h += '<span class="chip flag-chip">' + icon('flag') + esc(f.replace(/[-_]+/g, ' ')) + '</span>'; });
+      it.flags.forEach(function (f) {
+        var fm = FLAG_META[f] || FLAG_META[String(f).replace(/-ch\d+$/, '-ch')];
+        var lbl = fm ? fm.label.replace('{ch}', (String(f).match(/ch(\d+)$/) || [])[1] || '') : f.replace(/[-_]+/g, ' ');
+        h += '<span class="chip flag-chip' + (fm && fm.ok ? ' flag-ok' : '') + '" title="' + esc(fm ? fm.title : lbl) + '">' + icon(fm ? fm.icon : 'flag') + esc(lbl) + '</span>';
+      });
       h += '</div>';
     }
     h += srcRowHTML(it);
@@ -1561,7 +1742,7 @@
     h += '<div class="q-body">';
     if (!main && it.diff) h += '<div class="diff-box">' + icon('compare_arrows') + '<div><b>How this differs</b>' + trusted(it.diff) + '</div></div>';
     h += stemHTML(it) + figureHTML(it);
-    h += '<p class="q-text" id="' + hid + '">' + rt(it.q) + '</p>';
+    h += '<div class="q-text" id="' + hid + '">' + rt(it.q) + '</div>';
     if (it.objective) h += optsHTML(it, 'opt');
     else if (it.answer.points.length || it.answer.words) {
       h += '<p class="w-hint">' + icon('edit_note') + 'Write your answer' + (it.answer.words ? ' (' + esc(it.answer.words) + ')' : '') +
@@ -1662,18 +1843,21 @@
     if (!p.s) patch.s = ok ? 'got' : 'missed';
     setProg(it.id, patch);
     applyState(e); onProgress();
+    SFX.play(ok ? 'correct' : 'wrong');
     announce(ok ? 'Correct.' : 'Incorrect. The answer is option ' + letter(it.correct) + '.');
   }
   function retry(e) { setProg(e.it.id, { a: null }); setReveal(e, false); applyState(e); onProgress(); var o = e.refs.opts[0]; if (o) o.focus(); }
   function assess(e, v) {
     var p = prog(e.it.id);
     setProg(e.it.id, { s: p.s === v ? null : v });
+    SFX.play(p.s === v ? 'tap' : v === 'got' ? 'on' : v === 'missed' ? 'off' : 'tap');
     applyState(e); onProgress();
     announce(p.s === v ? 'Self-assessment cleared.' : 'Marked as ' + (v === 'got' ? 'got it' : v) + '.');
   }
   function toggleBookmark(e) {
     var on = !prog(e.it.id).b;
     setProg(e.it.id, { b: on });
+    SFX.play(on ? 'save' : 'off');
     applyState(e); onProgress();
     announce(on ? 'Bookmarked.' : 'Bookmark removed.');
   }
@@ -1785,15 +1969,37 @@
      Header: chapter switch + section tabs
      ------------------------------------------------------------------ */
   function renderChapterSwitch() {
-    var box = $('#chSwitch');
-    if (!box.children.length) {
-      box.innerHTML = CH_ORDER.map(function (code) {
-        var c = CH[code];
-        return '<button type="button" class="chb" data-ch="' + esc(code) + '" aria-pressed="false" title="' + esc(strip(c.title)) + '">' +
-          (c.chapterNo != null ? '<span class="chb-no">Ch ' + esc(c.chapterNo) + '</span>' : '') + '<span class="chb-t">' + esc(c.shortTitle) + '</span></button>';
+    var c = CH[state.ch], btn = $('#chBtn'), menu = $('#chMenu'), single = CH_ORDER.length < 2;
+    btn.innerHTML = (c.chapterNo != null ? '<span class="ch-no">Ch ' + esc(c.chapterNo) + '</span>' : '') +
+      '<span class="ch-t">' + esc(c.shortTitle) + '</span>' + '<span class="msi ch-cv" aria-hidden="true">expand_more</span>';
+    btn.setAttribute('aria-label', (c.chapterNo != null ? 'Chapter ' + c.chapterNo + ': ' : '') + strip(c.title) + (single ? '' : '. Change chapter'));
+    btn.title = strip(c.title);
+    btn.classList.toggle('single', single);
+    if (single) btn.removeAttribute('aria-haspopup');
+    if (!menu.children.length) {
+      menu.innerHTML = '<p class="ch-menu-h" aria-hidden="true">Chapters</p>' + CH_ORDER.map(function (code) {
+        var x = CH[code];
+        var counts = SECS.filter(function (s) { return x.bySec[s].length; }).map(function (s) { return x.bySec[s].length + ' ' + SEC_META[s].short; }).join(' · ');
+        return '<button type="button" class="ch-item" role="menuitemradio" aria-checked="false" data-ch="' + esc(code) + '" tabindex="-1">' +
+          '<span class="ci-no" aria-hidden="true">' + (x.chapterNo != null ? esc(x.chapterNo) : '•') + '</span>' +
+          '<span class="ci-t"><b>' + esc(strip(x.title)) + '</b><small>' + esc(counts || plural(x.all.length, 'question')) + '</small></span>' +
+          '<span class="msi ci-ok" aria-hidden="true">check</span></button>';
       }).join('');
     }
-    $$('.chb', box).forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-ch') === state.ch)); });
+    $$('.ch-item', menu).forEach(function (b) { b.setAttribute('aria-checked', String(b.getAttribute('data-ch') === state.ch)); });
+  }
+  function chMenuOpen() { return !$('#chMenu').hidden; }
+  function openChMenu() {
+    if (CH_ORDER.length < 2 || chMenuOpen()) return;
+    var menu = $('#chMenu'); menu.hidden = false; $('#chBtn').setAttribute('aria-expanded', 'true');
+    var cur = $('.ch-item[aria-checked="true"]', menu) || $('.ch-item', menu);
+    if (cur) { cur.focus(); try { cur.scrollIntoView({ block: 'nearest' }); } catch (e) {} }
+    SFX.play('open');
+  }
+  function closeChMenu(focusBtn) {
+    if (!chMenuOpen()) return;
+    $('#chMenu').hidden = true; $('#chBtn').setAttribute('aria-expanded', 'false');
+    if (focusBtn) $('#chBtn').focus();
   }
   function renderTabs() {
     var c = CH[state.ch], box = $('#secTabs');
@@ -1832,7 +2038,8 @@
       '<div class="stat"><dt>Unique questions</dt><dd>' + st.n + '</dd></div>' +
       '<div class="stat"><dt>Board appearances</dt><dd>' + st.board + (st.off ? '<small>+' + st.off + ' specimen/CFPQ</small>' : '') + '</dd></div>' +
       '<div class="stat"><dt>Board years covered</dt><dd>' + st.years + '<small>of ' + st.den + '</small></dd></div>' +
-      '<div class="stat"><dt>Variations</dt><dd>' + st.vars + '<small>' + (st.n + st.vars) + ' with variations</small></dd></div>';
+      '<div class="stat"><dt>Variations</dt><dd>' + st.vars + '<small>' + (st.vars ? (st.n + st.vars) + ' to practise in all' : 'every question is unique') + '</small></dd></div>';
+    $('#heroSum').innerHTML = '<b>' + plural(st.n, 'question') + '</b> · ' + plural(st.board, 'board appearance') + ' · ' + st.years + ' of ' + st.den + ' board years';
     $('#heat').innerHTML = heatHTML(c, sec);
     var links = c.notes.map(function (n) {
       var u = safeUrl(n.file); if (!u) return '';
@@ -1981,7 +2188,7 @@
     applyFilters();
     renderEmpty();
     syncURL();
-    document.title = CH[ch].shortTitle + ' · ' + SEC_META[sec].full + ' — National Movement DPP';
+    document.title = CH[ch].shortTitle + ' · ' + SEC_META[sec].full + ' — ' + UI_TITLE;
   }
   function syncURL() {
     try {
@@ -2103,7 +2310,7 @@
     h += '<h3>How variations are decided</h3><p>A question is listed as a <b>variation</b> only when it asks the same thing in very similar language and the <b>same answer core earns full marks</b>. ' +
       'If it asks a different aspect, a different number of points, a different person or event, a comparison instead of a description, causes instead of consequences, or “explain” instead of “name”, it is a <b>separate question</b>, linked under “Looks similar, but asks something different”. When in doubt, it stays separate.</p>' +
       '<p>An exact repeat (same wording) is not a variation — it simply adds another source chip to the same question.</p>';
-    h += '<h3>How probability is calculated</h3><p>ICSE rarely repeats a History question word-for-word, but it keeps returning to the same topics. So the score mixes the question’s own record with its topic’s record:</p>' +
+    h += '<h3>How probability is calculated</h3><p>ICSE rarely repeats a ' + esc(UI_SUBJECT) + ' question word-for-word, but it keeps returning to the same topics. So the score mixes the question’s own record with its topic’s record:</p>' +
       '<div class="formula">F  = board years this question (or a variation) appeared in (2022 Sem 1 + Sem 2 = one year)\n' +
       'TF = board years ANY question on the same topic appeared in\n' +
       'recency = +10 if the topic was last asked 2025 or later, +6 if 2023–24, +2 if earlier\n' +
@@ -2272,7 +2479,7 @@
       '<span class="chip chip-fmt">' + esc(FORMAT_LABEL[it.format] || it.format) + '</span><span class="chip">' + plural(it.marks, 'mark') + '</span>' +
       '<span class="chip chip-time">' + icon('timer') + fmtN(it.marks * TPM) + ' min</span>' + (tp ? '<span class="chip topic-chip">' + esc(tp.name) + '</span>' : '') +
       '<span class="sp"></span>' + (flagged ? '<span class="tag-flag">Flagged</span>' : '') + '</header><div class="q-body">' +
-      stemHTML(it) + figureHTML(it) + '<p class="q-text" id="tqh">' + rt(it.q) + '</p>';
+      stemHTML(it) + figureHTML(it) + '<div class="q-text" id="tqh">' + rt(it.q) + '</div>';
     if (it.objective) {
       h += '<div class="opts" role="group" aria-label="Options">' + it.options.map(function (o, i) {
         return '<button type="button" class="opt' + (picked === i ? ' is-sel' : '') + '" data-act="tpick" data-i="' + i + '" aria-pressed="' + (picked === i) + '"><span class="opt-l" aria-hidden="true">' + letter(i) + '</span><span class="opt-t">' + rt(o) + optImg(it, i) + '</span></button>';
@@ -2346,6 +2553,7 @@
     saveTest(); stopTimer();
     renderTestPhase();
     window.scrollTo(0, 0);
+    SFX.play('success');
     toast(auto ? 'Time’s up — your test was submitted.' : 'Test submitted.', auto ? 'warn' : '');
   }
   function startTimer() { stopTimer(); tick(); tTimer = setInterval(tick, 500); }
@@ -2369,7 +2577,7 @@
       var it = QMAP.get(id), chk = arr(TEST.chk[id]);
       h += '<article class="tq tq-mark" data-qid="' + esc(id) + '"><header class="q-head"><span class="tq-n">Written ' + (k + 1) + ' of ' + written.length + '</span><span class="q-id">' + esc(id) + '</span>' +
         '<span class="chip">' + plural(it.marks, 'mark') + '</span><span class="sp"></span><span class="chip mono t-sub">' + fmtN(scoreFor(it, chk.length)) + ' / ' + fmtN(it.marks) + '</span></header>' +
-        '<div class="q-body">' + stemHTML(it) + figureHTML(it) + '<p class="q-text">' + rt(it.q) + '</p></div>' +
+        '<div class="q-body">' + stemHTML(it) + figureHTML(it) + '<div class="q-text">' + rt(it.q) + '</div></div>' +
         (str(TEST.txt[id]).trim() ? '<div class="yours"><b>Your notes</b>' + esc(TEST.txt[id]) + '</div>' : '') +
         '<div style="margin-top:12px">' + pointsHTML(it, 'tchk', chk) + '</div>' + (it.answer.tip ? '<div class="tipbox" style="margin-top:10px">' + icon('lightbulb') + '<div><b>How to score full marks</b>' + trusted(it.answer.tip) + '</div></div>' : '') + '</article>';
     });
@@ -2464,7 +2672,7 @@
       case 'tsubmit': submitTest(false); break;
       case 'tcancel': $('#tConfirm').hidden = true; break;
       case 'texit': TEST = null; saveTest(); exitTestView(); toast('Test discarded.'); break;
-      case 'tfinish': TEST.phase = 'result'; saveTest(); renderTestPhase(); window.scrollTo(0, 0); break;
+      case 'tfinish': TEST.phase = 'result'; saveTest(); renderTestPhase(); window.scrollTo(0, 0); SFX.play('success'); break;
       case 'tpractise': {
         var tid = b.getAttribute('data-target');
         exitTestView(); if (state.mode === 'learn') setMode('practice');
@@ -2550,12 +2758,14 @@
      Misc UI: theme, filters toggle, reset, fonts, header height
      ------------------------------------------------------------------ */
   function applyTheme(t) {
-    document.documentElement.setAttribute('data-theme', t);
-    document.documentElement.className = t + (document.documentElement.classList.contains('no-icons') ? ' no-icons' : '');
+    var d = document.documentElement;
+    d.setAttribute('data-theme', t);
+    d.classList.remove('dark', 'light'); d.classList.add(t);
     var b = $('#btnTheme');
     b.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     b.querySelector('.msi').textContent = t === 'dark' ? 'light_mode' : 'dark_mode';
   }
+  function saveTheme(t) { try { window.localStorage.setItem('ilberiz_theme', t); } catch (e) {} }
   function toggleFilters(force) {
     var b = $('#btnFilters'), open = force != null ? force : b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open));
@@ -2600,12 +2810,6 @@
      Events
      ------------------------------------------------------------------ */
   function bind() {
-    $('#chSwitch').addEventListener('click', function (ev) {
-      var b = ev.target.closest('.chb'); if (!b) return;
-      var ch = b.getAttribute('data-ch'); if (ch === state.ch) return;
-      switchTo(ch, state.sec);
-      window.scrollTo(0, 0);
-    });
     var tabs = $('#secTabs');
     tabs.addEventListener('click', function (ev) {
       var b = ev.target.closest('.tab'); if (!b) return;
@@ -2633,7 +2837,7 @@
       if (act === 'goto') { goToQuestion(b.getAttribute('data-target')); return; }
       if (!e) return;
       if (act === 'opt') pickOption(e, +b.getAttribute('data-i'));
-      else if (act === 'reveal') setReveal(e, !e.el.classList.contains('revealed'));
+      else if (act === 'reveal') { var rv = !e.el.classList.contains('revealed'); setReveal(e, rv); if (rv) SFX.play('page'); }
       else if (act === 'retry') retry(e);
       else if (act === 'vars') toggleVars(e.it.id);
       else if (act === 'assess') assess(e, b.getAttribute('data-v'));
@@ -2682,7 +2886,45 @@
     $('#btnKeys').addEventListener('click', openShortcuts);
     $('#btnTheme').addEventListener('click', function () {
       var t = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-      applyTheme(t); LS.set('theme', t);
+      applyTheme(t); saveTheme(t); SFX.play(t === 'light' ? 'on' : 'off');
+    });
+    $('#btnSound').addEventListener('click', SFX.toggle);
+    /* follow theme / sound changes made in the site (or another tab) */
+    window.addEventListener('storage', function (ev) {
+      if (ev.key === 'ilberiz_theme') {
+        var v = ev.newValue, t = v === 'light' ? 'light' : 'dark';
+        if (v === 'system') { try { t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; } catch (e) {} }
+        applyTheme(t);
+      } else if (ev.key === 'ilberiz_audio' || ev.key === 'ilberiz_volume') SFX.sync();
+    });
+    /* chapter picker */
+    $('#chBtn').addEventListener('click', function () { if (chMenuOpen()) closeChMenu(false); else openChMenu(); });
+    $('#chBtn').addEventListener('keydown', function (ev) { if (ev.key === 'ArrowDown') { ev.preventDefault(); openChMenu(); } });
+    $('#chMenu').addEventListener('click', function (ev) {
+      var b = ev.target.closest('.ch-item'); if (!b) return;
+      var ch = b.getAttribute('data-ch');
+      closeChMenu(true);
+      if (ch === state.ch) return;
+      switchTo(ch, CH[ch].bySec[state.sec].length ? state.sec : SECS.filter(function (s) { return CH[ch].bySec[s].length; })[0] || state.sec);
+      window.scrollTo(0, 0);
+    });
+    $('#chMenu').addEventListener('keydown', function (ev) {
+      var items = $$('.ch-item', $('#chMenu')), i = items.indexOf(document.activeElement);
+      if (ev.key === 'Escape') { ev.preventDefault(); ev.stopPropagation(); closeChMenu(true); }
+      else if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') { ev.preventDefault(); items[(i + (ev.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length].focus(); }
+      else if (ev.key === 'Home' || ev.key === 'End') { ev.preventDefault(); items[ev.key === 'Home' ? 0 : items.length - 1].focus(); }
+      else if (ev.key === 'Tab') closeChMenu(false);
+    });
+    document.addEventListener('pointerdown', function (ev) { if (chMenuOpen() && !ev.target.closest('#chPick')) closeChMenu(false); });
+    /* collapsible stats card (phones) */
+    $('#heroMore').addEventListener('click', function () {
+      var open = !$('#hero').classList.contains('open');
+      $('#hero').classList.toggle('open', open); this.setAttribute('aria-expanded', String(open)); LS.set('heroOpen', open);
+    });
+    /* soft tap for every other button (specific sounds above win) */
+    document.addEventListener('click', function (ev) {
+      var t = ev.target.closest && ev.target.closest('button, a[href], summary, .opt');
+      if (t && !t.disabled) SFX.play('tap');
     });
 
     dlg = $('#dlg');
@@ -2726,13 +2968,17 @@
      Init
      ------------------------------------------------------------------ */
   function init() {
+    $('#brandTitle').textContent = UI_TITLE;
+    $('#brandSub').textContent = 'ICSE Class 10 ' + UI_SUBJECT + ' · PYQ practice';
+    if (LS.get('heroOpen', false)) { $('#hero').classList.add('open'); $('#heroMore').setAttribute('aria-expanded', 'true'); }
+    SFX.sync();
     buildIndex();
     checkIconFont();
     watchHeader();
     applyTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
     if (!CH_ORDER.length) {
       $('#loadError').hidden = false; $('#hero').hidden = true; $('#listView').hidden = true; $('#secTabs').hidden = true;
-      $('#btnTheme').addEventListener('click', function () { var t = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light'; applyTheme(t); LS.set('theme', t); });
+      $('#btnTheme').addEventListener('click', function () { var t = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light'; applyTheme(t); saveTheme(t); });
       return;
     }
     var qp = null; try { qp = new URLSearchParams(window.location.search); } catch (e) {}

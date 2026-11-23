@@ -23,8 +23,9 @@ const DATA = ctx.window.NM_DPP_DATA, PAT = ctx.window.NM_DPP_PATTERN;
 
 const SECS = (PAT && Array.isArray(PAT.dppSections) && PAT.dppSections.length) ? PAT.dppSections.map(d => d.id) : ['mcq', 'short', 'long'];
 const TYPES = { BOARD: 'board', BOARD_SEM1: 'board', BOARD_SEM2: 'board', SUPPLEMENTARY: 'board', SPECIMEN: 'official', CFPQ: 'official' };
-const FORMATS = ['MCQ', 'AR', 'PICTURE', 'SHORT', 'LONG', 'SOURCE'];
+const FORMATS = ['MCQ', 'AR', 'PICTURE', 'SHORT', 'LONG', 'SOURCE', 'FILL', 'MATCH', 'NAME', 'ARRANGE', 'REASON', 'TABLE', 'NUMERICAL', 'EQUATION', 'DIAGRAM'];
 const DIFF = ['Easy', 'Medium', 'Hard'], SKILL = ['Recall', 'Understanding', 'Application', 'Analysis', 'Evaluation'], CONF = ['HIGH', 'MEDIUM', 'LOW'];
+const zeroSecs = () => Object.fromEntries(SECS.map(s => [s, 0]));
 const isStr = v => typeof v === 'string', isNum = v => typeof v === 'number' && isFinite(v);
 const hasSample = v => isStr(v) && v.includes('[SAMPLE]');
 
@@ -140,7 +141,7 @@ chapters.forEach(code => {
   if (!Array.isArray(d.questions)) { err(W + ': questions must be an array'); return; }
 
   const seenMarks = {}; // src -> sec -> marks from seen
-  const counts = { mcq: 0, short: 0, long: 0 };
+  const counts = zeroSecs();
   let vcount = 0;
   d.questions.forEach((q, qi) => {
     const w = W + ' q[' + qi + '] ' + (q && q.id);
@@ -169,7 +170,7 @@ chapters.forEach(code => {
     if (q.flags != null && !Array.isArray(q.flags)) err(w + ': flags must be an array');
     if (q.related != null && !Array.isArray(q.related)) err(w + ': related must be an array');
     if (PLACEHOLDER) { if (!hasSample(q.q)) err(w + ': q lacks [SAMPLE]'); if (q.stem && !hasSample(q.stem)) err(w + ': stem lacks [SAMPLE]'); if (q.picture && !hasSample(q.picture)) err(w + ': picture lacks [SAMPLE]'); }
-    const tally = (arr, marks) => arr.forEach(s => { if (!s || !s.src) return; (seenMarks[s.src] = seenMarks[s.src] || { mcq: 0, short: 0, long: 0 })[q.sec] += (isNum(s.marks) ? s.marks : marks); });
+    const tally = (arr, marks) => arr.forEach(s => { if (!s || !s.src) return; (seenMarks[s.src] = seenMarks[s.src] || zeroSecs())[q.sec] += (isNum(s.marks) ? s.marks : marks); });
     tally(seen, q.marks);
     const vars = q.variations == null ? [] : q.variations;
     if (!Array.isArray(vars)) err(w + ': variations must be an array');
@@ -211,11 +212,11 @@ chapters.forEach(code => {
   // sources[].marks vs seen totals (only warn: marks may include parts not modelled as questions)
   sources.forEach(s => {
     if (s.found === false || !s.marks) return;
-    const got = seenMarks[s.id] || { mcq: 0, short: 0, long: 0 };
+    const got = seenMarks[s.id] || zeroSecs();
     SECS.forEach(k => { if (isNum(s.marks[k]) && s.marks[k] !== got[k]) warn(W + ': ' + s.id + ' marks.' + k + ' = ' + s.marks[k] + ' but seen[] adds up to ' + got[k]); });
   });
   Object.keys(seenMarks).forEach(id => { if (!srcById[id]) err(W + ': seen cites unknown source ' + id); });
-  console.log('\n' + code + ' — ' + m.shortTitle + ': mcq ' + counts.mcq + ', short ' + counts.short + ', long ' + counts.long + ', variations ' + vcount + ', sources ' + sources.length + ' (' + sources.filter(s => s.found !== false).length + ' found)');
+  console.log('\n' + code + ' — ' + m.shortTitle + ': ' + SECS.map(s => s + ' ' + counts[s]).join(', ') + ', variations ' + vcount + ', sources ' + sources.length + ' (' + sources.filter(s => s.found !== false).length + ' found)');
 });
 // related across chapters
 chapters.forEach(code => (DATA[code].questions || []).forEach(q => (Array.isArray(q.related) ? q.related : []).forEach(r => {

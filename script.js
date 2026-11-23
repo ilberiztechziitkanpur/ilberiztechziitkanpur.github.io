@@ -11,20 +11,20 @@
    single "New" link in the laptop sidebar and the "New" card on Home.
    -------------------------------------------------------------------------- */
 const LATEST_RELEASE = {
-    subjectId: 'sub-10-his',
-    chapterId: 'chap-his-9',
-    title: 'Indian Independence and Partition of India',
-    note: 'Interactive PYQ DPPs from ICSE Board 2016–2026, Specimen papers and the CISCE competency bank.',
+    subjectId: 'sub-10-chem',
+    chapterId: 'chap-chem-1',
+    title: 'Periodic Properties and Variations of Properties',
+    note: 'Chemistry Ch 1 interactive PYQ DPPs: ICSE board papers 2016–2026, CISCE specimens 2017–2027 and competency questions, shown exactly as printed.',
     items: [
-        { id: 'his-ip-dpp-mcq', label: 'DPP 1: MCQs', meta: '3 questions, 1 mark each' },
-        { id: 'his-ip-dpp-short', label: 'DPP 2: Short answers', meta: '7 questions, 2 marks each' },
-        { id: 'his-ip-dpp-long', label: 'DPP 3: Long answers', meta: '13 questions, 3–4 marks each' }
+        { id: 'chem-periodic-dpp-mcq', label: 'DPP 1: MCQs', meta: '48 questions, 1 mark each' },
+        { id: 'chem-periodic-dpp-obj', label: 'DPP 2: One-markers', meta: '23 questions (+7 variations), 1 mark each' },
+        { id: 'chem-periodic-dpp-secb', label: 'DPP 3: Section B', meta: '41 questions, Q3–Q8 style' }
     ],
-    more: { label: 'All History DPPs (Ch 3–9)', href: '#/s/sub-10-his' },
-    nav: { label: 'History: Ch 3–9 DPPs', href: '#/s/sub-10-his' }
+    more: { label: 'Chemistry chapters', href: '#/s/sub-10-chem' },
+    nav: { label: 'Chemistry: Ch 1 DPPs', href: '#/s/sub-10-chem' }
 };
 
-const APP_VERSION = '14.1';
+const APP_VERSION = '14.2';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------
@@ -81,6 +81,7 @@ const prefs = {
     theme: (() => { const v = lsGet('ilberiz_theme', 'dark'); return v === 'light' || v === 'system' ? v : 'dark'; })(),
     accent: (() => { const v = lsGet('ilberiz_accent', 'yellow'); return ACCENTS.some((a) => a.id === v) ? v : 'yellow'; })(),
     sound: lsGet('ilberiz_audio', 'on') !== 'off',
+    volume: (() => { const v = parseInt(lsGet('ilberiz_volume', '80'), 10); return isFinite(v) ? Math.max(0, Math.min(100, v)) : 80; })(),
     haptics: lsGet('ilberiz_haptics', 'on') !== 'off',
     reader: (() => { const v = lsGet('ilberiz_reader', 'auto'); return v === 'builtin' || v === 'native' ? v : 'auto'; })()
 };
@@ -115,6 +116,12 @@ function setSound(on) {
     syncSoundButton();
     if (on) sfx.play('on');
 }
+// DPP engines (iframes, same origin) share these prefs; follow their changes live.
+window.addEventListener('storage', (e) => {
+    if (e.key === 'ilberiz_theme') { const v = e.newValue; prefs.theme = v === 'light' || v === 'system' ? v : 'dark'; applyTheme(); }
+    else if (e.key === 'ilberiz_audio') { prefs.sound = e.newValue !== 'off'; syncSoundButton(); }
+    else if (e.key === 'ilberiz_volume') { const v = parseInt(e.newValue, 10); if (isFinite(v)) { prefs.volume = Math.max(0, Math.min(100, v)); sfx.setVolume(prefs.volume); } }
+});
 function useBuiltInReader() {
     if (location.protocol === 'file:') return false;
     if (prefs.reader === 'builtin') return true;
@@ -124,12 +131,33 @@ function useBuiltInReader() {
 }
 
 /* --------------------------------------------------------------------------
-   3. Sound (soft synthesized UI sounds, zero network) + haptics
+   3. Sound (recorded "soft glass & thock" samples in sounds/, synth fallback) + haptics
+   Volume 0-100 lives in ilberiz_volume; the DPP engines read the same prefs.
    -------------------------------------------------------------------------- */
+const SOUND_FILES = {
+    tap: 'tap.wav', open: 'open.wav', on: 'on.wav', off: 'off.wav',
+    chime: 'chime.wav', page: 'page.wav', save: 'save.mp3', success: 'success.mp3'
+};
+// event -> layers: [sample, gain, playbackRate, delay s]
+const SOUND_MAP = {
+    tap: [['tap', 0.38, 1]],
+    open: [['open', 0.6, 1]],
+    back: [['tap', 0.36, 0.84]],
+    on: [['on', 0.5, 1]],
+    off: [['off', 0.42, 1]],
+    save: [['save', 0.45, 1]],
+    success: [['success', 0.8, 1], ['save', 0.16, 1, 0.07]],
+    error: [['chime', 0.45, 0.75], ['chime', 0.4, 0.63, 0.12]],
+    page: [['page', 0.55, 1]]
+};
+function volumeGain(v) { return 1.4 * Math.pow(Math.max(0, Math.min(100, v)) / 100, 1.6); }
 const sfx = {
     ctx: null,
     out: null,
+    buf: {},
+    loading: false,
     lastTap: 0,
+    lastEvent: 0,
     ensure() {
         if (!prefs.sound) return null;
         try {
@@ -138,34 +166,52 @@ const sfx = {
                 if (!AC) return null;
                 const ctx = new AC();
                 const master = ctx.createGain();
-                master.gain.value = 0.9;
-                const tone = ctx.createBiquadFilter();
-                tone.type = 'lowpass';
-                tone.frequency.value = 5200;
-                const comp = ctx.createDynamicsCompressor();
-                comp.threshold.value = -18;
-                comp.ratio.value = 3;
-                // soft room: short feedback delay mixed low
-                const delay = ctx.createDelay(0.3);
-                delay.delayTime.value = 0.085;
-                const fb = ctx.createGain();
-                fb.gain.value = 0.18;
-                const wet = ctx.createGain();
-                wet.gain.value = 0.16;
-                master.connect(tone);
-                tone.connect(comp);
-                tone.connect(delay);
-                delay.connect(fb);
-                fb.connect(delay);
-                delay.connect(wet);
-                wet.connect(comp);
-                comp.connect(ctx.destination);
+                master.gain.value = volumeGain(prefs.volume);
+                // transparent safety limiter so stacked sounds never clip
+                const lim = ctx.createDynamicsCompressor();
+                lim.threshold.value = -6;
+                lim.knee.value = 6;
+                lim.ratio.value = 12;
+                lim.attack.value = 0.002;
+                lim.release.value = 0.12;
+                master.connect(lim);
+                lim.connect(ctx.destination);
                 this.ctx = ctx;
                 this.out = master;
+                this.load();
             }
             if (this.ctx.state === 'suspended') this.ctx.resume();
             return this.ctx;
         } catch (e) { return null; }
+    },
+    load() {
+        if (this.loading || location.protocol === 'file:') return;
+        this.loading = true;
+        const ctx = this.ctx;
+        Object.keys(SOUND_FILES).forEach((k) => {
+            fetch('sounds/' + SOUND_FILES[k])
+                .then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(r.status))))
+                .then((ab) => new Promise((res, rej) => ctx.decodeAudioData(ab, res, rej)))
+                .then((b) => { this.buf[k] = b; })
+                .catch(() => {});
+        });
+    },
+    setVolume(v) {
+        if (!this.out) return;
+        try { this.out.gain.setTargetAtTime(volumeGain(v), this.ctx.currentTime, 0.02); } catch (e) { this.out.gain.value = volumeGain(v); }
+    },
+    layer(name, gain, rate, t) {
+        const b = this.buf[name];
+        const ctx = this.ctx;
+        const src = ctx.createBufferSource();
+        src.buffer = b;
+        // tiny pitch variation keeps repeated taps from sounding mechanical
+        src.playbackRate.value = rate * (name === 'tap' ? 0.97 + Math.random() * 0.06 : 1);
+        const g = ctx.createGain();
+        g.gain.value = gain;
+        src.connect(g);
+        g.connect(this.out);
+        src.start(ctx.currentTime + (t || 0));
     },
     note(freq, { t = 0, dur = 0.12, type = 'sine', gain = 0.05, attack = 0.006, slide = null } = {}) {
         const ctx = this.ctx;
@@ -176,84 +222,41 @@ const sfx = {
         o.frequency.setValueAtTime(freq, now);
         if (slide) o.frequency.exponentialRampToValueAtTime(slide, now + dur);
         g.gain.setValueAtTime(0.0001, now);
-        g.gain.exponentialRampToValueAtTime(gain, now + attack);
+        g.gain.exponentialRampToValueAtTime(gain * 2.5, now + attack);
         g.gain.exponentialRampToValueAtTime(0.0001, now + dur);
         o.connect(g);
         g.connect(this.out);
         o.start(now);
         o.stop(now + dur + 0.03);
     },
-    whoosh(dur = 0.16, gain = 0.03) {
-        const ctx = this.ctx;
-        const now = ctx.currentTime;
-        const len = Math.floor(ctx.sampleRate * dur);
-        const buf = ctx.createBuffer(1, len, ctx.sampleRate);
-        const data = buf.getChannelData(0);
-        for (let i = 0; i < len; i++) data[i] = (Math.random() * 2 - 1) * (1 - i / len);
-        const src = ctx.createBufferSource();
-        src.buffer = buf;
-        const bp = ctx.createBiquadFilter();
-        bp.type = 'bandpass';
-        bp.Q.value = 0.9;
-        bp.frequency.setValueAtTime(900, now);
-        bp.frequency.exponentialRampToValueAtTime(3200, now + dur);
-        const g = ctx.createGain();
-        g.gain.setValueAtTime(0.0001, now);
-        g.gain.exponentialRampToValueAtTime(gain, now + 0.03);
-        g.gain.exponentialRampToValueAtTime(0.0001, now + dur);
-        src.connect(bp);
-        bp.connect(g);
-        g.connect(this.out);
-        src.start(now);
+    synth(name) {
+        // fallback while samples load (first tap) or when files can't be fetched (file://)
+        switch (name) {
+            case 'tap': this.note(720, { dur: 0.05, gain: 0.04, slide: 430 }); break;
+            case 'open': this.note(587.33, { dur: 0.1, gain: 0.035, type: 'triangle' }); this.note(880, { t: 0.05, dur: 0.14, gain: 0.03, type: 'triangle' }); break;
+            case 'back': this.note(784, { dur: 0.08, gain: 0.03, type: 'triangle' }); this.note(523.25, { t: 0.045, dur: 0.12, gain: 0.028, type: 'triangle' }); break;
+            case 'on': this.note(660, { dur: 0.07, gain: 0.04 }); this.note(990, { t: 0.05, dur: 0.1, gain: 0.035 }); break;
+            case 'off': this.note(740, { dur: 0.07, gain: 0.035 }); this.note(494, { t: 0.05, dur: 0.1, gain: 0.03 }); break;
+            case 'save': this.note(1046.5, { dur: 0.09, gain: 0.032 }); this.note(1396.9, { t: 0.06, dur: 0.16, gain: 0.028 }); break;
+            case 'success': [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => this.note(f, { t: i * 0.075, dur: 0.38, gain: 0.04 })); break;
+            case 'error': this.note(330, { dur: 0.14, gain: 0.05, type: 'triangle' }); this.note(247, { t: 0.12, dur: 0.22, gain: 0.05, type: 'triangle' }); break;
+            case 'page': this.note(520, { dur: 0.08, gain: 0.025, type: 'triangle', slide: 900 }); break;
+            default: break;
+        }
     },
-    lastEvent: 0,
     play(name) {
         const ctx = this.ensure();
         if (!ctx) return;
         const t0 = performance.now();
-        if (name !== 'tap') this.lastEvent = t0;
+        if (name === 'tap') {
+            if (t0 - this.lastTap < 50 || t0 - this.lastEvent < 150) return;
+            this.lastTap = t0;
+        } else this.lastEvent = t0;
+        const layers = SOUND_MAP[name];
+        if (!layers) return;
         try {
-            switch (name) {
-                case 'tap': {
-                    if (t0 - this.lastTap < 50 || t0 - this.lastEvent < 150) return;
-                    this.lastTap = t0;
-                    this.note(720, { dur: 0.05, gain: 0.04, slide: 430 });
-                    break;
-                }
-                case 'open':
-                    this.note(587.33, { dur: 0.1, gain: 0.035, type: 'triangle' });
-                    this.note(880, { t: 0.05, dur: 0.14, gain: 0.03, type: 'triangle' });
-                    break;
-                case 'back':
-                    this.note(784, { dur: 0.08, gain: 0.03, type: 'triangle' });
-                    this.note(523.25, { t: 0.045, dur: 0.12, gain: 0.028, type: 'triangle' });
-                    break;
-                case 'on':
-                    this.note(660, { dur: 0.07, gain: 0.04 });
-                    this.note(990, { t: 0.05, dur: 0.1, gain: 0.035 });
-                    break;
-                case 'off':
-                    this.note(740, { dur: 0.07, gain: 0.035 });
-                    this.note(494, { t: 0.05, dur: 0.1, gain: 0.03 });
-                    break;
-                case 'save':
-                    this.note(1046.5, { dur: 0.09, gain: 0.032 });
-                    this.note(1396.9, { t: 0.06, dur: 0.16, gain: 0.028 });
-                    break;
-                case 'success':
-                    [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => this.note(f, { t: i * 0.075, dur: 0.38, gain: 0.04 }));
-                    this.note(261.63, { dur: 0.5, gain: 0.025, type: 'triangle' });
-                    break;
-                case 'error':
-                    this.note(330, { dur: 0.14, gain: 0.05, type: 'triangle' });
-                    this.note(247, { t: 0.12, dur: 0.22, gain: 0.05, type: 'triangle' });
-                    break;
-                case 'page':
-                    this.whoosh();
-                    break;
-                default:
-                    break;
-            }
+            if (layers.every((l) => this.buf[l[0]])) layers.forEach((l) => this.layer(l[0], l[1], l[2], l[3]));
+            else this.synth(name);
         } catch (e) {}
     }
 };
@@ -1257,7 +1260,8 @@ function openSettings() {
             </div>
             <div class="set-group">
                 <h3>Sound & touch</h3>
-                <label class="set-row"><span class="ms">volume_up</span><span class="label"><strong>Sound effects</strong><small>Soft taps and chimes</small></span><span class="switch"><input type="checkbox" data-pref="sound" ${prefs.sound ? 'checked' : ''}><span></span></span></label>
+                <label class="set-row"><span class="ms">volume_up</span><span class="label"><strong>Sound effects</strong><small>Soft glass and thock sounds</small></span><span class="switch"><input type="checkbox" data-pref="sound" ${prefs.sound ? 'checked' : ''}><span></span></span></label>
+                <div class="set-row vol-row"${prefs.sound ? '' : ' hidden'} data-vol-row><span class="ms" data-vol-icon>${prefs.volume < 34 ? 'volume_mute' : prefs.volume < 67 ? 'volume_down' : 'volume_up'}</span><span class="label"><strong>Volume</strong><small data-vol-label>${prefs.volume}%</small></span><input type="range" class="vol" min="0" max="100" step="5" value="${prefs.volume}" aria-label="Sound volume" data-vol style="--v:${prefs.volume}%"></div>
                 ${'vibrate' in navigator ? `<label class="set-row"><span class="ms">vibration</span><span class="label"><strong>Vibration</strong><small>Light buzz on taps (Android)</small></span><span class="switch"><input type="checkbox" data-pref="haptics" ${prefs.haptics ? 'checked' : ''}><span></span></span></label>` : ''}
             </div>
             <div class="set-group">
@@ -1290,9 +1294,21 @@ function openSettings() {
             sfx.play('save');
         }));
         body.querySelectorAll('[data-pref]').forEach((inp) => inp.addEventListener('change', () => {
-            if (inp.dataset.pref === 'sound') setSound(inp.checked);
+            if (inp.dataset.pref === 'sound') { setSound(inp.checked); body.querySelector('[data-vol-row]').hidden = !inp.checked; }
             if (inp.dataset.pref === 'haptics') { prefs.haptics = inp.checked; lsSet('ilberiz_haptics', inp.checked ? 'on' : 'off'); haptic(20); }
         }));
+        const vol = body.querySelector('[data-vol]');
+        let volTimer = 0;
+        vol.addEventListener('input', () => {
+            const v = +vol.value;
+            prefs.volume = v;
+            vol.style.setProperty('--v', v + '%');
+            body.querySelector('[data-vol-label]').textContent = v + '%';
+            body.querySelector('[data-vol-icon]').textContent = v < 34 ? 'volume_mute' : v < 67 ? 'volume_down' : 'volume_up';
+            sfx.setVolume(v);
+            clearTimeout(volTimer);
+            volTimer = setTimeout(() => { lsSet('ilberiz_volume', String(v)); sfx.play('tap'); }, 140);
+        });
         body.querySelectorAll('[data-reader]').forEach((b) => b.addEventListener('click', () => {
             prefs.reader = b.dataset.reader;
             lsSet('ilberiz_reader', prefs.reader);

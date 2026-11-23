@@ -59,3 +59,12 @@ Chapter DPPs also fit: Periodic table, Bonding, Acids-Bases-Salts, Analytical (N
 - Salt analysis colours/observations must follow textbook (e.g. Cu(OH)2 pale blue, Fe(OH)3 reddish brown, Zn(OH)2 white soluble in excess NaOH, Pb(OH)2 white).
 - Mole calculations: use given atomic masses; STP molar volume 22.4 dm^3.
 - Q2(iii)/(iv) are objective-style: make "choose from bracket" and match tables.
+
+## 7. Built so far + facts established (Ch 1 build, 23 Nov 2026) — don't re-research
+- Engine: `chemistry/dpp/` (copy of the master engine; `pattern.js` has the 2027 blueprint, `ui.storePrefix "chemdpp_"`). DPP sections used (user choice "3 DPPs by paper part"): `mcq` (Section A Q1), `obj` (Section A Q2 one-markers: fill/choose, match, name, arrange; old Section I non-MCQ parts), `secb` (Section B Q3–Q8 / old Section II, any marks). Phone tab labels: "MCQ", "1-mark", "Sec B". Chapter codes: `periodic` (Ch 1, done). Suggested next: `bonding`, `acids`, `analytical`, `mole`, `electrolysis`, `metallurgy`, `compounds` (HCl/NH3/HNO3/H2SO4 — the old `chemistry/compounds-mcq/` vault exists for Ch 8), `organic`.
+- Paper copies found: board 2016–2020 (Byjus/AglaSem mirrors; 2016–2019 Byjus PDFs reproduce CISCE's own marking scheme + examiner comments = APP content), SEM1-2022 (photo PDF, OCR text layer is noisy — render pages), SEM2-2022 (only a Byjus solved reproduction), B2023 (printed paper), B2024/B2025 (printed papers), B2026 only as re-typeset copy → use APP2026, which reproduces the paper.
+- Official CISCE APP Chemistry on cisce.org: 2020 (`/2025/11/Chemistry6-1.pdf`), 2024 (`/2025/11/9.-Chemistry.pdf`), 2025 (`/2025/11/9.-ICSE-Chemistry.pdf`), 2026 (`/2026/11/9.-ICSE-Chemistry.pdf`). NOT on cisce.org: 2016–2019, 2023.
+- Official specimens on cisce.org: 2017, 2019 ("2019 onwards"), 2022 Sem 1, 2022 Sem 2, 2023 (scan), 2024, 2025 (scan, with MS), 2026 (with draft MS), 2027 (QP+MS). None for 2018, 2020, 2021.
+- CFPQ Chemistry: one edition (cover 2024, uploaded Nov 2025) — every item carries CISCE's own chapter tag in square brackets, e.g. "[Periodic Properties and Variations of Properties]". Use the tag to decide scope.
+- Ch 1 marks per paper are small (≈4–17); Ch 1 items often straddle Ch 2 (formula/valency from position) — include with flag `straddles-ch2`; electron-dot/bond-type parts belong to Ch 2.
+- The 2027 syllabus says period 4 (up to Ca), not period 3.

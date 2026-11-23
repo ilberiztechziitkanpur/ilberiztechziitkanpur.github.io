@@ -15,7 +15,7 @@ Read first, every time:
 
 Subject files in `references/subjects/`: maths.md · physics.md · chemistry.md · biology.md · history-civics.md · geography.md · english.md (Language + Literature) · hindi.md · computer.md. Each has the exact 2027 paper pattern, the recommended DPP section split, marking conventions, official source URLs, the syllabus chapter list and subject gotchas. Items marked UNVERIFIED there must be checked against the latest specimen before relying on them.
 
-Existing DPP engines (apply engine fixes to every copy): `history/national-movement/` (History Ch 3 fp, Ch 4 sp, Ch 5 ml, Ch 6 gandhi, Ch 7 qim, Ch 8 ina, Ch 9 ip). Old per-chapter vaults replaced so far: Ch 6, Ch 7, Ch 9 (user prefers "replace").
+Existing DPP engines: MASTER `history/national-movement/` (History Ch 3 fp, Ch 4 sp, Ch 5 ml, Ch 6 gandhi, Ch 7 qim, Ch 8 ina, Ch 9 ip) and copy `chemistry/dpp/` (Chemistry Ch 1 periodic). The copies are byte-identical except their `<script src>` data tags: edit the master only, then `node .claude/skills/icse-dpp-builder/scripts/sync-engines.js` (add a new subject copy to its ENGINE_COPIES; `--check` shows drift). Per-subject wording comes from `pattern.js → ui {title, subject, storePrefix, soundBase}`. Old per-chapter vaults replaced so far: History Ch 6, Ch 7, Ch 9 (user prefers "replace").
 
 For a small chapter (≲30 raw questions) one Sonnet-high agent can extract AND compile in one go (worked for Ch 7) — cheaper than separate agents.
 
@@ -32,7 +32,7 @@ The answer side is the only place that is rewritten (board's official answer fir
 ## Step 1 — Intake (ask once, in ONE AskUserQuestion call, max 4 questions)
 Default answers are in brackets; mark the default "(Recommended)". Skip any question already answered.
 - **DPP sections** for this chapter, taken from the subject file (e.g. History: MCQ / Short / Long; Maths: MCQ / Short / Long problems; Physics: MCQ / Theory / Numericals; Geography: MCQ / Short / Long / Map). [the subject file's recommended split]
-- **Sources & windows**: [Board papers last 10 years incl. 2022 Sem 1 & 2; Specimen papers latest 3 releases; CISCE Competency Focused Practice Questions latest 3 editions (History only has the July 2024 edition); CISCE Analysis of Pupil Performance for official answers. Improvement/Supplementary papers EXCLUDED unless an official CISCE copy exists.]
+- **Sources are FIXED — do not ask** (user decision, 23 Nov 2026: "make these three the default… ignore improvement papers"): (1) ICSE **board papers of the last 10 exams that actually happened** — 2016–2020, 2022 Semester 1 + Semester 2, 2023–2026 (no exam in 2021); (2) **all official CISCE specimen papers of the last 10 years** (≈2017–2027; repeats merge as extra year tags); (3) **CISCE Competency Focused Practice Questions** (every edition on cisce.org). Answers from CISCE Analysis of Pupil Performance / specimen marking schemes / CFPQ keys. **Improvement/Supplementary papers are never used** (only unofficial retyped copies exist; they can't be shown exactly as printed and have no official answers). Change only if the user explicitly asks.
 - **Existing engine for this chapter?** If the chapter already has an older vault: [replace it — user chose "replace" for History Ch 6].
 - **Scope edges** of the chapter (topics the site files under another chapter) — e.g. Muslim League kept out of Second Phase. [follow the site's chapter split in data.json]
 Do NOT offer to read the PW class-notes PDFs — the user said never read them; answers follow the board's official answers.
@@ -57,9 +57,9 @@ A fresh agent re-reads EVERY question of the subject's part of each in-scope pap
 
 ## Step 5 — Plug into the engine
 - History engine: `history/national-movement/index.html` (chapters fp, sp, ml, gandhi, …). Add `<script src="data-<chapter>.js?v=1">` next to the others. Chapters appear in the switcher automatically (ordered by `meta.chapterNo`).
-- Another subject: create ONE engine copy per subject (e.g. `physics/dpp/index.html`) from the history engine, with that subject's `pattern.js`. If its DPP sections differ from mcq/short/long, declare `dppSections: [{id, full, short, sub, icon, noun}]` in pattern.js — the engine reads it. Never copy the engine per chapter. Record every engine copy in PROJECT_STATE.md so fixes are applied to all copies.
+- Another subject: create ONE engine copy per subject (e.g. `physics/dpp/index.html`) by copying the master and changing only the `<script src>` tags, register it in sync-engines.js ENGINE_COPIES, and write that subject's `pattern.js` (with `ui` — pick a new `storePrefix` — and `dppSections`; phone tab `short` labels must fit ≈57 px, i.e. ≤ 6–7 characters). If its DPP sections differ from mcq/short/long, declare `dppSections: [{id, full, short, sub, icon, noun}]` in pattern.js — the engine reads it. Never copy the engine per chapter. Record every engine copy in PROJECT_STATE.md so fixes are applied to all copies.
 - Crop every figure into `img/<chapter>/` and set `img` / `optionImgs` (Exact-presentation rule). Open a few image questions in the browser and compare side-by-side with the PDF page.
-- Run `node scripts/smoke.js <engine-folder>` → 0 errors. (A–R options starting "(A)/(B)/(R)" are content, not letter prefixes — ignore that warning.)
+- Run `node scripts/smoke.js <engine-folder>` → 0 errors, and `node scripts/sync-engines.js --check` → all in sync. (A–R options starting "(A)/(B)/(R)" are content, not letter prefixes — ignore that warning.)
 
 ## Step 6 — Wire into the site (see PROJECT_STATE rules)
 - data.json: add one `interactive` item per DPP section at the TOP of the chapter's `items`, `file: "<engine>/index.html?ch=<code>&sec=<sec>"`, badge like `"DPP 1 • 14 MCQs • 1 Mark"`; set chapter `featured: true`; update description with searchable keywords. Regenerate data.js = `window.COURSE_DATA = <json>;`. Replacing an old vault = remove its item from `items` (keep the file).

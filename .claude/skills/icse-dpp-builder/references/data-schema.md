@@ -9,12 +9,13 @@ Each chapter has **3 DPPs**, matching the ICSE History & Civics paper:
 - `short` — Section A short answers (Q2-type, usually 2 marks; older papers' Part I Q2)
 - `long`  — Section B History sub-questions (Q6–Q10 (a)/(b)/(c), 3–4 marks each; picture/source based ones included)
 
-## Allowed sources (user-approved defaults)
-- ICSE Board papers, last 10 years (2016–2026; no exam 2021), incl. 2022 Semester 1 (MCQ) & Semester 2
-- CISCE Specimen papers — latest 3 releases (2025, 2026, 2027)
-- CISCE Competency Focused Practice Questions / item banks — latest 3 editions (History & Civics: only the July 2024 edition exists)
-- CISCE Analysis of Pupil Performance — official answer points, official MCQ keys & common errors (2016–2020 and 2023–2026)
-- EXCLUDED: Improvement/Supplementary papers (no official copies), older specimens, invented "expected" questions.
+## Allowed sources (FIXED default since 23 Nov 2026 — don't ask the user)
+- ICSE Board papers of the last 10 exams held (2016–2020, 2022 Semester 1 (MCQ) & Semester 2, 2023–2026; no exam 2021)
+- ALL official CISCE Specimen papers of the last 10 years (≈2017–2027; History Ch 3–9 were built with only 2025–27 before this rule)
+- CISCE Competency Focused Practice Questions / item banks — every edition on cisce.org (History & Civics: July 2024; Chemistry: Nov 2025)
+- CISCE Analysis of Pupil Performance — official answer points, official MCQ keys & common errors (only some years are on cisce.org; for Chemistry: 2020, 2024, 2025, 2026)
+- EXCLUDED: Improvement/Supplementary papers (no official copies), invented "expected" questions.
+- Specimen source ids: S<year>; two in one year → S2022-SEM1 / S2022-SEM2 with `short: "Specimen 2022 S1"` (engine shows `short` on chips).
 
 ## Files (repo: C:\Users\ASUS\Downloads\ILBERIZ TECHZ IIT KANPUR)
 ```

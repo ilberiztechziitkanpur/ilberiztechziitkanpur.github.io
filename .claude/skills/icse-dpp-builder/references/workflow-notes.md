@@ -4,7 +4,7 @@
 - The user studies while you work: minimal prompting, but asking questions is welcome. Batch questions into one AskUserQuestion call.
 - Quality over speed, but be token-efficient: ≤ 2–3 parallel agents; Sonnet medium for search/writing, Sonnet high for extraction/compiling; give agents narrow scopes and local files to reuse. Many parallel Opus agents hit the 5-hour limit in minutes, and Opus research agents were twice stopped by safety filters on normal web research — Sonnet worked.
 - Never read the PW class-notes PDFs (image-only slides; expensive). Answers follow the board's official answers exactly when they exist.
-- Official sources only. Improvement/Supplementary papers were excluded (only unofficial KnowledgeBoat copies exist). No invented "expected" questions.
+- Official sources only — fixed default: board (last 10 exams) + all specimens of the last 10 years + CFPQ. Improvement/Supplementary papers are never used (only unofficial KnowledgeBoat copies exist). No invented "expected" questions. Don't re-ask about sources.
 - Variations must be strict — a student who solved the main question must be able to solve the variation with the same answer core. When in doubt, separate + `related`.
 - Show per question: years & papers, probability with its basis, marks, time, difficulty, skill, confidence, official examiner note, common mistakes, tips, word target.
 
@@ -34,3 +34,10 @@ ICSE rarely repeats History wording, but topics recur. Score = 10 + 6·min(F,4) 
 - data.json is edited with Node and data.js regenerated from it; keep the 4-space indent and trailing newline.
 - The site has a frontend passcode; for local testing set `sessionStorage.ilberiz_auth = 'granted'` and reload.
 - Image questions (maps, diagrams, photos, graphs, circuits): crop the figure from the official PDF into `img/<chapter>/` and set `img` (+ `optionImgs` for image options); `picture` stays as alt text. Never hot-link from other sites. History Ch 3–9 were retrofitted to this rule (15 cropped figures). Bump the data scripts' ?v= after changing data so browsers don't show cached copies.
+
+## Lessons from Chemistry Ch 1 (Nov 2026)
+- Pipeline that worked (≈2 h, Sonnet agents): 1 download agent (medium) → 3 extraction agents in parallel (high): board 2016–2022 / board 2023–2026 / specimens + CFPQ, each following one shared BRIEF.md in the scratchpad → 1 compile agent (high) with COMPILE.md + appended SUPERVISOR DECISIONS → 1 independent audit agent (high) whose list is diffed by script against the raw refs. Write briefs to files; agents read them (cheaper than long prompts).
+- Supervisor (you) should: review every borderline item the extractors flag, decide scope in writing in COMPILE.md, verify LOW/MEDIUM-confidence items by rendering the page and reading the crop, check key flags vs sources (a promoted variation inherits wrong flags), and drop non-existent sources (no chip for a specimen that was never published).
+- Audit diff: normalise refs ("MCQ7" vs "Q7") before calling something missing.
+- Tables: reproduce regular printed tables as HTML `<table>` (engine allows it); crop only irregular grids (periodic-table skeletons). Never show both. Whiten mirror watermarks on crops (PIL in Python 3.13: pixels with min(RGB) > 150 or strongly tinted → white).
+- Browser testing: unregister the service worker + clear caches and fetch index.html with cache:'reload' before judging a change; screenshots right after a programmatic scroll can come out blank — take another.

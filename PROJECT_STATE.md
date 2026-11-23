@@ -72,7 +72,7 @@ ILBERIZ TECHZ IIT KANPUR/
 │   │   └── index.html               # 8 Canonical Clusters, 54+ PYQ Twists, Sarajevo, Versailles & League of Nations
 │   ├── 1857-ww1/                    # Dual-Chapter Master Vault (1857 Revolt + First World War)
 │   │   └── index.html               # 18 Canonical Clusters, 116+ Board Variations, 1-Click Chapter Switcher
-│   ├── national-movement/           # Ch 3–9: Shared National Movement Interactive PYQ DPP Engine (v13.9)
+│   ├── national-movement/           # Ch 3–9: Shared Interactive PYQ DPP Engine — MASTER copy (v14.2; chemistry/dpp/ is synced from it)
 │   │   ├── index.html               # Data-driven engine: 3 DPPs/chapter (MCQ · Short · Long), Learn/Practice/Test, Show Variations, probability, self-marking
 │   │   ├── data-first-phase.js      # window.NM_DPP_DATA.fp — Ch 3 First Phase: 10 unique Qs + 1 variation (7 MCQ, 2 Short, 1 Long)
 │   │   ├── data-second-phase.js     # window.NM_DPP_DATA.sp — Ch 4 Second Phase: 31 unique Qs + 1 variation (13 MCQ, 11 Short, 7 Long)
@@ -178,6 +178,11 @@ ILBERIZ TECHZ IIT KANPUR/
 │       ├── Sense_Organs_01_Class_Notes.pdf ... 04 (4 files)
 │       └── Endocrine_System_01_Class_Notes.pdf ... 02 (2 files)
 ├── chemistry/                       # ALL Chemistry subject content lives strictly here
+│   ├── dpp/                         # Chemistry Interactive PYQ DPP engine (v14.2) — COPY of the shared engine (kept identical by sync-engines.js)
+│   │   ├── index.html               # Same engine as history/national-movement/index.html; only the <script src> data tags differ
+│   │   ├── pattern.js               # Chemistry paper blueprint + dppSections (mcq · obj · secb) + ui {title, subject, storePrefix "chemdpp_"}
+│   │   ├── data-periodic.js         # Ch 1 Periodic Properties: 48 MCQ · 23 one-markers (+7 variations) · 41 Section B
+│   │   └── img/periodic/            # 3 periodic-table figures cropped from the papers (B2016, B2019, B2025)
 │   ├── compounds-mcq/               # Study of Compounds 5-Year MCQ Master Vault (2022–2026)
 │   │   └── index.html               # 57 Verbatim Board & Specimen MCQs across HCl, NH3, HNO3, H2SO4, Instant & DPP Modes
 │   └── notes/                       # ICSE Class 10 Chemistry PDF notes
@@ -194,6 +199,7 @@ ILBERIZ TECHZ IIT KANPUR/
 ├── style.css                        # Design system (v14): dark/light tokens, highlighter accents, subject colours
 ├── sw.js                            # Service worker: offline shell/engines, cache-first PDF notes (VERSION = ?v=)
 ├── manifest.webmanifest             # Installable app (PWA) manifest
+├── sounds/                          # UI sound set "soft glass & thock" (8 files, ~140 KB) used by the site AND every DPP engine
 ├── icons/                           # App icons (192, 512, maskable, apple-touch, favicon)
 ├── vendor/pdfjs/                    # Self-hosted PDF.js 3.11.174 for the built-in phone reader
 └── PROJECT_STATE.md                 # This file (Persistent project state & autonomous setup guide)
@@ -909,6 +915,23 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
   2. 🎯 DPP Examination Mode: strict timed test with timer (15, 30, 45, 60 mins presets), flag for review, and comprehensive scorecard.
 - **Filtering & Search**: Compound-wise filters (All, HCl, NH3, HNO3, H2SO4), Year-wise filters (2022 to 2026), and full-text keyword search.
 - **Navigation**: Integrated `.home-nav-btn` linking back to `../../index.html` with `target="_top"` and imported full Google Fonts bundle (`Inter`, `JetBrains Mono`, `Outfit`, `Material Symbols Outlined`).
+
+### Y. Chemistry Ch 1 Interactive PYQ DPPs (`chemistry/dpp/`, code `periodic`) — v14.2 (23 Nov 2026)
+- **Built with the `icse-dpp-builder` skill.** 3 DPPs by paper part (user choice): `mcq` = Section A Q1 MCQs (48), `obj` = Section A Q2 one-markers — fill/choose, match, name, arrange (23 + 7 variations), `secb` = Section B Q3–Q8 (41; 1–5 marks incl. element-table problems, give reasons, arrange sets). 111 unique questions + 8th variation promoted (S2017 noble-gas-only IP MCQ split from B2020 because the option logic differs).
+- **Sources (now the FIXED default for every DPP — user, 23 Nov 2026):** board papers of the last 10 exams (2016–2020, 2022 Sem 1 + Sem 2, 2023–2026; no exam 2021), ALL official CISCE specimens of the last 10 years (Chemistry: 2017, 2019, 2022 S1, 2022 S2, 2023–2027; none exist for 2018/2020/2021), CISCE Competency Focused Practice Questions (Chemistry 2024 edition, uploaded Nov 2025). Improvement papers NEVER used (only unofficial retyped copies).
+- **Official answers:** CISCE APP on cisce.org exists for Chemistry 2020, 2024, 2025, 2026; the 2016–2019 Byjus mirror PDFs reproduce CISCE's own marking scheme + examiner comments (used as official, labelled "reproduced in the mirror copy"); no APP for 2023 / SEM1-2022 → keys worked out (flag `key-agent-determined`). Specimen 2025–27 + CFPQ keys official. B2019 Q1(h)(iv) official key B, N, O, F kept (ICSE simplified EA trend; tip explains).
+- **Scope rules used:** CFPQ items included = exactly those CISCE tags "Periodic Properties" (Q7, 9, 31, 46, 50, 55, 63, 90, 115a-b, 120a-b); electron-dot / bond-type parts = Ch 2 (excluded); "formula / valency from group position" straddlers included with flag `straddles-ch2`; mixed-chapter match tables shown whole as printed with flag `partly-other-chapters`.
+- **Completeness audit:** independent agent re-read all 21 papers; 4 genuine misses added (B2016 Q1(a)(i), B2023 Q2(iii)(a), B2026 Q3(iii)(b), S2022-SEM1 Q37(c)); everything else it listed was Ch 2 (dot structures/bond type) or a ref-format mismatch.
+- **Figures:** 3 periodic-table grids cropped (B2016 Q2(a), B2019 Q2(c) — Byjus watermark whitened out, B2025 Q4(iv)); regular tables are reproduced as HTML `<table>` in `q`/`stem` (engine now allows table tags) and never also as an image.
+- **Research archive (scratchpad, not in repo):** raw extractions e1/e2/e3/e4, audit.json, clusters report, compile build.js. Rebuild needs re-download (inventory.json lists URLs).
+
+### Z. Shared DPP engine upgrade + premium sounds — v14.2 (23 Nov 2026)
+- **Engine copies:** `history/national-movement/index.html` (MASTER) and `chemistry/dpp/index.html` are byte-identical except their `<script src>` data tags. Edit the master, then run `node .claude/skills/icse-dpp-builder/scripts/sync-engines.js` (add new subject copies to its `ENGINE_COPIES`); `--check` reports drift. Per-subject text comes from `pattern.js → ui { title, subject, storePrefix, soundBase }` (History keeps `nmdpp_` so old progress survives; Chemistry `chemdpp_`).
+- **Top bar redesign (user bug: options colliding):** the inline row of 7 chapter pills (non-shrinking → squashed title, theme/blueprint icons pushed off-screen, page wider than the viewport on laptops, overlap with Back on phones) was replaced by ONE chapter button + dropdown menu (chapter no., title, per-section counts, keyboard + click-outside support). Inside the site's reader iframe (`html.embedded`) the engine hides its own Back button and brand (the site bar already has them). Phone: [Back] [Ch N · title ▾] [sound] [theme]. Single-chapter subjects show the button without the arrow.
+- **Phone comfort:** the stats card collapses on phones (summary line + "Chapter stats & year-wise marks" toggle, remembered); toolbar is a tidy grid (search / sort + filters / revision · variations · print · reset); long topic chips ellipsize; section tab labels must fit ~57 px on a 375 px phone (Chemistry uses "MCQ / 1-mark / Sec B").
+- **Data/UX fixes:** "Variations" stat label no longer reads "0 · 12 with variations"; friendly flag chips (Official CISCE key, Key worked out, Also uses Ch 2, …); optional `source.short` label (e.g. "Specimen 2022 S1"); science formats FILL/MATCH/NAME/ARRANGE/REASON/TABLE/NUMERICAL/EQUATION/DIAGRAM (smoke.js updated; smoke now counts marks per the subject's own dppSections).
+- **One theme + sound prefs everywhere:** engines read/write `ilberiz_theme` (dark/light/system) and `ilberiz_audio` / `ilberiz_volume`; `storage` events keep the site and an open DPP iframe in sync both ways.
+- **Sounds (user: louder, premium; chose "soft glass & thock"):** `sounds/` holds 8 trimmed, peak-normalised samples from the user's Motion Graphics library (`public/library/sfx`: foley/ui-thock, ui/confirm-glass, ui/toggle-on/off, ui/confirm-chime, foley/crisp-paper-unfold, foley/glass-resonance-ping, foley/rhodes-swell — the library README says they came with that project as synthesized/CC0, unverifiable). Web Audio playback with per-event layers, tiny pitch jitter on taps, a safety limiter, synth fallback while loading / on file://. Settings has a Volume slider (default 80 %, `ilberiz_volume`). DPP events: correct MCQ chime, wrong = soft descending chime, reveal = paper swish, Got it / Missed toggles, bookmark glass ping, test submit = Rhodes swell, plus soft taps. Service worker caches `/sounds/` cache-first.
 
 ## 5. Protocol for Future Chats (Step-by-Step Onboarding Guide)
 
