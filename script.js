@@ -24,7 +24,7 @@ const LATEST_RELEASE = {
     nav: { label: 'Chemistry: Ch 1 DPPs', href: '#/s/sub-10-chem' }
 };
 
-const APP_VERSION = '14.4';
+const APP_VERSION = '14.5';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------

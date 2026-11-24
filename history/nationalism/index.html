@@ -1082,6 +1082,8 @@
       color: #fff;
       transform: translateX(-2px);
     }
+    /* v14.5 phone fix: no sideways page scroll */
+    @media (max-width: 640px) { .brand-group,.mode-switcher,.timer-widget{flex-wrap:wrap}.brand-title{min-width:0;flex:1 1 220px} }
   </style>
 </head>
 <body>
