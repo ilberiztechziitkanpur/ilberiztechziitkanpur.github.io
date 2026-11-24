@@ -24,7 +24,7 @@ const LATEST_RELEASE = {
     nav: { label: 'Chemistry: Ch 1 DPPs', href: '#/s/sub-10-chem' }
 };
 
-const APP_VERSION = '14.2';
+const APP_VERSION = '14.4';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------
@@ -40,8 +40,12 @@ function h(html) {
 }
 const plural = (n, one, many) => `${n} ${n === 1 ? one : (many || one + 's')}`;
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-const reducedMotion = () => window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-const isDesktop = () => window.matchMedia && matchMedia('(min-width: 1024px)').matches;
+const truncate = (s, n) => { s = String(s || ''); return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s; };
+const onEach = (root, sel, fn, type = 'click') => $$(sel, root).forEach((el) => el.addEventListener(type, () => fn(el)));
+const pressOnly = (root, sel, active) => $$(sel, root).forEach((el) => el.setAttribute('aria-pressed', String(el === active)));
+const mq = (query) => matchMedia(query).matches;
+const reducedMotion = () => mq('(prefers-reduced-motion: reduce)');
+const isWide = () => mq('(min-width: 720px)');
 
 function lsGet(key, fallback = null) {
     try { const v = localStorage.getItem(key); return v == null ? fallback : v; } catch (e) { return fallback; }
@@ -50,7 +54,7 @@ function lsSet(key, value) {
     try { localStorage.setItem(key, value); } catch (e) {}
 }
 function lsJSON(key, fallback) {
-    try { const v = localStorage.getItem(key); if (!v) return fallback; const p = JSON.parse(v); return p == null ? fallback : p; } catch (e) { return fallback; }
+    try { const v = JSON.parse(lsGet(key)); return v == null ? fallback : v; } catch (e) { return fallback; }
 }
 function timeAgo(t) {
     const s = Math.max(1, Math.round((Date.now() - t) / 1000));
@@ -77,38 +81,38 @@ const ACCENTS = [
     { id: 'orange', name: 'Orange', c: '#FFA552' }
 ];
 
+const oneOf = (v, allowed) => (allowed.includes(v) ? v : allowed[0]);   // first = default
+const asTheme = (v) => oneOf(v, ['dark', 'light', 'system']);
+const asVolume = (v, fallback) => { const n = parseInt(v, 10); return isFinite(n) ? clamp(n, 0, 100) : fallback; };
 const prefs = {
-    theme: (() => { const v = lsGet('ilberiz_theme', 'dark'); return v === 'light' || v === 'system' ? v : 'dark'; })(),
-    accent: (() => { const v = lsGet('ilberiz_accent', 'yellow'); return ACCENTS.some((a) => a.id === v) ? v : 'yellow'; })(),
-    sound: lsGet('ilberiz_audio', 'on') !== 'off',
-    volume: (() => { const v = parseInt(lsGet('ilberiz_volume', '80'), 10); return isFinite(v) ? Math.max(0, Math.min(100, v)) : 80; })(),
-    haptics: lsGet('ilberiz_haptics', 'on') !== 'off',
-    reader: (() => { const v = lsGet('ilberiz_reader', 'auto'); return v === 'builtin' || v === 'native' ? v : 'auto'; })()
+    theme: asTheme(lsGet('ilberiz_theme')),
+    accent: oneOf(lsGet('ilberiz_accent'), ACCENTS.map((a) => a.id)),
+    sound: lsGet('ilberiz_audio') !== 'off',
+    volume: asVolume(lsGet('ilberiz_volume'), 80),
+    haptics: lsGet('ilberiz_haptics') !== 'off',
+    reader: oneOf(lsGet('ilberiz_reader'), ['auto', 'builtin', 'native'])
 };
+const setReaderPref = (v) => { prefs.reader = v; lsSet('ilberiz_reader', v); };
 
 function effectiveTheme() {
-    if (prefs.theme === 'system') return window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-    return prefs.theme;
+    return prefs.theme === 'system' ? (mq('(prefers-color-scheme: light)') ? 'light' : 'dark') : prefs.theme;
 }
 function applyTheme() {
-    const mode = effectiveTheme();
-    document.documentElement.setAttribute('data-theme', mode);
-    document.documentElement.setAttribute('data-accent', prefs.accent);
-    const meta = document.getElementById('meta-theme-color');
-    if (meta) meta.setAttribute('content', mode === 'light' ? '#F3F4F6' : '#0F1216');
-    const btn = document.getElementById('btn-theme');
-    if (btn) {
-        btn.querySelector('.ms').textContent = mode === 'light' ? 'dark_mode' : 'light_mode';
-        btn.setAttribute('aria-label', mode === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
-    }
+    const light = effectiveTheme() === 'light';
+    const root = document.documentElement;
+    root.setAttribute('data-theme', light ? 'light' : 'dark');
+    root.setAttribute('data-accent', prefs.accent);
+    $('#meta-theme-color').setAttribute('content', light ? '#F3F4F6' : '#0F1216');
+    labelIcon($('#btn-theme'), light ? 'dark_mode' : 'light_mode', light ? 'Switch to dark mode' : 'Switch to light mode');
+}
+function labelIcon(btn, icon, label) {
+    $('.ms', btn).textContent = icon;
+    btn.setAttribute('aria-label', label);
 }
 function setThemePref(v) { prefs.theme = v; lsSet('ilberiz_theme', v); applyTheme(); }
 function setAccent(v) { prefs.accent = v; lsSet('ilberiz_accent', v); applyTheme(); }
 function syncSoundButton() {
-    const btn = document.getElementById('btn-sound');
-    if (!btn) return;
-    btn.querySelector('.ms').textContent = prefs.sound ? 'volume_up' : 'volume_off';
-    btn.setAttribute('aria-label', prefs.sound ? 'Mute sounds' : 'Turn sounds on');
+    labelIcon($('#btn-sound'), prefs.sound ? 'volume_up' : 'volume_off', prefs.sound ? 'Mute sounds' : 'Turn sounds on');
 }
 function setSound(on) {
     prefs.sound = on;
@@ -118,16 +122,14 @@ function setSound(on) {
 }
 // DPP engines (iframes, same origin) share these prefs; follow their changes live.
 window.addEventListener('storage', (e) => {
-    if (e.key === 'ilberiz_theme') { const v = e.newValue; prefs.theme = v === 'light' || v === 'system' ? v : 'dark'; applyTheme(); }
+    if (e.key === 'ilberiz_theme') { prefs.theme = asTheme(e.newValue); applyTheme(); }
     else if (e.key === 'ilberiz_audio') { prefs.sound = e.newValue !== 'off'; syncSoundButton(); }
-    else if (e.key === 'ilberiz_volume') { const v = parseInt(e.newValue, 10); if (isFinite(v)) { prefs.volume = Math.max(0, Math.min(100, v)); sfx.setVolume(prefs.volume); } }
+    else if (e.key === 'ilberiz_volume') { prefs.volume = asVolume(e.newValue, prefs.volume); sfx.setVolume(prefs.volume); }
 });
 function useBuiltInReader() {
     if (location.protocol === 'file:') return false;
-    if (prefs.reader === 'builtin') return true;
-    if (prefs.reader === 'native') return false;
-    const coarse = window.matchMedia && matchMedia('(pointer: coarse)').matches;
-    return coarse || navigator.pdfViewerEnabled === false;
+    if (prefs.reader !== 'auto') return prefs.reader === 'builtin';
+    return mq('(pointer: coarse)') || navigator.pdfViewerEnabled === false;
 }
 
 /* --------------------------------------------------------------------------
@@ -150,12 +152,23 @@ const SOUND_MAP = {
     error: [['chime', 0.45, 0.75], ['chime', 0.4, 0.63, 0.12]],
     page: [['page', 0.55, 1]]
 };
-function volumeGain(v) { return 1.4 * Math.pow(Math.max(0, Math.min(100, v)) / 100, 1.6); }
+// fallback while samples load (first tap) or when files can't be fetched (file://): [frequency, options]
+const SYNTH = {
+    tap: [[720, { dur: 0.05, gain: 0.04, slide: 430 }]],
+    open: [[587.33, { dur: 0.1, gain: 0.035, type: 'triangle' }], [880, { t: 0.05, dur: 0.14, gain: 0.03, type: 'triangle' }]],
+    back: [[784, { dur: 0.08, gain: 0.03, type: 'triangle' }], [523.25, { t: 0.045, dur: 0.12, gain: 0.028, type: 'triangle' }]],
+    on: [[660, { dur: 0.07, gain: 0.04 }], [990, { t: 0.05, dur: 0.1, gain: 0.035 }]],
+    off: [[740, { dur: 0.07, gain: 0.035 }], [494, { t: 0.05, dur: 0.1, gain: 0.03 }]],
+    save: [[1046.5, { dur: 0.09, gain: 0.032 }], [1396.9, { t: 0.06, dur: 0.16, gain: 0.028 }]],
+    success: [523.25, 659.25, 783.99, 1046.5].map((f, i) => [f, { t: i * 0.075, dur: 0.38, gain: 0.04 }]),
+    error: [[330, { dur: 0.14, gain: 0.05, type: 'triangle' }], [247, { t: 0.12, dur: 0.22, gain: 0.05, type: 'triangle' }]],
+    page: [[520, { dur: 0.08, gain: 0.025, type: 'triangle', slide: 900 }]]
+};
+const volumeGain = (v) => 1.4 * Math.pow(clamp(v, 0, 100) / 100, 1.6);
 const sfx = {
     ctx: null,
     out: null,
     buf: {},
-    loading: false,
     lastTap: 0,
     lastEvent: 0,
     ensure() {
@@ -169,11 +182,7 @@ const sfx = {
                 master.gain.value = volumeGain(prefs.volume);
                 // transparent safety limiter so stacked sounds never clip
                 const lim = ctx.createDynamicsCompressor();
-                lim.threshold.value = -6;
-                lim.knee.value = 6;
-                lim.ratio.value = 12;
-                lim.attack.value = 0.002;
-                lim.release.value = 0.12;
+                Object.entries({ threshold: -6, knee: 6, ratio: 12, attack: 0.002, release: 0.12 }).forEach(([k, v]) => { lim[k].value = v; });
                 master.connect(lim);
                 lim.connect(ctx.destination);
                 this.ctx = ctx;
@@ -185,8 +194,7 @@ const sfx = {
         } catch (e) { return null; }
     },
     load() {
-        if (this.loading || location.protocol === 'file:') return;
-        this.loading = true;
+        if (location.protocol === 'file:') return;
         const ctx = this.ctx;
         Object.keys(SOUND_FILES).forEach((k) => {
             fetch('sounds/' + SOUND_FILES[k])
@@ -200,20 +208,19 @@ const sfx = {
         if (!this.out) return;
         try { this.out.gain.setTargetAtTime(volumeGain(v), this.ctx.currentTime, 0.02); } catch (e) { this.out.gain.value = volumeGain(v); }
     },
-    layer(name, gain, rate, t) {
-        const b = this.buf[name];
+    layer(name, gain, rate, t = 0) {
         const ctx = this.ctx;
         const src = ctx.createBufferSource();
-        src.buffer = b;
+        src.buffer = this.buf[name];
         // tiny pitch variation keeps repeated taps from sounding mechanical
         src.playbackRate.value = rate * (name === 'tap' ? 0.97 + Math.random() * 0.06 : 1);
         const g = ctx.createGain();
         g.gain.value = gain;
         src.connect(g);
         g.connect(this.out);
-        src.start(ctx.currentTime + (t || 0));
+        src.start(ctx.currentTime + t);
     },
-    note(freq, { t = 0, dur = 0.12, type = 'sine', gain = 0.05, attack = 0.006, slide = null } = {}) {
+    note(freq, { t = 0, dur = 0.12, type = 'sine', gain = 0.05, slide = null } = {}) {
         const ctx = this.ctx;
         const now = ctx.currentTime + t;
         const o = ctx.createOscillator();
@@ -222,41 +229,24 @@ const sfx = {
         o.frequency.setValueAtTime(freq, now);
         if (slide) o.frequency.exponentialRampToValueAtTime(slide, now + dur);
         g.gain.setValueAtTime(0.0001, now);
-        g.gain.exponentialRampToValueAtTime(gain * 2.5, now + attack);
+        g.gain.exponentialRampToValueAtTime(gain * 2.5, now + 0.006);
         g.gain.exponentialRampToValueAtTime(0.0001, now + dur);
         o.connect(g);
         g.connect(this.out);
         o.start(now);
         o.stop(now + dur + 0.03);
     },
-    synth(name) {
-        // fallback while samples load (first tap) or when files can't be fetched (file://)
-        switch (name) {
-            case 'tap': this.note(720, { dur: 0.05, gain: 0.04, slide: 430 }); break;
-            case 'open': this.note(587.33, { dur: 0.1, gain: 0.035, type: 'triangle' }); this.note(880, { t: 0.05, dur: 0.14, gain: 0.03, type: 'triangle' }); break;
-            case 'back': this.note(784, { dur: 0.08, gain: 0.03, type: 'triangle' }); this.note(523.25, { t: 0.045, dur: 0.12, gain: 0.028, type: 'triangle' }); break;
-            case 'on': this.note(660, { dur: 0.07, gain: 0.04 }); this.note(990, { t: 0.05, dur: 0.1, gain: 0.035 }); break;
-            case 'off': this.note(740, { dur: 0.07, gain: 0.035 }); this.note(494, { t: 0.05, dur: 0.1, gain: 0.03 }); break;
-            case 'save': this.note(1046.5, { dur: 0.09, gain: 0.032 }); this.note(1396.9, { t: 0.06, dur: 0.16, gain: 0.028 }); break;
-            case 'success': [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => this.note(f, { t: i * 0.075, dur: 0.38, gain: 0.04 })); break;
-            case 'error': this.note(330, { dur: 0.14, gain: 0.05, type: 'triangle' }); this.note(247, { t: 0.12, dur: 0.22, gain: 0.05, type: 'triangle' }); break;
-            case 'page': this.note(520, { dur: 0.08, gain: 0.025, type: 'triangle', slide: 900 }); break;
-            default: break;
-        }
-    },
     play(name) {
-        const ctx = this.ensure();
-        if (!ctx) return;
+        if (!this.ensure()) return;
         const t0 = performance.now();
         if (name === 'tap') {
             if (t0 - this.lastTap < 50 || t0 - this.lastEvent < 150) return;
             this.lastTap = t0;
         } else this.lastEvent = t0;
         const layers = SOUND_MAP[name];
-        if (!layers) return;
         try {
-            if (layers.every((l) => this.buf[l[0]])) layers.forEach((l) => this.layer(l[0], l[1], l[2], l[3]));
-            else this.synth(name);
+            if (layers.every((l) => this.buf[l[0]])) layers.forEach((l) => this.layer(...l));
+            else SYNTH[name].forEach((n) => this.note(...n));
         } catch (e) {}
     }
 };
@@ -286,10 +276,10 @@ const lib = (() => {
         },
         isSaved: (id) => data.saved.includes(id),
         toggleSave(id) {
-            if (data.saved.includes(id)) data.saved = data.saved.filter((x) => x !== id);
-            else data.saved = [id, ...data.saved];
+            const on = !data.saved.includes(id);
+            data.saved = on ? [id, ...data.saved] : data.saved.filter((x) => x !== id);
             save();
-            return data.saved.includes(id);
+            return on;
         },
         isDone: (id) => data.done.includes(id),
         setDone(id, on) {
@@ -300,10 +290,8 @@ const lib = (() => {
         getPos: (id) => data.pos[id] || null,
         setPos(id, page, pages) {
             data.pos[id] = { page, pages, t: Date.now() };
-            const keys = Object.keys(data.pos);
-            if (keys.length > 200) {
-                keys.sort((a, b) => data.pos[a].t - data.pos[b].t).slice(0, keys.length - 200).forEach((k) => delete data.pos[k]);
-            }
+            const oldest = Object.keys(data.pos).sort((a, b) => data.pos[a].t - data.pos[b].t);
+            oldest.slice(0, Math.max(0, oldest.length - 200)).forEach((k) => delete data.pos[k]);
             save();
         },
         clear() { data.recent = []; data.saved = []; data.done = []; data.pos = {}; save(); }
@@ -318,11 +306,13 @@ const subjectIdx = new Map();
 const chapIdx = new Map();   // chapter + subchapter id -> { node, subject, parent }
 const itemIdx = new Map();   // item id -> { item, subject, chapter, subchapter, container }
 
-const SUBJECT_GROUPS = {
-    stem: ['sub-10-math', 'sub-10-phy', 'sub-10-chem', 'sub-10-bio', 'sub-10-comp'],
-    humanities: ['sub-10-his', 'sub-10-geo'],
-    lang: ['sub-10-eng', 'sub-10-hin']
-};
+const SUBJECT_FILTERS = [
+    { id: 'all', label: 'All' },
+    { id: 'stem', label: 'Science & Maths', subjects: ['sub-10-math', 'sub-10-phy', 'sub-10-chem', 'sub-10-bio', 'sub-10-comp'] },
+    { id: 'humanities', label: 'History & Geography', subjects: ['sub-10-his', 'sub-10-geo'] },
+    { id: 'lang', label: 'Languages', subjects: ['sub-10-eng', 'sub-10-hin'] }
+];
+const TYPE_ICON = { pdf: 'description', dpp: 'quiz', video: 'play_circle' };
 
 function itemKind(item) {
     if (item.type === 'pdf') return 'pdf';
@@ -333,13 +323,9 @@ function allItems(node) {
     return [...(node.items || []), ...((node.subchapters || []).flatMap((sc) => sc.items || []))];
 }
 function countItems(list) {
-    let notes = 0; let dpps = 0; let done = 0;
-    list.forEach((it) => {
-        const k = itemKind(it);
-        if (k === 'pdf') notes++; else dpps++;
-        if (lib.isDone(it.id)) done++;
-    });
-    return { notes, dpps, done, total: list.length };
+    const notes = list.filter((it) => itemKind(it) === 'pdf').length;
+    const done = list.filter((it) => lib.isDone(it.id)).length;
+    return { notes, dpps: list.length - notes, done, total: list.length, pct: list.length ? Math.round((done / list.length) * 100) : 0 };
 }
 function chapterLabel(name, parentName) {
     let clean = String(name || '').replace(/^[\p{Extended_Pictographic}️‍\s]+/u, '').trim();
@@ -352,11 +338,13 @@ function chapterLabel(name, parentName) {
         const n = m[3];
         const kind = m[2].toLowerCase();
         const num = m[1] ? 'C' + n : (kind === 'unit' ? 'U' + n : n);
-        const short = m[1] ? `Civics ${n}` : (kind === 'unit' ? `Unit ${n}` : kind === 'poem' ? `Poem ${n}` : kind === 'story' ? `Story ${n}` : `Ch ${n}`);
+        const short = `${m[1] ? 'Civics' : ({ unit: 'Unit', poem: 'Poem', story: 'Story' }[kind] || 'Ch')} ${n}`;
         return { num, short, title: m[4].trim(), kind };
     }
     return { num: null, short: '', title: clean, kind: '' };
 }
+const fullLabel = (lbl) => (lbl.short ? `${lbl.short}: ${lbl.title}` : lbl.title);
+const shortLabel = (lbl) => lbl.short || lbl.title;
 function itemParts(item) {
     const t = String(item.title || '');
     const note = t.match(/^(.+?)\s+(\d{1,2})\s+Class Notes$/i);
@@ -365,41 +353,31 @@ function itemParts(item) {
     if (i > 0) return { eyebrow: t.slice(0, i), title: t.slice(i + 3) };
     return { eyebrow: '', title: t };
 }
-function subjectShort(subject) { return subject ? subject.name : ''; }
 function contextLine(entry) {
-    const parts = [subjectShort(entry.subject)];
-    const c = chapterLabel(entry.chapter.name);
-    parts.push(c.short || c.title);
-    if (entry.subchapter) {
-        const s = chapterLabel(entry.subchapter.name, entry.chapter.name);
-        parts.push(s.short || s.title);
-    }
+    const parts = [entry.subject.name, shortLabel(chapterLabel(entry.chapter.name))];
+    if (entry.subchapter) parts.push(shortLabel(chapterLabel(entry.subchapter.name, entry.chapter.name)));
     return parts.filter(Boolean).join(' · ');
 }
-function containerHref(entry) {
-    return entry.subchapter
-        ? `#/s/${entry.subject.id}/${entry.chapter.id}/${entry.subchapter.id}`
-        : `#/s/${entry.subject.id}/${entry.chapter.id}`;
-}
+const nodeHref = (subject, node, parent) => `#/s/${subject.id}/${parent ? parent.id + '/' : ''}${node.id}`;
+const containerHref = (entry) => nodeHref(entry.subject, entry.container, entry.subchapter && entry.chapter);
+const bareURL = (url) => url.split('#')[0].split('?')[0];
 function fileURL(file) {
-    try { return new URL(file, location.href).href.split('#')[0].split('?')[0]; } catch (e) { return file; }
+    try { return bareURL(new URL(file, location.href).href); } catch (e) { return file; }
 }
 
 function buildIndexes() {
-    subjectIdx.clear(); chapIdx.clear(); itemIdx.clear();
-    state.data.batches.forEach((batch) => {
-        (batch.subjects || []).forEach((subject) => {
-            subjectIdx.set(subject.id, subject);
-            (subject.chapters || []).forEach((chapter) => {
-                chapIdx.set(chapter.id, { node: chapter, subject, parent: null });
-                (chapter.items || []).forEach((item) => itemIdx.set(item.id, { item, subject, chapter, subchapter: null, container: chapter }));
-                (chapter.subchapters || []).forEach((sc) => {
-                    chapIdx.set(sc.id, { node: sc, subject, parent: chapter });
-                    (sc.items || []).forEach((item) => itemIdx.set(item.id, { item, subject, chapter, subchapter: sc, container: sc }));
-                });
+    state.data.batches.forEach((batch) => batch.subjects.forEach((subject) => {
+        subjectIdx.set(subject.id, subject);
+        const addItems = (chapter, subchapter) => ((subchapter || chapter).items || []).forEach((item) => itemIdx.set(item.id, { item, subject, chapter, subchapter, container: subchapter || chapter }));
+        subject.chapters.forEach((chapter) => {
+            chapIdx.set(chapter.id, { node: chapter, subject, parent: null });
+            addItems(chapter, null);
+            (chapter.subchapters || []).forEach((sc) => {
+                chapIdx.set(sc.id, { node: sc, subject, parent: chapter });
+                addItems(chapter, sc);
             });
         });
-    });
+    }));
 }
 
 /* --------------------------------------------------------------------------
@@ -425,8 +403,7 @@ function emblem(subjectId, cls = '') {
    7. Toasts
    -------------------------------------------------------------------------- */
 function toast(message, { icon = 'check_circle', action = null, ms = 2800 } = {}) {
-    const root = document.getElementById('toasts');
-    if (!root) return;
+    const root = $('#toasts');
     const el = h(`<div class="toast" role="status"><span class="ms">${icon}</span><span>${esc(message)}</span></div>`);
     if (action) {
         const b = h(`<button type="button">${esc(action.label)}</button>`);
@@ -475,6 +452,8 @@ function rememberScroll() {
     if (state.rendered) scrollMem.set(state.rendered, window.scrollY);
 }
 
+const overlayRoot = () => $('#overlay-root');
+function refocus(el) { if (el && el.focus) el.focus({ preventScroll: true }); }
 function showOverlay(name, mount, unmount) {
     if (overlay) closeOverlayUI();
     history.pushState({ ilb: depth() + 1, overlay: name }, '', location.href);
@@ -522,28 +501,26 @@ window.addEventListener('hashchange', () => {
     route();
 });
 
-function parseHash() {
-    const raw = (location.hash || '').replace(/^#\/?/, '');
-    const parts = raw.split('?')[0].split('/').filter(Boolean).map(decodeURIComponent);
-    if (parts[0] === 'subjects') return { name: 'subjects', key: '#/subjects' };
-    if (parts[0] === 'library') return { name: 'library', tab: parts[1] || 'recent', key: '#/library' + (parts[1] ? '/' + parts[1] : '') };
-    if (parts[0] === 's' && parts[1]) {
-        if (parts[2]) return { name: 'chapter', subjectId: parts[1], chapterId: parts[2], subId: parts[3] || null, key: '#/' + parts.join('/') };
-        return { name: 'subject', subjectId: parts[1], key: '#/s/' + parts[1] };
-    }
-    if (parts[0] === 'read' && parts[1]) return { name: 'read', itemId: parts[1], key: '#/read/' + parts[1] };
+function parseRoute(hash = location.hash) {
+    const parts = hash.replace(/^#\/?/, '').split('?')[0].split('/').filter(Boolean).map(decodeURIComponent);
+    const key = '#/' + parts.join('/');
+    const [page, a, b, c] = parts;
+    if (page === 'subjects') return { name: 'subjects', key: '#/subjects' };
+    if (page === 'library') return { name: 'library', tab: a || 'recent', key: '#/library' + (a ? '/' + a : '') };
+    if (page === 's' && b) return { name: 'chapter', subjectId: a, chapterId: b, subId: c || null, key };
+    if (page === 's' && a) return { name: 'subject', subjectId: a, key };
+    if (page === 'read' && a) return { name: 'read', itemId: a, key: '#/read/' + a };
     return { name: 'home', key: '#/' };
 }
 
 function route() {
     if (!state.data) return;
-    const r = parseHash();
+    const r = parseRoute();
     if (overlay && !(history.state && history.state.overlay)) closeOverlayUI();
     if (r.name === 'read') {
         const entry = itemIdx.get(r.itemId);
         if (!entry) { go('#/', { replace: true }); return; }
-        const parentHash = containerHref(entry);
-        const parentRoute = parseRoute(parentHash);
+        const parentRoute = parseRoute(containerHref(entry));
         if (state.rendered !== parentRoute.key) renderPage(parentRoute, { transition: false });
         if (!reader || reader.id !== r.itemId) openReader(entry);
         return;
@@ -556,18 +533,10 @@ function route() {
     }
     renderPage(r, { transition: !state.first });
 }
-function parseRoute(hash) {
-    const raw = hash.replace(/^#\/?/, '');
-    const parts = raw.split('/').filter(Boolean);
-    if (parts[0] === 's' && parts[2]) return { name: 'chapter', subjectId: parts[1], chapterId: parts[2], subId: parts[3] || null, key: '#/' + parts.join('/') };
-    if (parts[0] === 's') return { name: 'subject', subjectId: parts[1], key: '#/s/' + parts[1] };
-    return { name: 'home', key: '#/' };
-}
-
 /* --------------------------------------------------------------------------
    9. Page rendering
    -------------------------------------------------------------------------- */
-const view = () => document.getElementById('view');
+const view = () => $('#view');
 
 function renderPage(r, { transition = true } = {}) {
     const same = state.rendered === r.key;
@@ -607,28 +576,21 @@ function buildPage(r) {
 }
 
 function updateChrome(r, page) {
-    const topbar = document.getElementById('topbar');
-    const title = document.getElementById('top-title');
-    const isRoot = r.name === 'home' || r.name === 'subjects' || r.name === 'library';
+    const topbar = $('#topbar');
+    const isRoot = ['home', 'subjects', 'library'].includes(r.name);
     topbar.classList.toggle('has-back', !isRoot);
-    title.textContent = page.topTitle || 'Ilberiz Techz';
+    $('#top-title').textContent = page.topTitle;
     topbar.dataset.back = page.backHref || '#/';
     document.title = page.docTitle ? `${page.docTitle} | Ilberiz Techz` : 'Ilberiz Techz | ICSE Class 10 Notes & DPPs';
 
     // breadcrumbs (laptop)
-    const crumbs = document.getElementById('crumbs');
-    const trail = page.crumbs || [];
-    crumbs.innerHTML = '';
-    const homeLink = trail.length ? `<a href="#/">Home</a>` : `<span class="here">Home</span>`;
-    crumbs.insertAdjacentHTML('beforeend', homeLink);
-    trail.forEach((c, i) => {
-        crumbs.insertAdjacentHTML('beforeend', '<span class="ms sep" aria-hidden="true">chevron_right</span>');
-        if (i === trail.length - 1 || !c.href) crumbs.insertAdjacentHTML('beforeend', `<span class="here" aria-current="page">${esc(c.label)}</span>`);
-        else crumbs.insertAdjacentHTML('beforeend', `<a href="${c.href}">${esc(c.label)}</a>`);
-    });
+    const trail = [{ label: 'Home', href: '#/' }, ...(page.crumbs || [])];
+    $('#crumbs').innerHTML = trail.map((c, i) => (i < trail.length - 1
+        ? `<a href="${c.href}">${esc(c.label)}</a>`
+        : `<span class="here"${i ? ' aria-current="page"' : ''}>${esc(c.label)}</span>`)).join('<span class="ms sep" aria-hidden="true">chevron_right</span>');
 
     // tab bar
-    const tab = r.name === 'home' ? 'home' : r.name === 'library' ? 'library' : 'subjects';
+    const tab = isRoot ? r.name : 'subjects';
     $$('#tabbar .tab').forEach((t) => {
         const on = t.dataset.tab === tab;
         t.classList.toggle('active', on);
@@ -636,19 +598,35 @@ function updateChrome(r, page) {
     });
 
     // sidebar
-    const navKey = r.name === 'home' ? 'home' : r.name === 'subjects' ? 'subjects' : r.name === 'library' ? 'library' : 's:' + r.subjectId;
+    const navKey = isRoot ? r.name : 's:' + r.subjectId;
     $$('#side-nav [data-nav]').forEach((a) => a.classList.toggle('active', a.dataset.nav === navKey));
-    const libCount = $('#side-nav [data-lib-count]');
-    if (libCount) libCount.textContent = lib.data.saved.length || '';
+    syncLibCount();
+}
+function syncLibCount() {
+    const el = $('#side-nav [data-lib-count]');
+    if (el) el.textContent = lib.data.saved.length || '';
 }
 
 function sectionHead(title, link) {
     return `<div class="section-head"><h2>${esc(title)}</h2>${link ? `<a class="link" href="${link.href}">${esc(link.label)}<span class="ms">chevron_right</span></a>` : ''}</div>`;
 }
 
+// "3 notes" / "2 DPPs" / "1/5 done" chips
+function countChips(c, { done = true } = {}) {
+    return (c.notes ? `<span class="chip"><span class="ms">description</span>${plural(c.notes, 'note')}</span>` : '')
+        + (c.dpps ? `<span class="chip accent"><span class="ms">quiz</span>${plural(c.dpps, 'DPP')}</span>` : '')
+        + (done && c.done ? `<span class="chip ok"><span class="ms">check</span>${c.done}/${c.total} done</span>` : '');
+}
+function emptyState(icon, title, text, actions, style = '') {
+    return `<div class="empty-state"${style ? ` style="${style}"` : ''}><span class="ms">${icon}</span><h3>${title}</h3><p>${text}</p><div class="actions">${actions}</div></div>`;
+}
+function starButton(id) {
+    const on = lib.isSaved(id);
+    return `<button type="button" class="icon-btn star${on ? ' on' : ''}" data-star="${id}" aria-pressed="${on}" aria-label="${on ? 'Remove from Library' : 'Save to Library'}"><span class="ms">${on ? 'bookmark' : 'bookmark_add'}</span></button>`;
+}
+
 function subjectTile(subject) {
     const c = countItems(subject.chapters.flatMap(allItems));
-    const pct = c.total ? Math.round((c.done / c.total) * 100) : 0;
     const meta = c.total
         ? [c.notes ? plural(c.notes, 'note') : '', c.dpps ? plural(c.dpps, 'DPP') : ''].filter(Boolean).join(' · ')
         : 'Notes coming soon';
@@ -659,54 +637,47 @@ function subjectTile(subject) {
             <h3>${esc(subject.name)}</h3>
             <p class="desc">${esc(subject.description || '')}</p>
             <span class="meta">${meta}</span>
-            ${c.done ? `<span class="bar" title="${pct}% done"><i style="--w:${pct}%"></i></span>` : ''}
+            ${c.done ? `<span class="bar" title="${c.pct}% done"><i style="--w:${c.pct}%"></i></span>` : ''}
         </a>`;
 }
 
 function itemRow(entry, { context = false } = {}) {
     const { item } = entry;
     const k = itemKind(item);
-    const parts = itemParts(item);
     const done = lib.isDone(item.id);
-    const saved = lib.isSaved(item.id);
     const pos = lib.getPos(item.id);
-    const icon = k === 'pdf' ? 'description' : k === 'dpp' ? 'quiz' : 'play_circle';
-    const eyebrow = context ? contextLine(entry) : '';
     const metaBits = [];
     if (k === 'pdf' && item.size) metaBits.push(`<span class="m">${esc(item.size)}</span>`);
     if (k === 'dpp' && item.badge) metaBits.push(`<span class="m">${esc(item.badge)}</span>`);
     if (pos && pos.page > 1 && !done) metaBits.push(`<span class="m resume"><span class="ms">bookmark</span>Page ${pos.page} of ${pos.pages}</span>`);
     if (k === 'pdf') metaBits.push(`<span class="m offline" data-offline-file="${esc(fileURL(item.file))}" hidden><span class="ms">offline_pin</span>Offline</span>`);
-    const title = context ? item.title : parts.title;
     return `
         <div class="item" data-subject="${entry.subject.id}">
             <a class="item-main" href="#/read/${item.id}">
-                <span class="type-ico ${k}"><span class="ms">${icon}</span>${done ? '<span class="done-dot"><span class="ms">check</span></span>' : ''}</span>
+                <span class="type-ico ${k}"><span class="ms">${TYPE_ICON[k]}</span>${done ? '<span class="done-dot"><span class="ms">check</span></span>' : ''}</span>
                 <div class="item-text">
-                    ${eyebrow ? `<div class="eyebrow">${esc(eyebrow)}</div>` : ''}
-                    <h3>${esc(title)}</h3>
+                    ${context ? `<div class="eyebrow">${esc(contextLine(entry))}</div>` : ''}
+                    <h3>${esc(context ? item.title : itemParts(item).title)}</h3>
                     ${item.subtitle ? `<p class="sub">${esc(item.subtitle)}</p>` : ''}
                     ${metaBits.length ? `<div class="item-meta">${metaBits.join('')}</div>` : ''}
                 </div>
             </a>
-            <button type="button" class="icon-btn star${saved ? ' on' : ''}" data-star="${item.id}" aria-pressed="${saved}" aria-label="${saved ? 'Remove from Library' : 'Save to Library'}"><span class="ms">${saved ? 'bookmark' : 'bookmark_add'}</span></button>
+            ${starButton(item.id)}
         </div>`;
 }
 
 function dppCard(entry) {
     const { item } = entry;
-    const parts = itemParts(item);
-    const saved = lib.isSaved(item.id);
     const done = lib.isDone(item.id);
     return `
         <div class="dpp" data-subject="${entry.subject.id}">
             <a class="dpp-main" href="#/read/${item.id}">
-                <span class="dpp-top">${item.badge ? `<span class="chip accent">${esc(item.badge)}</span>` : '<span class="chip accent">Interactive</span>'}${done ? '<span class="chip ok"><span class="ms">check</span>Done</span>' : ''}</span>
-                <h3>${esc(parts.title)}</h3>
+                <span class="dpp-top"><span class="chip accent">${esc(item.badge || 'Interactive')}</span>${done ? '<span class="chip ok"><span class="ms">check</span>Done</span>' : ''}</span>
+                <h3>${esc(itemParts(item).title)}</h3>
                 ${item.subtitle ? `<p class="sub">${esc(item.subtitle)}</p>` : ''}
                 <span class="dpp-foot"><span class="start"><span class="ms">play_arrow</span>${done ? 'Practise again' : 'Start practice'}</span></span>
             </a>
-            <button type="button" class="icon-btn star${saved ? ' on' : ''}" data-star="${item.id}" aria-pressed="${saved}" aria-label="${saved ? 'Remove from Library' : 'Save to Library'}"><span class="ms">${saved ? 'bookmark' : 'bookmark_add'}</span></button>
+            ${starButton(item.id)}
         </div>`;
 }
 
@@ -728,18 +699,18 @@ function pageHome() {
     const last = recents[0];
     let topLeft;
     if (last) {
-        const k = itemKind(last.item);
+        const isPdf = itemKind(last.item) === 'pdf';
         const pos = lib.getPos(last.item.id);
-        const pct = pos && pos.pages ? Math.round((pos.page / pos.pages) * 100) : 0;
-        const more = recents.slice(1, 4).map((e) => `<a class="btn btn-sm" href="#/read/${e.item.id}" data-subject="${e.subject.id}"><span class="ms" style="color:var(--sub-ink)">${itemKind(e.item) === 'pdf' ? 'description' : 'quiz'}</span>${esc(truncate(itemParts(e.item).title.replace(/^Interactive\s+/i, ''), 30))}</a>`).join('');
+        const paged = pos && pos.pages;
+        const more = recents.slice(1, 4).map((e) => `<a class="btn btn-sm" href="#/read/${e.item.id}" data-subject="${e.subject.id}"><span class="ms" style="color:var(--sub-ink)">${TYPE_ICON[itemKind(e.item)]}</span>${esc(truncate(itemParts(e.item).title.replace(/^Interactive\s+/i, ''), 30))}</a>`).join('');
         topLeft = `
             <div class="panel continue-wrap" data-subject="${last.subject.id}">
                 <a class="continue" href="#/read/${last.item.id}">
-                    <span class="continue-label"><span class="ms">${k === 'pdf' ? 'auto_stories' : 'quiz'}</span>${k === 'pdf' ? 'Continue reading' : 'Continue practice'}</span>
+                    <span class="continue-label"><span class="ms">${isPdf ? 'auto_stories' : 'quiz'}</span>${isPdf ? 'Continue reading' : 'Continue practice'}</span>
                     <h3>${esc(last.item.title)}</h3>
-                    <span class="meta">${esc(contextLine(last))}${pos && pos.pages ? ` · Page ${pos.page} of ${pos.pages}` : ` · Opened ${timeAgo(last.t)}`}</span>
-                    ${pos && pos.pages ? `<span class="bar"><i style="--w:${pct}%"></i></span>` : ''}
-                    <span class="continue-foot"><span class="btn btn-primary btn-sm"><span class="ms">play_arrow</span>${k === 'pdf' ? 'Resume' : 'Open DPP'}</span></span>
+                    <span class="meta">${esc(contextLine(last))}${paged ? ` · Page ${pos.page} of ${pos.pages}` : ` · Opened ${timeAgo(last.t)}`}</span>
+                    ${paged ? `<span class="bar"><i style="--w:${Math.round((pos.page / pos.pages) * 100)}%"></i></span>` : ''}
+                    <span class="continue-foot"><span class="btn btn-primary btn-sm"><span class="ms">play_arrow</span>${isPdf ? 'Resume' : 'Open DPP'}</span></span>
                 </a>
                 ${more ? `<div class="continue-more">${more}</div>` : ''}
             </div>`;
@@ -758,17 +729,16 @@ function pageHome() {
     const rel = LATEST_RELEASE;
     const relSub = subjectIdx.get(rel.subjectId);
     const relChap = chapIdx.get(rel.chapterId);
-    const relItems = rel.items.map((ri) => ({ ri, e: itemIdx.get(ri.id) })).filter((x) => x.e);
-    const relCh = relChap ? chapterLabel(relChap.node.name) : null;
+    const relCh = relChap ? chapterLabel(relChap.node.name).short : '';
     const release = relSub ? `
         <section class="panel release" data-subject="${relSub.id}" aria-label="New release">
             ${emblem(relSub.id, 'release-art')}
-            <div class="release-top"><span class="chip new">New</span><span class="chip sub">${esc(relSub.name)}${relCh && relCh.short ? ' · ' + esc(relCh.short) : ''}</span></div>
+            <div class="release-top"><span class="chip new">New</span><span class="chip sub">${esc(relSub.name)}${relCh ? ' · ' + esc(relCh) : ''}</span></div>
             <h3>${esc(rel.title)}</h3>
             <p>${esc(rel.note)}</p>
             <div class="release-list">
-                ${relItems.map(({ ri, e }) => `
-                    <a class="release-item" href="#/read/${e.item.id}">
+                ${rel.items.filter((ri) => itemIdx.has(ri.id)).map((ri) => `
+                    <a class="release-item" href="#/read/${ri.id}">
                         <span class="ico"><span class="ms">quiz</span></span>
                         <span><strong>${esc(ri.label)}</strong><small>${esc(ri.meta)}</small></span>
                         <span class="ms go">chevron_right</span>
@@ -799,21 +769,15 @@ function pageHome() {
                 <span class="ms" style="color:var(--faint)">open_in_new</span>
             </a>
         </div>`);
-    renderInstallBanner(el.querySelector('[data-install-slot]'));
-    return { el, topTitle: 'Ilberiz Techz', docTitle: '', crumbs: [] };
+    renderInstallBanner($('[data-install-slot]', el));
+    return { el, topTitle: 'Ilberiz Techz' };
 }
-function truncate(s, n) { s = String(s || ''); return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s; }
 
 /* ----- All subjects ----- */
 let subjectFilter = 'all';
 function pageSubjects() {
     const subjects = state.batch.subjects;
-    const filters = [
-        { id: 'all', label: 'All', n: subjects.length },
-        { id: 'stem', label: 'Science & Maths', n: subjects.filter((s) => SUBJECT_GROUPS.stem.includes(s.id)).length },
-        { id: 'humanities', label: 'History & Geography', n: subjects.filter((s) => SUBJECT_GROUPS.humanities.includes(s.id)).length },
-        { id: 'lang', label: 'Languages', n: subjects.filter((s) => SUBJECT_GROUPS.lang.includes(s.id)).length }
-    ];
+    const inFilter = (f) => subjects.filter((s) => !f.subjects || f.subjects.includes(s.id));
     const totals = countItems(subjects.flatMap((s) => s.chapters.flatMap(allItems)));
     const el = h(`
         <div class="page">
@@ -822,50 +786,37 @@ function pageSubjects() {
                 <p>${plural(totals.notes, 'class note')} and ${plural(totals.dpps, 'interactive DPP')} across ${subjects.length} ICSE Class 10 subjects (2025–27 syllabus).</p>
             </div>
             <div class="filters" role="group" aria-label="Filter subjects">
-                ${filters.map((f) => `<button type="button" class="filter" data-filter="${f.id}" aria-pressed="${subjectFilter === f.id}">${esc(f.label)} <span class="n">${f.n}</span></button>`).join('')}
+                ${SUBJECT_FILTERS.map((f) => `<button type="button" class="filter" data-filter="${f.id}" aria-pressed="${subjectFilter === f.id}">${esc(f.label)} <span class="n">${inFilter(f).length}</span></button>`).join('')}
             </div>
-            <div class="subj-grid wide" data-grid></div>
+            <div class="subj-grid" data-grid></div>
         </div>`);
-    const grid = el.querySelector('[data-grid]');
-    const paintGrid = () => {
-        const list = subjectFilter === 'all' ? subjects : subjects.filter((s) => (SUBJECT_GROUPS[subjectFilter] || []).includes(s.id));
-        grid.innerHTML = list.map(subjectTile).join('');
-    };
+    const paintGrid = () => { $('[data-grid]', el).innerHTML = inFilter(SUBJECT_FILTERS.find((f) => f.id === subjectFilter)).map(subjectTile).join(''); };
     paintGrid();
-    el.querySelectorAll('[data-filter]').forEach((b) => b.addEventListener('click', () => {
+    onEach(el, '[data-filter]', (b) => {
         subjectFilter = b.dataset.filter;
-        el.querySelectorAll('[data-filter]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+        pressOnly(el, '[data-filter]', b);
         paintGrid();
-        markOffline(grid);
-    }));
+    });
     return { el, topTitle: 'Subjects', docTitle: 'Subjects', crumbs: [{ label: 'Subjects' }] };
 }
 
 /* ----- One subject (chapters) ----- */
 const chapterFilters = {};
+const TOPIC_WORDS = { poem: ['poem', 'poems', 'Poems'], story: ['story', 'stories', 'Stories'], ch: ['chapter', 'chapters', 'Chapters in this unit'] };
+const topicWords = (node) => TOPIC_WORDS[chapterLabel(node.subchapters[0].name, node.name).kind] || ['topic', 'topics', 'Topics'];
 function chapterRow(subject, node, parent) {
-    const items = allItems(node);
-    const c = countItems(items);
-    const lbl = chapterLabel(node.name, parent ? parent.name : null);
-    const pct = c.total ? Math.round((c.done / c.total) * 100) : 0;
-    const href = parent ? `#/s/${subject.id}/${parent.id}/${node.id}` : `#/s/${subject.id}/${node.id}`;
-    const tags = [];
-    if (node.subchapters && node.subchapters.length) {
-        const first = chapterLabel(node.subchapters[0].name, node.name);
-        const word = first.kind === 'poem' ? 'poem' : first.kind === 'story' ? 'story' : first.kind === 'ch' ? 'chapter' : 'topic';
-        tags.push(`<span class="chip">${plural(node.subchapters.length, word, word === 'story' ? 'stories' : null)}</span>`);
-    }
-    if (c.notes) tags.push(`<span class="chip"><span class="ms">description</span>${plural(c.notes, 'note')}</span>`);
-    if (c.dpps) tags.push(`<span class="chip accent"><span class="ms">quiz</span>${plural(c.dpps, 'DPP')}</span>`);
-    if (c.done) tags.push(`<span class="chip ok"><span class="ms">check</span>${c.done}/${c.total} done</span>`);
+    const c = countItems(allItems(node));
+    const lbl = chapterLabel(node.name, parent && parent.name);
+    const subs = node.subchapters || [];
+    const tags = (subs.length ? `<span class="chip">${plural(subs.length, ...topicWords(node))}</span>` : '') + countChips(c);
     const numInner = lbl.num ? esc(lbl.num) : `<span class="ms">${esc(node.icon || 'auto_stories')}</span>`;
     return `
-        <a class="chap${c.total ? '' : ' empty'}" href="${href}" data-subject="${subject.id}" data-has-notes="${c.notes > 0}" data-has-dpps="${c.dpps > 0}">
-            <span class="ring${pct === 100 ? ' done' : ''}" style="--p:${pct}"><span>${pct === 100 ? '<span class="ms">check</span>' : numInner}</span></span>
+        <a class="chap${c.total ? '' : ' empty'}" href="${nodeHref(subject, node, parent)}" data-subject="${subject.id}" data-has-notes="${c.notes > 0}" data-has-dpps="${c.dpps > 0}">
+            <span class="ring${c.pct === 100 ? ' done' : ''}" style="--p:${c.pct}"><span>${c.pct === 100 ? '<span class="ms">check</span>' : numInner}</span></span>
             <div>
                 <h3>${esc(lbl.title)}</h3>
                 ${node.description ? `<p class="desc">${esc(node.description)}</p>` : ''}
-                ${tags.length ? `<div class="tags">${tags.join('')}</div>` : `<div class="tags"><span class="chip">Notes coming soon</span></div>`}
+                <div class="tags">${tags || '<span class="chip">Notes coming soon</span>'}</div>
             </div>
             <span class="ms go">chevron_right</span>
         </a>`;
@@ -874,13 +825,13 @@ function chapterRow(subject, node, parent) {
 function pageSubject(subjectId) {
     const subject = subjectIdx.get(subjectId);
     if (!subject) return notFound();
-    const items = subject.chapters.flatMap(allItems);
-    const c = countItems(items);
-    const pct = c.total ? Math.round((c.done / c.total) * 100) : 0;
+    const c = countItems(subject.chapters.flatMap(allItems));
     const isUnits = subject.chapters.some((ch) => /^Unit\s/i.test(ch.name));
     const f = chapterFilters[subjectId] || 'all';
-    const notesN = subject.chapters.filter((ch) => countItems(allItems(ch)).notes).length;
-    const dppN = subject.chapters.filter((ch) => countItems(allItems(ch)).dpps).length;
+    const perChapter = subject.chapters.map((ch) => countItems(allItems(ch)));
+    const notesN = perChapter.filter((x) => x.notes).length;
+    const dppN = perChapter.filter((x) => x.dpps).length;
+    const filter = (id, label, n) => (n ? `<button type="button" class="filter" data-cf="${id}" aria-pressed="${f === id}">${label} <span class="n">${n}</span></button>` : '');
     const el = h(`
         <div class="page" data-subject="${subject.id}">
             <header class="subj-head" data-subject="${subject.id}">
@@ -889,30 +840,23 @@ function pageSubject(subjectId) {
                 <div><h1>${esc(subject.name)}</h1><p>${esc(subject.description || '')}</p></div>
                 <div class="subj-stats">
                     <span class="chip">${plural(subject.chapters.length, isUnits ? 'unit' : 'chapter')}</span>
-                    ${c.notes ? `<span class="chip"><span class="ms">description</span>${plural(c.notes, 'note')}</span>` : ''}
-                    ${c.dpps ? `<span class="chip accent"><span class="ms">quiz</span>${plural(c.dpps, 'DPP')}</span>` : ''}
+                    ${countChips(c, { done: false })}
                 </div>
-                ${c.total ? `<div class="subj-progress"><span class="bar"><i style="--w:${pct}%"></i></span><span>${c.done} of ${c.total} done</span></div>` : ''}
+                ${c.total ? `<div class="subj-progress"><span class="bar"><i style="--w:${c.pct}%"></i></span><span>${c.done} of ${c.total} done</span></div>` : ''}
             </header>
             ${(notesN && notesN < subject.chapters.length) || dppN ? `
             <div class="filters" role="group" aria-label="Filter chapters">
-                <button type="button" class="filter" data-cf="all" aria-pressed="${f === 'all'}">All <span class="n">${subject.chapters.length}</span></button>
-                ${notesN ? `<button type="button" class="filter" data-cf="notes" aria-pressed="${f === 'notes'}">With notes <span class="n">${notesN}</span></button>` : ''}
-                ${dppN ? `<button type="button" class="filter" data-cf="dpps" aria-pressed="${f === 'dpps'}">With DPPs <span class="n">${dppN}</span></button>` : ''}
+                ${filter('all', 'All', subject.chapters.length)}${filter('notes', 'With notes', notesN)}${filter('dpps', 'With DPPs', dppN)}
             </div>` : '<div style="height:16px"></div>'}
-            <div class="chap-list" data-list>${subject.chapters.map((ch) => chapterRow(subject, ch, null)).join('')}</div>
+            <div class="chap-list">${subject.chapters.map((ch) => chapterRow(subject, ch)).join('')}</div>
         </div>`);
-    const list = el.querySelector('[data-list]');
     const applyFilter = (val) => {
         chapterFilters[subjectId] = val;
-        $$('.chap', list).forEach((row) => {
-            const show = val === 'all' || (val === 'notes' && row.dataset.hasNotes === 'true') || (val === 'dpps' && row.dataset.hasDpps === 'true');
-            row.hidden = !show;
-        });
-        el.querySelectorAll('[data-cf]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.cf === val)));
+        $$('.chap', el).forEach((row) => { row.hidden = val !== 'all' && row.dataset[val === 'notes' ? 'hasNotes' : 'hasDpps'] !== 'true'; });
+        pressOnly(el, '[data-cf]', $(`[data-cf="${val}"]`, el));
     };
     applyFilter(f);
-    el.querySelectorAll('[data-cf]').forEach((b) => b.addEventListener('click', () => applyFilter(b.dataset.cf)));
+    onEach(el, '[data-cf]', (b) => applyFilter(b.dataset.cf));
     return { el, topTitle: subject.name, docTitle: subject.name, backHref: '#/subjects', crumbs: [{ label: 'Subjects', href: '#/subjects' }, { label: subject.name }] };
 }
 
@@ -927,72 +871,51 @@ function pageChapter(subjectId, chapterId, subId) {
     const lbl = chapterLabel(node.name, sc ? chapter.name : null);
     const parentLbl = chapterLabel(chapter.name);
     const items = node.items || [];
-    const dpps = items.filter((it) => itemKind(it) === 'dpp').map((it) => itemIdx.get(it.id));
-    const notes = items.filter((it) => itemKind(it) !== 'dpp').map((it) => itemIdx.get(it.id));
+    const entries = items.map((it) => itemIdx.get(it.id));
+    const dpps = entries.filter((e) => itemKind(e.item) === 'dpp');
+    const notes = entries.filter((e) => itemKind(e.item) !== 'dpp');
     const subs = !sc && chapter.subchapters ? chapter.subchapters : [];
     const c = countItems(allItems(node));
-    const eyebrowBits = [subject.name];
-    if (sc) eyebrowBits.push(parentLbl.short || parentLbl.title);
-
-    let subsTitle = 'Topics';
-    if (subs.length) {
-        const k = chapterLabel(subs[0].name, chapter.name).kind;
-        subsTitle = k === 'poem' ? 'Poems' : k === 'story' ? 'Stories' : k === 'ch' ? 'Chapters in this unit' : 'Topics';
-    }
-    const emptyAll = !items.length && !subs.length;
+    const eyebrow = sc ? `${subject.name} · ${shortLabel(parentLbl)}` : subject.name;
     const backHref = sc ? `#/s/${subject.id}/${chapter.id}` : `#/s/${subject.id}`;
 
     const el = h(`
         <div class="page" data-subject="${subject.id}">
             <div class="page-head">
                 <div class="row" style="margin:0 0 4px">
-                    <a class="chip sub" href="#/s/${subject.id}"><span class="side-dot" style="margin:0;width:8px;height:8px"></span>${esc(eyebrowBits.join(' · '))}</a>
+                    <a class="chip sub" href="#/s/${subject.id}"><span class="side-dot" style="margin:0;width:8px;height:8px"></span>${esc(eyebrow)}</a>
                     ${lbl.short ? `<span class="chip">${esc(lbl.short)}</span>` : ''}
                 </div>
                 <h1>${esc(lbl.title)}</h1>
                 ${node.author ? `<p>${esc(node.author)}</p>` : ''}
                 ${node.description ? `<p class="clamp" data-expand title="Tap to read more">${esc(node.description)}</p>` : ''}
                 ${c.total ? `<div class="row">
-                    ${c.notes ? `<span class="chip"><span class="ms">description</span>${plural(c.notes, 'note')}</span>` : ''}
-                    ${c.dpps ? `<span class="chip accent"><span class="ms">quiz</span>${plural(c.dpps, 'DPP')}</span>` : ''}
-                    ${c.done ? `<span class="chip ok"><span class="ms">check</span>${c.done}/${c.total} done</span>` : ''}
+                    ${countChips(c)}
                 </div>` : ''}
             </div>
             ${dpps.length ? `<section class="section" style="margin-top:8px">${sectionHead(subs.length ? 'Unit practice' : 'Practice (PYQ DPPs)')}<div class="dpp-grid">${dpps.map(dppCard).join('')}</div></section>` : ''}
             ${notes.length ? `<section class="section">${sectionHead(subs.length ? 'Unit notes' : 'Class notes')}<div class="item-list two">${notes.map((e) => itemRow(e)).join('')}</div></section>` : ''}
-            ${subs.length ? `<section class="section">${sectionHead(subsTitle)}<div class="chap-list">${subs.map((s) => chapterRow(subject, s, chapter)).join('')}</div></section>` : ''}
-            ${emptyAll ? `
-                <div class="empty-state" style="margin-top:12px">
-                    <span class="ms">hourglass_top</span>
-                    <h3>Notes for this chapter are on the way</h3>
-                    <p>Join the Telegram group to hear the moment they are published. Other chapters of ${esc(subject.name)} may already have notes.</p>
-                    <div class="actions">
-                        <a class="btn" href="${backHref}"><span class="ms">arrow_back</span>Back to ${esc(sc ? (parentLbl.short || 'unit') : subject.name)}</a>
-                        <a class="btn btn-primary" href="${TELEGRAM_URL}" target="_blank" rel="noopener noreferrer"><span class="ms">send</span>Telegram group</a>
-                    </div>
-                </div>` : ''}
+            ${subs.length ? `<section class="section">${sectionHead(topicWords(chapter)[2])}<div class="chap-list">${subs.map((s) => chapterRow(subject, s, chapter)).join('')}</div></section>` : ''}
+            ${items.length || subs.length ? '' : emptyState('hourglass_top', 'Notes for this chapter are on the way',
+                `Join the Telegram group to hear the moment they are published. Other chapters of ${esc(subject.name)} may already have notes.`,
+                `<a class="btn" href="${backHref}"><span class="ms">arrow_back</span>Back to ${esc(sc ? (parentLbl.short || 'unit') : subject.name)}</a>
+                <a class="btn btn-primary" href="${TELEGRAM_URL}" target="_blank" rel="noopener noreferrer"><span class="ms">send</span>Telegram group</a>`, 'margin-top:12px')}
         </div>`);
     const crumbs = [{ label: 'Subjects', href: '#/subjects' }, { label: subject.name, href: `#/s/${subject.id}` }];
-    if (sc) crumbs.push({ label: parentLbl.short || parentLbl.title, href: `#/s/${subject.id}/${chapter.id}` });
-    crumbs.push({ label: lbl.short ? `${lbl.short}: ${lbl.title}` : lbl.title });
+    if (sc) crumbs.push({ label: shortLabel(parentLbl), href: backHref });
+    crumbs.push({ label: fullLabel(lbl) });
     return { el, topTitle: lbl.short ? `${lbl.short} · ${lbl.title}` : lbl.title, docTitle: `${lbl.title} — ${subject.name}`, backHref, crumbs };
 }
 
 /* ----- Library ----- */
 function pageLibrary(tab) {
     const tabs = [
-        { id: 'recent', label: 'Recent', icon: 'history', ids: lib.data.recent.map((r) => r.id) },
-        { id: 'saved', label: 'Saved', icon: 'bookmark', ids: lib.data.saved },
-        { id: 'done', label: 'Done', icon: 'task_alt', ids: lib.data.done }
+        { id: 'recent', label: 'Recent', icon: 'history', ids: lib.data.recent.map((r) => r.id), empty: ['history', 'Nothing opened yet', 'Notes and DPPs you open will show up here, with the page you stopped at.'] },
+        { id: 'saved', label: 'Saved', icon: 'bookmark', ids: lib.data.saved, empty: ['bookmark_add', 'No saved items', 'Tap the bookmark on any note or DPP to keep it here for quick revision.'] },
+        { id: 'done', label: 'Done', icon: 'task_alt', ids: lib.data.done, empty: ['task_alt', 'Nothing marked done', 'Mark a note as done from the reader menu to track your progress per chapter.'] }
     ];
     const cur = tabs.find((t) => t.id === tab) || tabs[0];
     const entries = cur.ids.map((id) => itemIdx.get(id)).filter(Boolean);
-    const empties = {
-        recent: ['history', 'Nothing opened yet', 'Notes and DPPs you open will show up here, with the page you stopped at.'],
-        saved: ['bookmark_add', 'No saved items', 'Tap the bookmark on any note or DPP to keep it here for quick revision.'],
-        done: ['task_alt', 'Nothing marked done', 'Mark a note as done from the reader menu to track your progress per chapter.']
-    };
-    const e = empties[cur.id];
     const el = h(`
         <div class="page">
             <div class="page-head"><h1>Library</h1><p>Your recent, saved and finished notes. Stored on this device only.</p></div>
@@ -1001,32 +924,26 @@ function pageLibrary(tab) {
             </div>
             ${entries.length
                 ? `<div class="item-list two">${entries.map((en) => itemRow(en, { context: true })).join('')}</div>`
-                : `<div class="empty-state"><span class="ms">${e[0]}</span><h3>${e[1]}</h3><p>${e[2]}</p><div class="actions"><a class="btn btn-primary" href="#/subjects"><span class="ms">grid_view</span>Browse subjects</a></div></div>`}
+                : emptyState(...cur.empty, '<a class="btn btn-primary" href="#/subjects"><span class="ms">grid_view</span>Browse subjects</a>')}
         </div>`);
-    el.querySelectorAll('[data-lib]').forEach((b) => b.addEventListener('click', () => go(`#/library/${b.dataset.lib}`, { replace: true })));
+    onEach(el, '[data-lib]', (b) => go(`#/library/${b.dataset.lib}`, { replace: true }));
     return { el, topTitle: 'Library', docTitle: 'Library', crumbs: [{ label: 'Library' }] };
 }
 
 function notFound() {
-    const el = h(`<div class="page"><div class="empty-state" style="margin-top:24px"><span class="ms">search_off</span><h3>This page does not exist</h3><p>The link may be old. Open Subjects to find your chapter.</p><div class="actions"><a class="btn btn-primary" href="#/subjects">Open subjects</a></div></div></div>`);
-    return { el, topTitle: 'Not found', docTitle: 'Not found', crumbs: [] };
+    const el = h(`<div class="page">${emptyState('search_off', 'This page does not exist', 'The link may be old. Open Subjects to find your chapter.', '<a class="btn btn-primary" href="#/subjects">Open subjects</a>', 'margin-top:24px')}</div>`);
+    return { el, topTitle: 'Not found', docTitle: 'Not found' };
 }
 
 /* ----- Sidebar ----- */
 function renderSidebar() {
-    const nav = document.getElementById('side-nav');
-    if (!nav) return;
-    const subjects = state.batch.subjects;
-    nav.innerHTML = `
+    $('#side-nav').innerHTML = `
         <a class="side-link" href="#/" data-nav="home"><span class="ms">home</span><span>Home</span></a>
         <a class="side-link" href="#/subjects" data-nav="subjects"><span class="ms">grid_view</span><span>All subjects</span></a>
         <a class="side-link" href="#/library" data-nav="library"><span class="ms">bookmarks</span><span>Library</span><span class="count" data-lib-count>${lib.data.saved.length || ''}</span></a>
         <a class="side-link side-new" href="${LATEST_RELEASE.nav.href}"><span class="ms">auto_awesome</span><span>${esc(LATEST_RELEASE.nav.label)}</span><span class="chip new">New</span></a>
         <div class="side-label">Subjects</div>
-        ${subjects.map((s) => {
-            const c = countItems(s.chapters.flatMap(allItems));
-            return `<a class="side-link" href="#/s/${s.id}" data-nav="s:${s.id}" data-subject="${s.id}"><span class="side-dot"></span><span>${esc(s.name)}</span><span class="count">${c.total || ''}</span></a>`;
-        }).join('')}
+        ${state.batch.subjects.map((s) => `<a class="side-link" href="#/s/${s.id}" data-nav="s:${s.id}" data-subject="${s.id}"><span class="side-dot"></span><span>${esc(s.name)}</span><span class="count">${s.chapters.flatMap(allItems).length || ''}</span></a>`).join('')}
     `;
 }
 
@@ -1035,27 +952,25 @@ function renderSidebar() {
    -------------------------------------------------------------------------- */
 let searchIndex = [];
 function buildSearchIndex() {
-    searchIndex = [];
+    const add = (kind, title, path, href, subject, heading, words) =>
+        searchIndex.push({ kind, title, path, href, subjectId: subject.id, tl: heading.toLowerCase(), blob: words.filter(Boolean).join(' ').toLowerCase() });
     itemIdx.forEach((entry) => {
-        const { item, subject, chapter, subchapter } = entry;
-        const blob = [item.title, item.subtitle, item.badge, chapter.name, chapter.description, subchapter && subchapter.name, subchapter && subchapter.author, subject.name]
-            .filter(Boolean).join(' ').toLowerCase();
-        searchIndex.push({ kind: itemKind(item), id: item.id, title: item.title, path: contextLine(entry), href: `#/read/${item.id}`, subjectId: subject.id, blob, tl: item.title.toLowerCase() });
+        const { item, subject, chapter, subchapter: sc } = entry;
+        add(itemKind(item), item.title, contextLine(entry), `#/read/${item.id}`, subject, item.title,
+            [item.title, item.subtitle, item.badge, chapter.name, chapter.description, sc && sc.name, sc && sc.author, subject.name]);
     });
     chapIdx.forEach(({ node, subject, parent }) => {
-        const lbl = chapterLabel(node.name, parent ? parent.name : null);
-        const blob = [node.name, node.description, node.author, parent && parent.name, subject.name].filter(Boolean).join(' ').toLowerCase();
-        const href = parent ? `#/s/${subject.id}/${parent.id}/${node.id}` : `#/s/${subject.id}/${node.id}`;
         const n = allItems(node).length;
-        searchIndex.push({ kind: 'chap', id: node.id, title: lbl.short ? `${lbl.short}: ${lbl.title}` : lbl.title, path: `${subject.name}${parent ? ' · ' + (chapterLabel(parent.name).short || '') : ''} · ${n ? plural(n, 'item') : 'coming soon'}`, href, subjectId: subject.id, blob, tl: node.name.toLowerCase() });
+        add('chap', fullLabel(chapterLabel(node.name, parent && parent.name)),
+            `${subject.name}${parent ? ' · ' + chapterLabel(parent.name).short : ''} · ${n ? plural(n, 'item') : 'coming soon'}`,
+            nodeHref(subject, node, parent), subject, node.name, [node.name, node.description, node.author, parent && parent.name, subject.name]);
     });
-    subjectIdx.forEach((s) => {
-        searchIndex.push({ kind: 'subject', id: s.id, title: s.name, path: 'Subject', href: `#/s/${s.id}`, subjectId: s.id, blob: (s.name + ' ' + (s.description || '')).toLowerCase(), tl: s.name.toLowerCase() });
-    });
+    subjectIdx.forEach((s) => add('subject', s.name, 'Subject', `#/s/${s.id}`, s, s.name, [s.name, s.description]));
 }
+const reEscape = (w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const searchWords = (q) => q.toLowerCase().split(/\s+/).filter(Boolean);
 function runSearch(q) {
-    const words = q.toLowerCase().split(/\s+/).filter(Boolean);
-    if (!words.length) return [];
+    const words = searchWords(q);
     const phrase = q.toLowerCase().trim();
     const out = [];
     for (const e of searchIndex) {
@@ -1063,7 +978,7 @@ function runSearch(q) {
         let score = 0;
         words.forEach((w) => {
             if (e.tl.includes(w)) score += 3;
-            if (new RegExp('(^|[^a-z0-9])' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).test(e.tl)) score += 2;
+            if (new RegExp('(^|[^a-z0-9])' + reEscape(w)).test(e.tl)) score += 2;
             score += 1;
         });
         if (e.tl.includes(phrase)) score += 6;
@@ -1071,20 +986,15 @@ function runSearch(q) {
         if (e.kind === 'chap') score += 1;
         out.push({ e, score });
     }
-    out.sort((a, b) => b.score - a.score);
-    return out.map((x) => x.e);
+    return out.sort((a, b) => b.score - a.score).map((x) => x.e);
 }
 function highlight(text, q) {
-    const words = q.toLowerCase().split(/\s+/).filter((w) => w.length > 0).map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-    const safe = esc(text);
-    if (!words.length) return safe;
-    try { return safe.replace(new RegExp(`(${words.join('|')})`, 'gi'), '<mark>$1</mark>'); } catch (e) { return safe; }
+    return esc(text).replace(new RegExp(`(${searchWords(q).map(reEscape).join('|')})`, 'gi'), '<mark>$1</mark>');
 }
 const SEARCH_SUGGESTIONS = ['Quit India', 'Julius Caesar', 'Electricity', 'Photosynthesis', 'Climate', 'Ammonia', 'Nervous System', 'Light'];
 
 function openSearch(initial = '') {
     let sel = 0;
-    let results = [];
     const el = h(`
         <div class="search" role="dialog" aria-modal="true" aria-label="Search">
             <div class="search-head">
@@ -1103,53 +1013,49 @@ function openSearch(initial = '') {
     const body = el.querySelector('.search-body');
     const clearBtn = el.querySelector('.clear');
 
-    function recentSearches() { return lsJSON('ilberiz_searches', []); }
+    const recentSearches = () => lsJSON('ilberiz_searches', []);
     function pushRecent(q) {
         const list = [q, ...recentSearches().filter((x) => x.toLowerCase() !== q.toLowerCase())].slice(0, 6);
         lsSet('ilberiz_searches', JSON.stringify(list));
     }
-    function resultHTML(r, q, i) {
-        const ico = r.kind === 'pdf' ? ['pdf', 'description'] : r.kind === 'dpp' ? ['dpp', 'quiz'] : r.kind === 'video' ? ['video', 'play_circle'] : ['chap', r.kind === 'subject' ? 'grid_view' : 'menu_book'];
-        return `<a class="result${i === sel ? ' sel' : ''}" href="${r.href}" data-i="${i}" role="option" data-subject="${r.subjectId}">
-            <span class="type-ico ${ico[0]}"><span class="ms">${ico[1]}</span></span>
-            <span><strong>${highlight(r.title, q)}</strong><small>${esc(r.path)}</small></span>
+    const rowHTML = (kind, icon, title, r, attrs = '') => `<a class="result${attrs && r.i === sel ? ' sel' : ''}" href="${r.href}"${attrs} data-subject="${r.subjectId}">
+            <span class="type-ico ${kind}"><span class="ms">${icon}</span></span>
+            <span><strong>${title}</strong><small>${esc(r.path)}</small></span>
             <span class="ms enter">keyboard_return</span></a>`;
-    }
+    const resultHTML = (r, q) => (TYPE_ICON[r.kind]
+        ? rowHTML(r.kind, TYPE_ICON[r.kind], highlight(r.title, q), r, ` data-i="${r.i}" role="option"`)
+        : rowHTML('chap', r.kind === 'subject' ? 'grid_view' : 'menu_book', highlight(r.title, q), r, ` data-i="${r.i}" role="option"`));
+    const suggestHTML = (list) => `<div class="suggest">${list.map((x) => `<button type="button" data-q="${esc(x)}">${esc(x)}</button>`).join('')}</div>`;
+    const groupHTML = (title, html) => (html ? `<div class="search-group"><h4>${title}</h4>${html}</div>` : '');
     function paint() {
         const q = input.value.trim();
         clearBtn.hidden = !q;
         if (!q) {
-            results = [];
             const rec = recentSearches();
-            const recentItems = recentEntries().slice(0, 4);
-            body.innerHTML = `
-                ${rec.length ? `<div class="search-group"><h4>Recent searches <button type="button" data-clear-recent>Clear</button></h4><div class="suggest">${rec.map((s) => `<button type="button" data-q="${esc(s)}">${esc(s)}</button>`).join('')}</div></div>` : ''}
-                ${recentItems.length ? `<div class="search-group"><h4>Recently opened</h4>${recentItems.map((e) => `<a class="result" href="#/read/${e.item.id}" data-subject="${e.subject.id}"><span class="type-ico ${itemKind(e.item)}"><span class="ms">${itemKind(e.item) === 'pdf' ? 'description' : 'quiz'}</span></span><span><strong>${esc(e.item.title)}</strong><small>${esc(contextLine(e))}</small></span><span class="ms enter">keyboard_return</span></a>`).join('')}</div>` : ''}
-                <div class="search-group"><h4>Try</h4><div class="suggest">${SEARCH_SUGGESTIONS.map((s) => `<button type="button" data-q="${esc(s)}">${esc(s)}</button>`).join('')}</div></div>`;
+            body.innerHTML = groupHTML('Recent searches <button type="button" data-clear-recent>Clear</button>', rec.length && suggestHTML(rec))
+                + groupHTML('Recently opened', recentEntries().slice(0, 4).map((e) => rowHTML(itemKind(e.item), TYPE_ICON[itemKind(e.item)], esc(e.item.title), { href: `#/read/${e.item.id}`, subjectId: e.subject.id, path: contextLine(e) })).join(''))
+                + groupHTML('Try', suggestHTML(SEARCH_SUGGESTIONS));
             return;
         }
-        results = runSearch(q);
-        sel = clamp(sel, 0, Math.max(0, results.length - 1));
+        const results = runSearch(q);
         if (!results.length) {
             body.innerHTML = `<div class="search-empty"><span class="ms">search_off</span><p>No notes or chapters match “${esc(q)}”.<br>Try a chapter name like “Climate” or a topic like “Dandi March”.</p></div>`;
             return;
         }
-        const chaps = []; const things = [];
-        results.forEach((r, i) => ((r.kind === 'chap' || r.kind === 'subject') ? chaps : things).push([r, i]));
-        // keep keyboard order = visual order
-        const ordered = [...chaps.slice(0, 6), ...things.slice(0, 40)];
-        results = ordered.map(([r]) => r);
-        let i = 0;
-        const groupHTML = (title, arr) => arr.length ? `<div class="search-group"><h4>${title}</h4>${arr.map(([r]) => resultHTML(r, q, i++)).join('')}</div>` : '';
-        body.innerHTML = groupHTML('Subjects & chapters', chaps.slice(0, 6)) + groupHTML(`Notes & DPPs${things.length > 40 ? ' (top 40)' : ''}`, things.slice(0, 40));
+        const things = results.filter((r) => TYPE_ICON[r.kind]);
+        const shown = [...results.filter((r) => !TYPE_ICON[r.kind]).slice(0, 6), ...things.slice(0, 40)];   // keyboard order = visual order
+        sel = clamp(sel, 0, shown.length - 1);
+        const rows = shown.map((r, i) => ({ ...r, i }));
+        const html = (list) => list.map((r) => resultHTML(r, q)).join('');
+        body.innerHTML = groupHTML('Subjects & chapters', html(rows.filter((r) => !TYPE_ICON[r.kind])))
+            + groupHTML(`Notes & DPPs${things.length > 40 ? ' (top 40)' : ''}`, html(rows.filter((r) => TYPE_ICON[r.kind])));
     }
     function moveSel(d) {
         const list = $$('.result[data-i]', body);
         if (!list.length) return;
         sel = clamp(sel + d, 0, list.length - 1);
         list.forEach((x) => x.classList.toggle('sel', Number(x.dataset.i) === sel));
-        const cur = list[sel];
-        if (cur) cur.scrollIntoView({ block: 'nearest' });
+        list[sel].scrollIntoView({ block: 'nearest' });
     }
     function openHref(href) {
         const q = input.value.trim();
@@ -1181,19 +1087,17 @@ function openSearch(initial = '') {
 
     const prevFocus = document.activeElement;
     showOverlay('search', () => {
-        const root = document.getElementById('overlay-root');
-        if (isDesktopSearch()) root.appendChild(scrim);
-        root.appendChild(el);
+        if (isWide()) overlayRoot().appendChild(scrim);
+        overlayRoot().appendChild(el);
         input.value = initial;
         paint();
         requestAnimationFrame(() => input.focus());
     }, () => {
         el.remove();
         scrim.remove();
-        if (prevFocus && prevFocus.focus) { try { prevFocus.focus({ preventScroll: true }); } catch (e) {} }
+        refocus(prevFocus);
     });
 }
-const isDesktopSearch = () => window.matchMedia && matchMedia('(min-width: 720px)').matches;
 
 /* --------------------------------------------------------------------------
    11. Sheets (settings, reader menu, contents)
@@ -1201,10 +1105,11 @@ const isDesktopSearch = () => window.matchMedia && matchMedia('(min-width: 720px
 function openSheet(name, title, buildBody) {
     const scrim = h('<div class="scrim"></div>');
     const sheet = h(`<div class="sheet" role="dialog" aria-modal="true" aria-label="${esc(title)}"><div class="sheet-grip" aria-hidden="true"></div><div class="sheet-head"><h2>${esc(title)}</h2><button type="button" class="icon-btn" data-close aria-label="Close"><span class="ms">close</span></button></div><div class="sheet-body"></div></div>`);
-    const body = sheet.querySelector('.sheet-body');
+    const body = $('.sheet-body', sheet);
+    const closeBtn = $('[data-close]', sheet);
     buildBody(body);
     scrim.addEventListener('click', () => dismissOverlay());
-    sheet.querySelector('[data-close]').addEventListener('click', () => dismissOverlay());
+    closeBtn.addEventListener('click', () => dismissOverlay());
     sheet.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); dismissOverlay(); } });
     // swipe down to close (phones)
     let startY = null;
@@ -1223,33 +1128,33 @@ function openSheet(name, title, buildBody) {
     });
     const prevFocus = document.activeElement;
     showOverlay(name, () => {
-        const root = document.getElementById('overlay-root');
-        root.appendChild(scrim);
-        root.appendChild(sheet);
-        requestAnimationFrame(() => { const f = sheet.querySelector('[data-close]'); if (f) f.focus({ preventScroll: true }); });
+        overlayRoot().append(scrim, sheet);
+        requestAnimationFrame(() => refocus(closeBtn));
     }, () => {
         scrim.classList.add('out');
         sheet.classList.add('out');
         setTimeout(() => { scrim.remove(); sheet.remove(); }, 230);
-        if (prevFocus && prevFocus.focus) { try { prevFocus.focus({ preventScroll: true }); } catch (e) {} }
+        refocus(prevFocus);
     });
-    return { sheet, body };
 }
 
 let installPrompt = null;
-const isStandalone = () => (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || window.navigator.standalone === true;
+const isStandalone = () => mq('(display-mode: standalone)') || window.navigator.standalone === true;
 const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
+const volumeIcon = (v) => (v < 34 ? 'volume_mute' : v < 67 ? 'volume_down' : 'volume_up');
+const NO_OFFLINE = 'None yet — notes you open are saved automatically';
 function openSettings() {
     openSheet('settings', 'Settings', (body) => {
-        const readerNow = useBuiltInReader() ? 'builtin' : 'native';
+        const q = (sel) => $(sel, body);
+        const seg = (attr, current, options) => options.map(([id, icon, label]) => `<button type="button" data-${attr}="${id}" aria-pressed="${id === current}"><span class="ms">${icon}</span>${label}</button>`).join('');
+        const row = (icon, title, note, extra = '') => `<span class="ms">${icon}</span><span class="label"><strong>${title}</strong><small>${note}</small></span>${extra}`;
+        const toggle = (pref, on) => `<span class="switch"><input type="checkbox" data-pref="${pref}" ${on ? 'checked' : ''}><span></span></span>`;
         body.innerHTML = `
             <div class="set-group">
                 <h3>Appearance</h3>
                 <div class="seg full" role="group" aria-label="Theme">
-                    <button type="button" data-theme-pref="system" aria-pressed="${prefs.theme === 'system'}"><span class="ms">contrast</span>Auto</button>
-                    <button type="button" data-theme-pref="dark" aria-pressed="${prefs.theme === 'dark'}"><span class="ms">dark_mode</span>Dark</button>
-                    <button type="button" data-theme-pref="light" aria-pressed="${prefs.theme === 'light'}"><span class="ms">light_mode</span>Light</button>
+                    ${seg('theme-pref', prefs.theme, [['system', 'contrast', 'Auto'], ['dark', 'dark_mode', 'Dark'], ['light', 'light_mode', 'Light']])}
                 </div>
                 <div class="set-row" style="margin-top:8px">
                     <div class="label"><strong>Highlighter colour</strong><small>Used for buttons, progress and highlights</small></div>
@@ -1260,61 +1165,48 @@ function openSettings() {
             </div>
             <div class="set-group">
                 <h3>Sound & touch</h3>
-                <label class="set-row"><span class="ms">volume_up</span><span class="label"><strong>Sound effects</strong><small>Soft glass and thock sounds</small></span><span class="switch"><input type="checkbox" data-pref="sound" ${prefs.sound ? 'checked' : ''}><span></span></span></label>
-                <div class="set-row vol-row"${prefs.sound ? '' : ' hidden'} data-vol-row><span class="ms" data-vol-icon>${prefs.volume < 34 ? 'volume_mute' : prefs.volume < 67 ? 'volume_down' : 'volume_up'}</span><span class="label"><strong>Volume</strong><small data-vol-label>${prefs.volume}%</small></span><input type="range" class="vol" min="0" max="100" step="5" value="${prefs.volume}" aria-label="Sound volume" data-vol style="--v:${prefs.volume}%"></div>
-                ${'vibrate' in navigator ? `<label class="set-row"><span class="ms">vibration</span><span class="label"><strong>Vibration</strong><small>Light buzz on taps (Android)</small></span><span class="switch"><input type="checkbox" data-pref="haptics" ${prefs.haptics ? 'checked' : ''}><span></span></span></label>` : ''}
+                <label class="set-row">${row('volume_up', 'Sound effects', 'Soft glass and thock sounds', toggle('sound', prefs.sound))}</label>
+                <div class="set-row vol-row"${prefs.sound ? '' : ' hidden'} data-vol-row><span class="ms" data-vol-icon>${volumeIcon(prefs.volume)}</span><span class="label"><strong>Volume</strong><small data-vol-label>${prefs.volume}%</small></span><input type="range" class="vol" min="0" max="100" step="5" value="${prefs.volume}" aria-label="Sound volume" data-vol style="--v:${prefs.volume}%"></div>
+                ${'vibrate' in navigator ? `<label class="set-row">${row('vibration', 'Vibration', 'Light buzz on taps (Android)', toggle('haptics', prefs.haptics))}</label>` : ''}
             </div>
             <div class="set-group">
                 <h3>Opening PDF notes</h3>
                 <div class="seg full" role="group" aria-label="PDF reader">
-                    <button type="button" data-reader="builtin" aria-pressed="${readerNow === 'builtin'}"><span class="ms">chrome_reader_mode</span>Built-in reader</button>
-                    <button type="button" data-reader="native" aria-pressed="${readerNow === 'native'}"><span class="ms">picture_as_pdf</span>Browser viewer</button>
+                    ${seg('reader', useBuiltInReader() ? 'builtin' : 'native', [['builtin', 'chrome_reader_mode', 'Built-in reader'], ['native', 'picture_as_pdf', 'Browser viewer']])}
                 </div>
                 <p style="font-size:.8rem;color:var(--muted);margin-top:8px">The built-in reader works on every phone, remembers your page and opens saved notes offline. The browser viewer uses your browser's own PDF tools.</p>
             </div>
             <div class="set-group">
                 <h3>Offline & app</h3>
                 <div class="set-row"><span class="ms">offline_pin</span><span class="label"><strong>Notes saved offline</strong><small data-offline-usage>Checking…</small></span><button type="button" class="btn btn-sm" data-clear-offline hidden>Clear</button></div>
-                <div data-install-row></div>
+                <div class="set-row">${installRow(row)}</div>
             </div>
             <div class="set-group">
-                <a class="set-row" href="${TELEGRAM_URL}" target="_blank" rel="noopener noreferrer"><span class="ms">send</span><span class="label"><strong>Telegram community</strong><small>Updates and doubt help</small></span><span class="ms">open_in_new</span></a>
-                <button type="button" class="set-row" data-reset-lib><span class="ms">restart_alt</span><span class="label"><strong>Clear history & progress</strong><small>Recent, saved, done and reading positions on this device</small></span></button>
-                <button type="button" class="set-row" data-action="lock"><span class="ms">lock</span><span class="label"><strong>Lock website</strong><small>Asks for the passcode again</small></span></button>
+                <a class="set-row" href="${TELEGRAM_URL}" target="_blank" rel="noopener noreferrer">${row('send', 'Telegram community', 'Updates and doubt help', '<span class="ms">open_in_new</span>')}</a>
+                <button type="button" class="set-row" data-reset-lib>${row('restart_alt', 'Clear history & progress', 'Recent, saved, done and reading positions on this device')}</button>
+                <button type="button" class="set-row" data-action="lock">${row('lock', 'Lock website', 'Asks for the passcode again')}</button>
             </div>
             <p style="font-size:.75rem;color:var(--faint);text-align:center;padding-top:6px">Ilberiz Techz · version ${APP_VERSION}</p>`;
-
-        body.querySelectorAll('[data-theme-pref]').forEach((b) => b.addEventListener('click', () => {
-            setThemePref(b.dataset.themePref);
-            body.querySelectorAll('[data-theme-pref]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-        }));
-        body.querySelectorAll('[data-accent]').forEach((b) => b.addEventListener('click', () => {
-            setAccent(b.dataset.accent);
-            body.querySelectorAll('[data-accent]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-            sfx.play('save');
-        }));
-        body.querySelectorAll('[data-pref]').forEach((inp) => inp.addEventListener('change', () => {
-            if (inp.dataset.pref === 'sound') { setSound(inp.checked); body.querySelector('[data-vol-row]').hidden = !inp.checked; }
-            if (inp.dataset.pref === 'haptics') { prefs.haptics = inp.checked; lsSet('ilberiz_haptics', inp.checked ? 'on' : 'off'); haptic(20); }
-        }));
-        const vol = body.querySelector('[data-vol]');
+        onEach(body, '[data-theme-pref]', (b) => { setThemePref(b.dataset.themePref); pressOnly(body, '[data-theme-pref]', b); });
+        onEach(body, '[data-accent]', (b) => { setAccent(b.dataset.accent); pressOnly(body, '[data-accent]', b); sfx.play('save'); });
+        onEach(body, '[data-reader]', (b) => { setReaderPref(b.dataset.reader); pressOnly(body, '[data-reader]', b); });
+        onEach(body, '[data-install]', doInstall);
+        onEach(body, '[data-pref]', (inp) => {
+            if (inp.dataset.pref === 'sound') { setSound(inp.checked); q('[data-vol-row]').hidden = !inp.checked; }
+            else { prefs.haptics = inp.checked; lsSet('ilberiz_haptics', inp.checked ? 'on' : 'off'); haptic(20); }
+        }, 'change');
+        const vol = q('[data-vol]');
         let volTimer = 0;
         vol.addEventListener('input', () => {
             const v = +vol.value;
             prefs.volume = v;
             vol.style.setProperty('--v', v + '%');
-            body.querySelector('[data-vol-label]').textContent = v + '%';
-            body.querySelector('[data-vol-icon]').textContent = v < 34 ? 'volume_mute' : v < 67 ? 'volume_down' : 'volume_up';
+            q('[data-vol-label]').textContent = v + '%';
+            q('[data-vol-icon]').textContent = volumeIcon(v);
             sfx.setVolume(v);
             clearTimeout(volTimer);
             volTimer = setTimeout(() => { lsSet('ilberiz_volume', String(v)); sfx.play('tap'); }, 140);
-        });
-        body.querySelectorAll('[data-reader]').forEach((b) => b.addEventListener('click', () => {
-            prefs.reader = b.dataset.reader;
-            lsSet('ilberiz_reader', prefs.reader);
-            body.querySelectorAll('[data-reader]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-        }));
-        body.querySelector('[data-reset-lib]').addEventListener('click', () => {
+        });        onEach(body, '[data-reset-lib]', () => {
             if (!window.confirm('Clear recent, saved, done and reading positions on this device?')) return;
             lib.clear();
             toast('History and progress cleared', { icon: 'restart_alt' });
@@ -1322,36 +1214,29 @@ function openSettings() {
         });
 
         // offline usage
-        const usage = body.querySelector('[data-offline-usage]');
-        const clearBtn = body.querySelector('[data-clear-offline]');
+        const usage = q('[data-offline-usage]');
+        const clearBtn = q('[data-clear-offline]');
         offlineUsage().then((u) => {
             if (!u) { usage.textContent = location.protocol === 'file:' ? 'Available when the site is opened online' : 'Not supported in this browser'; return; }
-            usage.textContent = u.count ? `${plural(u.count, 'note')} · ${formatMB(u.bytes)}` : 'None yet — notes you open are saved automatically';
+            usage.textContent = u.count ? `${plural(u.count, 'note')} · ${formatMB(u.bytes)}` : NO_OFFLINE;
             clearBtn.hidden = !u.count;
         });
         clearBtn.addEventListener('click', async () => {
-            try { await caches.delete('ilb-notes-v1'); } catch (e) {}
+            try { await caches.delete(NOTES_CACHE); } catch (e) {}
             offlineSet = new Set();
-            usage.textContent = 'None yet — notes you open are saved automatically';
+            usage.textContent = NO_OFFLINE;
             clearBtn.hidden = true;
             toast('Offline notes cleared', { icon: 'delete' });
         });
-
-        // install row
-        const row = body.querySelector('[data-install-row]');
-        if (isStandalone()) {
-            row.innerHTML = `<div class="set-row"><span class="ms">install_mobile</span><span class="label"><strong>App installed</strong><small>You are using the installed app</small></span></div>`;
-        } else if (installPrompt) {
-            row.innerHTML = `<div class="set-row"><span class="ms">install_mobile</span><span class="label"><strong>Install as an app</strong><small>Home-screen icon, opens full screen</small></span><button type="button" class="btn btn-primary btn-sm" data-install>Install</button></div>`;
-            row.querySelector('[data-install]').addEventListener('click', doInstall);
-        } else if (isIOS()) {
-            row.innerHTML = `<div class="set-row"><span class="ms">ios_share</span><span class="label"><strong>Install on iPhone or iPad</strong><small>In Safari tap Share, then “Add to Home Screen”</small></span></div>`;
-        } else {
-            row.innerHTML = `<div class="set-row"><span class="ms">install_mobile</span><span class="label"><strong>Install as an app</strong><small>Open the browser menu and choose “Install app” or “Add to Home screen”</small></span></div>`;
-        }
     });
 }
 
+function installRow(row) {
+    if (isStandalone()) return row('install_mobile', 'App installed', 'You are using the installed app');
+    if (installPrompt) return row('install_mobile', 'Install as an app', 'Home-screen icon, opens full screen', '<button type="button" class="btn btn-primary btn-sm" data-install>Install</button>');
+    if (isIOS()) return row('ios_share', 'Install on iPhone or iPad', 'In Safari tap Share, then “Add to Home Screen”');
+    return row('install_mobile', 'Install as an app', 'Open the browser menu and choose “Install app” or “Add to Home screen”');
+}
 async function doInstall() {
     if (!installPrompt) return;
     const p = installPrompt;
@@ -1359,10 +1244,11 @@ async function doInstall() {
     try {
         p.prompt();
         const choice = await p.userChoice;
-        if (choice && choice.outcome === 'accepted') { toast('Installing Ilberiz Techz', { icon: 'install_mobile' }); sfx.play('success'); }
+        if (choice.outcome === 'accepted') { toast('Installing Ilberiz Techz', { icon: 'install_mobile' }); sfx.play('success'); }
     } catch (e) {}
-    $$('[data-install-banner]').forEach((b) => b.remove());
+    removeInstallBanner();
 }
+const removeInstallBanner = () => $$('[data-install-banner]').forEach((b) => b.remove());
 function renderInstallBanner(slot) {
     if (!slot || !installPrompt || isStandalone() || lsGet('ilberiz_install_dismissed') === '1') return;
     const b = h(`<div class="panel install-banner" data-install-banner>
@@ -1379,24 +1265,24 @@ function renderInstallBanner(slot) {
 /* --------------------------------------------------------------------------
    12. Offline notes bookkeeping
    -------------------------------------------------------------------------- */
+const NOTES_CACHE = 'ilb-notes-v1';   // same name in sw.js
 let offlineSet = new Set();
 async function loadOfflineSet() {
     if (!('caches' in window)) return;
     try {
-        const cache = await caches.open('ilb-notes-v1');
-        const keys = await cache.keys();
-        offlineSet = new Set(keys.map((k) => k.url.split('#')[0].split('?')[0]));
+        const cache = await caches.open(NOTES_CACHE);
+        offlineSet = new Set((await cache.keys()).map((k) => bareURL(k.url)));
         markOffline(document);
     } catch (e) {}
 }
 function markOffline(root) {
-    if (!offlineSet.size || !root) return;
+    if (!offlineSet.size) return;
     $$('[data-offline-file]', root).forEach((el) => { el.hidden = !offlineSet.has(el.dataset.offlineFile); });
 }
 async function offlineUsage() {
     if (!('caches' in window) || location.protocol === 'file:') return null;
     try {
-        const cache = await caches.open('ilb-notes-v1');
+        const cache = await caches.open(NOTES_CACHE);
         const keys = await cache.keys();
         let bytes = 0;
         await Promise.all(keys.map(async (k) => {
@@ -1411,46 +1297,42 @@ async function offlineUsage() {
 /* --------------------------------------------------------------------------
    13. Readers: PDF (built-in or browser viewer), DPP engines, video
    -------------------------------------------------------------------------- */
-function notesInContainer(entry) {
-    return (entry.container.items || []).filter((it) => itemKind(it) === 'pdf').map((it) => itemIdx.get(it.id));
-}
+const pdfEntries = (node) => (node.items || []).filter((it) => itemKind(it) === 'pdf').map((it) => itemIdx.get(it.id));
+const notesInContainer = (entry) => pdfEntries(entry.container);
+const noteIndex = (entry, list) => list.findIndex((x) => x.item.id === entry.item.id);
 function notesInSubject(subject) {
     const groups = [];
+    const add = (node, lbl) => { const list = pdfEntries(node); if (list.length) groups.push({ label: fullLabel(lbl), list }); };
     subject.chapters.forEach((ch) => {
-        const add = (node, label) => {
-            const list = (node.items || []).filter((it) => itemKind(it) === 'pdf').map((it) => itemIdx.get(it.id));
-            if (list.length) groups.push({ label, list });
-        };
-        const cl = chapterLabel(ch.name);
-        add(ch, cl.short ? `${cl.short}: ${cl.title}` : cl.title);
-        (ch.subchapters || []).forEach((sc) => {
-            const sl = chapterLabel(sc.name, ch.name);
-            add(sc, sl.short ? `${sl.short}: ${sl.title}` : sl.title);
-        });
+        add(ch, chapterLabel(ch.name));
+        (ch.subchapters || []).forEach((sc) => add(sc, chapterLabel(sc.name, ch.name)));
     });
     return groups;
 }
+// shared pieces of the reader bars
+const iconBtn = (id, icon, label, cls = '') => `<button type="button" class="icon-btn${cls && ' ' + cls}" data-r="${id}" aria-label="${label}"><span class="ms">${icon}</span></button>`;
+const SAVE_BTN = iconBtn('save', 'bookmark_add', 'Save to Library', 'star wide-only');
+const DONE_BTN = '<button type="button" class="btn btn-sm wide-only" data-r="done" aria-pressed="false"><span class="ms">check_circle</span><span data-lbl>Mark done</span></button>';
+const readerTitle = (title = '', ctx = '') => `<div class="reader-title"><strong data-r="title">${title}</strong><small data-r="ctx">${ctx}</small></div>`;
+const docTitle = (entry) => { document.title = `${entry.item.title} | Ilberiz Techz`; };
+const escToClose = (e) => { if (!overlay && e.key === 'Escape') { e.preventDefault(); closeReaderNav(); } };
 
 function openReader(entry) {
     if (reader) closeReader(true);
-    const k = itemKind(entry.item);
     lib.touch(entry.item.id);
     document.body.classList.add('no-scroll');
-    const root = document.getElementById('overlay-root');
-    let r;
-    if (k === 'pdf') r = useBuiltInReader() ? builtInReader(entry) : browserPdfReader(entry);
-    else if (k === 'dpp') r = engineViewer(entry);
-    else r = videoViewer(entry);
-    root.appendChild(r.el);
-    reader = { id: entry.item.id, el: r.el, cleanup: r.cleanup, entry, api: r };
-    document.title = `${entry.item.title} | Ilberiz Techz`;
+    const open = { pdf: useBuiltInReader() ? builtInReader : browserPdfReader, dpp: engineViewer, video: videoViewer }[itemKind(entry.item)];
+    const { el, cleanup } = open(entry);
+    overlayRoot().appendChild(el);
+    reader = { id: entry.item.id, el, cleanup, entry };
+    docTitle(entry);
 }
 function closeReader(immediate = false) {
     if (!reader) return;
     const r = reader;
     reader = null;
-    try { r.cleanup && r.cleanup(); } catch (e) {}
-    if (document.fullscreenElement) { try { document.exitFullscreen(); } catch (e) {} }
+    try { r.cleanup(); } catch (e) {}
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
     if (immediate || reducedMotion()) r.el.remove();
     else { r.el.classList.add('out'); setTimeout(() => r.el.remove(), 160); }
     if (!overlay) document.body.classList.remove('no-scroll');
@@ -1461,30 +1343,38 @@ function toChapter(entry) {
 }
 function closeReaderNav() {
     sfx.play('back');
-    const entry = reader && reader.entry;
-    goBack(entry ? containerHref(entry) : '#/');
+    goBack(reader ? containerHref(reader.entry) : '#/');
 }
 function setReaderItem(entry) {
     // switch note inside an open reader without adding history entries
     history.replaceState({ ilb: depth() }, '', `#/read/${entry.item.id}`);
     if (reader) { reader.id = entry.item.id; reader.entry = entry; }
     lib.touch(entry.item.id);
-    document.title = `${entry.item.title} | Ilberiz Techz`;
+    docTitle(entry);
 }
 
-function toggleDone(entry, btn) {
-    const on = !lib.isDone(entry.item.id);
+function setDone(entry, btn, on) {
     lib.setDone(entry.item.id, on);
     if (btn) syncDoneBtn(btn, on);
-    if (on) { sfx.play('success'); haptic([12, 40, 12]); toast('Marked as done', { icon: 'task_alt', action: { label: 'Undo', fn: () => { lib.setDone(entry.item.id, false); if (btn) syncDoneBtn(btn, false); } } }); }
+}
+function toggleDone(entry, btn) {
+    const on = !lib.isDone(entry.item.id);
+    setDone(entry, btn, on);
+    if (on) { sfx.play('success'); haptic([12, 40, 12]); toast('Marked as done', { icon: 'task_alt', action: { label: 'Undo', fn: () => setDone(entry, btn, false) } }); }
     else { sfx.play('off'); toast('Marked as not done', { icon: 'radio_button_unchecked' }); }
 }
-function syncDoneBtn(btn, on) {
+function syncToggle(btn, on, icon, label) {
     btn.classList.toggle('on', on);
     btn.setAttribute('aria-pressed', String(on));
-    btn.setAttribute('aria-label', on ? 'Mark as not done' : 'Mark as done');
-    const ic = btn.querySelector('.ms'); if (ic) { ic.textContent = on ? 'task_alt' : 'check_circle'; ic.classList.toggle('fill', on); }
-    const lbl = btn.querySelector('[data-lbl]'); if (lbl) lbl.textContent = on ? 'Done' : 'Mark done';
+    labelIcon(btn, icon, label);
+}
+function syncDoneBtn(btn, on) {
+    syncToggle(btn, on, on ? 'task_alt' : 'check_circle', on ? 'Mark as not done' : 'Mark as done');
+    $('.ms', btn).classList.toggle('fill', on);
+    $('[data-lbl]', btn).textContent = on ? 'Done' : 'Mark done';
+}
+function syncSaveBtn(btn, on) {
+    syncToggle(btn, on, on ? 'bookmark' : 'bookmark_add', on ? 'Remove from Library' : 'Save to Library');
 }
 function toggleSave(id, btn) {
     const on = lib.toggleSave(id);
@@ -1493,54 +1383,49 @@ function toggleSave(id, btn) {
     sfx.play(on ? 'save' : 'off');
     haptic(on ? [8, 30, 8] : 6);
     toast(on ? 'Saved to Library' : 'Removed from Library', { icon: on ? 'bookmark' : 'bookmark_remove' });
-    const c = $('#side-nav [data-lib-count]'); if (c) c.textContent = lib.data.saved.length || '';
+    syncLibCount();
 }
-function syncSaveBtn(btn, on) {
-    btn.classList.toggle('on', on);
-    btn.setAttribute('aria-pressed', String(on));
-    btn.setAttribute('aria-label', on ? 'Remove from Library' : 'Save to Library');
-    const ic = btn.querySelector('.ms'); if (ic) ic.textContent = on ? 'bookmark' : 'bookmark_add';
-}
-
 function openContents(entry, onPick) {
     openSheet('contents', `${entry.subject.name} notes`, (body) => {
-        const groups = notesInSubject(entry.subject);
-        body.innerHTML = groups.map((g) => `
+        body.innerHTML = notesInSubject(entry.subject).map((g) => `
             <div class="toc-chapter">${esc(g.label)}</div>
             ${g.list.map((e) => `<button type="button" class="toc-item${e.item.id === entry.item.id ? ' current' : ''}" data-id="${e.item.id}"><span class="ms">${lib.isDone(e.item.id) ? 'task_alt' : 'description'}</span><span>${esc(itemParts(e.item).title)}${e.item.subtitle ? `<br><small style="white-space:normal;font-weight:500">${esc(truncate(e.item.subtitle, 90))}</small>` : ''}</span><small>${esc(e.item.size || '')}</small></button>`).join('')}`).join('');
-        body.querySelectorAll('[data-id]').forEach((b) => b.addEventListener('click', () => {
-            const target = itemIdx.get(b.dataset.id);
-            dismissOverlay(() => onPick(target));
-        }));
-        requestAnimationFrame(() => { const cur = body.querySelector('.current'); if (cur) cur.scrollIntoView({ block: 'center' }); });
+        onEach(body, '[data-id]', (b) => dismissOverlay(() => onPick(itemIdx.get(b.dataset.id))));
+        requestAnimationFrame(() => $('.current', body).scrollIntoView({ block: 'center' }));
     });
 }
 
-function openReaderMenu(entry, extra) {
+function openReaderMenu(entry, { contents, doneBtn, saveBtn }) {
     openSheet('reader-menu', 'Note options', (body) => {
-        const saved = lib.isSaved(entry.item.id);
-        const done = lib.isDone(entry.item.id);
-        body.innerHTML = `
-            ${extra && extra.contents ? `<button type="button" class="menu-item" data-m="contents"><span class="ms">format_list_bulleted</span>All notes in ${esc(entry.subject.name)}</button>` : ''}
-            <button type="button" class="menu-item${done ? ' on' : ''}" data-m="done"><span class="ms">task_alt</span>${done ? 'Marked as done' : 'Mark as done'}</button>
-            <button type="button" class="menu-item${saved ? ' on' : ''}" data-m="save"><span class="ms">bookmark</span>${saved ? 'Saved in Library' : 'Save to Library'}</button>
-            ${entry.item.file ? `<a class="menu-item" data-m="ext" href="${esc(entry.item.file)}" target="_blank" rel="noopener noreferrer"><span class="ms">open_in_new</span>${itemKind(entry.item) === 'pdf' ? "Open in your phone's PDF viewer" : 'Open in a new tab'}</a>` : ''}
-            ${itemKind(entry.item) === 'pdf' ? `<a class="menu-item" data-m="dl" href="${esc(entry.item.file)}" download="${esc(entry.item.title)}.pdf"><span class="ms">download</span>Download PDF${entry.item.size ? ` (${esc(entry.item.size)})` : ''}</a>` : ''}
-            ${itemKind(entry.item) === 'pdf' ? `<button type="button" class="menu-item" data-m="mode"><span class="ms">swap_horiz</span>${useBuiltInReader() ? "Always use the browser's PDF viewer" : 'Always use the built-in reader'}</button>` : ''}
-            <button type="button" class="menu-item" data-m="chapter"><span class="ms">arrow_back</span>Back to chapter</button>`;
+        const { item } = entry;
+        const saved = lib.isSaved(item.id);
+        const done = lib.isDone(item.id);
+        const isPdf = itemKind(item) === 'pdf';
+        const btn = (id, icon, label, on) => `<button type="button" class="menu-item${on ? ' on' : ''}" data-m="${id}"><span class="ms">${icon}</span>${label}</button>`;
+        const link = (id, icon, label, attrs) => `<a class="menu-item" data-m="${id}" href="${esc(item.file)}" ${attrs}><span class="ms">${icon}</span>${label}</a>`;
+        body.innerHTML = [
+            contents && btn('contents', 'format_list_bulleted', `All notes in ${esc(entry.subject.name)}`),
+            btn('done', 'task_alt', done ? 'Marked as done' : 'Mark as done', done),
+            btn('save', 'bookmark', saved ? 'Saved in Library' : 'Save to Library', saved),
+            link('ext', 'open_in_new', isPdf ? "Open in your phone's PDF viewer" : 'Open in a new tab', 'target="_blank" rel="noopener noreferrer"'),
+            isPdf && link('dl', 'download', `Download PDF${item.size ? ` (${esc(item.size)})` : ''}`, `download="${esc(item.title)}.pdf"`),
+            isPdf && btn('mode', 'swap_horiz', useBuiltInReader() ? "Always use the browser's PDF viewer" : 'Always use the built-in reader'),
+            btn('chapter', 'arrow_back', 'Back to chapter')
+        ].filter(Boolean).join('');
+        const actions = {
+            contents,
+            done: () => toggleDone(entry, doneBtn),
+            save: () => toggleSave(item.id, saveBtn),
+            mode: () => { const e2 = reader && reader.entry; if (e2) { closeReader(true); openReader(e2); } },
+            chapter: () => toChapter(entry)
+        };
         body.addEventListener('click', (e) => {
             const b = e.target.closest('[data-m]');
             if (!b) return;
             const m = b.dataset.m;
-            if (m === 'contents') dismissOverlay(() => extra.contents());
-            else if (m === 'done') dismissOverlay(() => { toggleDone(entry, extra && extra.doneBtn); if (extra && extra.onDone) extra.onDone(); });
-            else if (m === 'save') dismissOverlay(() => toggleSave(entry.item.id, extra && extra.saveBtn));
-            else if (m === 'mode') {
-                prefs.reader = useBuiltInReader() ? 'native' : 'builtin';
-                lsSet('ilberiz_reader', prefs.reader);
-                dismissOverlay(() => { const e2 = reader && reader.entry; if (e2) { closeReader(true); openReader(e2); } });
-            } else if (m === 'chapter') dismissOverlay(() => toChapter(entry));
-            else if (m === 'ext' || m === 'dl') setTimeout(() => dismissOverlay(), 50);
+            if (m === 'mode') setReaderPref(useBuiltInReader() ? 'native' : 'builtin');
+            if (actions[m]) dismissOverlay(actions[m]);
+            else setTimeout(() => dismissOverlay(), 50);   // links: let the click through first
         });
     });
 }
@@ -1552,42 +1437,40 @@ function browserPdfReader(entry) {
     const el = h(`
         <div class="reader" role="dialog" aria-modal="true" aria-label="Notes reader" data-subject="${entry.subject.id}">
             <div class="reader-bar">
-                <button type="button" class="icon-btn" data-r="back" aria-label="Close notes"><span class="ms">arrow_back</span></button>
-                <div class="reader-title"><strong data-r="title"></strong><small data-r="ctx"></small></div>
+                ${iconBtn('back', 'arrow_back', 'Close notes')}
+                ${readerTitle()}
                 <div class="note-steps" data-r="steps">
-                    <button type="button" class="icon-btn" data-r="prev" aria-label="Previous note ([)"><span class="ms">chevron_left</span></button>
+                    ${iconBtn('prev', 'chevron_left', 'Previous note ([)')}
                     <span class="label" data-r="pos"></span>
-                    <button type="button" class="icon-btn" data-r="next" aria-label="Next note (])"><span class="ms">chevron_right</span></button>
+                    ${iconBtn('next', 'chevron_right', 'Next note (])')}
                 </div>
-                <button type="button" class="icon-btn" data-r="toc" aria-label="All notes in this subject"><span class="ms">format_list_bulleted</span></button>
-                <button type="button" class="icon-btn star wide-only" data-r="save" aria-label="Save to Library"><span class="ms">bookmark_add</span></button>
-                <button type="button" class="btn btn-sm wide-only" data-r="done" aria-pressed="false"><span class="ms">check_circle</span><span data-lbl>Mark done</span></button>
+                ${iconBtn('toc', 'format_list_bulleted', 'All notes in this subject')}
+                ${SAVE_BTN}${DONE_BTN}
                 <span class="sep wide-only"></span>
                 <a class="icon-btn wide-only" data-r="ext" target="_blank" rel="noopener noreferrer" aria-label="Open in new tab"><span class="ms">open_in_new</span></a>
                 <a class="icon-btn wide-only" data-r="dl" aria-label="Download PDF"><span class="ms">download</span></a>
-                <button type="button" class="icon-btn wide-only" data-r="fs" aria-label="Full screen (F)"><span class="ms">fullscreen</span></button>
-                <button type="button" class="icon-btn" data-r="more" aria-label="More options" style="display:var(--more-d, inline-grid)"><span class="ms">more_vert</span></button>
+                ${iconBtn('fs', 'fullscreen', 'Full screen (F)', 'wide-only')}
+                ${iconBtn('more', 'more_vert', 'More options')}
             </div>
             <div class="reader-body" data-r="body"></div>
         </div>`);
-    const q = (n) => el.querySelector(`[data-r="${n}"]`);
+    const q = (n) => $(`[data-r="${n}"]`, el);
     const doneBtn = q('done');
     const saveBtn = q('save');
-    if (window.matchMedia && matchMedia('(min-width: 720px)').matches) q('more').style.display = 'none';
+    if (isWide()) q('more').style.display = 'none';
 
     function show(e) {
         cur = e;
         const list = notesInContainer(e);
-        const i = list.findIndex((x) => x.item.id === e.item.id);
+        const i = noteIndex(e, list);
         q('title').textContent = e.item.title;
         q('ctx').textContent = contextLine(e);
         q('steps').hidden = list.length < 2;
         q('pos').textContent = `${i + 1} / ${list.length}`;
         q('prev').disabled = i <= 0;
         q('next').disabled = i < 0 || i >= list.length - 1;
-        q('ext').href = e.item.file;
-        q('dl').href = e.item.file;
-        q('dl').setAttribute('download', `${e.item.title}.pdf`);
+        q('ext').href = q('dl').href = e.item.file;
+        q('dl').download = `${e.item.title}.pdf`;
         syncDoneBtn(doneBtn, lib.isDone(e.item.id));
         syncSaveBtn(saveBtn, lib.isSaved(e.item.id));
         let f = frames.get(e.item.id);
@@ -1608,11 +1491,11 @@ function browserPdfReader(entry) {
         frames.forEach((fr, id) => fr.classList.toggle('hidden', id !== e.item.id));
         if (e !== entry || reader) setReaderItem(e);
     }
+    const pick = (t) => { sfx.play('page'); show(t); };
     function step(d) {
         const list = notesInContainer(cur);
-        const i = list.findIndex((x) => x.item.id === cur.item.id);
-        const t = list[i + d];
-        if (t) { sfx.play('page'); show(t); }
+        const t = list[noteIndex(cur, list) + d];
+        if (t) pick(t);
     }
     async function toggleFs() {
         try {
@@ -1622,9 +1505,7 @@ function browserPdfReader(entry) {
     }
     function onFsChange() {
         const on = document.fullscreenElement === el;
-        const ic = q('fs').querySelector('.ms');
-        ic.textContent = on ? 'fullscreen_exit' : 'fullscreen';
-        q('fs').setAttribute('aria-label', on ? 'Exit full screen (F)' : 'Full screen (F)');
+        labelIcon(q('fs'), on ? 'fullscreen_exit' : 'fullscreen', on ? 'Exit full screen (F)' : 'Full screen (F)');
     }
     function onKey(e) {
         if (overlay) return;
@@ -1635,19 +1516,17 @@ function browserPdfReader(entry) {
         else if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFs(); }
         else if (e.key === 'Escape' && !document.fullscreenElement) { e.preventDefault(); closeReaderNav(); }
     }
-    const bar = el.querySelector('.reader-bar');
-    const refocus = () => { try { window.focus(); } catch (e) {} };
-    bar.addEventListener('pointerenter', refocus, { passive: true });
-    bar.addEventListener('pointerdown', refocus, { passive: true });
+    // take key focus back from the PDF iframe so the shortcuts keep working
+    ['pointerenter', 'pointerdown'].forEach((t) => $('.reader-bar', el).addEventListener(t, () => window.focus(), { passive: true }));
 
     q('back').addEventListener('click', closeReaderNav);
     q('prev').addEventListener('click', () => step(-1));
     q('next').addEventListener('click', () => step(1));
-    q('toc').addEventListener('click', () => openContents(cur, (t) => { sfx.play('page'); show(t); }));
+    q('toc').addEventListener('click', () => openContents(cur, pick));
     doneBtn.addEventListener('click', () => toggleDone(cur, doneBtn));
     saveBtn.addEventListener('click', () => toggleSave(cur.item.id, saveBtn));
     q('fs').addEventListener('click', toggleFs);
-    q('more').addEventListener('click', () => openReaderMenu(cur, { doneBtn, saveBtn, contents: () => openContents(cur, (t) => show(t)) }));
+    q('more').addEventListener('click', () => openReaderMenu(cur, { doneBtn, saveBtn, contents: () => openContents(cur, show) }));
     window.addEventListener('keydown', onKey, true);
     document.addEventListener('fullscreenchange', onFsChange);
     show(entry);
@@ -1663,16 +1542,14 @@ function browserPdfReader(entry) {
 /* ----- Built-in reader (phones): PDF.js, full screen, pinch zoom, resume ----- */
 let pdfjsPromise = null;
 function loadPdfJs() {
-    if (window.pdfjsLib) return Promise.resolve(window.pdfjsLib);
     if (!pdfjsPromise) {
         pdfjsPromise = new Promise((resolve, reject) => {
             const s = document.createElement('script');
             s.src = 'vendor/pdfjs/pdf.min.js';
             s.onload = () => {
-                const lib2 = window.pdfjsLib;
-                if (!lib2) { reject(new Error('PDF engine missing')); return; }
-                lib2.GlobalWorkerOptions.workerSrc = 'vendor/pdfjs/pdf.worker.min.js';
-                resolve(lib2);
+                if (!window.pdfjsLib) { reject(new Error('PDF engine missing')); return; }
+                window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'vendor/pdfjs/pdf.worker.min.js';
+                resolve(window.pdfjsLib);
             };
             s.onerror = () => { pdfjsPromise = null; reject(new Error('PDF engine failed to load')); };
             document.head.appendChild(s);
@@ -1722,11 +1599,11 @@ function builtInReader(entry) {
     const el = h(`
         <div class="reader pr" role="dialog" aria-modal="true" aria-label="Notes reader" data-subject="${entry.subject.id}">
             <div class="reader-bar">
-                <button type="button" class="icon-btn" data-r="back" aria-label="Close notes"><span class="ms">arrow_back</span></button>
-                <div class="reader-title"><strong data-r="title"></strong><small data-r="ctx"></small></div>
-                <button type="button" class="icon-btn" data-r="toc" aria-label="All notes in this subject"><span class="ms">format_list_bulleted</span></button>
-                <button type="button" class="icon-btn star wide-only" data-r="save" aria-label="Save to Library"><span class="ms">bookmark_add</span></button>
-                <button type="button" class="icon-btn" data-r="more" aria-label="More options"><span class="ms">more_vert</span></button>
+                ${iconBtn('back', 'arrow_back', 'Close notes')}
+                ${readerTitle()}
+                ${iconBtn('toc', 'format_list_bulleted', 'All notes in this subject')}
+                ${SAVE_BTN}
+                ${iconBtn('more', 'more_vert', 'More options')}
             </div>
             <div class="reader-body">
                 <div class="pr-scroll" data-r="scroll"><div class="pr-pages" data-r="pages"></div></div>
@@ -1738,13 +1615,14 @@ function builtInReader(entry) {
                 </div>
             </div>
         </div>`);
-    const q = (n) => el.querySelector(`[data-r="${n}"]`);
+    const q = (n) => $(`[data-r="${n}"]`, el);
     const scroller = q('scroll');
     const pagesEl = q('pages');
     const loading = q('loading');
     const pill = q('pill');
     const saveBtn = q('save');
 
+    function syncZoomBtns() { q('zoom').hidden = zoom === 1 && !isWide(); }
     function setBars(show) { el.classList.toggle('bars-hidden', !show); }
     function showPill() {
         if (!doc) return;
@@ -1781,7 +1659,7 @@ function builtInReader(entry) {
         loadingCard(`<span class="ms">description</span><strong>Opening notes</strong><span class="bar"><i style="--w:4%"></i></span><small data-prog>${esc(e.item.size || '')}</small>`);
         const barI = loading.querySelector('.bar > i');
         const prog = loading.querySelector('[data-prog]');
-        abort = window.AbortController ? new AbortController() : null;
+        abort = new AbortController();
         try {
             const [pdfjs, data] = await Promise.all([
                 loadPdfJs(),
@@ -1791,7 +1669,7 @@ function builtInReader(entry) {
                         barI.style.setProperty('--w', `${Math.max(4, Math.round((got / total) * 100))}%`);
                         prog.textContent = `${formatMB(got)} of ${formatMB(total)}`;
                     } else prog.textContent = `${formatMB(got)} loaded`;
-                }, abort && abort.signal)
+                }, abort.signal)
             ]);
             if (destroyed || cur !== e) return;
             doc = await pdfjs.getDocument({ data, isEvalSupported: false }).promise;
@@ -1819,14 +1697,14 @@ function builtInReader(entry) {
             pages.push({ el: p, n, canvas: null, task: null, renderedW: 0, near: false });
         }
         const list = notesInContainer(e);
-        const i = list.findIndex((x) => x.item.id === e.item.id);
-        const next = list[i + 1];
+        const next = list[noteIndex(e, list) + 1];
+        const done = lib.isDone(e.item.id);
         const end = h(`<div class="pr-end">
-            <span class="ms" style="font-size:32px;color:var(--accent-text)">${lib.isDone(e.item.id) ? 'task_alt' : 'flag'}</span>
+            <span class="ms" style="font-size:32px;color:var(--accent-text)">${done ? 'task_alt' : 'flag'}</span>
             <h3>End of ${esc(itemParts(e.item).title)}</h3>
             <p>${next ? `Next up: ${esc(itemParts(next.item).title)}${next.item.subtitle ? ' — ' + esc(truncate(next.item.subtitle, 80)) : ''}` : 'That was the last note in this chapter.'}</p>
             <div class="actions">
-                <button type="button" class="btn${lib.isDone(e.item.id) ? '' : ' btn-primary'}" data-end="done"><span class="ms">task_alt</span>${lib.isDone(e.item.id) ? 'Done' : 'Mark as done'}</button>
+                <button type="button" class="btn${done ? '' : ' btn-primary'}" data-end="done"><span class="ms">task_alt</span>${done ? 'Done' : 'Mark as done'}</button>
                 ${next ? `<button type="button" class="btn btn-primary" data-end="next"><span class="ms">skip_next</span>Next note</button>` : `<button type="button" class="btn" data-end="chapter"><span class="ms">arrow_back</span>Back to chapter</button>`}
             </div></div>`);
         end.addEventListener('click', (ev) => {
@@ -1836,14 +1714,14 @@ function builtInReader(entry) {
                 if (!lib.isDone(cur.item.id)) toggleDone(cur, null);
                 b.classList.remove('btn-primary');
                 b.innerHTML = '<span class="ms">task_alt</span>Done';
-            } else if (b.dataset.end === 'next' && next) { sfx.play('page'); switchTo(next); }
-            else if (b.dataset.end === 'chapter') toChapter(cur);
+            } else if (b.dataset.end === 'next') { sfx.play('page'); switchTo(next); }
+            else toChapter(cur);
         });
         frag.appendChild(end);
         pagesEl.appendChild(frag);
         loading.hidden = true;
         loading.innerHTML = '';
-        q('zoom').hidden = !(window.matchMedia && matchMedia('(min-width: 720px)').matches) && zoom === 1;
+        syncZoomBtns();
 
         io = new IntersectionObserver((ents) => {
             ents.forEach((en) => {
@@ -1878,7 +1756,7 @@ function builtInReader(entry) {
         const cssW = pg.el.clientWidth;
         if (!cssW) return;
         if (pg.canvas && Math.abs(pg.renderedW - cssW) / cssW < 0.15) return;
-        if (pg.task) { try { pg.task.cancel(); } catch (e) {} pg.task = null; }
+        cancelTask(pg);
         try {
             const page = await doc.getPage(pg.n);
             if (destroyed || !pg.near) return;
@@ -1904,8 +1782,9 @@ function builtInReader(entry) {
             pg.el.insertBefore(canvas, pg.el.firstChild);
         } catch (e) { pg.task = null; }
     }
+    function cancelTask(pg) { if (pg.task) { pg.task.cancel(); pg.task = null; } }
     function releasePage(pg) {
-        if (pg.task) { try { pg.task.cancel(); } catch (e) {} pg.task = null; }
+        cancelTask(pg);
         if (pg.canvas) { pg.canvas.width = 0; pg.canvas.height = 0; pg.canvas.remove(); pg.canvas = null; pg.renderedW = 0; }
     }
     function rerenderVisible() { pages.forEach((pg) => { if (pg.near) renderPage(pg); }); }
@@ -1963,11 +1842,11 @@ function builtInReader(entry) {
         pagesEl.style.width = `${zoom * 100}%`;
         scroller.scrollLeft = cx * k - fx;
         scroller.scrollTop = cy * k - fy;
-        q('zoom').hidden = zoom === 1 && !(window.matchMedia && matchMedia('(min-width: 720px)').matches);
+        syncZoomBtns();
         clearTimeout(applyZoom.t);
         applyZoom.t = setTimeout(rerenderVisible, 160);
     }
-    function dist(t) { const dx = t[0].clientX - t[1].clientX; const dy = t[0].clientY - t[1].clientY; return Math.hypot(dx, dy); }
+    const dist = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
     scroller.addEventListener('touchstart', (e) => {
         if (e.touches.length === 2) {
             const rect = scroller.getBoundingClientRect();
@@ -2042,12 +1921,8 @@ function builtInReader(entry) {
         if (io) { io.disconnect(); io = null; }
         pages.forEach(releasePage);
         pages = [];
-        if (abort) { try { abort.abort(); } catch (e) {} abort = null; }
-        if (doc) { try { doc.destroy(); } catch (e) {} doc = null; }
-    }
-    function onKey(e) {
-        if (overlay) return;
-        if (e.key === 'Escape') { e.preventDefault(); closeReaderNav(); }
+        if (abort) { abort.abort(); abort = null; }
+        if (doc) { doc.destroy(); doc = null; }
     }
     let lastW = window.innerWidth;
     function onResize() {
@@ -2059,20 +1934,21 @@ function builtInReader(entry) {
 
     scroller.addEventListener('scroll', onScroll, { passive: true });
     q('back').addEventListener('click', closeReaderNav);
-    q('toc').addEventListener('click', () => openContents(cur, (t) => { if (t.item.id !== cur.item.id) { sfx.play('page'); switchTo(t); } }));
+    const pick = (t, sound) => { if (t.item.id === cur.item.id) return; if (sound) sfx.play('page'); switchTo(t); };
+    q('toc').addEventListener('click', () => openContents(cur, (t) => pick(t, true)));
     saveBtn.addEventListener('click', () => toggleSave(cur.item.id, saveBtn));
-    q('more').addEventListener('click', () => openReaderMenu(cur, { saveBtn, contents: () => openContents(cur, (t) => { if (t.item.id !== cur.item.id) switchTo(t); }) }));
-    window.addEventListener('keydown', onKey);
+    q('more').addEventListener('click', () => openReaderMenu(cur, { saveBtn, contents: () => openContents(cur, pick) }));
+    window.addEventListener('keydown', escToClose);
     window.addEventListener('resize', onResize);
     load(entry);
     return {
         el,
         cleanup() {
             destroyed = true;
-            if (doc && cur) lib.setPos(cur.item.id, current, doc.numPages);
+            if (doc) lib.setPos(cur.item.id, current, doc.numPages);
             teardownDoc();
             clearTimeout(pillTimer);
-            window.removeEventListener('keydown', onKey);
+            window.removeEventListener('keydown', escToClose);
             window.removeEventListener('resize', onResize);
         }
     };
@@ -2080,34 +1956,32 @@ function builtInReader(entry) {
 
 /* ----- DPP engine viewer ----- */
 function engineViewer(entry) {
-    const parts = itemParts(entry.item);
+    const { item } = entry;
     const el = h(`
         <div class="reader" role="dialog" aria-modal="true" aria-label="Practice" data-subject="${entry.subject.id}">
             <div class="reader-bar">
-                <button type="button" class="icon-btn" data-r="back" aria-label="Close practice"><span class="ms">arrow_back</span></button>
-                <div class="reader-title"><strong>${esc(parts.title)}</strong><small>${esc(contextLine(entry))}${entry.item.badge ? ' · ' + esc(entry.item.badge) : ''}</small></div>
-                <button type="button" class="icon-btn star wide-only" data-r="save" aria-label="Save to Library"><span class="ms">bookmark_add</span></button>
-                <button type="button" class="btn btn-sm wide-only" data-r="done" aria-pressed="false"><span class="ms">check_circle</span><span data-lbl>Mark done</span></button>
-                <button type="button" class="icon-btn wide-only" data-r="reload" aria-label="Restart"><span class="ms">refresh</span></button>
-                <a class="icon-btn wide-only" href="${esc(entry.item.file)}" target="_blank" rel="noopener noreferrer" aria-label="Open in new tab"><span class="ms">open_in_new</span></a>
-                <button type="button" class="icon-btn" data-r="more" aria-label="More options"><span class="ms">more_vert</span></button>
+                ${iconBtn('back', 'arrow_back', 'Close practice')}
+                ${readerTitle(esc(itemParts(item).title), esc(contextLine(entry) + (item.badge ? ' · ' + item.badge : '')))}
+                ${SAVE_BTN}${DONE_BTN}
+                ${iconBtn('reload', 'refresh', 'Restart', 'wide-only')}
+                <a class="icon-btn wide-only" href="${esc(item.file)}" target="_blank" rel="noopener noreferrer" aria-label="Open in new tab"><span class="ms">open_in_new</span></a>
+                ${iconBtn('more', 'more_vert', 'More options')}
             </div>
-            <div class="reader-body"><iframe class="reader-frame" title="${esc(entry.item.title)}" allow="fullscreen" src="${esc(entry.item.file)}"></iframe></div>
+            <div class="reader-body"><iframe class="reader-frame" title="${esc(item.title)}" allow="fullscreen" src="${esc(item.file)}"></iframe></div>
         </div>`);
-    const q = (n) => el.querySelector(`[data-r="${n}"]`);
+    const q = (n) => $(`[data-r="${n}"]`, el);
     const doneBtn = q('done');
     const saveBtn = q('save');
-    syncDoneBtn(doneBtn, lib.isDone(entry.item.id));
-    syncSaveBtn(saveBtn, lib.isSaved(entry.item.id));
-    if (window.matchMedia && matchMedia('(min-width: 720px)').matches) q('more').style.display = 'none';
+    syncDoneBtn(doneBtn, lib.isDone(item.id));
+    syncSaveBtn(saveBtn, lib.isSaved(item.id));
+    if (isWide()) q('more').style.display = 'none';
     q('back').addEventListener('click', closeReaderNav);
     doneBtn.addEventListener('click', () => toggleDone(entry, doneBtn));
-    saveBtn.addEventListener('click', () => toggleSave(entry.item.id, saveBtn));
-    q('reload').addEventListener('click', () => { const f = el.querySelector('iframe'); f.src = entry.item.file; });
+    saveBtn.addEventListener('click', () => toggleSave(item.id, saveBtn));
+    q('reload').addEventListener('click', () => { $('iframe', el).src = item.file; });
     q('more').addEventListener('click', () => openReaderMenu(entry, { doneBtn, saveBtn }));
-    const onKey = (e) => { if (!overlay && e.key === 'Escape') { e.preventDefault(); closeReaderNav(); } };
-    window.addEventListener('keydown', onKey);
-    return { el, cleanup() { window.removeEventListener('keydown', onKey); } };
+    window.addEventListener('keydown', escToClose);
+    return { el, cleanup() { window.removeEventListener('keydown', escToClose); } };
 }
 
 /* ----- Telegram video viewer (legacy items) ----- */
@@ -2116,13 +1990,13 @@ function videoViewer(entry) {
     const el = h(`
         <div class="reader" role="dialog" aria-modal="true" aria-label="Lecture video">
             <div class="reader-bar">
-                <button type="button" class="icon-btn" data-r="back" aria-label="Close video"><span class="ms">arrow_back</span></button>
-                <div class="reader-title"><strong>${esc(entry.item.title)}</strong><small>${esc(contextLine(entry))}</small></div>
+                ${iconBtn('back', 'arrow_back', 'Close video')}
+                ${readerTitle(esc(entry.item.title), esc(contextLine(entry)))}
                 <a class="btn btn-sm" href="${post}" target="_blank" rel="noopener noreferrer"><span class="ms">open_in_new</span>Telegram</a>
             </div>
             <div class="reader-body"><iframe class="reader-frame" src="${post}?embed=1&dark=1" title="${esc(entry.item.title)}" allowfullscreen></iframe></div>
         </div>`);
-    el.querySelector('[data-r="back"]').addEventListener('click', closeReaderNav);
+    $('[data-r="back"]', el).addEventListener('click', closeReaderNav);
     return { el, cleanup() {} };
 }
 
@@ -2151,20 +2025,17 @@ function clearAuthentication() {
 }
 
 function setupAuthGate() {
-    const form = document.getElementById('auth-form');
-    const input = document.getElementById('auth-password-input');
-    const group = document.getElementById('auth-input-group');
-    const err = document.getElementById('auth-error-msg');
-    const btn = document.getElementById('auth-submit-btn');
-    const eye = document.getElementById('auth-toggle-visibility');
-    const remember = document.getElementById('auth-remember-checkbox');
+    const input = $('#auth-password-input');
+    const group = $('#auth-input-group');
+    const err = $('#auth-error-msg');
+    const btn = $('#auth-submit-btn');
+    const eye = $('#auth-toggle-visibility');
     let unlocking = false;
 
     eye.addEventListener('click', () => {
         const show = input.type === 'password';
         input.type = show ? 'text' : 'password';
-        document.getElementById('auth-eye-icon').textContent = show ? 'visibility_off' : 'visibility';
-        eye.setAttribute('aria-label', show ? 'Hide passcode' : 'Show passcode');
+        labelIcon(eye, show ? 'visibility_off' : 'visibility', show ? 'Hide passcode' : 'Show passcode');
         input.focus();
     });
     input.addEventListener('input', () => {
@@ -2172,7 +2043,7 @@ function setupAuthGate() {
         err.textContent = '';
         if (input.value.trim() === SITE_SECURITY_PASSCODE) submit();
     });
-    form.addEventListener('submit', (e) => { e.preventDefault(); submit(); });
+    $('#auth-form').addEventListener('submit', (e) => { e.preventDefault(); submit(); });
 
     function submit() {
         if (unlocking) return;
@@ -2181,10 +2052,10 @@ function setupAuthGate() {
             unlocking = true;
             sfx.play('success');
             haptic([12, 40, 12]);
-            setAuthentication(remember ? remember.checked : true);
+            setAuthentication($('#auth-remember-checkbox').checked);
             btn.classList.add('success');
             btn.innerHTML = '<span class="ms">check_circle</span><span>Unlocked</span>';
-            const gate = document.getElementById('auth-gate');
+            const gate = $('#auth-gate');
             gate.classList.add('unlocking');
             setTimeout(() => {
                 document.documentElement.classList.add('is-authenticated');
@@ -2222,55 +2093,53 @@ function lockWebsite() {
         }
         clearAuthentication();
         document.documentElement.classList.remove('is-authenticated');
-        const input = document.getElementById('auth-password-input');
-        const btn = document.getElementById('auth-submit-btn');
+        const input = $('#auth-password-input');
+        const btn = $('#auth-submit-btn');
         input.value = '';
         input.type = 'password';
         btn.classList.remove('success');
         btn.innerHTML = '<span class="ms">lock_open</span><span>Unlock</span>';
-        document.getElementById('auth-error-msg').textContent = '';
+        $('#auth-error-msg').textContent = '';
         sfx.play('off');
         setTimeout(() => input.focus(), 120);
     };
-    if (overlay) dismissOverlay(doLock); else doLock();
+    dismissOverlay(doLock);
 }
 
 /* --------------------------------------------------------------------------
    15. Global wiring
    -------------------------------------------------------------------------- */
+const ACTIONS = {
+    search() { sfx.play('tap'); haptic(6); openSearch(); },
+    settings() { sfx.play('tap'); haptic(6); openSettings(); },
+    theme() {
+        const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+        setThemePref(next);
+        sfx.play(next === 'light' ? 'on' : 'off');
+        haptic(8);
+    },
+    sound() { if (prefs.sound) sfx.play('off'); setSound(!prefs.sound); haptic(8); },
+    lock: lockWebsite
+};
 function onGlobalClick(e) {
     const actionEl = e.target.closest('[data-action]');
-    if (actionEl) {
-        const a = actionEl.dataset.action;
-        if (a === 'search') { sfx.play('tap'); haptic(6); openSearch(); return; }
-        if (a === 'settings') { sfx.play('tap'); haptic(6); openSettings(); return; }
-        if (a === 'theme') {
-            setThemePref(effectiveTheme() === 'dark' ? 'light' : 'dark');
-            sfx.play(effectiveTheme() === 'light' ? 'on' : 'off');
-            haptic(8);
-            return;
-        }
-        if (a === 'sound') { const next = !prefs.sound; if (!next) sfx.play('off'); setSound(next); haptic(8); return; }
-        if (a === 'lock') { lockWebsite(); return; }
-    }
+    if (actionEl) { ACTIONS[actionEl.dataset.action](); return; }
     const expand = e.target.closest('[data-expand]');
     if (expand) { expand.classList.toggle('open'); return; }
     const star = e.target.closest('[data-star]');
     if (star && !star.closest('.reader')) { e.preventDefault(); toggleSave(star.dataset.star, star); return; }
 
     const back = e.target.closest('#top-back');
-    if (back) { sfx.play('back'); haptic(6); goBack(document.getElementById('topbar').dataset.back || '#/'); return; }
+    if (back) { sfx.play('back'); haptic(6); goBack($('#topbar').dataset.back); return; }
 
-    const link = e.target.closest('a[href^="#/"], a[href="#"]');
+    const link = e.target.closest('a[href^="#/"]');
     if (link && !e.defaultPrevented && !e.metaKey && !e.ctrlKey && !e.shiftKey && e.button === 0) {
         e.preventDefault();
-        const href = link.getAttribute('href') === '#' ? '#/' : link.getAttribute('href');
+        const href = link.getAttribute('href');
         sfx.play('open');
         haptic(6);
-        if (link.closest('.tabbar') || link.closest('.sidebar')) {
-            if (href === location.hash || (href === '#/' && !location.hash)) { window.scrollTo({ top: 0, behavior: reducedMotion() ? 'auto' : 'smooth' }); return; }
-        }
-        go(href);
+        if (link.closest('.tabbar, .sidebar') && href === (location.hash || '#/')) window.scrollTo({ top: 0, behavior: reducedMotion() ? 'auto' : 'smooth' });
+        else go(href);
         return;
     }
     const tappable = e.target.closest('button, a, label.set-row');
@@ -2278,13 +2147,12 @@ function onGlobalClick(e) {
 }
 
 function onGlobalKey(e) {
-    const tag = document.activeElement ? document.activeElement.tagName : '';
-    const editing = tag === 'INPUT' || tag === 'TEXTAREA' || (document.activeElement && document.activeElement.isContentEditable);
+    const active = document.activeElement;
+    const editing = active && (active.isContentEditable || /^(INPUT|TEXTAREA)$/.test(active.tagName));
     if (!document.documentElement.classList.contains('is-authenticated')) return;
-    if (((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) || (e.key === '/' && !editing)) {
+    if (((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') || (e.key === '/' && !editing)) {
         e.preventDefault();
-        if (overlay && overlay.name === 'search') return;
-        openSearch();
+        if (!overlay || overlay.name !== 'search') openSearch();
         return;
     }
     if (e.key === 'Escape' && overlay) { e.preventDefault(); dismissOverlay(); }
@@ -2294,17 +2162,16 @@ function setupPWA() {
     window.addEventListener('beforeinstallprompt', (e) => {
         e.preventDefault();
         installPrompt = e;
-        const slot = document.querySelector('[data-install-slot]');
+        const slot = $('[data-install-slot]');
         if (slot && !slot.children.length) renderInstallBanner(slot);
     });
-    window.addEventListener('appinstalled', () => { installPrompt = null; $$('[data-install-banner]').forEach((b) => b.remove()); toast('App installed', { icon: 'install_mobile' }); });
+    window.addEventListener('appinstalled', () => { installPrompt = null; removeInstallBanner(); toast('App installed', { icon: 'install_mobile' }); });
     if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('sw.js').then(() => loadOfflineSet()).catch(() => {});
         });
     }
-    const pill = document.getElementById('offline-pill');
-    const syncOnline = () => { pill.hidden = navigator.onLine; };
+    const syncOnline = () => { $('#offline-pill').hidden = navigator.onLine; };
     window.addEventListener('online', () => { syncOnline(); toast('Back online', { icon: 'wifi' }); });
     window.addEventListener('offline', syncOnline);
     syncOnline();
@@ -2314,15 +2181,14 @@ let appStarted = false;
 async function startApp() {
     if (appStarted) return;
     appStarted = true;
-    if (window.COURSE_DATA) {
-        state.data = window.COURSE_DATA;
-    } else {
+    state.data = window.COURSE_DATA;
+    if (!state.data) {
         try {
             const res = await fetch('data.json');
             if (!res.ok) throw new Error('HTTP ' + res.status);
             state.data = await res.json();
         } catch (err) {
-            view().innerHTML = `<div class="page"><div class="empty-state" style="margin-top:24px"><span class="ms">cloud_off</span><h3>Course data could not load</h3><p>Check your internet connection and reload the page.</p><div class="actions"><button type="button" class="btn btn-primary" onclick="location.reload()">Reload</button></div></div></div>`;
+            view().innerHTML = `<div class="page">${emptyState('cloud_off', 'Course data could not load', 'Check your internet connection and reload the page.', '<button type="button" class="btn btn-primary" onclick="location.reload()">Reload</button>', 'margin-top:24px')}</div>`;
             appStarted = false;
             return;
         }
@@ -2338,17 +2204,14 @@ async function startApp() {
 }
 
 function init() {
-    try { history.scrollRestoration = 'manual'; } catch (e) {}
+    history.scrollRestoration = 'manual';
     applyTheme();
     syncSoundButton();
-    if (window.matchMedia) {
-        const mq = matchMedia('(prefers-color-scheme: light)');
-        const onChange = () => { if (prefs.theme === 'system') applyTheme(); };
-        if (mq.addEventListener) mq.addEventListener('change', onChange); else if (mq.addListener) mq.addListener(onChange);
-    }
+    const systemTheme = matchMedia('(prefers-color-scheme: light)');
+    if (systemTheme.addEventListener) systemTheme.addEventListener('change', () => { if (prefs.theme === 'system') applyTheme(); });
     document.addEventListener('click', onGlobalClick);
     window.addEventListener('keydown', onGlobalKey);
-    const topbar = document.getElementById('topbar');
+    const topbar = $('#topbar');
     let sTick = false;
     window.addEventListener('scroll', () => {
         if (sTick) return;
@@ -2362,7 +2225,7 @@ function init() {
         startApp();
     } else {
         document.documentElement.classList.remove('is-authenticated');
-        setTimeout(() => { const i = document.getElementById('auth-password-input'); if (i) i.focus(); }, 150);
+        setTimeout(() => $('#auth-password-input').focus(), 150);
     }
 }
 
