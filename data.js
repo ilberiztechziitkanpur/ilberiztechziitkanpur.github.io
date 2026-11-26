@@ -983,7 +983,33 @@ window.COURSE_DATA = {
                             "id": "chap-chem-12",
                             "name": "Ch 9: Organic Chemistry",
                             "description": "Catenation, tetravalency, homologous series, IUPAC nomenclature of alkanes, alkenes, alkynes, alcohols, carboxylic acids",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "chem-organic-dpp-mcq",
+                                    "title": "Organic — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "37 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=organic&sec=mcq",
+                                    "badge": "DPP 1 • 37 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "chem-organic-dpp-obj",
+                                    "title": "Organic — Interactive DPP 2: One-markers (Section A · Q2)",
+                                    "subtitle": "66 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 32 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=organic&sec=obj",
+                                    "badge": "DPP 2 • 66 one-markers • 1 Mark each"
+                                },
+                                {
+                                    "id": "chem-organic-dpp-secb",
+                                    "title": "Organic — Interactive DPP 3: Section B (Q3–Q8)",
+                                    "subtitle": "67 official ICSE questions from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 23 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=organic&sec=secb",
+                                    "badge": "DPP 3 • 67 questions • 2–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-chem-practical",
