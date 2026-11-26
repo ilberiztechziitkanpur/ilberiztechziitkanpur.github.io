@@ -53,7 +53,7 @@ window.NM_DPP_DATA.periodic = {
     "name": "Halogens (Group 17)"
    }
   ],
-  "updated": "2026-11-23"
+  "updated": "2026-11-26"
  },
  "sources": [
   {
@@ -91,7 +91,7 @@ window.NM_DPP_DATA.periodic = {
    "marks": {
     "mcq": 0,
     "obj": 3,
-    "secb": 4
+    "secb": 3
    },
    "url": "https://cdn1.byjus.com/wp-content/uploads/2020/06/ICSE-Class-10-Chemistry-Question-Paper-Solution-2018.pdf"
   },
@@ -117,7 +117,7 @@ window.NM_DPP_DATA.periodic = {
    "marks": {
     "mcq": 1,
     "obj": 1,
-    "secb": 6
+    "secb": 4
    },
    "url": "https://cdn.aglasem.com/aglasem-doc/837a334c-1e99-11ec-8782-0a5e36bc6706/837a334c-1e99-11ec-8782-0a5e36bc6706.pdf"
   },
@@ -184,7 +184,7 @@ window.NM_DPP_DATA.periodic = {
    "marks": {
     "mcq": 2,
     "obj": 1,
-    "secb": 7
+    "secb": 4
    },
    "url": "https://static.collegedekho.com/media/uploads/2025/09/02/icse-2025-522-sci2-qp.pdf"
   },
@@ -197,7 +197,7 @@ window.NM_DPP_DATA.periodic = {
    "marks": {
     "mcq": 2,
     "obj": 0,
-    "secb": 11
+    "secb": 10
    },
    "url": "https://cisce.org/wp-content/uploads/2026/11/9.-ICSE-Chemistry.pdf",
    "note": "Question text taken from the official CISCE Analysis of Pupil Performance 2026, which reproduces the paper."
@@ -266,7 +266,7 @@ window.NM_DPP_DATA.periodic = {
    "marks": {
     "mcq": 2,
     "obj": 1,
-    "secb": 6
+    "secb": 5
    },
    "url": "https://cisce.org/wp-content/uploads/2025/12/ICSE_2023_SPECIMEN_SCI2.pdf"
   },
@@ -279,7 +279,7 @@ window.NM_DPP_DATA.periodic = {
    "marks": {
     "mcq": 3,
     "obj": 2,
-    "secb": 7
+    "secb": 6
    },
    "url": "https://cisce.org/wp-content/uploads/2025/11/ICSE-2024-SPECIMEN-522-SCI2.pdf"
   },
@@ -292,7 +292,7 @@ window.NM_DPP_DATA.periodic = {
    "marks": {
     "mcq": 4,
     "obj": 2,
-    "secb": 8
+    "secb": 7
    },
    "url": "https://cisce.org/wp-content/uploads/2025/11/ICSE_2025_SPECIMEN_QP_MS_522_SCI2.pdf"
   },
@@ -305,7 +305,7 @@ window.NM_DPP_DATA.periodic = {
    "marks": {
     "mcq": 1,
     "obj": 2,
-    "secb": 6
+    "secb": 5
    },
    "url": "https://cisce.org/wp-content/uploads/2025/11/ICSE-2026-SPECIMEN-522-SCI2.pdf"
   },
@@ -318,7 +318,7 @@ window.NM_DPP_DATA.periodic = {
    "marks": {
     "mcq": 2,
     "obj": 0,
-    "secb": 6
+    "secb": 7
    },
    "url": "https://cisce.org/wp-content/uploads/2026/07/ICSE-2027-SPECIMEN-522-CHEMISTRY-QP-MS.pdf"
   },
@@ -330,7 +330,7 @@ window.NM_DPP_DATA.periodic = {
    "found": true,
    "marks": {
     "mcq": 3,
-    "obj": 12,
+    "obj": 15,
     "secb": 5
    },
    "url": "https://cisce.org/wp-content/uploads/2025/11/ICSE-Chemistry.pdf"
@@ -401,7 +401,7 @@ window.NM_DPP_DATA.periodic = {
    "topic": "electron-affinity",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Choose one correct answer to the questions from the given options:",
+   "stem": null,
    "picture": null,
    "img": null,
    "q": "Electron affinity is maximum in:",
@@ -510,7 +510,7 @@ window.NM_DPP_DATA.periodic = {
    "topic": "ionisation-potential",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Choose the most appropriate answer.",
+   "stem": null,
    "picture": null,
    "q": "The element with the highest ionization potential in the periodic table is:",
    "options": [
@@ -649,8 +649,8 @@ window.NM_DPP_DATA.periodic = {
    ],
    "related": [
     "periodic-obj-12",
-    "periodic-obj-16",
-    "periodic-secb-06"
+    "periodic-obj-15",
+    "periodic-secb-05"
    ]
   },
   {
@@ -709,7 +709,7 @@ window.NM_DPP_DATA.periodic = {
    "stem": "The table below shows the electronic arrangements of six atoms, A to F.\n<table><tr><th>atom</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr><tr><td>electronic configuration</td><td>2,5</td><td>2</td><td>2,6</td><td>2,8,6</td><td>2,8,8</td><td>2,8,3</td></tr></table>\nWith respect to the table select the following:",
    "picture": null,
    "img": null,
-   "q": "The atom which has the highest ionization potential:",
+   "q": "(iv) The atom which has the highest ionization potential:",
    "options": [
     "A",
     "B",
@@ -753,7 +753,7 @@ window.NM_DPP_DATA.periodic = {
    "topic": "electron-affinity",
    "format": "MCQ",
    "marks": 1,
-   "stem": null,
+   "stem": "Choose the correct answers to the questions from the given options. (Do not copy the questions, write the correct answers only.)",
    "picture": null,
    "img": null,
    "q": "An element in period 3, whose electron affinity is zero:",
@@ -803,7 +803,7 @@ window.NM_DPP_DATA.periodic = {
    "topic": "electron-affinity",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Select the correct option for each of the following questions.",
+   "stem": null,
    "picture": null,
    "img": null,
    "q": "When an electron is added in the valence shell:",
@@ -854,7 +854,7 @@ window.NM_DPP_DATA.periodic = {
    "stem": "Choose the correct answer from the options given below:",
    "picture": null,
    "img": null,
-   "q": "The most electronegative element from the following elements is:",
+   "q": "(ii) The most electronegative element from the following elements is:",
    "options": [
     "Magnesium",
     "Chlorine",
@@ -907,7 +907,7 @@ window.NM_DPP_DATA.periodic = {
    "topic": "electronegativity",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Select the correct option for each of the following questions.",
+   "stem": null,
    "picture": null,
    "img": null,
    "q": "The most electronegative element is:",
@@ -958,7 +958,7 @@ window.NM_DPP_DATA.periodic = {
    "stem": "The table below shows the electronic arrangements of six atoms, A to F.\n<table><tr><th>atom</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr><tr><td>electronic configuration</td><td>2,5</td><td>2</td><td>2,6</td><td>2,8,6</td><td>2,8,8</td><td>2,8,3</td></tr></table>\nWith respect to the table select the following:",
    "picture": null,
    "img": null,
-   "q": "The atom which is the most electronegative:",
+   "q": "(iii) The atom which is the most electronegative:",
    "options": [
     "A",
     "B",
@@ -1006,7 +1006,7 @@ window.NM_DPP_DATA.periodic = {
    "stem": "Observe the Periodic Table to answer the questions:\n<table><tr><th>Group No.</th><th>1-1A</th><th>2-IIA</th><th>13-IIIA</th><th>14-IVA</th><th>15-VA</th><th>16-VIA</th><th>17-VIIA</th><th>18-0</th></tr><tr><td>2nd period</td><td>Li</td><td></td><td>D</td><td></td><td></td><td>O</td><td>J</td><td>Ne</td></tr><tr><td>3rd period</td><td>A</td><td>Mg</td><td>E</td><td>Si</td><td></td><td>X</td><td>M</td><td></td></tr><tr><td>4th period</td><td>R</td><td>T</td><td>G</td><td></td><td>Q</td><td>Y</td><td></td><td>Z</td></tr></table>\nIn the above table some elements are mentioned with their own symbol and position of the Periodic Table while others are shown with a letter. Answer the following questions pertaining to the same.",
    "picture": null,
    "img": null,
-   "q": "(a) Identify the most electronegative element.",
+   "q": "Identify the most electronegative element.",
    "options": [
     "Li.",
     "Ne",
@@ -1098,7 +1098,7 @@ window.NM_DPP_DATA.periodic = {
    "topic": "atomic-size",
    "format": "MCQ",
    "marks": 1,
-   "stem": null,
+   "stem": "Choose the correct answers to the questions from the given options. (Do not copy the questions, write the correct answers only.)",
    "picture": null,
    "img": null,
    "q": "An element with the largest atomic radius among the following is:",
@@ -1136,7 +1136,7 @@ window.NM_DPP_DATA.periodic = {
    "related": [
     "periodic-mcq-16",
     "periodic-mcq-17",
-    "periodic-obj-17",
+    "periodic-obj-15",
     "periodic-obj-18",
     "periodic-obj-20",
     "periodic-secb-05"
@@ -1148,10 +1148,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "atomic-size",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Choose the correct answers to the questions from the given options. (Do not copy the question, write the correct answers only.)",
+   "stem": "Choose the correct answers to the questions from the given options.\n(Do not copy the question, write the correct answers only.)",
    "picture": null,
    "img": null,
-   "q": "Which element amongst the following has the largest atomic radius?",
+   "q": "(x) Which element amongst the following has the largest atomic radius?",
    "options": [
     "Al",
     "S",
@@ -1258,7 +1258,7 @@ window.NM_DPP_DATA.periodic = {
    "topic": "metallic-character",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Select the correct option for each of the following questions.",
+   "stem": null,
    "picture": null,
    "img": null,
    "q": "The trend in metallic nature of metals as we go from top to bottom in a group:",
@@ -1354,7 +1354,7 @@ window.NM_DPP_DATA.periodic = {
    "topic": "mixed-trends",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Select the correct option for each of the following questions.",
+   "stem": null,
    "picture": null,
    "img": null,
    "q": "The property which decreases from left to right across the periodic table:",
@@ -1447,7 +1447,7 @@ window.NM_DPP_DATA.periodic = {
    ],
    "related": [
     "periodic-mcq-22",
-    "periodic-obj-08",
+    "periodic-obj-07",
     "periodic-obj-09",
     "periodic-obj-10"
    ]
@@ -1458,10 +1458,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "metallic-character",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Choose the correct answers to the questions from the given options. (Do not copy the question, write the correct answers only.)",
+   "stem": "Choose the correct answers to the questions from the given options.\n(Do not copy the question, write the correct answers only.)",
    "picture": null,
    "img": null,
-   "q": "Which of the following electronic configuration represents the most electropositive element?",
+   "q": "(x) Which of the following electronic configuration represents the most electropositive element?",
    "options": [
     "2, 1",
     "2, 8, 1",
@@ -1503,7 +1503,7 @@ window.NM_DPP_DATA.periodic = {
     "periodic-mcq-21",
     "periodic-mcq-41",
     "periodic-mcq-47",
-    "periodic-obj-08",
+    "periodic-obj-07",
     "periodic-obj-09",
     "periodic-obj-10"
    ]
@@ -1514,10 +1514,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "metallic-character",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Choose the correct answers to the questions from the given options. (Do not copy the question, write the correct answers only.)",
+   "stem": "Choose the correct answers to the questions from the given options.\n(Do not copy the question, write the correct answers only.)",
    "picture": null,
    "img": null,
-   "q": "An element with atomic no. __________ will form an acidic oxide.",
+   "q": "(x) An element with atomic no. __________ will form an acidic oxide.",
    "options": [
     "3",
     "17",
@@ -1568,7 +1568,7 @@ window.NM_DPP_DATA.periodic = {
    "options": [
     "Li > Be > N > O (Metallic character)",
     "CI > F > Br >I (Electron gain enthalpy)",
-    "O<sup>2-</sup> > F<sup>-</sup> > Mg<sup>2+</sup> >Na<sup>+</sup> (Ionic radii)",
+    "O<sup>2–</sup> > F<sup>–</sup> > Mg<sup>2+</sup> >Na<sup>+</sup> (Ionic radii)",
     "I > Br > CI > F (Number of shells)"
    ],
    "correct": 2,
@@ -1617,7 +1617,7 @@ window.NM_DPP_DATA.periodic = {
    "stem": "Choose the correct answer from the options given below:",
    "picture": null,
    "img": null,
-   "q": "An element with the atomic number 19 will most likely combine chemically with the element whose atomic number is:",
+   "q": "(i) An element with the atomic number 19 will most likely combine chemically with the element whose atomic number is:",
    "options": [
     "17",
     "11",
@@ -1655,8 +1655,7 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-official-APP",
-    "straddles-ch2"
+    "key-official-APP"
    ],
    "related": [
     "periodic-mcq-26",
@@ -1705,8 +1704,7 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined",
-    "straddles-redox"
+    "key-agent-determined"
    ],
    "related": [
     "periodic-mcq-25",
@@ -1755,13 +1753,12 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined",
-    "straddles-ch2"
+    "key-agent-determined"
    ],
    "related": [
     "periodic-mcq-46",
     "periodic-secb-27",
-    "periodic-secb-29",
+    "periodic-secb-28",
     "periodic-secb-31"
    ]
   },
@@ -1812,8 +1809,7 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-official-APP",
-    "straddles-ch2"
+    "key-official-APP"
    ],
    "related": [
     "periodic-mcq-23",
@@ -1833,7 +1829,7 @@ window.NM_DPP_DATA.periodic = {
    "stem": null,
    "picture": null,
    "img": null,
-   "q": "An atom of X forms an ion according to the equation X  →  X<sup>+2</sup>.\nThe atomic number of the atom X is:",
+   "q": "An atom of X forms an ion according to the equation X → X<sup>+2</sup>.\nThe atomic number of the atom X is:",
    "options": [
     "16",
     "10",
@@ -1871,8 +1867,7 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-official-APP",
-    "straddles-ch2"
+    "key-official-APP"
    ],
    "related": [
     "periodic-mcq-25",
@@ -1922,8 +1917,7 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined",
-    "straddles-ch2"
+    "key-agent-determined"
    ],
    "related": [
     "periodic-mcq-29",
@@ -1940,10 +1934,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "valency-valence-electrons",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Choose the correct answers to the questions from the given options. (Do not copy the question, write the correct answers only.)",
+   "stem": "Choose the correct answers to the questions from the given options.\n(Do not copy the question, write the correct answers only.)",
    "picture": null,
    "img": null,
-   "q": "An element belongs to third period and sixteenth group. It will have __________ electrons in its valence shell.",
+   "q": "(xv) An element belongs to third period and sixteenth group. It will have __________ electrons in its valence shell.",
    "options": [
     "2",
     "5",
@@ -1979,7 +1973,7 @@ window.NM_DPP_DATA.periodic = {
     "periodic-mcq-30",
     "periodic-mcq-33",
     "periodic-obj-04",
-    "periodic-secb-08"
+    "periodic-secb-07"
    ]
   },
   {
@@ -1988,10 +1982,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "valency-valence-electrons",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Choose the correct answers to the questions from the given options. (Do not copy the question, write the correct answers only.)",
+   "stem": "Choose the correct answers to the questions from the given options.\n(Do not copy the question, write the correct answers only.)",
    "picture": null,
    "img": null,
-   "q": "Element ‘P’ has electronic configuration 2,8,8,1. The number of chlorine atoms present in the chloride of ‘P’ is:",
+   "q": "(vii) Element ‘P’ has electronic configuration 2,8,8,1. The number of chlorine atoms present in the chloride of ‘P’ is:",
    "options": [
     "2",
     "1",
@@ -2027,8 +2021,7 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-official-specimen",
-    "straddles-ch2"
+    "key-official-specimen"
    ],
    "related": [
     "periodic-mcq-25",
@@ -2047,7 +2040,7 @@ window.NM_DPP_DATA.periodic = {
    "stem": "Observe the Periodic Table to answer the questions:\n<table><tr><th>Group No.</th><th>1-1A</th><th>2-IIA</th><th>13-IIIA</th><th>14-IVA</th><th>15-VA</th><th>16-VIA</th><th>17-VIIA</th><th>18-0</th></tr><tr><td>2nd period</td><td>Li</td><td></td><td>D</td><td></td><td></td><td>O</td><td>J</td><td>Ne</td></tr><tr><td>3rd period</td><td>A</td><td>Mg</td><td>E</td><td>Si</td><td></td><td>X</td><td>M</td><td></td></tr><tr><td>4th period</td><td>R</td><td>T</td><td>G</td><td></td><td>Q</td><td>Y</td><td></td><td>Z</td></tr></table>\nIn the above table some elements are mentioned with their own symbol and position of the Periodic Table while others are shown with a letter. Answer the following questions pertaining to the same.",
    "picture": null,
    "img": null,
-   "q": "(b) How many Valence electrons are present in Q?",
+   "q": "How many Valence electrons are present in Q?",
    "options": [
     "3",
     "5",
@@ -2083,7 +2076,7 @@ window.NM_DPP_DATA.periodic = {
     "periodic-mcq-30",
     "periodic-mcq-31",
     "periodic-obj-04",
-    "periodic-secb-08"
+    "periodic-secb-07"
    ]
   },
   {
@@ -2131,7 +2124,7 @@ window.NM_DPP_DATA.periodic = {
     "periodic-mcq-35",
     "periodic-mcq-47",
     "periodic-obj-04",
-    "periodic-secb-41"
+    "periodic-secb-40"
    ]
   },
   {
@@ -2143,7 +2136,7 @@ window.NM_DPP_DATA.periodic = {
    "stem": "The table below shows the electronic arrangements of six atoms, A to F.\n<table><tr><th>atom</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr><tr><td>electronic configuration</td><td>2,5</td><td>2</td><td>2,6</td><td>2,8,6</td><td>2,8,8</td><td>2,8,3</td></tr></table>\nWith respect to the table select the following:",
    "picture": null,
    "img": null,
-   "q": "Two atoms from the same group of the periodic table:",
+   "q": "(i) Two atoms from the same group of the periodic table:",
    "options": [
     "D and E",
     "C and D",
@@ -2193,7 +2186,7 @@ window.NM_DPP_DATA.periodic = {
    "stem": "The table below shows the electronic arrangements of six atoms, A to F.\n<table><tr><th>atom</th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th></tr><tr><td>electronic configuration</td><td>2,5</td><td>2</td><td>2,6</td><td>2,8,6</td><td>2,8,8</td><td>2,8,3</td></tr></table>\nWith respect to the table select the following:",
    "picture": null,
    "img": null,
-   "q": "Two noble gases:",
+   "q": "(ii) Two noble gases:",
    "options": [
     "A and B",
     "E and F",
@@ -2240,7 +2233,7 @@ window.NM_DPP_DATA.periodic = {
    "topic": "periodic-law-structure",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Select the correct option for each of the following questions.",
+   "stem": null,
    "picture": null,
    "img": null,
    "q": "Elements with similar valence shell configuration in a Periodic Table are placed in:",
@@ -2288,10 +2281,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "position-group-period",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Select the correct option for each of the following questions.",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "On the basis of electronic configuration the period and group of B<sup>9</sup><sub>5</sub> is:",
+   "q": "On the basis of electronic configuration the period and group of <sup>9</sup><sub>5</sub>B is:",
    "options": [
     "2 and IIIA",
     "3 and IIA",
@@ -2336,10 +2329,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "periodic-law-structure",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Choose the correct answers to the questions from the given options. (Do not copy the question, write the correct answers only.)",
+   "stem": "Choose the correct answers to the questions from the given options.\n(Do not copy the question, write the correct answers only.)",
    "picture": null,
    "img": null,
-   "q": "<sub>1</sub>H<sup>2</sup> is an isotope of hydrogen. In the modern Periodic Table it will:",
+   "q": "(viii) <sub>1</sub>H<sup>2</sup> is an isotope of hydrogen. In the modern Periodic Table it will:",
    "options": [
     "be placed before hydrogen",
     "be placed after hydrogen",
@@ -2394,10 +2387,10 @@ window.NM_DPP_DATA.periodic = {
    "img": null,
    "q": "Element Y is in Group IIA of the Periodic Table. Y reacts with element Q to form an ionic compound. Which equation shows the process that takes place when Y forms ions?",
    "options": [
-    "Y + 2e<sup>-</sup> → Y<sup>2+</sup>",
-    "Y – 2e<sup>-</sup> → Y<sup>2-</sup>",
-    "Y + 2e<sup>-</sup> → Y<sup>2–</sup>",
-    "Y – 2e<sup>-</sup> → Y<sup>2+</sup>"
+    "Y + 2e<sup>–</sup> → Y<sup>2+</sup>",
+    "Y – 2e<sup>–</sup> → Y<sup>2–</sup>",
+    "Y + 2e<sup>–</sup> → Y<sup>2–</sup>",
+    "Y – 2e<sup>–</sup> → Y<sup>2+</sup>"
    ],
    "correct": 3,
    "seen": [
@@ -2428,15 +2421,13 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-official-CFPQ",
-    "straddles-ch2"
+    "key-official-CFPQ"
    ],
    "related": [
     "periodic-mcq-29",
     "periodic-mcq-30",
     "periodic-mcq-42",
-    "periodic-secb-40",
-    "periodic-secb-41"
+    "periodic-secb-40"
    ]
   },
   {
@@ -2448,7 +2439,7 @@ window.NM_DPP_DATA.periodic = {
    "stem": null,
    "picture": null,
    "img": null,
-   "q": "Assertion (A):  The tendency of losing electrons increases down the Group.\nReason (R):      The most reactive metal is placed at the top of Group 1.",
+   "q": "Assertion (A):  The tendency of losing electrons increases down the Group.\nReason (R):  The most reactive metal is placed at the top of Group 1.",
    "options": [
     "Both (A) and (R) are true, and (R) is the correct explanation of (A).",
     "Both (A) and (R) are true, and (R) is not the correct explanation of (A).",
@@ -2500,10 +2491,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "alkali-metals",
    "format": "AR",
    "marks": 1,
-   "stem": "Choose the correct answers to the questions from the given options. (Do not copy the question, write the correct answers only.)",
+   "stem": "Choose the correct answers to the questions from the given options.\n(Do not copy the question, write the correct answers only.)",
    "picture": null,
    "img": null,
-   "q": "Assertion (A): Alkali metals do not form dipositive ions.\nReason (R): After loss of one electron alkali metals achieve stable electronic configuration of noble gases.",
+   "q": "(xi) Assertion (A): Alkali metals do not form dipositive ions.\nReason (R): After loss of one electron alkali metals achieve stable electronic configuration of noble gases.",
    "options": [
     "Both A and R are true and R is the correct explanation of A",
     "Both A and are true but R is not the correct explanation of A",
@@ -2555,7 +2546,7 @@ window.NM_DPP_DATA.periodic = {
    "topic": "halogens",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Select the correct option for each of the following questions.",
+   "stem": null,
    "picture": null,
    "img": null,
    "q": "The property that matches with elements of the halogen family are:",
@@ -2603,15 +2594,15 @@ window.NM_DPP_DATA.periodic = {
    "topic": "halogens",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Choose the correct answers to the questions from the given options. (Do not copy the question, write the correct answers only.)",
+   "stem": "Choose the correct answers to the questions from the given options.\n(Do not copy the question, write the correct answers only.)",
    "picture": null,
    "img": null,
-   "q": "X and Y are diatomic elements. X is less reactive than Y.\nWhat are elements X and Y?",
+   "q": "(i) X and Y are diatomic elements. X is less reactive than Y.\nWhat are elements X and Y?",
    "options": [
     "X - chlorine, Y - iodine",
     "X - fluorine, Y - nitrogen",
-    "X - iodine, Y - bromine",
-    "X - oxygen, Y - nitrogen"
+    "X - iodine,    Y - bromine",
+    "X - oxygen,  Y - nitrogen"
    ],
    "correct": 2,
    "seen": [
@@ -2657,10 +2648,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "halogens",
    "format": "AR",
    "marks": 1,
-   "stem": "Choose the correct answers to the questions from the given options. (Do not copy the question, write the correct answers only.)",
+   "stem": "Choose the correct answers to the questions from the given options.\n(Do not copy the question, write the correct answers only.)",
    "picture": null,
    "img": null,
-   "q": "Statement I: Halogens are very reactive.\nStatement II: Halogens have high electron affinity.",
+   "q": "(vii) Statement I: Halogens are very reactive.\nStatement II: Halogens have high electron affinity.",
    "options": [
     "Both the statements are true.",
     "Both the statements are false.",
@@ -2742,13 +2733,12 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined",
-    "straddles-ch2"
+    "key-agent-determined"
    ],
    "related": [
     "periodic-mcq-27",
     "periodic-secb-27",
-    "periodic-secb-29",
+    "periodic-secb-28",
     "periodic-secb-31"
    ]
   },
@@ -2758,7 +2748,7 @@ window.NM_DPP_DATA.periodic = {
    "topic": "alkali-metals",
    "format": "MCQ",
    "marks": 1,
-   "stem": "Choose one correct answer to the questions from the given options:",
+   "stem": null,
    "picture": null,
    "img": null,
    "q": "An alkali metal found in period 3 and group 1 is:",
@@ -2798,8 +2788,8 @@ window.NM_DPP_DATA.periodic = {
     "periodic-mcq-34",
     "periodic-mcq-41",
     "periodic-mcq-42",
-    "periodic-obj-08",
-    "periodic-secb-41"
+    "periodic-obj-07",
+    "periodic-secb-40"
    ]
   },
   {
@@ -2808,21 +2798,21 @@ window.NM_DPP_DATA.periodic = {
    "topic": "electronegativity",
    "format": "NAME",
    "marks": 1,
-   "stem": "State the terms for the following:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(d) The tendency of an atom to attract the shared pair of electrons towards itself when combined in a compound.",
+   "q": "State the <b>terms</b> for the following:\n(a) <i>Undistilled</i> alcohol containing a large amount of methanol.\n(b) A <i>salt</i> formed by the <i>partial</i> replacement of the <i>hydroxyl group</i> of a di-acidic or a tri-acidic base by an acid radical.\n(c) Organic compounds having the <i>same</i> molecular formula but <i>different</i> structural formula.\n<ins>(d) The tendency of an atom to attract the shared pair of electrons towards itself when combined in a compound.</ins>\n(e) The type of covalent bond in which electrons are shared unequally between the combining atoms.",
    "seen": [
     {
      "src": "B2025",
-     "ref": "Q2(ii)(d)",
+     "ref": "Q2(ii)",
      "marks": 1,
-     "note": "Part mark is not printed in the paper; 1 assumed."
+     "note": "1 of 5 marks in the paper. Part mark is not printed in the paper; 1 assumed."
     }
    ],
    "answer": {
     "points": [
-     "<mark>Electronegativity</mark> - the tendency of an atom to attract the shared pair of electrons towards itself when combined in a compound."
+     "<b>(d)</b> <mark>Electronegativity</mark> - the tendency of an atom to attract the shared pair of electrons towards itself when combined in a compound."
     ],
     "why": "",
     "official": {
@@ -2831,7 +2821,7 @@ window.NM_DPP_DATA.periodic = {
       "(d)  Electronegativity"
      ],
      "errors": [
-      "(d)  Majority of the candidates wrote the correct term ‘electronegativity’. However, some incorrect answers such as ‘electron affinity’ or ‘ionisation potential’ were observed. A few used incorrect terms, such as electron negativity or EN, as the answer."
+      "Majority of the candidates wrote the correct term ‘electronegativity’. However, some incorrect answers such as ‘electron affinity’ or ‘ionisation potential’ were observed. A few used incorrect terms, such as electron negativity or EN, as the answer."
      ]
     },
     "tip": "Write the full word 'electronegativity' - the board marked 'electron negativity' and 'EN' wrong. Do not give 'electron affinity' (that is the energy released when an isolated gaseous atom gains an electron).",
@@ -2840,34 +2830,28 @@ window.NM_DPP_DATA.periodic = {
    "variations": [
     {
      "id": "periodic-obj-01-v1",
-     "q": "The tendency of an atom to attract electrons to itself when combined in a compound.",
-     "stem": "Give one word or a phrase for the following statements:",
+     "q": "Give one word or a phrase for the following statements:\n(i) The chemical bond formed by a shared pair of electrons, each bonding atom contributing one electron to the pair.\n(ii) Electrode used as cathode in electrorefining of impure copper.\n(iii) The substance prepared by adding other metals to a base metal in appropriate proportions to obtain certain desirable properties.\n<ins>(iv) The tendency of an atom to attract electrons to itself when combined in a compound.</ins>\n(v) The reaction in which carboxylic acid reacts with alcohol in the presence of conc. H<sub>2</sub>SO<sub>4</sub> to form a substance having a fruity smell.",
+     "stem": null,
      "picture": null,
      "marks": 1,
      "seen": [
       {
        "src": "B2020",
-       "ref": "Q1(g)(iv)",
+       "ref": "Q1(g)",
        "marks": 1,
-       "note": ""
-      },
-      {
-       "src": "B2016",
-       "ref": "Q1(e)(i)",
-       "marks": 1,
-       "note": "Identical wording in the 2016 paper (Section I, Q1(e)(i))."
+       "note": "1 of 5 marks in the paper"
       }
      ],
      "diff": "Same ask (name the term defined) and the same answer. Wording: 'attract electrons to itself when combined in a compound' - the 'shared pair' is not mentioned.",
      "answer": {
       "points": [
-       "<mark>Electronegativity</mark> (electronegative property)."
+       "<b>(iv)</b> <mark>Electronegativity</mark> (electronegative property)."
       ],
       "why": "",
       "official": {
        "src": "CISCE APP 2020 marking scheme",
        "points": [
-        "(g) (iv)  electronegativity/ electronegative property"
+        "(iv) electronegativity/ electronegative property"
        ],
        "errors": [
         "(iv) Some candidates wrote electron affinity instead of electronegativity."
@@ -2875,26 +2859,27 @@ window.NM_DPP_DATA.periodic = {
       },
       "tip": "Board comment (2016, 2020): candidates wrote 'electron affinity' instead of electronegativity.",
       "words": null
-     }
+     },
+     "options": null
     },
     {
      "id": "periodic-obj-01-v2",
-     "q": "(d) The tendency of an atom to pull a shared pair of electrons towards itself in a compound.",
-     "stem": "State the terms for the following:",
+     "q": "State the <b>terms</b> for the following:\n(a) The group obtained by removing one hydrogen atom from the parent alkane.\n(b) Two metal plates or wires through which the current enters and leaves the electrolytic cell.\n(c) The amount of substance which contains the same number of units as the number of atoms in carbon-12.\n<ins>(d) The tendency of an atom to pull a shared pair of electrons towards itself in a compound.</ins>\n(e) The formula which represents the simplest ratio between the atoms of elements present in a compound.",
+     "stem": null,
      "picture": null,
      "marks": 1,
      "seen": [
       {
        "src": "B2024",
-       "ref": "Q2(iv)(d)",
+       "ref": "Q2(iv)",
        "marks": 1,
-       "note": "Part mark is not printed in the paper; 1 assumed."
+       "note": "1 of 5 marks in the paper. Part mark is not printed in the paper; 1 assumed."
       }
      ],
      "diff": "Same ask and same answer; wording 'pull a shared pair of electrons towards itself in a compound'.",
      "answer": {
       "points": [
-       "<mark>Electronegativity</mark>."
+       "<b>(d)</b> <mark>Electronegativity</mark>."
       ],
       "why": "",
       "official": {
@@ -2903,58 +2888,63 @@ window.NM_DPP_DATA.periodic = {
         "(d)  Electronegativity"
        ],
        "errors": [
-        "(d) Majority of candidates answered correctly, as they understood the question and wrote ‘electronegativity,’ while some confused it with ‘electron affinity.’"
+        "Majority of candidates answered correctly, as they understood the question and wrote ‘electronegativity,’ while some confused it with ‘electron affinity.’"
        ]
       },
       "tip": "Board comment: most candidates answered correctly; some confused it with electron affinity.",
       "words": null
-     }
+     },
+     "options": null
     },
     {
      "id": "periodic-obj-01-v3",
-     "q": "The tendency of an atom to attract electrons towards itself when combined in a covalent compound.",
-     "stem": "Give the appropriate term defined by the statements given below:",
+     "q": "Give the appropriate term defined by the statements given below:\n(i) The formula that represents the simplest ratio of the various elements present in one molecule of the compound.\n(ii) The substance that releases hydronium ion as the only positive ion when dissolved in water.\n<ins>(iii) The tendency of an atom to attract electrons towards itself when combined in a covalent compound.</ins>\n(iv) The process by which certain ores, specially carbonates, are converted to oxides in the absence of air.\n(v) The covalent bond in which the electrons are shared equally between the combining atoms.",
+     "stem": null,
      "picture": null,
      "marks": 1,
      "seen": [
       {
        "src": "B2019",
-       "ref": "Q1(g)(iii)",
+       "ref": "Q1(g)",
        "marks": 1,
-       "note": ""
+       "note": "1 of 5 marks in the paper"
       }
      ],
      "diff": "Same ask and same answer; wording 'attract electrons towards itself when combined in a covalent compound'.",
      "answer": {
       "points": [
-       "<mark>Electronegativity</mark>."
+       "<b>(iii)</b> <mark>Electronegativity</mark>."
       ],
       "why": "",
       "official": {
        "src": "CISCE APP 2019 marking scheme (reproduced in the mirror copy)",
        "points": [
-        "(g) (iii) Electronegativity"
+        "Electronegativity"
        ],
        "errors": [
-        "(iii) Most candidates gave the appropriate term as electron affinity instead of electronegativity.  Some candidates simply written the abbreviation form of electronegativity."
+        "Most candidates gave the appropriate term as electron affinity instead of electronegativity. Some candidates simply written the abbreviation form of electronegativity."
        ]
       },
       "tip": "Board comment: most candidates gave electron affinity instead, and a few wrote only the abbreviation - write the full term.",
       "words": null
-     }
+     },
+     "options": null
     }
    ],
    "difficulty": "Easy",
    "skill": "Recall",
    "confidence": "HIGH",
    "flags": [
-    "key-official-APP"
+    "key-official-APP",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-14",
     "periodic-secb-03",
     "periodic-secb-04"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (d) is from Periodic Properties and Variations of Properties; (a) and (c) are from Ch 9 Organic Chemistry; (b) is from Ch 3 Acids, Bases and Salts; (e) is from Ch 2 Chemical Bonding. Skip those here."
   },
   {
    "id": "periodic-obj-02",
@@ -2962,30 +2952,30 @@ window.NM_DPP_DATA.periodic = {
    "topic": "ionisation-potential",
    "format": "FILL",
    "marks": 1,
-   "stem": "Fill in the blanks from the choices given in brackets:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "The energy required to remove an electron from a neutral isolated gaseous atom and convert it into a positively charged gaseous ion is called _______________. (electron affinity, ionisation potential, electronegativity)",
+   "q": "Fill in the blanks from the choices given in brackets:\n<ins>(i) The energy required to remove an electron from a neutral isolated gaseous atom and convert it into a positively charged gaseous ion is called _______________. (electron affinity, ionisation potential, electronegativity)</ins>\n(ii) The compound that does not have a lone pair of electrons is _______________. (water, ammonia, carbon tetra chloride)\n(iii) When a metallic oxide is dissolved in water, the solution formed has a high concentration of _______________ ions. (H<sup>+</sup>, H<sub>3</sub>O<sup>+</sup>, OH<sup>–</sup>)\n(iv) Potassium sulphite on reacting with hydrochloric acid releases _______________ gas. (Cl<sub>2</sub>, SO<sub>2</sub>, H<sub>2</sub>S)\n(v) The compound formed when ethene reacts with Hydrogen is _______________. (CH<sub>4</sub>, C<sub>2</sub>H<sub>6</sub>, C<sub>3</sub>H<sub>8</sub>)",
    "seen": [
     {
      "src": "B2017",
-     "ref": "Q1(a)(i)",
+     "ref": "Q1(a)",
      "marks": 1,
-     "note": ""
+     "note": "1 of 5 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "<mark>Ionisation potential</mark> (ionisation energy) - the energy required to remove an electron from a neutral isolated gaseous atom."
+     "<b>(i)</b> <mark>Ionisation potential</mark> (ionisation energy) - the energy required to remove an electron from a neutral isolated gaseous atom."
     ],
     "why": "",
     "official": {
      "src": "CISCE APP 2017 marking scheme (reproduced in the mirror copy)",
      "points": [
-      "(a) (i) Ionisation potential"
+      "Ionisation potential"
      ],
      "errors": [
-      "(a) (i) Some candidates wrote only ‘ionization’ or selected the incorrect term ‘electron affinity’ indicating that they were confused between ionization energy and electron affinity."
+      "Some candidates wrote only ‘ionization’ or selected the incorrect term ‘electron affinity indicating that they were confused between ionization energy and electron affinity."
      ]
     },
     "tip": "Choose from the bracket: ionisation potential. Board comment: some candidates wrote only 'ionization' or chose 'electron affinity'.",
@@ -2994,34 +2984,34 @@ window.NM_DPP_DATA.periodic = {
    "variations": [
     {
      "id": "periodic-obj-02-v1",
-     "q": "(d) The energy required to remove an electron from a neutral gaseous atom.",
-     "stem": "Identify the following:",
+     "q": "(ii) Identify the following:\n(a) A bond formed between two atoms by sharing of a pair of electrons, with both electrons being provided by the same atom.\n(b) A salt formed by the complete neutralisation of an acid by a base.\n(c) A reaction in which the hydrogen of an alkane is replaced by a halogen.\n<ins>(d) The energy required to remove an electron from a neutral gaseous atom.</ins>\n(e) A homogenous mixture of two or more metals or a metal and a non-metal in a definite proportion in their molten state.",
+     "stem": null,
      "picture": null,
      "marks": 1,
      "seen": [
       {
        "src": "S2026",
-       "ref": "Q2(ii)(d)",
+       "ref": "Q2(ii)",
        "marks": 1,
-       "note": ""
+       "note": "1 of 5 marks in the paper"
       },
       {
        "src": "S2025",
-       "ref": "Q2(iv)(d)",
+       "ref": "Q2(iv)",
        "marks": 1,
-       "note": "Identical wording."
+       "note": "1 of 5 marks in the paper. Identical wording."
       },
       {
        "src": "S2024",
-       "ref": "Q2(iv)(d)",
+       "ref": "Q2(iv)",
        "marks": 1,
-       "note": "Identical wording."
+       "note": "1 of 5 marks in the paper. Identical wording."
       }
      ],
      "diff": "Same ask - the term for the energy needed to remove an electron from a neutral gaseous atom - and the same answer. Printed as 'Identify the following' with no choices in a bracket.",
      "answer": {
       "points": [
-       "<mark>Ionisation potential</mark> (ionisation energy)."
+       "<b>(d)</b> <mark>Ionisation potential</mark> (ionisation energy)."
       ],
       "why": "",
       "official": {
@@ -3033,70 +3023,76 @@ window.NM_DPP_DATA.periodic = {
       },
       "tip": "Write 'ionisation potential' or 'ionisation energy' in full.",
       "words": null
-     }
+     },
+     "options": null
     },
     {
      "id": "periodic-obj-02-v2",
-     "q": "The energy required to remove an electron from the valence shell of a neutral isolated gaseous atom.",
-     "stem": "Identify the following:",
+     "q": "Identify the following:\n(a) The property by which carbon bonds with itself to form a long chain.\n(b) A substance that conducts electricity in molten or aqueous state.\n<ins>(c) The energy required to remove an electron from the valence shell of a neutral isolated gaseous atom.</ins>\n(d) The name of the process by which the Bauxite ore is concentrated.\n(e) The bond formed by a shared pair of electrons with both electrons coming from the same atom.",
+     "stem": null,
      "picture": null,
      "marks": 1,
      "seen": [
       {
        "src": "S2023",
-       "ref": "Q2(iv)(c)",
+       "ref": "Q2(iv)",
        "marks": 1,
-       "note": ""
+       "note": "1 of 5 marks in the paper"
       }
      ],
      "diff": "Same ask and same answer; wording adds 'from the valence shell of a neutral isolated gaseous atom'.",
      "answer": {
       "points": [
-       "<mark>Ionisation potential</mark> (ionisation energy)."
+       "<b>(c)</b> <mark>Ionisation potential</mark> (ionisation energy)."
       ],
       "why": "",
       "official": null,
       "tip": "Do not confuse with electron affinity (energy released when an electron is added).",
       "words": null
-     }
+     },
+     "options": null
     },
     {
      "id": "periodic-obj-02-v3",
-     "q": "The energy required to remove an electron from valance shell of a neutral isolated gaseous atom.",
-     "stem": "Identify the terms:",
+     "q": "Identify the terms:\n<ins>(i) The energy required to remove an electron from valance shell of a neutral isolated gaseous atom.</ins>\n(ii) The method for the concentration of sulphide ores.\n(iii) The property by which carbon bonds with itself to form a long chain.\n(iv) A bond formed by a shared pair of electrons with both electrons coming from the same atom.\n(v) A substance that conducts electricity in molten or aqueous state.",
+     "stem": null,
      "picture": null,
      "marks": 1,
      "seen": [
       {
        "src": "S2019",
-       "ref": "Q1(f)(i)",
+       "ref": "Q1(f)",
        "marks": 1,
-       "note": ""
+       "note": "1 of 5 marks in the paper"
       }
      ],
      "diff": "Same ask and same answer; the paper prints 'from valance shell of a neutral isolated gaseous atom' (spelling as printed).",
      "answer": {
       "points": [
-       "<mark>Ionisation potential</mark> (ionisation energy)."
+       "<b>(i)</b> <mark>Ionisation potential</mark> (ionisation energy)."
       ],
       "why": "",
       "official": null,
       "tip": "Do not confuse with electronegativity or electron affinity.",
       "words": null
-     }
+     },
+     "options": null
     }
    ],
    "difficulty": "Easy",
    "skill": "Recall",
    "confidence": "HIGH",
    "flags": [
-    "key-official-APP"
+    "key-official-APP",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-06",
     "periodic-obj-07",
     "periodic-secb-02"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (i) is from Periodic Properties and Variations of Properties; (ii) is from Ch 2 Chemical Bonding; (iii) is from Ch 3 Acids, Bases and Salts; (iv) is from Ch 8 Study of Compounds (Hydrogen Chloride); (v) is from Ch 9 Organic Chemistry. Skip those here."
   },
   {
    "id": "periodic-obj-03",
@@ -3104,21 +3100,21 @@ window.NM_DPP_DATA.periodic = {
    "topic": "electron-affinity",
    "format": "NAME",
    "marks": 1,
-   "stem": "State the terms / process for the following:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a)  The energy released when an atom in the gaseous state accepts an electron to form an anion.",
+   "q": "State the terms / process for the following:\n<ins>(a) The energy released when an atom in the gaseous state accepts an electron to form an anion.</ins>\n(b) Tendency of an element to form <i>chains</i> of identical atoms.\n(c) The name of the process by which <i>Ammonia</i> is manufactured on a large scale.\n(d) A type of salt formed by partial replacement of hydroxyl radicals with an acid radical.\n(e) The ratio of the mass of a certain volume of gas to the same volume of hydrogen measured under the same conditions of temperature and pressure.",
    "seen": [
     {
      "src": "B2023",
-     "ref": "Q2(iv)(a)",
+     "ref": "Q2(iv)",
      "marks": 1,
-     "note": "Part mark is not printed in the paper; 1 assumed."
+     "note": "1 of 5 marks in the paper. Part mark is not printed in the paper; 1 assumed."
     }
    ],
    "answer": {
     "points": [
-     "<mark>Electron affinity</mark> - the energy released when a neutral isolated gaseous atom gains an electron to form a negative ion."
+     "<b>(a)</b> <mark>Electron affinity</mark> - the energy released when a neutral isolated gaseous atom gains an electron to form a negative ion."
     ],
     "why": "",
     "official": null,
@@ -3128,84 +3124,91 @@ window.NM_DPP_DATA.periodic = {
    "variations": [
     {
      "id": "periodic-obj-03-v1",
-     "q": "The energy released when an electron is added to a neutral gaseous isolated atom to form a negatively charged ion.",
-     "stem": "Give one word or a phrase for the following statements:",
+     "q": "Give one word or a phrase for the following statements:\n<ins>(i) The energy released when an electron is added to a neutral gaseous isolated atom to form a negatively charged ion.</ins>\n(ii) Process of formation of ions from molecules which are not in ionic state.\n(iii) The tendency of an element to form chains of identical atoms.\n(iv) The property by which certain hydrated salts, when left exposed to atmosphere, lose their water of crystallization and crumble into powder.\n(v) The process by which sulphide ore is concentrated.",
+     "stem": null,
      "picture": null,
      "marks": 1,
      "seen": [
       {
        "src": "B2018",
-       "ref": "Q1(b)(i)",
+       "ref": "Q1(b)",
        "marks": 1,
-       "note": ""
+       "note": "1 of 5 marks in the paper"
       }
      ],
      "diff": "Same ask (name the term for the energy released when an electron is added to a gaseous atom) and the same answer; wording 'added to a neutral gaseous isolated atom to form a negatively charged ion'.",
      "answer": {
       "points": [
-       "<mark>Electron affinity</mark> (electron gain enthalpy)."
+       "<b>(i)</b> <mark>Electron affinity</mark> (electron gain enthalpy)."
       ],
       "why": "",
       "official": {
        "src": "CISCE APP 2018 marking scheme (reproduced in the mirror copy)",
        "points": [
-        "(b) (i) Electron affinity/electron gain enthalpy"
+        "Electron affinity/electron gain enthalpy"
        ],
        "errors": [
-        "(b) (i)  Instead of electron affinity, many candidates wrote   electronegativity or ionization potential."
+        "Instead of electron affinity, many candidates wrote electronegativity or ionization potential."
        ]
       },
       "tip": "Board comment: many candidates wrote electronegativity or ionisation potential instead of electron affinity.",
       "words": null
-     }
+     },
+     "options": null
     }
    ],
    "difficulty": "Easy",
    "skill": "Recall",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
+    "key-agent-determined",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-01",
     "periodic-mcq-02",
     "periodic-mcq-08",
     "periodic-mcq-09"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (a) is from Periodic Properties and Variations of Properties; (b) is from Ch 9 Organic Chemistry; (c) is from Ch 8 Study of Compounds (Ammonia); (d) is from Ch 3 Acids, Bases and Salts; (e) is from Ch 5 Mole Concept and Stoichiometry. Skip those here."
   },
   {
    "id": "periodic-obj-04",
    "sec": "obj",
    "topic": "valency-valence-electrons",
    "format": "NAME",
-   "marks": 1,
-   "stem": "Identify the term/substance in each of the following:",
+   "marks": 2,
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "The electrons present in the outermost shell of an atom.",
+   "q": "Identify the term/substance in each of the following:\n<ins>(i) The tendency of an atom to attract electrons to itself when combined in a compound.</ins>\n(ii) The method used to separate ore from gangue by preferential wetting.\n(iii) The catalyst used in the conversion of ethyne to ethane.\n(iv) The type of reactions alkenes undergo.\n<ins>(v) The electrons present in the outermost shell of an atom.</ins>",
    "seen": [
     {
      "src": "B2016",
-     "ref": "Q1(e)(v)",
-     "marks": 1,
-     "note": ""
+     "ref": "Q1(e)",
+     "marks": 2,
+     "note": "2 of 5 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "<mark>Valence electrons</mark> - the electrons present in the outermost shell."
+     "<b>(i)</b> <mark>Electronegativity</mark> - the tendency of an atom to attract the shared pair of electrons towards itself when combined in a compound.",
+     "<b>(v)</b> <mark>Valence electrons</mark> - the electrons present in the outermost shell."
     ],
     "why": "",
     "official": {
      "src": "CISCE APP 2016 marking scheme (reproduced in the mirror copy)",
      "points": [
-      "(v) Valence electrons"
+      "Electronegativity",
+      "Valence electrons"
      ],
      "errors": [
-      "(v) Few candidates referred to them as valency shell or valency electrons instead of valence electrons."
+      "Most candidates answered this part correctly. Few gave the incorrect term ‘ electron affinity’",
+      "Few candidates referred to them as valency shell or valency electrons instead of valence electrons."
      ]
     },
-    "tip": "Write 'valence electrons' (not 'valency electrons' or 'valency shell' - the board marked these wrong). The number of valence electrons decides the group.",
+    "tip": "(i) Write electronegativity, not electron affinity (the board noted a few candidates wrote electron affinity). (v) Write 'valence electrons' (not 'valency electrons' or 'valency shell' - the board marked these wrong). The number of valence electrons decides the group.",
     "words": null
    },
    "variations": [],
@@ -3213,16 +3216,20 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Recall",
    "confidence": "HIGH",
    "flags": [
-    "key-official-APP"
+    "key-official-APP",
+    "mixed-chapters"
    ],
    "related": [
+    "periodic-obj-01",
     "periodic-mcq-30",
     "periodic-mcq-31",
     "periodic-mcq-33",
     "periodic-mcq-34",
     "periodic-mcq-35",
-    "periodic-secb-08"
-   ]
+    "periodic-secb-07"
+   ],
+   "options": null,
+   "mixed": "Only (i) and (v) are from Periodic Properties and Variations of Properties; (ii) is from Ch 7 Metallurgy; (iii) and (iv) are from Ch 9 Organic Chemistry. Skip those here."
   },
   {
    "id": "periodic-obj-05",
@@ -3230,33 +3237,32 @@ window.NM_DPP_DATA.periodic = {
    "topic": "mixed-trends",
    "format": "FILL",
    "marks": 2,
-   "stem": "Rewrite the following sentences by using the correct symbol > (greater than) or < (less than) in the blanks given:",
-   "picture": null,
-   "img": null,
-   "q": "1. The ionization potential of Potassium is _____ that of Sodium.\n2. The electronegativity of Iodine is _____ that of Chlorine.",
+   "stem": null,
+   "picture": "Three structural formulae numbered 1, 2, 3 to be named: a three-carbon chain with one C=C (1), a four-carbon chain with a triple bond between the two middle carbons (2), and a two-carbon C=O compound with three H on one carbon (3)",
+   "img": "img/periodic/B2016-Q1-h.png",
+   "q": "(i) Write the IUPAC names of each of the following:\n<ins>(ii) Rewrite the following sentences by using the correct symbol &gt; (greater than) or &lt; (less than) in the blanks given:</ins>\n<ins>1. The ionization potential of Potassium is _____ that of Sodium.</ins>\n<ins>2. The electronegativity of Iodine is _____ that of Chlorine.</ins>",
    "seen": [
     {
      "src": "B2016",
-     "ref": "Q1(h)(ii)",
+     "ref": "Q1(h)",
      "marks": 2,
-     "note": ""
+     "note": "2 of 5 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "<mark>1. less than (&lt;)</mark> - potassium has an extra shell, so its larger atom holds the outer electron more loosely than sodium: ionisation potential decreases down group 1.",
-     "<mark>2. less than (&lt;)</mark> - iodine is a much bigger atom than chlorine, so it attracts the shared pair less strongly: electronegativity decreases down group 17."
+     "<b>(ii)</b> <mark>1. less than (&lt;)</mark> - potassium has an extra shell, so its larger atom holds the outer electron more loosely than sodium: ionisation potential decreases down group 1.",
+     "<b>(ii)</b> <mark>2. less than (&lt;)</mark> - iodine is a much bigger atom than chlorine, so it attracts the shared pair less strongly: electronegativity decreases down group 17."
     ],
     "why": "",
     "official": {
      "src": "CISCE APP 2016 marking scheme (reproduced in the mirror copy)",
      "points": [
-      "(ii) 1. &lt; or less than",
-      "2.",
-      "&lt; or less than"
+      "1. &lt; or less than",
+      "2. &lt; or less than"
      ],
      "errors": [
-      "(ii) Incorrect symbols used due to lack of understanding of the trends in periodic properties."
+      "Incorrect symbols used due to lack of understanding of the trends in periodic properties."
      ]
     },
     "tip": "Down a group IP, EA and EN all decrease because the number of shells (atomic size) increases. Board comment: wrong symbols were due to not knowing the trends; remember both blanks are 'less than'.",
@@ -3267,13 +3273,16 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Understanding",
    "confidence": "HIGH",
    "flags": [
-    "key-official-APP"
+    "key-official-APP",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-secb-11",
     "periodic-secb-12",
     "periodic-secb-13"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (ii) is from Periodic Properties and Variations of Properties; (i) is from Ch 9 Organic Chemistry. Skip those here."
   },
   {
    "id": "periodic-obj-06",
@@ -3281,10 +3290,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "position-group-period",
    "format": "MATCH",
    "marks": 5,
-   "stem": "Match the atomic number 2, 4, 8, 15, and 19 with each of the following:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(i) A solid non metal belonging to the third period.\n(ii) A metal of valency 1.\n(iii) A gaseous element with valency 2.\n(iv) An element belonging to Group 2.\n(v) A rare gas.",
+   "q": "Match the atomic number 2, 4, 8, 15, and 19 with each of the following:\n(i) A solid non-metal belonging to the third period.\n(ii) A metal of valency 1.\n(iii) A gaseous element with valency 2.\n(iv) An element belonging to Group 2.\n(v) A rare gas.",
    "seen": [
     {
      "src": "B2017",
@@ -3334,106 +3343,62 @@ window.NM_DPP_DATA.periodic = {
     "periodic-obj-14",
     "periodic-obj-21",
     "periodic-obj-22"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-obj-07",
    "sec": "obj",
    "topic": "ionisation-potential",
    "format": "REASON",
-   "marks": 1,
-   "stem": "Give a reason for each of the following:",
+   "marks": 2,
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "Ionisation potential increases across a period, from left to right.",
+   "q": "Give a reason for each of the following:\n(i) Ionic compounds have a high melting point.\n(ii) Inert gases do not form ions.\n<ins>(iii) Ionisation potential increases across a period, from left to right.</ins>\n<ins>(iv) Alkali metals are good reducing agents.</ins>\n(v) Conductivity of dilute hydrochloric acid is greater than that of acetic acid.",
    "seen": [
     {
      "src": "B2018",
-     "ref": "Q1(f)(iii)",
-     "marks": 1,
-     "note": ""
+     "ref": "Q1(f)",
+     "marks": 2,
+     "note": "2 of 5 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "<mark>Nuclear charge increases</mark> across the period while the number of shells stays the same, so the <mark>atomic size decreases</mark> and the nucleus attracts the valence electrons more strongly; more energy is needed to remove an electron."
+     "<b>(iii)</b> <mark>Nuclear charge increases</mark> across the period while the number of shells stays the same, so the <mark>atomic size decreases</mark> and the nucleus attracts the valence electrons more strongly; more energy is needed to remove an electron.",
+     "<b>(iv)</b> Alkali metals have <mark>one valence electron</mark> and a <mark>low ionisation potential</mark>, so they readily lose (donate) this electron; an electron donor is a reducing agent."
     ],
     "why": "",
     "official": {
      "src": "CISCE APP 2018 marking scheme (reproduced in the mirror copy)",
      "points": [
-      "(f) (iii) Nuclear charge increases / nucleus exerts greater force of attraction on the valence electrons of same shell or atomic size decreases / the force of attraction on the valence electrons are more i.e., increases."
+      "Nuclear charge increases / nucleus exerts greater force of attraction on the valence electrons of same shell or atomic size decreases / the force of attraction on the valence electrons are more i.e., increases.",
+      "Alkali metals have low ionization potential / have one electron in their valence shell /and hence they easily lose or donate electron."
      ],
      "errors": [
-      "(iii) Many candidates could not explain the reason for increase in ionisation potential across a period, from left to right."
+      "Many candidates could not explain the reason for increase in ionisation potential across a period, from left to right.",
+      "Many candidates did not write the correct reason to explain alkali metals are good reducing agents."
      ]
     },
-    "tip": "Give a reason in terms of nuclear charge and atomic size. Board comment: many candidates could not explain the increase from left to right.",
-    "words": "≈20-30 words"
+    "tip": "Give a reason in terms of nuclear charge and atomic size. Board comment: many candidates could not explain the increase from left to right. Reason = low ionisation potential / one valence electron / easily lose electrons. Board comment: many candidates did not give the correct reason.",
+    "words": "≈20-30 words; ≈20-25 words"
    },
    "variations": [],
    "difficulty": "Medium",
    "skill": "Understanding",
    "confidence": "HIGH",
    "flags": [
-    "key-official-APP"
+    "key-official-APP",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-06",
     "periodic-obj-02",
     "periodic-secb-02"
-   ]
-  },
-  {
-   "id": "periodic-obj-08",
-   "sec": "obj",
-   "topic": "alkali-metals",
-   "format": "REASON",
-   "marks": 1,
-   "stem": "Give a reason for each of the following:",
-   "picture": null,
-   "img": null,
-   "q": "Alkali metals are good reducing agents.",
-   "seen": [
-    {
-     "src": "B2018",
-     "ref": "Q1(f)(iv)",
-     "marks": 1,
-     "note": ""
-    }
    ],
-   "answer": {
-    "points": [
-     "Alkali metals have <mark>one valence electron</mark> and a <mark>low ionisation potential</mark>, so they readily lose (donate) this electron; an electron donor is a reducing agent."
-    ],
-    "why": "",
-    "official": {
-     "src": "CISCE APP 2018 marking scheme (reproduced in the mirror copy)",
-     "points": [
-      "(iv) Alkali metals have low ionization potential / have one electron in their valence shell /and hence they easily lose or donate electron."
-     ],
-     "errors": [
-      "(iv) Many candidates did not write the correct reason to  explain alkali metals are good reducing agents."
-     ]
-    },
-    "tip": "Reason = low ionisation potential / one valence electron / easily lose electrons. Board comment: many candidates did not give the correct reason.",
-    "words": "≈20-25 words"
-   },
-   "variations": [],
-   "difficulty": "Medium",
-   "skill": "Understanding",
-   "confidence": "HIGH",
-   "flags": [
-    "key-official-APP"
-   ],
-   "related": [
-    "periodic-mcq-21",
-    "periodic-mcq-22",
-    "periodic-mcq-47",
-    "periodic-obj-09",
-    "periodic-obj-10",
-    "periodic-secb-14"
-   ]
+   "options": null,
+   "mixed": "Only (iii) and (iv) are from Periodic Properties and Variations of Properties; (i) and (ii) are from Ch 2 Chemical Bonding; (v) is from Ch 3 Acids, Bases and Salts. Skip those here."
   },
   {
    "id": "periodic-obj-09",
@@ -3480,7 +3445,7 @@ window.NM_DPP_DATA.periodic = {
    "related": [
     "periodic-mcq-21",
     "periodic-mcq-22",
-    "periodic-obj-08",
+    "periodic-obj-07",
     "periodic-obj-10",
     "periodic-secb-14"
    ]
@@ -3522,7 +3487,7 @@ window.NM_DPP_DATA.periodic = {
    "related": [
     "periodic-mcq-21",
     "periodic-mcq-22",
-    "periodic-obj-08",
+    "periodic-obj-07",
     "periodic-obj-09",
     "periodic-secb-14"
    ]
@@ -3533,30 +3498,30 @@ window.NM_DPP_DATA.periodic = {
    "topic": "metallic-character",
    "format": "FILL",
    "marks": 1,
-   "stem": "Fill in the blanks with the choices given in brackets:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "In Period 3, the most metallic element is ____________. (sodium / magnesium / aluminium)",
+   "q": "Fill in the blanks with the choices given in brackets:\n(i) Conversion of ethanol to ethene by the action of concentrated sulphuric acid is an example of ____________. (dehydration / dehydrogenation / dehydrohalogenation)\n(ii) When sodium chloride is heated with concentrated sulphuric acid below 200°C, one of the products formed is ____________. (sodium hydrogen sulphate / sodium sulphate / chlorine)\n(iii) Ammonia reacts with excess chlorine to form ____________. (nitrogen / nitrogen trichloride / ammonium chloride)\n(iv) Substitution reactions are characteristic reactions of ____________. (alkynes / alkenes / alkanes)\n<ins>(v) In Period 3, the most metallic element is ____________. (sodium / magnesium / aluminium)</ins>",
    "seen": [
     {
      "src": "B2019",
-     "ref": "Q1(b)(v)",
+     "ref": "Q1(b)",
      "marks": 1,
-     "note": ""
+     "note": "1 of 5 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "<mark>Sodium</mark> - metallic character decreases across a period, and sodium (Group 1) is at the left end of Period 3: largest atom, lowest ionisation potential."
+     "<b>(v)</b> <mark>Sodium</mark> - metallic character decreases across a period, and sodium (Group 1) is at the left end of Period 3: largest atom, lowest ionisation potential."
     ],
     "why": "",
     "official": {
      "src": "CISCE APP 2019 marking scheme (reproduced in the mirror copy)",
      "points": [
-      "(b) (v) Sodium"
+      "Sodium"
      ],
      "errors": [
-      "(v) Almost all candidates attempted this subpart correctly."
+      "Almost all candidates attempted this subpart correctly."
      ]
     },
     "tip": "Metallic character decreases from left to right: the leftmost element of the period is the most metallic. Board comment: almost all candidates were correct.",
@@ -3567,101 +3532,51 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Understanding",
    "confidence": "HIGH",
    "flags": [
-    "key-official-APP"
+    "key-official-APP",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-18",
     "periodic-mcq-19",
     "periodic-mcq-20",
     "periodic-secb-07"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (v) is from Periodic Properties and Variations of Properties; (i) and (iv) are from Ch 9 Organic Chemistry; (ii) is from Ch 8 Study of Compounds (Hydrogen Chloride); (iii) is from Ch 8 Study of Compounds (Ammonia). Skip those here."
   },
   {
    "id": "periodic-obj-12",
    "sec": "obj",
    "topic": "ionisation-potential",
    "format": "ARRANGE",
-   "marks": 1,
-   "stem": "Arrange the following according to the instructions given in brackets:",
+   "marks": 2,
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "Li, K, Na, H     (In the decreasing order of their ionization potential)",
+   "q": "Arrange the following according to the instructions given in brackets:\n(i) K, Pb, Ca, Zn. (In the increasing order of the reactivity)\n(ii) Mg<sup>2+</sup>, Cu<sup>2+</sup>, Na<sup>1+</sup>, H<sup>1+</sup> (In the order of preferential discharge at the cathode)\n<ins>(iii) Li, K, Na, H (In the decreasing order of their ionization potential)</ins>\n<ins>(iv) F, B, N, O (In the increasing order of electron affinity)</ins>\n(v) Ethane, methane, ethene, ethyne. (In the increasing order of the molecular weight) [H = 1, C = 12]",
    "seen": [
     {
      "src": "B2019",
-     "ref": "Q1(h)(iii)",
-     "marks": 1,
-     "note": ""
+     "ref": "Q1(h)",
+     "marks": 2,
+     "note": "2 of 5 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "<mark>H, Li, Na, K</mark> - ionisation potential decreases down group 1 as the number of shells increases; hydrogen (one small shell) is highest."
+     "<b>(iii)</b> <mark>H, Li, Na, K</mark> - ionisation potential decreases down group 1 as the number of shells increases; hydrogen (one small shell) is highest.",
+     "<b>(iv)</b> <mark>B, N, O, F</mark> - electron affinity increases from left to right across Period 2 as the nuclear charge increases and the atomic size decreases."
     ],
     "why": "",
     "official": {
      "src": "CISCE APP 2019 marking scheme (reproduced in the mirror copy)",
      "points": [
-      "(h) (iii) H, Li, Na, K"
+      "H, Li, Na, K",
+      "B, N, O, F"
      ],
-     "errors": [
-      "(h) In subparts (i) – (v), several candidates used the greater than (&gt;) or less than (&lt;) symbols incorrectly to arrange the given items according to the instructions given in the question, which was not required.",
-      "Some candidates simply arranged the items given in subparts (i) – (v), in reverse order."
-     ]
+     "errors": []
     },
-    "tip": "Write only the elements in the order asked (decreasing); the board said many candidates used &gt;/&lt; wrongly or reversed the order.",
-    "words": null
-   },
-   "variations": [],
-   "difficulty": "Medium",
-   "skill": "Understanding",
-   "confidence": "HIGH",
-   "flags": [
-    "key-official-APP"
-   ],
-   "related": [
-    "periodic-mcq-05",
-    "periodic-obj-16",
-    "periodic-obj-17",
-    "periodic-secb-06",
-    "periodic-secb-09",
-    "periodic-secb-10"
-   ]
-  },
-  {
-   "id": "periodic-obj-13",
-   "sec": "obj",
-   "topic": "electron-affinity",
-   "format": "ARRANGE",
-   "marks": 1,
-   "stem": "Arrange the following according to the instructions given in brackets:",
-   "picture": null,
-   "img": null,
-   "q": "F, B, N, O     (In the increasing order of electron affinity)",
-   "seen": [
-    {
-     "src": "B2019",
-     "ref": "Q1(h)(iv)",
-     "marks": 1,
-     "note": ""
-    }
-   ],
-   "answer": {
-    "points": [
-     "<mark>B, N, O, F</mark> - electron affinity increases from left to right across Period 2 as the nuclear charge increases and the atomic size decreases."
-    ],
-    "why": "",
-    "official": {
-     "src": "CISCE APP 2019 marking scheme (reproduced in the mirror copy)",
-     "points": [
-      "(h) (iv) B, N, O, F"
-     ],
-     "errors": [
-      "(h) In subparts (i) – (v), several candidates used the greater than (&gt;) or less than (&lt;) symbols incorrectly to arrange the given items according to the instructions given in the question, which was not required.",
-      "Some candidates simply arranged the items given in subparts (i) – (v), in reverse order."
-     ]
-    },
-    "tip": "ICSE expects the simplified across-the-period trend (EA increases left to right), so write B, N, O, F exactly as the marking scheme gives it. Several candidates reversed the order or used &gt;/&lt; where it was not asked.",
+    "tip": "Write only the elements in the order asked (decreasing); the board said many candidates used &gt;/&lt; wrongly or reversed the order. ICSE expects the simplified across-the-period trend (EA increases left to right), so write B, N, O, F exactly as the marking scheme gives it. Several candidates reversed the order or used &gt;/&lt; where it was not asked.",
     "words": null
    },
    "variations": [],
@@ -3670,49 +3585,47 @@ window.NM_DPP_DATA.periodic = {
    "confidence": "HIGH",
    "flags": [
     "key-official-APP",
-    "official-simplified-trend"
+    "mixed-chapters"
    ],
    "related": [
-    "periodic-obj-19",
-    "periodic-secb-15"
-   ]
+    "periodic-mcq-05",
+    "periodic-obj-15",
+    "periodic-secb-05",
+    "periodic-secb-09",
+    "periodic-secb-10"
+   ],
+   "options": null,
+   "mixed": "Only (iii) and (iv) are from Periodic Properties and Variations of Properties; (i) is from Ch 7 Metallurgy; (ii) is from Ch 6 Electrolysis; (v) is from Ch 9 Organic Chemistry. Skip those here."
   },
   {
    "id": "periodic-obj-14",
    "sec": "obj",
    "topic": "alkali-metals",
    "format": "MATCH",
-   "marks": 5,
+   "marks": 2,
    "stem": null,
    "picture": null,
    "img": null,
-   "q": "Match the Column A with Column B:\n<table><tr><th>Column A</th><th>Column B</th></tr><tr><td>(a)  Water</td><td>1.  Lithium</td></tr><tr><td>(b)  Alkali metal</td><td>2.  Iodine</td></tr><tr><td>(c)  Halogen</td><td>3.  Covalent compound</td></tr><tr><td>(d)  Calcium oxide</td><td>4.  Acetic acid</td></tr><tr><td>(e)  Weak acid</td><td>5.  Ionic compound</td></tr><tr><td></td><td>6.  Sulphuric acid</td></tr></table>",
+   "q": "Match the Column A with Column B:\n<table><tr><th>Column A</th><th>Column B</th></tr><tr><td>(a)  Water</td><td>1.  Lithium</td></tr><tr><td><ins>(b)  Alkali metal</ins></td><td>2.  Iodine</td></tr><tr><td><ins>(c)  Halogen</ins></td><td>3.  Covalent compound</td></tr><tr><td>(d)  Calcium oxide</td><td>4.  Acetic acid</td></tr><tr><td>(e)  Weak acid</td><td>5.  Ionic compound</td></tr><tr><td></td><td>6.  Sulphuric acid</td></tr></table>",
    "seen": [
     {
      "src": "B2024",
      "ref": "Q2(ii)",
      "marks": 2,
-     "note": "Only (b) Alkali metal and (c) Halogen are from this chapter; the other three pairs belong to Chemical Bonding and Acids, Bases & Salts. Marks counted: 2 of 5."
+     "note": "2 of 5 marks in the paper. Only (b) Alkali metal and (c) Halogen are from this chapter; the other three pairs belong to Chemical Bonding and Acids, Bases & Salts. Marks counted: 2 of 5."
     }
    ],
    "answer": {
     "points": [
-     "<mark>(a) Water - 3. Covalent compound</mark>",
      "<mark>(b) Alkali metal - 1. Lithium</mark> (group 1)",
-     "<mark>(c) Halogen - 2. Iodine</mark> (group 17)",
-     "<mark>(d) Calcium oxide - 5. Ionic compound</mark>",
-     "<mark>(e) Weak acid - 4. Acetic acid</mark>"
+     "<mark>(c) Halogen - 2. Iodine</mark> (group 17)"
     ],
     "why": "",
     "official": {
      "src": "CISCE APP 2024 marking scheme",
      "points": [
-      "(a) Water - 3. Covalent compound",
-      "(b) Alkali metal - 1. Lithium",
-      "(c) Halogen - 2. Iodine",
-      "(d) Calcium oxide - 5. Ionic compound",
-      "(e) Weak acid - 4. Acetic acid",
-      "Or 1-b / 2-c / 3-a / 4-e / 5-d"
+      "(b)  Alkali metal  1.  Lithium",
+      "(c)  Halogen  2.  Iodine"
      ],
      "errors": [
       "Many candidates answered correctly. However, some were confused in identifying water as a covalent compound and calcium oxide as an ionic compound. A few candidates mixed up halogen (iodine) and alkali metal (lithium), and some incorrectly identified sulphuric acid as a weak acid."
@@ -3727,39 +3640,43 @@ window.NM_DPP_DATA.periodic = {
    "confidence": "HIGH",
    "flags": [
     "key-official-APP",
-    "partly-other-chapters"
+    "mixed-chapters"
    ],
    "related": [
     "periodic-obj-06",
     "periodic-obj-21",
     "periodic-obj-22"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (b) and (c) are from Periodic Properties and Variations of Properties; (a) and (d) are from Ch 2 Chemical Bonding; (e) is from Ch 3 Acids, Bases and Salts. Skip those here."
   },
   {
    "id": "periodic-obj-15",
    "sec": "obj",
    "topic": "electronegativity",
    "format": "ARRANGE",
-   "marks": 1,
-   "stem": "Arrange the following as per the instruction given in the brackets.",
+   "marks": 3,
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(i) Li, F, N [increasing order of electronegativity]",
+   "q": "Arrange the following as per the instruction given in the brackets.\n<ins>(i) Li, F, N [increasing order of electronegativity]</ins>\n<ins>(ii) Na, Al , Cl [increasing order of Ionization potential ]</ins>\n(iii) O<sub>2</sub>, N<sub>2</sub>, Cl<sub>2</sub> [increasing order of number of covalent bonds]\n(iv) Zn<sup>2+</sup>, Na<sup>+</sup>, Cu<sup>+2</sup> [order of preference of discharge at the cathode]\n<ins>(v) Br , F  , Cl  [Decreasing order of atomic radius]</ins>",
    "seen": [
     {
      "src": "S2019",
-     "ref": "Q1(g)(i)",
-     "marks": 1,
-     "note": ""
+     "ref": "Q1(g)",
+     "marks": 3,
+     "note": "3 of 5 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "<mark>Li, N, F</mark> (Li &lt; N &lt; F) - electronegativity increases across Period 2 from left to right."
+     "<b>(i)</b> <mark>Li, N, F</mark> (Li &lt; N &lt; F) - electronegativity increases across Period 2 from left to right.",
+     "<b>(ii)</b> <mark>Na, Al, Cl</mark> (Na &lt; Al &lt; Cl) - ionisation potential increases across Period 3 as the nuclear charge increases and the atoms shrink.",
+     "<b>(v)</b> <mark>Br, Cl, F</mark> (Br &gt; Cl &gt; F) - atomic radius increases down group 17 because the number of shells increases."
     ],
     "why": "",
     "official": null,
-    "tip": "All three are Period 2 elements: the further right, the more electronegative.",
+    "tip": "All three are Period 2 elements: the further right, the more electronegative. Na, Al and Cl are all in Period 3, so apply the left-to-right trend. The three halogens are in one group: the lower the element, the larger the atom. Write them in decreasing order: Br first.",
     "words": null
    },
    "variations": [],
@@ -3767,100 +3684,17 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Understanding",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
+    "key-agent-determined",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-10",
     "periodic-mcq-11",
     "periodic-mcq-12",
     "periodic-mcq-13"
-   ]
-  },
-  {
-   "id": "periodic-obj-16",
-   "sec": "obj",
-   "topic": "ionisation-potential",
-   "format": "ARRANGE",
-   "marks": 1,
-   "stem": "Arrange the following as per the instruction given in the brackets.",
-   "picture": null,
-   "img": null,
-   "q": "(ii) Na, Al , Cl [increasing order of Ionization potential ]",
-   "seen": [
-    {
-     "src": "S2019",
-     "ref": "Q1(g)(ii)",
-     "marks": 1,
-     "note": ""
-    }
    ],
-   "answer": {
-    "points": [
-     "<mark>Na, Al, Cl</mark> (Na &lt; Al &lt; Cl) - ionisation potential increases across Period 3 as the nuclear charge increases and the atoms shrink."
-    ],
-    "why": "",
-    "official": null,
-    "tip": "Na, Al and Cl are all in Period 3, so apply the left-to-right trend.",
-    "words": null
-   },
-   "variations": [],
-   "difficulty": "Medium",
-   "skill": "Understanding",
-   "confidence": "HIGH",
-   "flags": [
-    "key-agent-determined"
-   ],
-   "related": [
-    "periodic-mcq-05",
-    "periodic-obj-12",
-    "periodic-obj-17",
-    "periodic-secb-06",
-    "periodic-secb-09",
-    "periodic-secb-10"
-   ]
-  },
-  {
-   "id": "periodic-obj-17",
-   "sec": "obj",
-   "topic": "atomic-size",
-   "format": "ARRANGE",
-   "marks": 1,
-   "stem": "Arrange the following as per the instruction given in the brackets.",
-   "picture": null,
-   "img": null,
-   "q": "(v) Br , F  , Cl  [Decreasing order of atomic radius]",
-   "seen": [
-    {
-     "src": "S2019",
-     "ref": "Q1(g)(v)",
-     "marks": 1,
-     "note": ""
-    }
-   ],
-   "answer": {
-    "points": [
-     "<mark>Br, Cl, F</mark> (Br &gt; Cl &gt; F) - atomic radius increases down group 17 because the number of shells increases."
-    ],
-    "why": "",
-    "official": null,
-    "tip": "The three halogens are in one group: the lower the element, the larger the atom. Write them in decreasing order: Br first.",
-    "words": null
-   },
-   "variations": [],
-   "difficulty": "Medium",
-   "skill": "Understanding",
-   "confidence": "HIGH",
-   "flags": [
-    "key-agent-determined"
-   ],
-   "related": [
-    "periodic-mcq-15",
-    "periodic-obj-12",
-    "periodic-obj-16",
-    "periodic-secb-06",
-    "periodic-secb-09",
-    "periodic-secb-10"
-   ]
+   "options": null,
+   "mixed": "Only (i), (ii) and (v) are from Periodic Properties and Variations of Properties; (iii) is from Ch 2 Chemical Bonding; (iv) is from Ch 6 Electrolysis. Skip those here."
   },
   {
    "id": "periodic-obj-18",
@@ -3868,33 +3702,33 @@ window.NM_DPP_DATA.periodic = {
    "topic": "atomic-size",
    "format": "FILL",
    "marks": 1,
-   "stem": "Complete the following by choosing the correct answers from the bracket:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a) If an element has one electron in the outermost shell, then it is likely to have the ___________ [smallest/ largest] atomic size amongst all the elements in the same period.",
+   "q": "(iii) Complete the following by choosing the correct answers from the bracket:\n<ins>(a) If an element has one electron in the outermost shell, then it is likely to have the ___________ [smallest/ largest] atomic size amongst all the elements in the same period.</ins>\n(b) ___________ [sulphuric acid/ hydrochloric acid] does not form an acid salt.\n(c) A __________ [reddish brown/ dirty green] coloured precipitate is formed when ammonium hydroxide is added to a solution of ferrous chloride.\n(d) Alkynes undergo __________ [addition / substitution] reactions.\n(e) An __________ [alkaline/acidic] solution will turn methyl orange solution pink or red.",
    "seen": [
     {
      "src": "S2025",
-     "ref": "Q2(iii)(a)",
+     "ref": "Q2(iii)",
      "marks": 1,
-     "note": ""
+     "note": "1 of 5 marks in the paper"
     },
     {
      "src": "S2024",
-     "ref": "Q2(iii)(a)",
+     "ref": "Q2(iii)",
      "marks": 1,
-     "note": "Same sentence; printed without the comma after 'shell'."
+     "note": "1 of 5 marks in the paper. Same sentence; printed without the comma after 'shell'."
     }
    ],
    "answer": {
     "points": [
-     "<mark>largest</mark> - an element with one electron in its outermost shell is a group 1 metal, at the left end of its period; atomic size decreases across a period, so it is the largest."
+     "<b>(a)</b> <mark>largest</mark> - an element with one electron in its outermost shell is a group 1 metal, at the left end of its period; atomic size decreases across a period, so it is the largest."
     ],
     "why": "",
     "official": {
      "src": "CISCE Specimen 2025 marking scheme",
      "points": [
-      "(iii) (a) largest"
+      "(a) largest"
      ],
      "errors": []
     },
@@ -3906,7 +3740,8 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Understanding",
    "confidence": "HIGH",
    "flags": [
-    "key-official-specimen"
+    "key-official-specimen",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-15",
@@ -3914,7 +3749,9 @@ window.NM_DPP_DATA.periodic = {
     "periodic-mcq-17",
     "periodic-obj-20",
     "periodic-secb-05"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (a) is from Periodic Properties and Variations of Properties; (b) and (e) are from Ch 3 Acids, Bases and Salts; (c) is from Ch 4 Analytical Chemistry; (d) is from Ch 9 Organic Chemistry. Skip those here."
   },
   {
    "id": "periodic-obj-19",
@@ -3922,21 +3759,21 @@ window.NM_DPP_DATA.periodic = {
    "topic": "electron-affinity",
    "format": "FILL",
    "marks": 1,
-   "stem": "Complete the following by choosing the correct answers from the bracket:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(d)  The electron affinity of element X is greater than that of element Y. The oxidising power of X is likely to be ________ (more / less) than that of element Y.",
+   "q": "(iii) Complete the following by choosing the correct answers from the bracket:\n(a) When dilute sulphuric acid reacts with zinc granules, the gas evolved is __________ (hydrogen / carbon dioxide), which can be tested using a burning splint.\n(b) A solution of copper(II) sulphate in sodium hydroxide solution forms a __________ (pale blue / green) precipitate.\n(c) In methane, each hydrogen atom share(s) __________ (one / two) electron(s) with the central carbon atom to complete its valence shell.\n<ins>(d) The electron affinity of element X is greater than that of element Y. The oxidising power of X is likely to be ________ (more / less) than that of element Y.</ins>\n(e) The naturally occurring compound of a metal from which the metal can be extracted is called its _________ (ore / mineral).",
    "seen": [
     {
      "src": "S2026",
-     "ref": "Q2(iii)(d)",
+     "ref": "Q2(iii)",
      "marks": 1,
-     "note": ""
+     "note": "1 of 5 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "<mark>more</mark> - a higher electron affinity means the atom gains electrons more readily, so X is the stronger oxidising agent."
+     "<b>(d)</b> <mark>more</mark> - a higher electron affinity means the atom gains electrons more readily, so X is the stronger oxidising agent."
     ],
     "why": "",
     "official": {
@@ -3954,12 +3791,15 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Understanding",
    "confidence": "HIGH",
    "flags": [
-    "key-official-specimen"
+    "key-official-specimen",
+    "mixed-chapters"
    ],
    "related": [
-    "periodic-obj-13",
+    "periodic-obj-12",
     "periodic-secb-15"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (d) is from Periodic Properties and Variations of Properties; (a) is from Ch 3 Acids, Bases and Salts; (b) is from Ch 4 Analytical Chemistry; (c) is from Ch 2 Chemical Bonding; (e) is from Ch 7 Metallurgy. Skip those here."
   },
   {
    "id": "periodic-obj-20",
@@ -4007,7 +3847,8 @@ window.NM_DPP_DATA.periodic = {
     "periodic-mcq-17",
     "periodic-obj-18",
     "periodic-secb-05"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-obj-21",
@@ -4058,7 +3899,8 @@ window.NM_DPP_DATA.periodic = {
     "periodic-obj-06",
     "periodic-obj-14",
     "periodic-obj-22"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-obj-22",
@@ -4066,10 +3908,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "mixed-trends",
    "format": "MATCH",
    "marks": 5,
-   "stem": "Match the descriptions in Column A with a corresponding left-to-right order of arrangement of elements in Column B.",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "<table><tr><th></th><th>Column A</th><th></th><th>Column B</th></tr><tr><td>(a)</td><td>Increasing number of shells</td><td>(i)</td><td>F > Cl > Br</td></tr><tr><td>(b)</td><td>Increasing reactivity</td><td>(ii)</td><td>Cl > F > Br</td></tr><tr><td>(c)</td><td>Decreasing electron affinity</td><td>(iii)</td><td>Ca >Mg > Be</td></tr><tr><td>(d)</td><td>Decreasing electronegativity</td><td>(iv)</td><td>F < Cl < Br</td></tr><tr><td>(e)</td><td>Decreasing metallic character</td><td>(v)</td><td>Br < Cl < F</td></tr></table>",
+   "q": "Match the descriptions in Column A with a corresponding left-to-right order of arrangement of elements in Column B.\n<table><tr><th></th><th>Column A</th><th></th><th>Column B</th></tr><tr><td>(a)</td><td>Increasing number of shells</td><td>(i)</td><td>F > Cl > Br</td></tr><tr><td>(b)</td><td>Increasing reactivity</td><td>(ii)</td><td>Cl > F > Br</td></tr><tr><td>(c)</td><td>Decreasing electron affinity</td><td>(iii)</td><td>Ca >Mg > Be</td></tr><tr><td>(d)</td><td>Decreasing electronegativity</td><td>(iv)</td><td>F < Cl < Br</td></tr><tr><td>(e)</td><td>Decreasing metallic character</td><td>(v)</td><td>Br < Cl < F</td></tr></table>",
    "seen": [
     {
      "src": "CFPQ2024",
@@ -4111,7 +3953,8 @@ window.NM_DPP_DATA.periodic = {
     "periodic-obj-06",
     "periodic-obj-14",
     "periodic-obj-21"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-obj-23",
@@ -4151,13 +3994,117 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-official-CFPQ",
-    "straddles-ch2"
+    "key-official-CFPQ"
    ],
    "related": [
     "periodic-mcq-25",
     "periodic-mcq-26",
     "periodic-mcq-32"
+   ],
+   "options": null
+  },
+  {
+   "id": "periodic-obj-24",
+   "sec": "obj",
+   "topic": "position-group-period",
+   "format": "MATCH",
+   "marks": 2,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "optionImgs": null,
+   "q": "<table><tr><th></th><th>Column A</th><th></th><th>Column B</th></tr><tr><td><ins>(a)</ins></td><td><ins>Element with atomic no. 19</ins></td><td>(i)</td><td>Acid salt</td></tr><tr><td><ins>(b)</ins></td><td><ins>Element with atomic no. 9</ins></td><td>(ii)</td><td>Non-metal</td></tr><tr><td>(c)</td><td>Sodium aluminate</td><td>(iii)</td><td>Metal</td></tr><tr><td>(d)</td><td>Sodium bisulphite</td><td>(iv)</td><td>Hall Heroult’s process</td></tr><tr><td>(e)</td><td>Calcium fluoride</td><td>(v)</td><td>Baeyer’s process</td></tr></table>",
+   "options": null,
+   "correct": null,
+   "seen": [
+    {
+     "src": "CFPQ2024",
+     "ref": "Q53",
+     "marks": 2,
+     "note": "2 of 5 marks in the paper"
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(a) → (iii) Metal:</b> atomic number 19 is potassium (2,8,8,1), a <mark>metal</mark> of group 1 (one valence electron, easily lost).",
+     "<b>(b) → (ii) Non-metal:</b> atomic number 9 is fluorine (2,7), a <mark>non-metal</mark> (halogen, needs one electron to complete its octet)."
+    ],
+    "why": "",
+    "official": {
+     "src": "CISCE CFPQ answer key",
+     "points": [
+      "(a) iii",
+      "(b) ii"
+     ],
+     "errors": []
+    },
+    "tip": "Write the electronic configuration of each atomic number: 1 to 3 valence electrons usually means a metal, 5 to 7 a non-metal.",
+    "words": null
+   },
+   "variations": [],
+   "difficulty": "Easy",
+   "skill": "Application",
+   "confidence": "HIGH",
+   "flags": [
+    "key-official-CFPQ",
+    "mixed-chapters"
+   ],
+   "mixed": "Only (a) and (b) are from Periodic Properties and Variations of Properties; (c) and (e) are from Ch 7 Metallurgy; (d) is from Ch 3 Acids, Bases and Salts. Skip those here.",
+   "related": [
+    "periodic-mcq-26",
+    "periodic-obj-21",
+    "periodic-secb-31"
+   ]
+  },
+  {
+   "id": "periodic-obj-25",
+   "sec": "obj",
+   "topic": "electron-affinity",
+   "format": "MATCH",
+   "marks": 1,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "optionImgs": null,
+   "q": "Match the column A with column B:\n<table><tr><th></th><th>Column A</th><th></th><th>Column B</th></tr><tr><td><ins>(a)</ins></td><td><ins>Neon</ins></td><td>(i)</td><td>Ammonium ion</td></tr><tr><td>(b)</td><td>Methane</td><td>(ii)</td><td>Hydronium ion</td></tr><tr><td>(c)</td><td>Ammonia gas in water</td><td>(iii)</td><td>Magnesium hydroxide</td></tr><tr><td>(d)</td><td>An ion with a lone pair of electrons</td><td>(iv)</td><td>Non-polar covalent compound</td></tr><tr><td>(e)</td><td>A weak electrolyte</td><td>(v)</td><td>Zero electron affinity</td></tr></table>",
+   "options": null,
+   "correct": null,
+   "seen": [
+    {
+     "src": "CFPQ2024",
+     "ref": "Q58",
+     "marks": 1,
+     "note": "1 of 5 marks in the paper"
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(a) Neon → (v) Zero electron affinity:</b> neon (2,8) is a noble gas with a complete octet, so it has no tendency to accept an electron and its <mark>electron affinity is zero</mark>."
+    ],
+    "why": "",
+    "official": {
+     "src": "CISCE CFPQ answer key",
+     "points": [
+      "(a) v"
+     ],
+     "errors": []
+    },
+    "tip": "Noble gases have a complete outer shell, so their electron affinity is zero. Match what you are sure of first.",
+    "words": null
+   },
+   "variations": [],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-official-CFPQ",
+    "mixed-chapters"
+   ],
+   "mixed": "Only (a) is from Periodic Properties and Variations of Properties; (b) is from Ch 9 Organic Chemistry; (c) is from Ch 8 Study of Compounds (Ammonia); (d) is from Ch 2 Chemical Bonding; (e) is from Ch 3 Acids, Bases and Salts. Skip those here.",
+   "related": [
+    "periodic-secb-25",
+    "periodic-secb-33",
+    "periodic-obj-03"
    ]
   },
   {
@@ -4166,38 +4113,30 @@ window.NM_DPP_DATA.periodic = {
    "topic": "valency-valence-electrons",
    "format": "REASON",
    "marks": 1,
-   "stem": "Give reasons for the following:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a) Inert gases do not form ions.",
+   "q": "Give reasons for the following:\n<ins>(a) Inert gases do not form ions.</ins>\n(b) Covalent compounds have a low melting and boiling point.",
    "seen": [
     {
      "src": "B2024",
-     "ref": "Q6(ii)(a)",
+     "ref": "Q6(ii)",
      "marks": 1,
-     "note": "Part mark is not printed in the paper; 1 assumed."
-    },
-    {
-     "src": "B2018",
-     "ref": "Q1(f)(ii)",
-     "marks": 1,
-     "note": "Same sentence, printed as '(ii) Inert gases do not form ions.' in Section I Q1(f) (a One-marker in that paper; counted here under this question)."
+     "note": "1 of 2 marks in the paper. Part mark is not printed in the paper; 1 assumed."
     }
    ],
    "answer": {
     "points": [
-     "Inert gases have a <mark>completely filled outermost shell</mark> (a duplet in helium, an octet in the others) and hence a <mark>stable electronic configuration</mark>, so they neither lose nor gain electrons and do not form ions."
+     "<b>(a)</b> Inert gases have a <mark>completely filled outermost shell</mark> (a duplet in helium, an octet in the others) and hence a <mark>stable electronic configuration</mark>, so they neither lose nor gain electrons and do not form ions."
     ],
     "why": "",
     "official": {
      "src": "CISCE APP 2024 marking scheme",
      "points": [
-      "(a)  Because their outermost shell is complete / they have stable electronic configuration/ they do not lose or donate electrons / octet or duplet state.",
-      "[2018] (ii) Inert gases have stable electronic configuration or have 8 electrons in the valence shell (last shell) / do not lose or gain electrons to form ions/complete outermost or valence shell."
+      "(a)  Because their outermost shell is complete / they have stable electronic configuration/ they do not lose or donate electrons / octet or duplet state."
      ],
      "errors": [
-      "(a) Many candidates correctly answered by stating that inert gases do not form ions due to their stable electronic configuration. Also, most of them gave the correct reasoning, but a few simply wrote ‘because they are inert’ or ‘they cannot participate in chemical reactions’ and hence could not score.",
-      "[2018] (ii) Some candidates wrote that inert gases are stable without mentioning electronic configuration / 8 electrons in the valence shell."
+      "Many candidates correctly answered by stating that inert gases do not form ions due to their stable electronic configuration. Also, most of them gave the correct reasoning, but a few simply wrote ‘because they are inert’ or ‘they cannot participate in chemical reactions’ and hence could not score."
      ]
     },
     "tip": "Reason = complete outermost shell / stable octet or duplet. Do not write only 'because they are inert' - the board gave no mark for that.",
@@ -4209,13 +4148,15 @@ window.NM_DPP_DATA.periodic = {
    "confidence": "HIGH",
    "flags": [
     "key-official-APP",
-    "straddles-ch2"
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-04",
     "periodic-mcq-08",
     "periodic-mcq-36"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (a) is from Periodic Properties and Variations of Properties; (b) is from Ch 2 Chemical Bonding. Skip those here."
   },
   {
    "id": "periodic-secb-02",
@@ -4223,21 +4164,21 @@ window.NM_DPP_DATA.periodic = {
    "topic": "ionisation-potential",
    "format": "REASON",
    "marks": 1,
-   "stem": "Give reason for the following:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a)  Ionisation potential decreases down a group.",
+   "q": "Give reason for the following:\n<ins>(a) Ionisation potential decreases down a group.</ins>\n(b) Ionic compounds do not conduct electricity in solid state.",
    "seen": [
     {
      "src": "B2023",
-     "ref": "Q7(ii)(a)",
+     "ref": "Q7(ii)",
      "marks": 1,
-     "note": "Part mark is not printed in the paper; 1 assumed."
+     "note": "1 of 2 marks in the paper. Part mark is not printed in the paper; 1 assumed."
     }
    ],
    "answer": {
     "points": [
-     "Down a group the <mark>number of shells increases</mark>, so the <mark>atomic size increases</mark>; the outermost electron is farther from the nucleus and more shielded, the nuclear attraction on it is weaker, and <mark>less energy is needed to remove it</mark>."
+     "<b>(a)</b> Down a group the <mark>number of shells increases</mark>, so the <mark>atomic size increases</mark>; the outermost electron is farther from the nucleus and more shielded, the nuclear attraction on it is weaker, and <mark>less energy is needed to remove it</mark>."
     ],
     "why": "",
     "official": null,
@@ -4249,7 +4190,8 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Understanding",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
+    "key-agent-determined",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-06",
@@ -4257,7 +4199,9 @@ window.NM_DPP_DATA.periodic = {
     "periodic-obj-07",
     "periodic-secb-37",
     "periodic-secb-38"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (a) is from Periodic Properties and Variations of Properties; (b) is from Ch 2 Chemical Bonding. Skip those here."
   },
   {
    "id": "periodic-secb-03",
@@ -4265,21 +4209,21 @@ window.NM_DPP_DATA.periodic = {
    "topic": "electronegativity",
    "format": "REASON",
    "marks": 1,
-   "stem": "Give reasons why:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(b)    Electronegativity increases across a period.",
+   "q": "Give reasons why:\n(a) Hydrochloric acid cannot form an acid salt.\n<ins>(b) Electronegativity increases across a period.</ins>",
    "seen": [
     {
      "src": "B2026",
-     "ref": "Q6(i)(b)",
+     "ref": "Q6(i)",
      "marks": 1,
-     "note": "Part mark is not printed in the paper; 1 assumed."
+     "note": "1 of 2 marks in the paper. Part mark is not printed in the paper; 1 assumed."
     }
    ],
    "answer": {
     "points": [
-     "Across a period the <mark>nuclear charge increases</mark> (the number of shells stays the same), so the <mark>atomic size decreases</mark> and the nucleus attracts the shared pair of electrons more strongly; hence electronegativity increases."
+     "<b>(b)</b> Across a period the <mark>nuclear charge increases</mark> (the number of shells stays the same), so the <mark>atomic size decreases</mark> and the nucleus attracts the shared pair of electrons more strongly; hence electronegativity increases."
     ],
     "why": "",
     "official": {
@@ -4288,7 +4232,7 @@ window.NM_DPP_DATA.periodic = {
       "(b) non-metallic character increases across a period/ atomic size decreases/ ionisation potential increases/ nuclear charge increases / electron affinity increases"
      ],
      "errors": [
-      "(b) While several candidates identified the correct periodic trend, many were unable to justify their answer scientifically. Candidates frequently confused electronegativity with ionisation potential, atomic size or the number of electrons and shells. Some candidates failed to relate the increase in electronegativity across a period to increasing nuclear charge."
+      "While several candidates identified the correct periodic trend, many were unable to justify their answer scientifically. Candidates frequently confused electronegativity with ionisation potential, atomic size or the number of electrons and shells. Some candidates failed to relate the increase in electronegativity across a period to increasing nuclear charge."
      ]
     },
     "tip": "Relate the trend to nuclear charge and atomic size. Board comment: candidates confused electronegativity with ionisation potential or atomic size and many could not justify the trend scientifically.",
@@ -4299,13 +4243,16 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Understanding",
    "confidence": "HIGH",
    "flags": [
-    "key-official-APP"
+    "key-official-APP",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-14",
     "periodic-obj-01",
     "periodic-secb-04"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (b) is from Periodic Properties and Variations of Properties; (a) is from Ch 3 Acids, Bases and Salts. Skip those here."
   },
   {
    "id": "periodic-secb-04",
@@ -4313,21 +4260,21 @@ window.NM_DPP_DATA.periodic = {
    "topic": "electronegativity",
    "format": "SHORT",
    "marks": 1,
-   "stem": "Define / State:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a)  Electronegativity",
+   "q": "Define / State:\n<ins>(a) Electronegativity</ins>\n(b) Gay-Lussac’s Law of combining volumes",
    "seen": [
     {
      "src": "B2023",
-     "ref": "Q6(i)(a)",
+     "ref": "Q6(i)",
      "marks": 1,
-     "note": "Part mark is not printed in the paper; 1 assumed."
+     "note": "1 of 2 marks in the paper. Part mark is not printed in the paper; 1 assumed."
     }
    ],
    "answer": {
     "points": [
-     "Electronegativity is the <mark>tendency of an atom to attract the shared pair of electrons</mark> towards itself when combined in a compound (covalent bond)."
+     "<b>(a)</b> Electronegativity is the <mark>tendency of an atom to attract the shared pair of electrons</mark> towards itself when combined in a compound (covalent bond)."
     ],
     "why": "",
     "official": null,
@@ -4339,56 +4286,65 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Recall",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
+    "key-agent-determined",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-14",
     "periodic-obj-01",
     "periodic-secb-03"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (a) is from Periodic Properties and Variations of Properties; (b) is from Ch 5 Mole Concept and Stoichiometry. Skip those here."
   },
   {
    "id": "periodic-secb-05",
    "sec": "secb",
    "topic": "atomic-size",
    "format": "ARRANGE",
-   "marks": 1,
-   "stem": "Arrange the following as per the instructions given in the brackets:",
+   "marks": 2,
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a) Carbon, Fluorine, Beryllium (decreasing order of atomic size)",
+   "q": "Arrange the following as per the instructions given in the brackets:\n<ins>(a) Carbon, Fluorine, Beryllium (decreasing order of atomic size)</ins>\n(b) Sulphuric acid, Phosphoric acid, Acetic acid (increasing order of number of replaceable H atoms per molecule)\n<ins>(c) Potassium, Lithium, Sodium (increasing order of ionization potential)</ins>",
    "seen": [
     {
      "src": "B2024",
-     "ref": "Q6(iii)(a)",
-     "marks": 1,
-     "note": "Part mark is not printed in the paper; 1 assumed."
+     "ref": "Q6(iii)",
+     "marks": 2,
+     "note": "2 of 3 marks in the paper. Part mark is not printed in the paper; 1 assumed."
     }
    ],
    "answer": {
     "points": [
-     "<mark>Beryllium, Carbon, Fluorine</mark> (Be &gt; C &gt; F) - atomic size decreases across Period 2 as the nuclear charge increases with no extra shell."
+     "<b>(a)</b> <mark>Beryllium, Carbon, Fluorine</mark> (Be &gt; C &gt; F) - atomic size decreases across Period 2 as the nuclear charge increases with no extra shell.",
+     "<b>(c)</b> <mark>Potassium, Sodium, Lithium</mark> (K &lt; Na &lt; Li) - ionisation potential decreases down group 1, so the lowest element has the lowest value."
     ],
     "why": "",
     "official": {
      "src": "CISCE APP 2024 marking scheme",
      "points": [
-      "(a)  Beryllium, Carbon, Fluorine  /Be, C, F/ Be&gt;, C&gt; F",
-      "Note: If it is written downwards as shown then arrow upwards is a must for the 2nd set if it begins with F."
+      "(a)  Beryllium, Carbon, Fluorine  /Be, C, F/ Be>, C> F",
+      "Note: If it is written downwards as shown then arrow upwards is a must for the 2nd set if it begins with F.",
+      "(c)  Potassium, Sodium, Lithium/ K< Na< Li/ K, Na, Li",
+      "If it is written downwards as shown, then arrow upwards is a must for the 2nd set if it begins with lithium",
+      "Note: all three names should be there for comparison."
      ],
      "errors": [
-      "(a) Many candidates incorrectly arranged elements in decreasing order of atomic size, often confusing the greater/lesser symbols. Some candidates wrote the opposite sequence, with fluorine, carbon, and beryllium in a reverse order."
+      "Many candidates incorrectly arranged elements in decreasing order of atomic size, often confusing the greater/lesser symbols. Some candidates wrote the opposite sequence, with fluorine, carbon, and beryllium in a reverse order.",
+      "Most of the candidates were correct in answering the correct sequence of this question. But, many of them wrote it in reverse order without correct symbols ‘˂/˃’. A few candidates were confused with the property trend of ionization potential down the group and wrote wrong sequence."
      ]
     },
-    "tip": "Board comment: many candidates wrote the opposite sequence or confused the &gt; / &lt; symbols. Use names or symbols with the correct sign, in the order asked (decreasing).",
-    "words": "Three names in order"
+    "tip": "Board comment: many candidates wrote the opposite sequence or confused the &gt; / &lt; symbols. Use names or symbols with the correct sign, in the order asked (decreasing). All three names must be in the answer. Board comment: some wrote the reverse order without the correct symbols.",
+    "words": "Three names in order; Three names in order"
    },
    "variations": [],
    "difficulty": "Medium",
    "skill": "Understanding",
    "confidence": "HIGH",
    "flags": [
-    "key-official-APP"
+    "key-official-APP",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-15",
@@ -4396,141 +4352,54 @@ window.NM_DPP_DATA.periodic = {
     "periodic-mcq-17",
     "periodic-obj-18",
     "periodic-obj-20"
-   ]
-  },
-  {
-   "id": "periodic-secb-06",
-   "sec": "secb",
-   "topic": "ionisation-potential",
-   "format": "ARRANGE",
-   "marks": 1,
-   "stem": "Arrange the following as per the instructions given in the brackets:",
-   "picture": null,
-   "img": null,
-   "q": "(c) Potassium, Lithium, Sodium (increasing order of ionization potential)",
-   "seen": [
-    {
-     "src": "B2024",
-     "ref": "Q6(iii)(c)",
-     "marks": 1,
-     "note": "Part mark is not printed in the paper; 1 assumed."
-    }
    ],
-   "answer": {
-    "points": [
-     "<mark>Potassium, Sodium, Lithium</mark> (K &lt; Na &lt; Li) - ionisation potential decreases down group 1, so the lowest element has the lowest value."
-    ],
-    "why": "",
-    "official": {
-     "src": "CISCE APP 2024 marking scheme",
-     "points": [
-      "(c)  Potassium, Sodium, Lithium/ K&lt; Na&lt; Li/ K, Na, Li",
-      "If it is written downwards as shown, then arrow upwards is a must for the 2nd set if it begins with lithium",
-      "Note: all three names should be there for comparison."
-     ],
-     "errors": [
-      "(c) Most of the candidates were correct in answering the correct sequence of this question. But, many of them wrote it in reverse order without correct symbols ‘˂/˃’. A few candidates were confused with the property trend of ionization potential down the group and wrote wrong sequence."
-     ]
-    },
-    "tip": "All three names must be in the answer. Board comment: some wrote the reverse order without the correct symbols.",
-    "words": "Three names in order"
-   },
-   "variations": [],
-   "difficulty": "Medium",
-   "skill": "Understanding",
-   "confidence": "HIGH",
-   "flags": [
-    "key-official-APP"
-   ],
-   "related": [
-    "periodic-mcq-05",
-    "periodic-obj-12",
-    "periodic-obj-16",
-    "periodic-obj-17",
-    "periodic-secb-09",
-    "periodic-secb-10"
-   ]
+   "options": null,
+   "mixed": "Only (a) and (c) are from Periodic Properties and Variations of Properties; (b) is from Ch 3 Acids, Bases and Salts. Skip those here."
   },
   {
    "id": "periodic-secb-07",
    "sec": "secb",
    "topic": "metallic-character",
    "format": "ARRANGE",
-   "marks": 1,
-   "stem": "Arrange the following as per the instruction given in the brackets:",
+   "marks": 2,
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(b)  N, Be, O, C  (increasing order of non-metallic character)",
+   "q": "Arrange the following as per the instruction given in the brackets:\n(a) Al, K, Mg, Ca (decreasing order of its reactivity)\n<ins>(b) N, Be, O, C (increasing order of non-metallic character)</ins>\n<ins>(c) P, Si, F, Be (decreasing order of valence electrons)</ins>",
    "seen": [
     {
      "src": "B2023",
-     "ref": "Q3(iii)(b)",
-     "marks": 1,
-     "note": "Part mark is not printed in the paper; 1 assumed."
+     "ref": "Q3(iii)",
+     "marks": 2,
+     "note": "2 of 3 marks in the paper. Part mark is not printed in the paper; 1 assumed."
     }
    ],
    "answer": {
     "points": [
-     "<mark>Be, C, N, O</mark> (Be &lt; C &lt; N &lt; O) - non-metallic character increases from left to right across Period 2 as the atoms get smaller and gain electrons more easily."
+     "<b>(b)</b> <mark>Be, C, N, O</mark> (Be &lt; C &lt; N &lt; O) - non-metallic character increases from left to right across Period 2 as the atoms get smaller and gain electrons more easily.",
+     "<b>(c)</b> <mark>F, P, Si, Be</mark> (F &gt; P &gt; Si &gt; Be) - valence electrons: F = 7 (group 17), P = 5 (group 15), Si = 4 (group 14), Be = 2 (group 2)."
     ],
     "why": "",
     "official": null,
-    "tip": "Place the elements in Period 2 by atomic number (Be 4, C 6, N 7, O 8) and then apply the trend.",
-    "words": "Four symbols in order"
+    "tip": "Place the elements in Period 2 by atomic number (Be 4, C 6, N 7, O 8) and then apply the trend. Find each element's group, then the valence electrons: groups 1-2 equal the group number; groups 13-18 equal the group number minus 10.",
+    "words": "Four symbols in order; Four symbols in order"
    },
    "variations": [],
    "difficulty": "Medium",
    "skill": "Understanding",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
+    "key-agent-determined",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-18",
     "periodic-mcq-19",
     "periodic-mcq-20",
     "periodic-obj-11"
-   ]
-  },
-  {
-   "id": "periodic-secb-08",
-   "sec": "secb",
-   "topic": "valency-valence-electrons",
-   "format": "ARRANGE",
-   "marks": 1,
-   "stem": "Arrange the following as per the instruction given in the brackets:",
-   "picture": null,
-   "img": null,
-   "q": "(c)  P, Si, F, Be  (decreasing order of valence electrons)",
-   "seen": [
-    {
-     "src": "B2023",
-     "ref": "Q3(iii)(c)",
-     "marks": 1,
-     "note": "Part mark is not printed in the paper; 1 assumed."
-    }
    ],
-   "answer": {
-    "points": [
-     "<mark>F, P, Si, Be</mark> (F &gt; P &gt; Si &gt; Be) - valence electrons: F = 7 (group 17), P = 5 (group 15), Si = 4 (group 14), Be = 2 (group 2)."
-    ],
-    "why": "",
-    "official": null,
-    "tip": "Find each element's group, then the valence electrons: groups 1-2 equal the group number; groups 13-18 equal the group number minus 10.",
-    "words": "Four symbols in order"
-   },
-   "variations": [],
-   "difficulty": "Medium",
-   "skill": "Application",
-   "confidence": "HIGH",
-   "flags": [
-    "key-agent-determined"
-   ],
-   "related": [
-    "periodic-mcq-31",
-    "periodic-mcq-33",
-    "periodic-obj-04"
-   ]
+   "options": null,
+   "mixed": "Only (b) and (c) are from Periodic Properties and Variations of Properties; (a) is from Ch 7 Metallurgy. Skip those here."
   },
   {
    "id": "periodic-secb-09",
@@ -4538,10 +4407,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "mixed-trends",
    "format": "ARRANGE",
    "marks": 4,
-   "stem": "Arrange the following as per the instruction given in the brackets:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(i) He, Ar, Ne (Increasing order of the number of electron shells)\n(ii) Na, Li, K (Increasing Ionisation Energy)\n(iii) F, Cl, Br (Increasing electronegativity)\n(iv) Na, K, Li (Increasing atomic size)",
+   "q": "Arrange the following as per the instruction given in the brackets:\n(i) He, Ar, Ne (Increasing order of the number of electron shells)\n(ii) Na, Li, K (Increasing Ionisation Energy)\n(iii) F, Cl, Br (Increasing electronegativity)\n(iv) Na, K, Li (Increasing atomic size)",
    "seen": [
     {
      "src": "B2017",
@@ -4585,11 +4454,11 @@ window.NM_DPP_DATA.periodic = {
    ],
    "related": [
     "periodic-obj-12",
-    "periodic-obj-16",
-    "periodic-obj-17",
-    "periodic-secb-06",
+    "periodic-obj-15",
+    "periodic-secb-05",
     "periodic-secb-10"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-10",
@@ -4597,10 +4466,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "mixed-trends",
    "format": "ARRANGE",
    "marks": 3,
-   "stem": "Arrange the following as per the instruction given in the brackets:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a) Na, K, Cl, Si, S.        (increasing order of electro negativity)\n(b) Be, Li, F, C, B, N, O    (increasing order of metallic character)\n(c) Br, F, I, Cl        (increasing order of atomic size)",
+   "q": "Arrange the following as per the instruction given in the brackets:\n(a) Na, K, Cl, Si, S. (increasing order of electro negativity)\n(b) Be, Li, F, C, B, N, O (increasing order of metallic character)\n(c) Br, F, I, Cl (increasing order of atomic size)",
    "seen": [
     {
      "src": "S2023",
@@ -4629,11 +4498,11 @@ window.NM_DPP_DATA.periodic = {
    ],
    "related": [
     "periodic-obj-12",
-    "periodic-obj-16",
-    "periodic-obj-17",
-    "periodic-secb-06",
+    "periodic-obj-15",
+    "periodic-secb-05",
     "periodic-secb-09"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-11",
@@ -4641,10 +4510,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "mixed-trends",
    "format": "FILL",
    "marks": 2,
-   "stem": "Fill in the blanks by selecting the correct word from the brackets:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(i) If an element has a low ionization energy then it is likely to be __________ (metallic / non metallic).\n(ii) If an element has seven electrons in its outermost shell then it is likely to have the __________ (largest / smallest) atomic size among all the elements in the same period.",
+   "q": "Fill in the blanks by selecting the correct word from the brackets:\n(i) If an element has a low ionization energy then it is likely to be __________ (metallic / non metallic).\n(ii) If an element has seven electrons in its outermost shell then it is likely to have the __________ (largest / smallest) atomic size among all the elements in the same period.",
    "seen": [
     {
      "src": "B2016",
@@ -4684,7 +4553,8 @@ window.NM_DPP_DATA.periodic = {
     "periodic-obj-05",
     "periodic-secb-12",
     "periodic-secb-13"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-12",
@@ -4692,10 +4562,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "mixed-trends",
    "format": "FILL",
    "marks": 3,
-   "stem": "In Period 3 of the Periodic Table, element B is placed to the left of element A.\nOn the basis of this information, choose the correct word from the brackets to complete the following statements:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(i) The element B would have (lower / higher) metallic character than A.\n(ii) The element A would probably have (lesser / higher) electron affinity than B.\n(iii) The element A would have (greater / smaller) atomic size than B.",
+   "q": "In Period 3 of the Periodic Table, element B is placed to the left of element A.\nOn the basis of this information, choose the correct word from the brackets to complete the following statements:\n(i) The element B would have (lower / higher) metallic character than A.\n(ii) The element A would probably have (lesser / higher) electron affinity than B.\n(iii) The element A would have (greater / smaller) atomic size than B.",
    "seen": [
     {
      "src": "B2018",
@@ -4736,7 +4606,8 @@ window.NM_DPP_DATA.periodic = {
     "periodic-obj-05",
     "periodic-secb-11",
     "periodic-secb-13"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-13",
@@ -4744,10 +4615,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "mixed-trends",
    "format": "FILL",
    "marks": 5,
-   "stem": "Fill in the blanks using the correct options:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(i) Metals have ------ ionisation potential. (low/ high)\n(ii) Group 18 elements have ------ valence electrons (4 / 8) with the exception of ---- ( He / Ne) with -------- electrons (2 / 8) in valence shell.\n(iii) Group 2 elements are called ----- metals (alkali / alkaline earth).",
+   "q": "Fill in the blanks using the correct options:\n(i) Metals have ------ ionisation potential. (low/ high)\n(ii) Group 18 elements have ------ valence electrons (4 / 8) with the exception of ---- ( He / Ne) with -------- electrons (2 / 8) in valence shell.\n(iii) Group 2 elements are called ----- metals (alkali / alkaline earth).",
    "seen": [
     {
      "src": "S2017",
@@ -4780,45 +4651,44 @@ window.NM_DPP_DATA.periodic = {
     "periodic-obj-05",
     "periodic-secb-11",
     "periodic-secb-12"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-14",
    "sec": "secb",
    "topic": "metallic-character",
    "format": "FILL",
-   "marks": 3,
-   "stem": "X [2, 8, 7] and Y [2, 8, 2] are two elements. Using this information complete the following:",
+   "marks": 2,
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a) __________ is the metallic element.\n(b) Metal atoms tend to have a maximum of __________ electrons in the outermost shell.\n(c) ___________ is the reducing agent.",
+   "q": "(iv) X [2, 8, 7] and Y [2, 8, 2] are two elements. Using this information complete the following:\n<ins>(a) __________ is the metallic element.</ins>\n<ins>(b) Metal atoms tend to have a maximum of __________ electrons in the outermost shell.</ins>\n(c) ___________ is the reducing agent.",
    "seen": [
     {
      "src": "S2025",
      "ref": "Q6(iv)",
-     "marks": 3,
-     "note": ""
+     "marks": 2,
+     "note": "2 of 3 marks in the paper"
     },
     {
      "src": "S2024",
      "ref": "Q6(iv)",
-     "marks": 3,
-     "note": "Identical wording."
+     "marks": 2,
+     "note": "2 of 3 marks in the paper. Identical wording."
     }
    ],
    "answer": {
     "points": [
      "<mark>(a) Y</mark> - 2,8,2 has two valence electrons: a metal (Mg).",
-     "<mark>(b) 3</mark> - metal atoms have a maximum of three electrons in the outermost shell.",
-     "<mark>(c) Y</mark> - Y readily loses electrons, so it is the reducing agent."
+     "<mark>(b) 3</mark> - metal atoms have a maximum of three electrons in the outermost shell."
     ],
     "why": "",
     "official": {
      "src": "CISCE Specimen 2025 marking scheme",
      "points": [
-      "(iv) (a) Y",
-      "(b) 3",
-      "(c) Y"
+      "(a) Y",
+      "(b) 3"
      ],
      "errors": []
     },
@@ -4830,13 +4700,16 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-official-specimen"
+    "key-official-specimen",
+    "mixed-chapters"
    ],
    "related": [
-    "periodic-obj-08",
+    "periodic-obj-07",
     "periodic-obj-09",
     "periodic-obj-10"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (a) and (b) are from Periodic Properties and Variations of Properties; (c) is from Ch 2 Chemical Bonding. Skip those here."
   },
   {
    "id": "periodic-secb-15",
@@ -4844,10 +4717,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "electron-affinity",
    "format": "SHORT",
    "marks": 3,
-   "stem": "The electron affinity of an element X is greater than that of element Y.",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a)  How is the oxidising power of X likely to compare with that of Y?\n(b)  How is the electronegativity of X likely to compare with that of Y?\n(c)  State whether X is likely to be placed to the left or to the right of Y in the periodic table?",
+   "q": "(iii) The electron affinity of an element X is greater than that of element Y.\n(a) How is the oxidising power of X likely to compare with that of Y?\n(b) How is the electronegativity of X likely to compare with that of Y?\n(c) State whether X is likely to be placed to the left or to the right of Y in the periodic table?",
    "seen": [
     {
      "src": "S2026",
@@ -4895,9 +4768,10 @@ window.NM_DPP_DATA.periodic = {
     "key-official-specimen"
    ],
    "related": [
-    "periodic-obj-13",
+    "periodic-obj-12",
     "periodic-obj-19"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-16",
@@ -4948,7 +4822,8 @@ window.NM_DPP_DATA.periodic = {
     "periodic-mcq-03",
     "periodic-mcq-04",
     "periodic-mcq-07"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-17",
@@ -4959,7 +4834,7 @@ window.NM_DPP_DATA.periodic = {
    "stem": null,
    "picture": null,
    "img": null,
-   "q": "Elements P, Q, and R are in the same period of the modern periodic table.\n• P readily loses its one valence electron to form a stable ion.\n• Q shares its electrons in bonding but does not form ions easily.\n• R has high electronegativity.\nAnswer the following questions based on the above information:\n(a)  Which element would be most difficult to reduce among P, Q and R?\n(b)  Which element is expected to have the smallest atomic radius among P, Q and R?\n(c)  Arrange P, Q and R in order of decreasing ionization potential.",
+   "q": "Elements P, Q, and R are in the same period of the modern periodic table.\n• P readily loses its one valence electron to form a stable ion.\n• Q shares its electrons in bonding but does not form ions easily.\n• R has high electronegativity.\nAnswer the following questions based on the above information:\n(a) Which element would be most difficult to reduce among P, Q and R?\n(b) Which element is expected to have the smallest atomic radius among P, Q and R?\n(c) Arrange P, Q and R in order of decreasing ionization potential.",
    "seen": [
     {
      "src": "B2026",
@@ -5001,7 +4876,8 @@ window.NM_DPP_DATA.periodic = {
    "related": [
     "periodic-secb-18",
     "periodic-secb-19"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-18",
@@ -5012,7 +4888,7 @@ window.NM_DPP_DATA.periodic = {
    "stem": null,
    "picture": null,
    "img": null,
-   "q": "Name the following:\n(a)  The most electronegative element of Period 2.\n(b)  The largest atom of Period 3.",
+   "q": "Name the following:\n(a) The most electronegative element of Period 2.\n(b) The largest atom of Period 3.",
    "seen": [
     {
      "src": "B2026",
@@ -5053,7 +4929,8 @@ window.NM_DPP_DATA.periodic = {
     "periodic-secb-20",
     "periodic-secb-21",
     "periodic-secb-22"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-19",
@@ -5064,7 +4941,7 @@ window.NM_DPP_DATA.periodic = {
    "stem": null,
    "picture": null,
    "img": null,
-   "q": "Given below are a few elements.\nLi,    K,    Ca,    F\nIdentify the element which:\n(a)  has the least atomic radius.\n(b)  has two valence electrons.\n(c)  is the most electropositive.",
+   "q": "Given below are a few elements.\nLi,   K,   Ca,   F\nIdentify the element which:\n(a) has the least atomic radius.\n(b) has two valence electrons.\n(c) is the most electropositive.",
    "seen": [
     {
      "src": "B2026",
@@ -5107,7 +4984,8 @@ window.NM_DPP_DATA.periodic = {
     "periodic-secb-20",
     "periodic-secb-21",
     "periodic-secb-22"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-20",
@@ -5162,43 +5040,41 @@ window.NM_DPP_DATA.periodic = {
     "periodic-secb-19",
     "periodic-secb-21",
     "periodic-secb-22"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-21",
    "sec": "secb",
    "topic": "position-group-period",
    "format": "NAME",
-   "marks": 3,
-   "stem": "Name the following elements:",
+   "marks": 2,
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(i) An alkaline earth metal present in group 2 and period 3.\n(ii) A trivalent metal used to make light tools.\n(iii) A monovalent non-metal present in fluorspar.",
+   "q": "Name the following elements:\n<ins>(i) An alkaline earth metal present in group 2 and period 3.</ins>\n(ii) A trivalent metal used to make light tools.\n<ins>(iii) A monovalent non-metal present in fluorspar.</ins>",
    "seen": [
     {
      "src": "B2020",
      "ref": "Q7(b)",
-     "marks": 3,
-     "note": ""
+     "marks": 2,
+     "note": "2 of 3 marks in the paper"
     }
    ],
    "answer": {
     "points": [
      "<mark>(i) Magnesium (Mg)</mark> - group 2, period 3 (2,8,2).",
-     "<mark>(ii) Aluminium (Al)</mark> - trivalent (3 valence electrons) light metal.",
      "<mark>(iii) Fluorine (F)</mark> - monovalent non-metal (group 17) present in fluorspar (CaF<sub>2</sub>)."
     ],
     "why": "",
     "official": {
      "src": "CISCE APP 2020 marking scheme",
      "points": [
-      "(b) (i)  Magnesium or Mg",
-      "(ii) Aluminium or Al",
+      "(i) Magnesium or Mg",
       "(iii) Fluorine or F"
      ],
      "errors": [
       "(b) (i) Most candidates attempted this question correctly, but some wrote one element of period 2 and another element from group 3.",
-      "(ii)Some candidates could not relate the term trivalent metal and made errors.",
       "(iii) Some candidates named calcium as they might have missed out on the word non - metal."
      ]
     },
@@ -5211,14 +5087,17 @@ window.NM_DPP_DATA.periodic = {
    "confidence": "HIGH",
    "flags": [
     "key-official-APP",
-    "borderline-scope"
+    "borderline-scope",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-secb-18",
     "periodic-secb-19",
     "periodic-secb-20",
     "periodic-secb-22"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (i) and (iii) are from Periodic Properties and Variations of Properties; (ii) is from Ch 7 Metallurgy. Skip those here."
   },
   {
    "id": "periodic-secb-22",
@@ -5226,10 +5105,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "mixed-trends",
    "format": "NAME",
    "marks": 5,
-   "stem": "The following questions refer to the periodic table:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(i) Name the second last element of the period 3.\n(ii) How many elements are in the second period?\n(iii) Name the element which has the highest electron affinity.\n(iv) Name the element which has the highest electro negativity.\n(v) Name the element which may be placed on group 1 but is not a metal.",
+   "q": "The following questions refer to the periodic table:\n(i) Name the second last element of the period 3.\n(ii) How many elements are in the second period?\n(iii) Name the element which has the highest electron affinity.\n(iv) Name the element which has the highest electro negativity.\n(v) Name the element which may be placed on group 1 but is not a metal.",
    "seen": [
     {
      "src": "S2017",
@@ -5263,7 +5142,8 @@ window.NM_DPP_DATA.periodic = {
     "periodic-secb-19",
     "periodic-secb-20",
     "periodic-secb-21"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-23",
@@ -5271,10 +5151,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "position-group-period",
    "format": "TABLE",
    "marks": 4,
-   "stem": "Use the letters only written in the Periodic Table given below to answer the questions that follow:",
+   "stem": null,
    "picture": "Periodic-table skeleton grid: columns labelled GROUPS I, II, III, IV, V, VI, VII, 0; rows PERIODS 1-5. Letters: L in Period 1 / Group 0; Q in Period 2 / Group I; E, G, J, Z, M in Period 2 / Groups III, IV, V, VI, VII; R in Period 3 / Group I; T in Period 4 / Group I.",
    "img": "img/periodic/B2016-Q2-a.png",
-   "q": "(i) State the number of valence electrons in atom J.\n(ii) Which element shown forms ions with a single negative charge?\n(iii) Which metallic element is more reactive than R?\n(iv) Which element has its electrons arranged in four shells?",
+   "q": "Use the letters only written in the Periodic Table given below to answer the questions that follow:\n(i) State the number of valence electrons in atom J.\n(ii) Which element shown forms ions with a single negative charge?\n(iii) Which metallic element is more reactive than R?\n(iv) Which element has its electrons arranged in four shells?",
    "seen": [
     {
      "src": "B2016",
@@ -5321,7 +5201,8 @@ window.NM_DPP_DATA.periodic = {
     "periodic-secb-25",
     "periodic-secb-26",
     "periodic-secb-30"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-24",
@@ -5329,10 +5210,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "position-group-period",
    "format": "TABLE",
    "marks": 4,
-   "stem": "Study the extract of the Periodic Table given below and answer the questions that follow. Give the alphabet corresponding to the element in question.            DO NOT repeat an element.",
+   "stem": null,
    "picture": "Extract of the periodic table (4 rows, 18 columns). A in Period 1 / Group 1; B in Period 3 / Group 2; C in Period 2 / Group 13; D in Period 2 / Group 15; E in Period 2 / Group 16; G in Period 3 / Group 17; F in Period 3 / Group 18.",
    "img": "img/periodic/B2019-Q2-c.png",
-   "q": "(i) Which element forms electrovalent compound with G?\n(ii) The ion of which element will migrate towards the cathode during electrolysis?\n(iii) Which non-metallic element has the valency of 2?\n(iv) Which is an inert gas?",
+   "q": "Study the extract of the Periodic Table given below and answer the questions that follow. Give the alphabet corresponding to the element in question. DO NOT repeat an element.\n(i) Which element forms electrovalent compound with G?\n(ii) The ion of which element will migrate towards the cathode during electrolysis?\n(iii) Which non-metallic element has the valency of 2?\n(iv) Which is an inert gas?",
    "seen": [
     {
      "src": "B2019",
@@ -5369,47 +5250,45 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-official-APP",
-    "straddles-ch2"
+    "key-official-APP"
    ],
    "related": [
     "periodic-secb-23",
     "periodic-secb-25",
     "periodic-secb-26",
     "periodic-secb-30"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-25",
    "sec": "secb",
    "topic": "position-group-period",
    "format": "TABLE",
-   "marks": 3,
-   "stem": "The following table represent the elements and the atomic number.\nWith reference to this, answer the following using only the alphabets given in the table.\n<table><tr><th>Element</th><th>Atomic number</th></tr><tr><td>P</td><td>13</td></tr><tr><td>Q</td><td>7</td></tr><tr><td>R</td><td>10</td></tr></table>",
+   "marks": 2,
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(i) Which element combines with hydrogen to form a basic gas?\n(ii) Which element has an electron affinity zero?\n(iii) Name the element, which forms an ionic compound with chlorine.",
+   "q": "The following table represent the elements and the atomic number.\nWith reference to this, answer the following using only the alphabets given in the table.\n<table><tr><th>Element</th><th>Atomic number</th></tr><tr><td>P</td><td>13</td></tr><tr><td>Q</td><td>7</td></tr><tr><td>R</td><td>10</td></tr></table>\n<ins>(i) Which element combines with hydrogen to form a basic gas?</ins>\n<ins>(ii) Which element has an electron affinity zero?</ins>\n(iii) Name the element, which forms an ionic compound with chlorine.",
    "seen": [
     {
      "src": "B2020",
      "ref": "Q2(a)",
-     "marks": 3,
-     "note": ""
+     "marks": 2,
+     "note": "2 of 3 marks in the paper"
     }
    ],
    "answer": {
     "points": [
      "<mark>(i) Q (7)</mark> - nitrogen (2,5) forms ammonia, a basic gas, with hydrogen.",
-     "<mark>(ii) R (10)</mark> - neon (2,8), a noble gas, has zero electron affinity.",
-     "<mark>(iii) P (13)</mark> - aluminium (2,8,3), a metal, forms an ionic compound with chlorine."
+     "<mark>(ii) R (10)</mark> - neon (2,8), a noble gas, has zero electron affinity."
     ],
     "why": "",
     "official": {
      "src": "CISCE APP 2020 marking scheme",
      "points": [
-      "(a) (i)  Q / 7",
-      "(ii)  R /10",
-      "(iii) P /13/ Al/ Aluminium"
+      "(i) Q / 7",
+      "(ii) R /10"
      ],
      "errors": [
       "(a) Most of the candidates attempted this part correctly. Some candidates identified the elements instead of choosing the given alphabets."
@@ -5424,7 +5303,7 @@ window.NM_DPP_DATA.periodic = {
    "confidence": "HIGH",
    "flags": [
     "key-official-APP",
-    "straddles-ch2"
+    "mixed-chapters"
    ],
    "related": [
     "periodic-secb-23",
@@ -5432,44 +5311,40 @@ window.NM_DPP_DATA.periodic = {
     "periodic-secb-26",
     "periodic-secb-30",
     "periodic-secb-33"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (i) and (ii) are from Periodic Properties and Variations of Properties; (iii) is from Ch 2 Chemical Bonding. Skip those here."
   },
   {
    "id": "periodic-secb-26",
    "sec": "secb",
    "topic": "position-group-period",
    "format": "TABLE",
-   "marks": 3,
+   "marks": 1,
    "stem": null,
    "picture": "Skeleton periodic table with column headings IA, IIA, IIIA, IVA, VA, VIA, VIIA, 0 (period rows below). Letters placed: E under IVA (top row), J under VIA (top row), Q under 0 (top row); L under IIA (row 2), G under VA (row 2); M under IIA (row 3), D under IIIA (row 3), P under VIIA (row 3); N under IIA (row 4).",
    "img": "img/periodic/B2025-Q4-iv.png",
-   "q": "Study the table given below. Use only the letters given in the table to answer the questions. Do not identify the elements.\n(a) State the valency of element ‘G’.\n(b) Which element can exhibit catenation?\n(c) Write the formula of the compound formed between ‘M’ and ‘P’.",
+   "q": "Study the table given below. Use only the letters given in the table to answer the questions. <b>Do not identify</b> the elements.\n<ins>(a) State the valency of element ‘G’.</ins>\n(b) Which element can exhibit catenation?\n(c) Write the formula of the compound formed between ‘M’ and ‘P’.",
    "seen": [
     {
      "src": "B2025",
      "ref": "Q4(iv)",
-     "marks": 3,
-     "note": ""
+     "marks": 1,
+     "note": "1 of 3 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "<mark>(a) 3</mark> - G is in Group VA (5 valence electrons), so its valency is 3 (it gains 3 electrons).",
-     "<mark>(b) E</mark> - E is in Group IVA (the carbon family), which can exhibit catenation.",
-     "<mark>(c) MP<sub>2</sub></mark> - M (Group IIA) has valency 2 and P (Group VIIA) has valency 1."
+     "<mark>(a) 3</mark> - G is in Group VA (5 valence electrons), so its valency is 3 (it gains 3 electrons)."
     ],
     "why": "",
     "official": {
      "src": "CISCE APP 2025 marking scheme",
      "points": [
-      "(a)  3/ three",
-      "(b)  E",
-      "(c)  MP2"
+      "(a)  3/ three"
      ],
      "errors": [
-      "(a) Many candidates stated the correct valency of the element as ‘-3’, while some candidates mentioned only the numeric value without including the sign. A few candidates even wrote the valency as ‘5’, due to confusion between valency and the number of valence electrons.",
-      "(b)  Majority of the candidates were able to score marks in this part of the question. However, a few mentioned the element as carbon instead of the designated letter ‘E’.",
-      "(c) Most candidates wrote the correct formula as ‘MP₂’.  However, a few of them mentioned M to be hydrogen in the formula and wrote ‘HP₂’. Some candidates reversed the order of the elements and wrote ‘P₂M’ for which no marks were awarded."
+      "Many candidates stated the correct valency of the element as ‘-3’, while some candidates mentioned only the numeric value without including the sign. A few candidates even wrote the valency as ‘5’, due to confusion between valency and the number of valence electrons."
      ]
     },
     "tip": "Do not identify the elements. Board comment: valency was written as -3 or 5 (confusion with valence electrons); write M first then P in MP<sub>2</sub> - 'P<sub>2</sub>M' earned no marks.",
@@ -5481,48 +5356,47 @@ window.NM_DPP_DATA.periodic = {
    "confidence": "HIGH",
    "flags": [
     "key-official-APP",
-    "straddles-ch2"
+    "mixed-chapters"
    ],
    "related": [
     "periodic-secb-23",
     "periodic-secb-24",
     "periodic-secb-25",
     "periodic-secb-30"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (a) is from Periodic Properties and Variations of Properties; (b) is from Ch 9 Organic Chemistry; (c) is from Ch 2 Chemical Bonding. Skip those here."
   },
   {
    "id": "periodic-secb-27",
    "sec": "secb",
    "topic": "position-group-period",
    "format": "SHORT",
-   "marks": 2,
+   "marks": 1,
    "stem": null,
    "picture": null,
    "img": null,
-   "q": "The atomic number of two atoms ‘X’ and ‘Y’ are 14 and 8 respectively.\nState:\n(a) the period to which ‘X’ belongs.\n(b) the formula of the compound formed between ‘X’ and ‘Y’.\n(Do not identify X and Y)",
+   "q": "The atomic number of two atoms ‘X’ and ‘Y’ are 14 and 8 respectively.\nState:\n<ins>(a) the period to which ‘X’ belongs.</ins>\n(b) the formula of the compound formed between ‘X’ and ‘Y’.\n(Do not identify X and Y)",
    "seen": [
     {
      "src": "B2025",
      "ref": "Q3(i)",
-     "marks": 2,
-     "note": ""
+     "marks": 1,
+     "note": "1 of 2 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "<mark>(a) Period 3</mark> - X (Z = 14, 2,8,4) has three shells.",
-     "<mark>(b) XY<sub>2</sub></mark> - X has valency 4, Y (Z = 8, 2,6) has valency 2, so one atom of X combines with two atoms of Y."
+     "<mark>(a) Period 3</mark> - X (Z = 14, 2,8,4) has three shells."
     ],
     "why": "",
     "official": {
      "src": "CISCE APP 2025 marking scheme",
      "points": [
-      "(a)  Period 3/ third period/ 3/third",
-      "(b)  XY2/ Y2X/X2Y4 / Y4X2"
+      "(a)  Period 3/ third period/ 3/third"
      ],
      "errors": [
-      "(a) Most candidates correctly identified the period.  A few wrote the period number in Roman numeral (III) instead of Arabic numeral (3), leading to loss of marks.",
-      "(b) Most candidates correctly wrote the formula as ‘XY₂’ demonstrating an understanding of the elemental ratio. However, some candidates mistakenly provided the name of the compound instead of the formula. A few candidates mentioned the formula such as ‘X₂Y’ or ‘X₆Y₁₂’ which was incorrect."
+      "Most candidates correctly identified the period. A few wrote the period number in Roman numeral (III) instead of Arabic numeral (3), leading to loss of marks."
      ]
     },
     "tip": "Write the period as the number 3 (not Roman III). Do not identify X and Y and do not write the name of the compound. Board comment: formulas such as X<sub>2</sub>Y or X<sub>6</sub>Y<sub>12</sub> were wrong.",
@@ -5534,16 +5408,18 @@ window.NM_DPP_DATA.periodic = {
    "confidence": "HIGH",
    "flags": [
     "key-official-APP",
-    "straddles-ch2"
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-27",
     "periodic-mcq-46",
-    "periodic-secb-29",
+    "periodic-secb-28",
     "periodic-secb-31",
     "periodic-secb-32",
     "periodic-secb-34"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (a) is from Periodic Properties and Variations of Properties; (b) is from Ch 2 Chemical Bonding. Skip those here."
   },
   {
    "id": "periodic-secb-28",
@@ -5551,21 +5427,21 @@ window.NM_DPP_DATA.periodic = {
    "topic": "position-group-period",
    "format": "SHORT",
    "marks": 1,
-   "stem": "Element A belongs to group 15 and period 2 of the Periodic Table.",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a) Identify the element A.",
+   "q": "Element <b>A</b> belongs to group 15 and period 2 of the Periodic Table.\n<ins>(a) Identify the element <b>A</b>.</ins>\n(b) Write the formula of the compound formed when element <b>A</b> combines with hydrogen.\n(c) Draw the dot (●) and cross (<b>x</b>) structure of the compound formed in (b) above.",
    "seen": [
     {
      "src": "B2026",
-     "ref": "Q3(iii)(a)",
+     "ref": "Q3(iii)",
      "marks": 1,
-     "note": "Part mark is not printed in the paper; 1 assumed."
+     "note": "1 of 3 marks in the paper. Part mark is not printed in the paper; 1 assumed."
     }
    ],
    "answer": {
     "points": [
-     "<mark>Nitrogen (N)</mark> - Period 2 (two shells) and Group 15 (five valence electrons): configuration 2,5."
+     "<b>(a)</b> <mark>Nitrogen (N)</mark> - Period 2 (two shells) and Group 15 (five valence electrons): configuration 2,5."
     ],
     "why": "",
     "official": {
@@ -5574,59 +5450,10 @@ window.NM_DPP_DATA.periodic = {
       "(a) Nitrogen / N"
      ],
      "errors": [
-      "(a) Majority of the candidates correctly identified the element as nitrogen, while some wrongly identified it as phosphorus, oxygen, boron, carbon, silicon or other elements. These errors reflected weak understanding of group-period relationships and electronic configuration."
+      "Majority of the candidates correctly identified the element as nitrogen, while some wrongly identified it as phosphorus, oxygen, boron, carbon, silicon or other elements. These errors reflected weak understanding of group-period relationships and electronic configuration."
      ]
     },
-    "tip": "Period = number of shells, group 15 = five valence electrons. Board comment: some wrote phosphorus, oxygen, boron, carbon or silicon.",
-    "words": null
-   },
-   "variations": [],
-   "difficulty": "Easy",
-   "skill": "Application",
-   "confidence": "HIGH",
-   "flags": [
-    "key-official-APP"
-   ],
-   "related": [
-    "periodic-secb-29",
-    "periodic-secb-32",
-    "periodic-secb-34",
-    "periodic-secb-39",
-    "periodic-secb-40",
-    "periodic-secb-41"
-   ]
-  },
-  {
-   "id": "periodic-secb-29",
-   "sec": "secb",
-   "topic": "valency-valence-electrons",
-   "format": "SHORT",
-   "marks": 1,
-   "stem": "Element A belongs to group 15 and period 2 of the Periodic Table.",
-   "picture": null,
-   "img": null,
-   "q": "(b) Write the formula of the compound formed when element A combines with hydrogen.",
-   "seen": [
-    {
-     "src": "B2026",
-     "ref": "Q3(iii)(b)",
-     "marks": 1,
-     "note": ""
-    }
-   ],
-   "answer": {
-    "points": [
-     "<mark>NH<sub>3</sub></mark> (AH<sub>3</sub>) - A is in group 15 with five valence electrons, so its valency is 3 and it combines with three hydrogen atoms."
-    ],
-    "why": "",
-    "official": {
-     "src": "CISCE APP 2026 marking scheme",
-     "points": [
-      "(b) NH3       /   AH3"
-     ],
-     "errors": []
-    },
-    "tip": "Group 15 gives valency 3; hydrogen has valency 1. Either NH<sub>3</sub> or AH<sub>3</sub> is accepted.",
+    "tip": "Period = number of shells, group 15 = five valence electrons. Board comment: some wrote phosphorus, oxygen, boron, carbon or silicon. Group 15 gives valency 3; hydrogen has valency 1. Either NH<sub>3</sub> or AH<sub>3</sub> is accepted.",
     "words": null
    },
    "variations": [],
@@ -5635,15 +5462,16 @@ window.NM_DPP_DATA.periodic = {
    "confidence": "HIGH",
    "flags": [
     "key-official-APP",
-    "straddles-ch2"
+    "mixed-chapters"
    ],
    "related": [
-    "periodic-mcq-27",
-    "periodic-mcq-46",
-    "periodic-secb-27",
-    "periodic-secb-28",
-    "periodic-secb-31"
-   ]
+    "periodic-secb-32",
+    "periodic-secb-34",
+    "periodic-secb-38",
+    "periodic-secb-40"
+   ],
+   "options": null,
+   "mixed": "Only (a) is from Periodic Properties and Variations of Properties; (b) and (c) are from Ch 2 Chemical Bonding. Skip those here."
   },
   {
    "id": "periodic-secb-30",
@@ -5651,16 +5479,16 @@ window.NM_DPP_DATA.periodic = {
    "topic": "position-group-period",
    "format": "TABLE",
    "marks": 2,
-   "stem": "Study the table and answer the following questions:\n<table><tr><th>Atom</th><th>Atom No.</th></tr><tr><td>A</td><td>11</td></tr><tr><td>B</td><td>17</td></tr></table>",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(i) Compare the positions of A and B in the Periodic Table.\n(ii) Which is more metallic?",
+   "q": "Study the table and answer the following questions:\n<table><tr><th>Atom</th><th>Atom No.</th></tr><tr><td>A</td><td>11</td></tr><tr><td>B</td><td>17</td></tr></table>\n<ins>(i) Compare the positions of A and B in the Periodic Table.</ins>\n<ins>(ii) Which is more metallic?</ins>\n(iii) Write equations for the formation of ions of A and B.\n(iv) What type of bond is formed between A and B?\nMention its physical state and solubility in water.",
    "seen": [
     {
      "src": "S2019",
      "ref": "Q3(a)",
      "marks": 2,
-     "note": "Per-part marks are not printed (the whole Q3(a) carries 6 marks over four parts); 1 mark each assumed for the two Chapter 1 parts (i) and (ii). Parts (iii) ion equations and (iv) bond/physical properties belong to Chemical Bonding and are not shown."
+     "note": "2 of 6 marks in the paper. Per-part marks are not printed (the whole Q3(a) carries 6 marks over four parts); 1 mark each assumed for the two Chapter 1 parts (i) and (ii). Parts (iii) ion equations and (iv) bond/physical properties belong to Chemical Bonding and are not shown."
     }
    ],
    "answer": {
@@ -5678,7 +5506,8 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
+    "key-agent-determined",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-secb-23",
@@ -5686,31 +5515,32 @@ window.NM_DPP_DATA.periodic = {
     "periodic-secb-25",
     "periodic-secb-26",
     "periodic-secb-31"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (i) and (ii) are from Periodic Properties and Variations of Properties; (iii) and (iv) are from Ch 2 Chemical Bonding. Skip those here."
   },
   {
    "id": "periodic-secb-31",
    "sec": "secb",
    "topic": "position-group-period",
    "format": "SHORT",
-   "marks": 3,
-   "stem": "An element X has atomic number 17. Answer the following questions.",
+   "marks": 2,
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a) State the period & group to which it belongs:\n(b) Is it a Metal or Non Metal?\n(c) Write the formula between X and Hydrogen.",
+   "q": "An element X has atomic number 17. Answer the following questions.\n<ins>(a) State the period & group to which it belongs:</ins>\n<ins>(b) Is it a Metal or Non Metal?</ins>\n(c) Write the formula between X and Hydrogen.",
    "seen": [
     {
      "src": "S2023",
      "ref": "Q8(iv)",
-     "marks": 3,
-     "note": ""
+     "marks": 2,
+     "note": "2 of 3 marks in the paper"
     }
    ],
    "answer": {
     "points": [
      "<mark>(a) Period 3, Group 17 (VIIA)</mark> - atomic number 17 = 2,8,7: three shells, seven valence electrons.",
-     "<mark>(b) Non-metal</mark> - it needs one electron to complete its octet (a halogen).",
-     "<mark>(c) HCl</mark> - chlorine (valency 1) combines with hydrogen (valency 1)."
+     "<mark>(b) Non-metal</mark> - it needs one electron to complete its octet (a halogen)."
     ],
     "why": "",
     "official": null,
@@ -5723,16 +5553,18 @@ window.NM_DPP_DATA.periodic = {
    "confidence": "HIGH",
    "flags": [
     "key-agent-determined",
-    "straddles-ch2"
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-27",
     "periodic-mcq-46",
     "periodic-secb-27",
-    "periodic-secb-29",
+    "periodic-secb-28",
     "periodic-secb-30",
     "periodic-secb-32"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (a) and (b) are from Periodic Properties and Variations of Properties; (c) is from Ch 2 Chemical Bonding. Skip those here."
   },
   {
    "id": "periodic-secb-32",
@@ -5743,18 +5575,18 @@ window.NM_DPP_DATA.periodic = {
    "stem": null,
    "picture": null,
    "img": null,
-   "q": "(b) The atomic number of an element is 15. To which group will this element belong to?",
+   "q": "(ii) (a) Mahesh prepared a basic solution X that has a pH 7.\nHow will the pH of the solution X change on addition of the following:\n1. Hydrochloric acid\n2. a solution of a base\n<ins>(b) The atomic number of an element is 15. To which group will this element belong to?</ins>",
    "seen": [
     {
      "src": "S2024",
-     "ref": "Q7(ii)(b)",
+     "ref": "Q7(ii)",
      "marks": 1,
-     "note": "Part mark is not printed in the paper; 1 assumed."
+     "note": "1 of 3 marks in the paper. Part mark is not printed in the paper; 1 assumed."
     }
    ],
    "answer": {
     "points": [
-     "<mark>Group 15 (VA)</mark> - atomic number 15 = 2,8,5: five valence electrons (phosphorus, Period 3)."
+     "<b>(b)</b> <mark>Group 15 (VA)</mark> - atomic number 15 = 2,8,5: five valence electrons (phosphorus, Period 3)."
     ],
     "why": "",
     "official": null,
@@ -5766,38 +5598,40 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-agent-determined"
+    "key-agent-determined",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-secb-27",
     "periodic-secb-28",
     "periodic-secb-31",
     "periodic-secb-34",
-    "periodic-secb-39",
+    "periodic-secb-38",
     "periodic-secb-40"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (b) is from Periodic Properties and Variations of Properties; (a) is from Ch 3 Acids, Bases and Salts. Skip those here."
   },
   {
    "id": "periodic-secb-33",
    "sec": "secb",
    "topic": "mixed-trends",
    "format": "SHORT",
-   "marks": 3,
-   "stem": "L, M and N are three elements with atomic numbers 13, 7 and 10 respectively. Answer the following questions using only the alphabets given. Do not identify the elements.\nWhich element:",
+   "marks": 2,
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a) can combine with hydrogen to form a gas which produces dense white fumes with concentrated HCl?\n(b) has zero electron affinity?\n(c) can form an ionic compound with oxygen?",
+   "q": "(iv) L, M and N are three elements with atomic numbers 13, 7 and 10 respectively. Answer the following questions using only the alphabets given. Do not identify the elements.\nWhich element:\n(a) can combine with hydrogen to form a gas which produces dense white fumes with concentrated HCl?\n<ins>(b) has zero electron affinity?</ins>\n<ins>(c) can form an ionic compound with oxygen?</ins>",
    "seen": [
     {
      "src": "S2026",
      "ref": "Q8(iv)",
-     "marks": 3,
-     "note": ""
+     "marks": 2,
+     "note": "2 of 3 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "<mark>(a) M</mark> - atomic number 7 (nitrogen) forms ammonia, which gives dense white fumes with HCl.",
      "<mark>(b) N</mark> - atomic number 10 (neon), a noble gas, has zero electron affinity.",
      "<mark>(c) L</mark> - atomic number 13 (aluminium), a metal, forms an ionic compound with oxygen."
     ],
@@ -5805,7 +5639,6 @@ window.NM_DPP_DATA.periodic = {
     "official": {
      "src": "CISCE Specimen 2026 marking scheme",
      "points": [
-      "(a) M",
       "(b) N",
       "(c) L"
      ],
@@ -5820,11 +5653,13 @@ window.NM_DPP_DATA.periodic = {
    "confidence": "HIGH",
    "flags": [
     "key-official-specimen",
-    "straddles-ch2"
+    "mixed-chapters"
    ],
    "related": [
     "periodic-secb-25"
-   ]
+   ],
+   "options": null,
+   "mixed": "Only (b) and (c) are from Periodic Properties and Variations of Properties; (a) is from Ch 8 Study of Compounds (Ammonia). Skip those here."
   },
   {
    "id": "periodic-secb-34",
@@ -5832,10 +5667,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "position-group-period",
    "format": "SHORT",
    "marks": 3,
-   "stem": "An element ‘P’ has 3 valence electrons in its L - shell and an element ‘Q’ has 7 valence electrons in its M - shell. Using this information, answer the following questions:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a) Identify the exact position of element ‘Q’ in terms of group and period in the Modern Periodic Table.\n(b) The atomic radius of P is __________ (more/less) than that of Q.",
+   "q": "(iv) An element ‘P’ has 3 valence electrons in its L - shell and an element ‘Q’ has 7 valence electrons in its M - shell. Using this information, answer the following questions:\n(a) Identify the exact position of element ‘Q’ in terms of group and period in the Modern Periodic Table.\n(b) The atomic radius of P is __________ (more/less) than that of Q.",
    "seen": [
     {
      "src": "S2027",
@@ -5873,10 +5708,10 @@ window.NM_DPP_DATA.periodic = {
     "periodic-secb-27",
     "periodic-secb-28",
     "periodic-secb-32",
-    "periodic-secb-39",
-    "periodic-secb-40",
-    "periodic-secb-41"
-   ]
+    "periodic-secb-38",
+    "periodic-secb-40"
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-35",
@@ -5884,10 +5719,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "valency-valence-electrons",
    "format": "SHORT",
    "marks": 3,
-   "stem": "In the reactivity series of metals, Z is a metal above hydrogen and its oxide has the formula ZO. It was found that ZO reacted with water and formed a hydroxide as the product. With reference to the above context, answer the following questions:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a)  State the number of valence electrons present in element Z.\n(b)  Name the group which Z belongs to.\n(c)  What will be the formula of the hydroxide of Z?",
+   "q": "(i) In the reactivity series of metals, Z is a metal above hydrogen and its oxide has the formula ZO. It was found that ZO reacted with water and formed a hydroxide as the product. With reference to the above context, answer the following questions:\n(a) State the number of valence electrons present in element Z.\n(b) Name the group which Z belongs to.\n(c) What will be the formula of the hydroxide of Z?",
    "seen": [
     {
      "src": "S2027",
@@ -5920,14 +5755,14 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-official-specimen",
-    "straddles-ch2"
+    "key-official-specimen"
    ],
    "related": [
     "periodic-mcq-23",
     "periodic-mcq-28",
     "periodic-secb-36"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-36",
@@ -5935,10 +5770,10 @@ window.NM_DPP_DATA.periodic = {
    "topic": "valency-valence-electrons",
    "format": "SHORT",
    "marks": 2,
-   "stem": "Element ‘X’ forms an oxide with the formula X<sub>2</sub>O<sub>3</sub> which is a solid with high melting point. ‘X’ would most likely be placed in the group of the Periodic Table as:",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "1. (a) Na\n(b) Mg\n(c) Al\n(d) Si\n2. Justify your answer in the above question (1).",
+   "q": "(i) Element ‘X’ forms an oxide with the formula X<sub>2</sub>O<sub>3</sub> which is a solid with high melting point. ‘X’ would most likely be placed in the group of the Periodic Table as:\n1. (a) Na\n(b) Mg\n(c) Al\n(d) Si\n2. Justify your answer in the above question (1).",
    "seen": [
     {
      "src": "S2025",
@@ -5975,7 +5810,8 @@ window.NM_DPP_DATA.periodic = {
     "periodic-mcq-23",
     "periodic-mcq-28",
     "periodic-secb-35"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-37",
@@ -6020,39 +5856,42 @@ window.NM_DPP_DATA.periodic = {
    "related": [
     "periodic-secb-02",
     "periodic-secb-38"
-   ]
+   ],
+   "options": null
   },
   {
    "id": "periodic-secb-38",
    "sec": "secb",
    "topic": "ionisation-potential",
    "format": "REASON",
-   "marks": 1,
-   "stem": "Study the information given in the table below and answer the questions that follow. (Note- the letters do not represent the actual symbols of the elements)\n<table><tr><th>Element</th><th>Electronic configuration</th><th>Ionisation energy kjmol<sup>-1</sup></th></tr><tr><td>X</td><td>2,2</td><td>900</td></tr><tr><td>Y</td><td>2,8,2</td><td>738</td></tr><tr><td>Z</td><td>2,8,8,2</td><td>590</td></tr></table>",
+   "marks": 2,
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a) Explain why element X has highest ionisation energy.",
+   "q": "Study the information given in the table below and answer the questions that follow. (Note- the letters do not represent the actual symbols of the elements)\n<table><tr><th>Element</th><th>Electronic configuration</th><th>Ionisation energy kjmol<sup>-1</sup></th></tr><tr><td>X</td><td>2,2</td><td>900</td></tr><tr><td>Y</td><td>2,8,2</td><td>738</td></tr><tr><td>Z</td><td>2,8,8,2</td><td>590</td></tr></table>\n<ins>(a) Explain why element X has highest ionisation energy.</ins>\n<ins>(b) To which period does Z belong?</ins>\n(c) Draw the electron dot structure of the compound formed between Z and oxygen.",
    "seen": [
     {
      "src": "CFPQ2024",
-     "ref": "Q115(a)",
-     "marks": 1,
-     "note": ""
+     "ref": "Q115",
+     "marks": 2,
+     "note": "2 of 3 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "X has the <mark>fewest shells</mark> (2,2), so its outer electrons are closest to the nucleus and attracted most strongly; <mark>more energy is needed to remove</mark> an electron from its outermost shell."
+     "<b>(a)</b> X has the <mark>fewest shells</mark> (2,2), so its outer electrons are closest to the nucleus and attracted most strongly; <mark>more energy is needed to remove</mark> an electron from its outermost shell.",
+     "<b>(b)</b> <mark>Fourth period</mark> - Z (2,8,8,2) has four shells."
     ],
     "why": "",
     "official": {
      "src": "CISCE CFPQ answer key",
      "points": [
-      "115. (a) As the number of shells are less the attraction by the nucleus on the electrons is more so more energy is required to remove the electron from the outermost shell"
+      "(a) As the number of shells are less the attraction by the nucleus on the electrons is more so more energy is required to remove the electron from the outermost shell",
+      "(b) Fourth period"
      ],
      "errors": []
     },
-    "tip": "Relate the answer to the number of shells (atomic size) and the attraction of the nucleus on the outermost electron.",
+    "tip": "Relate the answer to the number of shells (atomic size) and the attraction of the nucleus on the outermost electron. Period number = number of shells.",
     "words": "≈20-30 words"
    },
    "variations": [],
@@ -6060,97 +5899,51 @@ window.NM_DPP_DATA.periodic = {
    "skill": "Analysis",
    "confidence": "HIGH",
    "flags": [
-    "key-official-CFPQ"
+    "key-official-CFPQ",
+    "mixed-chapters"
    ],
    "related": [
     "periodic-secb-02",
     "periodic-secb-37"
-   ]
-  },
-  {
-   "id": "periodic-secb-39",
-   "sec": "secb",
-   "topic": "position-group-period",
-   "format": "SHORT",
-   "marks": 1,
-   "stem": "Study the information given in the table below and answer the questions that follow. (Note- the letters do not represent the actual symbols of the elements)\n<table><tr><th>Element</th><th>Electronic configuration</th><th>Ionisation energy kjmol<sup>-1</sup></th></tr><tr><td>X</td><td>2,2</td><td>900</td></tr><tr><td>Y</td><td>2,8,2</td><td>738</td></tr><tr><td>Z</td><td>2,8,8,2</td><td>590</td></tr></table>",
-   "picture": null,
-   "img": null,
-   "q": "(b) To which period does Z belong?",
-   "seen": [
-    {
-     "src": "CFPQ2024",
-     "ref": "Q115(b)",
-     "marks": 1,
-     "note": ""
-    }
    ],
-   "answer": {
-    "points": [
-     "<mark>Fourth period</mark> - Z (2,8,8,2) has four shells."
-    ],
-    "why": "",
-    "official": {
-     "src": "CISCE CFPQ answer key",
-     "points": [
-      "115. (b) Fourth period"
-     ],
-     "errors": []
-    },
-    "tip": "Period number = number of shells.",
-    "words": null
-   },
-   "variations": [],
-   "difficulty": "Easy",
-   "skill": "Application",
-   "confidence": "HIGH",
-   "flags": [
-    "key-official-CFPQ"
-   ],
-   "related": [
-    "periodic-secb-28",
-    "periodic-secb-32",
-    "periodic-secb-34",
-    "periodic-secb-40"
-   ]
+   "options": null,
+   "mixed": "Only (a) and (b) are from Periodic Properties and Variations of Properties; (c) is from Ch 2 Chemical Bonding. Skip those here."
   },
   {
    "id": "periodic-secb-40",
    "sec": "secb",
    "topic": "valency-valence-electrons",
-   "format": "MCQ",
-   "marks": 1,
-   "stem": "Atomic number of element M is 12 and it forms an ionic compound with element L.",
+   "format": "SHORT",
+   "marks": 2,
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(a) Which of the following atomic numbers will match L?",
-   "options": [
-    "14",
-    "10",
-    "8"
-   ],
+   "q": "Atomic number of element M is 12 and it forms an ionic compound with element L.\n<ins>(a) Which of the following atomic numbers will match L?</ins>\n<ins>i. 14</ins>\n<ins>ii. 10</ins>\n<ins>iii. 8</ins>\n<ins>(b) What is the name given to the members of the group to which element M belongs?</ins>\n(c) Draw the electron dot structure of the compound formed between M and L.",
+   "options": null,
    "correct": 2,
    "seen": [
     {
      "src": "CFPQ2024",
-     "ref": "Q120(a)",
-     "marks": 1,
-     "note": ""
+     "ref": "Q120",
+     "marks": 2,
+     "note": "2 of 3 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "<b>(iii)</b> 8"
+     "<b>(a)</b> <b>(iii)</b> 8",
+     "<b>(b)</b> <mark>Alkaline earth metals</mark> - M (12, 2,8,2) is in Group 2."
     ],
     "why": "<b>(iii) 8</b> - M (atomic number 12, 2,8,2) is a Group 2 metal and forms an ionic compound with a non-metal; atomic number 8 is oxygen (2,6), a Group 16 non-metal that gains the 2 electrons. 14 (silicon) and 10 (neon) do not form ionic compounds with a metal.",
     "official": {
      "src": "CISCE CFPQ answer key",
      "points": [
-      "120. (a) c) 8"
+      "(a) c) 8",
+      "(b) Alkaline earth metals"
      ],
      "errors": []
     },
-    "tip": "A metal forms an ionic compound with a non-metal that needs electrons: pick the option with a nearly full outer shell (6 valence electrons here).",
+    "tip": "A metal forms an ionic compound with a non-metal that needs electrons: pick the option with a nearly full outer shell (6 valence electrons here). Group 1 = alkali metals, Group 2 = alkaline earth metals, Group 17 = halogens, Group 18 = noble (inert) gases.",
     "words": null
    },
    "variations": [],
@@ -6159,64 +5952,66 @@ window.NM_DPP_DATA.periodic = {
    "confidence": "HIGH",
    "flags": [
     "key-official-CFPQ",
-    "straddles-ch2"
+    "mixed-chapters"
    ],
    "related": [
     "periodic-mcq-40",
     "periodic-secb-28",
     "periodic-secb-32",
     "periodic-secb-34",
-    "periodic-secb-39",
-    "periodic-secb-41"
-   ]
+    "periodic-secb-38"
+   ],
+   "mixed": "Only (a) and (b) are from Periodic Properties and Variations of Properties; (c) is from Ch 2 Chemical Bonding. Skip those here."
   },
   {
-   "id": "periodic-secb-41",
+   "id": "periodic-secb-42",
    "sec": "secb",
-   "topic": "position-group-period",
+   "topic": "valency-valence-electrons",
    "format": "SHORT",
    "marks": 1,
-   "stem": "Atomic number of element M is 12 and it forms an ionic compound with element L.",
+   "stem": null,
    "picture": null,
    "img": null,
-   "q": "(b) What is the name given to the members of the group to which element M belongs?",
+   "optionImgs": null,
+   "q": "(iv) N is a metal which forms a basic oxide.\nN has atomic no. 11.\n<ins>(a) What is the molecular formula of the oxide of N?</ins>\n(b) Write the balanced equation for the reaction that takes place when the oxide of N is treated with water.\n(c) State the formula of the product obtained other than water when sulphuric acid is added to the product obtained in (b) above.",
+   "options": null,
+   "correct": null,
    "seen": [
     {
-     "src": "CFPQ2024",
-     "ref": "Q120(b)",
+     "src": "S2027",
+     "ref": "Q3(iv)",
      "marks": 1,
-     "note": ""
+     "note": "1 of 3 marks in the paper"
     }
    ],
    "answer": {
     "points": [
-     "<mark>Alkaline earth metals</mark> - M (12, 2,8,2) is in Group 2."
+     "<b>(a)</b> <mark>N<sub>2</sub>O</mark> - N has atomic number 11 (2,8,1): one valence electron, so valency 1; oxygen has valency 2, so the oxide is N<sub>2</sub>O (like Na<sub>2</sub>O)."
     ],
     "why": "",
     "official": {
-     "src": "CISCE CFPQ answer key",
+     "src": "CISCE Specimen 2027 marking scheme",
      "points": [
-      "120. (b) Alkaline earth metals"
+      "(a) N<sub>2</sub>O"
      ],
      "errors": []
     },
-    "tip": "Group 1 = alkali metals, Group 2 = alkaline earth metals, Group 17 = halogens, Group 18 = noble (inert) gases.",
+    "tip": "N is just the symbol given for the element of atomic number 11 (it is not nitrogen). Write its electronic configuration 2,8,1, take valency 1, then criss-cross with oxygen (valency 2).",
     "words": null
    },
    "variations": [],
-   "difficulty": "Easy",
-   "skill": "Recall",
+   "difficulty": "Medium",
+   "skill": "Application",
    "confidence": "HIGH",
    "flags": [
-    "key-official-CFPQ"
+    "key-official-specimen",
+    "mixed-chapters"
    ],
+   "mixed": "Only (a) is from Periodic Properties and Variations of Properties; (b) and (c) are from Ch 3 Acids, Bases and Salts. Skip those here.",
    "related": [
-    "periodic-mcq-34",
-    "periodic-mcq-40",
-    "periodic-mcq-47",
-    "periodic-secb-28",
-    "periodic-secb-34",
-    "periodic-secb-40"
+    "periodic-mcq-27",
+    "periodic-secb-31",
+    "periodic-secb-35"
    ]
   }
  ]

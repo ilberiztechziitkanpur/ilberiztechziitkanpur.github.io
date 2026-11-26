@@ -68,3 +68,8 @@ Chapter DPPs also fit: Periodic table, Bonding, Acids-Bases-Salts, Analytical (N
 - CFPQ Chemistry: one edition (cover 2024, uploaded Nov 2025) — every item carries CISCE's own chapter tag in square brackets, e.g. "[Periodic Properties and Variations of Properties]". Use the tag to decide scope.
 - Ch 1 marks per paper are small (≈4–17); Ch 1 items often straddle Ch 2 (formula/valency from position) — include with flag `straddles-ch2`; electron-dot/bond-type parts belong to Ch 2.
 - The 2027 syllabus says period 4 (up to Ca), not period 3.
+
+## 8. Built 26–27 Nov 2026 (Ch 2–9 + Practical, Ch 1 rebuilt) — don't re-research
+- Codes in chemistry/dpp/: periodic (1), bonding (2), acids (3), analytical (4), mole (5), electrolysis (6), metallurgy (7), hcl (8.1), ammonia (8.2), nitric (8.3), sulphuric (8.4), organic (9), practical (10). Ch 8 = 4 engine chapters, items in the 4 Ch 8 subchapters of data.json. Old compounds-mcq vault redirects to ?ch=hcl.
+- Cheapest pipeline that worked: extract EVERY paper once with all chapters tagged per part (BRIEF2.md), split by chapter with a script, then compile one chapter per agent (COMPILE2.md). Run ONE agent at a time (user, 27 Nov 2026).
+- All chemistry is now built; next step is the batch completeness audit the user asked for.

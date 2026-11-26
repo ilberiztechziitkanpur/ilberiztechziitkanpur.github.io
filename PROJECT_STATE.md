@@ -948,7 +948,9 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
 - **Mixed-chapter rule (FINAL, user 26 Nov 2026):** a printed question is never cut. The whole question is shown; this chapter's parts are wrapped in <ins> (highlighted) and a `mixed` banner names the chapters of the other parts; marks/answers cover only the highlighted parts. Ch 1 still uses the older partial-extract rule until it is rebuilt.
 - **Engine v14.6 (master + copy):** `mixed` banner, `<ins>` highlight, `answer.img` + `answer.imgNote` (official answer diagram first; our clean redraw beside it only when the official crop is unclear, e.g. img/bonding/drawn/CFPQ2024-Q120c.svg). Flag `mixed-chapters`. smoke.js now also checks data files not yet tagged in index.html.
 - **Wrong official keys (user rule):** the chemically correct answer is shown; the official lines stay verbatim in answer.official; flag `official-key-error` + a tip note.
-- **Not yet done:** completeness audit (user chose one batch audit later, in a fresh session), browser check of the new chapters, Ch 1 rebuild with the new mixed rule.
+- **Counts (unique questions mcq/obj/secb):** periodic 48/21/37 (Ch 1 rebuilt with the mixed rule on 27 Nov, v15.1; 9 old ids merged into whole questions), bonding 34/28/40, acids 28/26/42, analytical 18/23/41, mole 27/17/45, electrolysis 43/23/35, metallurgy 21/25/47, hcl 11/16/40, ammonia 10/23/49, nitric 5/17/37, sulphuric 18/13/42, organic 37/66/67, practical 2/5/9. Releases v14.6–v15.1, one commit per chapter.
+- **Research archive (scratchpad, not in repo):** chem/raw2/x1–x6.json (every question part of every paper with its chapter), bych/<code>.json, clusters/<code>-clusters.md, scripts/split.js + wire.js (adds DPP items to data.json/data.js and script tags).
+- **Not yet done:** completeness audit (user chose one batch audit later, in a fresh session), browser check of the new chapters (the local server was blocked in this session).
 
 ## 5. Protocol for Future Chats (Step-by-Step Onboarding Guide)
 
