@@ -524,6 +524,12 @@
 
     .q-body { margin-top: 12px; }
     .stem { font-size: 14px; color: var(--tx-2); padding: 6px 0 6px 12px; border-left: 3px solid var(--line-2); margin-bottom: 10px; }
+    .mixed { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; color: var(--tx-2); background: var(--var-soft); border: 1px solid var(--var-line); border-radius: 10px; padding: 9px 12px; margin-bottom: 10px; }
+    .mixed b { display: block; font-size: 12px; color: var(--tx); }
+    ins { text-decoration: none; background: var(--mark); border-radius: 3px; padding: 0 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+    .fig-ans .fig-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .fig-ans .fig-cell { flex: 1 1 200px; min-width: 0; display: grid; gap: 4px; }
+    .fig-ans img { background: #fff; border-radius: 8px; max-width: 100%; }
     .stem-k { display: block; font-size: 11.5px; font-weight: 600; color: var(--tx-3); margin-bottom: 1px; }
     .fig {
       display: flex; gap: 12px; align-items: flex-start; margin: 0 0 10px;
@@ -1095,7 +1101,7 @@
      Helpers
      ------------------------------------------------------------------ */
   var ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
-  var RT_TAGS = /&lt;(\/?)(b|i|em|strong|u|sub|sup|mark|small|table|thead|tbody|tr|th|td)\s*&gt;/gi;
+  var RT_TAGS = /&lt;(\/?)(b|i|em|strong|u|ins|sub|sup|mark|small|table|thead|tbody|tr|th|td)\s*&gt;/gi;
   function $(s, r) { return (r || document).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
   function esc(s) { return str(s).replace(/[&<>"']/g, function (c) { return ESC[c]; }); }
@@ -1203,6 +1209,7 @@
     'key-official-CFPQ': { label: 'Official CFPQ key', icon: 'verified', ok: true, title: 'Answer key from the CISCE Competency Focused Practice Questions' },
     'key-agent-determined': { label: 'Key worked out', icon: 'calculate', title: 'CISCE published no key for this paper; the answer was worked out and double-checked' },
     'straddles-ch': { label: 'Also uses Ch {ch}', icon: 'call_split', title: 'Part of this question needs ideas from another chapter' },
+    'mixed-chapters': { label: 'Mixed-chapter question', icon: 'call_split', title: 'Shown whole, exactly as printed; the highlighted parts belong to this chapter' },
     'partly-other-chapters': { label: 'Mixed-chapter question', icon: 'call_split', title: 'Shown whole, exactly as printed; only some parts belong to this chapter' },
     'text-reconstructed': { label: 'Text reconstructed', icon: 'help', title: 'The printed text was unclear in every copy; closest official wording used' },
     'official-scheme-typo': { label: 'Scheme typo kept', icon: 'spellcheck', title: 'The official marking scheme has a typo, kept as printed' },
@@ -1318,6 +1325,7 @@
       topic: topic, format: fmt,
       marks: num(raw.marks, parent ? parent.marks : (hasOpts ? 1 : 2)),
       stem: raw.stem ? str(raw.stem) : null,
+      mixed: raw.mixed ? str(raw.mixed) : null,
       picture: raw.picture ? str(raw.picture) : null,
       img: imgList(raw.img, raw.picture),
       optionImgs: arr(raw.optionImgs).map(safeImg),
@@ -1326,7 +1334,7 @@
       seen: arr(raw.seen).filter(function (s) { return s && s.src; }).map(function (s) {
         return { src: str(s.src), ref: str(s.ref), marks: num(s.marks, null), note: str(s.note), source: c.srcById[s.src] || null };
       }),
-      answer: { points: texts(ans.points), why: str(ans.why), official: off, tip: str(ans.tip), words: str(ans.words) },
+      answer: { points: texts(ans.points), why: str(ans.why), official: off, tip: str(ans.tip), words: str(ans.words), img: ansImgs(ans.img), imgNote: str(ans.imgNote) },
       diff: str(raw.diff),
       difficulty: str(raw.difficulty) || (parent ? parent.difficulty : ''),
       skill: str(raw.skill) || (parent ? parent.skill : ''),
@@ -1621,6 +1629,17 @@
       (isSrc ? 'Source extract' : 'Picture in the paper (description)') + '</span>' + rt(it.picture) + '</figcaption></figure>';
   }
   function optImg(it, i) { var p = it.optionImgs[i]; return p ? '<img class="opt-img" src="' + esc(p) + '" alt="Option ' + letter(i) + '" loading="lazy">' : ''; }
+  function ansImgs(v) {
+    return arr(v).map(function (x) { return typeof x === 'string' ? { src: safeImg(x), cap: '' } : { src: safeImg(x && x.src), cap: str(x && x.cap) }; })
+      .filter(function (x) { return x.src; });
+  }
+  function ansFigHTML(a) {
+    if (!a.img.length) return '';
+    return '<figure class="fig fig-ans"><div class="fig-row">' + a.img.map(function (m) {
+      return '<div class="fig-cell"><img src="' + esc(m.src) + '" alt="' + esc(strip(m.cap) || 'Answer diagram') + '" loading="lazy" decoding="async">' + (m.cap ? '<span class="fig-k">' + rt(m.cap) + '</span>' : '') + '</div>';
+    }).join('') + '</div>' + (a.imgNote ? '<figcaption>' + rt(a.imgNote) + '</figcaption>' : '') + '</figure>';
+  }
+  function mixedHTML(it) { return it.mixed ? '<div class="mixed">' + icon('call_split') + '<div><b>Mixed-chapter question</b>' + rt(it.mixed) + '</div></div>' : ''; }
   function stemHTML(it) { return it.stem ? '<div class="stem"><span class="stem-k">Stem</span>' + rt(it.stem) + '</div>' : ''; }
   function optsHTML(it, act) {
     var two = it.options.every(function (o) { return strip(o).length <= 46; }) && it.options.length % 2 === 0;
@@ -1652,12 +1671,13 @@
     return tip ? '<div class="tipbox"' + (style || '') + '>' + icon('lightbulb') + '<div><b>How to score full marks</b>' + trusted(tip) + '</div></div>' : '';
   }
   function chipsHTML(it) { return '<span class="chip chip-fmt">' + esc(FORMAT_LABEL[it.format] || it.format) + '</span><span class="chip">' + plural(it.marks, 'mark') + '</span>'; }
-  function promptHTML(it, id) { return stemHTML(it) + figureHTML(it) + '<div class="q-text"' + (id ? ' id="' + id + '"' : '') + '>' + rt(it.q) + '</div>'; }
+  function promptHTML(it, id) { return mixedHTML(it) + stemHTML(it) + figureHTML(it) + '<div class="q-text"' + (id ? ' id="' + id + '"' : '') + '>' + rt(it.q) + '</div>'; }
   function answerHTML(it, ansId) {
     var a = it.answer, h = '';
     if (it.objective) h += '<p class="ans-key">' + icon('check_circle') + '<span>Answer: (' + letter(it.correct) + ') ' + rt(it.options[it.correct]) + '</span></p>';
     if (a.why) h += '<div class="why"><b>Why</b> ' + trusted(a.why) + '</div>';
     if (a.points.length) h += pointsHTML(it, 'chk');
+    h += ansFigHTML(a);
     if (!it.objective && !a.points.length && !a.official) h += '<p class="why">Marking points for this question haven’t been added yet.</p>';
     h += tipHTML(a.tip);
     if (a.words && !it.objective) h += '<span class="words">' + icon('notes') + 'Suggested length: ' + esc(a.words) + '</span>';

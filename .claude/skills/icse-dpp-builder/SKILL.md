@@ -27,12 +27,31 @@ Every question must appear in the DPP **exactly as it is printed in the question
 - **Maths / science notation exact:** keep subscripts/superscripts (<sub>/<sup>), units, symbols (Ω, °, √, π, →, ⇌), fractions and equations exactly; if notation can't be typed faithfully (matrices, long equations, constructions, tables), crop it as an image too.
 - **Language exact:** Hindi in Devanagari exactly as printed; English grammar/transformation items character-for-character.
 - If the printed text is unreadable in every official copy, keep the closest official copy and add flag `text-reconstructed` — never silently fill gaps.
+- **One image belongs to one question (user, 26 Nov 2026).** Never reuse one crop for two or three different questions. Each question shows the crop of its own figure, from its own paper and page. Before publishing, list every `img`/`optionImgs` path and check that no path, and no file with identical bytes, is used by more than one question (variations that are exact repeats are the only exception). A wrong or shared picture is worse than none.
+- **Crop check:** open every crop next to its PDF page and confirm it is the right figure, complete (labels, axes, options) and readable. Recrop at a higher zoom if text is fuzzy.
+
+### Mixed-chapter questions: show the WHOLE question, highlight our part (FINAL decision, user, 26 Nov 2026)
+When a printed question has sub-parts from several chapters, do NOT cut it into pieces and do NOT drop it:
+- Show the full question exactly as printed (every sub-part, in order, with the shared stem and figures), because the sub-parts often build on each other and must be solved in sequence.
+- Highlight the sub-part(s) of this chapter (wrap them in `<mark class="this-ch">`), and add a short note at the top, e.g. "Only (ii) and (iv) are from Chemical Bonding. The other parts are from Ch 1 and Ch 8; skip them here." Set flag `mixed-chapters` and list the other chapters.
+- Answers, marks, time and self-marking cover only the highlighted parts. Marks shown = the highlighted parts' marks (say "of [N] marks in the paper").
+- This replaces the older Ch 1 approach (partial extracts + `straddles-ch2`) for every new DPP.
+
+### Answer diagrams (electron-dot, structures, apparatus) — official first, our clean redraw only when needed (user, 26 Nov 2026)
+- Default: the answer diagram is the official one, cropped from the CISCE marking scheme / APP / specimen answer key.
+- Add a diagram we draw ONLY when both are true: (1) the official crop is blurry, cut or hard to read, and (2) we can draw it exactly and correctly. Then show BOTH side by side with the note: "Two images: the first is from the official paper; the second is redrawn by us so it is easier to read."
+- Our drawings must look like a clean board-exam answer: minimal, black on white, standard dots and crosses, shared pairs between symbols, lone pairs shown, charges in brackets, no colours, gradients, icons or decoration. Inline SVG or a PNG in `img/<chapter>/drawn/`. Never invent a diagram for a question that has no official picture unless the question itself asks the student to draw it; then the redraw is the model answer, labelled "Model answer (drawn by us)".
 The answer side is the only place that is rewritten (board's official answer first, then point-wise).
 
-## Step 1 — Intake (ask once, in ONE AskUserQuestion call, max 4 questions)
-Default answers are in brackets; mark the default "(Recommended)". Skip any question already answered.
+## Step 1 — Intake: ASK ABOUT EVERY OPTION BEFORE STARTING (user's standing order, 26 Nov 2026)
+**The defaults below are NOT silent.** Before any research, ask the user about every choice that has more than one sensible answer, the defaults included, with the default marked "(Recommended)". The user built these defaults long ago and may want a different one for this chapter, so asking up front is the only way to catch it before work is wasted. Do this every time, for every chapter, even when a default "always applies":
+- Ask in rounds of up to 4 questions per AskUserQuestion call; use 2–3 rounds when needed. More questions are better than one wrong default.
+- Cover at least: DPP sections/split, sources (board / specimens / CFPQ / anything to add or drop), year range, old vault (replace / keep both), scope edges and straddling topics, answer style (official verbatim / short points / both), figures (crop / text only), variations strictness, audit step on/off, model/agent setup and token budget, commit and push.
+- In each option's description, say what it changes. Skip only what the user already answered in this conversation.
+- After the answers, write a one-line summary of the choices before starting.
+Default answers are in brackets.
 - **DPP sections** for this chapter, taken from the subject file (e.g. History: MCQ / Short / Long; Maths: MCQ / Short / Long problems; Physics: MCQ / Theory / Numericals; Geography: MCQ / Short / Long / Map). [the subject file's recommended split]
-- **Sources are FIXED — do not ask** (user decision, 23 Nov 2026: "make these three the default… ignore improvement papers"): (1) ICSE **board papers of the last 10 exams that actually happened** — 2016–2020, 2022 Semester 1 + Semester 2, 2023–2026 (no exam in 2021); (2) **all official CISCE specimen papers of the last 10 years** (≈2017–2027; repeats merge as extra year tags); (3) **CISCE Competency Focused Practice Questions** (every edition on cisce.org). Answers from CISCE Analysis of Pupil Performance / specimen marking schemes / CFPQ keys. **Improvement/Supplementary papers are never used** (only unofficial retyped copies exist; they can't be shown exactly as printed and have no official answers). Change only if the user explicitly asks.
+- **Sources — default, but still confirm with the user** (user decision, 23 Nov 2026: "make these three the default… ignore improvement papers"): (1) ICSE **board papers of the last 10 exams that actually happened** — 2016–2020, 2022 Semester 1 + Semester 2, 2023–2026 (no exam in 2021); (2) **all official CISCE specimen papers of the last 10 years** (≈2017–2027; repeats merge as extra year tags); (3) **CISCE Competency Focused Practice Questions** (every edition on cisce.org). Answers from CISCE Analysis of Pupil Performance / specimen marking schemes / CFPQ keys. **Improvement/Supplementary papers are never used** (only unofficial retyped copies exist; they can't be shown exactly as printed and have no official answers). Change only if the user explicitly asks.
 - **Existing engine for this chapter?** If the chapter already has an older vault: [replace it — user chose "replace" for History Ch 6].
 - **Scope edges** of the chapter (topics the site files under another chapter) — e.g. Muslim League kept out of Second Phase. [follow the site's chapter split in data.json]
 Do NOT offer to read the PW class-notes PDFs — the user said never read them; answers follow the board's official answers.
@@ -52,7 +71,9 @@ Do NOT offer to read the PW class-notes PDFs — the user said never read them; 
 ## Step 4 — YOU review variations (cheap, do it yourself)
 Read the clusters report. Be stricter than the compiler: a different scenario, a picture/portrait instead of a quote, different options logic, different number of points, causes vs results, name vs explain → NOT a variation. Promote with `node scripts/promote-variation.js <file> <code> <varId> <newId>` and fix any "same as main question" wording in the promoted answer. Tell the user which ones you split and why.
 
-## Step 4b — Completeness audit (always; one fresh Sonnet-high agent, read-only)
+## Step 4b — Completeness audit (ASK the user which option, at intake)
+Options to offer: (1) **Batch audit later**: build all requested chapters first, then audit them all in one fresh session after the usage limit resets (user chose this 26 Nov 2026 for Chemistry Ch 2–9: cheaper, all papers read once); (2) **Audit every chapter now**: one fresh Sonnet-high agent after each chapter; (3) **No audit**. Never tell the user "nothing is missing" for a chapter that has not been audited.
+How the audit runs (one fresh Sonnet-high agent, read-only):
 A fresh agent re-reads EVERY question of the subject's part of each in-scope paper from the official text (APP reproductions, specimen PDFs, CFPQ), tags each with its chapter, and diffs against the data files: missing / wrong chapter / wrong ref-marks / items not found in any paper. Add whatever it reports missing before publishing. (History Ch 3–8 audit, Nov 2026: 146 in-scope items in 14 papers = 146 DPP rows, 0 missing.) This is what lets you tell the user "nothing is missing" truthfully.
 
 ## Step 5 — Plug into the engine

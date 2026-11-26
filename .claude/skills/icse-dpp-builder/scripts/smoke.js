@@ -13,6 +13,8 @@ vm.createContext(ctx);
 // Load every <script src> the engine loads (pattern.js + all data-*.js), in page order
 const SCRIPTS = (() => { try { return Array.from(fs.readFileSync(path.join(dir, 'index.html'), 'utf8').matchAll(/<script src="([^"?]+\.js)(?:\?[^"]*)?"/g)).map(m => m[1]); } catch (e) { return []; } })();
 if (!SCRIPTS.length) SCRIPTS.push('pattern.js', ...fs.readdirSync(dir).filter(n => /^data-.*.js$/.test(n)));
+// Also check data files not yet tagged in index.html (chapters still being built)
+for (const n of fs.readdirSync(dir)) if (/^data-.*.js$/.test(n) && !SCRIPTS.includes(n)) SCRIPTS.push(n);
 console.log('checking: ' + SCRIPTS.join(', '));
 for (const f of SCRIPTS) {
   const p = path.join(dir, f);

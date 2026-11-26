@@ -614,59 +614,230 @@
                             "id": "chap-chem-2",
                             "name": "Ch 2: Chemical Bonding",
                             "description": "Electrovalent, covalent and coordinate bonding in NaCl, MgCl2, CaO, CH4, H2O, NH3, NH4+ and H3O+",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "chem-bonding-dpp-mcq",
+                                    "title": "Bonding — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "34 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=bonding&sec=mcq",
+                                    "badge": "DPP 1 • 34 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "chem-bonding-dpp-obj",
+                                    "title": "Bonding — Interactive DPP 2: One-markers (Section A · Q2)",
+                                    "subtitle": "28 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 22 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=bonding&sec=obj",
+                                    "badge": "DPP 2 • 28 one-markers • 1 Mark each"
+                                },
+                                {
+                                    "id": "chem-bonding-dpp-secb",
+                                    "title": "Bonding — Interactive DPP 3: Section B (Q3–Q8)",
+                                    "subtitle": "40 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 19 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=bonding&sec=secb",
+                                    "badge": "DPP 3 • 40 questions • 2–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-chem-3",
                             "name": "Ch 3: Acids, Bases and Salts",
                             "description": "Definitions, classification, chemical properties, pH scale and preparation of soluble/insoluble salts",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "chem-acids-dpp-mcq",
+                                    "title": "Acids & Salts — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "28 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=acids&sec=mcq",
+                                    "badge": "DPP 1 • 28 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "chem-acids-dpp-obj",
+                                    "title": "Acids & Salts — Interactive DPP 2: One-markers (Section A · Q2)",
+                                    "subtitle": "26 official ICSE questions from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 23 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=acids&sec=obj",
+                                    "badge": "DPP 2 • 26 one-markers • 1 Mark each"
+                                },
+                                {
+                                    "id": "chem-acids-dpp-secb",
+                                    "title": "Acids & Salts — Interactive DPP 3: Section B (Q3–Q8)",
+                                    "subtitle": "42 official ICSE questions from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 25 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=acids&sec=secb",
+                                    "badge": "DPP 3 • 42 questions • 2–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-chem-4",
                             "name": "Ch 4: Analytical Chemistry",
                             "description": "Action of NaOH and NH4OH on cation solutions (Ca, Fe, Cu, Zn, Pb) and amphoteric oxides/hydroxides",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "chem-analytical-dpp-mcq",
+                                    "title": "Analytical — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "18 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=analytical&sec=mcq",
+                                    "badge": "DPP 1 • 18 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "chem-analytical-dpp-obj",
+                                    "title": "Analytical — Interactive DPP 2: One-markers (Section A · Q2)",
+                                    "subtitle": "23 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 21 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=analytical&sec=obj",
+                                    "badge": "DPP 2 • 23 one-markers • 1 Mark each"
+                                },
+                                {
+                                    "id": "chem-analytical-dpp-secb",
+                                    "title": "Analytical — Interactive DPP 3: Section B (Q3–Q8)",
+                                    "subtitle": "41 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 29 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=analytical&sec=secb",
+                                    "badge": "DPP 3 • 41 questions • 2–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-chem-5",
                             "name": "Ch 5: Mole Concept and Stoichiometry",
                             "description": "Gay-Lussac's law, Avogadro's law, mole concept, empirical/molecular formulas and stoichiometry calculations",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "chem-mole-dpp-mcq",
+                                    "title": "Mole Concept — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "27 official ICSE questions from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=mole&sec=mcq",
+                                    "badge": "DPP 1 • 27 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "chem-mole-dpp-obj",
+                                    "title": "Mole Concept — Interactive DPP 2: One-markers (Section A · Q2)",
+                                    "subtitle": "17 official ICSE questions from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 7 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=mole&sec=obj",
+                                    "badge": "DPP 2 • 17 one-markers • 1 Mark each"
+                                },
+                                {
+                                    "id": "chem-mole-dpp-secb",
+                                    "title": "Mole Concept — Interactive DPP 3: Section B (Q3–Q8)",
+                                    "subtitle": "45 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 7 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=mole&sec=secb",
+                                    "badge": "DPP 3 • 45 questions • 2–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-chem-6",
                             "name": "Ch 6: Electrolysis",
                             "description": "Electrolytes, preferential discharge, molten PbBr2, acidified water, CuSO4 electrolysis and electroplating",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "chem-electrolysis-dpp-mcq",
+                                    "title": "Electrolysis — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "43 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=electrolysis&sec=mcq",
+                                    "badge": "DPP 1 • 43 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "chem-electrolysis-dpp-obj",
+                                    "title": "Electrolysis — Interactive DPP 2: One-markers (Section A · Q2)",
+                                    "subtitle": "23 official ICSE questions from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 19 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=electrolysis&sec=obj",
+                                    "badge": "DPP 2 • 23 one-markers • 1 Mark each"
+                                },
+                                {
+                                    "id": "chem-electrolysis-dpp-secb",
+                                    "title": "Electrolysis — Interactive DPP 3: Section B (Q3–Q8)",
+                                    "subtitle": "35 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 12 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=electrolysis&sec=secb",
+                                    "badge": "DPP 3 • 35 questions • 2–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-chem-7",
                             "name": "Ch 7: Metallurgy",
                             "description": "Ores, dressing, roasting, calcination, extraction of Aluminium by Hall-Héroult's process and alloys",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "chem-metallurgy-dpp-mcq",
+                                    "title": "Metallurgy — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "21 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=metallurgy&sec=mcq",
+                                    "badge": "DPP 1 • 21 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "chem-metallurgy-dpp-obj",
+                                    "title": "Metallurgy — Interactive DPP 2: One-markers (Section A · Q2)",
+                                    "subtitle": "25 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 21 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=metallurgy&sec=obj",
+                                    "badge": "DPP 2 • 25 one-markers • 1 Mark each"
+                                },
+                                {
+                                    "id": "chem-metallurgy-dpp-secb",
+                                    "title": "Metallurgy — Interactive DPP 3: Section B (Q3–Q8)",
+                                    "subtitle": "47 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 14 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "chemistry/dpp/index.html?ch=metallurgy&sec=secb",
+                                    "badge": "DPP 3 • 47 questions • 2–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "unit-chem-compounds",
                             "name": "Ch 8: Study of Compounds",
                             "description": "Hydrogen Chloride, Ammonia, Nitric Acid and Sulphuric Acid — Lab preparations, fountain experiments, industrial manufacture & properties",
                             "icon": "science",
-                            "items": [
-                                {
-                                    "id": "chem-compounds-mcq-vault",
-                                    "title": "Study of Compounds — 5-Year MCQ Master Vault (2022–2026)",
-                                    "subtitle": "57 Verbatim ICSE Board & Specimen MCQs covering HCl, NH3, HNO3 & H2SO4 with Instant Review, DPP Mode & Complete Analytics",
-                                    "type": "interactive",
-                                    "file": "chemistry/compounds-mcq/index.html",
-                                    "badge": "5-Yr PYQs • 57 MCQs • Interactive"
-                                }
-                            ],
+                            "items": [],
                             "subchapters": [
                                 {
                                     "id": "subchap-chem-hcl",
                                     "name": "Study of Compounds — Hydrogen Chloride",
                                     "description": "Lab preparation from NaCl, fountain experiment, inverted funnel arrangement, physical/chemical properties and precipitation tests",
                                     "items": [
+                                        {
+                                            "id": "chem-hcl-dpp-mcq",
+                                            "title": "HCl — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "11 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "chemistry/dpp/index.html?ch=hcl&sec=mcq",
+                                            "badge": "DPP 1 • 11 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "chem-hcl-dpp-obj",
+                                            "title": "HCl — Interactive DPP 2: One-markers (Section A · Q2)",
+                                            "subtitle": "16 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 16 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "chemistry/dpp/index.html?ch=hcl&sec=obj",
+                                            "badge": "DPP 2 • 16 one-markers • 1 Mark each"
+                                        },
+                                        {
+                                            "id": "chem-hcl-dpp-secb",
+                                            "title": "HCl — Interactive DPP 3: Section B (Q3–Q8)",
+                                            "subtitle": "40 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 32 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "chemistry/dpp/index.html?ch=hcl&sec=secb",
+                                            "badge": "DPP 3 • 40 questions • 2–4 Marks"
+                                        },
                                         {
                                             "id": "chem-hcl-notes-01",
                                             "title": "Hydrogen Chloride 01 Class Notes",
@@ -675,7 +846,8 @@
                                             "file": "chemistry/notes/Hydrogen_Chloride_01_Class_Notes.pdf",
                                             "size": "4.4 MB"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 },
                                 {
                                     "id": "subchap-chem-nh3",
@@ -706,6 +878,30 @@
                                     "description": "Lab preparation from KNO3/NaNO3, Ostwald's process, oxidising properties and brown ring test",
                                     "items": [
                                         {
+                                            "id": "chem-nitric-dpp-mcq",
+                                            "title": "Nitric Acid — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "5 official ICSE questions from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "chemistry/dpp/index.html?ch=nitric&sec=mcq",
+                                            "badge": "DPP 1 • 5 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "chem-nitric-dpp-obj",
+                                            "title": "Nitric Acid — Interactive DPP 2: One-markers (Section A · Q2)",
+                                            "subtitle": "17 official ICSE questions from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 16 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "chemistry/dpp/index.html?ch=nitric&sec=obj",
+                                            "badge": "DPP 2 • 17 one-markers • 1 Mark each"
+                                        },
+                                        {
+                                            "id": "chem-nitric-dpp-secb",
+                                            "title": "Nitric Acid — Interactive DPP 3: Section B (Q3–Q8)",
+                                            "subtitle": "37 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 27 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "chemistry/dpp/index.html?ch=nitric&sec=secb",
+                                            "badge": "DPP 3 • 37 questions • 2–4 Marks"
+                                        },
+                                        {
                                             "id": "chem-hno3-notes-04",
                                             "title": "Nitric Acid 04 Class Notes",
                                             "subtitle": "Study of Compounds: Laboratory Preparation from KNO3/NaNO3, Ostwald's Process, Oxidising Properties, Action on Metals & Non-Metals, Brown Ring Test",
@@ -713,7 +909,8 @@
                                             "file": "chemistry/notes/Nitric_Acid_04_Class_Notes.pdf",
                                             "size": "5.7 MB"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 },
                                 {
                                     "id": "subchap-chem-h2so4",
@@ -736,6 +933,12 @@
                             "id": "chap-chem-12",
                             "name": "Ch 9: Organic Chemistry",
                             "description": "Catenation, tetravalency, homologous series, IUPAC nomenclature of alkanes, alkenes, alkynes, alcohols, carboxylic acids",
+                            "items": []
+                        },
+                        {
+                            "id": "chap-chem-practical",
+                            "name": "Practical Chemistry",
+                            "description": "",
                             "items": []
                         }
                     ]

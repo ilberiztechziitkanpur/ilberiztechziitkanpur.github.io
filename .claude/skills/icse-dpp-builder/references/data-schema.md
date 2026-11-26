@@ -112,3 +112,8 @@ window.NM_DPP_PATTERN = {
 - Sections other than mcq/short/long: declare in pattern.js `dppSections: [{ id: "numerical", full: "Numericals (Sec B)", short: "Numericals", sub: "Section B", icon: "calculate", noun: "numerical" }, ...]` and use those ids in `sec`.
 - Source ids used so far: B2016..B2026, SEM1-2022, SEM2-2022, S2025, S2026, S2027, CFPQ2024. Types: BOARD | BOARD_SEM1 | BOARD_SEM2 | SUPPLEMENTARY | SPECIMEN | CFPQ.
 - Maths/Physics/Chemistry numericals: put the full worked solution as ordered `points` (one step per mark: formula, substitution, answer with unit) — step marking is how CISCE marks.
+
+## Added 26 Nov 2026 (engine v14.6)
+- `mixed` (string, optional): banner shown above a mixed-chapter question, e.g. "Only (ii) and (iv) are from Chemical Bonding. (i) is from Ch 1 and (iii) from Ch 8; skip them here." Use with flag `mixed-chapters`.
+- `<ins>…</ins>` inside `q` / `stem`: highlights the parts of a mixed question that belong to this chapter (rich-text whitelist allows `ins`, no attributes).
+- `answer.img`: array of answer diagrams, each `"img/<ch>/x.png"` or `{ "src": "img/<ch>/x.png", "cap": "Official (CISCE marking scheme)" }`; shown side by side under the marking points. `answer.imgNote`: note under them, e.g. "Two images: the first is from the official paper; the second is redrawn by us so it is easier to read." Drawn diagrams live in `img/<ch>/drawn/`.
