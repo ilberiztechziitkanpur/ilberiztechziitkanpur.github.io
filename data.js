@@ -943,6 +943,30 @@ window.COURSE_DATA = {
                                     "description": "Industrial manufacture by Contact Process, acidic, oxidising and dehydrating properties",
                                     "items": [
                                         {
+                                            "id": "chem-sulphuric-dpp-mcq",
+                                            "title": "Sulphuric Acid — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "18 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "chemistry/dpp/index.html?ch=sulphuric&sec=mcq",
+                                            "badge": "DPP 1 • 18 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "chem-sulphuric-dpp-obj",
+                                            "title": "Sulphuric Acid — Interactive DPP 2: One-markers (Section A · Q2)",
+                                            "subtitle": "13 official ICSE questions from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 12 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "chemistry/dpp/index.html?ch=sulphuric&sec=obj",
+                                            "badge": "DPP 2 • 13 one-markers • 1 Mark each"
+                                        },
+                                        {
+                                            "id": "chem-sulphuric-dpp-secb",
+                                            "title": "Sulphuric Acid — Interactive DPP 3: Section B (Q3–Q8)",
+                                            "subtitle": "42 official ICSE questions from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 27 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "chemistry/dpp/index.html?ch=sulphuric&sec=secb",
+                                            "badge": "DPP 3 • 42 questions • 2–4 Marks"
+                                        },
+                                        {
                                             "id": "chem-h2so4-notes-05",
                                             "title": "Sulphuric Acid 05 Class Notes",
                                             "subtitle": "Study of Compounds: Industrial Manufacture by Contact Process, Physical Properties, Acidic & Non-Volatile Displacements, Oxidising & Dehydrating Actions",
@@ -950,7 +974,8 @@ window.COURSE_DATA = {
                                             "file": "chemistry/notes/Sulphuric_Acid_05_Class_Notes.pdf",
                                             "size": "5.0 MB"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 }
                             ]
                         },
