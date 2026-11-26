@@ -14,7 +14,7 @@ const LATEST_RELEASE = {
     subjectId: 'sub-10-chem',
     chapterId: 'chap-chem-2',
     title: 'Chemistry Ch 2–8 interactive PYQ DPPs',
-    note: 'Bonding, Acids, Analytical, Mole Concept, Electrolysis, Metallurgy, HCl and Nitric Acid: every ICSE board, specimen and competency question, shown exactly as printed. Mixed-chapter questions appear whole with this chapter’s parts highlighted.',
+    note: 'Bonding, Acids, Analytical, Mole Concept, Electrolysis, Metallurgy, HCl, Ammonia and Nitric Acid: every ICSE board, specimen and competency question, shown exactly as printed. Mixed-chapter questions appear whole with this chapter’s parts highlighted.',
     items: [
         { id: 'chem-bonding-dpp-mcq', label: 'Ch 2 Bonding', meta: '102 questions in 3 DPPs' },
         { id: 'chem-acids-dpp-mcq', label: 'Ch 3 Acids, Bases & Salts', meta: '96 questions in 3 DPPs' },
@@ -23,13 +23,14 @@ const LATEST_RELEASE = {
         { id: 'chem-electrolysis-dpp-mcq', label: 'Ch 6 Electrolysis', meta: '101 questions in 3 DPPs' },
         { id: 'chem-metallurgy-dpp-mcq', label: 'Ch 7 Metallurgy', meta: '93 questions in 3 DPPs' },
         { id: 'chem-hcl-dpp-mcq', label: 'Ch 8 Hydrogen Chloride', meta: '67 questions in 3 DPPs' },
+        { id: 'chem-ammonia-dpp-mcq', label: 'Ch 8 Ammonia', meta: '82 questions in 3 DPPs' },
         { id: 'chem-nitric-dpp-mcq', label: 'Ch 8 Nitric Acid', meta: '59 questions in 3 DPPs' }
     ],
     more: { label: 'Chemistry chapters', href: '#/s/sub-10-chem' },
     nav: { label: 'Chemistry: Ch 2–8 DPPs', href: '#/s/sub-10-chem' }
 };
 
-const APP_VERSION = '14.6';
+const APP_VERSION = '14.7';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------

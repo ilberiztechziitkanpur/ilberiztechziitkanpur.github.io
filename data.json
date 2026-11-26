@@ -855,6 +855,30 @@
                                     "description": "Lab preparation from NH4Cl and Ca(OH)2, Haber's process, drying with CaO, fountain experiment, basic nature and catalytic oxidation",
                                     "items": [
                                         {
+                                            "id": "chem-ammonia-dpp-mcq",
+                                            "title": "Ammonia — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "10 official ICSE questions from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "chemistry/dpp/index.html?ch=ammonia&sec=mcq",
+                                            "badge": "DPP 1 • 10 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "chem-ammonia-dpp-obj",
+                                            "title": "Ammonia — Interactive DPP 2: One-markers (Section A · Q2)",
+                                            "subtitle": "23 official ICSE questions from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 19 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "chemistry/dpp/index.html?ch=ammonia&sec=obj",
+                                            "badge": "DPP 2 • 23 one-markers • 1 Mark each"
+                                        },
+                                        {
+                                            "id": "chem-ammonia-dpp-secb",
+                                            "title": "Ammonia — Interactive DPP 3: Section B (Q3–Q8)",
+                                            "subtitle": "49 official ICSE questions (+4 variations) from Board 2016–2026, CISCE Specimens 2017–2027 and CISCE Competency questions, shown exactly as printed; 33 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "chemistry/dpp/index.html?ch=ammonia&sec=secb",
+                                            "badge": "DPP 3 • 49 questions • 2–4 Marks"
+                                        },
+                                        {
                                             "id": "chem-nh3-notes-02",
                                             "title": "Ammonia 02 Class Notes",
                                             "subtitle": "Study of Compounds: HCl Funnel Arrangement Recap, Ammonia (NH3) Molecular Structure, Forms & Laboratory Preparation from NH4Cl and Ca(OH)2",
@@ -870,7 +894,8 @@
                                             "file": "chemistry/notes/Ammonia_03_Class_Notes.pdf",
                                             "size": "5.0 MB"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 },
                                 {
                                     "id": "subchap-chem-hno3",
