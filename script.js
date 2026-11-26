@@ -14,7 +14,7 @@ const LATEST_RELEASE = {
     subjectId: 'sub-10-chem',
     chapterId: 'chap-chem-2',
     title: 'Chemistry Ch 2–8 interactive PYQ DPPs',
-    note: 'Bonding, Acids, Analytical, Mole Concept, Electrolysis, Metallurgy, HCl, Ammonia, Nitric and Sulphuric Acid: every ICSE board, specimen and competency question, shown exactly as printed. Mixed-chapter questions appear whole with this chapter’s parts highlighted.',
+    note: 'Bonding, Acids, Analytical, Mole Concept, Electrolysis, Metallurgy, HCl, Ammonia, Nitric and Sulphuric Acid, and Practical Chemistry: every ICSE board, specimen and competency question, shown exactly as printed. Mixed-chapter questions appear whole with this chapter’s parts highlighted.',
     items: [
         { id: 'chem-bonding-dpp-mcq', label: 'Ch 2 Bonding', meta: '102 questions in 3 DPPs' },
         { id: 'chem-acids-dpp-mcq', label: 'Ch 3 Acids, Bases & Salts', meta: '96 questions in 3 DPPs' },
@@ -25,13 +25,14 @@ const LATEST_RELEASE = {
         { id: 'chem-hcl-dpp-mcq', label: 'Ch 8 Hydrogen Chloride', meta: '67 questions in 3 DPPs' },
         { id: 'chem-ammonia-dpp-mcq', label: 'Ch 8 Ammonia', meta: '82 questions in 3 DPPs' },
         { id: 'chem-nitric-dpp-mcq', label: 'Ch 8 Nitric Acid', meta: '59 questions in 3 DPPs' },
-        { id: 'chem-sulphuric-dpp-mcq', label: 'Ch 8 Sulphuric Acid', meta: '73 questions in 3 DPPs' }
+        { id: 'chem-sulphuric-dpp-mcq', label: 'Ch 8 Sulphuric Acid', meta: '73 questions in 3 DPPs' },
+        { id: 'chem-practical-dpp-mcq', label: 'Practical Chemistry', meta: '16 questions in 3 DPPs' }
     ],
     more: { label: 'Chemistry chapters', href: '#/s/sub-10-chem' },
     nav: { label: 'Chemistry: Ch 2–8 DPPs', href: '#/s/sub-10-chem' }
 };
 
-const APP_VERSION = '14.8';
+const APP_VERSION = '14.9';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------
