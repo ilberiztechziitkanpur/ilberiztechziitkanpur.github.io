@@ -61,3 +61,8 @@ Part II - Geography of India: 3 Climate; 4 Soil Resources; 5 Natural Vegetation;
 - Facts change: leading states (jute W.Bengal, cotton Gujarat/Maharashtra), steel plants public/private; verify with textbook/latest data.
 - Assertion-reason uses the 4-option set. Picture-based parts need a text description of the picture.
 - Answers in "keyword" style, not long essays; 3-mark = 3 points.
+
+## 7. Built 27 Nov 2026 (all chapters + map work) — don't re-research
+- Engine geography/dpp/ (sections mcq / short / long). Codes: topo, indiamap, climate, soil, vegetation, water, mineral, energy, agriculture, manufacturing, transport, waste. Library papers/geography/ with INDEX.md, raw extraction in papers/geography/extracted/raw/g1–g4.json, builder scripts in extracted/scripts/.
+- Allowed shared images: a paper's toposheet map (all its Q1 parts) and its official marked India map (all its Q2 answers). Everything else: one image per question.
+- Toposheet maps are missing for B2016–B2024 and S2017/S2018; S2023 uses the G43S10 sheet printed with S2027 (flagged).

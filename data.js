@@ -1409,35 +1409,43 @@ window.COURSE_DATA = {
                     "chapters": [
                         {
                             "id": "chap-geo-toposheet",
-                            "name": "🗺️ ICSE 2027 Topography (Question 1) Master Blueprint & DNA Engine",
+                            "name": "Interpretation of Topographical Maps (Question 1)",
                             "description": "50 Exact Board & Specimen Questions across Sheets G43S10 & G43S7, 8-Year Matrix, Formulas & 4-Figure/6-Figure Grids",
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "geo-toposheet-engine-full",
-                                    "title": "Topography Question 1 Exam Master Engine & 8-Year DNA",
-                                    "subtitle": "50 Exact Questions across 5 Sets, Live 15-Min Timer, Automated Evaluation, 8-Year CISCE Frequency Matrix & Symbol Cheat Sheet",
+                                    "id": "geo-topo-dpp-mcq",
+                                    "title": "Toposheet — Interactive DPP 1: MCQs (Part I · Q3)",
+                                    "subtitle": "20 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/toposheet/index.html",
-                                    "badge": "Toposheet • 50 Qs • Interactive Engine"
+                                    "file": "geography/dpp/index.html?ch=topo&sec=mcq",
+                                    "badge": "DPP 1 • 20 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "geo-topo-dpp-short",
+                                    "title": "Toposheet — Interactive DPP 2: Short answers (1–2 marks)",
+                                    "subtitle": "114 official ICSE questions (+5 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "geography/dpp/index.html?ch=topo&sec=short",
+                                    "badge": "DPP 2 • 114 questions • 1–2 Marks"
                                 }
                             ]
                         },
                         {
-                            "id": "chap-geo-mcq",
-                            "name": "⚡ ICSE 2027 Geography Master 100 MCQ DPP & DNA Engine",
-                            "description": "100 Most Expected High-Yield MCQs across all 9 Units with 8-Year CISCE Frequency, Timed DPP & Explanations",
-                            "featured": true,
+                            "id": "chap-geo-indiamap",
+                            "name": "Map of India (Question 2)",
+                            "description": "Interactive PYQ DPPs from ICSE board papers 2016–2026, CISCE specimens and competency questions — Map of India (Question 2)",
                             "items": [
                                 {
-                                    "id": "geo-mcq-engine-full",
-                                    "title": "Master 100 MCQ DPP & 8-Year DNA Diagnostic Engine",
-                                    "subtitle": "Interactive Practice Mode, Strict Exam Timed DPP, Board Frequency & Diagnostic Report Card",
+                                    "id": "geo-indiamap-dpp-short",
+                                    "title": "India Map — Interactive DPP 2: Short answers (1–2 marks)",
+                                    "subtitle": "104 official ICSE questions (+78 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/mcq/index.html",
-                                    "badge": "100 MCQs • Interactive App"
+                                    "file": "geography/dpp/index.html?ch=indiamap&sec=short",
+                                    "badge": "DPP 2 • 104 questions • 1–2 Marks"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-geo-climate",

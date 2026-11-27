@@ -952,6 +952,14 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
 - **Research archive (scratchpad, not in repo):** chem/raw2/x1–x6.json (every question part of every paper with its chapter), bych/<code>.json, clusters/<code>-clusters.md, scripts/split.js + wire.js (adds DPP items to data.json/data.js and script tags).
 - **Not yet done:** completeness audit (user chose one batch audit later, in a fresh session), browser check of the new chapters (the local server was blocked in this session).
 
+### AC. Geography interactive PYQ DPPs (all chapters + map work) — v15.2–v16.0 (27 Nov 2026)
+- **Engine:** geography/dpp/ (third copy of the master engine; pattern.js sections mcq / short / long, storePrefix geodpp_). Codes: topo (Q1 toposheet, chapter chap-geo-toposheet), indiamap (Q2 Map of India, new chapter chap-geo-indiamap), climate, soil, vegetation, water, mineral, energy, agriculture, manufacturing, transport, waste (site Ch 1–10).
+- **Replaced (user choice, pages redirect):** every per-chapter theory vault and 10-year MCQ suite (geography/climate, -mcq, soil, vegetation, water, transport, waste …), the Toposheet engine (geography/toposheet → ?ch=topo) and the 100-MCQ engine (geography/mcq → ?ch=climate; its chapter chap-geo-mcq removed).
+- **Sources:** board 2016–2020, 2022 Sem 1/2, 2023–2026; CISCE specimens 2017, 2018, 2022 S1/S2, 2023–2027 (none for 2019–2021); CFPQ; APP 2018, 2019 (combined H.C.G.), 2023–2026. Library: papers/geography/ (INDEX.md). Old-syllabus questions (Population etc.) left out (user choice).
+- **Toposheet:** map extracts exist only for B2025, B2026 (phone photo), S2023–S2027 and the CFPQ; questions from other papers are included with flag map-sheet-missing and no guessed values. Each paper's Q1 parts share its one map file; each paper's Q2 answers share its one official marked map (the only allowed shared images).
+- **Builder:** papers/geography/extracted/scripts/build-chapter.js + <code>-defs.js per chapter regenerate every data file; wiring with papers/_tools/wire.js and replace-old.js.
+- **Not yet done:** batch completeness audit; browser check.
+
 ## 5. Protocol for Future Chats (Step-by-Step Onboarding Guide)
 
 When the user provides a new `gemini-code-*.html` file or notes PDF in any future chat:

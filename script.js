@@ -11,29 +11,29 @@
    single "New" link in the laptop sidebar and the "New" card on Home.
    -------------------------------------------------------------------------- */
 const LATEST_RELEASE = {
-    subjectId: 'sub-10-chem',
-    chapterId: 'chap-chem-2',
-    title: 'Chemistry Ch 2–9 interactive PYQ DPPs',
-    note: 'Bonding, Acids, Analytical, Mole Concept, Electrolysis, Metallurgy, HCl, Ammonia, Nitric and Sulphuric Acid, Organic and Practical Chemistry: every ICSE board, specimen and competency question, shown exactly as printed. Mixed-chapter questions appear whole with this chapter’s parts highlighted.',
+    subjectId: 'sub-10-geo',
+    chapterId: 'chap-geo-climate',
+    title: 'Geography interactive PYQ DPPs: every chapter + map work',
+    note: 'Toposheet, Map of India and Ch 1–10: every ICSE board, specimen and competency question, shown exactly as printed, with official answers where CISCE published them.',
     items: [
-        { id: 'chem-bonding-dpp-mcq', label: 'Ch 2 Bonding', meta: '102 questions in 3 DPPs' },
-        { id: 'chem-acids-dpp-mcq', label: 'Ch 3 Acids, Bases & Salts', meta: '96 questions in 3 DPPs' },
-        { id: 'chem-analytical-dpp-mcq', label: 'Ch 4 Analytical', meta: '82 questions in 3 DPPs' },
-        { id: 'chem-mole-dpp-mcq', label: 'Ch 5 Mole Concept', meta: '89 questions in 3 DPPs' },
-        { id: 'chem-electrolysis-dpp-mcq', label: 'Ch 6 Electrolysis', meta: '101 questions in 3 DPPs' },
-        { id: 'chem-metallurgy-dpp-mcq', label: 'Ch 7 Metallurgy', meta: '93 questions in 3 DPPs' },
-        { id: 'chem-hcl-dpp-mcq', label: 'Ch 8 Hydrogen Chloride', meta: '67 questions in 3 DPPs' },
-        { id: 'chem-ammonia-dpp-mcq', label: 'Ch 8 Ammonia', meta: '82 questions in 3 DPPs' },
-        { id: 'chem-nitric-dpp-mcq', label: 'Ch 8 Nitric Acid', meta: '59 questions in 3 DPPs' },
-        { id: 'chem-sulphuric-dpp-mcq', label: 'Ch 8 Sulphuric Acid', meta: '73 questions in 3 DPPs' },
-        { id: 'chem-organic-dpp-mcq', label: 'Ch 9 Organic Chemistry', meta: '170 questions in 3 DPPs' },
-        { id: 'chem-practical-dpp-mcq', label: 'Practical Chemistry', meta: '16 questions in 3 DPPs' }
+        { id: 'geo-topo-dpp-short', label: 'Q1 Toposheet', meta: '134 questions' },
+        { id: 'geo-indiamap-dpp-short', label: 'Q2 Map of India', meta: '104 questions' },
+        { id: 'geo-climate-dpp-mcq', label: 'Ch 1 Climate', meta: '83 questions' },
+        { id: 'geo-soil-dpp-mcq', label: 'Ch 2 Soil', meta: '86 questions' },
+        { id: 'geo-vegetation-dpp-mcq', label: 'Ch 3 Natural Vegetation', meta: '80 questions' },
+        { id: 'geo-water-dpp-mcq', label: 'Ch 4 Water', meta: '81 questions' },
+        { id: 'geo-mineral-dpp-mcq', label: 'Ch 5 Minerals', meta: '33 questions' },
+        { id: 'geo-energy-dpp-mcq', label: 'Ch 6 Energy', meta: '55 questions' },
+        { id: 'geo-agriculture-dpp-mcq', label: 'Ch 7 Agriculture', meta: '74 questions' },
+        { id: 'geo-manufacturing-dpp-mcq', label: 'Ch 8 Manufacturing', meta: '88 questions' },
+        { id: 'geo-transport-dpp-mcq', label: 'Ch 9 Transport', meta: '71 questions' },
+        { id: 'geo-waste-dpp-mcq', label: 'Ch 10 Waste Management', meta: '67 questions' }
     ],
-    more: { label: 'Chemistry chapters', href: '#/s/sub-10-chem' },
-    nav: { label: 'Chemistry: Ch 2–9 DPPs', href: '#/s/sub-10-chem' }
+    more: { label: 'Geography chapters', href: '#/s/sub-10-geo' },
+    nav: { label: 'Geography: all DPPs', href: '#/s/sub-10-geo' }
 };
 
-const APP_VERSION = '15.9';
+const APP_VERSION = '16.0';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------
