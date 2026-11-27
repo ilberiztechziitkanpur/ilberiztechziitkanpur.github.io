@@ -1,3 +1,6 @@
 # Local tools not needed on the public website
 Video_Downloader/
 system_scan.json
+
+# Official exam papers library (local only, large)
+papers/

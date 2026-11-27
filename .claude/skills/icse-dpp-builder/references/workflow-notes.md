@@ -2,7 +2,7 @@
 
 ## User preferences (from the sessions that built History Ch 3–6)
 - The user studies while you work: minimal prompting, but asking questions is welcome. Batch questions into one AskUserQuestion call.
-- Quality over speed, but be token-efficient: ≤ 2–3 parallel agents; Sonnet medium for search/writing, Sonnet high for extraction/compiling; give agents narrow scopes and local files to reuse. Many parallel Opus agents hit the 5-hour limit in minutes, and Opus research agents were twice stopped by safety filters on normal web research — Sonnet worked.
+- Quality over speed, but be token-efficient: ONE agent at a time (user, 27 Nov 2026), never parallel; Sonnet medium for search/writing, Sonnet high for extraction/compiling; give agents narrow scopes and local files to reuse. Many parallel Opus agents hit the 5-hour limit in minutes, and Opus research agents were twice stopped by safety filters on normal web research — Sonnet worked.
 - Never read the PW class-notes PDFs (image-only slides; expensive). Answers follow the board's official answers exactly when they exist.
 - Official sources only — fixed default: board (last 10 exams) + all specimens of the last 10 years + CFPQ. Improvement/Supplementary papers are never used (only unofficial KnowledgeBoat copies exist). No invented "expected" questions. Still confirm sources and every other option at intake (SKILL.md Step 1, user order 26 Nov 2026).
 - Variations must be strict — a student who solved the main question must be able to solve the variation with the same answer core. When in doubt, separate + `related`.

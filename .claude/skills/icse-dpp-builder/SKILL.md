@@ -57,9 +57,16 @@ Default answers are in brackets.
 Do NOT offer to read the PW class-notes PDFs — the user said never read them; answers follow the board's official answers.
 
 ## Step 2 — Collect official questions (subagents)
-- Run at most 2–3 agents at once (the user's usage limit burns fast). Use Sonnet (medium for search/file work, high for extraction & compiling). Avoid many parallel Opus agents.
-- FIRST reuse local caches: `~/.../scratchpad/research/` from earlier sessions may be gone — check; if present, reuse (txt/, dl*/, spec_dl/, cfpq_dl/). Otherwise download into the scratchpad, never into the repo.
-- Split extraction by year range when a chapter is big (2016–2020 / 2022–2026 / specimens+CFPQ). Prompt template: `references/workflow-notes.md`.
+### Local paper library (user order, 27 Nov 2026): check it FIRST, fill it, never re-download
+- All official papers live in `papers/<subject>/` inside the site folder (git-ignored: never pushed, never on the live site): `board/` (B<year>.pdf, SEM1-2022.pdf, SEM2-2022.pdf), `specimen/` (S<year>.pdf, S2022-SEM1/2), `app/` (APP<year>.pdf = CISCE Analysis of Pupil Performance), `cfpq/`, `syllabus/`, `alternates/` (mirror or solved copies), `text/` (page text with "=== PAGE n ===" markers, ready for agents), `extracted/` (raw JSON of every question part tagged by chapter, per-chapter splits, clusters reports, briefs, cropped figures). `papers/<subject>/INDEX.md` lists every file with its source URL, whether it is an official copy, and notes. Shared scripts: `papers/_tools/` (split.js = raw → per-chapter, wire.js = data.json items + script tags; adapt per subject).
+- Before any download: read the subject's INDEX.md. Download only what is missing, straight into the right folder, then add it to INDEX.md. A new subject starts by creating this layout. The user browses these folders, so keep names clean and consistent.
+
+### Agents and token budget (user order, 27 Nov 2026)
+- **ONE agent at a time, never parallel**: Sonnet, high effort. Parallel agents each rebuild their own context and burned the 5-hour limit twice; one agent with a full, well-defined job is cheaper.
+- Give one agent as much related work as it can do well (e.g. ALL papers of a subject in one extraction pass, or several small chapters' compiles in a row via SendMessage to the same agent, which keeps its context), but keep its working context well under half the model's window: make it read the `text/` files paper by paper and write results to files as it goes, not hold everything at once. If one job would exceed that, split it into sequential agents, never parallel ones.
+- After a usage-limit stop: check for half-written files, then resume the SAME agent with SendMessage.
+- Pipeline that worked (Chemistry, Nov 2026): one extraction pass over every paper with every question part tagged by chapter (brief: `papers/chemistry/extracted/BRIEF2.md`) → split by chapter with a script → one compile per chapter (`COMPILE2.md`) → wire, commit and push each chapter.
+- Prompt templates: `references/workflow-notes.md`.
 - Output per agent: raw JSON with `source_inventory` (every paper scanned, found or not, marks this chapter carried — zeros included) and `questions[]` (exact wording and layout as printed, q_ref, marks, format, options + key, picture description PLUS the page number and bounding box of every figure so it can be cropped, verbatim_confidence, official_answer[] copied as printed, official_errors[]).
 - Never invent questions. Missing paper > guessed paper.
 
