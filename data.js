@@ -516,6 +516,38 @@ window.COURSE_DATA = {
                                     "icon": "music_note",
                                     "items": [
                                         {
+                                            "id": "phy-sound-dpp-mcq",
+                                            "title": "Sound — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "29 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=sound&sec=mcq",
+                                            "badge": "DPP 1 • 29 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "phy-sound-dpp-saq",
+                                            "title": "Sound — Interactive DPP 2: Section A short answers (Q2–Q3)",
+                                            "subtitle": "27 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 3 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=sound&sec=saq",
+                                            "badge": "DPP 2 • 27 questions • 1–3 Marks"
+                                        },
+                                        {
+                                            "id": "phy-sound-dpp-theory",
+                                            "title": "Sound — Interactive DPP 3: Section B theory & diagrams",
+                                            "subtitle": "28 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 1 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=sound&sec=theory",
+                                            "badge": "DPP 3 • 28 questions • 2–4 Marks"
+                                        },
+                                        {
+                                            "id": "phy-sound-dpp-numerical",
+                                            "title": "Sound — Interactive DPP 4: Numericals",
+                                            "subtitle": "15 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=sound&sec=numerical",
+                                            "badge": "DPP 4 • 15 numericals • 2–4 Marks"
+                                        },
+                                        {
                                             "id": "phy-sound-notes-01",
                                             "title": "Sound 01 Class Notes",
                                             "subtitle": "Reflection of Sound Waves, Echo Formation, Minimum Distance Conditions (d ≥ 16.6 m / 17 m, t ≥ 0.1 s), Determination of Speed of Sound (2d = v × t) & Solved Examples (Lecture 01 / Shailendra Sir / 30 Slides)",
@@ -551,7 +583,8 @@ window.COURSE_DATA = {
                                             "size": "4.5 MB",
                                             "badge": "PDF • 4.5 MB • Class Notes"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 }
                             ]
                         },
@@ -594,6 +627,38 @@ window.COURSE_DATA = {
                                     "icon": "electrical_services",
                                     "items": [
                                         {
+                                            "id": "phy-current-dpp-mcq",
+                                            "title": "Current — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "19 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=current&sec=mcq",
+                                            "badge": "DPP 1 • 19 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "phy-current-dpp-saq",
+                                            "title": "Current — Interactive DPP 2: Section A short answers (Q2–Q3)",
+                                            "subtitle": "17 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 6 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=current&sec=saq",
+                                            "badge": "DPP 2 • 17 questions • 1–3 Marks"
+                                        },
+                                        {
+                                            "id": "phy-current-dpp-theory",
+                                            "title": "Current — Interactive DPP 3: Section B theory & diagrams",
+                                            "subtitle": "11 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 3 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=current&sec=theory",
+                                            "badge": "DPP 3 • 11 questions • 2–4 Marks"
+                                        },
+                                        {
+                                            "id": "phy-current-dpp-numerical",
+                                            "title": "Current — Interactive DPP 4: Numericals",
+                                            "subtitle": "33 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=current&sec=numerical",
+                                            "badge": "DPP 4 • 33 numericals • 2–4 Marks"
+                                        },
+                                        {
                                             "id": "phy-currelec-notes-01",
                                             "title": "Current Electricity 01 Class Notes",
                                             "subtitle": "Concept of Charge (q = ne), Current (I = Δq/Δt), Potential & Potential Difference, Resistance Factors, Ohm's Law, Ohmic vs Non-Ohmic Resistors & Choice of Wire Materials (Lecture 01 / Shailendra Sir / 34 Slides)",
@@ -620,7 +685,8 @@ window.COURSE_DATA = {
                                             "size": "2.9 MB",
                                             "badge": "PDF • 2.9 MB • Class Notes"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 },
                                 {
                                     "id": "chap-phy-9",
@@ -628,6 +694,38 @@ window.COURSE_DATA = {
                                     "description": "Electrical power (P = VI = I²R = V²/R), electrical energy (kWh), ring system of wiring, switches, fuses, miniature circuit breakers (MCBs), earthing and 3-pin plug colour coding",
                                     "icon": "home",
                                     "items": [
+                                        {
+                                            "id": "phy-household-dpp-mcq",
+                                            "title": "Household Circuits — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "6 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=household&sec=mcq",
+                                            "badge": "DPP 1 • 6 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "phy-household-dpp-saq",
+                                            "title": "Household Circuits — Interactive DPP 2: Section A short answers (Q2–Q3)",
+                                            "subtitle": "14 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 2 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=household&sec=saq",
+                                            "badge": "DPP 2 • 14 questions • 1–3 Marks"
+                                        },
+                                        {
+                                            "id": "phy-household-dpp-theory",
+                                            "title": "Household Circuits — Interactive DPP 3: Section B theory & diagrams",
+                                            "subtitle": "17 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 5 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=household&sec=theory",
+                                            "badge": "DPP 3 • 17 questions • 2–4 Marks"
+                                        },
+                                        {
+                                            "id": "phy-household-dpp-numerical",
+                                            "title": "Household Circuits — Interactive DPP 4: Numericals",
+                                            "subtitle": "6 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=household&sec=numerical",
+                                            "badge": "DPP 4 • 6 numericals • 2–4 Marks"
+                                        },
                                         {
                                             "id": "phy-housecirc-notes-01",
                                             "title": "Household Circuits 01 Class Notes",
@@ -646,7 +744,8 @@ window.COURSE_DATA = {
                                             "size": "4.3 MB",
                                             "badge": "PDF • 4.3 MB • Class Notes"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 },
                                 {
                                     "id": "chap-phy-10",
