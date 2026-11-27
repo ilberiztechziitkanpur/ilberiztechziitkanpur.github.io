@@ -13,19 +13,21 @@
 const LATEST_RELEASE = {
     subjectId: 'sub-10-his',
     chapterId: 'chap-his-1',
-    title: 'History & Civics interactive PYQ DPPs: 1857, Nationalism, First World War, Parliament',
+    title: 'History & Civics interactive PYQ DPPs: 1857, Nationalism, WW1, Parliament, President, PM',
     note: 'MCQ, Short and Long answer DPPs: every ICSE board, specimen and competency question, shown exactly as printed, with official CISCE answers where published. More History and Civics chapters coming next.',
     items: [
         { id: 'his-revolt-dpp-mcq', label: 'Ch 1 The 1857 Revolt', meta: '44 questions in 3 DPPs' },
         { id: 'his-nationalism-dpp-mcq', label: 'Ch 2 Growth of Nationalism', meta: '50 questions in 3 DPPs' },
         { id: 'his-ww1-dpp-mcq', label: 'Ch 10 The First World War', meta: '44 questions in 3 DPPs' },
-        { id: 'civ-parliament-dpp-mcq', label: 'Civics 1 The Union Parliament', meta: '114 questions in 3 DPPs' }
+        { id: 'civ-parliament-dpp-mcq', label: 'Civics 1 The Union Parliament', meta: '114 questions in 3 DPPs' },
+        { id: 'civ-president-dpp-mcq', label: 'Civics 2 President & Vice-President', meta: '60 questions in 3 DPPs' },
+        { id: 'civ-pm-dpp-mcq', label: 'Civics 3 Prime Minister & Council of Ministers', meta: '40 questions in 3 DPPs' }
     ],
     more: { label: 'History & Civics chapters', href: '#/s/sub-10-his' },
     nav: { label: 'History & Civics: new DPPs', href: '#/s/sub-10-his' }
 };
 
-const APP_VERSION = '16.6';
+const APP_VERSION = '16.7';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------

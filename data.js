@@ -2832,13 +2832,65 @@ window.COURSE_DATA = {
                             "id": "chap-his-civ-2",
                             "name": "Civics Ch 2: The Executive — President & Vice-President",
                             "description": "Qualifications, election, tenure, impeachment, executive, legislative, financial, judicial, and emergency powers",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "civ-president-dpp-mcq",
+                                    "title": "President & VP — Interactive DPP 1: MCQs (Part I · Q1)",
+                                    "subtitle": "19 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=president&sec=mcq",
+                                    "badge": "DPP 1 • 19 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "civ-president-dpp-short",
+                                    "title": "President & VP — Interactive DPP 2: Short Answers (Part I · Q2)",
+                                    "subtitle": "17 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=president&sec=short",
+                                    "badge": "DPP 2 • 17 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "civ-president-dpp-long",
+                                    "title": "President & VP — Interactive DPP 3: Long Answers (Part II)",
+                                    "subtitle": "24 official ICSE questions (+11 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=president&sec=long",
+                                    "badge": "DPP 3 • 24 Qs • 3–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-his-civ-3",
                             "name": "Civics Ch 3: The Prime Minister & Council of Ministers",
                             "description": "Appointment, functions, position of Prime Minister, collective responsibility, Cabinet vs Council of Ministers",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "civ-pm-dpp-mcq",
+                                    "title": "PM & Ministers — Interactive DPP 1: MCQs (Part I · Q1)",
+                                    "subtitle": "9 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=pm&sec=mcq",
+                                    "badge": "DPP 1 • 9 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "civ-pm-dpp-short",
+                                    "title": "PM & Ministers — Interactive DPP 2: Short Answers (Part I · Q2)",
+                                    "subtitle": "17 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=pm&sec=short",
+                                    "badge": "DPP 2 • 17 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "civ-pm-dpp-long",
+                                    "title": "PM & Ministers — Interactive DPP 3: Long Answers (Part II)",
+                                    "subtitle": "14 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=pm&sec=long",
+                                    "badge": "DPP 3 • 14 Qs • 3–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-his-civ-4",
