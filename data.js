@@ -1574,28 +1574,28 @@ window.COURSE_DATA = {
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "geo-veg-mcq-master",
-                                    "title": "Natural Vegetation 10-Year PYQ & Specimen MCQ Master Suite (2016–2026)",
-                                    "subtitle": "35 Playable MCQs, 140+ PYQ Hits, Tables & Diagrams, Instant Check & Strict Exam Modes, Timers & Scorecard Generator",
+                                    "id": "geo-vegetation-dpp-mcq",
+                                    "title": "Vegetation — Interactive DPP 1: MCQs (Part I · Q3)",
+                                    "subtitle": "22 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/vegetation-mcq/index.html",
-                                    "badge": "10-Year MCQs • 35 Master Qs • 140+ Hits"
+                                    "file": "geography/dpp/index.html?ch=vegetation&sec=mcq",
+                                    "badge": "DPP 1 • 22 MCQs • 1 Mark"
                                 },
                                 {
-                                    "id": "geo-veg-theory-master",
-                                    "title": "Natural Vegetation Theory DPP — 46 Most Expected Questions Vault",
-                                    "subtitle": "46 Master Questions, 185+ Twisted Variations, Dual-Tab Cheat Sheets, Active Recall Blur Mode & 15-Yr Board DNA",
+                                    "id": "geo-vegetation-dpp-short",
+                                    "title": "Vegetation — Interactive DPP 2: Short answers (1–2 marks)",
+                                    "subtitle": "30 official ICSE questions (+3 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/vegetation/index.html",
-                                    "badge": "Theory DPP • 46 Master Qs"
+                                    "file": "geography/dpp/index.html?ch=vegetation&sec=short",
+                                    "badge": "DPP 2 • 30 questions • 1–2 Marks"
                                 },
                                 {
-                                    "id": "geo-veg-dpp",
-                                    "title": "Natural Vegetation — Master MCQ DPP Drill",
-                                    "subtitle": "Unit 3: 12 High-Yield Questions (Evergreen, Deciduous, Mangrove, Desert & Montane)",
+                                    "id": "geo-vegetation-dpp-long",
+                                    "title": "Vegetation — Interactive DPP 3: Long answers (3 marks)",
+                                    "subtitle": "28 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/mcq/index.html?unit=Natural+Vegetation",
-                                    "badge": "Unit 3 DPP • 12 MCQs"
+                                    "file": "geography/dpp/index.html?ch=vegetation&sec=long",
+                                    "badge": "DPP 3 • 28 questions • 3 Marks"
                                 },
                                 {
                                     "id": "geo-veg-01",

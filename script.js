@@ -33,7 +33,7 @@ const LATEST_RELEASE = {
     nav: { label: 'Chemistry: Ch 2–9 DPPs', href: '#/s/sub-10-chem' }
 };
 
-const APP_VERSION = '15.3';
+const APP_VERSION = '15.4';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------
