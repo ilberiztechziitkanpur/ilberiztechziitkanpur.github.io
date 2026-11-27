@@ -8,6 +8,7 @@ description: Build an interactive PYQ-based DPP (MCQ / short / long or subject-s
 The user gives a subject + chapter (often in one line). You research official questions, compile a data file, plug it into the shared engine, wire it into the site, test, commit and push. This skill is the full playbook — follow it instead of re-deriving the approach.
 
 Read first, every time:
+0. `references/status-and-handoff.md` — what is built, what is left, every standing user decision, the worker options (one Sonnet agent at a time, or the Antigravity CLI relay via `papers/_handoff/`) and the pipeline/tools. Update it at the end of every session.
 1. `PROJECT_STATE.md` (repo root) — site rules (data.json + data.js sync, sidebar single NEW link, Fast Track exclusive to the newest release, version bump, git push).
 2. `references/subjects/<subject>.md` — that subject's exact paper pattern, DPP section mapping, marking conventions, official sources and URLs.
 3. `references/data-schema.md` — the data-file schema, variation rule and probability formula.
@@ -62,7 +63,7 @@ Do NOT offer to read the PW class-notes PDFs — the user said never read them; 
 - Before any download: read the subject's INDEX.md. Download only what is missing, straight into the right folder, then add it to INDEX.md. A new subject starts by creating this layout. The user browses these folders, so keep names clean and consistent.
 
 ### Agents and token budget (user order, 27 Nov 2026)
-- **ONE agent at a time, never parallel**: Sonnet, high effort. Parallel agents each rebuild their own context and burned the 5-hour limit twice; one agent with a full, well-defined job is cheaper.
+- **Worker (ask at intake):** ONE Sonnet subagent at a time, high effort, never parallel; OR the Antigravity CLI relay (Google models on the user's accounts): Claude writes `papers/_handoff/<task>.md`, the user runs it, Claude verifies and publishes (see references/status-and-handoff.md §4). Parallel agents each rebuild their own context and burned the 5-hour limit twice; one agent with a full, well-defined job is cheaper.
 - Give one agent as much related work as it can do well (e.g. ALL papers of a subject in one extraction pass, or several small chapters' compiles in a row via SendMessage to the same agent, which keeps its context), but keep its working context well under half the model's window: make it read the `text/` files paper by paper and write results to files as it goes, not hold everything at once. If one job would exceed that, split it into sequential agents, never parallel ones.
 - After a usage-limit stop: check for half-written files, then resume the SAME agent with SendMessage.
 - Pipeline that worked (Chemistry, Nov 2026): one extraction pass over every paper with every question part tagged by chapter (brief: `papers/chemistry/extracted/BRIEF2.md`) → split by chapter with a script → one compile per chapter (`COMPILE2.md`) → wire, commit and push each chapter.
