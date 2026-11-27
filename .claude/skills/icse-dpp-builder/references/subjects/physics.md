@@ -50,3 +50,7 @@ Alternative chapter DPPs: Force-Work-Power-Energy (levers, pulleys, KE/PE), Ligh
 - Numericals: verify answer by calculation; many board numericals use "specific heat capacity of water 4200 J/kg K", "latent heat of ice 336000 J/kg", "speed of sound ~ 330/340 m/s" - state in stem.
 - Statements for assertion-reason use the 4-option fixed set.
 - Fill-ups "choose from bracket" may require two blanks per sub-part.
+
+## 7. Built 27 Nov 2026 (all 12 chapters) — don't re-research
+- Engine physics/dpp/ with 4 DPPs (mcq / saq / theory / numerical). Library papers/physics/ (INDEX.md), raw extraction papers/physics/extracted/raw/p1–p4.json, builder + defs in extracted/scripts/, diagrams still to draw listed in PROJECT_STATE.md §AD.
+- Next user idea (27 Nov 2026): a "Recent pattern (2022 onwards)" switch in the engine that filters each DPP to questions seen in 2022+ board papers, 2022+ specimens and the CFPQ (data already has years in `seen`).

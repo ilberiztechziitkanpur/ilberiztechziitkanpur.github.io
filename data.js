@@ -593,32 +593,7 @@ window.COURSE_DATA = {
                             "name": "Unit 4: Electricity and Magnetism",
                             "description": "Electromagnetism — Current electricity, Ohm's law, domestic household circuits, ring system, magnetic effect of current & electromagnetic induction",
                             "icon": "electric_bolt",
-                            "items": [
-                                {
-                                    "id": "phy-u4-numerical",
-                                    "title": "UNIT-4 Current Electricity & Magnetism — Pure Numericals Master Engine",
-                                    "subtitle": "20 Verbatim Board Numericals (70 Marks) across Ch 8, 9 & 10 with Step-by-Step Marking Solutions, Collapsible Formula Vault, Live Timer & DPP Mode",
-                                    "type": "interactive",
-                                    "file": "physics/unit4-numerical/index.html",
-                                    "badge": "Numericals • 20 Qs • 70 Marks"
-                                },
-                                {
-                                    "id": "phy-u4-theory",
-                                    "title": "UNIT-4 Current Electricity & Magnetism — Theory, Derivations & Diagrams Vault",
-                                    "subtitle": "24 Forensic Master Cards (75 Marks) covering Official CISCE Marking Keywords, Give Reasons, Derivations, DC Motor/AC Generator Diagrams & DPP Recall Mode",
-                                    "type": "interactive",
-                                    "file": "physics/unit4-theory/index.html",
-                                    "badge": "Theory Vault • 75 Marks • Derivations"
-                                },
-                                {
-                                    "id": "phy-u4-mcq",
-                                    "title": "UNIT-4 Current Electricity & Magnetism — Master MCQ Diagnostic Engine",
-                                    "subtitle": "25 Forensic MCQs (85+ Variations) across Chapters 8, 9 & 10 with DPP Test Mode, Instant Reveal, Live Scoreboard & Detailed Board Rationales",
-                                    "type": "interactive",
-                                    "file": "physics/unit4-mcq/index.html",
-                                    "badge": "MCQ Drill • 25 Qs • Interactive"
-                                }
-                            ],
+                            "items": [],
                             "subchapters": [
                                 {
                                     "id": "chap-phy-8",
@@ -754,6 +729,30 @@ window.COURSE_DATA = {
                                     "icon": "sensors",
                                     "items": [
                                         {
+                                            "id": "phy-electromagnetism-dpp-mcq",
+                                            "title": "Electromagnetism — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "15 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=electromagnetism&sec=mcq",
+                                            "badge": "DPP 1 • 15 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "phy-electromagnetism-dpp-saq",
+                                            "title": "Electromagnetism — Interactive DPP 2: Section A short answers (Q2–Q3)",
+                                            "subtitle": "21 official ICSE questions (+3 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 3 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=electromagnetism&sec=saq",
+                                            "badge": "DPP 2 • 21 questions • 1–3 Marks"
+                                        },
+                                        {
+                                            "id": "phy-electromagnetism-dpp-theory",
+                                            "title": "Electromagnetism — Interactive DPP 3: Section B theory & diagrams",
+                                            "subtitle": "28 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 3 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=electromagnetism&sec=theory",
+                                            "badge": "DPP 3 • 28 questions • 2–4 Marks"
+                                        },
+                                        {
                                             "id": "phy-electromag-notes-01",
                                             "title": "Electro-Magnetism 01 Class Notes",
                                             "subtitle": "Oersted's Experiment, Right Hand Thumb Rule, Magnetic Field of Straight Wire, Loop & Solenoid, Clock-Face Rule, I/U-Shaped Electromagnets, Lorentz Force & Fleming's Left Hand Rule (Lecture 06 / Shailendra Sir / 28 Slides)",
@@ -789,7 +788,8 @@ window.COURSE_DATA = {
                                             "size": "3.7 MB",
                                             "badge": "PDF • 3.7 MB • Class Notes"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 }
                             ]
                         },
@@ -805,7 +805,41 @@ window.COURSE_DATA = {
                                     "name": "Ch 11: Calorimetry",
                                     "description": "Heat capacity (C), specific heat capacity (c), principle of method of mixtures (Heat lost = Heat gained), anomalous properties of water, latent heat, specific latent heat of fusion of ice (L = 336 J/g) and cooling curves",
                                     "icon": "science",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "phy-calorimetry-dpp-mcq",
+                                            "title": "Calorimetry — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "21 official ICSE questions (+3 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=calorimetry&sec=mcq",
+                                            "badge": "DPP 1 • 21 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "phy-calorimetry-dpp-saq",
+                                            "title": "Calorimetry — Interactive DPP 2: Section A short answers (Q2–Q3)",
+                                            "subtitle": "20 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 4 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=calorimetry&sec=saq",
+                                            "badge": "DPP 2 • 20 questions • 1–3 Marks"
+                                        },
+                                        {
+                                            "id": "phy-calorimetry-dpp-theory",
+                                            "title": "Calorimetry — Interactive DPP 3: Section B theory & diagrams",
+                                            "subtitle": "27 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 3 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=calorimetry&sec=theory",
+                                            "badge": "DPP 3 • 27 questions • 2–4 Marks"
+                                        },
+                                        {
+                                            "id": "phy-calorimetry-dpp-numerical",
+                                            "title": "Calorimetry — Interactive DPP 4: Numericals",
+                                            "subtitle": "28 official ICSE questions (+3 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=calorimetry&sec=numerical",
+                                            "badge": "DPP 4 • 28 numericals • 2–4 Marks"
+                                        }
+                                    ],
+                                    "featured": true
                                 }
                             ]
                         },
@@ -814,16 +848,7 @@ window.COURSE_DATA = {
                             "name": "Unit 6: Modern Physics",
                             "description": "Nuclear Physics — Atomic nucleus, radioactive emissions (alpha, beta, gamma), nuclear transformations, background radiation, safety precautions and nuclear energy",
                             "icon": "science",
-                            "items": [
-                                {
-                                    "id": "phy-u6-radioactivity-vault",
-                                    "title": "Ch 12: Radioactivity — 10-Yr Master DPP & PYQ Vault (2015–2026)",
-                                    "subtitle": "All 18 Master Archetypes (72+ Board Questions, Specimen 2023–2027 & CFPQ), Fission/Fusion SVGs, Field Deflection & N-vs-Z Graph",
-                                    "type": "interactive",
-                                    "file": "physics/radioactivity/index.html",
-                                    "badge": "10-Yr Vault • 18 Masters • 72+ Qs"
-                                }
-                            ],
+                            "items": [],
                             "subchapters": [
                                 {
                                     "id": "chap-phy-12",
@@ -832,14 +857,39 @@ window.COURSE_DATA = {
                                     "icon": "bubble_chart",
                                     "items": [
                                         {
-                                            "id": "phy-ch12-radioactivity-vault",
-                                            "title": "Radioactivity 10-Yr Master DPP & PYQ Vault (2015–2026)",
-                                            "subtitle": "All 18 Master Archetypes (72+ Board Variations), Instant & DPP Exam Modes, Fission/Fusion Diagrams, Field Deflection & Competency N vs Z Graph",
+                                            "id": "phy-radioactivity-dpp-mcq",
+                                            "title": "Radioactivity — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "14 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                             "type": "interactive",
-                                            "file": "physics/radioactivity/index.html",
-                                            "badge": "10-Yr Vault • 18 Archetypes"
+                                            "file": "physics/dpp/index.html?ch=radioactivity&sec=mcq",
+                                            "badge": "DPP 1 • 14 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "phy-radioactivity-dpp-saq",
+                                            "title": "Radioactivity — Interactive DPP 2: Section A short answers (Q2–Q3)",
+                                            "subtitle": "28 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 9 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=radioactivity&sec=saq",
+                                            "badge": "DPP 2 • 28 questions • 1–3 Marks"
+                                        },
+                                        {
+                                            "id": "phy-radioactivity-dpp-theory",
+                                            "title": "Radioactivity — Interactive DPP 3: Section B theory & diagrams",
+                                            "subtitle": "28 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 3 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=radioactivity&sec=theory",
+                                            "badge": "DPP 3 • 28 questions • 2–4 Marks"
+                                        },
+                                        {
+                                            "id": "phy-radioactivity-dpp-numerical",
+                                            "title": "Radioactivity — Interactive DPP 4: Numericals",
+                                            "subtitle": "3 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=radioactivity&sec=numerical",
+                                            "badge": "DPP 4 • 3 numericals • 2–4 Marks"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 }
                             ]
                         }

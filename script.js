@@ -11,29 +11,29 @@
    single "New" link in the laptop sidebar and the "New" card on Home.
    -------------------------------------------------------------------------- */
 const LATEST_RELEASE = {
-    subjectId: 'sub-10-geo',
-    chapterId: 'chap-geo-climate',
-    title: 'Geography interactive PYQ DPPs: every chapter + map work',
-    note: 'Toposheet, Map of India and Ch 1–10: every ICSE board, specimen and competency question, shown exactly as printed, with official answers where CISCE published them.',
+    subjectId: 'sub-10-phy',
+    chapterId: 'chap-phy-1',
+    title: 'Physics interactive PYQ DPPs: all 12 chapters',
+    note: 'MCQ, Section A, Theory and Numerical DPPs for every chapter: every ICSE board, specimen and competency question, shown exactly as printed, with official answers where CISCE published them.',
     items: [
-        { id: 'geo-topo-dpp-short', label: 'Q1 Toposheet', meta: '134 questions' },
-        { id: 'geo-indiamap-dpp-short', label: 'Q2 Map of India', meta: '104 questions' },
-        { id: 'geo-climate-dpp-mcq', label: 'Ch 1 Climate', meta: '83 questions' },
-        { id: 'geo-soil-dpp-mcq', label: 'Ch 2 Soil', meta: '86 questions' },
-        { id: 'geo-vegetation-dpp-mcq', label: 'Ch 3 Natural Vegetation', meta: '80 questions' },
-        { id: 'geo-water-dpp-mcq', label: 'Ch 4 Water', meta: '81 questions' },
-        { id: 'geo-mineral-dpp-mcq', label: 'Ch 5 Minerals', meta: '33 questions' },
-        { id: 'geo-energy-dpp-mcq', label: 'Ch 6 Energy', meta: '55 questions' },
-        { id: 'geo-agriculture-dpp-mcq', label: 'Ch 7 Agriculture', meta: '74 questions' },
-        { id: 'geo-manufacturing-dpp-mcq', label: 'Ch 8 Manufacturing', meta: '88 questions' },
-        { id: 'geo-transport-dpp-mcq', label: 'Ch 9 Transport', meta: '71 questions' },
-        { id: 'geo-waste-dpp-mcq', label: 'Ch 10 Waste Management', meta: '67 questions' }
+        { id: 'phy-force-dpp-mcq', label: 'Ch 1 Force', meta: '61 questions in 4 DPPs' },
+        { id: 'phy-wpe-dpp-mcq', label: 'Ch 2 Work, Energy & Power', meta: '80 questions in 4 DPPs' },
+        { id: 'phy-machines-dpp-mcq', label: 'Ch 3 Machines', meta: '54 questions in 4 DPPs' },
+        { id: 'phy-refraction-dpp-mcq', label: 'Ch 4 Refraction', meta: '99 questions in 4 DPPs' },
+        { id: 'phy-lens-dpp-mcq', label: 'Ch 5 Lenses', meta: '56 questions in 4 DPPs' },
+        { id: 'phy-spectrum-dpp-mcq', label: 'Ch 6 Spectrum', meta: '44 questions in 4 DPPs' },
+        { id: 'phy-sound-dpp-mcq', label: 'Ch 7 Sound', meta: '99 questions in 4 DPPs' },
+        { id: 'phy-current-dpp-mcq', label: 'Ch 8 Current Electricity', meta: '80 questions in 4 DPPs' },
+        { id: 'phy-household-dpp-mcq', label: 'Ch 9 Household Circuits', meta: '43 questions in 4 DPPs' },
+        { id: 'phy-electromagnetism-dpp-mcq', label: 'Ch 10 Electromagnetism', meta: '64 questions in 4 DPPs' },
+        { id: 'phy-calorimetry-dpp-mcq', label: 'Ch 11 Calorimetry', meta: '96 questions in 4 DPPs' },
+        { id: 'phy-radioactivity-dpp-mcq', label: 'Ch 12 Radioactivity', meta: '73 questions in 4 DPPs' }
     ],
-    more: { label: 'Geography chapters', href: '#/s/sub-10-geo' },
-    nav: { label: 'Geography: all DPPs', href: '#/s/sub-10-geo' }
+    more: { label: 'Physics chapters', href: '#/s/sub-10-phy' },
+    nav: { label: 'Physics: all DPPs', href: '#/s/sub-10-phy' }
 };
 
-const APP_VERSION = '16.4';
+const APP_VERSION = '16.5';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------

@@ -960,6 +960,14 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
 - **Builder:** papers/geography/extracted/scripts/build-chapter.js + <code>-defs.js per chapter regenerate every data file; wiring with papers/_tools/wire.js and replace-old.js.
 - **Not yet done:** batch completeness audit; browser check.
 
+### AD. Physics interactive PYQ DPPs (all 12 chapters) — v16.1–v16.5 (27 Nov 2026)
+- **Engine:** physics/dpp/ (fourth copy of the master engine; pattern.js has 4 DPP sections: mcq, saq = Section A Q2–Q3, theory = Section B, numerical = every calculation from any section; storePrefix phydpp_). Codes = site chapters chap-phy-1…12: force, wpe, machines, refraction, lens, spectrum, sound, current, household, electromagnetism, calorimetry, radioactivity.
+- **Counts (unique questions):** force 61, wpe 80, machines 54, refraction 99, lens 56, spectrum 44, sound 99, current 80, household 43, electromagnetism 64, calorimetry 96, radioactivity 73.
+- **Replaced (pages redirect):** physics/unit1-mcq, -numerical, -theory (→ ?ch=force), physics/unit4-* (→ ?ch=current), physics/radioactivity vault (→ ?ch=radioactivity).
+- **Sources:** board 2016–2020, 2022 Sem 1/2 (retyped copies), 2023–2026; specimens 2017, 2018, 2022 S1/S2, 2023–2027; CFPQ; APP 2018, 2019, 2020, 2024–2026. Library papers/physics/ (INDEX.md); builder papers/physics/extracted/scripts/build-chapter.js + <code>-defs.js. Out-of-syllabus (thermionics, CRT, gravitation) left out; B2018 Q10(c) excluded (question text not printed in any copy).
+- **Answer diagrams still to draw (answers given in words for now):** blurry official crops machines-theory-05, refraction-saq-11, lens-theory-01; no official figure: machines-theory-06, -11 (+v1), machines-numerical-04, -05, refraction-theory-06, -10, -11, -19, -20, -23, -34, lens-theory-06, -07, -09, sound-theory-18, current-theory-03, -04, electromagnetism-theory-17, -18, -24.
+- **Not yet done:** batch completeness audit; browser check; the diagrams above.
+
 ## 5. Protocol for Future Chats (Step-by-Step Onboarding Guide)
 
 When the user provides a new `gemini-code-*.html` file or notes PDF in any future chat:
