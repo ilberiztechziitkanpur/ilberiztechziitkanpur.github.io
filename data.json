@@ -2257,20 +2257,28 @@
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "his-1857-theory-master",
-                                    "title": "The First War of Independence (1857) — 10 Clusters & 62+ PYQ Twists Vault",
-                                    "subtitle": "10 Master Question Clusters, 62+ Twisted Variations (2015–2026), Political, Economic & Military Causes, 1858 Act & Queen's Proclamation, Instant Check & DPP Modes",
+                                    "id": "his-revolt-dpp-mcq",
+                                    "title": "1857 Revolt — Interactive DPP 1: MCQs (Part I · Q1)",
+                                    "subtitle": "15 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "history/1857-ww1/index.html?scope=W1857",
-                                    "badge": "PYQ Vault • 10 Clusters • 62+ Twists"
+                                    "file": "history/national-movement/index.html?ch=revolt&sec=mcq",
+                                    "badge": "DPP 1 • 15 MCQs • 1 Mark"
                                 },
                                 {
-                                    "id": "his-1857-ww1-dual-master",
-                                    "title": "Dual Master Vault: 1857 Revolt & First World War (18 Clusters & 116+ Variations)",
-                                    "subtitle": "1-Click Switcher between 1857 Revolt (10 Clusters) and First World War (8 Clusters) with Dual Instant & DPP Modes",
+                                    "id": "his-revolt-dpp-short",
+                                    "title": "1857 Revolt — Interactive DPP 2: Short Answers (Part I · Q2)",
+                                    "subtitle": "8 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "history/1857-ww1/index.html",
-                                    "badge": "Dual Master Vault • 18 Clusters • 116+ Twists"
+                                    "file": "history/national-movement/index.html?ch=revolt&sec=short",
+                                    "badge": "DPP 2 • 8 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-revolt-dpp-long",
+                                    "title": "1857 Revolt — Interactive DPP 3: Long Answers (Part II)",
+                                    "subtitle": "21 official ICSE questions (+17 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=revolt&sec=long",
+                                    "badge": "DPP 3 • 21 Qs • 3–4 Marks"
                                 },
                                 {
                                     "id": "his-1857-notes-01",
@@ -2305,12 +2313,28 @@
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "his-nationalism-theory-master",
-                                    "title": "Growth of Nationalism & Foundation of INC — 11 Clusters & 72+ PYQ Twists Vault",
-                                    "subtitle": "11 Master Question Clusters, 72+ Twisted Variations (2015–2026), Economic Exploitation, Lord Lytton, Ilbert Bill, Raja Rammohan Roy, Jyotiba Phule, Press, Precursors & INC Foundation (1885)",
+                                    "id": "his-nationalism-dpp-mcq",
+                                    "title": "Nationalism — Interactive DPP 1: MCQs (Part I · Q1)",
+                                    "subtitle": "23 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "history/nationalism/index.html",
-                                    "badge": "PYQ Vault • 11 Clusters • 72+ Twists"
+                                    "file": "history/national-movement/index.html?ch=nationalism&sec=mcq",
+                                    "badge": "DPP 1 • 23 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "his-nationalism-dpp-short",
+                                    "title": "Nationalism — Interactive DPP 2: Short Answers (Part I · Q2)",
+                                    "subtitle": "8 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=nationalism&sec=short",
+                                    "badge": "DPP 2 • 8 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-nationalism-dpp-long",
+                                    "title": "Nationalism — Interactive DPP 3: Long Answers (Part II)",
+                                    "subtitle": "19 official ICSE questions (+6 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=nationalism&sec=long",
+                                    "badge": "DPP 3 • 19 Qs • 3–4 Marks"
                                 },
                                 {
                                     "id": "his-nationalism-notes-01",
@@ -2665,20 +2689,28 @@
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "his-ww1-theory-master",
-                                    "title": "The First World War (1914–1918) — 8 Clusters & 54+ PYQ Twists Vault",
-                                    "subtitle": "8 Master Question Clusters, 54+ Twisted Variations (2015–2026), Sarajevo Crisis, Alliances, Armament Race, Treaty of Versailles Clauses & League of Nations",
+                                    "id": "his-ww1-dpp-mcq",
+                                    "title": "First World War — Interactive DPP 1: MCQs (Part I · Q1)",
+                                    "subtitle": "9 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "history/1857-ww1/index.html?scope=WW1",
-                                    "badge": "PYQ Vault • 8 Clusters • 54+ Twists"
+                                    "file": "history/national-movement/index.html?ch=ww1&sec=mcq",
+                                    "badge": "DPP 1 • 9 MCQs • 1 Mark"
                                 },
                                 {
-                                    "id": "his-ww1-1857-dual-master",
-                                    "title": "Dual Master Vault: First World War & 1857 Revolt (18 Clusters & 116+ Variations)",
-                                    "subtitle": "1-Click Switcher between First World War (8 Clusters) and 1857 Revolt (10 Clusters) with Dual Instant & DPP Modes",
+                                    "id": "his-ww1-dpp-short",
+                                    "title": "First World War — Interactive DPP 2: Short Answers (Part I · Q2)",
+                                    "subtitle": "13 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "history/1857-ww1/index.html?scope=WW1",
-                                    "badge": "Dual Master Vault • 18 Clusters • 116+ Twists"
+                                    "file": "history/national-movement/index.html?ch=ww1&sec=short",
+                                    "badge": "DPP 2 • 13 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-ww1-dpp-long",
+                                    "title": "First World War — Interactive DPP 3: Long Answers (Part II)",
+                                    "subtitle": "22 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=ww1&sec=long",
+                                    "badge": "DPP 3 • 22 Qs • 3–4 Marks"
                                 },
                                 {
                                     "id": "his-ww1-notes-01",
@@ -2768,7 +2800,33 @@
                             "id": "chap-his-civ-1",
                             "name": "Civics Ch 1: The Union Parliament",
                             "description": "Lok Sabha & Rajya Sabha: composition, qualifications, terms, Speaker, parliamentary procedures & legislative powers",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "civ-parliament-dpp-mcq",
+                                    "title": "Parliament — Interactive DPP 1: MCQs (Part I · Q1)",
+                                    "subtitle": "51 official ICSE questions (+3 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=parliament&sec=mcq",
+                                    "badge": "DPP 1 • 51 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "civ-parliament-dpp-short",
+                                    "title": "Parliament — Interactive DPP 2: Short Answers (Part I · Q2)",
+                                    "subtitle": "29 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=parliament&sec=short",
+                                    "badge": "DPP 2 • 29 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "civ-parliament-dpp-long",
+                                    "title": "Parliament — Interactive DPP 3: Long Answers (Part II)",
+                                    "subtitle": "34 official ICSE questions (+11 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=parliament&sec=long",
+                                    "badge": "DPP 3 • 34 Qs • 3–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-his-civ-2",

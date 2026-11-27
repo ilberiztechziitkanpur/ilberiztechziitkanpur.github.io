@@ -11,29 +11,21 @@
    single "New" link in the laptop sidebar and the "New" card on Home.
    -------------------------------------------------------------------------- */
 const LATEST_RELEASE = {
-    subjectId: 'sub-10-phy',
-    chapterId: 'chap-phy-1',
-    title: 'Physics interactive PYQ DPPs: all 12 chapters',
-    note: 'MCQ, Section A, Theory and Numerical DPPs for every chapter: every ICSE board, specimen and competency question, shown exactly as printed, with official answers where CISCE published them.',
+    subjectId: 'sub-10-his',
+    chapterId: 'chap-his-1',
+    title: 'History & Civics interactive PYQ DPPs: 1857, Nationalism, First World War, Parliament',
+    note: 'MCQ, Short and Long answer DPPs: every ICSE board, specimen and competency question, shown exactly as printed, with official CISCE answers where published. More History and Civics chapters coming next.',
     items: [
-        { id: 'phy-force-dpp-mcq', label: 'Ch 1 Force', meta: '61 questions in 4 DPPs' },
-        { id: 'phy-wpe-dpp-mcq', label: 'Ch 2 Work, Energy & Power', meta: '80 questions in 4 DPPs' },
-        { id: 'phy-machines-dpp-mcq', label: 'Ch 3 Machines', meta: '54 questions in 4 DPPs' },
-        { id: 'phy-refraction-dpp-mcq', label: 'Ch 4 Refraction', meta: '99 questions in 4 DPPs' },
-        { id: 'phy-lens-dpp-mcq', label: 'Ch 5 Lenses', meta: '56 questions in 4 DPPs' },
-        { id: 'phy-spectrum-dpp-mcq', label: 'Ch 6 Spectrum', meta: '44 questions in 4 DPPs' },
-        { id: 'phy-sound-dpp-mcq', label: 'Ch 7 Sound', meta: '99 questions in 4 DPPs' },
-        { id: 'phy-current-dpp-mcq', label: 'Ch 8 Current Electricity', meta: '80 questions in 4 DPPs' },
-        { id: 'phy-household-dpp-mcq', label: 'Ch 9 Household Circuits', meta: '43 questions in 4 DPPs' },
-        { id: 'phy-electromagnetism-dpp-mcq', label: 'Ch 10 Electromagnetism', meta: '64 questions in 4 DPPs' },
-        { id: 'phy-calorimetry-dpp-mcq', label: 'Ch 11 Calorimetry', meta: '96 questions in 4 DPPs' },
-        { id: 'phy-radioactivity-dpp-mcq', label: 'Ch 12 Radioactivity', meta: '73 questions in 4 DPPs' }
+        { id: 'his-revolt-dpp-mcq', label: 'Ch 1 The 1857 Revolt', meta: '44 questions in 3 DPPs' },
+        { id: 'his-nationalism-dpp-mcq', label: 'Ch 2 Growth of Nationalism', meta: '50 questions in 3 DPPs' },
+        { id: 'his-ww1-dpp-mcq', label: 'Ch 10 The First World War', meta: '44 questions in 3 DPPs' },
+        { id: 'civ-parliament-dpp-mcq', label: 'Civics 1 The Union Parliament', meta: '114 questions in 3 DPPs' }
     ],
-    more: { label: 'Physics chapters', href: '#/s/sub-10-phy' },
-    nav: { label: 'Physics: all DPPs', href: '#/s/sub-10-phy' }
+    more: { label: 'History & Civics chapters', href: '#/s/sub-10-his' },
+    nav: { label: 'History & Civics: new DPPs', href: '#/s/sub-10-his' }
 };
 
-const APP_VERSION = '16.5';
+const APP_VERSION = '16.6';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------

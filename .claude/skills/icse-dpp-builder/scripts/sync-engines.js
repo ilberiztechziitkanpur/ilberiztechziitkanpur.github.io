@@ -6,7 +6,7 @@
 const fs = require('fs'), path = require('path');
 const ROOT = process.cwd();
 const MASTER = 'history/national-movement/index.html';
-const ENGINE_COPIES = ['chemistry/dpp/index.html', 'geography/dpp/index.html', 'physics/dpp/index.html'];   // add physics/dpp/index.html etc. here
+const ENGINE_COPIES = ['chemistry/dpp/index.html', 'geography/dpp/index.html', 'physics/dpp/index.html', 'history/civics/index.html'];   // add physics/dpp/index.html etc. here
 const CHECK = process.argv.includes('--check');
 
 const SCRIPT_BLOCK = /((?:[ \t]*<script src="[^"]+"><\/script>\r?\n)+)/;
