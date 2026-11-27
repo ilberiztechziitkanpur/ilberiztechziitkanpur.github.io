@@ -1630,28 +1630,28 @@ window.COURSE_DATA = {
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "geo-water-mcq-master",
-                                    "title": "Water Resources 10-Year PYQ & Specimen MCQ Master Suite (2016–2026)",
-                                    "subtitle": "35 Playable MCQs, 140+ PYQ Hits, Tables & Diagrams, Instant Check & Strict Exam Modes, Timers & Scorecard Generator",
+                                    "id": "geo-water-dpp-mcq",
+                                    "title": "Water — Interactive DPP 1: MCQs (Part I · Q3)",
+                                    "subtitle": "23 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/water-mcq/index.html",
-                                    "badge": "10-Year MCQs • 35 Master Qs • 140+ Hits"
+                                    "file": "geography/dpp/index.html?ch=water&sec=mcq",
+                                    "badge": "DPP 1 • 23 MCQs • 1 Mark"
                                 },
                                 {
-                                    "id": "geo-water-theory-master",
-                                    "title": "Water Resources Theory DPP — 48 Most Expected Questions Vault",
-                                    "subtitle": "48 Master Questions, 190+ Twisted Variations, Dual-Tab Cheat Sheets, Active Recall Blur Mode & 15-Yr Board DNA",
+                                    "id": "geo-water-dpp-short",
+                                    "title": "Water — Interactive DPP 2: Short answers (1–2 marks)",
+                                    "subtitle": "29 official ICSE questions (+4 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/water/index.html",
-                                    "badge": "Theory DPP • 48 Master Qs"
+                                    "file": "geography/dpp/index.html?ch=water&sec=short",
+                                    "badge": "DPP 2 • 29 questions • 1–2 Marks"
                                 },
                                 {
-                                    "id": "geo-water-dpp",
-                                    "title": "Water Resources — Master MCQ DPP Drill",
-                                    "subtitle": "Unit 4: 12 High-Yield Questions (Canals, Wells, Tube Wells, Drip/Sprinkler & Rainwater Harvesting)",
+                                    "id": "geo-water-dpp-long",
+                                    "title": "Water — Interactive DPP 3: Long answers (3 marks)",
+                                    "subtitle": "29 official ICSE questions (+3 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/mcq/index.html?unit=Water+Resources",
-                                    "badge": "Unit 4 DPP • 12 MCQs"
+                                    "file": "geography/dpp/index.html?ch=water&sec=long",
+                                    "badge": "DPP 3 • 29 questions • 3 Marks"
                                 },
                                 {
                                     "id": "geo-water-01",
