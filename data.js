@@ -1677,12 +1677,28 @@ window.COURSE_DATA = {
                             "description": "Metallic & non-metallic minerals: Iron Ore, Manganese, Copper & Bauxite",
                             "items": [
                                 {
-                                    "id": "geo-min-dpp",
-                                    "title": "Mineral Resources — Master MCQ DPP Drill",
-                                    "subtitle": "Unit 5: High-Yield Questions (Iron Ore, Manganese, Copper, Bauxite)",
+                                    "id": "geo-mineral-dpp-mcq",
+                                    "title": "Minerals — Interactive DPP 1: MCQs (Part I · Q3)",
+                                    "subtitle": "3 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/mcq/index.html?unit=Minerals+%26+Energy",
-                                    "badge": "Unit 5 DPP • Minerals"
+                                    "file": "geography/dpp/index.html?ch=mineral&sec=mcq",
+                                    "badge": "DPP 1 • 3 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "geo-mineral-dpp-short",
+                                    "title": "Minerals — Interactive DPP 2: Short answers (1–2 marks)",
+                                    "subtitle": "15 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 3 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "geography/dpp/index.html?ch=mineral&sec=short",
+                                    "badge": "DPP 2 • 15 questions • 1–2 Marks"
+                                },
+                                {
+                                    "id": "geo-mineral-dpp-long",
+                                    "title": "Minerals — Interactive DPP 3: Long answers (3 marks)",
+                                    "subtitle": "15 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 9 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "geography/dpp/index.html?ch=mineral&sec=long",
+                                    "badge": "DPP 3 • 15 questions • 3 Marks"
                                 },
                                 {
                                     "id": "geo-min-01",
@@ -1700,7 +1716,8 @@ window.COURSE_DATA = {
                                     "file": "geography/notes/Mineral_Resources_02_Class_Notes.pdf",
                                     "size": "2.3 MB"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-geo-energy",
@@ -1708,12 +1725,28 @@ window.COURSE_DATA = {
                             "description": "Coal, Petroleum and Natural Gas: Formation, classification & fields",
                             "items": [
                                 {
-                                    "id": "geo-energy-dpp",
-                                    "title": "Conventional Sources of Energy — Master MCQ DPP Drill",
-                                    "subtitle": "Unit 5: High-Yield Questions (Coal, Petroleum, Natural Gas)",
+                                    "id": "geo-energy-dpp-mcq",
+                                    "title": "Energy — Interactive DPP 1: MCQs (Part I · Q3)",
+                                    "subtitle": "8 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/mcq/index.html?unit=Minerals+%26+Energy",
-                                    "badge": "Unit 5 DPP • Energy"
+                                    "file": "geography/dpp/index.html?ch=energy&sec=mcq",
+                                    "badge": "DPP 1 • 8 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "geo-energy-dpp-short",
+                                    "title": "Energy — Interactive DPP 2: Short answers (1–2 marks)",
+                                    "subtitle": "19 official ICSE questions (+7 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 3 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "geography/dpp/index.html?ch=energy&sec=short",
+                                    "badge": "DPP 2 • 19 questions • 1–2 Marks"
+                                },
+                                {
+                                    "id": "geo-energy-dpp-long",
+                                    "title": "Energy — Interactive DPP 3: Long answers (3 marks)",
+                                    "subtitle": "28 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 9 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "geography/dpp/index.html?ch=energy&sec=long",
+                                    "badge": "DPP 3 • 28 questions • 3 Marks"
                                 },
                                 {
                                     "id": "geo-energy-01",
@@ -1731,7 +1764,8 @@ window.COURSE_DATA = {
                                     "file": "geography/notes/Conventional_Sources_Of_Energy_02_Class_Notes.pdf",
                                     "size": "5.5 MB"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-geo-agriculture",
