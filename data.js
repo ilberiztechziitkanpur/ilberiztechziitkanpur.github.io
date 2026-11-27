@@ -117,32 +117,7 @@ window.COURSE_DATA = {
                             "description": "Classical Mechanics — Turning effect of force, moment of couple, work, power, energy conservation & machines",
                             "icon": "fitness_center",
                             "featured": true,
-                            "items": [
-                                {
-                                    "id": "phy-u1-numerical",
-                                    "title": "UNIT-1 Force, Work, Power and Energy, Machines — Pure Numericals Master v2.0",
-                                    "subtitle": "20 Verbatim 10-Year Board Numericals with Step-by-Step Solutions, Formula Step Boxes, Given/To-Find Breakdown & Live Timer",
-                                    "type": "interactive",
-                                    "file": "physics/unit1-numerical/index.html",
-                                    "badge": "Numericals • 20 PYQ Qs • Solved"
-                                },
-                                {
-                                    "id": "phy-u1-theory",
-                                    "title": "UNIT-1 Force, Work, Power and Energy, Machines — Theory & Derivations Vault",
-                                    "subtitle": "62 Marks High-Yield Theory, Official CISCE Marking Scheme, Give Reasons, Derivations, Diagram Questions & Recall Mode",
-                                    "type": "interactive",
-                                    "file": "physics/unit1-theory/index.html",
-                                    "badge": "Theory Vault • 62M • Derivations"
-                                },
-                                {
-                                    "id": "phy-u1-mcq",
-                                    "title": "UNIT-1 Force, Work, Power and Energy, Machines — Master MCQ Diagnostic Engine",
-                                    "subtitle": "24 High-Yield Forensic MCQs across all 3 Chapters with DPP Test Mode, Instant Reveal, Live Scoreboard & Detailed Rationale",
-                                    "type": "interactive",
-                                    "file": "physics/unit1-mcq/index.html",
-                                    "badge": "MCQ Drill • 24 Qs • Interactive"
-                                }
-                            ],
+                            "items": [],
                             "subchapters": [
                                 {
                                     "id": "chap-phy-1",
@@ -219,6 +194,38 @@ window.COURSE_DATA = {
                                     "icon": "bolt",
                                     "items": [
                                         {
+                                            "id": "phy-wpe-dpp-mcq",
+                                            "title": "Work & Energy — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "35 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=wpe&sec=mcq",
+                                            "badge": "DPP 1 • 35 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "phy-wpe-dpp-saq",
+                                            "title": "Work & Energy — Interactive DPP 2: Section A short answers (Q2–Q3)",
+                                            "subtitle": "13 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 3 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=wpe&sec=saq",
+                                            "badge": "DPP 2 • 13 questions • 1–3 Marks"
+                                        },
+                                        {
+                                            "id": "phy-wpe-dpp-theory",
+                                            "title": "Work & Energy — Interactive DPP 3: Section B theory & diagrams",
+                                            "subtitle": "8 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 4 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=wpe&sec=theory",
+                                            "badge": "DPP 3 • 8 questions • 2–4 Marks"
+                                        },
+                                        {
+                                            "id": "phy-wpe-dpp-numerical",
+                                            "title": "Work & Energy — Interactive DPP 4: Numericals",
+                                            "subtitle": "24 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=wpe&sec=numerical",
+                                            "badge": "DPP 4 • 24 numericals • 2–4 Marks"
+                                        },
+                                        {
                                             "id": "phy-work-notes-01",
                                             "title": "Work, Power, and Energy 01 Class Notes",
                                             "subtitle": "Work Done (W = Fs cos θ), Special Cases (Positive, Zero & Negative Work), F-d Graph Area, Work Against Gravity & Units (Lecture 04 / Shailendra Sir / 25 Slides)",
@@ -263,14 +270,49 @@ window.COURSE_DATA = {
                                             "size": "1.9 MB",
                                             "badge": "PDF • 1.9 MB • Class Notes"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 },
                                 {
                                     "id": "chap-phy-3",
                                     "name": "Ch 3: Machines",
                                     "description": "Mechanical advantage (MA), velocity ratio (VR), efficiency (η), principle of machines, Class I, II, III levers and single/combination pulley systems",
                                     "icon": "precision_manufacturing",
-                                    "items": []
+                                    "items": [
+                                        {
+                                            "id": "phy-machines-dpp-mcq",
+                                            "title": "Machines — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "14 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=machines&sec=mcq",
+                                            "badge": "DPP 1 • 14 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "phy-machines-dpp-saq",
+                                            "title": "Machines — Interactive DPP 2: Section A short answers (Q2–Q3)",
+                                            "subtitle": "20 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 6 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=machines&sec=saq",
+                                            "badge": "DPP 2 • 20 questions • 1–3 Marks"
+                                        },
+                                        {
+                                            "id": "phy-machines-dpp-theory",
+                                            "title": "Machines — Interactive DPP 3: Section B theory & diagrams",
+                                            "subtitle": "14 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 4 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=machines&sec=theory",
+                                            "badge": "DPP 3 • 14 questions • 2–4 Marks"
+                                        },
+                                        {
+                                            "id": "phy-machines-dpp-numerical",
+                                            "title": "Machines — Interactive DPP 4: Numericals",
+                                            "subtitle": "6 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=machines&sec=numerical",
+                                            "badge": "DPP 4 • 6 numericals • 2–4 Marks"
+                                        }
+                                    ],
+                                    "featured": true
                                 }
                             ]
                         },
