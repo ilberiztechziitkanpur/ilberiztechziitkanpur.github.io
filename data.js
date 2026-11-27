@@ -330,6 +330,38 @@ window.COURSE_DATA = {
                                     "icon": "layers",
                                     "items": [
                                         {
+                                            "id": "phy-refraction-dpp-mcq",
+                                            "title": "Refraction — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "35 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=refraction&sec=mcq",
+                                            "badge": "DPP 1 • 35 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "phy-refraction-dpp-saq",
+                                            "title": "Refraction — Interactive DPP 2: Section A short answers (Q2–Q3)",
+                                            "subtitle": "20 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 3 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=refraction&sec=saq",
+                                            "badge": "DPP 2 • 20 questions • 1–3 Marks"
+                                        },
+                                        {
+                                            "id": "phy-refraction-dpp-theory",
+                                            "title": "Refraction — Interactive DPP 3: Section B theory & diagrams",
+                                            "subtitle": "34 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 6 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=refraction&sec=theory",
+                                            "badge": "DPP 3 • 34 questions • 2–4 Marks"
+                                        },
+                                        {
+                                            "id": "phy-refraction-dpp-numerical",
+                                            "title": "Refraction — Interactive DPP 4: Numericals",
+                                            "subtitle": "10 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 1 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=refraction&sec=numerical",
+                                            "badge": "DPP 4 • 10 numericals • 2–4 Marks"
+                                        },
+                                        {
                                             "id": "phy-refract-notes-01",
                                             "title": "Refraction of Light at Plane Surfaces 01 Class Notes",
                                             "subtitle": "Refraction of Light, Speed in Media, Snell's Law (µ = c/v), Factors Affecting Refractive Index, Reversibility Principle, Rectangular Glass Block, Lateral Displacement & Multiple Images in Thick Mirror (Lecture 01 / Shailendra Sir / 40 Slides)",
@@ -356,7 +388,8 @@ window.COURSE_DATA = {
                                             "size": "2.6 MB",
                                             "badge": "PDF • 2.6 MB • Class Notes"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 },
                                 {
                                     "id": "chap-phy-5",
@@ -364,6 +397,38 @@ window.COURSE_DATA = {
                                     "description": "Convex & concave lenses, optical centre, principal focus, ray diagrams for image formation, lens formula, magnification and power of lens (Dioptres)",
                                     "icon": "search",
                                     "items": [
+                                        {
+                                            "id": "phy-lens-dpp-mcq",
+                                            "title": "Lenses — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "21 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=lens&sec=mcq",
+                                            "badge": "DPP 1 • 21 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "phy-lens-dpp-saq",
+                                            "title": "Lenses — Interactive DPP 2: Section A short answers (Q2–Q3)",
+                                            "subtitle": "11 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=lens&sec=saq",
+                                            "badge": "DPP 2 • 11 questions • 1–3 Marks"
+                                        },
+                                        {
+                                            "id": "phy-lens-dpp-theory",
+                                            "title": "Lenses — Interactive DPP 3: Section B theory & diagrams",
+                                            "subtitle": "12 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 2 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=lens&sec=theory",
+                                            "badge": "DPP 3 • 12 questions • 2–4 Marks"
+                                        },
+                                        {
+                                            "id": "phy-lens-dpp-numerical",
+                                            "title": "Lenses — Interactive DPP 4: Numericals",
+                                            "subtitle": "12 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=lens&sec=numerical",
+                                            "badge": "DPP 4 • 12 numericals • 2–4 Marks"
+                                        },
                                         {
                                             "id": "phy-lens-notes-01",
                                             "title": "Refraction through a Lens 01 Class Notes",
@@ -382,7 +447,8 @@ window.COURSE_DATA = {
                                             "size": "2.4 MB",
                                             "badge": "PDF • 2.4 MB • Class Notes"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 },
                                 {
                                     "id": "chap-phy-6",
@@ -390,6 +456,38 @@ window.COURSE_DATA = {
                                     "description": "Dispersion of white light through a triangular prism, pure and impure spectrum, electromagnetic spectrum (gamma to radio waves) and scattering of light",
                                     "icon": "palette",
                                     "items": [
+                                        {
+                                            "id": "phy-spectrum-dpp-mcq",
+                                            "title": "Spectrum — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "18 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=spectrum&sec=mcq",
+                                            "badge": "DPP 1 • 18 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "phy-spectrum-dpp-saq",
+                                            "title": "Spectrum — Interactive DPP 2: Section A short answers (Q2–Q3)",
+                                            "subtitle": "7 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 1 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=spectrum&sec=saq",
+                                            "badge": "DPP 2 • 7 questions • 1–3 Marks"
+                                        },
+                                        {
+                                            "id": "phy-spectrum-dpp-theory",
+                                            "title": "Spectrum — Interactive DPP 3: Section B theory & diagrams",
+                                            "subtitle": "17 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 6 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=spectrum&sec=theory",
+                                            "badge": "DPP 3 • 17 questions • 2–4 Marks"
+                                        },
+                                        {
+                                            "id": "phy-spectrum-dpp-numerical",
+                                            "title": "Spectrum — Interactive DPP 4: Numericals",
+                                            "subtitle": "2 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 1 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=spectrum&sec=numerical",
+                                            "badge": "DPP 4 • 2 numericals • 2–4 Marks"
+                                        },
                                         {
                                             "id": "phy-spectrum-notes-01",
                                             "title": "Spectrum 01 Class Notes",
@@ -399,7 +497,8 @@ window.COURSE_DATA = {
                                             "size": "3.5 MB",
                                             "badge": "PDF • 3.5 MB • Class Notes"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 }
                             ]
                         },
