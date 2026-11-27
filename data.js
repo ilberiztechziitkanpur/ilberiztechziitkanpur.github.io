@@ -1518,28 +1518,28 @@ window.COURSE_DATA = {
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "geo-soil-mcq-master",
-                                    "title": "Soil Resources 10-Year PYQ & Specimen MCQ Master Suite (2016–2026)",
-                                    "subtitle": "35 Playable MCQs, 135+ PYQ Hits, Tables & Diagrams, Instant Check & Strict Exam Modes, Timers & Scorecard Generator",
+                                    "id": "geo-soil-dpp-mcq",
+                                    "title": "Soil — Interactive DPP 1: MCQs (Part I · Q3)",
+                                    "subtitle": "26 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/soil-mcq/index.html",
-                                    "badge": "10-Year MCQs • 35 Master Qs • 135+ Hits"
+                                    "file": "geography/dpp/index.html?ch=soil&sec=mcq",
+                                    "badge": "DPP 1 • 26 MCQs • 1 Mark"
                                 },
                                 {
-                                    "id": "geo-soil-theory-master",
-                                    "title": "Soil Resources Theory DPP — 46 Most Expected Questions Vault",
-                                    "subtitle": "46 Master Questions, 180+ Twisted Board Variations, 60-Sec Comparison Matrix, Active Recall Blur Mode & 15-Yr Board DNA",
+                                    "id": "geo-soil-dpp-short",
+                                    "title": "Soil — Interactive DPP 2: Short answers (1–2 marks)",
+                                    "subtitle": "29 official ICSE questions (+4 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/soil/index.html",
-                                    "badge": "Theory DPP • 46 Master Qs"
+                                    "file": "geography/dpp/index.html?ch=soil&sec=short",
+                                    "badge": "DPP 2 • 29 questions • 1–2 Marks"
                                 },
                                 {
-                                    "id": "geo-soil-dpp",
-                                    "title": "Soil Resources — Master MCQ DPP Drill",
-                                    "subtitle": "Unit 2: 12 High-Yield Questions (Alluvial, Black/Regur, Red, Laterite & Soil Conservation)",
+                                    "id": "geo-soil-dpp-long",
+                                    "title": "Soil — Interactive DPP 3: Long answers (3 marks)",
+                                    "subtitle": "31 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/mcq/index.html?unit=Soil+Resources",
-                                    "badge": "Unit 2 DPP • 12 MCQs"
+                                    "file": "geography/dpp/index.html?ch=soil&sec=long",
+                                    "badge": "DPP 3 • 31 questions • 3 Marks"
                                 },
                                 {
                                     "id": "geo-soil-01",
