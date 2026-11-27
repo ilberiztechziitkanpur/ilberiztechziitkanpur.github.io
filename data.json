@@ -1774,12 +1774,28 @@
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "geo-agri-dpp",
-                                    "title": "Agriculture in India — Master MCQ DPP Drill",
-                                    "subtitle": "Unit 6: 12 High-Yield Questions (Rice, Wheat, Millets, Sugarcane, Cotton, Tea, Coffee)",
+                                    "id": "geo-agriculture-dpp-mcq",
+                                    "title": "Agriculture — Interactive DPP 1: MCQs (Part I · Q3)",
+                                    "subtitle": "15 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/mcq/index.html?unit=Agriculture",
-                                    "badge": "Unit 6 DPP • 12 MCQs"
+                                    "file": "geography/dpp/index.html?ch=agriculture&sec=mcq",
+                                    "badge": "DPP 1 • 15 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "geo-agriculture-dpp-short",
+                                    "title": "Agriculture — Interactive DPP 2: Short answers (1–2 marks)",
+                                    "subtitle": "25 official ICSE questions (+12 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "geography/dpp/index.html?ch=agriculture&sec=short",
+                                    "badge": "DPP 2 • 25 questions • 1–2 Marks"
+                                },
+                                {
+                                    "id": "geo-agriculture-dpp-long",
+                                    "title": "Agriculture — Interactive DPP 3: Long answers (3 marks)",
+                                    "subtitle": "33 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "geography/dpp/index.html?ch=agriculture&sec=long",
+                                    "badge": "DPP 3 • 33 questions • 3 Marks"
                                 }
                             ]
                         },
@@ -1790,12 +1806,28 @@
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "geo-mfg-dpp",
-                                    "title": "Manufacturing Industries — Master MCQ DPP Drill",
-                                    "subtitle": "Unit 7: 10 High-Yield Questions (Tata Steel, Rourkela, Bhilai, Cotton & Sugar industry)",
+                                    "id": "geo-manufacturing-dpp-mcq",
+                                    "title": "Manufacturing — Interactive DPP 1: MCQs (Part I · Q3)",
+                                    "subtitle": "13 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/mcq/index.html?unit=Manufacturing+Industries",
-                                    "badge": "Unit 7 DPP • 10 MCQs"
+                                    "file": "geography/dpp/index.html?ch=manufacturing&sec=mcq",
+                                    "badge": "DPP 1 • 13 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "geo-manufacturing-dpp-short",
+                                    "title": "Manufacturing — Interactive DPP 2: Short answers (1–2 marks)",
+                                    "subtitle": "33 official ICSE questions (+11 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "geography/dpp/index.html?ch=manufacturing&sec=short",
+                                    "badge": "DPP 2 • 33 questions • 1–2 Marks"
+                                },
+                                {
+                                    "id": "geo-manufacturing-dpp-long",
+                                    "title": "Manufacturing — Interactive DPP 3: Long answers (3 marks)",
+                                    "subtitle": "40 official ICSE questions (+3 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "geography/dpp/index.html?ch=manufacturing&sec=long",
+                                    "badge": "DPP 3 • 40 questions • 3 Marks"
                                 }
                             ]
                         },
