@@ -4,7 +4,7 @@
  * - PDF.js engine, icons and Google Fonts: cache-first / stale-while-revalidate.
  * Bump VERSION together with the ?v= numbers in index.html.
  */
-const VERSION = '15.7';
+const VERSION = '15.8';
 const SHELL = 'ilb-shell-' + VERSION;
 const NOTES = 'ilb-notes-v1';
 const PAGES = 'ilb-pages-v1';

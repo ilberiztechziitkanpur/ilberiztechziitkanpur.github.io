@@ -1838,20 +1838,28 @@ window.COURSE_DATA = {
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "geo-transport-theory-master",
-                                    "title": "Transport Network Theory DPP — 48 Most Expected Questions Vault",
-                                    "subtitle": "48 Master Questions, 190+ Variations, Modes of Transport & 12 Major Ports Cheat Sheets, Active Recall Blur Mode",
+                                    "id": "geo-transport-dpp-mcq",
+                                    "title": "Transport — Interactive DPP 1: MCQs (Part I · Q3)",
+                                    "subtitle": "12 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/transport/index.html",
-                                    "badge": "Theory DPP • 48 Master Qs"
+                                    "file": "geography/dpp/index.html?ch=transport&sec=mcq",
+                                    "badge": "DPP 1 • 12 MCQs • 1 Mark"
                                 },
                                 {
-                                    "id": "geo-transport-dpp",
-                                    "title": "Transport — Master MCQ DPP Drill",
-                                    "subtitle": "Unit 8: 10 High-Yield Questions (Golden Quadrilateral, National Waterways, Ports)",
+                                    "id": "geo-transport-dpp-short",
+                                    "title": "Transport — Interactive DPP 2: Short answers (1–2 marks)",
+                                    "subtitle": "27 official ICSE questions (+6 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/mcq/index.html?unit=Transport",
-                                    "badge": "Unit 8 DPP • 10 MCQs"
+                                    "file": "geography/dpp/index.html?ch=transport&sec=short",
+                                    "badge": "DPP 2 • 27 questions • 1–2 Marks"
+                                },
+                                {
+                                    "id": "geo-transport-dpp-long",
+                                    "title": "Transport — Interactive DPP 3: Long answers (3 marks)",
+                                    "subtitle": "32 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "geography/dpp/index.html?ch=transport&sec=long",
+                                    "badge": "DPP 3 • 32 questions • 3 Marks"
                                 },
                                 {
                                     "id": "geo-transport-01",
@@ -1870,20 +1878,28 @@ window.COURSE_DATA = {
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "geo-waste-theory-master",
-                                    "title": "Waste Management Theory DPP — 50 Most Expected Questions Vault",
-                                    "subtitle": "50 Master Questions, 200+ Variations, Disposal Methods & 3 R's Cheat Sheets, Active Recall Blur Mode",
+                                    "id": "geo-waste-dpp-mcq",
+                                    "title": "Waste — Interactive DPP 1: MCQs (Part I · Q3)",
+                                    "subtitle": "7 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/waste/index.html",
-                                    "badge": "Theory DPP • 50 Master Qs"
+                                    "file": "geography/dpp/index.html?ch=waste&sec=mcq",
+                                    "badge": "DPP 1 • 7 MCQs • 1 Mark"
                                 },
                                 {
-                                    "id": "geo-waste-dpp",
-                                    "title": "Waste Management — Master MCQ DPP Drill",
-                                    "subtitle": "Unit 9: 8 High-Yield Questions (Eutrophication, Biomagnification, Composting, 3 R's)",
+                                    "id": "geo-waste-dpp-short",
+                                    "title": "Waste — Interactive DPP 2: Short answers (1–2 marks)",
+                                    "subtitle": "26 official ICSE questions (+5 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/mcq/index.html?unit=Waste+Management",
-                                    "badge": "Unit 9 DPP • 8 MCQs"
+                                    "file": "geography/dpp/index.html?ch=waste&sec=short",
+                                    "badge": "DPP 2 • 26 questions • 1–2 Marks"
+                                },
+                                {
+                                    "id": "geo-waste-dpp-long",
+                                    "title": "Waste — Interactive DPP 3: Long answers (3 marks)",
+                                    "subtitle": "34 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "geography/dpp/index.html?ch=waste&sec=long",
+                                    "badge": "DPP 3 • 34 questions • 3 Marks"
                                 },
                                 {
                                     "id": "geo-waste-01",
