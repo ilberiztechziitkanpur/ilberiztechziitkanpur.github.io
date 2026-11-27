@@ -33,7 +33,7 @@ const LATEST_RELEASE = {
     nav: { label: 'Geography: all DPPs', href: '#/s/sub-10-geo' }
 };
 
-const APP_VERSION = '16.0';
+const APP_VERSION = '16.1';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------

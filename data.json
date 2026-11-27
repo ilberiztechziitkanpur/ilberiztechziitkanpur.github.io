@@ -151,6 +151,38 @@
                                     "icon": "rotate_right",
                                     "items": [
                                         {
+                                            "id": "phy-force-dpp-mcq",
+                                            "title": "Force — Interactive DPP 1: MCQs (Section A · Q1)",
+                                            "subtitle": "17 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=force&sec=mcq",
+                                            "badge": "DPP 1 • 17 MCQs • 1 Mark"
+                                        },
+                                        {
+                                            "id": "phy-force-dpp-saq",
+                                            "title": "Force — Interactive DPP 2: Section A short answers (Q2–Q3)",
+                                            "subtitle": "19 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 5 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=force&sec=saq",
+                                            "badge": "DPP 2 • 19 questions • 1–3 Marks"
+                                        },
+                                        {
+                                            "id": "phy-force-dpp-theory",
+                                            "title": "Force — Interactive DPP 3: Section B theory & diagrams",
+                                            "subtitle": "9 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 1 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=force&sec=theory",
+                                            "badge": "DPP 3 • 9 questions • 2–4 Marks"
+                                        },
+                                        {
+                                            "id": "phy-force-dpp-numerical",
+                                            "title": "Force — Interactive DPP 4: Numericals",
+                                            "subtitle": "16 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                            "type": "interactive",
+                                            "file": "physics/dpp/index.html?ch=force&sec=numerical",
+                                            "badge": "DPP 4 • 16 numericals • 2–4 Marks"
+                                        },
+                                        {
                                             "id": "phy-force-notes-01",
                                             "title": "Force, Work, Power And Energy 01 Class Notes",
                                             "subtitle": "Comprehensive lecture notes on Force: Moment of force, couple, equilibrium conditions, centre of gravity & circular motion with solved examples",
@@ -177,7 +209,8 @@
                                             "size": "2.4 MB",
                                             "badge": "PDF • 2.4 MB • Class Notes"
                                         }
-                                    ]
+                                    ],
+                                    "featured": true
                                 },
                                 {
                                     "id": "chap-phy-2",
