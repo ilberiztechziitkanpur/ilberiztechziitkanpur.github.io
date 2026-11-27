@@ -1784,10 +1784,10 @@ window.COURSE_DATA = {
                                 {
                                     "id": "geo-agriculture-dpp-short",
                                     "title": "Agriculture — Interactive DPP 2: Short answers (1–2 marks)",
-                                    "subtitle": "25 official ICSE questions (+12 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "subtitle": "26 official ICSE questions (+11 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
                                     "file": "geography/dpp/index.html?ch=agriculture&sec=short",
-                                    "badge": "DPP 2 • 25 questions • 1–2 Marks"
+                                    "badge": "DPP 2 • 26 questions • 1–2 Marks"
                                 },
                                 {
                                     "id": "geo-agriculture-dpp-long",
@@ -1816,18 +1816,18 @@ window.COURSE_DATA = {
                                 {
                                     "id": "geo-manufacturing-dpp-short",
                                     "title": "Manufacturing — Interactive DPP 2: Short answers (1–2 marks)",
-                                    "subtitle": "33 official ICSE questions (+11 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "subtitle": "34 official ICSE questions (+10 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
                                     "file": "geography/dpp/index.html?ch=manufacturing&sec=short",
-                                    "badge": "DPP 2 • 33 questions • 1–2 Marks"
+                                    "badge": "DPP 2 • 34 questions • 1–2 Marks"
                                 },
                                 {
                                     "id": "geo-manufacturing-dpp-long",
                                     "title": "Manufacturing — Interactive DPP 3: Long answers (3 marks)",
-                                    "subtitle": "40 official ICSE questions (+3 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "subtitle": "41 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
                                     "file": "geography/dpp/index.html?ch=manufacturing&sec=long",
-                                    "badge": "DPP 3 • 40 questions • 3 Marks"
+                                    "badge": "DPP 3 • 41 questions • 3 Marks"
                                 }
                             ]
                         },

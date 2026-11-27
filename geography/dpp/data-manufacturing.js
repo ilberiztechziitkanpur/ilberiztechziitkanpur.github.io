@@ -499,7 +499,8 @@ window.NM_DPP_DATA.manufacturing = {
     "manufacturing-long-10",
     "manufacturing-long-19",
     "manufacturing-long-34",
-    "manufacturing-long-40"
+    "manufacturing-long-40",
+    "manufacturing-short-34"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -2416,42 +2417,14 @@ window.NM_DPP_DATA.manufacturing = {
     "tip": "Board comment: some wrote electricity generation; keep to electronics. Any two arguments earn full marks.",
     "words": "≈20–40 words"
    },
-   "variations": [
-    {
-     "id": "manufacturing-short-21-v1",
-     "q": "Give two ways in which the Electronic Industry is important for India.",
-     "stem": null,
-     "picture": null,
-     "options": null,
-     "correct": null,
-     "marks": 2,
-     "seen": [
-      {
-       "src": "S2024",
-       "ref": "Q10(ii)",
-       "marks": 2,
-       "note": ""
-      }
-     ],
-     "diff": "The same ask in other words: \"two ways in which the Electronic Industry is important for India\". The answer core is the same.",
-     "answer": {
-      "points": [
-       "It <mark>generates employment</mark> and earns <mark>foreign exchange</mark> through exports.",
-       "It supports <mark>communication, education, defence and health</mark> and other industries."
-      ],
-      "why": "",
-      "official": null,
-      "tip": "No marking scheme is published for this specimen.",
-      "words": "≈20–40 words"
-     }
-    }
-   ],
+   "variations": [],
    "related": [
     "manufacturing-mcq-03",
     "manufacturing-long-10",
     "manufacturing-long-19",
     "manufacturing-long-34",
-    "manufacturing-long-40"
+    "manufacturing-long-40",
+    "manufacturing-short-34"
    ],
    "difficulty": "Medium",
    "skill": "Understanding",
@@ -3444,12 +3417,12 @@ window.NM_DPP_DATA.manufacturing = {
    },
    "variations": [],
    "related": [
+    "manufacturing-long-41",
     "manufacturing-long-22",
     "manufacturing-long-11",
     "manufacturing-short-11",
     "manufacturing-long-02",
-    "manufacturing-long-09",
-    "manufacturing-long-25"
+    "manufacturing-long-09"
    ],
    "difficulty": "Medium",
    "skill": "Application",
@@ -3808,7 +3781,7 @@ window.NM_DPP_DATA.manufacturing = {
     "manufacturing-long-30",
     "manufacturing-long-23",
     "manufacturing-long-37",
-    "manufacturing-long-22"
+    "manufacturing-long-41"
    ],
    "difficulty": "Medium",
    "skill": "Application",
@@ -4403,45 +4376,9 @@ window.NM_DPP_DATA.manufacturing = {
     "tip": "Board comment: write by-products (bagasse, molasses, press mud), not products of sugarcane. Marks (a) 1 and (b) 2 are assumed.",
     "words": null
    },
-   "variations": [
-    {
-     "id": "manufacturing-long-22-v1",
-     "q": "Rajesh is a class X student, working on a project for school. He has a section on by-products and includes a write-up on shoe polish.\n(a) Which industry is he writing about?\n(b) Name any two by-products of the industry that he is writing about.",
-     "stem": null,
-     "picture": null,
-     "options": null,
-     "correct": null,
-     "marks": 3,
-     "seen": [
-      {
-       "src": "CFPQ2025",
-       "ref": "Q57",
-       "marks": 3,
-       "note": ""
-      }
-     ],
-     "diff": "The same story and asks with another name (a student writing about the by-products used in shoe polish): which industry, and two by-products. The answer core is the same: sugar industry; bagasse, molasses, press mud.",
-     "answer": {
-      "points": [
-       "<b>(a)</b> The <mark>sugar industry</mark>.",
-       "<b>(b)</b> <mark>Molasses</mark>",
-       "<b>(b)</b> and <mark>bagasse</mark> (or press mud)."
-      ],
-      "why": "",
-      "official": {
-       "src": "CISCE CFPQ answer key",
-       "points": [
-        "(a) Sugar industries",
-        "(b) Molasses, bagasse, and press mud."
-       ],
-       "errors": []
-      },
-      "tip": "The mark split (a) 1 and (b) 2 is assumed.",
-      "words": null
-     }
-    }
-   ],
+   "variations": [],
    "related": [
+    "manufacturing-long-41",
     "manufacturing-long-05",
     "manufacturing-long-11"
    ],
@@ -5403,6 +5340,101 @@ window.NM_DPP_DATA.manufacturing = {
     "manufacturing-long-28",
     "manufacturing-short-21",
     "manufacturing-mcq-03"
+   ],
+   "difficulty": "Medium",
+   "skill": "Application",
+   "confidence": "HIGH",
+   "flags": [
+    "key-official-CFPQ"
+   ]
+  },
+  {
+   "id": "manufacturing-short-34",
+   "sec": "short",
+   "topic": "electronics-engineering",
+   "format": "SHORT",
+   "marks": 2,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "optionImgs": null,
+   "q": "Give two ways in which the Electronic Industry is important for India.",
+   "options": null,
+   "correct": null,
+   "seen": [
+    {
+     "src": "S2024",
+     "ref": "Q10(ii)",
+     "marks": 2,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "It <mark>generates employment</mark> and earns <mark>foreign exchange</mark> through exports.",
+     "It supports <mark>communication, education, defence and health</mark> and other industries."
+    ],
+    "why": "",
+    "official": null,
+    "tip": "No marking scheme is published for this specimen. Any two ways earn full marks. The B2026 item is a quoted statement (\"State two arguments in favour\") and is kept separate.",
+    "words": "≈20–40 words"
+   },
+   "variations": [],
+   "related": [
+    "manufacturing-short-21",
+    "manufacturing-mcq-03"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ]
+  },
+  {
+   "id": "manufacturing-long-41",
+   "sec": "long",
+   "topic": "sugar",
+   "format": "LONG",
+   "marks": 3,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "optionImgs": null,
+   "q": "Rajesh is a class X student, working on a project for school. He has a section on by-products and includes a write-up on shoe polish.\n(a) Which industry is he writing about?\n(b) Name any two by-products of the industry that he is writing about.",
+   "options": null,
+   "correct": null,
+   "seen": [
+    {
+     "src": "CFPQ2025",
+     "ref": "Q57",
+     "marks": 3,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<b>(a)</b> The <mark>sugar industry</mark>.",
+     "<b>(b)</b> <mark>Molasses</mark>",
+     "<b>(b)</b> and <mark>bagasse</mark> (or press mud)."
+    ],
+    "why": "",
+    "official": {
+     "src": "CISCE CFPQ answer key",
+     "points": [
+      "(a) Sugar industries",
+      "(b) Molasses, bagasse, and press mud."
+     ],
+     "errors": []
+    },
+    "tip": "The mark split (a) 1 and (b) 2 is assumed. The B2025 item is a different story with extra clues (carbon paper, cardboard) and is kept separate.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "manufacturing-long-22",
+    "manufacturing-long-05",
+    "manufacturing-long-11"
    ],
    "difficulty": "Medium",
    "skill": "Application",

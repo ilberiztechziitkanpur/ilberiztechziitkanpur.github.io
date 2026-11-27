@@ -2170,57 +2170,15 @@ window.NM_DPP_DATA.agriculture = {
       "tip": "No marking scheme is published for this specimen.",
       "words": "≈20–40 words"
      }
-    },
-    {
-     "id": "agriculture-short-12-v4",
-     "q": "Despite being the backbone of the Indian economy, our agricultural sector faces several problems. Mention any two such problems.",
-     "stem": null,
-     "picture": null,
-     "options": null,
-     "correct": null,
-     "marks": 2,
-     "seen": [
-      {
-       "src": "S2027",
-       "ref": "Q9(i)",
-       "marks": 2,
-       "note": ""
-      }
-     ],
-     "diff": "The same ask with a lead-in sentence (\"Despite being the backbone of the Indian economy ... Mention any two such problems\"). The answer core is the same.",
-     "answer": {
-      "points": [
-       "<mark>Dependence on erratic, unevenly distributed rainfall</mark>; <mark>fragmentation of holdings</mark> makes farming less profitable.",
-       "Poverty and <mark>lack of easy credit</mark> keep farmers in debt; illiteracy and pressure of population on land."
-      ],
-      "why": "",
-      "official": {
-       "src": "CISCE Specimen 2027 marking scheme",
-       "points": [
-        "Problems of Indian agriculture:",
-        "• Too much dependence on rainfall which is erratic, unevenly distributed and hence, unreliable.",
-        "• Illiteracy of farmers leads to reluctance in using modern scientific methods of farming.",
-        "• Poverty in the farming community does not allow farmers to use high yielding seeds, fertilisers, pesticides and irrigation facilities.",
-        "• Fragmentation of land holding makes agriculture less profitable.",
-        "• Lack of easy finance and credit facilities for poor farmers keep them debt-ridden in the hands of unscrupulous moneylenders.",
-        "• Pressure of population on land degrades soil quality that reduces yields.",
-        "• Primitive land tenure system exploits poor farmers.",
-        "(Any two)"
-       ],
-       "errors": []
-      },
-      "tip": "Any two problems earn full marks.",
-      "words": "≈20–40 words"
-     }
     }
    ],
    "related": [
+    "agriculture-short-26",
     "agriculture-short-01",
     "agriculture-short-07",
     "agriculture-short-21",
     "agriculture-short-25",
-    "agriculture-long-06",
-    "agriculture-mcq-01"
+    "agriculture-long-06"
    ],
    "difficulty": "Medium",
    "skill": "Understanding",
@@ -4863,6 +4821,62 @@ window.NM_DPP_DATA.agriculture = {
    ],
    "difficulty": "Medium",
    "skill": "Analysis",
+   "confidence": "HIGH",
+   "flags": [
+    "key-official-specimen"
+   ]
+  },
+  {
+   "id": "agriculture-short-26",
+   "sec": "short",
+   "topic": "importance-problems",
+   "format": "SHORT",
+   "marks": 2,
+   "stem": null,
+   "picture": null,
+   "img": null,
+   "optionImgs": null,
+   "q": "Despite being the backbone of the Indian economy, our agricultural sector faces several problems. Mention any two such problems.",
+   "options": null,
+   "correct": null,
+   "seen": [
+    {
+     "src": "S2027",
+     "ref": "Q9(i)",
+     "marks": 2,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<mark>Dependence on erratic, unevenly distributed rainfall</mark>; <mark>fragmentation of holdings</mark> makes farming less profitable.",
+     "Poverty and <mark>lack of easy credit</mark> keep farmers in debt; illiteracy and pressure of population on land."
+    ],
+    "why": "",
+    "official": {
+     "src": "CISCE Specimen 2027 marking scheme",
+     "points": [
+      "Problems of Indian agriculture:",
+      "• Too much dependence on rainfall which is erratic, unevenly distributed and hence, unreliable.",
+      "• Illiteracy of farmers leads to reluctance in using modern scientific methods of farming.",
+      "• Poverty in the farming community does not allow farmers to use high yielding seeds, fertilisers, pesticides and irrigation facilities.",
+      "• Fragmentation of land holding makes agriculture less profitable.",
+      "• Lack of easy finance and credit facilities for poor farmers keep them debt-ridden in the hands of unscrupulous moneylenders.",
+      "• Pressure of population on land degrades soil quality that reduces yields.",
+      "• Primitive land tenure system exploits poor farmers.",
+      "(Any two)"
+     ],
+     "errors": []
+    },
+    "tip": "Any two problems earn full marks. The lead-in sentence only sets the scene; the ask is the same as the plain \"two problems\" question, which is kept separate.",
+    "words": "≈20–40 words"
+   },
+   "variations": [],
+   "related": [
+    "agriculture-short-12"
+   ],
+   "difficulty": "Medium",
+   "skill": "Understanding",
    "confidence": "HIGH",
    "flags": [
     "key-official-specimen"
