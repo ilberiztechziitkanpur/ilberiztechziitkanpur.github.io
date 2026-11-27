@@ -1446,28 +1446,28 @@
                             "featured": true,
                             "items": [
                                 {
-                                    "id": "geo-climate-mcq-master",
-                                    "title": "Climate 10-Year PYQ & Specimen MCQ Master Suite (2016–2026)",
-                                    "subtitle": "34 Playable MCQs, 125+ PYQ Hits, Tables & Diagrams, Instant Check & Strict Exam Modes, Timers & Scorecard Generator",
+                                    "id": "geo-climate-dpp-mcq",
+                                    "title": "Climate — Interactive DPP 1: MCQs (Part I · Q3)",
+                                    "subtitle": "23 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/climate-mcq/index.html",
-                                    "badge": "10-Year MCQs • 34 Master Qs • 125+ Hits"
+                                    "file": "geography/dpp/index.html?ch=climate&sec=mcq",
+                                    "badge": "DPP 1 • 23 MCQs • 1 Mark"
                                 },
                                 {
-                                    "id": "geo-climate-theory-master",
-                                    "title": "Climate Theory DPP — 42 Most Expected Questions Vault",
-                                    "subtitle": "42 High-Yield Questions, 175+ Twisted Board Variations, Official CISCE Marking Scheme, DPP & Go-Through Modes, Live Timer & Data Tables",
+                                    "id": "geo-climate-dpp-short",
+                                    "title": "Climate — Interactive DPP 2: Short answers (1–2 marks)",
+                                    "subtitle": "29 official ICSE questions (+4 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/climate/index.html",
-                                    "badge": "Theory DPP • 42 Master Qs"
+                                    "file": "geography/dpp/index.html?ch=climate&sec=short",
+                                    "badge": "DPP 2 • 29 questions • 1–2 Marks"
                                 },
                                 {
-                                    "id": "geo-climate-dpp",
-                                    "title": "Climate of India — Master MCQ DPP Drill",
-                                    "subtitle": "Unit 1: 12 High-Yield Questions (Mawsynram, Monsoon Winds, Western Disturbances)",
+                                    "id": "geo-climate-dpp-long",
+                                    "title": "Climate — Interactive DPP 3: Long answers (3 marks)",
+                                    "subtitle": "31 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
-                                    "file": "geography/mcq/index.html?unit=Climate+of+India",
-                                    "badge": "Unit 1 DPP • 12 MCQs"
+                                    "file": "geography/dpp/index.html?ch=climate&sec=long",
+                                    "badge": "DPP 3 • 31 questions • 3 Marks"
                                 },
                                 {
                                     "id": "geo-climate-01",
