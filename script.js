@@ -11,30 +11,32 @@
    single "New" link in the laptop sidebar and the "New" card on Home.
    -------------------------------------------------------------------------- */
 const LATEST_RELEASE = {
-    subjectId: 'sub-10-his',
-    chapterId: 'chap-his-1',
-    title: 'History & Civics interactive PYQ DPPs: all 20 chapters',
-    note: 'MCQ, Short and Long answer DPPs for every History and Civics chapter: every ICSE board, specimen and competency question, shown exactly as printed, with official CISCE answers where published.',
+    subjectId: 'sub-10-bio',
+    chapterId: 'chap-bio-1',
+    title: 'Biology interactive PYQ DPPs: all 15 chapters',
+    note: 'MCQ, Short, Long and Diagram DPPs for every Biology chapter, including the new chapter Human Evolution: every ICSE board, specimen and competency question, shown exactly as printed, with official CISCE answers where published.',
     items: [
-        { id: 'his-revolt-dpp-mcq', label: 'Ch 1 The 1857 Revolt', meta: '44 questions in 3 DPPs' },
-        { id: 'his-nationalism-dpp-mcq', label: 'Ch 2 Growth of Nationalism', meta: '50 questions in 3 DPPs' },
-        { id: 'his-ww1-dpp-mcq', label: 'Ch 10 The First World War', meta: '44 questions in 3 DPPs' },
-        { id: 'his-dictators-dpp-mcq', label: 'Ch 11 Rise of Dictatorships', meta: '19 questions in 3 DPPs' },
-        { id: 'his-ww2-dpp-mcq', label: 'Ch 12 The Second World War', meta: '37 questions in 3 DPPs' },
-        { id: 'his-un-dpp-mcq', label: 'Ch 13 The United Nations', meta: '37 questions in 3 DPPs' },
-        { id: 'his-unagencies-dpp-mcq', label: 'Ch 14 Major Agencies of the UN', meta: '21 questions in 3 DPPs' },
-        { id: 'his-nam-dpp-mcq', label: 'Ch 15 The Non-Aligned Movement', meta: '15 questions in 3 DPPs' },
-        { id: 'civ-parliament-dpp-mcq', label: 'Civics 1 The Union Parliament', meta: '114 questions in 3 DPPs' },
-        { id: 'civ-president-dpp-mcq', label: 'Civics 2 President & Vice-President', meta: '60 questions in 3 DPPs' },
-        { id: 'civ-pm-dpp-mcq', label: 'Civics 3 PM & Council of Ministers', meta: '40 questions in 3 DPPs' },
-        { id: 'civ-supremecourt-dpp-mcq', label: 'Civics 4 The Supreme Court', meta: '44 questions in 3 DPPs' },
-        { id: 'civ-highcourt-dpp-mcq', label: 'Civics 5 High Courts & Subordinate Courts', meta: '42 questions in 3 DPPs' }
+        { id: 'bio-cell-dpp-mcq', label: 'Ch 1 Cell Division', meta: '82 questions in 4 DPPs' },
+        { id: 'bio-genetics-dpp-mcq', label: 'Ch 2 Genetics', meta: '67 questions in 4 DPPs' },
+        { id: 'bio-absorption-dpp-mcq', label: 'Ch 3 Absorption by Roots', meta: '87 questions in 4 DPPs' },
+        { id: 'bio-transpiration-dpp-mcq', label: 'Ch 4 Transpiration', meta: '77 questions in 4 DPPs' },
+        { id: 'bio-photosynthesis-dpp-mcq', label: 'Ch 5 Photosynthesis', meta: '85 questions in 4 DPPs' },
+        { id: 'bio-plantcoord-dpp-mcq', label: 'Ch 6 Plant Coordination', meta: '35 questions in 4 DPPs' },
+        { id: 'bio-circulatory-dpp-mcq', label: 'Ch 7 Circulatory System', meta: '94 questions in 4 DPPs' },
+        { id: 'bio-excretory-dpp-mcq', label: 'Ch 8 Excretory System', meta: '69 questions in 4 DPPs' },
+        { id: 'bio-nervous-dpp-mcq', label: 'Ch 9 Nervous System', meta: '85 questions in 4 DPPs' },
+        { id: 'bio-sense-dpp-mcq', label: 'Ch 10 Sense Organs', meta: '108 questions in 4 DPPs' },
+        { id: 'bio-endocrine-dpp-mcq', label: 'Ch 11 Endocrine System', meta: '80 questions in 4 DPPs' },
+        { id: 'bio-reproductive-dpp-mcq', label: 'Ch 12 Reproductive System', meta: '101 questions in 4 DPPs' },
+        { id: 'bio-population-dpp-mcq', label: 'Ch 13 Population', meta: '38 questions in 4 DPPs' },
+        { id: 'bio-evolution-dpp-mcq', label: 'Ch 14 Human Evolution', meta: '26 questions in 4 DPPs' },
+        { id: 'bio-pollution-dpp-mcq', label: 'Ch 15 Pollution', meta: '75 questions in 4 DPPs' }
     ],
-    more: { label: 'History & Civics chapters', href: '#/s/sub-10-his' },
-    nav: { label: 'History & Civics: all DPPs', href: '#/s/sub-10-his' }
+    more: { label: 'Biology chapters', href: '#/s/sub-10-bio' },
+    nav: { label: 'Biology: all DPPs', href: '#/s/sub-10-bio' }
 };
 
-const APP_VERSION = '16.10';
+const APP_VERSION = '17.0';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------

@@ -1378,25 +1378,159 @@ window.COURSE_DATA = {
                             "id": "chap-bio-1",
                             "name": "Ch 1: Cell Division & Structure of Chromosomes",
                             "description": "DNA structure, nucleosome, stages of mitosis (prophase, metaphase, anaphase, telophase) and significance",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "bio-cell-dpp-mcq",
+                                    "title": "Cell Division — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "29 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=cell&sec=mcq",
+                                    "badge": "DPP 1 • 29 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-cell-dpp-short",
+                                    "title": "Cell Division — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "26 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 25 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=cell&sec=short",
+                                    "badge": "DPP 2 • 26 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-cell-dpp-long",
+                                    "title": "Cell Division — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "17 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 5 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=cell&sec=long",
+                                    "badge": "DPP 3 • 17 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-cell-dpp-diagram",
+                                    "title": "Cell Division — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "10 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=cell&sec=diagram",
+                                    "badge": "DPP 4 • 10 questions • Draw / label"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-bio-2",
                             "name": "Ch 2: Genetics — Fundamentals & Mendel's Laws",
                             "description": "Monohybrid and dihybrid crosses, Mendel's laws of inheritance, sex determination and sex-linked inheritance",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "bio-genetics-dpp-mcq",
+                                    "title": "Genetics — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "20 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=genetics&sec=mcq",
+                                    "badge": "DPP 1 • 20 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-genetics-dpp-short",
+                                    "title": "Genetics — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "16 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 14 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=genetics&sec=short",
+                                    "badge": "DPP 2 • 16 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-genetics-dpp-long",
+                                    "title": "Genetics — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "26 official ICSE questions (+3 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 1 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=genetics&sec=long",
+                                    "badge": "DPP 3 • 26 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-genetics-dpp-diagram",
+                                    "title": "Genetics — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "5 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 2 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=genetics&sec=diagram",
+                                    "badge": "DPP 4 • 5 questions • Draw / label"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-bio-3",
                             "name": "Ch 3: Absorption by Roots",
                             "description": "Root hair structure, imbibition, diffusion, osmosis, turgidity, plasmolysis and active transport",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "bio-absorption-dpp-mcq",
+                                    "title": "Absorption by Roots — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "27 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=absorption&sec=mcq",
+                                    "badge": "DPP 1 • 27 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-absorption-dpp-short",
+                                    "title": "Absorption by Roots — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "24 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 19 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=absorption&sec=short",
+                                    "badge": "DPP 2 • 24 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-absorption-dpp-long",
+                                    "title": "Absorption by Roots — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "22 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 10 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=absorption&sec=long",
+                                    "badge": "DPP 3 • 22 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-absorption-dpp-diagram",
+                                    "title": "Absorption by Roots — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "14 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 4 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=absorption&sec=diagram",
+                                    "badge": "DPP 4 • 14 questions • Draw / label"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-bio-4",
                             "name": "Ch 4: Transpiration",
                             "description": "Stomatal mechanism, cuticular & lenticular transpiration, factors affecting rate, potometer experiments, guttation and bleeding",
                             "items": [
+                                {
+                                    "id": "bio-transpiration-dpp-mcq",
+                                    "title": "Transpiration — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "26 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=transpiration&sec=mcq",
+                                    "badge": "DPP 1 • 26 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-transpiration-dpp-short",
+                                    "title": "Transpiration — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "13 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 13 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=transpiration&sec=short",
+                                    "badge": "DPP 2 • 13 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-transpiration-dpp-long",
+                                    "title": "Transpiration — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "25 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 4 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=transpiration&sec=long",
+                                    "badge": "DPP 3 • 25 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-transpiration-dpp-diagram",
+                                    "title": "Transpiration — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "13 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 4 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=transpiration&sec=diagram",
+                                    "badge": "DPP 4 • 13 questions • Draw / label"
+                                },
                                 {
                                     "id": "bio-transpiration-notes-01",
                                     "title": "Transpiration 01 Class Notes",
@@ -1421,13 +1555,46 @@ window.COURSE_DATA = {
                                     "file": "biology/notes/Transpiration_03_Class_Notes.pdf",
                                     "size": "4.0 MB"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-bio-5",
                             "name": "Ch 5: Photosynthesis",
                             "description": "Chloroplast structure, chlorophyll, light-dependent and light-independent phases, limiting factors and destarching experiments",
                             "items": [
+                                {
+                                    "id": "bio-photosynthesis-dpp-mcq",
+                                    "title": "Photosynthesis — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "30 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=photosynthesis&sec=mcq",
+                                    "badge": "DPP 1 • 30 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-photosynthesis-dpp-short",
+                                    "title": "Photosynthesis — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "17 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 14 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=photosynthesis&sec=short",
+                                    "badge": "DPP 2 • 17 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-photosynthesis-dpp-long",
+                                    "title": "Photosynthesis — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "25 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 13 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=photosynthesis&sec=long",
+                                    "badge": "DPP 3 • 25 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-photosynthesis-dpp-diagram",
+                                    "title": "Photosynthesis — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "13 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=photosynthesis&sec=diagram",
+                                    "badge": "DPP 4 • 13 questions • Draw / label"
+                                },
                                 {
                                     "id": "bio-photosynthesis-notes-01",
                                     "title": "Photosynthesis 01 Class Notes",
@@ -1460,13 +1627,46 @@ window.COURSE_DATA = {
                                     "file": "biology/notes/Photosynthesis_04_Class_Notes.pdf",
                                     "size": "3.3 MB"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-bio-6",
                             "name": "Ch 6: Chemical Coordination in Plants",
                             "description": "Plant hormones (Auxins, Gibberellins, Cytokinins, Ethylene, ABA) and plant movements (Tropic and Nastic movements)",
                             "items": [
+                                {
+                                    "id": "bio-plantcoord-dpp-mcq",
+                                    "title": "Plant Coordination — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "7 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=plantcoord&sec=mcq",
+                                    "badge": "DPP 1 • 7 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-plantcoord-dpp-short",
+                                    "title": "Plant Coordination — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "10 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 10 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=plantcoord&sec=short",
+                                    "badge": "DPP 2 • 10 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-plantcoord-dpp-long",
+                                    "title": "Plant Coordination — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "8 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 4 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=plantcoord&sec=long",
+                                    "badge": "DPP 3 • 8 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-plantcoord-dpp-diagram",
+                                    "title": "Plant Coordination — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "10 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=plantcoord&sec=diagram",
+                                    "badge": "DPP 4 • 10 questions • Draw / label"
+                                },
                                 {
                                     "id": "bio-chemical-coord-notes-01",
                                     "title": "Chemical Coordination In Plants 01 Class Notes",
@@ -1483,13 +1683,46 @@ window.COURSE_DATA = {
                                     "file": "biology/notes/Chemical_Coordination_In_Plants_02_Class_Notes.pdf",
                                     "size": "3.2 MB"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-bio-7",
                             "name": "Ch 7: The Circulatory System",
                             "description": "Blood composition, coagulation mechanism, ABO/Rh blood groups, heart anatomy, cardiac cycle, blood vessels, double circulation & lymphatic system",
                             "items": [
+                                {
+                                    "id": "bio-circulatory-dpp-mcq",
+                                    "title": "Circulatory System — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "20 official ICSE questions (+3 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=circulatory&sec=mcq",
+                                    "badge": "DPP 1 • 20 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-circulatory-dpp-short",
+                                    "title": "Circulatory System — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "37 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 34 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=circulatory&sec=short",
+                                    "badge": "DPP 2 • 37 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-circulatory-dpp-long",
+                                    "title": "Circulatory System — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "25 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 9 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=circulatory&sec=long",
+                                    "badge": "DPP 3 • 25 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-circulatory-dpp-diagram",
+                                    "title": "Circulatory System — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "12 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=circulatory&sec=diagram",
+                                    "badge": "DPP 4 • 12 questions • Draw / label"
+                                },
                                 {
                                     "id": "bio-circulatory-notes-01",
                                     "title": "Circulatory System 01 Class Notes",
@@ -1554,13 +1787,46 @@ window.COURSE_DATA = {
                                     "file": "biology/notes/Circulatory_System_08_Class_Notes.pdf",
                                     "size": "2.6 MB"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-bio-8",
                             "name": "Ch 8: The Excretory System",
                             "description": "Kidney anatomy, nephron structure, ultrafiltration, selective reabsorption, tubular secretion, osmoregulation and dialysis",
                             "items": [
+                                {
+                                    "id": "bio-excretory-dpp-mcq",
+                                    "title": "Excretory System — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "22 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=excretory&sec=mcq",
+                                    "badge": "DPP 1 • 22 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-excretory-dpp-short",
+                                    "title": "Excretory System — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "22 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 20 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=excretory&sec=short",
+                                    "badge": "DPP 2 • 22 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-excretory-dpp-long",
+                                    "title": "Excretory System — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "16 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 5 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=excretory&sec=long",
+                                    "badge": "DPP 3 • 16 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-excretory-dpp-diagram",
+                                    "title": "Excretory System — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "9 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=excretory&sec=diagram",
+                                    "badge": "DPP 4 • 9 questions • Draw / label"
+                                },
                                 {
                                     "id": "bio-excretory-notes-01",
                                     "title": "Excretory System 01 Class Notes",
@@ -1593,13 +1859,46 @@ window.COURSE_DATA = {
                                     "file": "biology/notes/Excretory_System_04_Class_Notes.pdf",
                                     "size": "3.7 MB"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-bio-9",
                             "name": "Ch 9: The Nervous System",
                             "description": "Structure of neuron, synapses, central nervous system (brain and spinal cord), peripheral & autonomic nervous systems, reflex arc and reflex actions",
                             "items": [
+                                {
+                                    "id": "bio-nervous-dpp-mcq",
+                                    "title": "Nervous System — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "19 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=nervous&sec=mcq",
+                                    "badge": "DPP 1 • 19 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-nervous-dpp-short",
+                                    "title": "Nervous System — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "30 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 29 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=nervous&sec=short",
+                                    "badge": "DPP 2 • 30 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-nervous-dpp-long",
+                                    "title": "Nervous System — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "26 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 10 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=nervous&sec=long",
+                                    "badge": "DPP 3 • 26 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-nervous-dpp-diagram",
+                                    "title": "Nervous System — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "10 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 2 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=nervous&sec=diagram",
+                                    "badge": "DPP 4 • 10 questions • Draw / label"
+                                },
                                 {
                                     "id": "bio-nervous-notes-01",
                                     "title": "Nervous System 01 Class Notes",
@@ -1640,13 +1939,46 @@ window.COURSE_DATA = {
                                     "file": "biology/notes/Nervous_System_05_Class_Notes.pdf",
                                     "size": "3.6 MB"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-bio-10",
                             "name": "Ch 10: Sense Organs",
                             "description": "Sensory receptors, anatomy of human eye and ear, accommodation of eye, defects of vision and correction, mechanism of hearing and dynamic balance",
                             "items": [
+                                {
+                                    "id": "bio-sense-dpp-mcq",
+                                    "title": "Sense Organs — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "20 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=sense&sec=mcq",
+                                    "badge": "DPP 1 • 20 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-sense-dpp-short",
+                                    "title": "Sense Organs — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "38 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 35 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=sense&sec=short",
+                                    "badge": "DPP 2 • 38 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-sense-dpp-long",
+                                    "title": "Sense Organs — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "30 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 14 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=sense&sec=long",
+                                    "badge": "DPP 3 • 30 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-sense-dpp-diagram",
+                                    "title": "Sense Organs — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "20 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 4 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=sense&sec=diagram",
+                                    "badge": "DPP 4 • 20 questions • Draw / label"
+                                },
                                 {
                                     "id": "bio-sense-organs-notes-01",
                                     "title": "Sense Organs 01 Class Notes",
@@ -1679,13 +2011,46 @@ window.COURSE_DATA = {
                                     "file": "biology/notes/Sense_Organs_04_Class_Notes.pdf",
                                     "size": "3.6 MB"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-bio-11",
                             "name": "Ch 11: The Endocrine System",
                             "description": "Endocrine glands, characteristics of hormones, pituitary, thyroid, adrenal, pancreas and hyposecretion/hypersecretion disorders",
                             "items": [
+                                {
+                                    "id": "bio-endocrine-dpp-mcq",
+                                    "title": "Endocrine System — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "14 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=endocrine&sec=mcq",
+                                    "badge": "DPP 1 • 14 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-endocrine-dpp-short",
+                                    "title": "Endocrine System — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "33 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 27 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=endocrine&sec=short",
+                                    "badge": "DPP 2 • 33 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-endocrine-dpp-long",
+                                    "title": "Endocrine System — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "26 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 6 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=endocrine&sec=long",
+                                    "badge": "DPP 3 • 26 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-endocrine-dpp-diagram",
+                                    "title": "Endocrine System — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "7 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=endocrine&sec=diagram",
+                                    "badge": "DPP 4 • 7 questions • Draw / label"
+                                },
                                 {
                                     "id": "bio-endocrine-notes-01",
                                     "title": "Endocrine System 01 Class Notes",
@@ -1702,25 +2067,168 @@ window.COURSE_DATA = {
                                     "file": "biology/notes/Endocrine_System_02_Class_Notes.pdf",
                                     "size": "4.6 MB"
                                 }
-                            ]
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-bio-12",
                             "name": "Ch 12: The Reproductive System",
                             "description": "Male and female reproductive organs, menstrual cycle, fertilisation, implantation and gestation",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "bio-reproductive-dpp-mcq",
+                                    "title": "Reproductive System — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "15 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=reproductive&sec=mcq",
+                                    "badge": "DPP 1 • 15 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-reproductive-dpp-short",
+                                    "title": "Reproductive System — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "42 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 38 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=reproductive&sec=short",
+                                    "badge": "DPP 2 • 42 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-reproductive-dpp-long",
+                                    "title": "Reproductive System — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "29 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 15 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=reproductive&sec=long",
+                                    "badge": "DPP 3 • 29 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-reproductive-dpp-diagram",
+                                    "title": "Reproductive System — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "15 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 2 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=reproductive&sec=diagram",
+                                    "badge": "DPP 4 • 15 questions • Draw / label"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-bio-13",
                             "name": "Ch 13: Human Population",
                             "description": "Demographic trends, reasons for population explosion in India and birth control measures",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "bio-population-dpp-mcq",
+                                    "title": "Population — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "6 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=population&sec=mcq",
+                                    "badge": "DPP 1 • 6 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-population-dpp-short",
+                                    "title": "Population — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "14 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 12 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=population&sec=short",
+                                    "badge": "DPP 2 • 14 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-population-dpp-long",
+                                    "title": "Population — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "17 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 7 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=population&sec=long",
+                                    "badge": "DPP 3 • 17 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-population-dpp-diagram",
+                                    "title": "Population — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "1 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=population&sec=diagram",
+                                    "badge": "DPP 4 • 1 questions • Draw / label"
+                                }
+                            ],
+                            "featured": true
+                        },
+                        {
+                            "id": "chap-bio-evolution",
+                            "name": "Ch 14: Human Evolution",
+                            "description": "Theories of evolution (Lamarck, Darwin, natural selection), evidences of evolution and human ancestors: Dryopithecus, Ramapithecus, Australopithecus, Homo erectus, Neanderthal and Cro-Magnon man, Homo sapiens — interactive PYQ DPPs",
+                            "items": [
+                                {
+                                    "id": "bio-evolution-dpp-mcq",
+                                    "title": "Human Evolution — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "6 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=evolution&sec=mcq",
+                                    "badge": "DPP 1 • 6 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-evolution-dpp-short",
+                                    "title": "Human Evolution — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "8 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 7 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=evolution&sec=short",
+                                    "badge": "DPP 2 • 8 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-evolution-dpp-long",
+                                    "title": "Human Evolution — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "11 official ICSE questions (+3 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 3 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=evolution&sec=long",
+                                    "badge": "DPP 3 • 11 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-evolution-dpp-diagram",
+                                    "title": "Human Evolution — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "1 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=evolution&sec=diagram",
+                                    "badge": "DPP 4 • 1 questions • Draw / label"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-bio-14",
-                            "name": "Ch 14: Pollution — Environmental Challenges",
+                            "name": "Ch 15: Pollution — Environmental Challenges",
                             "description": "Air, water, soil and noise pollution sources, acid rain, greenhouse effect, ozone depletion and control",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "bio-pollution-dpp-mcq",
+                                    "title": "Pollution — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "13 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=pollution&sec=mcq",
+                                    "badge": "DPP 1 • 13 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-pollution-dpp-short",
+                                    "title": "Pollution — Interactive DPP 2: Short answers (1 mark)",
+                                    "subtitle": "28 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 27 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=pollution&sec=short",
+                                    "badge": "DPP 2 • 28 questions • 1 Mark"
+                                },
+                                {
+                                    "id": "bio-pollution-dpp-long",
+                                    "title": "Pollution — Interactive DPP 3: Long answers (2–5 marks)",
+                                    "subtitle": "24 official ICSE questions (+7 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 8 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=pollution&sec=long",
+                                    "badge": "DPP 3 • 24 questions • 2–5 Marks"
+                                },
+                                {
+                                    "id": "bio-pollution-dpp-diagram",
+                                    "title": "Pollution — Interactive DPP 4: Diagram questions",
+                                    "subtitle": "10 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 1 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "biology/dpp/index.html?ch=pollution&sec=diagram",
+                                    "badge": "DPP 4 • 10 questions • Draw / label"
+                                }
+                            ],
+                            "featured": true
                         }
                     ]
                 },

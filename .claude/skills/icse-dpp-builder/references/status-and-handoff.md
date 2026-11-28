@@ -1,4 +1,4 @@
-# ICSE DPP project: status, decisions and handoff (updated 29 Nov 2026 13:00, site v16.10)
+# ICSE DPP project: status, decisions and handoff (updated 28 Nov 2026 19:00, site v17.0)
 
 Read this first in any new chat, then `papers/_handoff/LEDGER.md` (live agent ledger: every agent, tab, conversation id, status, decision).
 
@@ -12,7 +12,7 @@ Site: `C:\Users\ASUS\Downloads\ILBERIZ TECHZ IIT KANPUR` (git repo, `git push or
 | Chemistry (13) | all | MCQ / One-markers / Section B | unchanged |
 | Geography (12) | all (+3 population map items added to indiamap after audit, ids indiamap-short-105/106) | MCQ / Short / Long | |
 | Physics (12) | all | MCQ / Sec A / Theory / Numericals | |
-Progress: 51 of 97 site chapters live (52.6%). Old History vaults 1857-ww1 (scope-aware redirect) and nationalism redirect to the new DPPs.
+Progress: 66 of 100 site chapters live (66%) after Biology v17.0 (site now 100 chapters: Biology 15, Maths 17). Old History vaults 1857-ww1 (scope-aware redirect) and nationalism redirect to the new DPPs.
 
 **Completeness audit DONE (29 Nov):** independent per-paper inventories (`papers/<subj>/audit/`) diffed with `node papers/_tools/audit-diff.js <subj> <engineDir>`: Chemistry 1862 items 0 missing; Physics 1534 items, 27 out-of-syllabus by design + B2018 Q10(c) (radiation figure missing in every copy, left out; ask user for a photo of that page); Geography 1849 items, 3 were wrongly excluded and are now added; History 947 extracted records all in DPPs. "Nothing missing" may now be said for these 4 subjects.
 
@@ -22,7 +22,9 @@ Progress: 51 of 97 site chapters live (52.6%). Old History vaults 1857-ww1 (scop
 - **Maths:** library done (papers/maths). Extraction running: tab "Antigravity Maths extract 2", conversation `07e0aefb-64b0-47bc-a750-49fcd6752b09`, task `papers/_handoff/maths-02-extract.md`, rulebook `papers/maths/extracted/BRIEF.md`.
   User decisions: 3 DPPs `mcq / short (1–3 marks) / long (4–5 marks)`; NEW chapters Ratio and Proportion (`ratio`) and Loci and Constructions (`loci`); simple maths typed in HTML, matrices/long fractions/figures cropped. Codes: gst, banking, shares, inequations, quadratic, factorisation, matrices, apgp, coord, similarity, circles, mensuration, trig, statistics, probability, ratio, loci. Site Maths folder for the engine: check data.json (no `maths/` folder exists at repo root yet).
 - **Next steps after each extraction:** verify (per-paper record counts vs pattern, keys, images, spot-check 1 scanned page) → split by chapter (History used an inline node split into `extracted/bych/<code>.json`) → write `extracted/COMPILE.md` from `papers/history/extracted/COMPILE.md` (adapt sections, engine folder, chapter table) → compile task files like `papers/_handoff/history-03-compile-*.md` (3–4 chapters per agent, hydrogen-xhigh) → new engine copy per subject (copy master, script block = pattern.js only, new pattern.js with ui {title, subject, storePrefix} and `dppSections` for Biology's 4 tabs; register in sync-engines.js ENGINE_COPIES) → per chapter `node papers/_tools/coverage.js <engineDir> <code>` (needs bych + clusters) + smoke.js 0 errors → add a CFG entry in `papers/_tools/wire.js` and wire → replace-old.js for old vaults → bump version (index.html ?v= ×3, sw.js VERSION, script.js APP_VERSION, LATEST_RELEASE block) → commit + push.
-- **Remaining after Biology and Maths:** English (4), Hindi (4), Computer (9).
+- **28 Nov chat 2:** extractions resumed on a new account (tabs c1 Bio, c2 Maths, same conversation ids). Engines biology/dpp + maths/dpp created (pattern.js, registered in sync-engines). COMPILE.md for both written. Maths compiles write to STAGING papers/maths/stage/dpp (sandbox has no maths/ write; Claude copies). New chapter order: Maths 17 ch (ratio = Ch 6, loci = Ch 12, others shift); Biology evolution = Ch 14, pollution = Ch 15. Compiles start only when BOTH extractions are done, 2 at a time. Biology has no old interactive vaults (notes PDFs stay).
+- **28 Nov 19:00 STATE:** BIOLOGY LIVE v17.0 (15 chapters, 1,109 questions, 4 DPPs each; see PROJECT_STATE §AE). Maths extraction DONE + verified (22 papers, 958 records), split into papers/maths/extracted/bych; compile tasks papers/_handoff/maths-03-compile-A..E.md READY (hydrogen-xhigh, 2 at a time, write to STAGING papers/maths/stage/dpp; then Claude copies to maths/dpp, adds CFG.maths to wire.js, relabels chapter numbers to the 17-chapter syllabus order, bumps version). Start only after the user checks quota / switches account.
+- **Remaining after Biology and Maths:** Computer (9), English (4), Hindi (4), in that order; intake DONE (see LEDGER 28 Nov). Each needs a library task first.
 - Still open: "Recent pattern (2022+)" engine switch; Physics answer diagrams to draw (list in git history of this file, 28 Nov); browser check of new chapters; smoke.js false "(a) prefix" warning.
 
 ## 4. Workers (Antigravity CLI) — how to run them

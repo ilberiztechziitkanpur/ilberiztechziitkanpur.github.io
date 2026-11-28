@@ -968,6 +968,13 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
 - **Answer diagrams still to draw (answers given in words for now):** blurry official crops machines-theory-05, refraction-saq-11, lens-theory-01; no official figure: machines-theory-06, -11 (+v1), machines-numerical-04, -05, refraction-theory-06, -10, -11, -19, -20, -23, -34, lens-theory-06, -07, -09, sound-theory-18, current-theory-03, -04, electromagnetism-theory-17, -18, -24.
 - **Not yet done:** batch completeness audit; browser check; the diagrams above.
 
+### AE. Biology interactive PYQ DPPs (all 15 chapters) — v17.0 (28 Nov 2026)
+- **Engine:** biology/dpp/ (copy of the master engine, registered in sync-engines.js; pattern.js has 4 DPP sections: mcq, short = 1-mark items, long = 2–5 mark parts, diagram = any draw/label or figure-based part; storePrefix biodpp_). Codes: cell, genetics, absorption, transpiration, photosynthesis, plantcoord, circulatory, excretory, nervous, sense, endocrine, reproductive, population, evolution (NEW chapter chap-bio-evolution = Ch 14, syllabus Unit 5), pollution (chap-bio-14, relabelled Ch 15).
+- **Counts (unique questions):** cell 82, genetics 67, absorption 87, transpiration 77, photosynthesis 85, plantcoord 35, circulatory 94, excretory 69, nervous 85, sense 108, endocrine 80, reproductive 101, population 38, evolution 26, pollution 75 = 1,109 (from 1,250 chapter records of 873 raw records; 0 missing per papers/_tools/coverage.js).
+- **Decisions:** food-chain items (not named in the 2027 syllabus but asked 2023–2027 incl. the 2027 specimen) kept under Pollution with flag not-in-syllabus-text and a tip; Class IX health items excluded; CFPQ-2026 = corrected re-issue of CFPQ-2025 (merged, 2026 text primary); wrong official keys shown with the correct answer + official text + note (e.g. CFPQ Q12 ATP vs NADPH, S2026 Q8(v)(a), S2027 Q3(iii)/(iv)). No old interactive Biology vaults existed; notes PDFs unchanged.
+- **Pipeline:** Antigravity hydrogen-high extraction (papers/biology/extracted/raw, 22 papers) → papers/_tools/split2.js → 4 compile agents (hydrogen-xhigh, papers/_handoff/bio-03-compile-A..D.md) with shared papers/biology/extracted/scripts/build-chapter.js + <code>-defs.js → wire.js biology.
+- **Not yet done:** model answer diagrams for draw-questions with no official answer figure (marked NEEDS DRAWING in papers/biology/extracted/COMPILE-REPORT.md; answers list the required labels for now); batch completeness audit.
+
 ## 5. Protocol for Future Chats (Step-by-Step Onboarding Guide)
 
 When the user provides a new `gemini-code-*.html` file or notes PDF in any future chat:

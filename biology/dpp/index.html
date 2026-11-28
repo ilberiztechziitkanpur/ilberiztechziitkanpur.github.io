@@ -1,0 +1,2953 @@
+<!DOCTYPE html>
+<html lang="en" class="dark" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="dark light" />
+  <title>ICSE PYQ DPP — Ilberiz Techz</title>
+  <meta name="description" content="Interactive PYQ-based DPPs for ICSE Class 10: official board, specimen and competency questions shown exactly as printed, with variations, marking points and timed tests." />
+  <script>
+    (function () {
+      /* one theme for the whole site: ilberiz_theme = dark | light | system (legacy nmdpp_theme as fallback) */
+      var d = document.documentElement, t = 'dark', v = null, emb = false;
+      try { v = window.localStorage.getItem('ilberiz_theme'); } catch (e) {}
+      if (v === 'light') t = 'light';
+      else if (v === 'system') { try { if (window.matchMedia('(prefers-color-scheme: light)').matches) t = 'light'; } catch (e) {} }
+      else if (v == null) { try { if (JSON.parse(window.localStorage.getItem('nmdpp_theme')) === 'light') t = 'light'; } catch (e) {} }
+      try { emb = window.self !== window.top; } catch (e) { emb = true; }
+      d.setAttribute('data-theme', t);
+      d.className = t + (emb ? ' embedded' : '');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&display=block" rel="stylesheet">
+  <style>
+    /* ================= Tokens ================= */
+    :root, [data-theme="dark"] {
+      color-scheme: dark;
+      --bg: #07090e;
+      --bg-1: #0a0e17;
+      --bg-2: #0e131f;
+      --bg-3: #151c2c;
+      --bg-4: #1c2538;
+      --glass: rgba(7, 9, 14, 0.88);
+      --line: rgba(255, 255, 255, 0.08);
+      --line-2: rgba(255, 255, 255, 0.15);
+      --tx: #f1f5f9;
+      --tx-2: #b4bfd0;
+      --tx-3: #8a97ab;
+      --acc: #f59e0b;
+      --acc-2: #f97316;
+      --acc-tx: #fbbf24;
+      --acc-soft: rgba(245, 158, 11, 0.14);
+      --acc-ink: #1b1204;
+      --ok: #34d399; --ok-soft: rgba(52, 211, 153, 0.13);
+      --warn: #fbbf24; --warn-soft: rgba(251, 191, 36, 0.13);
+      --bad: #fb7185; --bad-soft: rgba(251, 113, 133, 0.13);
+      --info: #7dd3fc; --info-soft: rgba(56, 189, 248, 0.10); --info-line: rgba(56, 189, 248, 0.32);
+      --var: #c4b5fd; --var-soft: rgba(167, 139, 250, 0.10); --var-line: rgba(167, 139, 250, 0.35);
+      --src-board: #fbbf24; --src-board-bg: rgba(245, 158, 11, 0.14);
+      --src-sem: #a5b4fc; --src-sem-bg: rgba(129, 140, 248, 0.16);
+      --src-sup: #f9a8d4; --src-sup-bg: rgba(244, 114, 182, 0.14);
+      --src-spec: #67e8f9; --src-spec-bg: rgba(34, 211, 238, 0.12);
+      --src-cfpq: #6ee7b7; --src-cfpq-bg: rgba(52, 211, 153, 0.12);
+      --src-unk: #cbd5e1; --src-unk-bg: rgba(148, 163, 184, 0.14);
+      --p-vh: #fb923c; --p-h: #fbbf24; --p-m: #60a5fa; --p-l: #94a3b8;
+      --heat: 245 158 11;
+      --mark: rgba(245, 158, 11, 0.36);
+      --shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 18px 40px -28px rgba(0, 0, 0, 0.9);
+      --focus: #fbbf24;
+      --bg-art: radial-gradient(circle at 10% 0%, rgba(245, 158, 11, 0.10), transparent 38%),
+                radial-gradient(circle at 92% 6%, rgba(16, 185, 129, 0.07), transparent 36%),
+                radial-gradient(circle at 50% 100%, rgba(99, 102, 241, 0.07), transparent 46%);
+    }
+    [data-theme="light"] {
+      color-scheme: light;
+      --bg: #f3f5f9;
+      --bg-1: #eef1f6;
+      --bg-2: #ffffff;
+      --bg-3: #f4f6fa;
+      --bg-4: #e9edf4;
+      --glass: rgba(243, 245, 249, 0.9);
+      --line: rgba(15, 23, 42, 0.10);
+      --line-2: rgba(15, 23, 42, 0.18);
+      --tx: #0f172a;
+      --tx-2: #3b475a;
+      --tx-3: #566275;
+      --acc: #d97706;
+      --acc-2: #ea580c;
+      --acc-tx: #9a4a03;
+      --acc-soft: rgba(217, 119, 6, 0.12);
+      --acc-ink: #ffffff;
+      --ok: #047857; --ok-soft: rgba(4, 120, 87, 0.10);
+      --warn: #a16207; --warn-soft: rgba(202, 138, 4, 0.12);
+      --bad: #be123c; --bad-soft: rgba(225, 29, 72, 0.09);
+      --info: #075985; --info-soft: rgba(14, 116, 144, 0.07); --info-line: rgba(14, 116, 144, 0.28);
+      --var: #6d28d9; --var-soft: rgba(109, 40, 217, 0.06); --var-line: rgba(109, 40, 217, 0.28);
+      --src-board: #92400e; --src-board-bg: rgba(217, 119, 6, 0.13);
+      --src-sem: #3730a3; --src-sem-bg: rgba(79, 70, 229, 0.11);
+      --src-sup: #9d174d; --src-sup-bg: rgba(219, 39, 119, 0.10);
+      --src-spec: #155e75; --src-spec-bg: rgba(8, 145, 178, 0.11);
+      --src-cfpq: #065f46; --src-cfpq-bg: rgba(5, 150, 105, 0.11);
+      --src-unk: #334155; --src-unk-bg: rgba(100, 116, 139, 0.13);
+      --p-vh: #c2410c; --p-h: #b45309; --p-m: #1d4ed8; --p-l: #64748b;
+      --heat: 217 119 6;
+      --mark: rgba(250, 204, 21, 0.55);
+      --shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 12px 30px -24px rgba(15, 23, 42, 0.35);
+      --focus: #b45309;
+      --bg-art: radial-gradient(circle at 8% 0%, rgba(245, 158, 11, 0.10), transparent 36%),
+                radial-gradient(circle at 95% 5%, rgba(14, 165, 233, 0.06), transparent 34%);
+    }
+
+    /* ================= Base ================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-padding-top: calc(var(--hdr-h, 112px) + 12px); }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--tx);
+      background-color: var(--bg);
+      background-image: var(--bg-art);
+      background-attachment: fixed;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5 { font-family: 'Outfit', 'Inter', sans-serif; margin: 0; line-height: 1.25; letter-spacing: -0.01em; }
+    p { margin: 0; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    button { cursor: pointer; }
+    a { color: var(--acc-tx); }
+    [hidden] { display: none !important; }
+    .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
+    .sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+    :focus { outline: none; }
+    :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 6px; }
+    ::selection { background: var(--acc-soft); }
+    ::-webkit-scrollbar { width: 9px; height: 9px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--bg-4); border-radius: 6px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--acc); }
+
+    .msi {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal; font-style: normal;
+      font-size: 19px; line-height: 1;
+      letter-spacing: normal; text-transform: none;
+      display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr;
+      -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga';
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      -webkit-font-smoothing: antialiased;
+      user-select: none; flex-shrink: 0;
+      overflow: hidden; max-width: 1.2em;
+    }
+    .no-icons .msi, .no-icons .material-symbols-outlined { display: none !important; }
+    /* icon font unavailable (offline): give icon-only buttons a text/Unicode fallback */
+    .no-icons .icon-btn[data-fb] { width: auto; padding: 0 9px; font-size: 11.5px; font-weight: 600; }
+    .no-icons .icon-btn[data-fb]::after { content: attr(data-fb); }
+    .no-icons .bm::after { content: "\2606"; font-size: 19px; line-height: 1; }
+    .no-icons .bm[aria-pressed="true"]::after { content: "\2605"; color: var(--acc); }
+
+    mark {
+      color: inherit;
+      background: linear-gradient(180deg, transparent 54%, var(--mark) 54%, var(--mark) 92%, transparent 92%);
+      padding: 0 0.12em;
+      border-radius: 2px;
+      font-weight: 600;
+      -webkit-box-decoration-break: clone; box-decoration-break: clone;
+    }
+
+    .skip { position: absolute; left: 12px; top: -60px; z-index: 200; background: var(--acc); color: var(--acc-ink); padding: 8px 14px; border-radius: 8px; font-weight: 700; text-decoration: none; }
+    .skip:focus { top: 10px; }
+
+    /* ================= Buttons ================= */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      min-height: 38px; padding: 0 13px;
+      border-radius: 10px;
+      border: 1px solid var(--line-2);
+      background: var(--bg-3);
+      color: var(--tx);
+      font-size: 13.5px; font-weight: 600;
+      white-space: nowrap;
+      transition: background-color .15s, border-color .15s, color .15s, transform .15s;
+    }
+    .btn .msi { font-size: 18px; }
+    .btn:hover { border-color: var(--acc); }
+    .btn:active { transform: translateY(1px); }
+    .btn[aria-pressed="true"] { background: var(--acc-soft); border-color: var(--acc); color: var(--acc-tx); }
+    .btn-primary { background: var(--acc); border-color: var(--acc); color: var(--acc-ink); }
+    .btn-primary:hover { background: var(--acc-2); border-color: var(--acc-2); }
+    .btn-ghost { background: transparent; }
+    .btn-danger { background: var(--bad-soft); border-color: var(--bad); color: var(--bad); }
+    .btn[disabled], .btn[aria-disabled="true"] { opacity: .5; cursor: not-allowed; transform: none; }
+    .btn-sm { min-height: 32px; padding: 0 10px; font-size: 12.5px; border-radius: 8px; }
+    .icon-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 10px;
+      border: 1px solid var(--line); background: transparent; color: var(--tx-2);
+      transition: background-color .15s, color .15s, border-color .15s;
+      flex-shrink: 0;
+    }
+    .icon-btn:hover { background: var(--bg-3); color: var(--tx); border-color: var(--line-2); }
+    .link-btn { background: none; border: 0; padding: 0; color: var(--acc-tx); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ================= Top bar ================= */
+    .topbar {
+      position: sticky; top: 0; z-index: 60;
+      background: var(--glass);
+      -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+    .tb-row { max-width: 1120px; margin: 0 auto; padding: 0 16px; display: flex; align-items: center; gap: 10px; }
+    .tb-1 { min-height: 58px; position: relative; }
+    .home-nav-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--line);
+      color: var(--tx);
+      text-decoration: none;
+      font-size: .8rem; font-weight: 600;
+      padding: 6px 12px; min-height: 36px;
+      border-radius: 8px;
+      transition: all .2s;
+      flex-shrink: 0;
+    }
+    [data-theme="light"] .home-nav-btn { background: rgba(15, 23, 42, 0.05); }
+    .home-nav-btn:hover { background: rgba(16, 185, 129, 0.16); border-color: #10b981; color: var(--tx); transform: translateX(-2px); }
+    .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .brand-mark {
+      width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+      display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--acc), var(--acc-2));
+      color: #1b1204; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 12px; letter-spacing: .02em;
+      box-shadow: 0 6px 18px -6px rgba(245, 158, 11, .55);
+    }
+    .brand-t { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+    .brand-t b { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 700; white-space: nowrap; }
+    .brand-t span { font-size: 11.5px; color: var(--tx-3); white-space: nowrap; }
+    /* chapter picker: one button + dropdown menu (scales to any number of chapters) */
+    .ch-pick { position: relative; min-width: 0; flex: 0 1 auto; }
+    .ch-btn {
+      display: inline-flex; align-items: center; gap: 9px; max-width: 100%;
+      min-height: 40px; padding: 0 8px 0 6px; border-radius: 12px;
+      border: 1px solid var(--line); background: var(--bg-2); color: var(--tx);
+      font-size: 14px; font-weight: 600; text-align: left;
+      transition: border-color .15s, background-color .15s, box-shadow .15s;
+    }
+    .ch-btn:hover { border-color: var(--line-2); background: var(--bg-3); }
+    .ch-btn[aria-expanded="true"] { border-color: var(--acc); box-shadow: 0 0 0 3px var(--acc-soft); }
+    .ch-btn .ch-no { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 600; line-height: 1; padding: 5px 7px; border-radius: 8px; background: var(--acc); color: var(--acc-ink); flex-shrink: 0; }
+    .ch-btn .ch-t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+    .ch-btn .ch-cv { color: var(--tx-3); margin-left: auto; transition: transform .2s; }
+    .ch-btn[aria-expanded="true"] .ch-cv { transform: rotate(180deg); }
+    .ch-btn.single { cursor: default; }
+    .ch-btn.single .ch-cv { display: none; }
+    .ch-menu {
+      position: absolute; top: calc(100% + 8px); left: 0; z-index: 80;
+      width: min(400px, calc(100vw - 24px)); max-height: min(72vh, 540px); overflow: auto; overscroll-behavior: contain;
+      padding: 6px; border-radius: 16px; background: var(--bg-1); border: 1px solid var(--line-2);
+      box-shadow: 0 28px 60px -22px rgba(0, 0, 0, .65), 0 2px 10px rgba(0, 0, 0, .22);
+      transform-origin: top left; animation: menuIn .16s ease-out;
+    }
+    @keyframes menuIn { from { opacity: 0; transform: translateY(-6px) scale(.98); } to { opacity: 1; transform: none; } }
+    .ch-menu-h { font-size: 11px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--tx-3); padding: 8px 10px 6px; }
+    .ch-item { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px; padding: 8px 10px; border-radius: 11px; border: 0; background: transparent; color: var(--tx-2); text-align: left; }
+    .ch-item:hover, .ch-item:focus-visible { background: var(--bg-3); color: var(--tx); outline: none; }
+    .ch-item:focus-visible { box-shadow: inset 0 0 0 2px var(--acc); }
+    .ch-item[aria-checked="true"] { background: var(--acc-soft); color: var(--tx); }
+    .ch-item .ci-no { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--bg-3); font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: var(--tx-2); flex-shrink: 0; }
+    .ch-item[aria-checked="true"] .ci-no { background: var(--acc); color: var(--acc-ink); }
+    .ch-item .ci-t { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+    .ch-item .ci-t b { font-weight: 600; font-size: 14px; line-height: 1.3; }
+    .ch-item .ci-t small { font-size: 12px; color: var(--tx-3); font-weight: 500; }
+    .ch-item .ci-ok { color: var(--acc-tx); visibility: hidden; }
+    .ch-item[aria-checked="true"] .ci-ok { visibility: visible; }
+    .tb-sp { flex: 1 1 0; min-width: 0; }
+    .tb-icons { display: flex; gap: 4px; flex-shrink: 0; }
+    /* inside the Ilberiz Techz app the site's own bar already has Back + the title */
+    .embedded .home-nav-btn, .embedded .brand { display: none; }
+
+    .tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; padding-bottom: 8px; }
+    .tab {
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; gap: 8px;
+      min-height: 44px; padding: 6px 12px;
+      border-radius: 10px; border: 1px solid var(--line); background: var(--bg-2);
+      color: var(--tx-2); text-align: left; font-size: 13.5px; font-weight: 600;
+      transition: border-color .15s, background-color .15s, color .15s;
+    }
+    .tab:hover { color: var(--tx); border-color: var(--line-2); }
+    .tab[aria-selected="true"] { color: var(--tx); border-color: var(--acc); background: linear-gradient(180deg, var(--acc-soft), transparent 140%); }
+    .tab .msi { color: var(--tx-3); }
+    .tab[aria-selected="true"] .msi { color: var(--acc-tx); }
+    .tab-l { display: flex; flex-direction: column; min-width: 0; line-height: 1.2; flex: 1; }
+    .tab-short, .tab-sub { display: none; }
+    .tab-full, .tab-short { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .tab-n { font-family: 'JetBrains Mono', monospace; font-size: 12px; padding: 1px 7px; border-radius: 99px; background: var(--bg-4); color: var(--tx-2); flex-shrink: 0; }
+    .tab[aria-selected="true"] .tab-n { background: var(--acc); color: var(--acc-ink); }
+    .tab-prog { position: absolute; left: 0; bottom: 0; height: 2px; width: var(--p, 0%); background: var(--ok); transition: width .3s; }
+    .in-test .tabs, .in-test .ch-pick { display: none; }
+
+    /* ================= Layout ================= */
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 18px 16px 80px; }
+
+    /* ================= Hero ================= */
+    .hero {
+      border: 1px solid var(--line); border-radius: 18px;
+      background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+      padding: 20px 22px 18px; box-shadow: var(--shadow);
+    }
+    .hero-top { display: flex; gap: 18px; align-items: flex-start; }
+    .hero-txt { flex: 1; min-width: 0; }
+    .hero-kicker { font-size: 13px; color: var(--acc-tx); font-weight: 600; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .hero-kicker .sep { color: var(--tx-3); }
+    .hero h1 { font-size: clamp(20px, 2.6vw, 27px); font-weight: 700; margin-top: 4px; }
+    .hero-where { margin-top: 6px; font-size: 13.5px; color: var(--tx-2); display: flex; gap: 6px; align-items: center; }
+    .hero-where .msi { font-size: 17px; color: var(--tx-3); }
+    .ring { position: relative; width: 84px; height: 84px; flex-shrink: 0; }
+    .ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+    .ring circle { fill: none; stroke-width: 6; }
+    .ring-bg { stroke: var(--bg-4); }
+    .ring-fg { stroke: var(--ok); stroke-linecap: round; transition: stroke-dasharray .45s ease; }
+    .ring-t { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.1; }
+    .ring-t b { font-family: 'JetBrains Mono', monospace; font-size: 15px; }
+    .ring-t span { font-size: 10.5px; color: var(--tx-3); }
+
+    .stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 16px 0 0; }
+    .stat { background: var(--bg-3); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; min-width: 0; }
+    .stat dt { font-size: 12px; color: var(--tx-3); font-weight: 500; }
+    .stat dd { margin: 2px 0 0; font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 700; line-height: 1.15; }
+    .stat dd small { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; color: var(--tx-3); margin-left: 4px; }
+
+    .heat { margin-top: 16px; }
+    .heat-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+    .heat-head h2 { font-size: 14px; font-weight: 600; color: var(--tx-2); font-family: 'Inter', sans-serif; letter-spacing: 0; }
+    .heat-legend { font-size: 11.5px; color: var(--tx-3); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .heat-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -2px; margin-right: 4px; }
+    .lg-hot { background: rgb(var(--heat) / .7); }
+    .lg-none { background: repeating-linear-gradient(135deg, var(--line-2) 0 3px, transparent 3px 6px); border: 1px solid var(--line); }
+    .heat-row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(var(--n, 11), minmax(0, 1fr)); gap: 4px; }
+    .hc {
+      position: relative; min-width: 0;
+      border-radius: 8px; padding: 6px 2px 5px; text-align: center;
+      background: rgb(var(--heat) / calc(0.07 + var(--i, 0) * 0.6));
+      border: 1px solid var(--line);
+    }
+    .hc-y { display: block; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--tx-2); line-height: 1.2; }
+    .hc-y .ys { display: none; }
+    .hc-m { display: block; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 16px; line-height: 1.25; }
+    .hc-q { display: block; font-size: 10px; color: var(--tx-3); line-height: 1.2; }
+    .hc.zero .hc-m { color: var(--tx-3); font-weight: 500; }
+    .hc.none { background: repeating-linear-gradient(135deg, var(--line) 0 4px, transparent 4px 8px); }
+    .hc .ne-s { display: none; }
+    .hc.nf { background: transparent; border-style: dashed; }
+    :is(.hc.none, .hc.nf) .hc-m { color: var(--tx-3); font-size: 11px; font-weight: 500; font-family: 'Inter', sans-serif; padding: 3px 0; }
+    .heat-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    .hchip {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; padding: 4px 9px; border-radius: 99px;
+      color: var(--c); background: var(--cb); border: 1px solid transparent;
+    }
+    .hchip b { font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+    .hchip.zero { background: transparent; border-color: var(--line); color: var(--tx-3); }
+    .hchip.nf { background: transparent; border: 1px dashed var(--line-2); color: var(--tx-3); text-decoration: line-through; }
+
+    .hero-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); align-items: center; }
+    .note-chip {
+      display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 11px;
+      border-radius: 9px; border: 1px solid var(--line-2); text-decoration: none; color: var(--tx); font-size: 13px; font-weight: 500;
+      background: var(--bg-3);
+    }
+    .note-chip .msi { font-size: 17px; color: var(--bad); }
+    .note-chip:hover { border-color: var(--acc); }
+    .hero-links .grow { flex: 1; }
+    .hero-more, .hero-sum { display: none; }
+
+    /* ================= Mode bar + toolbar ================= */
+    .modebar { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin: 18px 0 12px; }
+    .seg { display: inline-flex; padding: 3px; gap: 3px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--line); }
+    .seg button {
+      display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 0 14px;
+      border: 0; border-radius: 9px; background: transparent; color: var(--tx-2); font-weight: 600; font-size: 13.5px; white-space: nowrap;
+    }
+    .seg button .msi { font-size: 18px; }
+    .seg button:hover { color: var(--tx); }
+    .seg button[aria-pressed="true"] { background: var(--acc); color: var(--acc-ink); }
+    .mode-hint { color: var(--tx-2); font-size: 13.5px; flex: 1; min-width: 220px; }
+
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .lbl-m { display: none; }
+    .search { position: relative; flex: 1 1 260px; min-width: 0; }
+    .search .msi { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--tx-3); pointer-events: none; }
+    .search input {
+      width: 100%; min-height: 40px; padding: 0 12px 0 38px;
+      border-radius: 10px; border: 1px solid var(--line-2); background: var(--bg-2); color: var(--tx); font-size: 14px;
+    }
+    .search input::placeholder { color: var(--tx-3); }
+    .search input:focus-visible { outline: 2px solid var(--focus); outline-offset: 0; border-color: transparent; }
+    .select {
+      min-height: 40px; padding: 0 30px 0 11px; border-radius: 10px; border: 1px solid var(--line-2);
+      background: var(--bg-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238a97ab' stroke-width='2.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 10px center;
+      -webkit-appearance: none; appearance: none; font-size: 13.5px; font-weight: 500; color: var(--tx);
+    }
+    .select option { background: var(--bg-2); color: var(--tx); }
+    .badge { display: inline-grid; place-items: center; min-width: 19px; height: 19px; padding: 0 5px; border-radius: 99px; background: var(--acc); color: var(--acc-ink); font-size: 11px; font-weight: 700; }
+
+    .confirm-strip {
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      margin-top: 10px; padding: 12px 14px; border-radius: 12px;
+      border: 1px solid var(--bad); background: var(--bad-soft);
+    }
+    .confirm-strip p { flex: 1; min-width: 200px; font-size: 14px; }
+    .confirm-strip .cs-btns { display: flex; gap: 8px; }
+    .confirm-strip.info { border-color: var(--acc); background: var(--acc-soft); }
+
+    .filters { margin-top: 10px; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--bg-2); display: grid; gap: 12px; }
+    .fgroup { display: grid; gap: 7px; }
+    .fg-k { font-size: 12.5px; font-weight: 600; color: var(--tx-3); font-family: 'Inter', sans-serif; letter-spacing: 0; }
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 11px;
+      border-radius: 99px; border: 1px solid var(--line-2); background: var(--bg-3); color: var(--tx-2);
+      font-size: 13px; font-weight: 500;
+    }
+    .pill:hover { color: var(--tx); border-color: var(--tx-3); }
+    .pill .cnt { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--tx-3); }
+    .pill[aria-pressed="true"] { background: var(--acc-soft); border-color: var(--acc); color: var(--tx); }
+    .pill[aria-pressed="true"] .cnt { color: var(--acc-tx); }
+    .pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--c, var(--tx-3)); }
+    .pill[data-empty="1"] { opacity: .55; }
+    .filters-foot { display: flex; justify-content: flex-end; }
+
+    .result-line { margin: 14px 2px 10px; font-size: 13px; color: var(--tx-3); display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .result-line b { color: var(--tx-2); font-weight: 600; }
+
+    /* ================= Cards ================= */
+    .qlist { display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; }
+    .qcard {
+      position: relative;
+      min-width: 0;
+      background: var(--bg-2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 18px 14px;
+      box-shadow: var(--shadow);
+      content-visibility: auto;
+      contain-intrinsic-size: auto 440px;
+      scroll-margin-top: calc(var(--hdr-h, 112px) + 12px);
+      transition: border-color .2s;
+    }
+    .qcard::before { content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px; border-radius: 0 3px 3px 0; background: transparent; }
+    .qcard[data-status="got"]::before { background: var(--ok); }
+    .qcard[data-status="partly"]::before { background: var(--warn); }
+    .qcard[data-status="missed"]::before { background: var(--bad); }
+    .qcard.is-current { border-color: var(--acc); }
+    .qcard:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 16px; }
+    .qitem.flash { animation: flash 1.6s ease-out; }
+    @keyframes flash { 0%, 30% { box-shadow: 0 0 0 3px var(--acc), var(--shadow); } 100% { box-shadow: 0 0 0 0 transparent, var(--shadow); } }
+
+    .q-head { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; font-size: 12.5px; color: var(--tx-2); }
+    .q-id { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--tx-3); }
+    .chip {
+      display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 99px;
+      border: 1px solid var(--line-2); font-size: 12px; font-weight: 500; color: var(--tx-2); white-space: nowrap; line-height: 1.5;
+    }
+    .chip .msi { font-size: 15px; }
+    .chip-fmt { color: var(--tx); border-color: var(--line-2); background: var(--bg-3); font-weight: 600; }
+    .chip-time .msi { color: var(--tx-3); }
+    .q-head .sp { flex: 1; }
+    .bm { width: 36px; height: 36px; color: var(--tx-3); border-color: transparent; }
+    .bm[aria-pressed="true"] { color: var(--acc); }
+    .bm[aria-pressed="true"] .msi { font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .var-hit-tag { display: none; font-size: 11.5px; color: var(--var); border: 1px dashed var(--var-line); border-radius: 99px; padding: 1px 8px; }
+    .qcard.var-hit .var-hit-tag { display: inline-flex; }
+
+    .q-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; align-items: center; }
+    .topic-chip { color: var(--tx); background: var(--bg-3); border-color: var(--line); max-width: 100%; min-width: 0; }
+    .flag-chip.flag-ok { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, transparent); }
+    .topic-chip .tc-t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+    .note-link {
+      display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; color: var(--acc-tx);
+      text-decoration: none; padding: 2px 6px; border-radius: 6px;
+    }
+    .note-link .msi { font-size: 15px; }
+    .note-link:hover { text-decoration: underline; }
+    .diff-Easy { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 40%, transparent); }
+    .diff-Medium { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 40%, transparent); }
+    .diff-Hard { color: var(--bad); border-color: color-mix(in srgb, var(--bad) 40%, transparent); }
+    .conf-HIGH { color: var(--ok); }
+    .conf-MEDIUM { color: var(--warn); }
+    .conf-LOW { color: var(--bad); }
+    .flag-chip { color: var(--warn); border-style: dashed; }
+
+    .srcs { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+    .src {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 6px;
+      color: var(--c); background: var(--cb); line-height: 1.55; white-space: nowrap;
+    }
+    .src-board { --c: var(--src-board); --cb: var(--src-board-bg); }
+    .src-sem { --c: var(--src-sem); --cb: var(--src-sem-bg); }
+    .src-sup { --c: var(--src-sup); --cb: var(--src-sup-bg); }
+    .src-spec { --c: var(--src-spec); --cb: var(--src-spec-bg); }
+    .src-cfpq { --c: var(--src-cfpq); --cb: var(--src-cfpq-bg); }
+    .src-unk { --c: var(--src-unk); --cb: var(--src-unk-bg); }
+    .src .nt { width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: .7; }
+    .src-none { font-size: 12px; color: var(--tx-3); font-style: italic; }
+    .src-notes { margin-top: 5px; font-size: 12px; color: var(--tx-3); }
+    .src-notes span + span::before { content: " · "; }
+
+    .prob { margin-top: 10px; padding: 9px 11px; border-radius: 11px; background: var(--bg-3); border: 1px solid var(--line); }
+    .prob-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .prob-label { font-size: 12.5px; font-weight: 700; color: var(--pc); white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; }
+    .prob-label .msi { font-size: 16px; }
+    .meter { flex: 1 1 90px; max-width: 220px; height: 6px; border-radius: 99px; background: var(--bg-4); overflow: hidden; }
+    .meter > span { display: block; height: 100%; border-radius: inherit; background: var(--pc); }
+    .prob-score { font-size: 12px; color: var(--tx-3); }
+    .p-vh { --pc: var(--p-vh); } .p-h { --pc: var(--p-h); } .p-m { --pc: var(--p-m); } .p-l { --pc: var(--p-l); }
+    .tag-overdue { font-size: 11.5px; font-weight: 700; color: var(--bad); border: 1px solid var(--bad); border-radius: 99px; padding: 0 8px; line-height: 1.6; display: inline-flex; align-items: center; gap: 3px; }
+    .tag-overdue .msi { font-size: 14px; }
+    .prob-basis { margin-top: 5px; font-size: 12.5px; color: var(--tx-2); }
+    .mini { display: inline-flex; align-items: center; gap: 2px; margin-left: auto; }
+    .mini i { display: block; width: 7px; height: 14px; border-radius: 2px; background: var(--bg-4); }
+    .mini i.ms-b { background: var(--src-board); }
+    .mini i.ms-s { background: var(--src-sup); }
+    .mini i.ms-x { background: repeating-linear-gradient(135deg, var(--line-2) 0 2px, transparent 2px 4px); }
+    .mini .ms-gap { width: 5px; }
+    .mini i.ms-o { height: 7px; border-radius: 50%; background: transparent; border: 1px solid var(--line-2); }
+    .mini i.ms-o.on { background: var(--c); border-color: var(--c); }
+
+    .q-body { margin-top: 12px; }
+    .stem { font-size: 14px; color: var(--tx-2); padding: 6px 0 6px 12px; border-left: 3px solid var(--line-2); margin-bottom: 10px; }
+    .mixed { display: flex; gap: 10px; align-items: flex-start; font-size: 13.5px; color: var(--tx-2); background: var(--var-soft); border: 1px solid var(--var-line); border-radius: 10px; padding: 9px 12px; margin-bottom: 10px; }
+    .mixed b { display: block; font-size: 12px; color: var(--tx); }
+    ins { text-decoration: none; background: var(--mark); border-radius: 3px; padding: 0 2px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+    .fig-ans .fig-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .fig-ans .fig-cell { flex: 1 1 200px; min-width: 0; display: grid; gap: 4px; }
+    .fig-ans img { background: #fff; border-radius: 8px; max-width: 100%; }
+    .stem-k { display: block; font-size: 11.5px; font-weight: 600; color: var(--tx-3); margin-bottom: 1px; }
+    .fig {
+      display: flex; gap: 12px; align-items: flex-start; margin: 0 0 10px;
+      padding: 12px 14px; border-radius: 12px;
+      border: 1px dashed var(--line-2); background: var(--bg-1);
+    }
+    .fig-exact { display: block; text-align: center; }
+    .fig-exact img { display: block; max-width: 100%; height: auto; margin: 0 auto 6px; border-radius: 8px; background: #fff; }
+    .opt-img { display: block; max-width: 100%; height: auto; margin-top: 6px; border-radius: 6px; background: #fff; }
+    .fig-ic { width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; background: var(--bg-4); color: var(--tx-2); flex-shrink: 0; }
+    .fig-ic .msi { font-size: 24px; }
+    .fig figcaption { font-size: 14px; color: var(--tx-2); font-style: italic; min-width: 0; }
+    .fig-k { display: block; font-style: normal; font-size: 11.5px; font-weight: 600; color: var(--tx-3); margin-bottom: 2px; }
+    .q-text { font-size: 16.5px; line-height: 1.55; font-weight: 500; color: var(--tx); max-width: 78ch; overflow-wrap: anywhere; }
+    .rt-tbl { display: block; overflow-x: auto; max-width: 100%; margin: 8px 0; -webkit-overflow-scrolling: touch; }
+    .rt-tbl table { border-collapse: collapse; font-size: .92em; line-height: 1.4; overflow-wrap: normal; }
+    .rt-tbl th, .rt-tbl td { border: 1px solid var(--line-2); padding: 6px 10px; text-align: left; vertical-align: top; font-weight: 500; }
+    .rt-tbl th { background: var(--bg-3); font-weight: 600; }
+    .w-hint { margin-top: 8px; font-size: 13px; color: var(--tx-3); display: flex; gap: 6px; align-items: center; }
+    .w-hint .msi { font-size: 17px; }
+    [data-mode="learn"] .qitem .w-hint { display: none; }
+
+    .diff-box {
+      display: flex; gap: 10px; margin: 10px 0; padding: 10px 12px; border-radius: 10px;
+      background: var(--var-soft); border: 1px solid var(--var-line); font-size: 13.5px; color: var(--tx-2);
+    }
+    .diff-box .msi { color: var(--var); }
+    .diff-box b { color: var(--var); display: block; font-size: 12.5px; }
+
+    .opts { display: grid; gap: 8px; margin-top: 12px; }
+    .opts.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .opt {
+      position: relative;
+      display: flex; gap: 10px; align-items: flex-start; text-align: left;
+      width: 100%; min-height: 46px; padding: 10px 40px 10px 10px;
+      border-radius: 11px; border: 1px solid var(--line-2); background: var(--bg-3); color: var(--tx);
+      font-size: 14.5px; line-height: 1.45;
+      transition: border-color .15s, background-color .15s;
+    }
+    .opt-l {
+      width: 26px; height: 26px; border-radius: 50%; flex-shrink: 0;
+      display: grid; place-items: center;
+      font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 600;
+      background: var(--bg-4); color: var(--tx-2);
+    }
+    .opt-t { padding-top: 2px; min-width: 0; overflow-wrap: anywhere; }
+    .opt-ic { position: absolute; right: 10px; top: 11px; display: none; }
+    [data-mode="practice"] .qitem:not(.answered):not(.revealed) > .q-main .opt:hover,
+    .tq .opt:hover { border-color: var(--acc); background: var(--bg-4); }
+    [data-mode="learn"] .qitem .opt, .qitem.answered > .q-main .opt { cursor: default; }
+    /* key highlight: learn mode, revealed, or answered */
+    :is([data-mode="learn"] .qitem, .qitem.revealed > .q-main, .qitem.answered > .q-main) .opt.is-key { border-color: var(--ok); background: var(--ok-soft); }
+    :is([data-mode="learn"] .qitem, .qitem.revealed > .q-main, .qitem.answered > .q-main) .opt.is-key .opt-l { background: var(--ok); color: #04130d; }
+    :is([data-mode="learn"] .qitem, .qitem.revealed > .q-main, .qitem.answered > .q-main) .opt.is-key .opt-ic { display: block; color: var(--ok); }
+    .qitem.answered > .q-main .opt.is-picked:not(.is-key) { border-color: var(--bad); background: var(--bad-soft); }
+    .qitem.answered > .q-main .opt.is-picked:not(.is-key) .opt-l { background: var(--bad); color: #1f0509; }
+    .qitem.answered > .q-main .opt.is-picked:not(.is-key) .opt-ic { display: block; color: var(--bad); }
+    .qitem.answered > .q-main .opt:not(.is-key):not(.is-picked) { opacity: .7; }
+    .tq .opt.is-sel { border-color: var(--acc); background: var(--acc-soft); }
+    .tq .opt.is-sel .opt-l { background: var(--acc); color: var(--acc-ink); }
+
+    .q-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; align-items: center; }
+    [data-mode="learn"] .btn-reveal { display: none; }
+    .btn-vars { color: var(--var); border-color: var(--var-line); background: var(--var-soft); }
+    .btn-vars:hover { border-color: var(--var); }
+    .btn-vars[aria-expanded="true"] { background: transparent; }
+
+    .ans { display: none; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line-2); }
+    :is([data-mode="learn"] .qitem, .qitem.revealed > .q-main, .qitem.answered > .q-main) .ans { display: grid; gap: 12px; animation: ansIn .22s ease-out; }
+    @keyframes ansIn { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: none; } }
+    .ans-key { display: flex; gap: 8px; align-items: flex-start; font-weight: 600; color: var(--ok); font-size: 14.5px; }
+    .ans-key .msi { font-size: 20px; }
+    .why { font-size: 14px; color: var(--tx-2); background: var(--bg-3); border-radius: 10px; padding: 10px 12px; }
+    .why b:first-child { color: var(--tx); }
+    .mp-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+    .mp-head h4 { font-size: 14.5px; font-weight: 600; }
+    .mp-rule { font-size: 12px; color: var(--tx-3); }
+    .mp-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; counter-reset: mp; }
+    .mp {
+      counter-increment: mp;
+      display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; grid-template-areas: "n t m" ". c c";
+      gap: 2px 10px; padding: 9px 11px; border-radius: 10px; background: var(--bg-3); border: 1px solid transparent;
+      font-size: 14.5px; line-height: 1.55;
+    }
+    .mp::before { content: counter(mp); grid-area: n; width: 22px; height: 22px; border-radius: 6px; display: grid; place-items: center; background: var(--bg-4); color: var(--tx-2); font: 600 11.5px/1 'JetBrains Mono', monospace; margin-top: 2px; }
+    .mp-t { grid-area: t; min-width: 0; overflow-wrap: anywhere; }
+    .mp-m { grid-area: m; font-size: 11.5px; font-weight: 600; color: var(--acc-tx); background: var(--acc-soft); border-radius: 6px; padding: 1px 7px; height: fit-content; white-space: nowrap; margin-top: 2px; }
+    .mp-chk { grid-area: c; display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; color: var(--tx-3); cursor: pointer; width: fit-content; padding: 4px 0 0; }
+    .mp-chk input { width: 18px; height: 18px; accent-color: var(--ok); margin: 0; cursor: pointer; }
+    .mp.ticked { border-color: color-mix(in srgb, var(--ok) 45%, transparent); }
+    .mp.ticked .mp-chk { color: var(--ok); }
+    .mp-score { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: 13.5px; color: var(--tx-2); flex-wrap: wrap; }
+    .mp-score b { font-family: 'JetBrains Mono', monospace; color: var(--tx); font-size: 15px; }
+    .mp-bar { flex: 1 1 80px; max-width: 200px; height: 6px; border-radius: 99px; background: var(--bg-4); overflow: hidden; }
+    .mp-bar > span { display: block; height: 100%; width: 0; background: var(--ok); border-radius: inherit; transition: width .25s; }
+    .tipbox { display: flex; gap: 10px; font-size: 14px; color: var(--tx-2); padding: 10px 12px; border-radius: 10px; background: var(--acc-soft); }
+    .tipbox .msi { color: var(--acc-tx); }
+    .tipbox b { display: block; color: var(--acc-tx); font-size: 12.5px; }
+    .words { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--tx-3); }
+    .words .msi { font-size: 16px; }
+    .official { border: 1px solid var(--info-line); background: var(--info-soft); border-radius: 12px; padding: 12px 14px; }
+    .official h4 { font-size: 14px; display: flex; align-items: center; gap: 6px; color: var(--info); flex-wrap: wrap; }
+    .official h4 .msi { font-size: 18px; }
+    .off-src { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 500; color: var(--tx-3); }
+    .official h5 { font-size: 13px; margin-top: 10px; color: var(--bad); display: flex; align-items: center; gap: 5px; }
+    .official ul { margin: 6px 0 0; padding-left: 20px; font-size: 14px; color: var(--tx-2); display: grid; gap: 3px; }
+
+    .assess { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+    .assess-k { font-size: 12.5px; color: var(--tx-3); margin-right: 4px; }
+    .as {
+      display: inline-flex; align-items: center; gap: 5px; min-height: 36px; padding: 0 12px;
+      border-radius: 99px; border: 1px solid var(--line-2); background: transparent; color: var(--tx-2); font-size: 13px; font-weight: 600;
+    }
+    .as .msi { font-size: 17px; }
+    .as:hover { color: var(--tx); border-color: var(--tx-3); }
+    .as-got[aria-pressed="true"] { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); }
+    .as-partly[aria-pressed="true"] { background: var(--warn-soft); border-color: var(--warn); color: var(--warn); }
+    .as-missed[aria-pressed="true"] { background: var(--bad-soft); border-color: var(--bad); color: var(--bad); }
+
+    .vars { margin-top: 14px; display: grid; gap: 10px; }
+    .vars-k { font-size: 12.5px; color: var(--var); display: flex; align-items: center; gap: 6px; }
+    .qvar {
+      position: relative; padding: 14px 14px 12px; border-radius: 13px;
+      background: var(--bg-1); border: 1px solid var(--var-line); scroll-margin-top: calc(var(--hdr-h, 112px) + 12px);
+    }
+    .qvar .q-text { font-size: 15.5px; }
+    .var-lbl { font-weight: 700; color: var(--var); font-size: 12.5px; }
+    .qvar[data-status="got"] { border-left: 3px solid var(--ok); }
+    .qvar[data-status="partly"] { border-left: 3px solid var(--warn); }
+    .qvar[data-status="missed"] { border-left: 3px solid var(--bad); }
+
+    .related { margin-top: 12px; padding: 10px 12px; border-radius: 11px; border: 1px dashed var(--line-2); }
+    .rel-k { font-size: 12.5px; color: var(--tx-2); display: flex; gap: 6px; align-items: center; font-weight: 600; }
+    .rel-k .msi { font-size: 17px; color: var(--acc-tx); }
+    .rel-list { display: grid; gap: 6px; margin-top: 7px; }
+    .rel {
+      display: flex; gap: 8px; align-items: baseline; text-align: left; width: 100%;
+      background: var(--bg-3); border: 1px solid var(--line); border-radius: 9px; padding: 8px 10px; color: var(--tx-2); font-size: 13.5px;
+    }
+    .rel:hover { border-color: var(--acc); color: var(--tx); }
+    .rel .mono { font-size: 11.5px; color: var(--acc-tx); flex-shrink: 0; }
+    .rel-q { min-width: 0; }
+
+    .empty {
+      text-align: center; padding: 40px 20px; border: 1px dashed var(--line-2); border-radius: 16px; background: var(--bg-2);
+      display: grid; gap: 10px; justify-items: center;
+    }
+    .empty .msi { font-size: 40px; max-width: none; color: var(--tx-3); }
+    .empty h2 { font-size: 19px; }
+    .empty p { color: var(--tx-2); max-width: 56ch; font-size: 14px; }
+    .empty .row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+
+    /* ================= Test view ================= */
+    .tbar {
+      position: sticky; top: var(--hdr-h, 58px); z-index: 40;
+      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px;
+      padding: 10px 14px 12px; border-radius: 14px; border: 1px solid var(--line);
+      background: var(--glass); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+      overflow: hidden;
+    }
+    .tbar-l { display: flex; flex-direction: column; min-width: 0; line-height: 1.3; }
+    .t-label { font-weight: 600; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .t-pos { font-size: 12px; color: var(--tx-3); }
+    .t-timer { font-size: 22px; font-weight: 600; padding: 2px 12px; border-radius: 10px; background: var(--bg-3); border: 1px solid var(--line); }
+    .t-timer.warn { color: var(--bad); border-color: var(--bad); background: var(--bad-soft); animation: pulse 1s ease-in-out infinite; }
+    @keyframes pulse { 50% { opacity: .65; } }
+    .tbar-r { display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap; }
+    .t-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: var(--bg-4); }
+    .t-progress > span { display: block; height: 100%; width: 0; background: var(--acc); transition: width .5s linear; }
+    #testView:not([data-phase="run"]) :is(.t-timer, .run-only, .tpal) { display: none; }
+    #testView[data-phase="run"] .after-only { display: none; }
+    #testView:not([data-phase="run"]) .tbar { grid-template-columns: 1fr auto; }
+    .tgrid { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 16px; margin-top: 14px; align-items: start; }
+    #testView:not([data-phase="run"]) .tgrid { grid-template-columns: minmax(0, 1fr); }
+    .tmain { min-width: 0; }
+    .tq { background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); }
+    .tq:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 16px; }
+    .tq-n { font-weight: 700; color: var(--tx); font-size: 13px; }
+    .tag-flag { font-size: 11.5px; font-weight: 700; color: var(--warn); border: 1px solid var(--warn); border-radius: 99px; padding: 0 8px; }
+    .tw { margin-top: 14px; display: grid; gap: 8px; }
+    .tw-hint { font-size: 13.5px; color: var(--tx-2); display: flex; gap: 8px; align-items: flex-start; padding: 10px 12px; border-radius: 10px; background: var(--bg-3); }
+    .tw-lbl { font-size: 12.5px; color: var(--tx-3); font-weight: 500; }
+    .tw textarea { width: 100%; min-height: 110px; resize: vertical; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--bg-1); color: var(--tx); font-size: 14.5px; line-height: 1.55; }
+    .tw .btn { justify-self: start; }
+    .tnav { display: flex; gap: 8px; justify-content: space-between; margin-top: 12px; flex-wrap: wrap; }
+    .tnav .btn { min-height: 42px; }
+    .tpal { position: sticky; top: calc(var(--hdr-h, 58px) + 86px); background: var(--bg-2); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+    .tpal h3 { font-size: 14px; margin-bottom: 10px; }
+    .pal-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(38px, 1fr)); gap: 6px; }
+    .pal {
+      position: relative; height: 38px; border-radius: 9px; border: 1px solid var(--line-2); background: var(--bg-3); color: var(--tx-2);
+      font: 600 12.5px 'JetBrains Mono', monospace;
+    }
+    .pal.is-ans { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); }
+    .pal.is-flag::after { content: ""; position: absolute; top: 3px; right: 3px; width: 7px; height: 7px; border-radius: 50%; background: var(--warn); }
+    .pal.is-cur { outline: 2px solid var(--acc); outline-offset: 1px; color: var(--tx); }
+    .pal-legend { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 5px; font-size: 12px; color: var(--tx-3); }
+    .pal-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 4px; vertical-align: -2px; margin-right: 6px; border: 1px solid var(--line-2); background: var(--bg-3); }
+    .pal-legend .lg-a { background: var(--ok-soft); border-color: var(--ok); }
+    .pal-legend .lg-f { background: var(--warn); border-color: var(--warn); border-radius: 50%; }
+    .pal-legend .lg-c { outline: 2px solid var(--acc); }
+    .tpal-btn { display: none; }
+
+    .tmark, .tres { display: grid; gap: 14px; }
+    .tmark-intro, .panel { background: var(--bg-2); border: 1px solid var(--line); border-radius: 16px; padding: 18px; }
+    .tmark-intro h2, .panel h2 { font-size: 19px; }
+    .tmark-intro p { color: var(--tx-2); margin-top: 6px; font-size: 14px; }
+    .tq-mark .yours { margin-top: 10px; font-size: 13.5px; color: var(--tx-2); background: var(--bg-1); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .tq-mark .yours b { display: block; font-size: 12px; color: var(--tx-3); }
+    .tmark-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; background: var(--bg-2); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; position: sticky; bottom: 12px; box-shadow: var(--shadow); }
+    .score-hero { display: flex; gap: 22px; align-items: center; flex-wrap: wrap; }
+    .score-big { font-family: 'Outfit', sans-serif; font-size: 46px; font-weight: 800; line-height: 1; }
+    .score-big small { font-size: 22px; color: var(--tx-3); font-weight: 600; }
+    .score-pct { font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 600; padding: 4px 12px; border-radius: 10px; background: var(--acc-soft); color: var(--acc-tx); }
+    .score-msg { color: var(--tx-2); font-size: 14.5px; flex: 1; min-width: 200px; }
+    .topic-rows { display: grid; gap: 8px; margin-top: 10px; }
+    .trow { display: grid; grid-template-columns: minmax(0, 1fr) 130px 64px; gap: 10px; align-items: center; font-size: 13.5px; }
+    .trow .bar { height: 7px; border-radius: 99px; background: var(--bg-4); overflow: hidden; }
+    .trow .bar span { display: block; height: 100%; background: var(--ok); border-radius: inherit; }
+    .trow.weak .bar span { background: var(--bad); }
+    .trow .weak-tag { color: var(--bad); font-weight: 700; font-size: 11.5px; margin-left: 6px; }
+    .trow .v { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; text-align: right; color: var(--tx-2); }
+    .missed-list { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 8px; }
+    .missed-list li { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 10px 12px; border-radius: 11px; background: var(--bg-3); border: 1px solid var(--line); }
+    .missed-list .mq { flex: 1 1 260px; min-width: 0; font-size: 13.5px; }
+    .missed-list .mq .mono { color: var(--tx-3); font-size: 11.5px; margin-right: 6px; }
+    .missed-list .mwhy { display: block; font-size: 12px; color: var(--bad); margin-top: 2px; }
+    .res-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+    /* ================= Dialog ================= */
+    .dlg {
+      width: min(760px, calc(100vw - 24px)); max-height: min(86vh, 900px);
+      padding: 0; border: 1px solid var(--line-2); border-radius: 18px;
+      background: var(--bg-2); color: var(--tx); box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .7);
+    }
+    .dlg::backdrop { background: rgba(2, 4, 8, .62); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+    .dlg.fallback { position: fixed; inset: 0; margin: auto; z-index: 300; height: fit-content; }
+    .dlg-card { display: flex; flex-direction: column; max-height: inherit; }
+    .dlg-head { display: flex; align-items: center; gap: 10px; padding: 14px 16px 12px 20px; border-bottom: 1px solid var(--line); }
+    .dlg-head h2 { font-size: 18px; flex: 1; }
+    .dlg-body { padding: 16px 20px 20px; overflow-y: auto; display: grid; gap: 14px; font-size: 14px; color: var(--tx-2); }
+    .dlg-body h3 { font-size: 15px; color: var(--tx); margin-top: 4px; }
+    .dlg-body ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+    .dlg-body blockquote { margin: 0; padding: 10px 14px; border-left: 3px solid var(--acc); background: var(--bg-3); border-radius: 0 10px 10px 0; color: var(--tx); }
+    .dlg-lead { color: var(--tx); font-size: 14.5px; }
+    .dlg-foot { display: flex; gap: 8px; justify-content: flex-end; padding: 12px 20px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+    .tbl-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+    .tbl { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .tbl th, .tbl td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .tbl thead th { font-size: 12px; color: var(--tx-3); font-weight: 600; background: var(--bg-3); white-space: nowrap; }
+    .tbl tr:last-child td { border-bottom: 0; }
+    .tbl .num { text-align: center; font-family: 'JetBrains Mono', monospace; }
+    .tbl .grp td { background: var(--bg-1); color: var(--tx); font-weight: 600; }
+    .tbl td.nf { color: var(--tx-3); }
+    .ok-t { color: var(--ok); font-weight: 600; } .bad-t { color: var(--bad); font-weight: 600; }
+    .formula { font-family: 'JetBrains Mono', monospace; font-size: 12.5px; background: var(--bg-1); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; color: var(--tx); overflow-x: auto; white-space: pre-wrap; }
+    .kbd-grid { display: grid; grid-template-columns: auto 1fr; gap: 8px 14px; align-items: center; }
+    kbd { font-family: 'JetBrains Mono', monospace; font-size: 12px; min-width: 26px; text-align: center; padding: 3px 7px; border-radius: 6px; border: 1px solid var(--line-2); border-bottom-width: 2px; background: var(--bg-3); color: var(--tx); display: inline-block; }
+    .ts-group { border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px 12px; margin: 0; display: grid; gap: 6px; }
+    .ts-group legend { padding: 0 6px; font-weight: 600; color: var(--tx); font-size: 13.5px; }
+    .opt-row { display: flex; align-items: center; gap: 10px; min-height: 36px; cursor: pointer; color: var(--tx); }
+    .opt-row input { width: 18px; height: 18px; accent-color: var(--acc); margin: 0; }
+    .opt-row .cnt { margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--tx-3); }
+    .opt-row.disabled { opacity: .5; cursor: not-allowed; }
+    .dur-row { display: flex; flex-wrap: wrap; gap: 6px; }
+    .ts-summary { color: var(--tx); font-weight: 600; }
+    .legend-list { list-style: none; padding: 0 !important; }
+    .legend-list li { display: flex; gap: 8px; align-items: baseline; }
+
+    /* ================= Toast ================= */
+    .toast-wrap { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 400; display: grid; gap: 8px; width: min(440px, calc(100vw - 32px)); pointer-events: none; }
+    .toast {
+      pointer-events: auto; display: flex; gap: 10px; align-items: center;
+      padding: 11px 14px; border-radius: 12px; background: var(--bg-4); color: var(--tx); border: 1px solid var(--line-2);
+      box-shadow: 0 16px 40px -16px rgba(0, 0, 0, .7); font-size: 14px;
+      animation: toastIn .2s ease-out;
+    }
+    .toast.warn { border-color: var(--bad); }
+    .toast.warn .msi { color: var(--bad); }
+    @keyframes toastIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    .print-head { display: none; }
+
+    /* ================= Responsive ================= */
+    @media (max-width: 899px) {
+      .brand { display: none; }
+      .tab-full { display: none; }
+      .tab-short { display: block; }
+      .tab-sub { display: block; font-size: 11px; color: var(--tx-3); font-weight: 500; }
+      .tgrid { grid-template-columns: minmax(0, 1fr); }
+      .tpal { position: static; display: none; order: -1; }
+      .tpal.open { display: block; }
+      .tpal-btn { display: inline-flex; }
+    }
+    @media (max-width: 760px) {
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .opts.two { grid-template-columns: minmax(0, 1fr); }
+      .hc-y .yl { display: none; }
+      .hc-y .ys { display: inline; }
+      .hc-q { display: none; }
+      .hc .ne-l { display: none; }
+      .hc .ne-s { display: inline; }
+      .tbar { grid-template-columns: 1fr auto; }
+      .tbar-r { grid-column: 1 / -1; justify-content: stretch; }
+      .tbar-r .btn { flex: 1; }
+    }
+    @media (max-width: 640px) {
+      .tb-icons .hide-sm { display: none; }
+      .home-nav-btn span:last-child { display: none; }
+      .home-nav-btn { padding: 6px 9px; }
+      .tb-row { gap: 8px; }
+      .ch-pick { flex: 1 1 auto; position: static; }
+      .ch-btn { width: 100%; }
+      .tb-sp { display: none; }
+      .ch-menu { left: 12px; right: 12px; width: auto; top: calc(100% - 2px); }
+      .hero-sum { display: block; margin-top: 6px; font-size: 13px; color: var(--tx-2); line-height: 1.45; }
+      .hero-sum b { color: var(--tx); font-weight: 600; }
+      .hero-more { display: flex; align-items: center; gap: 8px; width: 100%; margin-top: 12px; min-height: 42px; padding: 0 12px; border-radius: 11px; border: 1px solid var(--line); background: var(--bg-3); color: var(--tx-2); font-size: 13.5px; font-weight: 600; }
+      .hero-more .msi { color: var(--tx-3); }
+      .hero-more .hm-c { margin-left: auto; transition: transform .2s; }
+      .hero-more[aria-expanded="true"] .hm-c { transform: rotate(180deg); }
+      .hero:not(.open) .hero-details { display: none; }
+      .wrap { padding-top: 14px; }
+      .hero { padding: 16px 14px 14px; border-radius: 16px; }
+      .hero-top { gap: 12px; }
+      .ring { width: 68px; height: 68px; }
+      .ring-t b { font-size: 13px; }
+      .qcard { padding: 14px 14px 12px; border-radius: 14px; }
+      .q-text { font-size: 16px; }
+      .toolbar .btn .lbl-x { display: none; }
+      .toolbar .btn .lbl-m { display: inline; }
+      .toolbar { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; }
+      .toolbar .search { grid-column: 1 / -1; }
+      .toolbar #sort, .toolbar #btnFilters { grid-column: span 3; width: 100%; }
+      .toolbar #btnRevision, .toolbar #btnExpand { grid-column: span 2; }
+      .toolbar .btn { justify-content: center; min-width: 0; padding: 0 6px; gap: 5px; }
+      .modebar { gap: 8px; }
+      .seg { width: 100%; }
+      .seg button { flex: 1; justify-content: center; padding: 0 8px; }
+      .mode-hint { min-width: 0; font-size: 13px; }
+      .trow { grid-template-columns: minmax(0, 1fr) 80px 56px; }
+      .mini { margin-left: 0; }
+      .dlg-body { padding: 14px 16px 18px; }
+    }
+    @media (max-width: 420px) {
+      .tab { padding: 6px 8px; gap: 6px; }
+      .tab .msi { display: none; }
+      .heat-row { gap: 2px; }
+      .hc { border-radius: 6px; padding: 5px 0 4px; }
+      .hc-m { font-size: 14px; }
+      .hc-y { font-size: 9.5px; }
+      .stat dd { font-size: 19px; }
+    }
+    @media (hover: none) {
+      .home-nav-btn:hover { transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+      .qitem.flash { animation: none; box-shadow: 0 0 0 3px var(--acc); }
+    }
+
+    /* ================= Print: revision sheet ================= */
+    @media print {
+      @page { margin: 14mm 12mm; }
+      :root, [data-theme] {
+        --bg: #fff; --bg-1: #fff; --bg-2: #fff; --bg-3: #f6f6f6; --bg-4: #e8e8e8;
+        --tx: #000; --tx-2: #222; --tx-3: #555; --line: #ccc; --line-2: #bbb;
+        --ok: #0a6b47; --ok-soft: #eaf6f0; --acc-tx: #7a3d00; --acc-soft: #fff4e0; --mark: #ffe58a;
+        --info: #0b4f6c; --info-soft: #f2f8fb; --info-line: #9cc;
+        --src-board: #7a3d00; --src-sem: #3730a3; --src-sup: #9d174d; --src-spec: #155e75; --src-cfpq: #065f46; --src-unk: #333;
+        --src-board-bg: #fff; --src-sem-bg: #fff; --src-sup-bg: #fff; --src-spec-bg: #fff; --src-cfpq-bg: #fff; --src-unk-bg: #fff;
+      }
+      body { background: #fff !important; color: #000; font-size: 11.5pt; }
+      .topbar, .skip, .hero, #listView > .modebar, .toolbar, .filters, .confirm-strip, .result-line, .toast-wrap,
+      .q-actions, .assess, .vars, .related, .prob, .bm, .mp-chk, .mp-score, .w-hint, #testView, .dlg, .var-hit-tag, #noResults { display: none !important; }
+      .wrap { max-width: none; padding: 0; }
+      .print-head { display: block; margin-bottom: 10pt; border-bottom: 1.5pt solid #000; padding-bottom: 6pt; }
+      .print-head h1 { font-size: 16pt; }
+      .print-head p { font-size: 10pt; color: #333; }
+      .qlist { gap: 8pt; }
+      .qcard, .qcard[hidden] { display: block !important; content-visibility: visible; box-shadow: none; border: 1px solid #bbb; border-radius: 6pt; padding: 8pt 10pt; break-inside: avoid; page-break-inside: avoid; }
+      .qcard::before { display: none; }
+      .qcard .ans { display: grid !important; gap: 6pt; margin-top: 6pt; padding-top: 6pt; animation: none; }
+      .qcard .opt.is-key { border-color: #0a6b47 !important; background: #eaf6f0 !important; }
+      .qcard .opt.is-key .opt-ic { display: block !important; }
+      .opt { min-height: 0; padding: 4pt 28pt 4pt 6pt; opacity: 1 !important; }
+      .opts.two { grid-template-columns: 1fr 1fr; }
+      .mp { padding: 4pt 6pt; grid-template-areas: "n t m"; }
+      .q-text { font-size: 12pt; }
+      a { color: #000; text-decoration: none; }
+      .note-link { display: none; }
+    }
+  </style>
+</head>
+<body data-mode="practice">
+  <a class="skip" href="#cards">Skip to questions</a>
+
+  <header class="topbar" id="topbar">
+    <div class="tb-row tb-1">
+      <a href="../../index.html" class="home-nav-btn" target="_top" title="Back to Ilberiz Techz Dashboard">
+        <span class="material-symbols-outlined" style="font-size:18px;">arrow_back</span>
+        <span>Ilberiz Techz</span>
+      </a>
+      <div class="brand" aria-hidden="true">
+        <span class="brand-mark">DPP</span>
+        <span class="brand-t"><b id="brandTitle">PYQ DPP</b><span id="brandSub">ICSE Class 10 · PYQ practice</span></span>
+      </div>
+      <div class="ch-pick" id="chPick">
+        <button type="button" class="ch-btn" id="chBtn" aria-haspopup="true" aria-expanded="false" aria-controls="chMenu"></button>
+        <div class="ch-menu" id="chMenu" role="menu" aria-label="Chapters" hidden></div>
+      </div>
+      <span class="tb-sp"></span>
+      <div class="tb-icons">
+        <button type="button" class="icon-btn hide-sm" id="btnBlueprintTop" data-fb="Blueprint" aria-label="Exam blueprint" title="Exam blueprint"><span class="msi" aria-hidden="true">table_chart</span></button>
+        <button type="button" class="icon-btn hide-sm" id="btnSourcesTop" data-fb="Sources" aria-label="Sources and method" title="Sources & method"><span class="msi" aria-hidden="true">fact_check</span></button>
+        <button type="button" class="icon-btn hide-sm" id="btnKeys" data-fb="Keys" aria-label="Keyboard shortcuts" title="Keyboard shortcuts (?)"><span class="msi" aria-hidden="true">keyboard</span></button>
+        <button type="button" class="icon-btn" id="btnSound" data-fb="Sound" aria-label="Mute sounds" title="Sound on/off"><span class="msi" aria-hidden="true">volume_up</span></button>
+        <button type="button" class="icon-btn" id="btnTheme" data-fb="Theme" aria-label="Switch to light theme" title="Switch theme"><span class="msi" aria-hidden="true">light_mode</span></button>
+      </div>
+    </div>
+    <div class="tb-row tabs" id="secTabs" role="tablist" aria-label="Section"></div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="print-head" id="printHead"></div>
+
+    <div class="empty" id="loadError" hidden>
+      <span class="msi" aria-hidden="true">error</span>
+      <h2>Question data didn't load</h2>
+      <p>This page needs its <code>data-*.js</code> chapter files and <code>pattern.js</code> in the same folder. Check that the files exist, then reload.</p>
+      <div class="row"><button type="button" class="btn btn-primary" onclick="location.reload()">Reload</button></div>
+    </div>
+
+    <section class="hero" id="hero" aria-labelledby="heroTitle">
+      <div class="hero-top">
+        <div class="hero-txt">
+          <p class="hero-kicker" id="heroKicker"></p>
+          <h1 id="heroTitle"></h1>
+          <p class="hero-where" id="heroWhere"></p>
+          <p class="hero-sum" id="heroSum"></p>
+        </div>
+        <div class="ring" id="ring" role="img" aria-label="Mastered 0 of 0">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <circle class="ring-bg" cx="32" cy="32" r="27"></circle>
+            <circle class="ring-fg" id="ringFg" cx="32" cy="32" r="27" pathLength="100" stroke-dasharray="0 100"></circle>
+          </svg>
+          <div class="ring-t" aria-hidden="true"><b id="ringNum">0/0</b><span>mastered</span></div>
+        </div>
+      </div>
+      <button type="button" class="hero-more" id="heroMore" aria-expanded="false" aria-controls="heroDetails"><span class="msi" aria-hidden="true">insights</span>Chapter stats &amp; year-wise marks<span class="msi hm-c" aria-hidden="true">expand_more</span></button>
+      <div class="hero-details" id="heroDetails">
+        <dl class="stats" id="stats"></dl>
+        <div class="heat" id="heat"></div>
+        <div class="hero-links" id="heroLinks"></div>
+      </div>
+    </section>
+
+    <section id="listView" aria-label="Questions">
+      <div class="modebar">
+        <div class="seg" id="modeSeg" role="group" aria-label="Study mode">
+          <button type="button" data-mode-btn="learn" aria-pressed="false"><span class="msi" aria-hidden="true">menu_book</span>Learn</button>
+          <button type="button" data-mode-btn="practice" aria-pressed="true"><span class="msi" aria-hidden="true">edit_note</span>Practice (DPP)</button>
+          <button type="button" data-mode-btn="test" aria-pressed="false"><span class="msi" aria-hidden="true">timer</span>Test</button>
+        </div>
+        <p class="mode-hint" id="modeHint"></p>
+      </div>
+
+      <div class="toolbar" id="toolbar">
+        <div class="search">
+          <span class="msi" aria-hidden="true">search</span>
+          <input type="search" id="q" placeholder="Search questions, answers and variations" aria-label="Search questions, answers and variations" autocomplete="off" spellcheck="false">
+        </div>
+        <select class="select" id="sort" aria-label="Sort questions">
+          <option value="expected">Most expected</option>
+          <option value="recent">Most recent</option>
+          <option value="frequent">Most frequent</option>
+          <option value="topic">Topic order</option>
+          <option value="marks">Marks</option>
+        </select>
+        <button type="button" class="btn" id="btnFilters" aria-expanded="false" aria-controls="filters"><span class="msi" aria-hidden="true">tune</span>Filters <span class="badge" id="fCount" hidden>0</span></button>
+        <button type="button" class="btn" id="btnRevision" aria-pressed="false" title="Missed + Partly + Bookmarked"><span class="msi" aria-hidden="true">replay</span>Revision<span class="lbl-x"> list</span></button>
+        <button type="button" class="btn" id="btnExpand" aria-pressed="false"><span class="msi" aria-hidden="true">layers</span><span class="lbl-x">Expand all variations</span><span class="lbl-m">Variations</span></button>
+        <button type="button" class="btn" id="btnPrint" aria-label="Print revision sheet" title="Print revision sheet"><span class="msi" aria-hidden="true">print</span><span class="lbl-x">Print</span></button>
+        <button type="button" class="btn btn-ghost" id="btnReset" aria-label="Reset progress" title="Reset progress"><span class="msi" aria-hidden="true">restart_alt</span><span class="lbl-x">Reset</span></button>
+      </div>
+      <div class="confirm-strip" id="resetConfirm" role="alertdialog" aria-labelledby="resetMsg" hidden>
+        <p id="resetMsg"></p>
+        <div class="cs-btns">
+          <button type="button" class="btn btn-ghost" id="resetCancel">Cancel</button>
+          <button type="button" class="btn btn-danger" id="resetGo">Reset progress</button>
+        </div>
+      </div>
+      <div class="filters" id="filters" hidden></div>
+      <p class="result-line" id="resultLine" aria-live="polite"></p>
+
+      <div id="cards"></div>
+      <div class="empty" id="emptySection" hidden></div>
+      <div class="empty" id="noResults" hidden>
+        <span class="msi" aria-hidden="true">filter_alt_off</span>
+        <h2>No questions match these filters</h2>
+        <p>Try a different search word or remove a filter.</p>
+        <div class="row"><button type="button" class="btn btn-primary" id="btnClearFilters2">Clear filters</button></div>
+      </div>
+    </section>
+
+    <section id="testView" data-phase="run" aria-label="Test" hidden>
+      <div class="tbar" id="tBar">
+        <div class="tbar-l">
+          <span class="t-label" id="tLabel"></span>
+          <span class="t-pos mono" id="tPos"></span>
+        </div>
+        <div class="t-timer mono" id="tTimer" role="timer" aria-label="Time left">--:--</div>
+        <div class="tbar-r">
+          <button type="button" class="btn btn-ghost tpal-btn run-only" id="tPalBtn" aria-expanded="false" aria-controls="tPal"><span class="msi" aria-hidden="true">apps</span>Questions</button>
+          <button type="button" class="btn btn-primary run-only" id="tSubmit"><span class="msi" aria-hidden="true">send</span>Submit</button>
+          <button type="button" class="btn btn-ghost run-only" id="tExit">Exit</button>
+          <button type="button" class="btn after-only" id="tBack"><span class="msi" aria-hidden="true">arrow_back</span>Back to practice</button>
+        </div>
+        <div class="t-progress run-only" aria-hidden="true"><span id="tProg"></span></div>
+      </div>
+      <div class="confirm-strip info" id="tConfirm" role="alertdialog" aria-labelledby="tConfirmMsg" hidden></div>
+      <div class="tgrid">
+        <div class="tmain" id="tMain"></div>
+        <aside class="tpal" id="tPal" aria-label="Question palette">
+          <h3>Question palette</h3>
+          <div class="pal-grid" id="tPalGrid"></div>
+          <ul class="pal-legend">
+            <li><i class="lg-a"></i>Answered</li>
+            <li><i class="lg-f"></i>Flagged for review</li>
+            <li><i class="lg-c"></i>Current question</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="dlg" id="dlg" aria-labelledby="dlgTitle">
+    <div class="dlg-card">
+      <header class="dlg-head">
+        <h2 id="dlgTitle"></h2>
+        <button type="button" class="icon-btn" id="dlgClose" data-fb="Close" aria-label="Close"><span class="msi" aria-hidden="true">close</span></button>
+      </header>
+      <div class="dlg-body" id="dlgBody"></div>
+      <footer class="dlg-foot" id="dlgFoot" hidden></footer>
+    </div>
+  </dialog>
+
+  <div class="toast-wrap" id="toasts" role="status" aria-live="polite"></div>
+  <div class="sr-only" id="announcer" aria-live="assertive"></div>
+
+  <script src="pattern.js?v=1"></script>
+  <script src="data-cell.js?v=1"></script>
+  <script src="data-genetics.js?v=1"></script>
+  <script src="data-absorption.js?v=1"></script>
+  <script src="data-transpiration.js?v=1"></script>
+  <script src="data-photosynthesis.js?v=1"></script>
+  <script src="data-plantcoord.js?v=1"></script>
+  <script src="data-circulatory.js?v=1"></script>
+  <script src="data-excretory.js?v=1"></script>
+  <script src="data-nervous.js?v=1"></script>
+  <script src="data-sense.js?v=1"></script>
+  <script src="data-endocrine.js?v=1"></script>
+  <script src="data-reproductive.js?v=1"></script>
+  <script src="data-population.js?v=1"></script>
+  <script src="data-evolution.js?v=1"></script>
+  <script src="data-pollution.js?v=1"></script>
+  <script>
+/* =====================================================================
+   National Movement DPP engine
+   Reads window.NM_DPP_DATA (fp, sp, ...) and window.NM_DPP_PATTERN.
+   Everything (counts, topics, years, sources) is derived from the data.
+   ===================================================================== */
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     Helpers
+     ------------------------------------------------------------------ */
+  var ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+  var RT_TAGS = /&lt;(\/?)(b|i|em|strong|u|ins|sub|sup|mark|small|table|thead|tbody|tr|th|td)\s*&gt;/gi;
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function esc(s) { return str(s).replace(/[&<>"']/g, function (c) { return ESC[c]; }); }
+  /* question text: escaped, with a small whitelist of inline tags + line breaks */
+  function rt(s) {
+    var h = esc(s).replace(RT_TAGS, '<$1$2>').replace(/&lt;br\s*\/?&gt;/gi, '<br>');
+    /* tables (element tables, match-the-columns) scroll sideways on phones; no <br> inside table markup */
+    h = h.replace(/<table>([\s\S]*?)<\/table>/g, function (m, t) { return '<span class="rt-tbl"><table>' + t.replace(/\r?\n\s*/g, '') + '</table></span>'; });
+    return h.replace(/\r?\n/g, '<br>');
+  }
+  /* answer fields are authored HTML (spec: "HTML allowed") */
+  var trusted = str;
+  function strip(s) {
+    return str(s).replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+      .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();
+  }
+  function arr(v) { return Array.isArray(v) ? v : []; }
+  function num(v, d) { return (typeof v === 'number' && isFinite(v)) ? v : d; }
+  function str(v) { return v == null ? '' : String(v); }
+  function fmtN(n) { return String(Math.round(n * 100) / 100); }
+  function plural(n, w, p) { return n + ' ' + (n === 1 ? w : (p || w + 's')); }
+  function domId(id) { return 'q_' + String(id).replace(/[^A-Za-z0-9_-]/g, '_'); }
+  function snippet(s, n) { s = strip(s); return s.length > n ? s.slice(0, n - 1).replace(/\s+$/, '') + '…' : s; }
+  function debounce(fn, ms) { var t; return function () { var a = arguments; clearTimeout(t); t = setTimeout(function () { fn.apply(null, a); }, ms); }; }
+  function letter(i) { return String.fromCharCode(97 + i); }
+  function uniq(a) { return a.filter(function (x, i) { return a.indexOf(x) === i; }); }
+  function safeUrl(u) { u = str(u).trim(); return /^(javascript|data|vbscript):/i.test(u) ? '' : u; }
+  function fmtClock(ms) {
+    var s = Math.max(0, Math.ceil(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = s % 60;
+    return (h ? h + ':' : '') + String(m).padStart(2, '0') + ':' + String(x).padStart(2, '0');
+  }
+  function fmtDur(ms) { var s = Math.round(ms / 1000), m = Math.floor(s / 60); return m + ' min ' + String(s % 60).padStart(2, '0') + ' s'; }
+  function icon(name) { return '<span class="msi" aria-hidden="true">' + name + '</span>'; }
+  function obj(v) { return v && typeof v === 'object' ? v : {}; }
+  function sum(a, fn) { return a.reduce(function (t, x) { return t + fn(x); }, 0); }
+  function attr(el, name) { return el.getAttribute(name); }
+  function press(btn, on) { btn.setAttribute('aria-pressed', String(on)); }
+  function focusOn(el) { try { el.focus({ preventScroll: true }); } catch (e) {} }
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ------------------------------------------------------------------
+     Storage (prefix nmdpp_, every access guarded)
+     ------------------------------------------------------------------ */
+  var DATA = obj(window.NM_DPP_DATA), PAT = obj(window.NM_DPP_PATTERN), UI = obj(PAT.ui);
+  var PFX = UI.storePrefix || 'nmdpp_', storageWarned = false;
+  var UI_TITLE = UI.title || 'National Movement DPP', UI_SUBJECT = UI.subject || 'History';
+  var LS = {
+    get: function (k, fb) {
+      try { var v = window.localStorage.getItem(PFX + k); if (v == null) return fb; var p = JSON.parse(v); return p == null ? fb : p; }
+      catch (e) { return fb; }
+    },
+    set: function (k, v) {
+      try { window.localStorage.setItem(PFX + k, JSON.stringify(v)); return true; }
+      catch (e) {
+        if (!storageWarned) { storageWarned = true; toast('Progress can’t be saved in this browser mode — it will reset when you close the page.', 'warn'); }
+        return false;
+      }
+    },
+    del: function (k) { try { window.localStorage.removeItem(PFX + k); } catch (e) {} }
+  };
+
+  /* ------------------------------------------------------------------
+     Constants
+     ------------------------------------------------------------------ */
+  var TPM = num(PAT.timePerMark, 0) > 0 ? PAT.timePerMark : 1.5;
+  // Subjects whose paper has other DPP sections (e.g. Maths, Physics numericals, Geography map work)
+  // declare them in pattern.js: dppSections: [{ id, full, short, sub, icon, noun }]
+  var SECS = [], SEC_META = {};
+  (arr(PAT.dppSections).length ? PAT.dppSections : [
+    { id: 'mcq', full: 'MCQ (Q1)', short: 'MCQ', sub: 'Q1', icon: 'checklist', noun: 'MCQ' },
+    { id: 'short', full: 'Short Answers (Sec A)', short: 'Short', sub: 'Section A', icon: 'short_text', noun: 'short-answer' },
+    { id: 'long', full: 'Long Answers (Sec B)', short: 'Long', sub: 'Section B', icon: 'subject', noun: 'long-answer' }
+  ]).forEach(function (d) {
+    SECS.push(d.id);
+    SEC_META[d.id] = { full: d.full || d.id, short: d.short || d.id, sub: d.sub || '', icon: d.icon || 'quiz', noun: d.noun || d.short || d.id };
+  });
+  var TYPE_META = {
+    BOARD: { short: 'Board', group: 'board', board: true, strip: true },
+    BOARD_SEM1: { short: 'Sem 1', group: 'sem', board: true, strip: true },
+    BOARD_SEM2: { short: 'Sem 2', group: 'sem', board: true, strip: true },
+    SUPPLEMENTARY: { short: 'Supplementary', group: 'sup', board: true },
+    SPECIMEN: { short: 'Specimen', group: 'spec', official: true },
+    CFPQ: { short: 'CFPQ', group: 'cfpq', official: true }
+  };
+  var GROUPS = [
+    { id: 'board', label: 'Board' }, { id: 'sem', label: 'Semester' }, { id: 'sup', label: 'Supplementary' },
+    { id: 'spec', label: 'Specimen' }, { id: 'cfpq', label: 'CFPQ' }
+  ];
+  var GROUP_ORDER = { board: 0, sem: 1, sup: 2, spec: 3, cfpq: 4, unk: 5 };
+  var PROBS = [
+    { id: 'Very High', cls: 'p-vh' }, { id: 'High', cls: 'p-h' }, { id: 'Moderate', cls: 'p-m' }, { id: 'Low', cls: 'p-l' }
+  ];
+  var STATUSES = [
+    { id: 'new', label: 'New' }, { id: 'got', label: 'Got it' }, { id: 'partly', label: 'Partly' },
+    { id: 'missed', label: 'Missed' }, { id: 'bm', label: 'Bookmarked' }
+  ];
+  var FORMAT_LABEL = {
+    MCQ: 'MCQ', AR: 'Assertion–Reason', PICTURE: 'Picture-based', SHORT: 'Short answer', LONG: 'Long answer', SOURCE: 'Source-based',
+    FILL: 'Fill in / choose', MATCH: 'Match the columns', NAME: 'Name the following', ARRANGE: 'Arrange in order',
+    REASON: 'Give reasons', TABLE: 'Table / data', NUMERICAL: 'Numerical', EQUATION: 'Equations', DIAGRAM: 'Diagram-based'
+  };
+  var FLAG_META = {
+    'key-official-APP': { label: 'Official CISCE key', icon: 'verified', ok: true, title: 'Answer key from the CISCE marking scheme (Analysis of Pupil Performance)' },
+    'key-official-specimen': { label: 'Official specimen key', icon: 'verified', ok: true, title: 'Answer key from the CISCE specimen paper marking scheme' },
+    'key-official-CFPQ': { label: 'Official CFPQ key', icon: 'verified', ok: true, title: 'Answer key from the CISCE Competency Focused Practice Questions' },
+    'key-agent-determined': { label: 'Key worked out', icon: 'calculate', title: 'CISCE published no key for this paper; the answer was worked out and double-checked' },
+    'straddles-ch': { label: 'Also uses Ch {ch}', icon: 'call_split', title: 'Part of this question needs ideas from another chapter' },
+    'mixed-chapters': { label: 'Mixed-chapter question', icon: 'call_split', title: 'Shown whole, exactly as printed; the highlighted parts belong to this chapter' },
+    'partly-other-chapters': { label: 'Mixed-chapter question', icon: 'call_split', title: 'Shown whole, exactly as printed; only some parts belong to this chapter' },
+    'text-reconstructed': { label: 'Text reconstructed', icon: 'help', title: 'The printed text was unclear in every copy; closest official wording used' },
+    'official-scheme-typo': { label: 'Scheme typo kept', icon: 'spellcheck', title: 'The official marking scheme has a typo, kept as printed' },
+    'key-disputed': { label: 'Key disputed', icon: 'gavel', title: 'Teachers disagree on this key; read the explanation' },
+    'key-debatable-official-treats-quoted-claim-as-true': { label: 'Key debatable', icon: 'gavel', title: 'The official key treats the quoted claim as true; read the explanation' },
+    'official-simplified-trend': { label: "Board's simplified trend", icon: 'trending_up', title: 'The official answer follows the simplified textbook trend; real data has exceptions' },
+    'partly-out-of-syllabus': { label: 'Partly outside syllabus', icon: 'block', title: 'Part of this question is no longer in the syllabus' },
+    'partly-out-of-chapter-stem': { label: 'Stem from another chapter', icon: 'call_split', title: 'The shared lead-in belongs to another chapter' },
+    'borderline-scope': { label: 'Borderline topic', icon: 'call_split', title: 'Sits on the edge of this chapter' },
+    'printed-as-is-wording': { label: 'Wording as printed', icon: 'spellcheck', title: 'Kept exactly as printed, including any slips' },
+    'non-standard-AR-options': { label: 'Unusual A–R options', icon: 'rule', title: 'The paper printed non-standard assertion–reason options' },
+    'straddles-redox': { label: 'Also uses redox', icon: 'call_split', title: 'Needs oxidation–reduction ideas too' },
+    'straddles-home-rule': { label: 'Also Home Rule', icon: 'call_split', title: 'Touches the Home Rule movement as well' },
+    'compares-first-phase': { label: 'Compares with First Phase', icon: 'compare_arrows', title: 'Asks for a comparison with the First Phase' }
+  };
+  var CONF_META = {
+    HIGH: { label: 'Verbatim', icon: 'verified', title: 'Question text matches the paper word for word' },
+    MEDIUM: { label: 'Near-verbatim', icon: 'rule', title: 'Question text is very close to the paper (minor wording uncertainty)' },
+    LOW: { label: 'Reconstructed', icon: 'help', title: 'Question text was reconstructed from secondary sources' }
+  };
+  var MODE_HINT = {
+    learn: 'Answers, keys and keywords are visible — read fast, then mark how well you knew each one.',
+    practice: 'Answers stay hidden. Pick an option or write your answer, reveal, then mark yourself.',
+    test: 'Timed paper, one question at a time. MCQs are scored for you; written answers are self-marked at the end.'
+  };
+
+  /* ------------------------------------------------------------------
+     Index the data
+     ------------------------------------------------------------------ */
+  var CH = {}, CH_ORDER = [], QMAP = new Map();
+
+  function buildIndex() {
+    Object.keys(DATA).forEach(function (code) {
+      var d = DATA[code];
+      if (!d || !d.meta || !Array.isArray(d.questions)) return;
+      var meta = d.meta;
+      var sources = arr(d.sources).filter(function (s) { return s && s.id; });
+      var srcById = {};
+      sources.forEach(function (s) { srcById[s.id] = s; });
+      var notes = arr(meta.notes).filter(function (n) { return n && n.file; });
+      var topicById = {}, topics = [];
+      arr(meta.topics).forEach(function (t) {
+        if (!t || !t.id || topicById[t.id]) return;
+        var tp = { id: str(t.id), name: str(t.name) || str(t.id), idx: topics.length, note: notes[t.note] || null };
+        topicById[tp.id] = tp; topics.push(tp);
+      });
+      var c = {
+        code: code, meta: meta, title: str(meta.title) || code, shortTitle: str(meta.shortTitle) || str(meta.title) || code,
+        chapterNo: num(meta.chapterNo, null), sources: sources, srcById: srcById, notes: notes,
+        topics: topics, topicById: topicById, bySec: SECS.reduce(function (o, k) { o[k] = []; return o; }, {}), all: []
+      };
+      /* board-year denominators and the year strip range */
+      var den = new Set(), stripYears = [], hasYear = {};
+      sources.forEach(function (s) {
+        var tm = TYPE_META[s.type], y = num(s.year, 0);
+        if (!tm || !y) return;
+        if (tm.board) { hasYear[y] = true; if (found(s)) den.add(y); }
+        if (tm.strip) stripYears.push(y);
+      });
+      c.boardYearDen = den.size;
+      var lo = stripYears.length ? Math.min.apply(null, stripYears) : 2016;
+      var hi = stripYears.length ? Math.max.apply(null, stripYears) : 2026;
+      c.years = []; for (var y = lo; y <= hi && c.years.length < 40; y++) c.years.push(y);
+      c.hasYear = hasYear;
+      c.extraSources = sources.filter(function (s) { var tm = TYPE_META[s.type]; return tm && !tm.strip; }).sort(bySource);
+      CH[code] = c; CH_ORDER.push(code);
+
+      d.questions.forEach(function (raw, i) {
+        if (!raw || !raw.id) return;
+        if (QMAP.has(String(raw.id))) { warn('duplicate question id ' + raw.id); return; }
+        if (SECS.indexOf(raw.sec) < 0) { warn('unknown sec "' + raw.sec + '" on ' + raw.id); return; }
+        var it = normItem(raw, c, raw.sec, null, i);
+        c.bySec[raw.sec].push(it); c.all.push(it);
+      });
+    });
+    CH_ORDER.sort(function (a, b) { return num(CH[a].chapterNo, 999) - num(CH[b].chapterNo, 999); });
+    CH_ORDER.forEach(function (code) {
+      var c = CH[code]; c.topicStat = {};
+      c.all.forEach(function (it) {
+        var ts = c.topicStat[it.topic] || (c.topicStat[it.topic] = { years: new Set(), off: new Set() });
+        allSeen(it).forEach(function (s) {
+          var tm = s.source && TYPE_META[s.source.type], y = s.source ? num(s.source.year, 0) : 0;
+          if (tm && tm.board && y) ts.years.add(y);
+          if (tm && tm.official) ts.off.add(s.source.id);
+        });
+      });
+      c.all.forEach(function (it) { derive(it, c); });
+    });
+  }
+  function warn(m) { console.warn('[nmdpp] ' + m); }
+  function found(src) { return src.found !== false; }
+  function bySource(a, b) { return (GROUP_ORDER[srcGroup(a)] - GROUP_ORDER[srcGroup(b)]) || (num(a.year, 0) - num(b.year, 0)); }
+  function withVars(it) { return [it].concat(it.variations); }
+  function allSeen(it) { return [].concat.apply([], withVars(it).map(function (x) { return x.seen; })); }
+
+  function normItem(raw, c, sec, parent, order) {
+    var opts = arr(raw.options).map(str);
+    var hasOpts = opts.length >= 2;
+    var correct = (hasOpts && typeof raw.correct === 'number' && opts[raw.correct] != null) ? raw.correct : null;
+    var ans = obj(raw.answer), texts = function (v) { return arr(v).map(str).filter(Boolean); };
+    var official = obj(ans.official), off = { src: str(official.src), points: texts(official.points), errors: texts(official.errors) };
+    if (!off.points.length && !off.errors.length) off = null;
+    var fmt = str(raw.format).toUpperCase();
+    if (!fmt) fmt = parent ? (hasOpts ? (parent.objective ? parent.format : 'MCQ') : (parent.objective ? 'SHORT' : parent.format)) : (hasOpts ? 'MCQ' : (sec === 'long' ? 'LONG' : 'SHORT'));
+    var topic = parent ? parent.topic : str(raw.topic);
+    if (!parent && !c.topicById[topic]) {
+      var tp = { id: topic || '(untagged)', name: topic || 'Untagged', idx: c.topics.length, note: null };
+      if (!topic) topic = tp.id;
+      c.topicById[tp.id] = tp; c.topics.push(tp);
+    }
+    var it = {
+      id: str(raw.id), ch: c.code, sec: sec, isVar: !!parent, parent: parent, order: order,
+      topic: topic, format: fmt,
+      marks: num(raw.marks, parent ? parent.marks : (hasOpts ? 1 : 2)),
+      stem: raw.stem ? str(raw.stem) : null,
+      mixed: raw.mixed ? str(raw.mixed) : null,
+      picture: raw.picture ? str(raw.picture) : null,
+      img: imgList(raw.img, raw.picture),
+      optionImgs: arr(raw.optionImgs).map(safeImg),
+      q: str(raw.q),
+      options: hasOpts ? opts : null, correct: correct, objective: hasOpts && correct !== null,
+      seen: arr(raw.seen).filter(function (s) { return s && s.src; }).map(function (s) {
+        return { src: str(s.src), ref: str(s.ref), marks: num(s.marks, null), note: str(s.note), source: c.srcById[s.src] || null };
+      }),
+      answer: { points: texts(ans.points), why: str(ans.why), official: off, tip: str(ans.tip), words: str(ans.words), img: ansImgs(ans.img), imgNote: str(ans.imgNote) },
+      diff: str(raw.diff),
+      difficulty: str(raw.difficulty) || (parent ? parent.difficulty : ''),
+      skill: str(raw.skill) || (parent ? parent.skill : ''),
+      confidence: (str(raw.confidence) || (parent ? parent.confidence : '')).toUpperCase(),
+      flags: texts(raw.flags),
+      related: parent ? [] : uniq(texts(raw.related)),
+      variations: []
+    };
+    if (hasOpts && correct === null) warn('options without a valid "correct" index on ' + it.id + ' (treated as written)');
+    QMAP.set(it.id, it);
+    if (!parent) {
+      it.variations = arr(raw.variations).filter(Boolean).map(function (v, j) {
+        if (!v.id) v = Object.assign({}, v, { id: it.id + '-v' + (j + 1) });
+        if (QMAP.has(String(v.id))) { warn('duplicate variation id ' + v.id); return null; }
+        return normItem(v, c, sec, it, j);
+      }).filter(Boolean);
+    }
+    return it;
+  }
+
+  function srcGroup(src) { var tm = src && TYPE_META[src.type]; return tm ? tm.group : 'unk'; }
+  function srcLabel(src) { return str(src.label) || srcShort(src); }
+  function srcShort(src) {
+    if (!src) return 'Unknown';
+    if (src.short) return src.short;
+    var tm = TYPE_META[src.type];
+    var base = tm ? tm.short : (str(src.type) || 'Source');
+    return src.year ? base + ' ' + src.year : (str(src.label) || base);
+  }
+
+  function blobOf(it, c) {
+    var tp = c.topicById[it.topic];
+    var parts = [it.id, it.q, it.stem, it.picture, tp ? tp.name : '', it.diff, it.answer.why, it.answer.tip, it.format, FORMAT_LABEL[it.format]]
+      .concat(it.options || [], it.answer.points, it.answer.official ? it.answer.official.points.concat(it.answer.official.errors) : [],
+        it.seen.map(function (s) { return (s.source ? (str(s.source.label) + ' ' + srcShort(s.source)) : s.src) + ' ' + s.ref; }));
+    return strip(parts.filter(Boolean).join(' • ')).toLowerCase();
+  }
+
+  function derive(it, c) {
+    var all = allSeen(it);
+    var years = new Set(), off = new Map(), groups = new Set(), lastAny = 0, boardApps = 0, offApps = 0;
+    all.forEach(function (s) {
+      var src = s.source;
+      groups.add(srcGroup(src));
+      if (!src) return;
+      var tm = TYPE_META[src.type], y = num(src.year, 0);
+      if (y > lastAny) lastAny = y;
+      if (tm && tm.board) { boardApps++; if (y) years.add(y); }
+      if (tm && tm.official) { offApps++; off.set(src.id, src); }
+    });
+    var ys = Array.from(years).sort(function (a, b) { return a - b; });
+    var F = ys.length, last = F ? ys[F - 1] : 0, officialNow = off.size;
+    // Topic-aware score: exact questions rarely repeat word-for-word in ICSE History,
+    // but topics do — so the topic's board frequency carries most of the weight.
+    var ts = c.topicStat[it.topic], TF = ts.years.size, tLast = Math.max.apply(null, [0].concat(Array.from(ts.years)));
+    var recency = !TF ? 0 : (tLast >= 2025 ? 10 : (tLast >= 2023 ? 6 : 2));
+    var score = Math.min(97, 10 + 6 * Math.min(F, 4) + 6 * Math.min(TF, 8) + recency +
+      Math.min(16, 8 * officialNow) + Math.min(8, 4 * ts.off.size));
+    var level = PROBS[score >= 75 ? 0 : score >= 55 ? 1 : score >= 35 ? 2 : 3];
+    var den = Math.max(c.boardYearDen, F, TF);
+    var basis = ['This question: ' + (F ? plural(F, 'board year') + ' (' + ys.join(', ') + ')' : 'not yet in a board paper')];
+    if (TF) basis.push('topic asked in ' + TF + ' of ' + plural(den, 'board year') + ' (last ' + tLast + ')');
+    if (officialNow) {
+      var byType = {};
+      Array.from(off.values()).sort(bySource)
+        .forEach(function (s) { var k = (TYPE_META[s.type] || {}).short || s.type; (byType[k] = byType[k] || []).push(s.year || s.id); });
+      basis.push('in ' + Object.keys(byType).map(function (k) { return k + ' ' + byType[k].join('/'); }).join(' and '));
+    }
+    it.prob = {
+      score: score, label: level.id, cls: level.cls, F: F, last: last, years: ys, overdue: F >= 2 && last <= 2023, basis: basis.join(' · ')
+    };
+    it.lastAny = lastAny; it.freq = all.length; it.boardApps = boardApps; it.offApps = offApps;
+    it.groups = Array.from(groups);
+    it.blobMain = blobOf(it, c);
+    it.blobAll = it.blobMain + ' ' + it.variations.map(function (v) { return blobOf(v, c); }).join(' ');
+  }
+
+  /* marks per marking point: marks / points, sensible rounding; "any N of M" when points > marks */
+  function markRule(marks, n) {
+    if (!n) return { per: 0, text: '' };
+    var per = marks / n;
+    if (per < 1) return { per: 1, text: '1 mark each · any ' + fmtN(marks) + ' of ' + n };
+    var r = Math.round(per * 2) / 2;
+    var approx = Math.abs(r - per) > 0.01;
+    return { per: r, text: (approx ? '≈' : '') + fmtN(r) + (r === 1 ? ' mark' : ' marks') + ' each' };
+  }
+  function scoreFor(it, ticked) { return Math.min(it.marks, ticked * markRule(it.marks, it.answer.points.length).per); }
+  function showScore(root, it, ticked) {
+    var sc = scoreFor(it, ticked);
+    $('.mp-val', root).textContent = fmtN(sc);
+    $('.mp-bar > span', root).style.width = (it.marks ? Math.round(sc / it.marks * 100) : 0) + '%';
+    return sc;
+  }
+  /* list of ticked indexes with i added or removed, in order */
+  function tickList(list, i, on) {
+    return arr(list).filter(function (x) { return x !== i; }).concat(on ? [i] : []).sort(function (a, b) { return a - b; });
+  }
+
+  /* ------------------------------------------------------------------
+     State + progress
+     ------------------------------------------------------------------ */
+  var prefs = obj(LS.get('prefs', {})), PROG = obj(LS.get('progress', {}));
+  if (Array.isArray(PROG)) PROG = {};
+  var state = {
+    ch: null, sec: SECS[0],
+    mode: prefs.mode === 'learn' ? 'learn' : 'practice',
+    sort: ['recent', 'frequent', 'topic', 'marks'].indexOf(prefs.sort) >= 0 ? prefs.sort : 'expected',
+    expandAll: !!prefs.expandAll,
+    toks: [], rev: false,
+    f: { topic: new Set(), src: new Set(), prob: new Set(), status: new Set() },
+    curId: null
+  };
+  function savePrefs() { LS.set('prefs', { mode: state.mode, sort: state.sort, expandAll: state.expandAll, dur: prefs.dur || 'auto' }); }
+
+  function prog(id) { return PROG[id] || {}; }
+  function setProg(id, patch) {
+    var p = Object.assign({}, PROG[id], patch);
+    Object.keys(p).forEach(function (k) { if (p[k] == null || p[k] === false || (Array.isArray(p[k]) && !p[k].length)) delete p[k]; });
+    if (Object.keys(p).length) PROG[id] = p; else delete PROG[id];
+    LS.set('progress', PROG);
+  }
+  function statusSet(it) {
+    var s = new Set();
+    if (!prog(it.id).s) s.add('new');
+    withVars(it).forEach(function (x) { var p = prog(x.id); if (p.s) s.add(p.s); if (p.b) s.add('bm'); });
+    return s;
+  }
+
+  /* ------------------------------------------------------------------
+     Small UI services: toast, announcer, dialog
+     ------------------------------------------------------------------ */
+  function toast(msg, kind) {
+    var wrap = $('#toasts');
+    var el = document.createElement('div');
+    el.className = 'toast' + (kind ? ' ' + kind : '');
+    el.innerHTML = icon(kind === 'warn' ? 'warning' : 'info') + '<span>' + esc(msg) + '</span>';
+    wrap.appendChild(el);
+    while (wrap.children.length > 3) wrap.removeChild(wrap.firstChild);
+    setTimeout(function () { el.remove(); }, kind === 'warn' ? 6000 : 3800);
+  }
+  /* Sounds: same recorded set and prefs as the main site */
+  var SFX = (function () {
+    var FILES = { tap: 'tap.wav', open: 'open.wav', on: 'on.wav', off: 'off.wav', chime: 'chime.wav', page: 'page.wav', save: 'save.mp3', success: 'success.mp3' };
+    var MAP = {
+      tap: [['tap', 0.38, 1]], open: [['open', 0.6, 1]], on: [['on', 0.5, 1]], off: [['off', 0.42, 1]],
+      save: [['save', 0.45, 1]], page: [['page', 0.55, 1]],
+      correct: [['chime', 0.55, 1], ['save', 0.22, 1, 0.05]],
+      wrong: [['chime', 0.42, 0.75], ['chime', 0.36, 0.63, 0.11]],
+      success: [['success', 0.8, 1], ['save', 0.16, 1, 0.07]]
+    };
+    var base = UI.soundBase || '../../sounds/';
+    var ctx = null, out = null, buf = {}, lastTap = 0, lastEvent = 0;
+    function pref(k, fb) { try { var v = window.localStorage.getItem(k); return v == null ? fb : v; } catch (e) { return fb; } }
+    function on() { return pref('ilberiz_audio', 'on') !== 'off'; }
+    function vol() { var v = parseInt(pref('ilberiz_volume', '80'), 10); v = isFinite(v) ? Math.max(0, Math.min(100, v)) : 80; return 1.4 * Math.pow(v / 100, 1.6); }
+    function ensure() {
+      if (!on()) return null;
+      try {
+        if (!ctx) {
+          var AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null;
+          ctx = new AC(); out = ctx.createGain(); out.gain.value = vol();
+          var lim = ctx.createDynamicsCompressor();
+          lim.threshold.value = -6; lim.knee.value = 6; lim.ratio.value = 12; lim.attack.value = 0.002; lim.release.value = 0.12;
+          out.connect(lim); lim.connect(ctx.destination);
+          load();
+        }
+        if (ctx.state === 'suspended') ctx.resume();
+        return ctx;
+      } catch (e) { return null; }
+    }
+    function load() {
+      if (location.protocol === 'file:') return;
+      Object.keys(FILES).forEach(function (k) {
+        fetch(base + FILES[k]).then(function (r) { return r.ok ? r.arrayBuffer() : Promise.reject(new Error(r.status)); })
+          .then(function (ab) { return new Promise(function (res, rej) { ctx.decodeAudioData(ab, res, rej); }); })
+          .then(function (b) { buf[k] = b; }, function () {});
+      });
+    }
+    function synth(name) {
+      var f = { tap: [720, 430], open: [587, 880], on: [660, 990], off: [740, 494], save: [1047, 1397], page: [520, 900], correct: [784, 1175], wrong: [330, 247], success: [523, 1047] }[name];
+      [0, 1].forEach(function (i) {
+        var t = ctx.currentTime + i * 0.06, o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = 'triangle'; o.frequency.setValueAtTime(f[i], t);
+        g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.09, t + 0.006); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.16);
+        o.connect(g); g.connect(out); o.start(t); o.stop(t + 0.2);
+      });
+    }
+    function play(name) {
+      var c = ensure(); if (!c) return;
+      var t0 = Date.now();
+      if (name === 'tap') { if (t0 - lastTap < 50 || t0 - lastEvent < 150) return; lastTap = t0; } else lastEvent = t0;
+      var layers = MAP[name];
+      try {
+        if (layers.every(function (l) { return buf[l[0]]; })) {
+          layers.forEach(function (l) {
+            var src = c.createBufferSource(), g = c.createGain();
+            src.buffer = buf[l[0]];
+            src.playbackRate.value = l[2] * (l[0] === 'tap' ? 0.97 + Math.random() * 0.06 : 1);
+            g.gain.value = l[1]; src.connect(g); g.connect(out);
+            src.start(c.currentTime + (l[3] || 0));
+          });
+        } else synth(name);
+      } catch (e) {}
+    }
+    function sync() {
+      var b = $('#btnSound'), o = on();
+      b.querySelector('.msi').textContent = o ? 'volume_up' : 'volume_off';
+      b.setAttribute('aria-label', o ? 'Mute sounds' : 'Turn sounds on');
+      press(b, !o);
+      if (out) out.gain.setTargetAtTime(vol(), ctx.currentTime, 0.02);
+    }
+    function toggle() {
+      var next = !on();
+      try { window.localStorage.setItem('ilberiz_audio', next ? 'on' : 'off'); } catch (e) {}
+      sync(); if (next) play('on');
+    }
+    return { play: play, sync: sync, toggle: toggle };
+  })();
+
+  function announce(msg) { var a = $('#announcer'); a.textContent = ''; setTimeout(function () { a.textContent = msg; }, 30); }
+
+  var dlg = $('#dlg'), dlgOpener = null;
+  function openDialog(title, bodyHTML, footHTML, onMount) {
+    if (dlg.open) closeDialog();
+    dlgOpener = document.activeElement;
+    $('#dlgTitle').textContent = title;
+    $('#dlgBody').innerHTML = bodyHTML;
+    var foot = $('#dlgFoot');
+    foot.innerHTML = footHTML || ''; foot.hidden = !footHTML;
+    try { dlg.showModal(); } catch (e) { dlg.setAttribute('open', ''); dlg.classList.add('fallback'); }   /* no <dialog> support */
+    $('#dlgBody').scrollTop = 0;
+    if (onMount) onMount($('#dlgBody'), foot);
+    (dlg.querySelector('[data-autofocus]') || $('#dlgClose')).focus();
+  }
+  function closeDialog() {
+    if (!dlg.classList.contains('fallback')) dlg.close();
+    else { dlg.removeAttribute('open'); dlg.classList.remove('fallback'); onDialogClosed(); }
+  }
+  function onDialogClosed() {
+    if (dlgOpener && document.contains(dlgOpener)) focusOn(dlgOpener);
+    dlgOpener = null;
+  }
+
+  /* ------------------------------------------------------------------
+     Card templates
+     ------------------------------------------------------------------ */
+  function chipSrc(s, itMarks) {
+    var src = s.source, g = srcGroup(src);
+    var label = (src ? srcShort(src) : s.src) + (s.ref ? ' · ' + s.ref : '') + (s.marks != null && s.marks !== itMarks ? ' · ' + fmtN(s.marks) + 'm' : '');
+    var title = (src ? srcLabel(src) : 'Unknown source id ' + s.src) + (s.ref ? ', ' + s.ref : '') +
+      (s.marks != null ? ', ' + plural(s.marks, 'mark') : '') + (s.note ? ' — ' + strip(s.note) : '');
+    return '<span class="src src-' + g + '" title="' + esc(title) + '">' + esc(label) + (s.note ? '<span class="nt" aria-hidden="true"></span>' : '') + '</span>';
+  }
+  function srcRowHTML(it) {
+    if (!it.seen.length) return '<div class="srcs"><span class="src-none">No board, specimen or CFPQ appearance recorded</span></div>';
+    var notes = it.seen.filter(function (s) { return s.note; });
+    return '<div class="srcs" aria-label="Where this appeared">' + it.seen.map(function (s) { return chipSrc(s, it.marks); }).join('') + '</div>' +
+      (notes.length ? '<p class="src-notes">' + notes.map(function (s) { return '<span>' + esc(s.source ? srcShort(s.source) : s.src) + ': ' + esc(strip(s.note)) + '</span>'; }).join('') + '</p>' : '');
+  }
+  function miniStripHTML(it, c) {
+    var hit = {}, offHit = new Set();
+    allSeen(it).forEach(function (s) {
+      var src = s.source; if (!src) return; var tm = TYPE_META[src.type]; if (!tm) return;
+      if (tm.strip && src.year) hit[src.year] = 'b';
+      else if (tm.board && src.year && !hit[src.year]) hit[src.year] = 's';
+      if (!tm.strip) offHit.add(src.id);
+    });
+    var cells = c.years.map(function (y) {
+      var cls = !c.hasYear[y] ? 'ms-x' : (hit[y] ? 'ms-' + hit[y] : '');
+      return '<i class="' + cls + '"></i>';
+    }).join('');
+    var dots = c.extraSources.map(function (s) { return '<i class="ms-o src-' + srcGroup(s) + (offHit.has(s.id) ? ' on' : '') + '"></i>'; }).join('');
+    var lbl = 'Year strip ' + (c.years[0] || '') + '–' + (c.years[c.years.length - 1] || '') + ': ' + (it.prob.years.length ? 'asked in ' + it.prob.years.join(', ') : 'no board year');
+    return '<span class="mini" role="img" aria-label="' + esc(lbl) + '" title="' + esc(lbl) + '">' + cells + (dots ? '<span class="ms-gap"></span>' + dots : '') + '</span>';
+  }
+  // Exact figures (photos, maps, diagrams, tables, circuits) cropped from the official paper live in ./img/
+  function safeImg(p) { p = str(p); return /^img\/[\w\-.\/]+\.(png|jpe?g|webp|svg|gif)$/i.test(p) && p.indexOf('..') < 0 ? p : null; }
+  function imgList(v, alt) {
+    return (Array.isArray(v) ? v : [v]).map(function (x) {
+      return { src: safeImg(x && x.src || x), alt: str(x && x.alt || alt || 'Figure from the question paper') };
+    }).filter(function (m) { return m.src; });
+  }
+  function figureHTML(it) {
+    if (it.img.length) {
+      return '<figure class="fig fig-exact">' + it.img.map(function (m) {
+        return '<img src="' + esc(m.src) + '" alt="' + esc(strip(m.alt)) + '" loading="lazy" decoding="async">';
+      }).join('') + '<figcaption><span class="fig-k">As printed in the question paper</span></figcaption></figure>';
+    }
+    if (!it.picture) return '';
+    var isSrc = it.format === 'SOURCE';
+    return '<figure class="fig"><span class="fig-ic">' + icon(isSrc ? 'article' : 'image') + '</span><figcaption><span class="fig-k">' +
+      (isSrc ? 'Source extract' : 'Picture in the paper (description)') + '</span>' + rt(it.picture) + '</figcaption></figure>';
+  }
+  function optImg(it, i) { var p = it.optionImgs[i]; return p ? '<img class="opt-img" src="' + esc(p) + '" alt="Option ' + letter(i) + '" loading="lazy">' : ''; }
+  function ansImgs(v) {
+    return arr(v).map(function (x) { return typeof x === 'string' ? { src: safeImg(x), cap: '' } : { src: safeImg(x && x.src), cap: str(x && x.cap) }; })
+      .filter(function (x) { return x.src; });
+  }
+  function ansFigHTML(a) {
+    if (!a.img.length) return '';
+    return '<figure class="fig fig-ans"><div class="fig-row">' + a.img.map(function (m) {
+      return '<div class="fig-cell"><img src="' + esc(m.src) + '" alt="' + esc(strip(m.cap) || 'Answer diagram') + '" loading="lazy" decoding="async">' + (m.cap ? '<span class="fig-k">' + rt(m.cap) + '</span>' : '') + '</div>';
+    }).join('') + '</div>' + (a.imgNote ? '<figcaption>' + rt(a.imgNote) + '</figcaption>' : '') + '</figure>';
+  }
+  function mixedHTML(it) { return it.mixed ? '<div class="mixed">' + icon('call_split') + '<div><b>Mixed-chapter question</b>' + rt(it.mixed) + '</div></div>' : ''; }
+  function stemHTML(it) { return it.stem ? '<div class="stem"><span class="stem-k">Stem</span>' + rt(it.stem) + '</div>' : ''; }
+  function optsHTML(it, act) {
+    var two = it.options.every(function (o) { return strip(o).length <= 46; }) && it.options.length % 2 === 0;
+    return '<div class="opts' + (two ? ' two' : '') + '" role="group" aria-label="Options">' + it.options.map(function (o, i) {
+      return '<button type="button" class="opt' + (i === it.correct && act === 'opt' ? ' is-key' : '') + '" data-act="' + act + '" data-i="' + i + '" aria-pressed="false">' +
+        '<span class="opt-l" aria-hidden="true">' + letter(i) + '</span><span class="opt-t">' + rt(o) + optImg(it, i) + '</span>' +
+        '<span class="opt-ic msi" aria-hidden="true">' + (i === it.correct ? 'check_circle' : 'cancel') + '</span><span class="sr-only opt-sr"></span></button>';
+    }).join('') + '</div>';
+  }
+  function pointsHTML(it, act, checked) {
+    var pts = it.answer.points; if (!pts.length) return '';
+    var r = markRule(it.marks, pts.length);
+    checked = checked || [];
+    return '<div class="mpoints"><div class="mp-head"><h4>Marking points</h4><span class="mp-rule">' + esc(r.text) + ' · ' + plural(it.marks, 'mark') + ' total</span></div>' +
+      '<ol class="mp-list">' + pts.map(function (p, i) {
+        var on = checked.indexOf(i) >= 0;
+        return '<li class="mp' + (on ? ' ticked' : '') + '"><div class="mp-t">' + trusted(p) + '</div><span class="mp-m">' + fmtN(r.per) + ' m</span>' +
+          '<label class="mp-chk"><input type="checkbox" data-act="' + act + '" data-i="' + i + '"' + (on ? ' checked' : '') + '> I wrote this</label></li>';
+      }).join('') + '</ol>' +
+      '<p class="mp-score">Marking checklist: <b class="mp-val">0</b> / ' + fmtN(it.marks) + '<span class="mp-bar" aria-hidden="true"><span></span></span></p></div>';
+  }
+  function listHTML(items) { return items.length ? '<ul>' + items.map(function (p) { return '<li>' + trusted(p) + '</li>'; }).join('') + '</ul>' : ''; }
+  function officialHTML(off) {
+    if (!off) return '';
+    return '<section class="official"><h4>' + icon('verified') + 'Official examiner note (CISCE)' + (off.src ? ' <span class="off-src">' + esc(off.src) + '</span>' : '') + '</h4>' +
+      listHTML(off.points) + (off.errors.length ? '<h5>' + icon('error') + 'Common mistakes</h5>' + listHTML(off.errors) : '') + '</section>';
+  }
+  function tipHTML(tip, style) {
+    return tip ? '<div class="tipbox"' + (style || '') + '>' + icon('lightbulb') + '<div><b>How to score full marks</b>' + trusted(tip) + '</div></div>' : '';
+  }
+  function chipsHTML(it) { return '<span class="chip chip-fmt">' + esc(FORMAT_LABEL[it.format] || it.format) + '</span><span class="chip">' + plural(it.marks, 'mark') + '</span>'; }
+  function promptHTML(it, id) { return mixedHTML(it) + stemHTML(it) + figureHTML(it) + '<div class="q-text"' + (id ? ' id="' + id + '"' : '') + '>' + rt(it.q) + '</div>'; }
+  function answerHTML(it, ansId) {
+    var a = it.answer, h = '';
+    if (it.objective) h += '<p class="ans-key">' + icon('check_circle') + '<span>Answer: (' + letter(it.correct) + ') ' + rt(it.options[it.correct]) + '</span></p>';
+    if (a.why) h += '<div class="why"><b>Why</b> ' + trusted(a.why) + '</div>';
+    if (a.points.length) h += pointsHTML(it, 'chk');
+    h += ansFigHTML(a);
+    if (!it.objective && !a.points.length && !a.official) h += '<p class="why">Marking points for this question haven’t been added yet.</p>';
+    h += tipHTML(a.tip);
+    if (a.words && !it.objective) h += '<span class="words">' + icon('notes') + 'Suggested length: ' + esc(a.words) + '</span>';
+    h += officialHTML(a.official);
+    return '<div class="ans" id="' + ansId + '" role="region" aria-label="Answer for ' + esc(it.id) + '">' + h + '</div>';
+  }
+
+  function itemHTML(it, vIdx, vTotal) {
+    var c = CH[it.ch], main = !it.isVar, did = domId(it.id), hid = did + '_h', ansId = did + '_a';
+    var tp = c.topicById[it.topic];
+    var h = '<article class="qitem ' + (main ? 'qcard' : 'qvar') + '" data-qid="' + esc(it.id) + '" id="' + did + '" tabindex="-1" aria-labelledby="' + hid + '">';
+    h += '<div class="q-main">';
+    /* head */
+    h += '<header class="q-head">';
+    if (!main) h += '<span class="var-lbl">Variation ' + (vIdx + 1) + ' of ' + vTotal + '</span>';
+    h += '<span class="q-id">' + esc(it.id) + '</span>';
+    h += chipsHTML(it);
+    h += '<span class="chip chip-time" title="Suggested time: marks × ' + fmtN(TPM) + ' min">' + icon('timer') + fmtN(it.marks * TPM) + ' min</span>';
+    if (main) h += '<span class="var-hit-tag">Search matched a variation</span>';
+    h += '<span class="sp"></span>';
+    h += '<button type="button" class="icon-btn bm" data-act="bm" aria-pressed="false" aria-label="Bookmark ' + esc(it.id) + '" title="Bookmark (B)">' + icon('star') + '</button>';
+    h += '</header>';
+    /* tags */
+    if (main) {
+      h += '<div class="q-tags">';
+      if (tp) {
+        h += '<span class="chip topic-chip" title="' + esc(tp.name) + '">' + icon('sell') + '<span class="tc-t">' + esc(tp.name) + '</span></span>';
+        if (tp.note && safeUrl(tp.note.file)) h += '<a class="note-link" href="' + esc(safeUrl(tp.note.file)) + '" target="_blank" rel="noopener" title="' + esc(str(tp.note.covers) || 'Open the class notes PDF') + '">' + icon('menu_book') + esc(str(tp.note.label) || 'Notes') + '</a>';
+      }
+      if (it.difficulty) h += '<span class="chip diff-' + esc(it.difficulty) + '">' + esc(it.difficulty) + '</span>';
+      if (it.skill) h += '<span class="chip">' + esc(it.skill) + '</span>';
+      var cm = CONF_META[it.confidence];
+      if (cm) h += '<span class="chip conf-' + it.confidence + '" title="' + esc(cm.title) + '">' + icon(cm.icon) + esc(cm.label) + '</span>';
+      it.flags.forEach(function (f) {
+        var fm = FLAG_META[f] || FLAG_META[f.replace(/-ch\d+$/, '-ch')];
+        var lbl = fm ? fm.label.replace('{ch}', (f.match(/ch(\d+)$/) || [])[1] || '') : f.replace(/[-_]+/g, ' ');
+        h += '<span class="chip flag-chip' + (fm && fm.ok ? ' flag-ok' : '') + '" title="' + esc(fm ? fm.title : lbl) + '">' + icon(fm ? fm.icon : 'flag') + esc(lbl) + '</span>';
+      });
+      h += '</div>';
+    }
+    h += srcRowHTML(it);
+    /* probability */
+    if (main) {
+      var p = it.prob;
+      h += '<div class="prob ' + p.cls + '"><div class="prob-top">' +
+        '<span class="prob-label">' + icon('trending_up') + esc(p.label) + '</span>' +
+        '<span class="meter" role="img" aria-label="Probability score ' + p.score + ' of 100"><span style="width:' + p.score + '%"></span></span>' +
+        '<span class="prob-score mono">' + p.score + '/100</span>' +
+        (p.overdue ? '<span class="tag-overdue" title="Asked in 2 or more board years but not since ' + p.last + '">' + icon('schedule') + 'Overdue</span>' : '') +
+        miniStripHTML(it, c) + '</div><p class="prob-basis">' + esc(p.basis) + '</p></div>';
+    }
+    /* body */
+    h += '<div class="q-body">';
+    if (!main && it.diff) h += '<div class="diff-box">' + icon('compare_arrows') + '<div><b>How this differs</b>' + trusted(it.diff) + '</div></div>';
+    h += promptHTML(it, hid);
+    if (it.objective) h += optsHTML(it, 'opt');
+    else if (it.answer.points.length || it.answer.words) {
+      h += '<p class="w-hint">' + icon('edit_note') + 'Write your answer' + (it.answer.words ? ' (' + esc(it.answer.words) + ')' : '') +
+        (it.answer.points.length ? ' — the examiner looks for ' + plural(it.answer.points.length, 'point') : '') + ', then reveal and tick what you wrote.</p>';
+    }
+    h += '</div>';
+    /* actions */
+    h += '<div class="q-actions">';
+    h += '<button type="button" class="btn btn-reveal" data-act="reveal" aria-expanded="false" aria-controls="' + ansId + '">' + icon('visibility') + '<span class="lbl">' + (it.objective ? 'Show answer' : 'Reveal answer') + '</span></button>';
+    if (it.objective) h += '<button type="button" class="btn btn-ghost btn-retry" data-act="retry" hidden>' + icon('refresh') + 'Try again</button>';
+    if (main && it.variations.length) h += '<button type="button" class="btn btn-vars" data-act="vars" aria-expanded="false" aria-controls="' + did + '_v">' + icon('layers') + '<span class="lbl">Show variations (' + it.variations.length + ')</span></button>';
+    h += '</div>';
+    h += answerHTML(it, ansId);
+    /* self-assessment */
+    h += '<div class="assess" role="group" aria-label="How did you do on ' + esc(it.id) + '?"><span class="assess-k">How did you do?</span>' +
+      [['got', 'check', 'Got it'], ['partly', 'change_history', 'Partly'], ['missed', 'close', 'Missed']].map(function (a) {
+        return '<button type="button" class="as as-' + a[0] + '" data-act="assess" data-v="' + a[0] + '" aria-pressed="false">' + icon(a[1]) + a[2] + '</button>';
+      }).join('') + '</div>';
+    h += '</div>'; /* /q-main */
+    if (main && it.variations.length) h += '<div class="vars" id="' + did + '_v" hidden></div>';
+    if (main) {
+      var rel = it.related.filter(function (id) { return id !== it.id; }).map(function (id) { return QMAP.get(id); }).filter(Boolean);
+      if (rel.length) {
+        h += '<div class="related"><p class="rel-k">' + icon('call_split') + 'Looks similar, but asks something different — practise separately</p><div class="rel-list">' +
+          rel.map(function (r) {
+            var where = (r.ch !== it.ch ? CH[r.ch].shortTitle + ' · ' : '') + SEC_META[r.sec].short;
+            return '<button type="button" class="rel" data-act="goto" data-target="' + esc(r.id) + '"><span class="mono">' + esc(r.id) + '</span><span class="rel-q">' + esc(snippet(r.q, 110)) + ' <small>(' + esc(where) + ')</small></span></button>';
+          }).join('') + '</div></div>';
+      }
+    }
+    h += '</article>';
+    return h;
+  }
+
+  /* ------------------------------------------------------------------
+     Card registry + in-place state updates
+     ------------------------------------------------------------------ */
+  var ELS = new Map();   /* id -> { el, it, refs } */
+  var VIEWS = {};        /* "ch|sec" -> { el, items, sortKey } */
+
+  function register(el, it) {
+    var m = el.firstElementChild, vars = $(':scope > .vars', el);
+    var refs = {
+      bm: $('.bm', m), as: $$('.as', m), opts: $$('.opt', m), retry: $('.btn-retry', m), reveal: $('.btn-reveal', m),
+      boxes: $$('input[data-act="chk"]', m),
+      varsBtn: $('.btn-vars', m), vars: vars
+    };
+    var entry = { el: el, it: it, refs: refs };
+    ELS.set(it.id, entry);
+    applyState(entry);
+    return entry;
+  }
+
+  function applyState(e) {
+    var it = e.it, r = e.refs, p = prog(it.id);
+    e.el.setAttribute('data-status', p.s || 'new');
+    press(r.bm, !!p.b);
+    r.as.forEach(function (b) { press(b, attr(b, 'data-v') === p.s); });
+    if (it.objective) {
+      var picked = typeof p.a === 'number' ? p.a : null;
+      e.el.classList.toggle('answered', picked !== null);
+      r.opts.forEach(function (o, i) {
+        o.classList.toggle('is-picked', i === picked);
+        press(o, i === picked);
+        $('.opt-sr', o).textContent = picked === null ? '' : (i === it.correct ? ' — correct answer' : (i === picked ? ' — your answer, incorrect' : ''));
+      });
+      if (r.retry) r.retry.hidden = picked === null;
+    }
+    if (r.boxes.length) {
+      var c = arr(p.c);
+      r.boxes.forEach(function (b, i) { b.checked = c.indexOf(i) >= 0; b.closest('.mp').classList.toggle('ticked', b.checked); });
+      updateScore(e);
+    }
+  }
+  function updateScore(e) { showScore(e.el, e.it, e.refs.boxes.filter(function (b) { return b.checked; }).length); }
+
+  function setReveal(e, on) {
+    e.el.classList.toggle('revealed', on);
+    var b = e.refs.reveal;
+    b.setAttribute('aria-expanded', String(on));
+    b.querySelector('.msi').textContent = on ? 'visibility_off' : 'visibility';
+    b.querySelector('.lbl').textContent = on ? 'Hide answer' : (e.it.objective ? 'Show answer' : 'Reveal answer');
+  }
+
+  function pickOption(e, i) {
+    if (state.mode === 'learn') return;
+    var it = e.it, p = prog(it.id);
+    if (typeof p.a === 'number') return;
+    var ok = i === it.correct, patch = { a: i };
+    if (!p.s) patch.s = ok ? 'got' : 'missed';
+    setProg(it.id, patch);
+    applyState(e); onProgress();
+    SFX.play(ok ? 'correct' : 'wrong');
+    announce(ok ? 'Correct.' : 'Incorrect. The answer is option ' + letter(it.correct) + '.');
+  }
+  function retry(e) { setProg(e.it.id, { a: null }); setReveal(e, false); applyState(e); onProgress(); var o = e.refs.opts[0]; if (o) o.focus(); }
+  function assess(e, v) {
+    var p = prog(e.it.id);
+    setProg(e.it.id, { s: p.s === v ? null : v });
+    SFX.play(p.s === v ? 'tap' : v === 'got' ? 'on' : v === 'missed' ? 'off' : 'tap');
+    applyState(e); onProgress();
+    announce(p.s === v ? 'Self-assessment cleared.' : 'Marked as ' + (v === 'got' ? 'got it' : v) + '.');
+  }
+  function toggleBookmark(e) {
+    var on = !prog(e.it.id).b;
+    setProg(e.it.id, { b: on });
+    SFX.play(on ? 'save' : 'off');
+    applyState(e); onProgress();
+    announce(on ? 'Bookmarked.' : 'Bookmark removed.');
+  }
+  function onCheck(e, input) {
+    setProg(e.it.id, { c: tickList(prog(e.it.id).c, +attr(input, 'data-i'), input.checked) });
+    input.closest('.mp').classList.toggle('ticked', input.checked);
+    updateScore(e);
+  }
+
+  function ensureVars(main) {
+    var e = ELS.get(main.id);
+    if (!e) return null;
+    var box = e.refs.vars;
+    if (!box.getAttribute('data-ready')) {
+      box.innerHTML = '<p class="vars-k">' + icon('layers') + 'Near-identical asks — the same answer core earns full marks</p>' +
+        main.variations.map(function (v, j) { return itemHTML(v, j, main.variations.length); }).join('');
+      $$('.qvar', box).forEach(function (el, j) { register(el, main.variations[j]); });
+      box.setAttribute('data-ready', '1');
+    }
+    return e;
+  }
+  function toggleVars(id, force) {
+    var main = QMAP.get(id);
+    if (!main || main.isVar || !main.variations.length) return;
+    var e = ensureVars(main); if (!e) return;
+    var open = force != null ? !!force : e.refs.vars.hidden;
+    e.refs.vars.hidden = !open;
+    var b = e.refs.varsBtn;
+    b.setAttribute('aria-expanded', String(open));
+    $('.lbl', b).textContent = (open ? 'Hide variations (' : 'Show variations (') + main.variations.length + ')';
+  }
+
+  /* ------------------------------------------------------------------
+     Views (one per chapter+section, built once, then updated in place)
+     ------------------------------------------------------------------ */
+  function vkey(ch, sec) { return ch + '|' + sec; }
+  function buildView(ch, sec) {
+    var k = vkey(ch, sec);
+    if (VIEWS[k]) return VIEWS[k];
+    var items = CH[ch].bySec[sec];
+    var el = document.createElement('div');
+    el.className = 'qlist';
+    el.innerHTML = items.map(function (it) { return itemHTML(it); }).join('');
+    $('#cards').appendChild(el);
+    var kids = el.children;
+    items.forEach(function (it, i) { register(kids[i], it); });
+    VIEWS[k] = { el: el, items: items, sortKey: null };
+    if (state.expandAll) items.forEach(function (it) { toggleVars(it.id, true); });
+    return VIEWS[k];
+  }
+  function curView() { return VIEWS[vkey(state.ch, state.sec)]; }
+
+  var SORTS = {
+    expected: function (a, b) { return (b.prob.score - a.prob.score) || (b.prob.last - a.prob.last) || (b.freq - a.freq) || (a.order - b.order); },
+    recent: function (a, b) { return (b.lastAny - a.lastAny) || (b.prob.score - a.prob.score) || (a.order - b.order); },
+    frequent: function (a, b) { return (b.freq - a.freq) || (b.prob.F - a.prob.F) || (b.prob.score - a.prob.score) || (a.order - b.order); },
+    topic: function (a, b) { return (topicOf(a).idx - topicOf(b).idx) || (a.order - b.order); },
+    marks: function (a, b) { return (b.marks - a.marks) || (b.prob.score - a.prob.score) || (a.order - b.order); }
+  };
+  function topicOf(it) { return CH[it.ch].topicById[it.topic]; }
+
+  function hasAll(blob, toks) { return toks.every(function (t) { return blob.indexOf(t) >= 0; }); }
+  function matches(it) {
+    var f = state.f, toks = state.toks;
+    if (f.topic.size && !f.topic.has(it.topic)) return false;
+    if (f.src.size && !it.groups.some(function (g) { return f.src.has(g); })) return false;
+    if (f.prob.size && !f.prob.has(it.prob.label)) return false;
+    if (f.status.size || state.rev) {
+      var st = statusSet(it);
+      if (f.status.size && !Array.from(f.status).some(function (s) { return st.has(s); })) return false;
+      if (state.rev && !(st.has('missed') || st.has('partly') || st.has('bm'))) return false;
+    }
+    return hasAll(it.blobAll, toks);
+  }
+  function pillCount() { var f = state.f; return f.topic.size + f.src.size + f.prob.size + f.status.size; }
+  function filtersActive() { return pillCount() > 0 || state.rev || state.toks.length > 0; }
+
+  function varCount(items) { return sum(items, function (it) { return it.variations.length; }); }
+  function applyFilters() {
+    var v = curView();
+    if (v.sortKey !== state.sort) {
+      var frag = document.createDocumentFragment();
+      v.items.slice().sort(SORTS[state.sort]).forEach(function (it) { frag.appendChild(ELS.get(it.id).el); });
+      v.el.appendChild(frag);
+      v.sortKey = state.sort;
+    }
+    var shown = 0, toks = state.toks;
+    v.items.forEach(function (it) {
+      var e = ELS.get(it.id), ok = matches(it);
+      if (e.el.hidden === ok) e.el.hidden = !ok;
+      e.el.classList.toggle('var-hit', ok && !hasAll(it.blobMain, toks));
+      if (ok) shown++;
+    });
+    var n = v.items.length, vars = varCount(v.items);
+    var act = filtersActive();
+    $('#resultLine').innerHTML = !n ? '' : (act ? 'Showing <b>' + shown + '</b> of ' + n + ' · ' : '') + 'unique <b>' + n + '</b> · with variations <b>' + (n + vars) + '</b>' +
+      (act ? ' <button type="button" class="link-btn" data-act="clear-filters">Clear filters</button>' : '');
+    $('#noResults').hidden = !(n && !shown);
+    var fc = pillCount();
+    var badge = $('#fCount'); badge.hidden = !fc; badge.textContent = fc;
+  }
+
+  /* ------------------------------------------------------------------
+     Header: chapter switch + section tabs
+     ------------------------------------------------------------------ */
+  function renderChapterSwitch() {
+    var c = CH[state.ch], btn = $('#chBtn'), menu = $('#chMenu'), single = CH_ORDER.length < 2;
+    btn.innerHTML = (c.chapterNo != null ? '<span class="ch-no">Ch ' + esc(c.chapterNo) + '</span>' : '') +
+      '<span class="ch-t">' + esc(c.shortTitle) + '</span>' + '<span class="msi ch-cv" aria-hidden="true">expand_more</span>';
+    btn.setAttribute('aria-label', (c.chapterNo != null ? 'Chapter ' + c.chapterNo + ': ' : '') + strip(c.title) + (single ? '' : '. Change chapter'));
+    btn.title = strip(c.title);
+    btn.classList.toggle('single', single);
+    if (single) btn.removeAttribute('aria-haspopup');
+    if (!menu.children.length) {
+      menu.innerHTML = '<p class="ch-menu-h" aria-hidden="true">Chapters</p>' + CH_ORDER.map(function (code) {
+        var x = CH[code];
+        var counts = SECS.filter(function (s) { return x.bySec[s].length; }).map(function (s) { return x.bySec[s].length + ' ' + SEC_META[s].short; }).join(' · ');
+        return '<button type="button" class="ch-item" role="menuitemradio" aria-checked="false" data-ch="' + esc(code) + '" tabindex="-1">' +
+          '<span class="ci-no" aria-hidden="true">' + (x.chapterNo != null ? esc(x.chapterNo) : '•') + '</span>' +
+          '<span class="ci-t"><b>' + esc(strip(x.title)) + '</b><small>' + esc(counts || plural(x.all.length, 'question')) + '</small></span>' +
+          '<span class="msi ci-ok" aria-hidden="true">check</span></button>';
+      }).join('');
+    }
+    $$('.ch-item', menu).forEach(function (b) { b.setAttribute('aria-checked', String(attr(b, 'data-ch') === state.ch)); });
+  }
+  function chMenuOpen() { return !$('#chMenu').hidden; }
+  function openChMenu() {
+    if (CH_ORDER.length < 2 || chMenuOpen()) return;
+    var menu = $('#chMenu'); menu.hidden = false; $('#chBtn').setAttribute('aria-expanded', 'true');
+    var cur = $('.ch-item[aria-checked="true"]', menu) || $('.ch-item', menu);
+    cur.focus(); cur.scrollIntoView({ block: 'nearest' });
+    SFX.play('open');
+  }
+  function closeChMenu(focusBtn) {
+    if (!chMenuOpen()) return;
+    $('#chMenu').hidden = true; $('#chBtn').setAttribute('aria-expanded', 'false');
+    if (focusBtn) $('#chBtn').focus();
+  }
+  function renderTabs() {
+    var c = CH[state.ch], box = $('#secTabs');
+    box.innerHTML = SECS.map(function (s) {
+      var m = SEC_META[s], items = c.bySec[s], sel = s === state.sec;
+      return '<button type="button" role="tab" class="tab" id="tab-' + s + '" data-sec="' + s + '" aria-selected="' + sel + '" aria-controls="cards" tabindex="' + (sel ? 0 : -1) + '">' +
+        icon(m.icon) + '<span class="tab-l"><span class="tab-full">' + esc(m.full) + '</span><span class="tab-short">' + esc(m.short) + '</span><span class="tab-sub">' + esc(m.sub) + '</span></span>' +
+        '<span class="tab-n" aria-label="' + plural(items.length, 'question') + '">' + items.length + '</span><span class="tab-prog" aria-hidden="true"></span></button>';
+    }).join('');
+    updateTabProgress();
+  }
+  function mastery(items) {
+    var got = items.filter(function (it) { return prog(it.id).s === 'got'; }).length;
+    return { got: got, pct: items.length ? Math.round(got / items.length * 100) : 0 };
+  }
+  function updateTabProgress() {
+    var c = CH[state.ch];
+    SECS.forEach(function (s) {
+      $('.tab-prog', $('#tab-' + s)).style.setProperty('--p', mastery(c.bySec[s]).pct + '%');
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     Hero: stats, ring, year heat strip, links
+     ------------------------------------------------------------------ */
+  function secStats(c, sec) {
+    var items = c.bySec[sec], vars = 0, board = 0, off = 0, years = new Set();
+    items.forEach(function (it) { vars += it.variations.length; board += it.boardApps; off += it.offApps; it.prob.years.forEach(function (y) { years.add(y); }); });
+    return { n: items.length, vars: vars, board: board, off: off, years: years.size, den: Math.max(c.boardYearDen, years.size) };
+  }
+  function statHTML(k, v, note, style) { return '<div class="stat"><dt>' + k + '</dt><dd' + (style || '') + '>' + v + (note ? '<small>' + note + '</small>' : '') + '</dd></div>'; }
+  function renderHero() {
+    var c = CH[state.ch], sec = state.sec, m = SEC_META[sec], st = secStats(c, sec);
+    $('#heroKicker').innerHTML = (c.chapterNo != null ? '<span>Chapter ' + esc(c.chapterNo) + '</span><span class="sep">/</span>' : '') + '<span>' + esc(m.full) + ' DPP</span>';
+    $('#heroTitle').textContent = strip(c.title);
+    var where = str(obj(PAT.secMap)[sec]) || m.full;
+    $('#heroWhere').innerHTML = icon('location_on') + '<span>In the paper: ' + esc(where) + '</span>';
+    $('#stats').innerHTML = statHTML('Unique questions', st.n) +
+      statHTML('Board appearances', st.board, st.off ? '+' + st.off + ' specimen/CFPQ' : '') +
+      statHTML('Board years covered', st.years, 'of ' + st.den) +
+      statHTML('Variations', st.vars, st.vars ? (st.n + st.vars) + ' to practise in all' : 'every question is unique');
+    $('#heroSum').innerHTML = '<b>' + plural(st.n, 'question') + '</b> · ' + plural(st.board, 'board appearance') + ' · ' + st.years + ' of ' + st.den + ' board years';
+    $('#heat').innerHTML = heatHTML(c, sec);
+    var links = c.notes.map(function (n) {
+      var u = safeUrl(n.file); if (!u) return '';
+      return '<a class="note-chip" href="' + esc(u) + '" target="_blank" rel="noopener" title="' + esc(str(n.covers) || 'Open PDF') + '">' + icon('picture_as_pdf') + esc(str(n.label) || 'Class notes') + '</a>';
+    }).join('');
+    $('#heroLinks').innerHTML = links + '<span class="grow"></span>' +
+      '<button type="button" class="btn btn-sm" data-open="blueprint">' + icon('table_chart') + 'Exam blueprint</button>' +
+      '<button type="button" class="btn btn-sm" data-open="sources">' + icon('fact_check') + 'Sources &amp; method</button>';
+    updateRing();
+    $('#printHead').innerHTML = '<h1>' + esc(strip(c.title)) + ' — ' + esc(m.full) + '</h1><p>Revision sheet · ' + plural(st.n, 'unique question') +
+      ' with answers · ' + esc(where) + ' · printed ' + esc(new Date().toLocaleDateString()) + '</p>';
+  }
+  function updateRing() {
+    var items = CH[state.ch].bySec[state.sec], n = items.length, m = mastery(items);
+    $('#ringFg').setAttribute('stroke-dasharray', m.pct + ' 100');
+    $('#ringNum').textContent = m.got + '/' + n;
+    $('#ring').setAttribute('aria-label', 'Mastered ' + m.got + ' of ' + n + ' questions (marked Got it)');
+  }
+  function heatHTML(c, sec) {
+    var items = c.bySec[sec], qBy = {}, mBy = {};
+    items.forEach(function (it) {
+      withVars(it).forEach(function (x) {
+        x.seen.forEach(function (s) { qBy[s.src] = (qBy[s.src] || 0) + 1; mBy[s.src] = (mBy[s.src] || 0) + num(s.marks, x.marks); });
+      });
+    });
+    function marksOf(src) { return num(obj(src.marks)[sec], mBy[src.id] || 0); }
+    var cells = c.years.map(function (y) {
+      var srcs = c.sources.filter(function (s) { var tm = TYPE_META[s.type]; return tm && tm.strip && s.year === y; });
+      if (!srcs.length) return { y: y, kind: 'none' };
+      var have = srcs.filter(found);
+      if (!have.length) return { y: y, kind: 'nf', srcs: srcs };
+      return { y: y, kind: 'ok', marks: sum(have, marksOf), q: sum(have, function (s) { return qBy[s.id] || 0; }), srcs: have };
+    });
+    var max = Math.max.apply(null, [0].concat(cells.map(function (x) { return x.marks || 0; })));
+    function names(x, sep) { return x.srcs.map(function (s) { return str(s.label) || s.id; }).join(sep); }
+    function tip(t) { return ' title="' + esc(t) + '" aria-label="' + esc(t) + '">'; }
+    var row = cells.map(function (x) {
+      var yl = '<span class="hc-y"><span class="yl">' + x.y + '</span><span class="ys">’' + String(x.y).slice(-2) + '</span></span>';
+      if (x.kind === 'none') {
+        var t = x.y + ': ' + (x.y === 2021 ? 'no board exam was held' : 'no board paper in the sources');
+        return '<li class="hc none"' + tip(t) + yl + '<span class="hc-m">' + (x.y === 2021 ? '<span class="ne-l">no exam</span><span class="ne-s">×</span>' : '—') + '</span></li>';
+      }
+      if (x.kind === 'nf') {
+        return '<li class="hc nf"' + tip(x.y + ': paper not found (' + names(x, ', ') + ')') + yl + '<span class="hc-m">n/a</span></li>';
+      }
+      var lbl = x.y + ': ' + plural(x.marks, 'mark') + ', ' + plural(x.q, 'question') + ' (' + names(x, ' + ') + ')';
+      return '<li class="hc' + (x.marks ? '' : ' zero') + '" style="--i:' + (max ? (x.marks / max).toFixed(2) : 0) + '"' + tip(lbl) + yl +
+        '<span class="hc-m">' + fmtN(x.marks) + '</span><span class="hc-q">' + (x.q ? plural(x.q, 'Q', 'Qs') : '&nbsp;') + '</span></li>';
+    }).join('');
+    var chips = c.extraSources.map(function (s) {
+      var base = 'hchip src-' + srcGroup(s), name = srcShort(s);
+      if (!found(s)) return '<span class="' + base + ' nf" title="' + esc(srcLabel(s) + ': not found') + '">' + esc(name) + '</span>';
+      var mk = marksOf(s), q = qBy[s.id] || 0;
+      return '<span class="' + base + (mk || q ? '' : ' zero') + '" title="' + esc(srcLabel(s) + ': ' + plural(mk, 'mark') + ', ' + plural(q, 'question')) + '">' +
+        esc(name) + ' <b>' + fmtN(mk) + 'm</b>' + (q ? ' · ' + plural(q, 'Q', 'Qs') : '') + '</span>';
+    }).join('');
+    return '<div class="heat-head"><h2>Marks from this chapter’s ' + esc(SEC_META[sec].noun) + ' questions, year by year</h2>' +
+      '<span class="heat-legend"><span><i class="lg-hot"></i>more marks</span><span><i class="lg-none"></i>no paper</span></span></div>' +
+      '<ol class="heat-row" style="--n:' + cells.length + '" aria-label="Board marks per year">' + row + '</ol>' +
+      (chips ? '<div class="heat-chips" aria-label="Supplementary, specimen and CFPQ papers">' + chips + '</div>' : '');
+  }
+
+  /* ------------------------------------------------------------------
+     Filters panel
+     ------------------------------------------------------------------ */
+  function buildFilters() {
+    var c = CH[state.ch], items = c.bySec[state.sec], box = $('#filters');
+    var tCount = {}, gCount = {}, pCount = {};
+    items.forEach(function (it) {
+      tCount[it.topic] = (tCount[it.topic] || 0) + 1;
+      it.groups.forEach(function (g) { gCount[g] = (gCount[g] || 0) + 1; });
+      pCount[it.prob.label] = (pCount[it.prob.label] || 0) + 1;
+    });
+    var topics = c.topics.filter(function (t) { return tCount[t.id]; });
+    function pill(group, v, label, n, extra) {
+      var on = state.f[group].has(v);
+      return '<button type="button" class="pill" data-f="' + group + '" data-v="' + esc(v) + '" aria-pressed="' + on + '"' + (n ? '' : ' data-empty="1"') + '>' + (extra || '') + esc(label) +
+        ' <span class="cnt">' + n + '</span></button>';
+    }
+    function group(title, pills, id) { return '<div class="fgroup"><h3 class="fg-k">' + title + '</h3><div class="pills"' + (id || '') + '>' + pills.join('') + '</div></div>'; }
+    box.innerHTML = (topics.length ? group('Topic', topics.map(function (t) { return pill('topic', t.id, t.name, tCount[t.id]); })) : '') +
+      group('Source type', GROUPS.map(function (g) { return pill('src', g.id, g.label, gCount[g.id] || 0, '<span class="dot" style="--c:var(--src-' + g.id + ')"></span>'); })) +
+      group('Probability', PROBS.map(function (p) { return pill('prob', p.id, p.id, pCount[p.id] || 0, '<span class="dot ' + p.cls + '" style="--c:var(--pc)"></span>'); })) +
+      group('Status', STATUSES.map(function (s) { return pill('status', s.id, s.label, 0); }), ' id="statusPills"') +
+      '<div class="filters-foot"><button type="button" class="btn btn-sm btn-ghost" data-act="clear-filters">' + icon('filter_alt_off') + 'Clear all filters</button></div>';
+    updateStatusCounts();
+  }
+  function updateStatusCounts() {
+    var items = CH[state.ch].bySec[state.sec], cnt = {};
+    items.forEach(function (it) { statusSet(it).forEach(function (s) { cnt[s] = (cnt[s] || 0) + 1; }); });
+    $$('#statusPills .pill').forEach(function (b) {
+      var n = cnt[b.getAttribute('data-v')] || 0;
+      b.querySelector('.cnt').textContent = n;
+      if (n) b.removeAttribute('data-empty'); else b.setAttribute('data-empty', '1');
+    });
+  }
+  function clearFilters(silent) {
+    Object.keys(state.f).forEach(function (k) { state.f[k].clear(); });
+    state.rev = false; state.toks = [];
+    $('#q').value = '';
+    $$('#btnRevision, #filters .pill').forEach(function (b) { press(b, false); });
+    applyFilters();
+    if (!silent) announce('Filters cleared.');
+  }
+
+  function onProgress() { updateRing(); updateTabProgress(); updateStatusCounts(); }
+
+  /* ------------------------------------------------------------------
+     Empty section state
+     ------------------------------------------------------------------ */
+  function renderEmpty() {
+    var c = CH[state.ch], items = c.bySec[state.sec], box = $('#emptySection');
+    var empty = !items.length;
+    box.hidden = !empty;
+    $('#toolbar').hidden = empty;
+    $('#filters').hidden = empty || $('#btnFilters').getAttribute('aria-expanded') !== 'true';
+    if (!empty) return;
+    var scanned = c.sources.filter(found).length;
+    var others = SECS.filter(function (s) { return s !== state.sec && c.bySec[s].length; });
+    box.innerHTML = icon('inventory_2') + '<h2>No questions from this section have appeared in the official papers yet</h2>' +
+      '<p>' + (scanned ? plural(scanned, 'paper or document', 'papers and documents') + ' were checked for ' + esc(c.shortTitle) + ', and none asked a ' + esc(SEC_META[state.sec].noun) + ' question from this chapter. ' : '') +
+      'Nothing is invented here, so this section stays empty until a real question appears.</p>' +
+      (others.length ? '<div class="row">' + others.map(function (s) { return '<button type="button" class="btn" data-sec-go="' + s + '">' + icon(SEC_META[s].icon) + 'Go to ' + esc(SEC_META[s].full) + ' (' + c.bySec[s].length + ')</button>'; }).join('') + '</div>' : '');
+  }
+
+  /* ------------------------------------------------------------------
+     Navigation: chapter / section / mode / URL
+     ------------------------------------------------------------------ */
+  function switchTo(ch, sec, initial) {
+    var chChanged = initial || ch !== state.ch;
+    state.ch = ch; state.sec = sec; state.curId = null;
+    if (chChanged) state.f.topic.clear();
+    renderChapterSwitch(); renderTabs(); renderHero(); buildFilters();
+    var v = buildView(ch, sec);
+    Object.keys(VIEWS).forEach(function (k) { VIEWS[k].el.hidden = VIEWS[k] !== v; });
+    applyFilters();
+    renderEmpty();
+    syncURL();
+    document.title = CH[ch].shortTitle + ' · ' + SEC_META[sec].full + ' — ' + UI_TITLE;
+  }
+  function syncURL() {
+    try {
+      var u = new URL(window.location.href);
+      u.searchParams.set('ch', state.ch); u.searchParams.set('sec', state.sec);
+      window.history.replaceState(null, '', u.toString());
+    } catch (e) { /* file:// or sandboxed iframe: ignore */ }
+  }
+  function pressMode(m) { $$('[data-mode-btn]').forEach(function (b) { press(b, attr(b, 'data-mode-btn') === m); }); }
+  function setMode(m) {
+    if (m === 'test') { openTestEntry(); return; }
+    state.mode = m;
+    document.body.setAttribute('data-mode', m);
+    pressMode(m);
+    $('#modeHint').textContent = MODE_HINT[m];
+    savePrefs();
+  }
+  function setExpandAll(on) {
+    state.expandAll = on;
+    press($('#btnExpand'), on);
+    Object.keys(VIEWS).forEach(function (k) { VIEWS[k].items.forEach(function (it) { toggleVars(it.id, on); }); });
+    savePrefs();
+  }
+
+  function scrollToEl(el, smooth) {
+    el.scrollIntoView({ block: 'start', behavior: smooth && !reduceMotion ? 'smooth' : 'auto' });
+  }
+  function flash(el) {
+    el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+    setTimeout(function () { el.classList.remove('flash'); }, 1700);
+  }
+  function setCurrent(el, scroll) {
+    var prev = state.curId && ELS.get(state.curId);
+    if (prev && prev.el !== el) prev.el.classList.remove('is-current');
+    el.classList.add('is-current');
+    state.curId = attr(el, 'data-qid');
+    if (scroll) { focusOn(el); scrollToEl(el, true); }
+  }
+  function goToQuestion(id) {
+    var it = QMAP.get(id);
+    if (!it) { toast('Question ' + id + ' isn’t in this data set.'); return; }
+    var main = it.isVar ? it.parent : it;
+    if (inTest()) exitTestView();
+    if (main.ch !== state.ch || main.sec !== state.sec) switchTo(main.ch, main.sec);
+    var e = ELS.get(main.id);
+    if (e.el.hidden) { clearFilters(true); toast('Filters cleared to show ' + main.id + '.'); }
+    if (it.isVar) toggleVars(main.id, true);
+    var target = ELS.get(it.id).el;
+    setCurrent(e.el, false);
+    focusOn(target);
+    scrollToEl(target, true);
+    /* content-visibility can shift layout while scrolling: correct once */
+    setTimeout(function () {
+      var top = target.getBoundingClientRect().top, hdr = headerH();
+      if (Math.abs(top - hdr - 12) > 40) scrollToEl(target, false);
+    }, reduceMotion ? 50 : 520);
+    flash(target);
+  }
+
+  /* ------------------------------------------------------------------
+     Modals: blueprint, sources & method, shortcuts
+     ------------------------------------------------------------------ */
+  /* table with '#' in front of a heading = number column */
+  function tableHTML(heads, rows) {
+    return '<div class="tbl-wrap"><table class="tbl"><thead><tr>' + heads.map(function (t) { return t.charAt(0) === '#' ? '<th class="num">' + t.slice(1) + '</th>' : '<th>' + t + '</th>'; }).join('') +
+      '</tr></thead><tbody>' + rows.join('') + '</tbody></table></div>';
+  }
+  function openBlueprint() {
+    var c = CH[state.ch], P = PAT, h = '';
+    var lead = [str(P.paper), str(P.duration), P.marks != null ? P.marks + ' marks' : '', P.internal != null ? '+ ' + P.internal + ' internal assessment' : ''].filter(Boolean).join(' · ');
+    if (lead) h += '<p class="dlg-lead">' + esc(strip(lead)) + '</p>';
+    var secs = arr(P.sections);
+    if (secs.length) {
+      h += '<h3>Sections and marks</h3>' + tableHTML(['Question', 'What is asked', '#Marks'], secs.map(function (s) {
+          return '<tr class="grp"><td colspan="2">' + esc(strip(s.name)) + '</td><td class="num">' + esc(s.marks) + '</td></tr>' +
+            arr(s.items).map(function (i) { return '<tr><td class="mono">' + esc(i.q) + '</td><td>' + esc(strip(i.what)) + '</td><td class="num">' + esc(i.marks) + '</td></tr>'; }).join('');
+        }));
+    }
+    /* how this chapter appears, from sources[].marks */
+    var boardSrc = c.sources.filter(function (s) { var tm = TYPE_META[s.type]; return tm && tm.board && found(s); });
+    h += '<h3>How ' + esc(c.shortTitle) + ' appears</h3>' + tableHTML(['DPP', 'Where in the paper', '#Board papers with it', '#Avg marks / paper', '#Unique Qs'],
+      SECS.map(function (s) {
+        var marks = function (x) { return num(obj(x.marks)[s], 0); };
+        var withIt = boardSrc.filter(marks), total = sum(boardSrc, marks);
+        return '<tr><td>' + esc(SEC_META[s].full) + '</td><td>' + esc(strip(obj(P.secMap)[s])) + '</td><td class="num">' + withIt.length + ' / ' + boardSrc.length +
+          '</td><td class="num">' + (boardSrc.length ? fmtN(Math.round(total / boardSrc.length * 10) / 10) : '—') + '</td><td class="num">' + c.bySec[s].length + '</td></tr>';
+      }));
+    var mk = arr(P.marking);
+    if (mk.length) h += '<h3>Marking conventions</h3>' + listHTML(mk.map(function (x) { return esc(strip(x)); }));
+    h += '<h3>Time per mark</h3><p><b>' + fmtN(TPM) + ' min per mark</b> — a 1-mark MCQ ≈ ' + fmtN(TPM) + ' min, a 2-mark answer ≈ ' + fmtN(2 * TPM) + ' min, a 4-mark answer ≈ ' + fmtN(4 * TPM) + ' min. Test mode uses the same rate for its default duration.</p>';
+    var hist = arr(P.history);
+    if (hist.length) h += '<h3>Pattern history</h3>' + tableHTML(['Years', 'Pattern'], hist.map(function (x) { return '<tr><td style="white-space:nowrap">' + esc(strip(x.years)) + '</td><td>' + esc(strip(x.pattern)) + '</td></tr>'; }));
+    var syl = obj(P.syllabus)[state.ch] || str(c.meta.syllabus);
+    if (syl) h += '<h3>Official syllabus' + (c.chapterNo != null ? ' — Chapter ' + esc(c.chapterNo) : '') + '</h3><blockquote>' + esc(strip(syl)) + '</blockquote>';
+    openDialog('Exam blueprint', h);
+  }
+  function openSources() {
+    var c = CH[state.ch], h = '';
+    var nFound = c.sources.filter(found).length;
+    h += '<p class="dlg-lead">' + plural(c.sources.length, 'paper or document', 'papers and documents') + ' checked for ' + esc(c.shortTitle) + ' · ' + nFound + ' found.' +
+      (c.meta.updated ? ' Last updated ' + esc(c.meta.updated) + '.' : '') + '</p>';
+    if (c.sources.length) {
+      h += tableHTML(['Source', 'Found'].concat(SECS.map(function (k) { return '#' + esc(SEC_META[k].short); }), 'Link'),
+        c.sources.slice().sort(bySource).map(function (s) {
+          var g = srcGroup(s), nf = !found(s), u = safeUrl(s.url);
+          var cell = function (k) { return '<td class="num' + (nf ? ' nf' : '') + '">' + (nf || num(obj(s.marks)[k], null) === null ? '—' : fmtN(s.marks[k])) + '</td>'; };
+          return '<tr><td><span class="src src-' + g + '">' + esc(srcShort(s)) + '</span><br><small>' + esc(str(s.label) || s.id) + '</small></td>' +
+            '<td>' + (nf ? '<span class="bad-t">Not found</span>' : '<span class="ok-t">Found</span>') + '</td>' + SECS.map(cell).join('') +
+            '<td>' + (u ? '<a href="' + esc(u) + '" target="_blank" rel="noopener noreferrer">Open</a>' : '—') + '</td></tr>';
+        }));
+    } else h += '<p>No sources are listed for this chapter yet.</p>';
+    h += '<p>Marks columns show how many marks of this chapter appeared in each section of that paper.</p>';
+    h += '<h3>Source colours</h3><ul class="legend-list">' + GROUPS.map(function (g) {
+      var d = { board: 'ICSE board papers', sem: '2022 Semester 1 and Semester 2 papers', sup: 'CISCE supplementary / improvement papers', spec: 'CISCE specimen papers (latest three)', cfpq: 'CISCE competency-focused practice questions (latest three)' }[g.id];
+      return '<li><span class="src src-' + g.id + '">' + esc(g.label) + '</span> ' + esc(d) + '</li>';
+    }).join('') + '</ul>';
+    h += '<h3>Confidence of the question text</h3><ul class="legend-list">' + Object.keys(CONF_META).map(function (k) {
+      return '<li><span class="chip conf-' + k + '">' + icon(CONF_META[k].icon) + esc(CONF_META[k].label) + '</span> ' + esc(CONF_META[k].title) + '.</li>';
+    }).join('') + '</ul>';
+    h += '<h3>How variations are decided</h3><p>A question is listed as a <b>variation</b> only when it asks the same thing in very similar language and the <b>same answer core earns full marks</b>. ' +
+      'If it asks a different aspect, a different number of points, a different person or event, a comparison instead of a description, causes instead of consequences, or “explain” instead of “name”, it is a <b>separate question</b>, linked under “Looks similar, but asks something different”. When in doubt, it stays separate.</p>' +
+      '<p>An exact repeat (same wording) is not a variation — it simply adds another source chip to the same question.</p>';
+    h += '<h3>How probability is calculated</h3><p>ICSE rarely repeats a ' + esc(UI_SUBJECT) + ' question word-for-word, but it keeps returning to the same topics. So the score mixes the question’s own record with its topic’s record:</p>' +
+      '<div class="formula">F  = board years this question (or a variation) appeared in (2022 Sem 1 + Sem 2 = one year)\n' +
+      'TF = board years ANY question on the same topic appeared in\n' +
+      'recency = +10 if the topic was last asked 2025 or later, +6 if 2023–24, +2 if earlier\n' +
+      'official = specimen / CFPQ papers this question is in;  topicOfficial = same for the topic\n\n' +
+      'score = 10 + 6 × min(F, 4) + 6 × min(TF, 8) + recency + min(16, 8 × official) + min(8, 4 × topicOfficial), capped at 97</div>' +
+      '<ul><li><b>Very High</b> 75+ · <b>High</b> 55–74 · <b>Moderate</b> 35–54 · <b>Low</b> below 35</li>' +
+      '<li><b>Overdue</b>: asked in 2 or more board years, but not since 2023.</li>' +
+      '<li>It is a guide to what is most worth revising, not a prediction of the paper.</li></ul>';
+    if (PAT.sourcesNote) h += '<h3>Scope</h3><p>' + esc(strip(PAT.sourcesNote)) + '</p>';
+    openDialog('Sources & method', h);
+  }
+  function openShortcuts() {
+    var rows = [
+      ['J / K', 'Next / previous question'], ['Space', 'Reveal or hide the answer (Practice)'], ['1 / 2 / 3', 'Got it / Partly / Missed'],
+      ['V', 'Show or hide variations'], ['B', 'Bookmark (in a test: flag for review)'], ['1–4', 'In a test: choose option a–d'], ['?', 'This list'], ['Esc', 'Close a dialog or panel']
+    ];
+    openDialog('Keyboard shortcuts', '<p>Shortcuts work when you aren’t typing in a box.</p><div class="kbd-grid">' +
+      rows.map(function (r) { return '<span>' + r[0].split(' / ').map(function (k) { return '<kbd>' + esc(k) + '</kbd>'; }).join(' / ') + '</span><span>' + esc(r[1]) + '</span>'; }).join('') + '</div>');
+  }
+
+  /* ------------------------------------------------------------------
+     Test mode
+     ------------------------------------------------------------------ */
+  var TEST = null, tTimer;
+  var DUR_PRESETS = [10, 15, 20, 30, 45];
+
+  function inTest() { return document.body.classList.contains('in-test'); }
+  function loadTest() {
+    var t = LS.get('test', null);
+    if (!t || !Array.isArray(t.ids)) return null;
+    t.ids = t.ids.filter(function (id) { return QMAP.has(id); });
+    if (!t.ids.length || !num(t.endAt, 0) || !num(t.startAt, 0)) return null;
+    ['ans', 'txt', 'done', 'flags', 'chk'].forEach(function (k) { t[k] = obj(t[k]); });
+    if (['run', 'mark', 'result'].indexOf(t.phase) < 0) t.phase = 'run';
+    t.idx = Math.min(Math.max(0, t.idx | 0), t.ids.length - 1);
+    return t;
+  }
+  function saveTest() { if (TEST) LS.set('test', TEST); else LS.del('test'); }
+  var saveTestSoon = debounce(saveTest, 400);
+  function selfMarked(id) { var it = QMAP.get(id); return !it.objective && it.answer.points.length > 0; }
+  function isAnswered(id) {
+    var it = QMAP.get(id);
+    if (it.objective) return typeof TEST.ans[id] === 'number';
+    return !!TEST.done[id] || !!str(TEST.txt[id]).trim();
+  }
+
+  function scopeLists() {
+    var c = CH[state.ch], v = curView();
+    var visible = v.items.filter(function (it) { return !ELS.get(it.id).el.hidden; });
+    if (v.sortKey) visible.sort(SORTS[state.sort]);
+    return {
+      section: c.bySec[state.sec],
+      filtered: visible,
+      chapter: SECS.reduce(function (a, s) { return a.concat(c.bySec[s]); }, [])
+    };
+  }
+  function openTestEntry() {
+    if (TEST && TEST.phase !== 'result') { enterTestView(); return; }
+    var L = scopeLists();
+    var defScope = L.section.length ? 'section' : 'chapter';
+    if (!L.chapter.length) { openDialog('Start a timed test', '<p>There are no questions in this chapter yet, so a test can’t be built.</p>'); return; }
+    var lastHTML = '';
+    if (TEST) {
+      var r = testResults();
+      lastHTML = '<p class="confirm-strip info" style="margin:0">' + icon('history') + '<span>Last test: ' + fmtN(r.score) + ' / ' + fmtN(r.max) + ' (' + r.pct + '%). </span><button type="button" class="link-btn" id="tsLast">View scorecard</button></p>';
+    }
+    var row = function (val, label, n, dis) {
+      return '<label class="opt-row' + (dis ? ' disabled' : '') + '"><input type="radio" name="tsScope" value="' + val + '"' + (val === defScope ? ' checked' : '') + (dis ? ' disabled' : '') + '> ' + label + '<span class="cnt">' + n + '</span></label>';
+    };
+    var body = lastHTML +
+      '<fieldset class="ts-group"><legend>Questions</legend>' +
+      row('section', 'This section — ' + esc(SEC_META[state.sec].full), L.section.length, !L.section.length) +
+      row('filtered', 'Current filtered list', L.filtered.length, !filtersActive() || !L.filtered.length) +
+      row('chapter', 'Whole chapter (all three sections)', L.chapter.length, !L.chapter.length) + '</fieldset>' +
+      '<label class="opt-row"><input type="checkbox" id="tsVars"> Include variations <span class="cnt" id="tsVarsN"></span></label>' +
+      '<label class="opt-row"><input type="checkbox" id="tsShuffle"> Shuffle question order</label>' +
+      '<fieldset class="ts-group"><legend>Duration</legend><div class="dur-row" id="tsDur"></div><p id="tsDurNote" style="font-size:12.5px;color:var(--tx-3)"></p></fieldset>' +
+      '<p class="ts-summary" id="tsSummary" aria-live="polite"></p>';
+    var foot = '<button type="button" class="btn btn-ghost" id="tsCancel">Cancel</button><button type="button" class="btn btn-primary" id="tsStart" data-autofocus>' + icon('play_arrow') + 'Start test</button>';
+    var dur = prefs.dur || 'auto';
+    openDialog('Start a timed test', body, foot, function (b, f) {
+      function pick() {
+        var sc = $('input[name="tsScope"]:checked', b).value, mains = L[sc];
+        var list = $('#tsVars', b).checked ? [].concat.apply([], mains.map(withVars)) : mains;
+        return { scope: sc, list: list, vcount: varCount(mains) };
+      }
+      function refresh() {
+        var p = pick(), marks = sum(p.list, function (it) { return it.marks; });
+        var auto = Math.max(1, Math.ceil(marks * TPM));
+        $('#tsVarsN', b).textContent = '+' + p.vcount;
+        $('#tsVars', b).disabled = !p.vcount;
+        $('#tsDur', b).innerHTML = ['auto'].concat(DUR_PRESETS).map(function (m) {
+          return '<button type="button" class="btn btn-sm" data-dur="' + m + '" aria-pressed="' + (String(dur) === String(m)) + '">' + (m === 'auto' ? 'Auto · ' + auto : m) + ' min</button>';
+        }).join('');
+        $('#tsDurNote', b).textContent = 'Auto = ' + fmtN(marks) + ' marks × ' + fmtN(TPM) + ' min per mark.';
+        var mins = dur === 'auto' ? auto : +dur;
+        $('#tsSummary', b).textContent = plural(p.list.length, 'question') + ' · ' + plural(marks, 'mark') + ' · ' + mins + ' min';
+        $('#tsStart', f).disabled = !p.list.length;
+        return { p: p, mins: mins };
+      }
+      b.addEventListener('change', refresh);
+      b.addEventListener('click', function (ev) {
+        var d = ev.target.closest('[data-dur]');
+        if (d) { dur = attr(d, 'data-dur'); refresh(); }
+        if (ev.target.closest('#tsLast')) { closeDialog(); enterTestView(); }
+      });
+      $('#tsCancel', f).addEventListener('click', closeDialog);
+      $('#tsStart', f).addEventListener('click', function () {
+        var r = refresh(); if (!r.p.list.length) return;
+        prefs.dur = dur; savePrefs();
+        var ids = r.p.list.map(function (it) { return it.id; });
+        if ($('#tsShuffle', b).checked) for (var i = ids.length - 1; i > 0; i--) ids.push(ids.splice(Math.floor(Math.random() * (i + 1)), 1)[0]);
+        var c = CH[state.ch];
+        var label = (c.chapterNo != null ? 'Ch ' + c.chapterNo + ' · ' : '') + (r.p.scope === 'chapter' ? 'Whole chapter' : SEC_META[state.sec].full + (r.p.scope === 'filtered' ? ' (filtered)' : ''));
+        startTest(ids, r.mins, label, state.ch);
+        closeDialog();
+      });
+      refresh();
+    });
+  }
+  function startTest(ids, mins, label, ch) {
+    var now = Date.now();
+    TEST = { v: 1, ch: ch, label: label, ids: ids, durMin: mins, startAt: now, endAt: now + mins * 60000, idx: 0,
+      ans: {}, txt: {}, done: {}, flags: {}, chk: {}, phase: 'run', warned: false, submittedAt: null };
+    saveTest();
+    enterTestView();
+    toast('Test started — ' + mins + ' min. Good luck.');
+  }
+  function showTest(on) {
+    document.body.classList.toggle('in-test', on);
+    $('#hero').hidden = $('#listView').hidden = on; $('#testView').hidden = !on;
+  }
+  function enterTestView() {
+    showTest(true);
+    pressMode('test');
+    renderTestPhase();
+    window.scrollTo(0, 0);
+  }
+  function exitTestView() {
+    stopTimer();
+    showTest(false);
+    $('#tConfirm').hidden = true;
+    setMode(state.mode);
+  }
+  function renderTestPhase() {
+    $('#testView').setAttribute('data-phase', TEST.phase);
+    $('#tLabel').textContent = TEST.label || 'Test';
+    $('#tConfirm').hidden = true;
+    /* render first: the first tick may auto-submit and re-render the next phase */
+    if (TEST.phase === 'run') { renderTQ(false); renderPalette(); startTimer(); }
+    else if (TEST.phase === 'mark') { stopTimer(); $('#tPos').textContent = 'Self-marking'; renderMark(); }
+    else { stopTimer(); $('#tPos').textContent = 'Scorecard'; renderResult(); }
+  }
+
+  function renderTQ(focus) {
+    var id = TEST.ids[TEST.idx], it = QMAP.get(id), n = TEST.ids.length;
+    $('#tPos').textContent = 'Question ' + (TEST.idx + 1) + ' of ' + n;
+    var picked = TEST.ans[id], flagged = !!TEST.flags[id];
+    var h = '<article class="tq" data-qid="' + esc(id) + '" tabindex="-1" aria-labelledby="tqh">' +
+      '<header class="q-head"><span class="tq-n">Q' + (TEST.idx + 1) + '</span><span class="q-id">' + esc(id) + '</span>' +
+      chipsHTML(it) + '<span class="chip chip-time">' + icon('timer') + fmtN(it.marks * TPM) + ' min</span><span class="chip topic-chip">' + esc(topicOf(it).name) + '</span>' +
+      '<span class="sp"></span>' + (flagged ? '<span class="tag-flag">Flagged</span>' : '') + '</header><div class="q-body">' +
+      promptHTML(it, 'tqh');
+    if (it.objective) {
+      h += '<div class="opts" role="group" aria-label="Options">' + it.options.map(function (o, i) {
+        return '<button type="button" class="opt' + (picked === i ? ' is-sel' : '') + '" data-act="tpick" data-i="' + i + '" aria-pressed="' + (picked === i) + '"><span class="opt-l" aria-hidden="true">' + letter(i) + '</span><span class="opt-t">' + rt(o) + optImg(it, i) + '</span></button>';
+      }).join('') + '</div>';
+    } else {
+      h += '<div class="tw"><p class="tw-hint">' + icon('edit_note') + '<span>Write your answer on paper' + (it.answer.words ? ' (' + esc(it.answer.words) + ')' : '') +
+        '. After you submit, you’ll tick the marking points you covered.</span></p>' +
+        '<label class="tw-lbl" for="twTxt">Rough notes (optional, saved on this device)</label><textarea id="twTxt" data-act="ttxt" rows="4">' + esc(TEST.txt[id] || '') + '</textarea>' +
+        '<button type="button" class="btn" data-act="tdone" aria-pressed="' + (!!TEST.done[id]) + '">' + icon('task_alt') + 'Mark as answered</button></div>';
+    }
+    h += '</div></article><nav class="tnav" aria-label="Question navigation">' +
+      '<button type="button" class="btn" data-act="tprev"' + (TEST.idx === 0 ? ' disabled' : '') + '>' + icon('chevron_left') + 'Previous</button>' +
+      '<button type="button" class="btn btn-ghost" data-act="tflag" aria-pressed="' + flagged + '">' + icon('flag') + (flagged ? 'Flagged' : 'Flag for review') + '</button>' +
+      (TEST.idx < n - 1 ? '<button type="button" class="btn btn-primary" data-act="tnext">Next' + icon('chevron_right') + '</button>'
+        : '<button type="button" class="btn btn-primary" data-act="tsubmitask">Review &amp; submit' + icon('send') + '</button>') + '</nav>';
+    $('#tMain').innerHTML = h;
+    if (focus) focusOn($('#tMain .tq'));
+  }
+  function renderPalette() {
+    $('#tPalGrid').innerHTML = TEST.ids.map(function (id, i) {
+      var ans = isAnswered(id), fl = !!TEST.flags[id], cur = i === TEST.idx;
+      return '<button type="button" class="pal' + (ans ? ' is-ans' : '') + (fl ? ' is-flag' : '') + (cur ? ' is-cur' : '') + '" data-act="tgo" data-i="' + i + '"' + (cur ? ' aria-current="step"' : '') +
+        ' aria-label="Question ' + (i + 1) + (ans ? ', answered' : ', not answered') + (fl ? ', flagged' : '') + '">' + (i + 1) + '</button>';
+    }).join('');
+  }
+  function tGo(i) {
+    if (!TEST || TEST.phase !== 'run') return;
+    i = Math.max(0, Math.min(TEST.ids.length - 1, i));
+    if (i === TEST.idx) return;
+    TEST.idx = i; saveTest(); renderTQ(true); renderPalette();
+    if (window.scrollY > 120) window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  }
+  function tPick(i) {
+    var id = TEST.ids[TEST.idx];
+    if (TEST.ans[id] === i) delete TEST.ans[id]; else TEST.ans[id] = i;
+    saveTest();
+    $$('#tMain .opt').forEach(function (o, k) { var on = TEST.ans[id] === k; o.classList.toggle('is-sel', on); press(o, on); });
+    renderPalette();
+  }
+  function flip(map, id) { if (map[id]) delete map[id]; else map[id] = true; }
+  function tFlag() {
+    var id = TEST.ids[TEST.idx];
+    flip(TEST.flags, id);
+    saveTest(); renderTQ(false); renderPalette();
+    announce(TEST.flags[id] ? 'Flagged for review.' : 'Flag removed.');
+  }
+  function confirmStrip(cls, ic, msg, stay, act, btnCls, go, focusAct) {
+    var box = $('#tConfirm');
+    box.innerHTML = icon(ic) + '<p id="tConfirmMsg">' + msg + '</p><div class="cs-btns"><button type="button" class="btn btn-ghost" data-act="tcancel">' + stay + '</button>' +
+      '<button type="button" class="btn ' + btnCls + '" data-act="' + act + '">' + go + '</button></div>';
+    box.className = 'confirm-strip' + cls; box.hidden = false;
+    $('[data-act="' + focusAct + '"]', box).focus();
+  }
+  function askSubmit() {
+    var un = TEST.ids.filter(function (id) { return !isAnswered(id); }).length, fl = TEST.ids.filter(function (id) { return TEST.flags[id]; }).length;
+    confirmStrip(' info', 'help', 'Submit now? ' + (un ? plural(un, 'question') + ' not answered' : 'All questions answered') + (fl ? ' · ' + fl + ' flagged for review' : '') + '.',
+      'Keep working', 'tsubmit', 'btn-primary', 'Submit test', 'tsubmit');
+  }
+  function askExit() {
+    confirmStrip('', 'logout', 'Exit the test? The answers in this attempt will be discarded.', 'Stay in the test', 'texit', 'btn-danger', 'Exit test', 'tcancel');
+  }
+  function submitTest(auto) {
+    if (!TEST || TEST.phase !== 'run') return;
+    TEST.submittedAt = Math.min(Date.now(), TEST.endAt);
+    TEST.phase = TEST.ids.some(selfMarked) ? 'mark' : 'result';
+    saveTest(); stopTimer();
+    renderTestPhase();
+    window.scrollTo(0, 0);
+    SFX.play('success');
+    toast(auto ? 'Time’s up — your test was submitted.' : 'Test submitted.', auto ? 'warn' : '');
+  }
+  function startTimer() { stopTimer(); tick(); tTimer = setInterval(tick, 500); }
+  function stopTimer() { clearInterval(tTimer); }
+  function tick() {
+    if (!TEST || TEST.phase !== 'run') { stopTimer(); return; }
+    var left = TEST.endAt - Date.now(), total = Math.max(1, TEST.endAt - TEST.startAt);
+    var el = $('#tTimer');
+    el.textContent = fmtClock(left);
+    el.classList.toggle('warn', left <= 60000);
+    el.setAttribute('aria-label', 'Time left ' + fmtClock(left));
+    $('#tProg').style.width = Math.min(100, Math.max(0, (1 - left / total) * 100)) + '%';
+    if (left <= 60000 && left > 0 && !TEST.warned) { TEST.warned = true; saveTest(); toast('1 minute left — finish your current answer.', 'warn'); announce('One minute left.'); }
+    if (left <= 0) submitTest(true);
+  }
+
+  function renderMark() {
+    var written = TEST.ids.filter(selfMarked);
+    var h = '<div class="tmark"><div class="tmark-intro"><h2>Self-mark your written answers</h2><p>Tick every marking point you actually wrote. Be strict — examiners give a mark only when the key idea and keyword are there. MCQs are already scored.</p></div>';
+    written.forEach(function (id, k) {
+      var it = QMAP.get(id), chk = arr(TEST.chk[id]);
+      h += '<article class="tq tq-mark" data-qid="' + esc(id) + '"><header class="q-head"><span class="tq-n">Written ' + (k + 1) + ' of ' + written.length + '</span><span class="q-id">' + esc(id) + '</span>' +
+        '<span class="chip">' + plural(it.marks, 'mark') + '</span><span class="sp"></span><span class="chip mono t-sub">' + fmtN(scoreFor(it, chk.length)) + ' / ' + fmtN(it.marks) + '</span></header>' +
+        '<div class="q-body">' + promptHTML(it) + '</div>' +
+        (str(TEST.txt[id]).trim() ? '<div class="yours"><b>Your notes</b>' + esc(TEST.txt[id]) + '</div>' : '') +
+        '<div style="margin-top:12px">' + pointsHTML(it, 'tchk', chk) + '</div>' + tipHTML(it.answer.tip, ' style="margin-top:10px"') + '</article>';
+    });
+    h += '<div class="tmark-foot"><span>Written total: <b class="mono" id="tWTotal"></b></span><button type="button" class="btn btn-primary" data-act="tfinish">' + icon('scoreboard') + 'See scorecard</button></div></div>';
+    $('#tMain').innerHTML = h;
+    $$('#tMain .tq-mark').forEach(updateMarkCard);
+    updateWrittenTotal();
+  }
+  function updateMarkCard(card) {
+    var id = attr(card, 'data-qid'), it = QMAP.get(id);
+    $('.t-sub', card).textContent = fmtN(showScore(card, it, arr(TEST.chk[id]).length)) + ' / ' + fmtN(it.marks);
+  }
+  function updateWrittenTotal() {
+    var r = testResults();
+    $('#tWTotal').textContent = fmtN(r.wO) + ' / ' + fmtN(r.wM);
+  }
+
+  function testResults() {
+    var score = 0, max = 0, mAtt = 0, mOk = 0, mTot = 0, mMax = 0, mGot = 0, wO = 0, wM = 0, unscored = 0;
+    var topics = {}, missed = [];
+    TEST.ids.forEach(function (id) {
+      var it = QMAP.get(id);
+      if (!it.objective && !it.answer.points.length) { unscored++; return; }
+      var got = 0, a = TEST.ans[id];
+      if (it.objective) {
+        mTot++; mMax += it.marks;
+        if (typeof a === 'number') { mAtt++; if (a === it.correct) { mOk++; got = it.marks; } }
+        mGot += got;
+        if (!got) missed.push({ it: it, why: typeof a === 'number' ? 'You chose (' + letter(a) + '); answer (' + letter(it.correct) + ')' : 'Not answered — answer (' + letter(it.correct) + ')' });
+      } else {
+        got = scoreFor(it, arr(TEST.chk[id]).length); wO += got; wM += it.marks;
+        if (got < it.marks / 2) missed.push({ it: it, why: 'Scored ' + fmtN(got) + ' / ' + fmtN(it.marks) + ' on the checklist' });
+      }
+      score += got; max += it.marks;
+      var tk = it.ch + '|' + it.topic, t = topics[tk] || (topics[tk] = { name: topicOf(it).name, got: 0, max: 0 });
+      t.got += got; t.max += it.marks;
+    });
+    var used = Math.min((TEST.submittedAt || Date.now()) - TEST.startAt, TEST.endAt - TEST.startAt);
+    return {
+      score: score, max: max, pct: max ? Math.round(score / max * 100) : 0, mAtt: mAtt, mOk: mOk, mTot: mTot, mMax: mMax, mGot: mGot, wO: wO, wM: wM,
+      unscored: unscored, used: Math.max(0, used), allotted: TEST.endAt - TEST.startAt,
+      topics: Object.keys(topics).map(function (k) { return topics[k]; }).sort(function (a, b) { return (a.got / (a.max || 1)) - (b.got / (b.max || 1)); }),
+      missed: missed
+    };
+  }
+  function renderResult() {
+    var r = testResults();
+    var msg = r.pct >= 85 ? 'Excellent — you’re board-ready on this set.' : r.pct >= 60 ? 'Good work. Revise the weak topics below, then retake.' : 'Needs more practice — start with the missed questions below.';
+    var h = '<div class="tres"><div class="panel"><div class="score-hero"><div class="score-big">' + fmtN(r.score) + ' <small>/ ' + fmtN(r.max) + '</small></div>' +
+      '<div class="score-pct">' + r.pct + '%</div><p class="score-msg">' + esc(msg) + '</p></div>' +
+      '<dl class="stats">' + statHTML('MCQ accuracy', r.mAtt ? Math.round(r.mOk / r.mAtt * 100) + '%' : '—', r.mOk + ' of ' + r.mAtt + ' attempted') +
+      statHTML('MCQ score', r.mTot ? fmtN(r.mGot) : '—', r.mTot && '/ ' + fmtN(r.mMax)) +
+      statHTML('Written (self-marked)', r.wM ? fmtN(r.wO) : '—', r.wM && '/ ' + fmtN(r.wM)) +
+      statHTML('Time used', fmtDur(r.used), 'of ' + Math.round(r.allotted / 60000) + ' min', ' style="font-size:17px"') + '</dl>' +
+      (r.unscored ? '<p style="margin-top:10px;font-size:13px;color:var(--tx-3)">' + plural(r.unscored, 'question') + ' had no marking points and weren’t scored.</p>' : '') + '</div>';
+    if (r.topics.length) {
+      h += '<div class="panel"><h2>Topic-wise</h2><div class="topic-rows">' + r.topics.map(function (t) {
+        var p = t.max ? Math.round(t.got / t.max * 100) : 0, weak = p < 60;
+        return '<div class="trow' + (weak ? ' weak' : '') + '"><span>' + esc(t.name) + (weak ? '<span class="weak-tag">Weak</span>' : '') + '</span><span class="bar" aria-hidden="true"><span style="width:' + p + '%"></span></span><span class="v">' + fmtN(t.got) + '/' + fmtN(t.max) + '</span></div>';
+      }).join('') + '</div></div>';
+    }
+    h += '<div class="panel"><h2>' + (r.missed.length ? 'Missed questions (' + r.missed.length + ')' : 'Nothing missed') + '</h2>' +
+      (r.missed.length ? '<ul class="missed-list">' + r.missed.map(function (m) {
+        return '<li><div class="mq"><span class="mono">' + esc(m.it.id) + '</span>' + esc(snippet(m.it.q, 120)) + '<span class="mwhy">' + esc(m.why) + '</span></div>' +
+          '<button type="button" class="btn btn-sm" data-act="tpractise" data-target="' + esc(m.it.id) + '">' + icon('replay') + 'Practise again</button></li>';
+      }).join('') + '</ul>' : '<p style="margin-top:6px;color:var(--tx-2)">Every question was answered correctly or scored at least half marks.</p>') + '</div>';
+    h += '<div class="res-actions">' + (r.missed.length ? '<button type="button" class="btn" data-act="taddrev">' + icon('playlist_add') + 'Add missed to revision list</button>' : '') +
+      '<button type="button" class="btn" data-act="tretake">' + icon('restart_alt') + 'Retake this test</button>' +
+      '<button type="button" class="btn btn-primary" data-act="tbackpractice">' + icon('edit_note') + 'Back to practice</button></div></div>';
+    $('#tMain').innerHTML = h;
+  }
+
+  function onTestClick(ev) {
+    var b = ev.target.closest('[data-act]'); if (!b || !TEST) return;
+    switch (attr(b, 'data-act')) {
+      case 'tpick': if (TEST.phase === 'run') tPick(+b.getAttribute('data-i')); break;
+      case 'tdone': {
+        var id = TEST.ids[TEST.idx];
+        flip(TEST.done, id);
+        press(b, !!TEST.done[id]); saveTest(); renderPalette(); break;
+      }
+      case 'tprev': tGo(TEST.idx - 1); break;
+      case 'tnext': tGo(TEST.idx + 1); break;
+      case 'tgo': tGo(+b.getAttribute('data-i')); showPalette(false); break;
+      case 'tflag': tFlag(); break;
+      case 'tsubmitask': askSubmit(); break;
+      case 'tsubmit': submitTest(false); break;
+      case 'tcancel': $('#tConfirm').hidden = true; break;
+      case 'texit': TEST = null; saveTest(); exitTestView(); toast('Test discarded.'); break;
+      case 'tfinish': TEST.phase = 'result'; saveTest(); renderTestPhase(); window.scrollTo(0, 0); SFX.play('success'); break;
+      case 'tpractise': {
+        var tid = b.getAttribute('data-target');
+        exitTestView(); if (state.mode === 'learn') setMode('practice');
+        goToQuestion(tid); break;
+      }
+      case 'taddrev': {
+        var r = testResults();
+        r.missed.forEach(function (m) { setProg(m.it.id, { s: 'missed' }); var e = ELS.get(m.it.id); if (e) applyState(e); });
+        onProgress();
+        toast('Added ' + plural(r.missed.length, 'question') + ' to your revision list (marked Missed).');
+        b.disabled = true; break;
+      }
+      case 'tretake': startTest(TEST.ids.slice(), TEST.durMin || 10, TEST.label, TEST.ch); break;
+      case 'tbackpractice': exitTestView(); window.scrollTo(0, 0); break;
+    }
+  }
+  function showPalette(on) { $('#tPal').classList.toggle('open', on); $('#tPalBtn').setAttribute('aria-expanded', String(on)); }
+
+  /* ------------------------------------------------------------------
+     Keyboard
+     ------------------------------------------------------------------ */
+  function isInteractive(t) { return !!(t && t.closest && t.closest('button, a, input, select, textarea, summary, label, [contenteditable="true"]')); }
+  function visibleCards() { return $$('.qcard:not([hidden])', curView().el); }
+  function headerH() { return $('#topbar').getBoundingClientRect().height; }
+  function currentItem() {
+    var a = document.activeElement, q = a && a.closest('#cards .qitem');
+    if (q && !q.closest('[hidden]')) return q;
+    var e = state.curId && ELS.get(state.curId);
+    if (e && !e.el.hidden && !e.el.parentNode.hidden) return e.el;
+    var hdr = headerH();
+    return visibleCards().filter(function (c) { return c.getBoundingClientRect().bottom > hdr + 40; })[0] || null;
+  }
+  function moveCurrent(dir) {
+    var cards = visibleCards(); if (!cards.length) return;
+    var cur = currentItem(), main = cur && cur.closest('.qcard');
+    var i = main ? cards.indexOf(main) : -1, next;
+    if (i < 0) next = dir > 0 ? 0 : cards.length - 1;
+    else if (!main.classList.contains('is-current')) next = i;          /* first press selects the card in view */
+    else next = Math.max(0, Math.min(cards.length - 1, i + dir));
+    setCurrent(cards[next], true);
+  }
+  function onKey(ev) {
+    if (ev.defaultPrevented || ev.ctrlKey || ev.metaKey || ev.altKey) return;
+    var t = ev.target, tag = t && t.tagName;
+    var typing = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable);
+    if (dlg.open) return;
+    if (ev.key === 'Escape') {
+      if (!$('#resetConfirm').hidden) { $('#resetConfirm').hidden = true; $('#btnReset').focus(); return; }
+      if (!$('#tConfirm').hidden) { $('#tConfirm').hidden = true; return; }
+      if ($('#btnFilters').getAttribute('aria-expanded') === 'true' && !inTest()) { toggleFilters(false); $('#btnFilters').focus(); return; }
+      if (tag === 'INPUT' && t.id === 'q' && t.value) { t.value = ''; state.toks = []; applyFilters(); }
+      return;
+    }
+    if (typing) return;
+    var k = ev.key, lk = k.length === 1 ? k.toLowerCase() : k;
+    if (k === '?') { ev.preventDefault(); openShortcuts(); return; }
+    if (inTest()) {
+      if (!TEST || TEST.phase !== 'run') return;
+      if (lk === 'j') { ev.preventDefault(); tGo(TEST.idx + 1); }
+      else if (lk === 'k') { ev.preventDefault(); tGo(TEST.idx - 1); }
+      else if (lk === 'b' || lk === 'f') { ev.preventDefault(); tFlag(); }
+      else if (/^[1-9]$/.test(k)) {
+        var it = QMAP.get(TEST.ids[TEST.idx]);
+        if (it.objective && +k <= it.options.length) { ev.preventDefault(); tPick(+k - 1); }
+      }
+      return;
+    }
+    if ($('#listView').hidden) return;
+    if (lk === 'j' || lk === 'k') { ev.preventDefault(); moveCurrent(lk === 'j' ? 1 : -1); return; }
+    var cur = currentItem(); if (!cur) return;
+    var e = ELS.get(attr(cur, 'data-qid'));
+    if (k === ' ' || k === 'Spacebar') {
+      if (isInteractive(t)) return;
+      ev.preventDefault();
+      if (state.mode !== 'learn') setReveal(e, !e.el.classList.contains('revealed'));
+    } else if (k === '1' || k === '2' || k === '3') { ev.preventDefault(); assess(e, ['got', 'partly', 'missed'][+k - 1]); }
+    else if (lk === 'v') { ev.preventDefault(); var m = e.it.isVar ? e.it.parent : e.it; if (m.variations.length) toggleVars(m.id); else toast('No variations for ' + m.id + '.'); }
+    else if (lk === 'b') { ev.preventDefault(); toggleBookmark(e); }
+  }
+
+  /* ------------------------------------------------------------------
+     Misc UI: theme, filters toggle, reset, fonts, header height
+     ------------------------------------------------------------------ */
+  function applyTheme(t) {
+    var d = document.documentElement;
+    d.setAttribute('data-theme', t);
+    d.classList.remove('dark', 'light'); d.classList.add(t);
+    var b = $('#btnTheme');
+    b.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+    $('.msi', b).textContent = t === 'dark' ? 'light_mode' : 'dark_mode';
+  }
+  function curTheme() { return attr(document.documentElement, 'data-theme') === 'light' ? 'light' : 'dark'; }
+  function toggleTheme() {
+    var t = curTheme() === 'light' ? 'dark' : 'light';
+    applyTheme(t); SFX.play(t === 'light' ? 'on' : 'off');
+    try { window.localStorage.setItem('ilberiz_theme', t); } catch (e) {}
+  }
+  function toggleFilters(force) {
+    var b = $('#btnFilters'), open = force != null ? force : b.getAttribute('aria-expanded') !== 'true';
+    b.setAttribute('aria-expanded', String(open));
+    $('#filters').hidden = !open;
+  }
+  function askReset() {
+    var c = CH[state.ch];
+    var ids = [].concat.apply([], c.all.map(withVars)).map(function (it) { return it.id; });
+    var n = ids.filter(function (id) { return PROG[id]; }).length;
+    $('#resetMsg').textContent = n ? 'Reset self-assessments, bookmarks, MCQ answers and checklists for all ' + plural(n, 'question') + ' you’ve touched in ' + c.shortTitle + '? This can’t be undone.'
+      : 'There’s no saved progress for ' + c.shortTitle + ' yet.';
+    $('#resetGo').hidden = !n;
+    $('#resetConfirm').hidden = false;
+    $('#resetCancel').focus();
+    $('#resetGo').onclick = function () {
+      ids.forEach(function (id) { delete PROG[id]; });
+      LS.set('progress', PROG);
+      ids.forEach(function (id) { var e = ELS.get(id); if (e) { applyState(e); setReveal(e, false); } });
+      onProgress(); applyFilters();
+      $('#resetConfirm').hidden = true; $('#btnReset').focus();
+      toast('Progress for ' + c.shortTitle + ' was reset.');
+    };
+  }
+  function watchHeader() {
+    var t = $('#topbar');
+    function set() { document.documentElement.style.setProperty('--hdr-h', Math.round(t.getBoundingClientRect().height) + 'px'); }
+    set();
+    if (window.ResizeObserver) new ResizeObserver(set).observe(t); else window.addEventListener('resize', set);
+  }
+  function checkIconFont() {
+    var mark = function () { document.documentElement.classList.add('no-icons'); };
+    var run = function () { document.fonts.load('20px "Material Symbols Outlined"', 'check').then(function (f) { if (!f.length) mark(); }, mark); };
+    if (document.readyState === 'complete') run(); else window.addEventListener('load', run);
+  }
+
+  /* ------------------------------------------------------------------
+     Events
+     ------------------------------------------------------------------ */
+  function bind() {
+    var tabs = $('#secTabs');
+    tabs.addEventListener('click', function (ev) {
+      var b = ev.target.closest('.tab'); if (!b) return;
+      var s = attr(b, 'data-sec'); if (s === state.sec) return;
+      switchTo(state.ch, s);
+      $('#tab-' + s).focus();
+    });
+    tabs.addEventListener('keydown', function (ev) {
+      if (['ArrowRight', 'ArrowLeft', 'Home', 'End'].indexOf(ev.key) < 0) return;
+      ev.preventDefault();
+      var i = SECS.indexOf(state.sec);
+      i = ev.key === 'Home' ? 0 : ev.key === 'End' ? SECS.length - 1 : (i + (ev.key === 'ArrowRight' ? 1 : -1) + SECS.length) % SECS.length;
+      switchTo(state.ch, SECS[i]); $('#tab-' + SECS[i]).focus();
+    });
+    $('#modeSeg').addEventListener('click', function (ev) { var b = ev.target.closest('[data-mode-btn]'); if (b) setMode(attr(b, 'data-mode-btn')); });
+
+    var cards = $('#cards');
+    cards.addEventListener('click', function (ev) {
+      var b = ev.target.closest('[data-act]');
+      var card = ev.target.closest('.qcard');
+      if (card && !card.classList.contains('is-current')) setCurrent(card, false);
+      if (!b) return;
+      var act = attr(b, 'data-act'), e = ELS.get(attr(b.closest('.qitem'), 'data-qid'));
+      if (act === 'goto') { goToQuestion(attr(b, 'data-target')); return; }
+      if (act === 'opt') pickOption(e, +attr(b, 'data-i'));
+      else if (act === 'reveal') { var rv = !e.el.classList.contains('revealed'); setReveal(e, rv); if (rv) SFX.play('page'); }
+      else if (act === 'retry') retry(e);
+      else if (act === 'vars') toggleVars(e.it.id);
+      else if (act === 'assess') assess(e, attr(b, 'data-v'));
+      else if (act === 'bm') toggleBookmark(e);
+    });
+    cards.addEventListener('change', function (ev) {
+      if (ev.target.matches('input[data-act="chk"]')) onCheck(ELS.get(attr(ev.target.closest('.qitem'), 'data-qid')), ev.target);
+    });
+
+    $('#q').addEventListener('input', debounce(function () {
+      state.toks = $('#q').value.toLowerCase().split(/\s+/).filter(Boolean);
+      applyFilters();
+    }, 180));
+    var sortSel = $('#sort'); sortSel.value = state.sort;
+    sortSel.addEventListener('change', function () { state.sort = sortSel.value; savePrefs(); applyFilters(); });
+    $('#btnFilters').addEventListener('click', function () { toggleFilters(); });
+    $('#filters').addEventListener('click', function (ev) {
+      var p = ev.target.closest('.pill'); if (!p) return;
+      var set = state.f[attr(p, 'data-f')], v = attr(p, 'data-v');
+      if (!set.delete(v)) set.add(v);
+      press(p, set.has(v));
+      applyFilters();
+    });
+    document.addEventListener('click', function (ev) {
+      var cf = ev.target.closest('[data-act="clear-filters"], #btnClearFilters2'); if (cf) { clearFilters(); return; }
+      var op = ev.target.closest('[data-open]');
+      if (op) { if (attr(op, 'data-open') === 'blueprint') openBlueprint(); else openSources(); return; }
+      var sg = ev.target.closest('[data-sec-go]'); if (sg) switchTo(state.ch, attr(sg, 'data-sec-go'));
+    });
+    $('#btnRevision').addEventListener('click', function () {
+      state.rev = !state.rev; press(this, state.rev); applyFilters();
+      announce(state.rev ? 'Showing your revision list: missed, partly and bookmarked questions.' : 'Revision list off.');
+    });
+    $('#btnExpand').addEventListener('click', function () { setExpandAll(!state.expandAll); });
+    $('#btnPrint').addEventListener('click', function () { try { window.print(); } catch (e) { toast('Printing isn’t available here.'); } });
+    $('#btnReset').addEventListener('click', askReset);
+    $('#resetCancel').addEventListener('click', function () { $('#resetConfirm').hidden = true; $('#btnReset').focus(); });
+    $('#btnBlueprintTop').addEventListener('click', openBlueprint);
+    $('#btnSourcesTop').addEventListener('click', openSources);
+    $('#btnKeys').addEventListener('click', openShortcuts);
+    $('#btnSound').addEventListener('click', SFX.toggle);
+    /* follow theme / sound changes made in the site (or another tab) */
+    window.addEventListener('storage', function (ev) {
+      if (ev.key === 'ilberiz_theme') {
+        var v = ev.newValue;
+        applyTheme(v === 'light' || (v === 'system' && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark');
+      } else if (ev.key === 'ilberiz_audio' || ev.key === 'ilberiz_volume') SFX.sync();
+    });
+    /* chapter picker */
+    $('#chBtn').addEventListener('click', function () { if (chMenuOpen()) closeChMenu(false); else openChMenu(); });
+    $('#chBtn').addEventListener('keydown', function (ev) { if (ev.key === 'ArrowDown') { ev.preventDefault(); openChMenu(); } });
+    $('#chMenu').addEventListener('click', function (ev) {
+      var b = ev.target.closest('.ch-item'); if (!b) return;
+      var ch = attr(b, 'data-ch');
+      closeChMenu(true);
+      if (ch === state.ch) return;
+      switchTo(ch, CH[ch].bySec[state.sec].length ? state.sec : SECS.filter(function (s) { return CH[ch].bySec[s].length; })[0] || state.sec);
+      window.scrollTo(0, 0);
+    });
+    $('#chMenu').addEventListener('keydown', function (ev) {
+      var items = $$('.ch-item', $('#chMenu')), i = items.indexOf(document.activeElement);
+      if (ev.key === 'Escape') { ev.preventDefault(); ev.stopPropagation(); closeChMenu(true); }
+      else if (ev.key === 'ArrowDown' || ev.key === 'ArrowUp') { ev.preventDefault(); items[(i + (ev.key === 'ArrowDown' ? 1 : -1) + items.length) % items.length].focus(); }
+      else if (ev.key === 'Home' || ev.key === 'End') { ev.preventDefault(); items[ev.key === 'Home' ? 0 : items.length - 1].focus(); }
+      else if (ev.key === 'Tab') closeChMenu(false);
+    });
+    document.addEventListener('pointerdown', function (ev) { if (chMenuOpen() && !ev.target.closest('#chPick')) closeChMenu(false); });
+    /* collapsible stats card (phones) */
+    $('#heroMore').addEventListener('click', function () {
+      var open = !$('#hero').classList.contains('open');
+      $('#hero').classList.toggle('open', open); this.setAttribute('aria-expanded', String(open)); LS.set('heroOpen', open);
+    });
+    /* soft tap for every other button (specific sounds above win) */
+    document.addEventListener('click', function (ev) {
+      var t = ev.target.closest('button, a[href]');
+      if (t && !t.disabled) SFX.play('tap');
+    });
+
+    $('#dlgClose').addEventListener('click', closeDialog);
+    dlg.addEventListener('close', onDialogClosed);
+    dlg.addEventListener('click', function (ev) { if (ev.target === dlg) closeDialog(); });
+    dlg.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && dlg.classList.contains('fallback')) { ev.preventDefault(); closeDialog(); } });
+
+    var tv = $('#testView');
+    tv.addEventListener('click', onTestClick);
+    tv.addEventListener('input', function (ev) {
+      var t = ev.target, id = TEST.ids[TEST.idx]; if (!t.matches('textarea[data-act="ttxt"]')) return;
+      TEST.txt[id] = t.value; saveTestSoon();
+      $('#tPalGrid .pal.is-cur').classList.toggle('is-ans', isAnswered(id));
+    });
+    tv.addEventListener('change', function (ev) {
+      var t = ev.target; if (!t.matches('input[data-act="tchk"]')) return;
+      var card = t.closest('.tq-mark'), id = attr(card, 'data-qid');
+      TEST.chk[id] = tickList(TEST.chk[id], +attr(t, 'data-i'), t.checked); saveTest();
+      t.closest('.mp').classList.toggle('ticked', t.checked);
+      updateMarkCard(card); updateWrittenTotal();
+    });
+    $('#tSubmit').addEventListener('click', askSubmit);
+    $('#tExit').addEventListener('click', askExit);
+    $('#tBack').addEventListener('click', function () { exitTestView(); window.scrollTo(0, 0); });
+    $('#tPalBtn').addEventListener('click', function () { showPalette(!$('#tPal').classList.contains('open')); });
+    document.addEventListener('visibilitychange', function () { if (!document.hidden && TEST && TEST.phase === 'run' && inTest()) tick(); });
+    document.addEventListener('keydown', onKey);
+    window.addEventListener('beforeprint', function () {
+      if (curView().sortKey !== state.sort) applyFilters();
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     Init
+     ------------------------------------------------------------------ */
+  function init() {
+    $('#brandTitle').textContent = UI_TITLE;
+    $('#brandSub').textContent = 'ICSE Class 10 ' + UI_SUBJECT + ' · PYQ practice';
+    if (LS.get('heroOpen', false)) { $('#hero').classList.add('open'); $('#heroMore').setAttribute('aria-expanded', 'true'); }
+    SFX.sync();
+    buildIndex();
+    checkIconFont();
+    watchHeader();
+    applyTheme(curTheme());
+    $('#btnTheme').addEventListener('click', toggleTheme);
+    if (!CH_ORDER.length) {
+      $('#loadError').hidden = false; $('#hero').hidden = true; $('#listView').hidden = true; $('#secTabs').hidden = true;
+      return;
+    }
+    var qp = new URLSearchParams(window.location.search), ch = qp.get('ch'), sec = qp.get('sec'), mode = qp.get('mode');
+    if (!CH[ch]) ch = CH_ORDER[0];
+    if (SECS.indexOf(sec) < 0) sec = SECS[0];
+    if (mode === 'learn' || mode === 'practice') state.mode = mode;
+    bind();
+    setMode(state.mode);
+    press($('#btnExpand'), state.expandAll);
+    switchTo(ch, sec, true);
+    TEST = loadTest();
+    if (TEST) {
+      if (TEST.phase !== 'result') {
+        var stillRunning = TEST.phase === 'run' && Date.now() < TEST.endAt;
+        enterTestView();   /* an expired test is auto-submitted by the first timer tick */
+        if (stillRunning) toast('Your test is still running — picked up where you left off.');
+      }
+    } else LS.del('test');
+    if (mode === 'test' && !inTest()) openTestEntry();
+  }
+
+  try { init(); }
+  catch (err) {
+    console.error('[nmdpp] failed to start', err);
+    $('#loadError').hidden = false;
+    $('#loadError p').textContent = 'Something in the question data couldn’t be read (' + (err && err.message ? err.message : err) + '). Check the data files, then reload.';
+  }
+})();
+  </script>
+</body>
+</html>
