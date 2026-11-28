@@ -17,91 +17,545 @@
                             "id": "chap-math-1",
                             "name": "Ch 1: Goods and Services Tax (GST)",
                             "description": "CGST, SGST, IGST calculations, intra-state and inter-state trade, input tax credit",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-gst-dpp-mcq",
+                                    "title": "GST — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "14 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=gst&sec=mcq",
+                                    "badge": "DPP 1 • 14 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-gst-dpp-short",
+                                    "title": "GST — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "7 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=gst&sec=short",
+                                    "badge": "DPP 2 • 7 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-gst-dpp-long",
+                                    "title": "GST — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "8 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=gst&sec=long",
+                                    "badge": "DPP 3 • 8 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-2",
                             "name": "Ch 2: Banking (Recurring Deposit)",
                             "description": "Computation of interest and maturity value of recurring deposit accounts",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-banking-dpp-mcq",
+                                    "title": "Banking — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "14 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=banking&sec=mcq",
+                                    "badge": "DPP 1 • 14 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-banking-dpp-short",
+                                    "title": "Banking — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "12 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=banking&sec=short",
+                                    "badge": "DPP 2 • 12 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-banking-dpp-long",
+                                    "title": "Banking — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "6 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=banking&sec=long",
+                                    "badge": "DPP 3 • 6 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-3",
                             "name": "Ch 3: Shares and Dividends",
                             "description": "Face value, market value, dividend, rate of return and investment calculations",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-shares-dpp-mcq",
+                                    "title": "Shares & Dividends — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "9 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=shares&sec=mcq",
+                                    "badge": "DPP 1 • 9 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-shares-dpp-short",
+                                    "title": "Shares & Dividends — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "12 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=shares&sec=short",
+                                    "badge": "DPP 2 • 12 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-shares-dpp-long",
+                                    "title": "Shares & Dividends — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "3 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=shares&sec=long",
+                                    "badge": "DPP 3 • 3 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-4",
                             "name": "Ch 4: Linear Inequations",
                             "description": "Solving linear inequations in one variable and number line representation",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-inequations-dpp-mcq",
+                                    "title": "Linear Inequations — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "11 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=inequations&sec=mcq",
+                                    "badge": "DPP 1 • 11 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-inequations-dpp-short",
+                                    "title": "Linear Inequations — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "14 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=inequations&sec=short",
+                                    "badge": "DPP 2 • 14 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-inequations-dpp-long",
+                                    "title": "Linear Inequations — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "4 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=inequations&sec=long",
+                                    "badge": "DPP 3 • 4 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-5",
                             "name": "Ch 5: Quadratic Equations in One Variable",
                             "description": "Factorisation, quadratic formula, nature of discriminant and applied word problems",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-quadratic-dpp-mcq",
+                                    "title": "Quadratic Equations — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "24 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=quadratic&sec=mcq",
+                                    "badge": "DPP 1 • 24 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-quadratic-dpp-short",
+                                    "title": "Quadratic Equations — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "21 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=quadratic&sec=short",
+                                    "badge": "DPP 2 • 21 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-quadratic-dpp-long",
+                                    "title": "Quadratic Equations — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "13 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=quadratic&sec=long",
+                                    "badge": "DPP 3 • 13 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
+                        },
+                        {
+                            "id": "chap-math-ratio",
+                            "name": "Ch 6: Ratio and Proportion",
+                            "description": "Proportion, continued proportion, mean and third proportional, componendo and dividendo, alternendo, invertendo — interactive PYQ DPPs",
+                            "items": [
+                                {
+                                    "id": "math-ratio-dpp-mcq",
+                                    "title": "Ratio & Proportion — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "13 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=ratio&sec=mcq",
+                                    "badge": "DPP 1 • 13 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-ratio-dpp-short",
+                                    "title": "Ratio & Proportion — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "15 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=ratio&sec=short",
+                                    "badge": "DPP 2 • 15 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-ratio-dpp-long",
+                                    "title": "Ratio & Proportion — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "9 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=ratio&sec=long",
+                                    "badge": "DPP 3 • 9 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-6",
-                            "name": "Ch 6: Factorisation of Polynomials",
+                            "name": "Ch 7: Factorisation of Polynomials",
                             "description": "Remainder theorem, Factor theorem and complete factorisation of polynomials",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-factorisation-dpp-mcq",
+                                    "title": "Factorisation — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "18 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=factorisation&sec=mcq",
+                                    "badge": "DPP 1 • 18 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-factorisation-dpp-short",
+                                    "title": "Factorisation — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "15 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=factorisation&sec=short",
+                                    "badge": "DPP 2 • 15 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-factorisation-dpp-long",
+                                    "title": "Factorisation — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "8 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=factorisation&sec=long",
+                                    "badge": "DPP 3 • 8 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-7",
-                            "name": "Ch 7: Matrices",
+                            "name": "Ch 8: Matrices",
                             "description": "Order of matrix, addition, subtraction, scalar and 2x2 matrix multiplication",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-matrices-dpp-mcq",
+                                    "title": "Matrices — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "18 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=matrices&sec=mcq",
+                                    "badge": "DPP 1 • 18 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-matrices-dpp-short",
+                                    "title": "Matrices — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "18 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=matrices&sec=short",
+                                    "badge": "DPP 2 • 18 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-matrices-dpp-long",
+                                    "title": "Matrices — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "7 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=matrices&sec=long",
+                                    "badge": "DPP 3 • 7 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-8",
-                            "name": "Ch 8: Arithmetic & Geometric Progression",
+                            "name": "Ch 9: Arithmetic & Geometric Progression",
                             "description": "General nth term, sum of first n terms of AP and introduction to GP",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-apgp-dpp-mcq",
+                                    "title": "AP & GP — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "20 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=apgp&sec=mcq",
+                                    "badge": "DPP 1 • 20 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-apgp-dpp-short",
+                                    "title": "AP & GP — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "18 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=apgp&sec=short",
+                                    "badge": "DPP 2 • 18 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-apgp-dpp-long",
+                                    "title": "AP & GP — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "11 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=apgp&sec=long",
+                                    "badge": "DPP 3 • 11 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-9",
-                            "name": "Ch 9: Coordinate Geometry & Reflection",
+                            "name": "Ch 10: Coordinate Geometry & Reflection",
                             "description": "Reflection across axes/origin, Section & Mid-point formulas, equation of a straight line",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-coord-dpp-mcq",
+                                    "title": "Coordinate Geometry — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "20 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=coord&sec=mcq",
+                                    "badge": "DPP 1 • 20 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-coord-dpp-short",
+                                    "title": "Coordinate Geometry — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "35 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=coord&sec=short",
+                                    "badge": "DPP 2 • 35 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-coord-dpp-long",
+                                    "title": "Coordinate Geometry — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "33 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=coord&sec=long",
+                                    "badge": "DPP 3 • 33 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-10",
-                            "name": "Ch 10: Similarity of Triangles",
+                            "name": "Ch 11: Similarity of Triangles",
                             "description": "Axioms of similarity (AAA, SAS, SSS), basic proportionality and scale factors",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-similarity-dpp-mcq",
+                                    "title": "Similarity — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "24 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=similarity&sec=mcq",
+                                    "badge": "DPP 1 • 24 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-similarity-dpp-short",
+                                    "title": "Similarity — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "15 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 1 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=similarity&sec=short",
+                                    "badge": "DPP 2 • 15 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-similarity-dpp-long",
+                                    "title": "Similarity — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "11 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=similarity&sec=long",
+                                    "badge": "DPP 3 • 11 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
+                        },
+                        {
+                            "id": "chap-math-loci",
+                            "name": "Ch 12: Loci and Constructions",
+                            "description": "Loci theorems and constructions: locus of points equidistant from lines and points, tangents, circumscribed and inscribed circles, regular hexagon — interactive PYQ DPPs",
+                            "items": [
+                                {
+                                    "id": "math-loci-dpp-mcq",
+                                    "title": "Loci & Constructions — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "6 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=loci&sec=mcq",
+                                    "badge": "DPP 1 • 6 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-loci-dpp-short",
+                                    "title": "Loci & Constructions — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "5 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=loci&sec=short",
+                                    "badge": "DPP 2 • 5 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-loci-dpp-long",
+                                    "title": "Loci & Constructions — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "21 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=loci&sec=long",
+                                    "badge": "DPP 3 • 21 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-11",
-                            "name": "Ch 11: Circles & Tangents",
+                            "name": "Ch 13: Circles & Tangents",
                             "description": "Angle and chord properties, cyclic quadrilaterals, tangent-chord theorem",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-circles-dpp-mcq",
+                                    "title": "Circles — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "13 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=circles&sec=mcq",
+                                    "badge": "DPP 1 • 13 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-circles-dpp-short",
+                                    "title": "Circles — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "29 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed; 1 mixed-chapter questions shown whole with this chapter's parts highlighted, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=circles&sec=short",
+                                    "badge": "DPP 2 • 29 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-circles-dpp-long",
+                                    "title": "Circles — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "19 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=circles&sec=long",
+                                    "badge": "DPP 3 • 19 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-12",
-                            "name": "Ch 12: Mensuration",
+                            "name": "Ch 14: Mensuration",
                             "description": "Surface area and volume of right circular cylinders, cones and spheres/hemispheres",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-mensuration-dpp-mcq",
+                                    "title": "Mensuration — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "18 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=mensuration&sec=mcq",
+                                    "badge": "DPP 1 • 18 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-mensuration-dpp-short",
+                                    "title": "Mensuration — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "15 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=mensuration&sec=short",
+                                    "badge": "DPP 2 • 15 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-mensuration-dpp-long",
+                                    "title": "Mensuration — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "22 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=mensuration&sec=long",
+                                    "badge": "DPP 3 • 22 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-13",
-                            "name": "Ch 13: Trigonometrical Identities, Heights & Distances",
+                            "name": "Ch 15: Trigonometrical Identities, Heights & Distances",
                             "description": "Fundamental identities, proofs, angles of elevation and depression with two right triangles",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-trig-dpp-mcq",
+                                    "title": "Trigonometry — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "12 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=trig&sec=mcq",
+                                    "badge": "DPP 1 • 12 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-trig-dpp-short",
+                                    "title": "Trigonometry — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "21 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=trig&sec=short",
+                                    "badge": "DPP 2 • 21 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-trig-dpp-long",
+                                    "title": "Trigonometry — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "26 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=trig&sec=long",
+                                    "badge": "DPP 3 • 26 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-14",
-                            "name": "Ch 14: Statistics",
+                            "name": "Ch 16: Statistics",
                             "description": "Mean (Direct, Short-cut, Step-deviation), Median, Mode for grouped data and Ogives",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-statistics-dpp-mcq",
+                                    "title": "Statistics — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "14 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=statistics&sec=mcq",
+                                    "badge": "DPP 1 • 14 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-statistics-dpp-short",
+                                    "title": "Statistics — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "29 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=statistics&sec=short",
+                                    "badge": "DPP 2 • 29 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-statistics-dpp-long",
+                                    "title": "Statistics — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "31 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=statistics&sec=long",
+                                    "badge": "DPP 3 • 31 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-math-15",
-                            "name": "Ch 15: Probability",
+                            "name": "Ch 17: Probability",
                             "description": "Random experiments, sample spaces, elementary events and theoretical probability",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "math-probability-dpp-mcq",
+                                    "title": "Probability — Interactive DPP 1: MCQs (Section A · Q1)",
+                                    "subtitle": "11 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=probability&sec=mcq",
+                                    "badge": "DPP 1 • 11 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "math-probability-dpp-short",
+                                    "title": "Probability — Interactive DPP 2: Short problems (1–3 marks)",
+                                    "subtitle": "20 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=probability&sec=short",
+                                    "badge": "DPP 2 • 20 problems • 1–3 Marks"
+                                },
+                                {
+                                    "id": "math-probability-dpp-long",
+                                    "title": "Probability — Interactive DPP 3: Long problems (4–5 marks)",
+                                    "subtitle": "4 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "maths/dpp/index.html?ch=probability&sec=long",
+                                    "badge": "DPP 3 • 4 problems • 4–5 Marks"
+                                }
+                            ],
+                            "featured": true
                         }
                     ]
                 },

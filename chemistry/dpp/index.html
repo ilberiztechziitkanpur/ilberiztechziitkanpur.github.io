@@ -544,6 +544,11 @@
     .fig figcaption { font-size: 14px; color: var(--tx-2); font-style: italic; min-width: 0; }
     .fig-k { display: block; font-style: normal; font-size: 11.5px; font-weight: 600; color: var(--tx-3); margin-bottom: 2px; }
     .q-text { font-size: 16.5px; line-height: 1.55; font-weight: 500; color: var(--tx); max-width: 78ch; overflow-wrap: anywhere; }
+    .mx { display: inline-table; vertical-align: middle; border-left: 1.5px solid currentColor; border-right: 1.5px solid currentColor; padding: 1px 3px; margin: 2px 3px; line-height: 1.35;
+      background: linear-gradient(currentColor, currentColor) left top / 6px 1.5px no-repeat, linear-gradient(currentColor, currentColor) left bottom / 6px 1.5px no-repeat,
+        linear-gradient(currentColor, currentColor) right top / 6px 1.5px no-repeat, linear-gradient(currentColor, currentColor) right bottom / 6px 1.5px no-repeat; }
+    .mx > .mxr { display: table-row; }
+    .mx > .mxr > .mxc { display: table-cell; padding: 0 .4em; text-align: center; white-space: nowrap; }
     .rt-tbl { display: block; overflow-x: auto; max-width: 100%; margin: 8px 0; -webkit-overflow-scrolling: touch; }
     .rt-tbl table { border-collapse: collapse; font-size: .92em; line-height: 1.4; overflow-wrap: normal; }
     .rt-tbl th, .rt-tbl td { border: 1px solid var(--line-2); padding: 6px 10px; text-align: left; vertical-align: top; font-weight: 500; }
@@ -1116,10 +1121,18 @@
     var h = esc(s).replace(RT_TAGS, '<$1$2>').replace(/&lt;br\s*\/?&gt;/gi, '<br>');
     /* tables (element tables, match-the-columns) scroll sideways on phones; no <br> inside table markup */
     h = h.replace(/<table>([\s\S]*?)<\/table>/g, function (m, t) { return '<span class="rt-tbl"><table>' + t.replace(/\r?\n\s*/g, '') + '</table></span>'; });
-    return h.replace(/\r?\n/g, '<br>');
+    return mx(h).replace(/\r?\n/g, '<br>');
+  }
+  /* matrices typed as [[a, b], [c, d]] (Maths data) are drawn as bracketed matrices */
+  function mx(h) {
+    return h.replace(/\[\[((?:[^\[\]]|\],\s*\[)*)\]\]/g, function (m, body) {
+      return '<span class="mx">' + body.split(/\]\s*,\s*\[/).map(function (r) {
+        return '<span class="mxr">' + r.split(/\s*,\s*/).map(function (c) { return '<span class="mxc">' + c.trim().replace(/^-(?=[\w(])/, '−') + '</span>'; }).join('') + '</span>';
+      }).join('') + '</span>';
+    });
   }
   /* answer fields are authored HTML (spec: "HTML allowed") */
-  var trusted = str;
+  var trusted = function (s) { return mx(str(s)); };
   function strip(s) {
     return str(s).replace(/<[^>]*>/g, ' ').replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
       .replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, '&').replace(/\s+/g, ' ').trim();

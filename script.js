@@ -11,32 +11,34 @@
    single "New" link in the laptop sidebar and the "New" card on Home.
    -------------------------------------------------------------------------- */
 const LATEST_RELEASE = {
-    subjectId: 'sub-10-bio',
-    chapterId: 'chap-bio-1',
-    title: 'Biology interactive PYQ DPPs: all 15 chapters',
-    note: 'MCQ, Short, Long and Diagram DPPs for every Biology chapter, including the new chapter Human Evolution: every ICSE board, specimen and competency question, shown exactly as printed, with official CISCE answers where published.',
+    subjectId: 'sub-10-math',
+    chapterId: 'chap-math-1',
+    title: 'Maths interactive PYQ DPPs: all 17 chapters',
+    note: 'MCQ, Short and Long problem DPPs for every Maths chapter, including the new chapters Ratio and Proportion and Loci and Constructions: every ICSE board, specimen and competency question, shown exactly as printed, with full worked solutions and official CISCE answers where published.',
     items: [
-        { id: 'bio-cell-dpp-mcq', label: 'Ch 1 Cell Division', meta: '82 questions in 4 DPPs' },
-        { id: 'bio-genetics-dpp-mcq', label: 'Ch 2 Genetics', meta: '67 questions in 4 DPPs' },
-        { id: 'bio-absorption-dpp-mcq', label: 'Ch 3 Absorption by Roots', meta: '87 questions in 4 DPPs' },
-        { id: 'bio-transpiration-dpp-mcq', label: 'Ch 4 Transpiration', meta: '77 questions in 4 DPPs' },
-        { id: 'bio-photosynthesis-dpp-mcq', label: 'Ch 5 Photosynthesis', meta: '85 questions in 4 DPPs' },
-        { id: 'bio-plantcoord-dpp-mcq', label: 'Ch 6 Plant Coordination', meta: '35 questions in 4 DPPs' },
-        { id: 'bio-circulatory-dpp-mcq', label: 'Ch 7 Circulatory System', meta: '94 questions in 4 DPPs' },
-        { id: 'bio-excretory-dpp-mcq', label: 'Ch 8 Excretory System', meta: '69 questions in 4 DPPs' },
-        { id: 'bio-nervous-dpp-mcq', label: 'Ch 9 Nervous System', meta: '85 questions in 4 DPPs' },
-        { id: 'bio-sense-dpp-mcq', label: 'Ch 10 Sense Organs', meta: '108 questions in 4 DPPs' },
-        { id: 'bio-endocrine-dpp-mcq', label: 'Ch 11 Endocrine System', meta: '80 questions in 4 DPPs' },
-        { id: 'bio-reproductive-dpp-mcq', label: 'Ch 12 Reproductive System', meta: '101 questions in 4 DPPs' },
-        { id: 'bio-population-dpp-mcq', label: 'Ch 13 Population', meta: '38 questions in 4 DPPs' },
-        { id: 'bio-evolution-dpp-mcq', label: 'Ch 14 Human Evolution', meta: '26 questions in 4 DPPs' },
-        { id: 'bio-pollution-dpp-mcq', label: 'Ch 15 Pollution', meta: '75 questions in 4 DPPs' }
+        { id: 'math-gst-dpp-mcq', label: 'Ch 1 GST', meta: '29 questions in 3 DPPs' },
+        { id: 'math-banking-dpp-mcq', label: 'Ch 2 Banking', meta: '32 questions in 3 DPPs' },
+        { id: 'math-shares-dpp-mcq', label: 'Ch 3 Shares & Dividends', meta: '24 questions in 3 DPPs' },
+        { id: 'math-inequations-dpp-mcq', label: 'Ch 4 Linear Inequations', meta: '29 questions in 3 DPPs' },
+        { id: 'math-quadratic-dpp-mcq', label: 'Ch 5 Quadratic Equations', meta: '58 questions in 3 DPPs' },
+        { id: 'math-ratio-dpp-mcq', label: 'Ch 6 Ratio & Proportion', meta: '37 questions in 3 DPPs' },
+        { id: 'math-factorisation-dpp-mcq', label: 'Ch 7 Factorisation', meta: '41 questions in 3 DPPs' },
+        { id: 'math-matrices-dpp-mcq', label: 'Ch 8 Matrices', meta: '43 questions in 3 DPPs' },
+        { id: 'math-apgp-dpp-mcq', label: 'Ch 9 AP & GP', meta: '49 questions in 3 DPPs' },
+        { id: 'math-coord-dpp-mcq', label: 'Ch 10 Coordinate Geometry', meta: '88 questions in 3 DPPs' },
+        { id: 'math-similarity-dpp-mcq', label: 'Ch 11 Similarity', meta: '50 questions in 3 DPPs' },
+        { id: 'math-loci-dpp-mcq', label: 'Ch 12 Loci & Constructions', meta: '32 questions in 3 DPPs' },
+        { id: 'math-circles-dpp-mcq', label: 'Ch 13 Circles', meta: '61 questions in 3 DPPs' },
+        { id: 'math-mensuration-dpp-mcq', label: 'Ch 14 Mensuration', meta: '55 questions in 3 DPPs' },
+        { id: 'math-trig-dpp-mcq', label: 'Ch 15 Trigonometry', meta: '59 questions in 3 DPPs' },
+        { id: 'math-statistics-dpp-mcq', label: 'Ch 16 Statistics', meta: '74 questions in 3 DPPs' },
+        { id: 'math-probability-dpp-mcq', label: 'Ch 17 Probability', meta: '35 questions in 3 DPPs' }
     ],
-    more: { label: 'Biology chapters', href: '#/s/sub-10-bio' },
-    nav: { label: 'Biology: all DPPs', href: '#/s/sub-10-bio' }
+    more: { label: 'Maths chapters', href: '#/s/sub-10-math' },
+    nav: { label: 'Maths: all DPPs', href: '#/s/sub-10-math' }
 };
 
-const APP_VERSION = '17.0';
+const APP_VERSION = '17.1';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------

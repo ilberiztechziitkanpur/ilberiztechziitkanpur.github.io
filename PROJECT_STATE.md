@@ -975,6 +975,14 @@ All subjects across the platform now feature 100% genuine ICSE Class 10 syllabus
 - **Pipeline:** Antigravity hydrogen-high extraction (papers/biology/extracted/raw, 22 papers) → papers/_tools/split2.js → 4 compile agents (hydrogen-xhigh, papers/_handoff/bio-03-compile-A..D.md) with shared papers/biology/extracted/scripts/build-chapter.js + <code>-defs.js → wire.js biology.
 - **Not yet done:** model answer diagrams for draw-questions with no official answer figure (marked NEEDS DRAWING in papers/biology/extracted/COMPILE-REPORT.md; answers list the required labels for now); batch completeness audit.
 
+### AF. Maths interactive PYQ DPPs (all 17 chapters) — v17.1 (28 Nov 2026)
+- **Engine:** maths/dpp/ (copy of the master engine; pattern.js 3 DPP sections: mcq, short = 1–3 marks, long = 4–5 marks; storePrefix mathdpp_). Chapters renumbered to the 2027 syllabus order (17): gst 1, banking 2, shares 3, inequations 4, quadratic 5, ratio 6 (NEW chap-math-ratio), factorisation 7, matrices 8, apgp 9, coord 10, similarity 11, loci 12 (NEW chap-math-loci), circles 13, mensuration 14, trig 15, statistics 16, probability 17 (old ids chap-math-1…15 kept; only labels changed).
+- **Counts (unique questions):** gst 29, banking 32, shares 24, inequations 29, quadratic 58, ratio 37, factorisation 41, matrices 43, apgp 49, coord 88, similarity 50, loci 32, circles 61, mensuration 55, trig 59, statistics 74, probability 35 = 796 (0 missing per coverage.js).
+- **Engine change (all copies):** the master engine now draws matrices typed as [[a, b], [c, d]] as square-bracket matrices (function mx + .mx CSS), in question text and answers.
+- **Pipeline:** compile agents wrote to the STAGING engine papers/maths/stage/dpp (Antigravity sandbox has no write access to maths/); papers/_tools/mathfix.js copies each data file to maths/dpp with verified text fixes (S2024 Q1(i) row matrix). Out of syllabus (left out): compound interest, savings bank, VAT, complementary angles.
+- **Verified official-key errors (shown with correct answer + official text + note):** B2020 Q5(a) 500 vs 5000 shares; B2018 Q10(a) factor misprint; B2019 Q10(b) 47.32 not rounded to 47 m; B2019 Q5(a) odd numbers list omits 9 (13/25); CFPQ Q110 ₹48.78 vs ₹48.74. Claude split one variation (mensuration-mcq-18: Statement 1/2 vs A–R).
+- **Not yet done:** model drawings for 13 loci constructions without official answer figures (steps given in words); batch completeness audit.
+
 ## 5. Protocol for Future Chats (Step-by-Step Onboarding Guide)
 
 When the user provides a new `gemini-code-*.html` file or notes PDF in any future chat:
