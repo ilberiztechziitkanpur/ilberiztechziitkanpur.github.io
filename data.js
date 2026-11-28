@@ -2794,7 +2794,33 @@ window.COURSE_DATA = {
                             "id": "chap-his-15",
                             "name": "Ch 15: The Non-Aligned Movement (NAM)",
                             "description": "Definition, architects (Nehru, Tito, Nasser), Panchsheel principles, role of Jawaharlal Nehru and modern relevance",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "his-nam-dpp-mcq",
+                                    "title": "NAM — Interactive DPP 1: MCQs (Part I · Q1)",
+                                    "subtitle": "6 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=nam&sec=mcq",
+                                    "badge": "DPP 1 • 6 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "his-nam-dpp-short",
+                                    "title": "NAM — Interactive DPP 2: Short Answers (Part I · Q2)",
+                                    "subtitle": "3 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=nam&sec=short",
+                                    "badge": "DPP 2 • 3 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-nam-dpp-long",
+                                    "title": "NAM — Interactive DPP 3: Long Answers (Part II)",
+                                    "subtitle": "6 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=nam&sec=long",
+                                    "badge": "DPP 3 • 6 Qs • 3–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-his-civ-1",
@@ -2896,13 +2922,65 @@ window.COURSE_DATA = {
                             "id": "chap-his-civ-4",
                             "name": "Civics Ch 4: The Supreme Court",
                             "description": "Composition, qualifications, appointment of judges, independence of judiciary, Original, Appellate, Advisory jurisdictions & Judicial Review",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "civ-supremecourt-dpp-mcq",
+                                    "title": "Supreme Court — Interactive DPP 1: MCQs (Part I · Q1)",
+                                    "subtitle": "5 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=supremecourt&sec=mcq",
+                                    "badge": "DPP 1 • 5 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "civ-supremecourt-dpp-short",
+                                    "title": "Supreme Court — Interactive DPP 2: Short Answers (Part I · Q2)",
+                                    "subtitle": "14 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=supremecourt&sec=short",
+                                    "badge": "DPP 2 • 14 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "civ-supremecourt-dpp-long",
+                                    "title": "Supreme Court — Interactive DPP 3: Long Answers (Part II)",
+                                    "subtitle": "25 official ICSE questions (+9 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=supremecourt&sec=long",
+                                    "badge": "DPP 3 • 25 Qs • 3–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-his-civ-5",
                             "name": "Civics Ch 5: The High Courts & Subordinate Courts",
                             "description": "Composition, qualifications, jurisdictions, writs, Lok Adalats and distinction between District Judge and Sessions Courts",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "civ-highcourt-dpp-mcq",
+                                    "title": "High Courts — Interactive DPP 1: MCQs (Part I · Q1)",
+                                    "subtitle": "15 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=highcourt&sec=mcq",
+                                    "badge": "DPP 1 • 15 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "civ-highcourt-dpp-short",
+                                    "title": "High Courts — Interactive DPP 2: Short Answers (Part I · Q2)",
+                                    "subtitle": "14 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=highcourt&sec=short",
+                                    "badge": "DPP 2 • 14 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "civ-highcourt-dpp-long",
+                                    "title": "High Courts — Interactive DPP 3: Long Answers (Part II)",
+                                    "subtitle": "13 official ICSE questions (+5 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/civics/index.html?ch=highcourt&sec=long",
+                                    "badge": "DPP 3 • 13 Qs • 3–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         }
                     ]
                 },

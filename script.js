@@ -13,7 +13,7 @@
 const LATEST_RELEASE = {
     subjectId: 'sub-10-his',
     chapterId: 'chap-his-1',
-    title: 'History & Civics interactive PYQ DPPs: 1857, Nationalism, WW1, Parliament, President, PM',
+    title: 'History & Civics interactive PYQ DPPs: all 5 Civics chapters, 1857, Nationalism, WW1, NAM',
     note: 'MCQ, Short and Long answer DPPs: every ICSE board, specimen and competency question, shown exactly as printed, with official CISCE answers where published. More History and Civics chapters coming next.',
     items: [
         { id: 'his-revolt-dpp-mcq', label: 'Ch 1 The 1857 Revolt', meta: '44 questions in 3 DPPs' },
@@ -21,13 +21,16 @@ const LATEST_RELEASE = {
         { id: 'his-ww1-dpp-mcq', label: 'Ch 10 The First World War', meta: '44 questions in 3 DPPs' },
         { id: 'civ-parliament-dpp-mcq', label: 'Civics 1 The Union Parliament', meta: '114 questions in 3 DPPs' },
         { id: 'civ-president-dpp-mcq', label: 'Civics 2 President & Vice-President', meta: '60 questions in 3 DPPs' },
-        { id: 'civ-pm-dpp-mcq', label: 'Civics 3 Prime Minister & Council of Ministers', meta: '40 questions in 3 DPPs' }
+        { id: 'civ-pm-dpp-mcq', label: 'Civics 3 Prime Minister & Council of Ministers', meta: '40 questions in 3 DPPs' },
+        { id: 'civ-supremecourt-dpp-mcq', label: 'Civics 4 The Supreme Court', meta: '44 questions in 3 DPPs' },
+        { id: 'civ-highcourt-dpp-mcq', label: 'Civics 5 High Courts & Subordinate Courts', meta: '42 questions in 3 DPPs' },
+        { id: 'his-nam-dpp-mcq', label: 'Ch 15 The Non-Aligned Movement', meta: '15 questions in 3 DPPs' }
     ],
     more: { label: 'History & Civics chapters', href: '#/s/sub-10-his' },
     nav: { label: 'History & Civics: new DPPs', href: '#/s/sub-10-his' }
 };
 
-const APP_VERSION = '16.7';
+const APP_VERSION = '16.8';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------
