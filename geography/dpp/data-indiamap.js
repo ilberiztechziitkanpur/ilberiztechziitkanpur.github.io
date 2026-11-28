@@ -208,7 +208,7 @@ window.NM_DPP_DATA.indiamap = {
    "found": true,
    "marks": {
     "mcq": 0,
-    "short": 9,
+    "short": 10,
     "long": 0
    },
    "url": "https://cisce.org/wp-content/uploads/2025/11/Geography-HCG-Paper-2.pdf"
@@ -221,7 +221,7 @@ window.NM_DPP_DATA.indiamap = {
    "found": true,
    "marks": {
     "mcq": 0,
-    "short": 9,
+    "short": 10,
     "long": 0
    },
    "url": "https://cisce.org/wp-content/uploads/2025/11/Geography-1-1.pdf"
@@ -287,7 +287,7 @@ window.NM_DPP_DATA.indiamap = {
    "found": true,
    "marks": {
     "mcq": 0,
-    "short": 9,
+    "short": 10,
     "long": 0
    },
    "url": "https://cisce.org/wp-content/uploads/2025/12/ICSE_2023_SPECIMEN_HCG2.pdf"
@@ -1439,7 +1439,8 @@ window.NM_DPP_DATA.indiamap = {
     "indiamap-short-37",
     "indiamap-short-50",
     "indiamap-short-24",
-    "indiamap-short-69"
+    "indiamap-short-69",
+    "indiamap-short-106"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -2655,7 +2656,8 @@ window.NM_DPP_DATA.indiamap = {
     "indiamap-short-37",
     "indiamap-short-50",
     "indiamap-short-12",
-    "indiamap-short-69"
+    "indiamap-short-69",
+    "indiamap-short-106"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -2917,7 +2919,9 @@ window.NM_DPP_DATA.indiamap = {
     "indiamap-short-37",
     "indiamap-short-50",
     "indiamap-short-12",
-    "indiamap-short-24"
+    "indiamap-short-24",
+    "indiamap-short-105",
+    "indiamap-short-106"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -3954,7 +3958,8 @@ window.NM_DPP_DATA.indiamap = {
     "indiamap-short-50",
     "indiamap-short-12",
     "indiamap-short-24",
-    "indiamap-short-69"
+    "indiamap-short-69",
+    "indiamap-short-105"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -4983,7 +4988,9 @@ window.NM_DPP_DATA.indiamap = {
     "indiamap-short-27",
     "indiamap-short-37",
     "indiamap-short-12",
-    "indiamap-short-24"
+    "indiamap-short-24",
+    "indiamap-short-105",
+    "indiamap-short-106"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -6283,7 +6290,8 @@ window.NM_DPP_DATA.indiamap = {
    "related": [
     "indiamap-short-12",
     "indiamap-short-24",
-    "indiamap-short-37"
+    "indiamap-short-37",
+    "indiamap-short-106"
    ],
    "difficulty": "Easy",
    "skill": "Recall",
@@ -8434,6 +8442,125 @@ window.NM_DPP_DATA.indiamap = {
    "confidence": "HIGH",
    "flags": [
     "key-official-CFPQ"
+   ]
+  },
+  {
+   "id": "indiamap-short-105",
+   "sec": "short",
+   "topic": "population",
+   "format": "SHORT",
+   "marks": 1,
+   "stem": "On the outline map of India provided:",
+   "picture": null,
+   "img": null,
+   "optionImgs": null,
+   "q": "Shade and label the area of Sparse population in North India.",
+   "options": null,
+   "correct": null,
+   "seen": [
+    {
+     "src": "S2023",
+     "ref": "Q2(x)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<mark>Ladakh</mark> (and the high Himalayan region of Jammu and Kashmir) in extreme northern India; upper Himachal Pradesh (Lahaul and Spiti) is also sparsely populated."
+    ],
+    "why": "",
+    "official": null,
+    "tip": "Shade the high Himalayan region of Ladakh (or northern Jammu and Kashmir) within India and label it.",
+    "words": null
+   },
+   "variations": [
+    {
+     "id": "indiamap-short-105-v1",
+     "q": "Shade and label a region of sparse population in Northern India.",
+     "stem": "On the outline map of India provided:",
+     "picture": null,
+     "options": null,
+     "correct": null,
+     "marks": 1,
+     "seen": [
+      {
+       "src": "S2018",
+       "ref": "Q2(j)",
+       "marks": 1,
+       "note": ""
+      }
+     ],
+     "diff": "The same feature asked as \"Shade and label a region of sparse population in Northern India.\" instead of \"Shade and label the area of Sparse population in North India.\": the same place is marked, so the same answer earns the mark.",
+     "answer": {
+      "points": [
+       "<mark>Ladakh</mark> (and the high Himalayan region of Jammu and Kashmir) in extreme northern India; upper Himachal Pradesh (Lahaul and Spiti) is also sparsely populated."
+      ],
+      "why": "",
+      "official": null,
+      "tip": null,
+      "words": null
+     }
+    }
+   ],
+   "related": [
+    "indiamap-short-37",
+    "indiamap-short-50",
+    "indiamap-short-27",
+    "indiamap-short-106",
+    "indiamap-short-12"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
+   ]
+  },
+  {
+   "id": "indiamap-short-106",
+   "sec": "short",
+   "topic": "population",
+   "format": "SHORT",
+   "marks": 1,
+   "stem": "On the outline map of India provided:",
+   "picture": null,
+   "img": null,
+   "optionImgs": null,
+   "q": "Shade and name the state with highest density of population.",
+   "options": null,
+   "correct": null,
+   "seen": [
+    {
+     "src": "S2017",
+     "ref": "Q2(i)",
+     "marks": 1,
+     "note": ""
+    }
+   ],
+   "answer": {
+    "points": [
+     "<mark>Bihar</mark> (eastern India, in the middle Gangetic plain south of Nepal, between Uttar Pradesh and West Bengal): the state with the highest density of population in India (1,106 persons/km² per Census 2011)."
+    ],
+    "why": "",
+    "official": null,
+    "tip": "Shade the state of Bihar neatly within India (south of Nepal, not extending into Uttar Pradesh, Jharkhand or West Bengal) and label it.",
+    "words": null
+   },
+   "variations": [],
+   "related": [
+    "indiamap-short-12",
+    "indiamap-short-69",
+    "indiamap-short-24",
+    "indiamap-short-105",
+    "indiamap-short-37",
+    "indiamap-short-50"
+   ],
+   "difficulty": "Easy",
+   "skill": "Recall",
+   "confidence": "HIGH",
+   "flags": [
+    "key-agent-determined"
    ]
   }
  ]

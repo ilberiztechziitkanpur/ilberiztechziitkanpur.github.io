@@ -1762,10 +1762,10 @@ window.COURSE_DATA = {
                                 {
                                     "id": "geo-indiamap-dpp-short",
                                     "title": "India Map — Interactive DPP 2: Short answers (1–2 marks)",
-                                    "subtitle": "104 official ICSE questions (+78 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "subtitle": "106 official ICSE questions (+79 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
                                     "type": "interactive",
                                     "file": "geography/dpp/index.html?ch=indiamap&sec=short",
-                                    "badge": "DPP 2 • 104 questions • 1–2 Marks"
+                                    "badge": "DPP 2 • 106 questions • 1–2 Marks"
                                 }
                             ],
                             "featured": true

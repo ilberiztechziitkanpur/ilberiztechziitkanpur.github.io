@@ -34,7 +34,7 @@ const LATEST_RELEASE = {
     nav: { label: 'History & Civics: all DPPs', href: '#/s/sub-10-his' }
 };
 
-const APP_VERSION = '16.9';
+const APP_VERSION = '16.10';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------
