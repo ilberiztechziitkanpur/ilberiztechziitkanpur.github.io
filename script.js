@@ -13,24 +13,28 @@
 const LATEST_RELEASE = {
     subjectId: 'sub-10-his',
     chapterId: 'chap-his-1',
-    title: 'History & Civics interactive PYQ DPPs: all 5 Civics chapters, 1857, Nationalism, WW1, NAM',
-    note: 'MCQ, Short and Long answer DPPs: every ICSE board, specimen and competency question, shown exactly as printed, with official CISCE answers where published. More History and Civics chapters coming next.',
+    title: 'History & Civics interactive PYQ DPPs: all 20 chapters',
+    note: 'MCQ, Short and Long answer DPPs for every History and Civics chapter: every ICSE board, specimen and competency question, shown exactly as printed, with official CISCE answers where published.',
     items: [
         { id: 'his-revolt-dpp-mcq', label: 'Ch 1 The 1857 Revolt', meta: '44 questions in 3 DPPs' },
         { id: 'his-nationalism-dpp-mcq', label: 'Ch 2 Growth of Nationalism', meta: '50 questions in 3 DPPs' },
         { id: 'his-ww1-dpp-mcq', label: 'Ch 10 The First World War', meta: '44 questions in 3 DPPs' },
+        { id: 'his-dictators-dpp-mcq', label: 'Ch 11 Rise of Dictatorships', meta: '19 questions in 3 DPPs' },
+        { id: 'his-ww2-dpp-mcq', label: 'Ch 12 The Second World War', meta: '37 questions in 3 DPPs' },
+        { id: 'his-un-dpp-mcq', label: 'Ch 13 The United Nations', meta: '37 questions in 3 DPPs' },
+        { id: 'his-unagencies-dpp-mcq', label: 'Ch 14 Major Agencies of the UN', meta: '21 questions in 3 DPPs' },
+        { id: 'his-nam-dpp-mcq', label: 'Ch 15 The Non-Aligned Movement', meta: '15 questions in 3 DPPs' },
         { id: 'civ-parliament-dpp-mcq', label: 'Civics 1 The Union Parliament', meta: '114 questions in 3 DPPs' },
         { id: 'civ-president-dpp-mcq', label: 'Civics 2 President & Vice-President', meta: '60 questions in 3 DPPs' },
-        { id: 'civ-pm-dpp-mcq', label: 'Civics 3 Prime Minister & Council of Ministers', meta: '40 questions in 3 DPPs' },
+        { id: 'civ-pm-dpp-mcq', label: 'Civics 3 PM & Council of Ministers', meta: '40 questions in 3 DPPs' },
         { id: 'civ-supremecourt-dpp-mcq', label: 'Civics 4 The Supreme Court', meta: '44 questions in 3 DPPs' },
-        { id: 'civ-highcourt-dpp-mcq', label: 'Civics 5 High Courts & Subordinate Courts', meta: '42 questions in 3 DPPs' },
-        { id: 'his-nam-dpp-mcq', label: 'Ch 15 The Non-Aligned Movement', meta: '15 questions in 3 DPPs' }
+        { id: 'civ-highcourt-dpp-mcq', label: 'Civics 5 High Courts & Subordinate Courts', meta: '42 questions in 3 DPPs' }
     ],
     more: { label: 'History & Civics chapters', href: '#/s/sub-10-his' },
-    nav: { label: 'History & Civics: new DPPs', href: '#/s/sub-10-his' }
+    nav: { label: 'History & Civics: all DPPs', href: '#/s/sub-10-his' }
 };
 
-const APP_VERSION = '16.8';
+const APP_VERSION = '16.9';
 const TELEGRAM_URL = 'https://t.me/ilberiztechziitkanpur';
 
 /* --------------------------------------------------------------------------

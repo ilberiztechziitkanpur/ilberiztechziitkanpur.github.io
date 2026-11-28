@@ -2737,6 +2737,30 @@
                             "featured": true,
                             "items": [
                                 {
+                                    "id": "his-dictators-dpp-mcq",
+                                    "title": "Dictatorships — Interactive DPP 1: MCQs (Part I · Q1)",
+                                    "subtitle": "5 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=dictators&sec=mcq",
+                                    "badge": "DPP 1 • 5 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "his-dictators-dpp-short",
+                                    "title": "Dictatorships — Interactive DPP 2: Short Answers (Part I · Q2)",
+                                    "subtitle": "7 official ICSE questions (+3 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=dictators&sec=short",
+                                    "badge": "DPP 2 • 7 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-dictators-dpp-long",
+                                    "title": "Dictatorships — Interactive DPP 3: Long Answers (Part II)",
+                                    "subtitle": "7 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=dictators&sec=long",
+                                    "badge": "DPP 3 • 7 Qs • 3–4 Marks"
+                                },
+                                {
                                     "id": "his-dictatorships-notes-01",
                                     "title": "Rise of Dictatorships 01 Class Notes",
                                     "subtitle": "Fascism in Italy: Causes for Rise, Economic Instability, Fear of Communism, Aims and Principles of Fascism & Benito Mussolini",
@@ -2761,6 +2785,30 @@
                             "featured": true,
                             "items": [
                                 {
+                                    "id": "his-ww2-dpp-mcq",
+                                    "title": "Second World War — Interactive DPP 1: MCQs (Part I · Q1)",
+                                    "subtitle": "9 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=ww2&sec=mcq",
+                                    "badge": "DPP 1 • 9 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "his-ww2-dpp-short",
+                                    "title": "Second World War — Interactive DPP 2: Short Answers (Part I · Q2)",
+                                    "subtitle": "8 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=ww2&sec=short",
+                                    "badge": "DPP 2 • 8 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-ww2-dpp-long",
+                                    "title": "Second World War — Interactive DPP 3: Long Answers (Part II)",
+                                    "subtitle": "20 official ICSE questions (+2 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=ww2&sec=long",
+                                    "badge": "DPP 3 • 20 Qs • 3–4 Marks"
+                                },
+                                {
                                     "id": "his-ww2-notes-01",
                                     "title": "The Second World War 01 Class Notes",
                                     "subtitle": "Causes: Dissatisfaction with Treaty of Versailles, Rise of Fascism & Nazism, Policy of Appeasement, Failure of League of Nations & Invasion of Poland",
@@ -2782,13 +2830,65 @@
                             "id": "chap-his-13",
                             "name": "Ch 13: United Nations Organization",
                             "description": "Origin, UN Charter, Purposes and Principles, Major Organs: General Assembly, Security Council, International Court of Justice",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "his-un-dpp-mcq",
+                                    "title": "United Nations — Interactive DPP 1: MCQs (Part I · Q1)",
+                                    "subtitle": "10 official ICSE questions (+3 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=un&sec=mcq",
+                                    "badge": "DPP 1 • 10 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "his-un-dpp-short",
+                                    "title": "United Nations — Interactive DPP 2: Short Answers (Part I · Q2)",
+                                    "subtitle": "9 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=un&sec=short",
+                                    "badge": "DPP 2 • 9 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-un-dpp-long",
+                                    "title": "United Nations — Interactive DPP 3: Long Answers (Part II)",
+                                    "subtitle": "18 official ICSE questions (+6 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=un&sec=long",
+                                    "badge": "DPP 3 • 18 Qs • 3–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-his-14",
                             "name": "Ch 14: Major Agencies of the United Nations",
                             "description": "UNICEF, WHO, UNESCO: objectives, headquarters, key functions and global welfare achievements",
-                            "items": []
+                            "items": [
+                                {
+                                    "id": "his-unagencies-dpp-mcq",
+                                    "title": "UN Agencies — Interactive DPP 1: MCQs (Part I · Q1)",
+                                    "subtitle": "3 official ICSE questions from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=unagencies&sec=mcq",
+                                    "badge": "DPP 1 • 3 MCQs • 1 Mark"
+                                },
+                                {
+                                    "id": "his-unagencies-dpp-short",
+                                    "title": "UN Agencies — Interactive DPP 2: Short Answers (Part I · Q2)",
+                                    "subtitle": "7 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=unagencies&sec=short",
+                                    "badge": "DPP 2 • 7 Qs • 2 Marks"
+                                },
+                                {
+                                    "id": "his-unagencies-dpp-long",
+                                    "title": "UN Agencies — Interactive DPP 3: Long Answers (Part II)",
+                                    "subtitle": "11 official ICSE questions (+1 variations) from Board 2016–2026, CISCE Specimens and CISCE Competency questions, shown exactly as printed, with year tags, probability and official answers",
+                                    "type": "interactive",
+                                    "file": "history/national-movement/index.html?ch=unagencies&sec=long",
+                                    "badge": "DPP 3 • 11 Qs • 3–4 Marks"
+                                }
+                            ],
+                            "featured": true
                         },
                         {
                             "id": "chap-his-15",
